@@ -1,10 +1,10 @@
 <%= image_tag "logo-big.png", class: "big_header_logo" %><br/>
 <%= image_tag "logo-txt", class: "logo-txt" %>
 <h1>CRÉEZ LES MEILLEURES PÂTISSERIES</h1>
-<h2>BIENTÔT</h2>
+<h2>ANYONE CAN MAKE THE BEST PASTRIES</h2>
 <div class="newsletter-container">
 	<%= form_for @newsletter, :url => { :controller => "newsletters", :action => "create" } do |f| %>
 	  <%= f.text_field :email, :placeholder => "adresse email", :class => "form-control" %>
-	  <%= f.submit "JE VEUX !", :class => "btn1" %>
+	  <%= f.submit "M'AVERTIR", :class => "btn1" %>
 	<% end %>
 </div>
