@@ -9,13 +9,18 @@ body{
 }
 
 .logo-txt{
-	width: 10%;
+	width: 20%;
+	margin-bottom: -1.5em;
 }
 
-h1{
+h1, h2{
 	color: #201D59;
 	font-size: 1.7vw;
 	font-weight: 400;
+}
+
+h2{
+	font-size: 1vw;
 }
 
 .alert_error{
