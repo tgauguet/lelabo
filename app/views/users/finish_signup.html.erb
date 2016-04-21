@@ -1,0 +1,20 @@
+<% title "Terminez votre inscription" %>
+<div class="background-colr">
+  <div class="user_container">
+  <h3>Votre inscription est presque terminée !</h3><br/>
+  <p>Vous devez maintenant entrer votre adresse email dans le champ ci-dessous.</p>
+  <p>Un email confirmant votre inscription vous sera ensuite envoyé.</p><br/><br/>
+    <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
+    <% if @show_errors && current_user.errors.any? %>
+      <div id="error_explanation">
+        <% current_user.errors.full_messages.each do |msg| %>
+          <%= msg %><br>
+        <% end %>
+      </div>
+    <% end %><br/><br/>
+      <%= image_tag "dark4", class: "field-img" %>
+      <%= f.text_field :email, :autofocus => true, :value => '', class: "basic-field2", placeholder: 'Email' %>
+      <%= f.submit 'Envoyer', class: "btn-next" %><br/><br/>
+  <% end %>
+  </div>
+</div>

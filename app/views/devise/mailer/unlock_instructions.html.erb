@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body> 
+	<div style="font-family:Trebuchet MS, Helvetica, sans-serif;text-align:center;">
+	<p>Bonjour <%= @user.firstname %><%= @user.name %>!</p>
+
+	<p>Votre profile à été bloqué à cause d'un trop grand nombre d'échecs lors de tentatives de connexion sur votre compte.</p>
+
+	<p>Merci de cliquer sur le lien suivant pour débloquer votre compte:</p>
+		<div style="border:0.13em solid rgb(82,88,120);padding-left:1em;padding-right:1em;padding-top:0.5em;padding-bottom:0.6em;text-align:center;
+		max-width:20em;color:rgb(82,88,120);background:rgb(242,245,249);border-radius:2em;">
+
+			<p><%= link_to 'Débloquer mon compte', unlock_url(@resource, unlock_token: @token) %></p>
+		</div>
+	</div>
+  </body>
+</html>

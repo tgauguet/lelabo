@@ -1,0 +1,23 @@
+<% title "Mon profil" %>
+<div class="background-colr">
+        <div class="lttl-white-bkgrnd">
+            <h3>Mon compte</h3>
+            <div class="arrow-container pls-up2"><div class="arrow-up pls-up"></div></div>
+        </div>
+        <div class="user_container">
+            <h3>Informations personnelles</h3>
+            <p>Nom: <%= @user.name %></p>
+            <p>Prénom: <%= @user.firstname %></p>
+            <p>Email: <%= @user.email %></p>
+            <p>Mot de passe: <% if @user.encrypted_password? %><i>Aucun mot de passe défini</i><% else %> <i>xxxxxxxx</i><% end %> </p><br/>
+            <h3>Liens</h3>
+            <%= link_to edit_user_registration_path do %>
+        	<p>Modifier le profil</p>
+            <% end %>
+            <a href="/mes-commandes">
+            <p>Mes commandes</p>
+            </a>
+            <p><%= link_to('Se déconnecter', destroy_user_session_path, :method => :delete, :class => "bouton9") %></p>
+            </br>
+        </div>
+</div>

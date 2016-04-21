@@ -1,0 +1,26 @@
+<% title "Se déconnecter" %>
+<%= render 'layouts/header' %>
+<div class="user_prfl_bnnr">
+      <h2>Se déconnecter</h2>
+    </div>
+    <div class="parts_container2">
+      <div class="left_part">
+        <ul>
+          <%= link_to edit_user_registration_path do %>
+            <li>Profil</li>
+          <% end %>
+          <a href="partager-wileoo">
+            <li>Partager Wileoo</li>
+          </a>
+          <a href="/se-deconnecter">
+            <li class="on_light">Se déconnecter</li>
+          </a>
+        </ul>
+      </div>
+      <div class="rght_part">
+        </br>
+        <h2>Profil</h2>
+      <%= link_to('Se déconnecter', destroy_user_session_path, :method => :delete, :class => "bouton9") %>
+      </div>
+  </div>
+<%= render 'layouts/footer' %>

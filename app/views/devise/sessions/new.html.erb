@@ -1,0 +1,40 @@
+<div class="background-colr">
+<% title "Connexion" %>
+<div class="call_inscription">
+  <H2>Pas encore de compte ?</H2>
+  <%= link_to authenticated_root_path(resource_name) do %>
+    <p class="checkout-btn btn-smaller">Je m'inscris</p>
+  <% end %>
+</div>
+<div class="connexion_container">
+  <H2>Déjà inscrit ?</H2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+      <%= link_to user_omniauth_authorize_path(:facebook) do %>
+        <div class="fb-connect"> <%= image_tag('facebook.png', alt: "fb", class: "mini-fb") %>&nbsp;&nbsp;Connexion avec facebook</div>
+      <% end %>
+      <%= link_to user_omniauth_authorize_path(:instagram) do %>
+        <div class="g-connect"> <%= image_tag('insta.png', alt: "fb", class: "mini-g") %>&nbsp;&nbsp;Connexion avec Instagram</div>
+      <% end %>
+      <div class="intrace-or"><span class="trace-or"></span><span>ou</span><span class="trace-or" ></span></div><br/>
+      <%= image_tag "dark4", class: "field-img" %><%= f.text_field :email, :placeholder => "Email", class: "basic-field6 adapter" %><br/>
+      <%= image_tag "key122", class: "field-img" %><%= f.password_field :password , :placeholder => "Mot de passe", class: "basic-field8" %><br/><br/>
+      <div class="need-val">
+      <%= f.label :remember_me, class: "checkbox_inline" do %>
+      <%= f.check_box :remember_me %>
+      <span class="small-span">Se souvenir de moi</span><br/><br/>
+    <% end %></div>
+    <p class="checkout-btn btn-smaller btn-2sm"><%= f.submit "Connexion", class: "submit-style" %></p>
+    <div class="no_cpt"></br>
+      <p class="small-span">
+        <%= link_to "Pas encore inscrit ? Je m'inscris !", authenticated_root_path(resource_name), class: "link_decoration" %>
+      </p>
+    </div>
+  <% end %>
+</div></div>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+<% end -%>
+</div>
+
