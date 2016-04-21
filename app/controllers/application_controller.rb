@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :ensure_signup_complete, only: [:new, :create, :update]
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_new_column_to_devise_permitted_parameters, if: :devise_controller?
+  after_filter :store_location
+
 
   def set_newsletter
     @newsletter = Newsletter.new
@@ -29,6 +31,14 @@ class ApplicationController < ActionController::Base
     # store last url as long as it isn't a /users path
     session[:previous_url] = request.fullpath unless request.fullpath =~ /\/utilisateur/
   end
+
+  def respond_modal_with(*args, &blk)
+    options = args.extract_options!
+    options[:responder] = ModalResponder
+    respond_with *args, options, &blk
+  end
+
+  protected
 
   def configure_permitted_parameters
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation,:current_password, :is_female, :date_of_birth, :avatar, :pseudo, :firstname, :job, :status, :country, :city) }

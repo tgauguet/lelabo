@@ -1,23 +1,47 @@
-<% title "Inscription" %>
+<% title "Créez les meilleures pâtisseries" %>
 <div class="background-colr">
-  <div class="connexion_container">
-    <h2>Inscription</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-      <%- if devise_mapping.omniauthable? %>
-        <%= link_to user_omniauth_authorize_path(:facebook) do %>
-          <div class="fb-connect">Inscription avec facebook</div>
-        <% end %>
-        <%= link_to user_omniauth_authorize_path(:instagram) do %>
-          <div class="g-connect">&nbsp;&nbsp;Inscription avec Instagram</div>
-        <% end %>
-      <% end %>
-      <div class="intrace-or"><span class="trace-or"></span><span>ou</span><span class="trace-or" ></span></div><br/>
-      <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-      <%= f.text_field :email, :placeholder => "Email", class: "basic-field6 adapter" %><br/>
-      <%= f.password_field :password , :placeholder => "Mot de passe (min 8 caractères)", class: "basic-field8" %><br/><br/>
-      <p class="checkout-btn btn-smaller btn-2sm"><%= f.submit "Inscription", class: "submit-style" %></p>
-    <% end %>
-  <h5 style="color:#A3A3A3;">Déjà inscrit ? <%= link_to "Se connecter", new_session_path(resource_name), class: "link_decoration" %></h5>
+<header>
+  <div class="transparent">
+    <%= link_to root_path do %><%= image_tag "logo-txt-white.png", class: "logo-white to-the-right" %><% end %>
+    <ul>
+      <li>PRODUIT</li>
+      <li>TARIFS</li>
+      <li>CONTACT</li>
+      <li class="btn white">SE CONNECTER</li>
+    </ul>
   </div>
+</header>
+<div class="home-cntnr">
+  <%= image_tag "logo-white.png", class: "logo-white" %>
+  <h1>Gérez vos recettes professionnelles</h1>
+  <h2>Avec le Labo, créez, améliorez, calculez et partagez vos recettes en toute simplicité</h2>
+  <div class="connexion_container">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
+        <%= f.submit "Utiliser gratuitement", class: "btn cta-btn" %>
+        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+      <% end %>
+  </div>
+  <footer>
+    <div class="degraded">
+      <ul>
+        <li class="footer-ttl">LE LABO</li>
+        <li>Produits</li>
+        <li>Contact</li>
+        <li>Blog</li>
+        <li>Tarifs</li>
+      </ul>
+      <ul>
+        <li class="footer-ttl">SOCIAL</li>
+        <li>Facebook</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
+    <div class="mini-footer">
+      <p>© Copyright - lelabo 2016</p>
+    </div>
+  </footer>
+</div>
 </div>

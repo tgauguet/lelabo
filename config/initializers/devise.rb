@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'bonjour@lelabo-ondemand.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -20,6 +20,14 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
+  if Rails.env.production?
+      config.omniauth :facebook, '1095695943836891', 'd01cc6a465f20df1a22e711a486fe4f8', scope: 'email'
+      config.omniauth :instagram, 'e63addba42a74a6e8482a2c56d373ecf', 'a1e8efa934cf4bc48fd1bea3b410bfe3a1e8efa934cf4bc48fd1bea3b410bfe3'
+      else
+      config.omniauth :facebook, '1095706357169183', '838a2b1af190b11ac8aaf23052648f53', scope: 'email'
+      config.omniauth :instagram, 'e63addba42a74a6e8482a2c56d373ecf', 'a1e8efa934cf4bc48fd1bea3b410bfe3'
+  end
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
