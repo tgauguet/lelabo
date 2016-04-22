@@ -30,6 +30,8 @@ gem 'devise'
 
 gem 'factory_girl_rails'
 
+gem 'rails_serve_static_assets'
+
 gem 'capybara'
 
 gem 'guard-rspec'
