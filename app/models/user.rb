@@ -3,33 +3,19 @@ class User < ActiveRecord::Base
     TEMP_EMAIL_REGEX = /\Achange@me/
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable,  omniauth_providers: [:facebook, :instagram]
+	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 	after_create :welcome_email
 	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
-	def self.find_for_oauth(auth, signed_in_resource = nil)
-        identity = Identity.find_for_oauth(auth)
-        user = signed_in_resource ? signed_in_resource : identity.user
-        if user.nil?
-            email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
-            email = auth.info.email if email_is_verified
-            user = User.where(:email => email).first if email
-            if user.nil?
-            user = User.new(
-            name: auth.extra.raw_info.name,
-            #username: auth.info.nickname || auth.uid,
-            email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-            password: Devise.friendly_token[0,20]
-            )
-            user.save!
-        end
+    def password_required?
+        super if confirmed?
     end
 
-    if identity.user != user
-        identity.user = user
-        identity.save!
-    end
-    user
+    def password_match?
+        self.errors[:password] << "can't be blank" if password.blank?
+        self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
+        self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+        password == password_confirmation && !password.blank?
     end
 
     def welcome_email

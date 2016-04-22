@@ -1,0 +1,26 @@
+<% title "Informations du compte" %>
+<div class="steps-cntnr">
+    <div class="step-left-part">
+        <%= image_tag "logo-le-labo.jpg", class: "logo-steps" %>
+        <h1>Confirmez vos informations</h1>
+        <%= form_for(@user, action: :confirm_informations ) do |f| %>
+            <%= devise_error_messages! %>
+            <p class="mini-txt">Nom du compte</p>
+            <%= f.text_field :account_name, autofocus: true, class: "basic-field full-witdth"  %><br/>
+            <p class="mini-txt">Email</p>
+            <%= f.text_field :email, autofocus: true, class: "basic-field full-witdth"  %><br/>
+            <p class="mini-txt">Nom</p>
+            <%= f.text_field :name, autofocus: true, class: "basic-field full-witdth"  %><br/>
+            <p class="mini-txt">Prénom</p>
+            <%= f.text_field :firstname, autofocus: true, class: "basic-field full-witdth"  %><br/>
+            <p class="mini-txt">Entreprise</p>
+            <%= f.text_field :company, autofocus: true, class: 'basic-field full-witdth' %><br/>
+            <%= f.hidden_field :terms, value: true %>
+            <%= f.button :submit do %>
+                Suivant<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="step-right-part">
+    </div>
+</div>

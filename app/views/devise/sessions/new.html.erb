@@ -10,15 +10,8 @@
   <H2>Déjà inscrit ?</H2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-      <%= link_to user_omniauth_authorize_path(:facebook) do %>
-        <div class="fb-connect"> <%= image_tag('facebook.png', alt: "fb", class: "mini-fb") %>&nbsp;&nbsp;Connexion avec facebook</div>
-      <% end %>
-      <%= link_to user_omniauth_authorize_path(:instagram) do %>
-        <div class="g-connect"> <%= image_tag('insta.png', alt: "fb", class: "mini-g") %>&nbsp;&nbsp;Connexion avec Instagram</div>
-      <% end %>
-      <div class="intrace-or"><span class="trace-or"></span><span>ou</span><span class="trace-or" ></span></div><br/>
-      <%= image_tag "dark4", class: "field-img" %><%= f.text_field :email, :placeholder => "Email", class: "basic-field6 adapter" %><br/>
-      <%= image_tag "key122", class: "field-img" %><%= f.password_field :password , :placeholder => "Mot de passe", class: "basic-field8" %><br/><br/>
+      <%= f.text_field :email, :placeholder => "Email", class: "basic-field6 adapter" %><br/>
+      <%= f.password_field :password , :placeholder => "Mot de passe", class: "basic-field8" %><br/><br/>
       <div class="need-val">
       <%= f.label :remember_me, class: "checkbox_inline" do %>
       <%= f.check_box :remember_me %>

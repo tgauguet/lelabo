@@ -1,0 +1,26 @@
+<% title "Informations du compte" %>
+<div class="steps-cntnr">
+    <div class="step-left-part">
+        <%= image_tag "logo-le-labo.jpg", class: "logo-steps" %>
+        <h1>Quel est votre nom?</h1>
+        <p class="low-txt">Ces informations seront votre signature sur chacune de vos recettes.</p><br/><br/>
+        <%= form_for(@user, action: :second_step) do |f| %>
+            <%= devise_error_messages! %>
+            <p>Vos noms</p>
+            <div class="field-cntnr" >
+                <%= f.text_field :name, autofocus: true, :placeholder => "Nom", class: "basic-field half-width1"  %>
+            </div>
+            <div class="field-cntnr" >
+                <%= f.text_field :firstname, autofocus: true, :placeholder => "Prénom", class: "basic-field half-width2"%>
+            </div><br/><br/>
+            <p>Votre entreprise</p>
+            <%= f.text_field :company, autofocus: true, :placeholder => "Entreprise", class: "basic-field full-witdth"  %>
+            <br/><br/>
+            <%= f.button :submit do %>
+                Suivant<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="step-right-part">
+    </div>
+</div>

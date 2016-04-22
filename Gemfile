@@ -36,16 +36,7 @@ gem 'guard-rspec'
 
 gem 'puma'
 
-gem 'omniauth-instagram'
-
 gem 'therubyracer'
-
-gem 'omniauth'
-
-gem 'omniauth-facebook', '~> 2.0.1'
-
-gem 'omniauth-oauth2', '~> 1.2.0'
-
 
 group :development, :test do
 
