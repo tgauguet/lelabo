@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_newsletter
-  before_filter :ensure_signup_complete, only: [:new, :create, :update]
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_new_column_to_devise_permitted_parameters, if: :devise_controller?
   after_filter :store_location
@@ -14,17 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || root_path
-  end
-
-  def ensure_signup_complete
-      # Ensure we don't go into an infinite loop
-      return if action_name == 'finish_signup'
-      # Redirect to the 'finish_signup' page if the user
-      # email hasn't been verified yet
-      if current_user && !current_user.email_verified?
-          redirect_to finish_signup_path(current_user)
-      end
+    @user = current_user
+    if @user.company.nil?
+      nom_de_votre_compte_url
+    else
+      root_path
+    end
   end
 
   def store_location
@@ -41,11 +35,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation,:current_password, :is_female, :date_of_birth, :avatar, :pseudo, :firstname, :job, :status, :country, :city) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation,:current_password, :date_of_birth, :pseudo, :firstname, :job, :status, :country, :city, :account_name) }
   end
 
   def configure_new_column_to_devise_permitted_parameters
-      registration_params = [:name, :firstname, :email, :password, :password_confirmation, :oauthdelivered]
+      registration_params = [:name, :firstname, :email, :account_name, :password, :password_confirmation, :oauthdelivered]
       if params[:action] == 'create'
           devise_parameter_sanitizer.for(:sign_up) {
               |u| u.permit(registration_params)
