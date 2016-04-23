@@ -4,8 +4,8 @@
   <div class="transparent">
     <%= link_to root_path do %><%= image_tag "logo-txt-white.png", class: "logo-white to-the-right" %><% end %>
     <ul>
-      <li>PRODUIT</li>
-      <li>TARIFS</li>
+      <%= link_to produits_path do %><li>PRODUIT</li><% end %>
+      <%= link_to tarifs_path do %><li>TARIFS</li><% end %>
       <li>CONTACT</li>
       <li class="btn white">SE CONNECTER</li>
     </ul>

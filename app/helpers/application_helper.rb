@@ -23,5 +23,9 @@ module ApplicationHelper
     def resource_class
         devise_mapping.to
     end
+
+    def welcome_controller
+        controller.controller_name == "pages" || controller.controller_name == "contact"
+    end
     
 end

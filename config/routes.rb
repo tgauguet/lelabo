@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       put "/confirm" => "confirmations#confirm"
       patch "/confirm" => "confirmations#confirm"
     end
+    match "/tarifs", to: "pages#pricing", :via => [:get, :post]
+    match "/produits", to: "pages#products", :via => [:get, :post]
     match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post, :patch, :put]
     match '/informations-de-votre-compte' => 'users#second_step', via: [:get, :post]
     match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]

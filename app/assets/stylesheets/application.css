@@ -7,7 +7,7 @@ body{
 
 *{
   font-family: "source_sans_proregular";
-  color: #333333;
+  color: rgb(43,54,69);
 }
 
 :focus {
@@ -102,6 +102,7 @@ a, a:active, a:hover{
 
 .logo-white{
   width: 13em;
+  padding-top: 0.5em;
 }
 
 header .transparent{
@@ -115,6 +116,7 @@ header .transparent{
   color: white;
   margin-left: 1em;
   margin-right: 1em;
+  margin-top: -0.4em;
   opacity: 0.9;
   cursor:pointer;
 }
@@ -142,7 +144,12 @@ ul li{
   border: 2px solid white;
 }
 
-.white:hover{
+.black{
+  opacity: 0.9;
+  border: 2px solid #222222;
+}
+
+.white:hover, .black:hover{
   opacity: 1;
 }
 
@@ -302,7 +309,7 @@ ul li{
   margin: 1em;
 }
 
-.background-colr{
+.background-colr, .step-bckgrnd{
   background-image: url(images/landing.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -310,8 +317,19 @@ ul li{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding-top: 3em;
   text-align: center;
+}
+
+.bckgrnd1{
+  background-image: url(images/first-step.jpg);
+}
+
+.bckgrnd2{
+  background-image: url(images/second-step.jpg);
+}
+
+.bckgrnd3{
+  background-image: url(images/third-step.jpg);
 }
 
 .degraded ul{
@@ -347,11 +365,20 @@ ul li{
   margin-top: -0.1em;
 }
 
-.steps-cntnr p{
+.steps-cntnr p, .title-cntnr p{
   font-size: 1.2em;
   text-align: justify;
   font-family: 'source_sans_prolight';
   font-weight: bold;
+}
+
+.title-cntnr{
+  margin-bottom: 3em;
+}
+
+.title-cntnr p{
+  text-align: center;
+  margin-top: 0.2em;
 }
 
 .step-left-part{
@@ -364,7 +391,6 @@ ul li{
 .step-right-part{
   width: 60%;
   float: right;
-  background: #436AAF;
 }
 
 .logo-steps{
@@ -420,4 +446,126 @@ button:hover .btn_arrow{
 .btn_arrow:hover:before, .btn_arrow:focus:before, .btn_arrow:active:before {
   -webkit-transform: translateX(4px);
   transform: translateX(4px);
+}
+
+.normal_header ul li{
+  color: black;
+}
+
+header .normal_header{
+  border-bottom: 1px solid #D4D4D4;
+  height: 4.1em;
+}
+
+.big-white-h1{
+  font-family: 'source_sans_prosemibold';
+  font-size: 3.8em;
+  margin-bottom: 0;
+}
+
+.plan-cntnr{
+  display: inline-block;
+  margin: 0.5em;
+  vertical-align: top;
+  width: 15em;
+}
+
+.plan-clr-cntnr{
+  padding: 2em;
+  padding-bottom: 1em;
+  border-radius: 0.8em;
+  background: #8e96a3;
+}
+
+.plan-txt-cntnr{
+  text-align: left;
+}
+
+.plan-txt-cntnr b{
+  font-family: 'source_sans_probold';
+}
+
+.plan-color2{
+  background: #05d6b8;
+}
+
+.plan-color3{
+  background: #0fa4ef;
+}
+
+.plan-title, .plan-price, .plan-btn, .plan-type{
+  color: white;
+}
+
+.plan-price{
+  font-size: 2em;
+  margin-left: 1.75em;
+  margin-top: 1em;
+  margin-bottom: 1.4em;
+}
+
+.plan-price b{
+  font-size: 3.3em;
+  color: white;
+  position: absolute;
+  margin-left: -0.5em;
+  margin-top: -0.3em;
+}
+
+.plan-price span{
+  color:  white;
+}
+
+.plan-type{
+  opacity: 0.8;
+  font-size: 0.9em;
+}
+
+.plan-btn{
+  margin-top: 3em;
+  background: rgba(0,0,0,0.2);
+  cursor: pointer;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  border-radius: 0.3em;
+}
+
+.plan-btn:hover{
+  background: rgba(0,0,0,0.3);
+}
+
+.plan-btn-color1{
+  background: #06b597;
+}
+
+.plan-btn-color1:hover{
+  background: #16937e ;
+}
+
+.soon-banner{
+  position: absolute;
+  width: 17em;
+  margin-left: -8.5em;
+  z-index: 100;
+  margin-top: -2em;
+}
+
+.plan-btn-color2:hover{
+  background: #2d6faa ;
+}
+
+.plan-btn-color2{
+  background: #1c83ea;
+}
+
+.colored-p-txt2, .colored-p-txt2 b{
+  color: #16937e ;
+}
+
+.colored-p-txt1, .colored-p-txt1 b{
+  color: #8e96a3 ;
+}
+
+.colored-p-txt3, .colored-p-txt3 b{
+  color: #1c83ea;
 }
