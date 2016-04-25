@@ -1,0 +1,26 @@
+<% title "modifier vos informations" %>
+<%= link_to root_path do %><p class="red-color"><%= image_tag "exit.png", class: "exit-img" %>Retour à l'accueil</p><% end %>
+<div class="title-cntnr">
+	<h1 class="big-white-h1">Modifier votre compte</h1>
+	<p>Ces informations ne seront pas visibles pour les autres utilisateurs.</p>
+</div>
+<div class="standard-form-cntnr">
+	<%= form_for(@user, action: :set_user_informations, html: { multipart: true } ) do |f| %>
+		<p>Photo du profile</p>
+		<%= image_tag(@user.avatar, class: "user-img") %><br/>
+		<%= f.file_field :avatar %>
+		<p>Nom</p>
+		<%= f.text_field :name, placeholder: "Nom", class: "basic-field enlarge-field" %><br/>
+		<p>Prénom</p>
+		<%= f.text_field :firstname, placeholder: "Prénom", class: "basic-field enlarge-field" %><br/>
+		<p>Métier</p>
+		<%= f.text_field :job_type, placeholder: "Pâtissier, Chocolatier, Boulanger", class: "basic-field enlarge-field" %><br/>
+		<p>Pays</p>
+		<%= f.text_field :country, placeholder: "Pays", class: "basic-field enlarge-field" %><br/>
+		<p>Téléphone</p>
+		<%= f.text_field :phone, placeholder: "06 xx xx xx xx", class: "basic-field enlarge-field" %><br/>
+		<p>Skype</p>
+		<%= f.text_field :skype, placeholder: "skype", class: "basic-field enlarge-field" %><br/><br/>
+		<p><%= f.submit "Enregistrer mes informations", class: "btn cta-btn float-right" %></p>
+	<% end %>
+</div>

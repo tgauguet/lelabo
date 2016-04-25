@@ -1,0 +1,15 @@
+<% title "Paramètres" %>
+<%= link_to root_path do %><p class="red-color"><%= image_tag "exit.png", class: "exit-img" %>Retour à l'accueil</p><% end %>
+<div class="title-cntnr">
+	<h1 class="big-white-h1">Paramètres</h1>
+	<p>Ces informations ne seront pas visibles pour les autres utilisateurs.</p>
+</div>
+<div class="standard-form-cntnr">
+	<%= form_for(@user, action: :set_parameters ) do |f| %>
+		<p>Nom de votre compte</p>
+		<%= f.text_field :account_name, class: "basic-field enlarge-field" %><br/>
+		<p>Email</p>
+		<%= f.text_field :email, class: "basic-field enlarge-field" %><br/>
+		<p><%= f.submit "Enregistrer mes informations", class: "btn cta-btn float-right" %></p>
+	<% end %>
+</div>

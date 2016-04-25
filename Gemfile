@@ -36,6 +36,8 @@ gem 'capybara'
 
 gem 'guard-rspec'
 
+gem 'paperclip'
+
 gem 'puma'
 
 gem 'therubyracer'

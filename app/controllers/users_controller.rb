@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 				}
 			else
 				format.html {
-					redirect_to user_path
+					redirect_to root_path
 					flash[:error] = "Erreur lors de la modification de votre compte"
 				}
 				format.json {
@@ -57,6 +57,14 @@ class UsersController < ApplicationController
 		@user = current_user
 	end
 
+	def edit_profile
+		@user = current_user
+	end
+
+	def parameters
+		@user = current_user
+	end
+
 	def destroy
 		@user.destroy
 		redirect_to root_url
@@ -69,7 +77,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		accessible = [:name, :email, :firstname, :company, :job, :phone, :company_logo, :image, :account_name, :terms]
+		accessible = [:name, :email, :country, :avatar, :firstname, :company, :is_female, :job_type, :phone, :company_image, :phone, :skype, :profile_image, :account_name, :terms]
 		accessible << [:password, :password_confirmation] unless params[:user][:password].blank?
 		params.require(:user).permit(accessible)
 	end

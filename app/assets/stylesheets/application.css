@@ -255,6 +255,20 @@ ul li{
   text-align: left;
 }
 
+.enlarge-field{
+  width: 94%;
+  margin-bottom: 1em;
+}
+
+.standard-form-cntnr{
+  width: 40em;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: justify;
+  padding: 2em;
+  margin-bottom: 5em;
+}
+
 .half-width1, .half-width2{
   width: 77%;
 }
@@ -420,6 +434,16 @@ ul li{
 
 .step-right-part{
   width: 60%;
+  float: right;
+}
+
+.user-img{
+  width: 14em;
+  height: 15em;
+  overflow: hidden;
+}
+
+.float-right{
   float: right;
 }
 
@@ -686,6 +710,14 @@ header .normal_header{
   font-family: 'source_sans_prosemibold';
 }
 
+.red-color{
+  color: rgb(235,77,92);
+  font-family: 'source_sans_prosemibold';
+  position: absolute;
+  right: 0;
+  margin-right: 2em;
+}
+
 .delete-btn-cntnr:hover{
   color: white;
   background: rgb(235,77,92);
@@ -774,6 +806,12 @@ header .normal_header{
   background: white;
   cursor: pointer;
   margin-left: 2em;
+}
+
+.exit-img{
+  width: 1.2em;
+  position: absolute;
+  margin-left: -2em;
 }
 
 

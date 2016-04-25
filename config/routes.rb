@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 			patch :set_names
 			patch :second_step
 			patch :confirm_informations
+			patch :set_user_informations
+			patch :set_parameters
 		end
 	end
 	resources :users
@@ -23,9 +25,12 @@ Rails.application.routes.draw do
     end
     match "/tarifs", to: "pages#pricing", :via => [:get, :post]
     match "/produits", to: "pages#products", :via => [:get, :post]
-    match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post, :patch, :put]
+    match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]
+    match "/parametres", to: "users#parameters", via: [:get, :post]
+    match "/aide", to: "pages#help", via: [:get]
     match '/informations-de-votre-compte' => 'users#second_step', via: [:get, :post]
     match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]
+    match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
 end

@@ -25,7 +25,7 @@ module ApplicationHelper
     end
 
     def welcome_controller
-        controller.controller_name == "pages" || controller.controller_name == "contact"
+        (controller.controller_name == "pages" && controller.action_name != "help" ) || controller.controller_name == "contact"
     end
     
 end

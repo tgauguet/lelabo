@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 	#before_save :after_confirmation
 	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
     has_many :feedbacks, dependent: :destroy
+    has_attached_file :avatar
+    validates_attachment :avatar, :size => { :in => 0..300.kilobytes }
+    validates_attachment :avatar, :content_type => { :content_type => "image/jpg", :content_type => "image/png" }, :default_url => "/avatar/missing/missing.jpg"
 
     def password_required?
         super if confirmed?
