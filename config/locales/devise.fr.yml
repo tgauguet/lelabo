@@ -287,7 +287,7 @@ fr:
       signed_up: 'Bienvenue, vous êtes connecté'
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé"
       signed_up_but_locked: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte est verrouillé"
-      signed_up_but_unconfirmed: 'Un message contenant un lien de confirmation a été envoyé à votre adresse email. Ouvrez ce lien pour confirmer votre compte'
+      signed_up_but_unconfirmed: "Un message contenant un lien de confirmation a été envoyé à votre adresse email, merci d'ouvrir ce lien pour confirmer votre compte"
       update_needs_confirmation: "Votre compte a bien été mis à jour mais nous devons vérifier votre nouvelle adresse email. Merci de vérifier vos emails et de cliquer sur le lien de confirmation pour finaliser la validation de votre nouvelle adresse"
       updated: 'Votre compte a été modifié avec succès'
     sessions:
@@ -306,5 +306,5 @@ fr:
       not_found: "n'a pas été trouvé(e)"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
-        one: "1 erreur a empêché cet utilisateur d'être sauvegardé :"
-        other: "%{count} erreurs ont empêché cet utilisateur d'être sauvegardé :"
+        one: "une erreur lors de la création de votre compte:"
+        other: "%{count} erreurs lors de la sauvegarde de votre compte:"

@@ -1,27 +1,29 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
 class User < ActiveRecord::Base
 	TEMP_EMAIL_PREFIX = 'change@me'
     TEMP_EMAIL_REGEX = /\Achange@me/
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-	after_create :welcome_email
+	#before_save :after_confirmation
 	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+    has_many :feedbacks, dependent: :destroy
 
     def password_required?
         super if confirmed?
     end
 
     def password_match?
-        self.errors[:password] << "can't be blank" if password.blank?
-        self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
-        self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+        self.errors[:password] << "ne peux pas être vide" if password.blank?
+        self.errors[:password_confirmation] << "ne peux pas être vide" if password_confirmation.blank?
+        self.errors[:password_confirmation] << "n'est pas identique au mot de passe" if password != password_confirmation
         password == password_confirmation && !password.blank?
     end
 
-    def welcome_email
-        if self.email && self.oauthdelivered?
-            UserMailer.welcome_email(self).deliver_now
-        end
+    def after_confirmation
+        UserMailer.welcome_email(self).deliver_now
     end
 
     def email_verified?

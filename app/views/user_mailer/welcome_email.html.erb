@@ -1,4 +1,24 @@
-<head></head>
-<body>
-	<h1>Bienvenue sur Le Labo <%= @user.email %> !</h1>
-</body>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body> 
+	<div style="background:rgb(249,249,249); height:auto; widt:100%; text-align:center; margin-top:1em;margin-left:3%;margin-right:3%;padding-bottom:2em;padding-top:2em;" >
+		<div style="border-radius:0.2em;margin-left:5%;margin-right:5%;margin-top:2em; background:white;font-family:Trebuchet MS, Helvetica, sans-serif; padding-top:2em;padding-bottom:2em;">  
+			<%= image_tag("logo-le-labo.jpg", :style => 'height:auto; width:10em; margin-top: 1em;margin-bottom:1em;') %>
+			<div style="margin-left:4%;margin-right:4%;margin-bottom:1em;">
+				<h2 style="font-size:1.8em;color:rgb(27,189,157);">Bienvenue sur le Labo!</h2></br>
+				<p style="font-size:1.2em;">Nous avons créé le Labo dans le but d'aider les professionnels des métiers de bouche en quête de temps et d'organisation, et j'espère que nous le ferons pour vous.</p><br/>
+				<p style="font-size:1.2em;">Si cela ne vous dérange pas, j'aimerais vous poser une question, pourquoi vous êtes-vous inscrit sur le labo ?</p>
+				<p style="font-size:1.2em;">Savoir quelle est la raison qui vous a poussé à vous inscrire nous permettra de déterminer comment vous offrir le meilleur service possible.</p>
+				<p style="font-size:1.2em;">Vous pouvez nous répondre directement via cet email.</p><br/>
+				<p style="font-size:1.2em;">Merci encore,</p>
+				<p style="font-size:1.2em;">Tim, co-fondateur du Labo</p>
+		  </div>
+	  	</div>
+	  	<p style="color:#777777;"><br/><br/>Le Labo | Wileoo<br/>10, rue de Penthièvre 75008 PARIS</p>
+  	</div>
+  </body>
+</html>

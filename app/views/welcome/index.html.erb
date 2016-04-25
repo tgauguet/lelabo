@@ -1,12 +1,33 @@
-<%= image_tag "logo-big.png", class: "big_header_logo" %><br/>
-<%= image_tag "logo-txt", class: "logo-txt" %>
-<h1>CRÉEZ LES MEILLEURES PÂTISSERIES</h1>
-<h2>1ÈRE PLATE-FORME D'AIDE À LA CRÉATION DE VOS PRODUITS. BIENTÔT.</h2>
-<div class="newsletter-container">
-	<%= form_for @newsletter, :url => { :controller => "newsletters", :action => "create" } do |f| %>
-	  <%= f.text_field :email, :placeholder => "adresse email", :class => "form-control" %>
-	  <%= f.submit "M'AVERTIR !", :class => "btn1" %>
-	<% end %>
+
+<div class="send-feedback">
+	<%= image_tag "people-can-ask2.png", class: "people-ask-img" %>
+	<div class="ask">
+		<div class="box">
+			<%= image_tag "buble1.png", class: "buble1" %>
+			<p>Dites-nous ce que nous pourrions améliorer !</p>
+		</div>
+	</div>
+	<div class="form">
+		<%= form_for @feedback do |f| %>
+			<%= image_tag "buble2.png", class: "buble2" %>
+			<%= f.text_area :message, placeholder: "Je pense que...", class: "hidden-field" %>
+			<%= f.hidden_field :user_id, value: @user.id %>
+			<%= f.submit "Envoyer", class: "hidden-btn" %>
+		<% end %>
+	</div>
 </div>
+<div class="left-cntnr">
+	<div class="left-cases">
+		<div class="user-btn">
+			<h3><%= @user.account_name.downcase %><%= image_tag "arrows.png", class: "micro-arrow" %><%= image_tag "weather.png", class: "img-right" %></h3>
+			<p><%= @user.firstname.downcase %> <%= @user.name.downcase %></p>
+		</div>
+	</div>
+</div>
+<div class="full-cntnr">
+	<%= image_tag "logo-bird.png", class: "logo-smll-cntr" %><br/>
 <p><%= link_to('Se déconnecter', destroy_user_session_path, :method => :delete, :class => "bouton9") %></p>
-            </br>
+<% if @user.admin? %>
+	<p><%= link_to feedbacks_path do %>tous les feedbacks<% end %></p>
+<% end %>
+</div>

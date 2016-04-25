@@ -7,7 +7,7 @@
       <%= link_to produits_path do %><li>PRODUIT</li><% end %>
       <%= link_to tarifs_path do %><li>TARIFS</li><% end %>
       <li>CONTACT</li>
-      <li class="btn white">SE CONNECTER</li>
+      <%= link_to new_user_session_path do %><li class="btn white">SE CONNECTER</li><% end %>
     </ul>
   </div>
 </header>
@@ -15,7 +15,7 @@
   <%= image_tag "logo-white.png", class: "logo-white" %>
   <h1>Gérez vos recettes professionnelles</h1>
   <h2>Avec le Labo, créez, améliorez, calculez et partagez vos recettes en toute simplicité</h2>
-  <div class="connexion_container">
+  <div class="inscription_container">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
@@ -26,6 +26,11 @@
   </div>
   <footer>
     <div class="degraded">
+      <ul>
+        <li class="footer-ttl">NAVIGATION</li>
+        <%= link_to root_path do %><li>Accueil</li><% end %>
+        <%= link_to new_user_session_path do %><li>Se connecter</li><% end %>
+      </ul>
       <ul>
         <li class="footer-ttl">LE LABO</li>
         <li>Produits</li>

@@ -14,6 +14,10 @@ body{
     outline: 0;
 }
 
+.beautiful-txt-color{
+  color: rgb(43,54,69);
+}
+
 p, h2, h3{
   margin: 0.2em;
   color: #3E4149;
@@ -174,7 +178,7 @@ ul li{
   border: 1px solid rgb(0,168,134);
 }
 
-.connexion_container{
+.inscription_container{
   border-radius: 0.3em;
   background: rgba(0,0,0,0.5);
   padding-top: 1em;
@@ -183,6 +187,28 @@ ul li{
   margin-right: auto;
   margin-top: 2em;
   margin-left: auto;
+}
+
+.inscription_container ul li{
+  color: white;
+}
+
+.connexion_container{
+  background: white;
+  border-radius: 0.3em;
+  border: 1px solid rgb(230,230,230);
+  width: 30em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.connexion-backgrnd{
+  background: rgb(249,249,249);
+  padding-top: 3em;
+  height: 100vh;
 }
 
 .subtxt-white span{
@@ -261,7 +287,7 @@ ul li{
   border-radius: 1em;
   border: 0.2em solid #333333;
   color: red;
-  background: green
+  background: white;
 }
 
 .error, .alert, .info, .notice {
@@ -318,6 +344,10 @@ ul li{
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
+}
+
+.bckgrnd0{
+  background-image: url(images/zero-step.jpg);
 }
 
 .bckgrnd1{
@@ -463,6 +493,11 @@ header .normal_header{
   margin-bottom: 0;
 }
 
+.big-ttle{
+  font-family: 'source_sans_prosemibold';
+  font-size: 1.8em;
+}
+
 .plan-cntnr{
   display: inline-block;
   margin: 0.5em;
@@ -569,3 +604,179 @@ header .normal_header{
 .colored-p-txt3, .colored-p-txt3 b{
   color: #1c83ea;
 }
+
+.left-cntnr, .full-cntnr{
+  display: block;
+}
+
+.left-cases p, .left-cases h3{
+  text-align: justify;
+  color: white;
+  opacity: 0.5;
+}
+
+.left-cases h3{
+  opacity: 1;
+}
+
+.left-cntnr{
+  float: left;
+  background: rgb(54,79,158);
+  width: 15em;
+  height: 103vh;
+  position: fixed;
+  margin-top: -0.2em;
+  padding-top: 0.5em;
+}
+
+.full-cntnr{
+  width: auto;
+  height: 100vh;
+  margin-left: 15em;
+}
+
+.logo-smll-cntr{
+  width: 4em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1em;
+}
+
+.img-right{
+  width: 1em;
+  float: right;
+  opacity: 0.5;
+  margin-top: 0.2em;
+}
+
+.micro-arrow{
+  width: 0.55em;
+  margin-left: 0.3em;
+}
+
+.user-btn{
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.2em;
+}
+
+.user-btn:hover{
+  background: rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.user-btn{
+}
+
+.feedback{
+  background: white;
+  border-radius: 0.3em;
+  border: 1px solid rgb(230,230,230); 
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-align: justify;
+  padding: 1em;
+}
+
+.feed-from{
+  color: rgb(27,189,157);
+  font-family: 'source_sans_prosemibold';
+}
+
+.delete-btn-cntnr:hover{
+  color: white;
+  background: rgb(235,77,92);
+}
+
+.delete-btn-cntnr{
+  float: right;
+  color: rgb(235,77,92);
+  padding-left: 1.2em;
+  margin-top: -1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 0.3em;
+}
+
+.people-ask-img{
+  width: 3em;
+  transform:rotate(38deg);
+  margin-left: -1.7em;
+}
+
+.send-feedback{
+  position: fixed; 
+  z-index: 1000;
+  margin-top: 83vh;
+  text-align: justify;
+}
+
+.box{
+  background: white;
+  font-size: 0.8em;
+  text-align: left;
+  padding: 0.5em;
+  width: 8em;
+  border-radius: 0.3em;
+  position: absolute;
+  margin-top: -8em;
+  cursor: pointer;
+  margin-left: 5em;
+}
+
+.buble1, .buble2{
+  position: absolute;
+  width: 2em;
+  margin-left: -2em;
+  margin-top: 2em;  
+}
+
+.buble2{
+  margin-left: 9.5em;
+  margin-top: 6em;
+}
+
+.form{
+  border-radius: 0.3em;
+  background: white;
+  height: 7em;
+  width: 10em;
+  margin-top: -9em;
+  margin-left: 3em;
+  padding: 0.5em;
+}
+
+.hidden-field{
+  border: none;
+  height: 6em;
+  width: 12em;
+  -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    font-size: 0.8em;
+}
+
+.form{
+  display: none;
+}
+
+.hidden-btn{
+  border: none;
+  font-size: 0.8em;
+  background: white;
+  cursor: pointer;
+  margin-left: 2em;
+}
+
+
+
+
+

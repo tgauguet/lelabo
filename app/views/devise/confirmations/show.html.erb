@@ -1,11 +1,17 @@
-Vous avez presque terminé !<br/>
-Vous pouvez maintenant créer votre mot de passe<br/>
-<br/>
-
-<%= form_for(resource, as: resource_name, url: confirm_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <%= f.text_field :password, :placeholder => "Mot de passe", class: "basic-field" %>
-    <%= f.text_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field" %>
-    <%= f.hidden_field :confirmation_token, value: @original_token %>
-    <%= f.submit "Valider mon mot de passe", class: "btn cta-btn" %>
-<% end %>
+<% title "Création du mot de passe" %>
+<div class="steps-cntnr">
+    <div class="step-left-part">
+        <%= image_tag "logo-le-labo.jpg", class: "logo-steps" %>
+        <h1>Quel sera votre mot de passe?</h1>
+        <p class="low-txt">Créez votre mot de passe pour sécuriser votre compte.</p><br/>
+		<%= form_for(resource, as: resource_name, url: confirm_path(resource_name)) do |f| %>
+		    <%= devise_error_messages! %>
+		    <%= f.password_field :password, :placeholder => "Mot de passe", class: "basic-field" %>
+		    <%= f.password_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field" %>
+		    <%= f.hidden_field :confirmation_token, value: @original_token %>
+		    <%= f.submit "Valider mon mot de passe", class: "btn cta-btn" %>
+		<% end %>
+    </div>
+    <div class="step-right-part  step-bckgrnd bckgrnd0">
+    </div>
+</div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	    root :to => 'devise/registrations#new', as: :unauthenticated_root
 	  end
 	end
+	resources :feedbacks, only: [:create, :index, :destroy]
 	resource :user, only: [:edit] do
 		collection do
 			patch :set_names
