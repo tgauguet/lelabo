@@ -1,3 +1,7 @@
+/*
+ *= require jquery.Jcrop
+ */
+
 body{
 	text-align: center;
 	font-family: Helvetica;
@@ -720,11 +724,41 @@ header .normal_header{
 }
 
 .red-color{
-  color: rgb(235,77,92);
   font-family: 'source_sans_prosemibold';
   position: absolute;
   right: 0;
   margin-right: 2em;
+}
+
+.red-color:hover{
+  color: rgb(235,77,92);
+}
+
+.image-hovered{
+  width: 2em;
+  height: 2em;
+  background: url(images/exit1.png);
+  position: absolute;
+  margin-left: -2em;
+  margin-top: -0.3em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.red-color:hover .image-hovered{
+  background: url(images/exit2.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
 }
 
 .delete-btn-cntnr:hover{
