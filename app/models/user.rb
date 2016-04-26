@@ -10,9 +10,13 @@ class User < ActiveRecord::Base
 	#before_save :after_confirmation
 	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
     has_many :feedbacks, dependent: :destroy
-    has_attached_file :avatar
-    validates_attachment :avatar, :size => { :in => 0..300.kilobytes }
-    validates_attachment :avatar, :content_type => { :content_type => "image/jpg", :content_type => "image/png" }, :default_url => "/avatar/missing/missing.jpg"
+    has_attached_file :avatar, {
+                                    :styles => { medium: "300x300#", small: "75x75#"},
+                                    :default_url => "/avatar/missing/missing.jpg",
+                                    :size => { :in => 0..300.kilobytes }
+                                }
+    validates_attachment_content_type :avatar, 
+                                    :content_type => /^image\/(png|gif|jpeg)/
 
     def password_required?
         super if confirmed?
@@ -37,15 +41,5 @@ class User < ActiveRecord::Base
     def soft_delete
         update_attribute(:deleted_at, Time.current)
     end
-
-    # ensure user account is active
-    #def active_for_authentication?
-    #	super && !deleted_at
-    #end
-
-    # provide a custom message for a deleted account
-    #def inactive_message
-    #    !deleted_at ? super : :deleted_account
-    #end
 
 end

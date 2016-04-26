@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+source 'https://code.stripe.com' do
+	gem 'stripe'
+end
 
 ruby "2.2.4"
 
@@ -12,9 +15,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.1.0'
 
-gem 'stripe'
-
 gem 'jquery-rails'
+
+gem 'aws-sdk', '< 2.0'
 
 gem 'turbolinks'
 
@@ -45,8 +48,9 @@ gem 'therubyracer'
 group :development, :test do
 
   gem 'byebug'
-
-   gem 'rspec-rails'
+  gem 'stripe-ruby-mock'
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 
 end
 

@@ -16,6 +16,14 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_mailer.delivery_method = :sendmail
     config.action_mailer.sendmail_settings = {arguments: '-i'}
+    config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: {
+        bucket: ENV['AWS_BUCKET'],
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+      }
+    }
     
     # Enable Rack::Cache to put a simple HTTP cache in front of your application
     # Add `rack-cache` to your Gemfile before enabling this.
@@ -36,7 +44,7 @@ Rails.application.configure do
     config.assets.compile = true
     config.assets.digest = true
     
-    config.force_ssl = false
+    config.force_ssl = true
 
     # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
     

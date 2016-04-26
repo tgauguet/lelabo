@@ -1,6 +1,3 @@
-/*
- *= require jquery.Jcrop
- */
 
 body{
 	text-align: center;
@@ -273,6 +270,10 @@ ul li{
   margin-bottom: 5em;
 }
 
+.standard-form-cntnr i{
+  font-size: 0.8em;
+}
+
 .half-width1, .half-width2{
   width: 77%;
 }
@@ -452,7 +453,7 @@ ul li{
 
 .user-img{
   width: 14em;
-  height: 15em;
+  border-radius: 0.3em;
   overflow: hidden;
 }
 

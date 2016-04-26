@@ -8,8 +8,8 @@
 <div class="standard-form-cntnr">
 	<%= form_for(@user, action: :set_user_informations, html: { multipart: true } ) do |f| %>
 		<p>Photo du profile</p>
-		<%= image_tag(@user.avatar, class: "user-img") %><br/>
-		<%= f.file_field :avatar %>
+		<%= image_tag(@user.avatar.url(:medium), class: "user-img") %><br/>
+		<%= f.file_field :avatar %><br/><i>afin que votre image s'affiche correctement, nous vous conseillons de télécharger une image ayant une longueur et une hauteur similaires</i>
 		<p>Nom</p>
 		<%= f.text_field :name, placeholder: "Nom", class: "basic-field enlarge-field" %><br/>
 		<p>Prénom</p>

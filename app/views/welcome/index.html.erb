@@ -25,7 +25,7 @@
 		<div class="arrow-container"><div class="arrow-up"></div></div>
 		<div class="user-paths">
 			<ul>
-				<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar, class: "small-avatar" %><% end %><span class="firstname"><%= @user.firstname.downcase %></span><br/>
+				<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar.url(:small), class: "small-avatar" %><% end %><span class="firstname"><%= @user.firstname.downcase %></span><br/>
 				<% if @user.admin? %>
 					<%= link_to feedbacks_path do %><li>tous les feedbacks</li><% end %>
 				<% end %>
