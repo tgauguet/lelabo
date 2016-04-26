@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 		end
 	end
 	resources :users
+	resources :contacts, only: [:new,:create]
 	devise_scope :user do
       put "/confirm" => "confirmations#confirm"
       patch "/confirm" => "confirmations#confirm"

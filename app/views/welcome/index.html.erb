@@ -22,15 +22,25 @@
 			<h3><%= @user.account_name.downcase %><%= image_tag "arrows.png", class: "micro-arrow" %><%= image_tag "weather.png", class: "img-right" %></h3>
 			<p><%= @user.firstname.downcase %> <%= @user.name.downcase %></p>
 		</div>
+		<div class="arrow-container"><div class="arrow-up"></div></div>
+		<div class="user-paths">
+			<ul>
+				<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar, class: "small-avatar" %><% end %><span class="firstname"><%= @user.firstname.downcase %></span><br/>
+				<% if @user.admin? %>
+					<%= link_to feedbacks_path do %><li>tous les feedbacks</li><% end %>
+				<% end %>
+				<%= link_to parametres_path do %><li>Paramètres</li><% end %>
+				<%= link_to modifier_votre_profil_path do %><li>Modifier mon profil</li><% end %>
+				<li>Gérer mon abonnement</li>
+				<li>Informations de paiement</li>
+				<%= link_to aide_path do %><li>Aide</li><% end %>
+				<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>Se déconnecter</li><% end %>
+			</ul>
+		</div>
 	</div>
 </div>
 <div class="full-cntnr">
-	<%= image_tag "logo-bird.png", class: "logo-smll-cntr" %><br/>
-	<p><%= link_to('Se déconnecter', destroy_user_session_path, :method => :delete, :class => "bouton9") %></p>
-	<% if @user.admin? %>
-		<p><%= link_to feedbacks_path do %>tous les feedbacks<% end %></p>
-	<% end %>
-	<%= link_to modifier_votre_profil_path do %>Modifier mon profil<% end %><br/>
-	<%= link_to parametres_path do %>Paramètres<% end %><br/>
-	<%= link_to aide_path do %>Aide<% end %>
+	<div class="full-header">
+		
+	</div>
 </div>

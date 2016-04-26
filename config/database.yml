@@ -16,7 +16,7 @@ test:
   password:
   host: localhost
 
-prduction:  
+production:  
   adapter: postgresql
   encoding: unicode
   database: prod_creabl
