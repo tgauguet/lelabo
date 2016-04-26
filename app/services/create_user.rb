@@ -1,9 +1,12 @@
 class CreateUser
     def self.call(email_address)
+
         user = User.find_by(email: email_address)
+
         return user if user.present?
-        raw_token, enc_token = Devise.token_generator.generate(
+            raw_token, enc_token = Devise.token_generator.generate(
         User, :reset_password_token)
+
         password = SecureRandom.hex(32)
         user = User.create!(
         email: email_address,

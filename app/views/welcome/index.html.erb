@@ -31,7 +31,7 @@
 				<% end %>
 				<%= link_to parametres_path do %><li>Paramètres</li><% end %>
 				<%= link_to modifier_votre_profil_path do %><li>Modifier mon profil</li><% end %>
-				<li>Gérer mon abonnement</li>
+				<%= link_to subscriptions_path do %><li>Gérer mon abonnement</li><% end %>
 				<li>Informations de paiement</li>
 				<%= link_to aide_path do %><li>Aide</li><% end %>
 				<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>Se déconnecter</li><% end %>

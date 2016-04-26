@@ -45,12 +45,16 @@ gem 'puma'
 
 gem 'therubyracer'
 
+gem 'paper_trail'
+
 group :development, :test do
 
   gem 'byebug'
   gem 'stripe-ruby-mock'
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'rails_best_practices'
+  gem 'brakeman'
 
 end
 
