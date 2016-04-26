@@ -7,14 +7,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
-<% if welcome_controller %>
+<% if white_layouts %>
   <%= render "layouts/welcome_header" %>
 <% end %>
 <% flash.each do |type, msg| %>
   <%= content_tag :p, msg, class: type %>
 <% end %>
 <%= yield %>
-
+<% if white_layouts %>
+  <%= render "layouts/welcome_footer" %>
+<% end %>
 </body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>

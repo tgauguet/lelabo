@@ -4,8 +4,8 @@
     <ul>
       <%= link_to produits_path do %><li>PRODUIT</li><% end %>
       <%= link_to tarifs_path do %><li>TARIFS</li><% end %>
-      <li>CONTACT</li>
-      <li class="btn black">SE CONNECTER</li>
+      <%= link_to new_contact_path do %><li>CONTACT</li><% end %>
+      <%= link_to new_user_session_path do %><li class="btn black">SE CONNECTER</li><% end %>
     </ul>
   </div>
 </header>
