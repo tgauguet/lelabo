@@ -435,6 +435,8 @@ ul li{
 
 .title-cntnr{
   margin-bottom: 3em;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .title-cntnr p, .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
@@ -989,3 +991,155 @@ header .normal_header{
 .feature-img{
   width: 5em;
 }
+
+.product-cntnr, .product-left-cntnr{
+  height: 30em;
+  overflow: hidden;
+}
+
+.product-right-img{
+  width: 34em;
+}
+
+.product-right-img-cntnr{
+  right: 0;
+  text-align: right;
+  width: 40%;
+  float: right;
+}
+
+.product-left-cntnr{
+  float: left;
+  width: 55%;
+}
+
+.abs-feature{
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  width: 4em;
+  height: 4em;
+}
+
+.feat1{
+  background-image: url(images/big-star2.png);
+}
+
+.feat2{
+  background-image: url(images/big-fb2.png);
+}
+
+.feat3{
+  background-image: url(images/big-calc2.png);
+}
+
+.feat4{
+  background-image: url(images/big-lock2.png);
+}
+
+.feat1:hover, .abs-cntnr:hover .feat1{
+  background-image: url(images/big-star1.png);
+}
+
+.feat2:hover, .abs-cntnr:hover .feat2{
+  background-image: url(images/big-fb1.png);
+}
+
+.feat3:hover, .abs-cntnr:hover .feat3{
+  background-image: url(images/big-calc1.png);
+}
+
+.feat4:hover, .abs-cntnr:hover .feat4{
+  background-image: url(images/big-lock1.png);
+}
+
+.abs-cntnr{
+  border: 2px solid #2C3B8E;
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  padding: 1em;
+  position: absolute;
+  background: white;
+  right: 0;
+  margin-right: 35%;
+}
+
+.abs2{
+  margin-top: 8em;
+}
+
+.abs3{
+  margin-top: 15em;
+}
+
+.abs4{
+  margin-top: 22em;
+}
+
+.abs-txt{
+  display: block;
+  padding: 1em;
+  height: 5.1em;
+  margin-left: -29em;
+  margin-right: 4em;
+  margin-top: -5em;
+}
+
+.txt-cntnr{
+  background: #F2F4F6;
+  padding: 0.7em;
+  width: 15em;
+  float: right;
+  border-radius: 0.3em;
+  padding-right: 2em;
+  padding-left: 2em;
+  margin-right: 3em; 
+  text-align: justify;
+  margin-top: -0.6em;
+}
+
+.abs-cntnr:hover .abs-txt{
+  display: block;
+}
+
+.abs-cntnr:hover .txt-cntnr h3{
+  color: #2377BA;
+}
+
+.abs-cntnr:hover .txt-cntnr{
+  background:#C9F2F1;
+}
+
+.grey-bckgrnd{
+  background: rgb(249,249,249);
+  padding-bottom: 6em;
+}
+
+.blue-bckgrnd{
+  background: #328ECC; 
+}
+
+.blue-bckgrnd h2, .blue-bckgrnd p{
+  color: white;
+}
+
+.reduce-img{
+  width: 20em;
+}
+
+
+
+
+
+
+
+
+
+
+
+

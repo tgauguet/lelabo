@@ -1,1 +1,66 @@
-ceci est la page produits
+<% title "Fonctionnalités" %>
+<div class="title-cntnr">
+	<h1 class="big-white-h1">Le meilleur travail commence avec les meilleures recettes.</h1>
+	<p>Le Labo vous permet d'optimiser et de gérer vos recettes, facilement.</p>
+</div>
+<div class="product-cntnr">
+	<div class="product-right-img-cntnr"><%= image_tag "lelabo-product.jpg", class: 'product-right-img', alt: "mode de fonctionnement" %></div>
+	<div class="product-left-cntnr">
+		<div class="abs-cntnr abs1">
+			<div class="abs-feature feat1"></div>
+			<div class="abs-txt abs-t1">
+				<div class="txt-cntnr beautiful-txt-color">
+					<h3>Classements</h3>
+					<p>Classez vos recettes en fonction de leur importance</p>
+				</div>
+			</div>
+		</div>
+		<div class="abs-cntnr abs2">
+			<div class="abs-feature feat2"></div>
+			<div class="abs-txt abs-t2">
+				<div class="txt-cntnr beautiful-txt-color">
+					<h3>Partages</h3>
+					<p>Partagez vos recettes auprès d'autres professionnels</p>
+				</div>
+			</div>
+		</div>
+		<div class="abs-cntnr abs3">
+			<div class="abs-feature feat3"></div>
+			<div class="abs-txt abs-t3">
+				<div class="txt-cntnr beautiful-txt-color">
+					<h3>Optimisations</h3>
+					<p>Améliorez le goût et la rentabilité de vos recettes</p>
+				</div>
+			</div>
+		</div>
+		<div class="abs-cntnr abs4">
+			<div class="abs-feature feat4"></div>
+			<div class="abs-txt abs-t4">
+				<div class="txt-cntnr beautiful-txt-color">
+					<h3>Sécurité</h3>
+					<p>Vos recettes sont stockées dans un environnement sécurisé</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="sale-txt-cntnr grey-bckgrnd">
+	<h2 class="big-white-h2">Le moyen le plus simple<br/> de créer de meilleurs produits</h2>
+	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
+	<i>(formules prochainement disponibles)</i>
+</div>
+<div class="sale-txt-cntnr blue-bckgrnd">
+	<h2 class="big-white-h2">Vos nouveaux outils<br/>avec vous partout</h2>
+	<p>Utilisez le Labo sur ordinateur, smartphone et tablette.</p>
+	<%= image_tag "responsive.png", class: "reduce-img" %>
+</div>
+<div class="sale-txt-cntnr">
+	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
+        <%= f.submit "Bah oui !", class: "btn cta-btn" %>
+        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+      <% end %>
+</div>
