@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       put "/confirm" => "confirmations#confirm"
       patch "/confirm" => "confirmations#confirm"
     end
+    match "/creer-votre-mot-de-passe", to: "devise/confirmations#show", :via => [:get]
     match "/tarifs", to: "pages#pricing", :via => [:get, :post]
     match "/produits", to: "pages#products", :via => [:get, :post]
     match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]

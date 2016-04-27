@@ -37,14 +37,16 @@ fr:
               taken: ' - Un profil avec cet email existe déjà'
             password:
               blank: " - Vous devez entrer un mot de passe."
-              too_short: " - Le mot de passe est trop court"
+              too_short: " - Le mot de passe doit faire au moins 8 caractères"
               invalid: " - invalide"
             password_confirmation: 
               confirmation: ' - Vous devez confirmer votre mot de passe'
             name: 
               blank: " - Merci d'indiquer votre nom"
             firstname: 
-              blank: " - Merci d'indiquer votre nom"
+              blank: " - Merci d'indiquer votre prénom"
+            account_name:
+              blank: " - Vous devez donner un nom à votre compte"
   date:     
     abbr_day_names:
     - dim
@@ -102,7 +104,7 @@ fr:
     distance_in_words:
       about_x_hours:
         one: environ une heure
-        other: environ %{count} heures
+        other: "environ %{count} heures"
       about_x_months:
         one: environ un mois
         other: environ %{count} mois

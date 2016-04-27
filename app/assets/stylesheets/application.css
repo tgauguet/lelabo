@@ -297,7 +297,6 @@ ul li{
   font-size: 1.3em;
 }
 
-
 .alert_error{
   padding-right: 3em;
   padding-left: 3em;
@@ -363,7 +362,7 @@ ul li{
   color: rgb(43,54,69);
 }
 
-.background-colr, .step-bckgrnd{
+.background-colr, .step-bckgrnd, .sale-bckgrnd{
   background-image: url(images/landing.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -388,6 +387,10 @@ ul li{
 
 .bckgrnd3{
   background-image: url(images/third-step.jpg);
+}
+
+.bckgrnd4{
+  background-image: url(images/lelabo-bckgrnd.jpg);
 }
 
 .degraded ul, .white-foot ul{
@@ -423,7 +426,7 @@ ul li{
   margin-top: -0.1em;
 }
 
-.steps-cntnr p, .title-cntnr p{
+.steps-cntnr p, .title-cntnr p, .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
   font-size: 1.2em;
   text-align: justify;
   font-family: 'source_sans_prolight';
@@ -434,9 +437,13 @@ ul li{
   margin-bottom: 3em;
 }
 
-.title-cntnr p{
+.title-cntnr p, .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
   text-align: center;
   margin-top: 0.2em;
+}
+
+.feature-cntnr i{
+  font-size: 0.9em;
 }
 
 .step-left-part{
@@ -525,10 +532,14 @@ header .normal_header{
   height: 4.1em;
 }
 
-.big-white-h1{
+.big-white-h1, .big-white-h2{
   font-family: 'source_sans_prosemibold';
   font-size: 3.8em;
   margin-bottom: 0;
+}
+
+.big-white-h2{
+  font-size: 2.4em;
 }
 
 .big-ttle{
@@ -536,11 +547,16 @@ header .normal_header{
   font-size: 1.8em;
 }
 
-.plan-cntnr{
+.plan-cntnr, .feature-cntnr{
   display: inline-block;
   margin: 0.5em;
   vertical-align: top;
   width: 15em;
+}
+
+.feature-cntnr{
+  width: 40%;
+  padding: 1em;
 }
 
 .plan-clr-cntnr{
@@ -780,9 +796,9 @@ header .normal_header{
 }
 
 .people-ask-img{
-  width: 3em;
-  transform:rotate(38deg);
-  margin-left: -1.7em;
+  width: 5em;
+  margin-left: -2.7em;
+  margin-top: 0.5em;
 }
 
 .send-feedback{
@@ -800,7 +816,7 @@ header .normal_header{
   width: 8em;
   border-radius: 0.3em;
   position: absolute;
-  margin-top: -8em;
+  margin-top: -9em;
   cursor: pointer;
   margin-left: 5em;
 }
@@ -946,3 +962,30 @@ header .normal_header{
   text-align: justify !important;
 }
 
+#error_explanation li{
+  text-align: left;
+}
+
+.step-left-part #error_explanation li{
+  font-size: 1em;
+  color: red;
+}
+
+.sale-txt-cntnr{
+  border-top: 1px solid rgb(230,230,230);
+  border-bottom: 1px solid rgb(230,230,230);
+  padding: 4em;
+}
+
+.sale-bckgrnd{
+  background-image: url(images/lelabobck1.jpg);
+  height: 30em;
+}
+
+.sale-div-cntnr{
+  padding-top: 2em;
+}
+
+.feature-img{
+  width: 5em;
+}

@@ -1,7 +1,7 @@
 <% title "tarifs" %>
 <div class="title-cntnr">
-	<h1 class="big-white-h1">Tarifs</h1>
-	<p>Vous pouvez utiliser le Labo gratuitement aussi longtemps que vous le désirez.</p>
+	<h1 class="big-white-h1">Un abonnement sur-mesure</h1>
+	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le désirez.</p>
 </div>
 <div class="plan-cntnr">
 	<div class="plan-clr-cntnr">
@@ -55,5 +55,34 @@
 		<p>-Équilibrage de vos recettes</p>
 		<p>-Calcul de la durée de conservation de vos chocolats</p>
 		<p>-Calculs de la composition de vos recettes</p>
+	</div>
+</div><br/><br/>
+<div class="sale-txt-cntnr">
+	<h2 class="big-white-h2">Éssai gratuit</h2>
+	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
+	<i>(formules prochainement disponibles)</i>
+</div>
+<div class="sale-bckgrnd">
+</div>
+<div class="sale-txt-cntnr">
+	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
+        <%= f.submit "Bah oui !", class: "btn cta-btn" %>
+        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+      <% end %>
+</div>
+<div class="sale-div-cntnr">
+	<div class="feature-cntnr">
+		<%= image_tag "feature1.jpg", class: "feature-img", alt: "feature" %>
+		<p>Vos données sont en sécurité</p>
+		<i>Vos données sont en sécurité et toujours accessibles sur nos serveurs sécurisés.</i>
+	</div>
+	<div class="feature-cntnr">
+		<%= image_tag "feature2.jpg", class: "feature-img", alt: "données sécurisées" %>
+		<p>Une équipe à votre écoute</p>
+		<i>Nous faisons le maximum pour perfectionner notre logiciel. Si toutefois vous avez un problème, notre équipe est à votre écoute.</i>
 	</div>
 </div>

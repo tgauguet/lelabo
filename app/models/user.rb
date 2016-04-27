@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 	#before_save :after_confirmation
 	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
     has_many :feedbacks, dependent: :destroy
+    validates :account_name, uniqueness: true, presence: true, on: :set_names
     has_attached_file :avatar, {
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :default_url => "/avatar/missing/missing.jpg",

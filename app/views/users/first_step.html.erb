@@ -6,8 +6,10 @@
         <p class="low-txt">Nommer votre compte va vous permettre de partager plus simplement vos recettes.</p><br/>
         <p class="basic-note"><b>Nom du gestionnaire de recettes</b> (vous pourrez le changer plus tard)</p>
         <%= form_for(@user, action: :set_names) do |f| %>
-            <%= devise_error_messages! %>
-            <%= f.text_field :account_name, autofocus: true, :placeholder => "Ex. Pâtisserie Gilles", class: "basic-field full-witdth"  %><br/><br/>
+            <% @user.errors.each_with_index do |msg, i| %>
+              <li style="list-style:none;color:red;font-size:0.9em;"><%= msg[1] %></li>
+            <% end %>
+            <%= f.text_field :account_name,required: true, autofocus: true, :placeholder => "Ex. Pâtisserie Gilles", class: "basic-field full-witdth"  %><br/><br/>
             <%= f.button :submit do %>
                 Suivant<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>

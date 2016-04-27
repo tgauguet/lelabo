@@ -1,1 +1,8 @@
 fr:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            account_name:
+              blank: "ne peut pas être vide"
