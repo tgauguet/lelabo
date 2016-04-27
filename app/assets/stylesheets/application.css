@@ -689,6 +689,7 @@ header .normal_header{
   width: auto;
   height: 100vh;
   margin-left: 15em;
+  background: rgba(0,0,0,0.2);
 }
 
 .logo-smll-cntr{
