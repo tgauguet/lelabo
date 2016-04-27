@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 				    elsif !@user.account_name.nil? && !@user.firstname.nil? && @user.terms == true
 				      redirect_to root_path
 				    elsif !@user.account_name.nil? && !@user.firstname.nil?
+				      SubscribeUserToMailingListJob.perform_later(@user)
 				      redirect_to confirmation_de_votre_compte_path(@user)
 				    elsif @user.account_name.nil?
 				      redirect_to nom_de_votre_compte_path(@user)

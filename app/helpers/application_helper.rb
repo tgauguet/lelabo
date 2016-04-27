@@ -25,7 +25,7 @@ module ApplicationHelper
     end
 
     def white_layouts
-        (controller.controller_name == "pages" && controller.action_name != "help" ) || controller.controller_name == "contacts"
+        (controller.controller_name == "pages" && controller.action_name != "help" ) || controller.controller_name == "contacts" || controller.controller_name == "blogs"
     end
 
 end

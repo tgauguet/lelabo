@@ -261,13 +261,18 @@ ul li{
   margin-bottom: 1em;
 }
 
-.standard-form-cntnr{
+.standard-form-cntnr, .standard-form-cntnr2{
   width: 40em;
   margin-right: auto;
   margin-left: auto;
   text-align: justify;
   padding: 2em;
   margin-bottom: 5em;
+}
+
+.standard-form-cntnr2{
+  width: 80%;
+  text-align: center;
 }
 
 .standard-form-cntnr i{
@@ -532,6 +537,7 @@ button:hover .btn_arrow{
 header .normal_header{
   border-bottom: 1px solid #D4D4D4;
   height: 4.1em;
+  background: white;
 }
 
 .big-white-h1, .big-white-h2{
@@ -1118,7 +1124,6 @@ header .normal_header{
 
 .grey-bckgrnd{
   background: rgb(249,249,249);
-  padding-bottom: 6em;
 }
 
 .blue-bckgrnd{
@@ -1133,12 +1138,66 @@ header .normal_header{
   width: 20em;
 }
 
+.post-cntnr{
+  display: inline-block;
+  width: 22em;
+  margin: 1em;
+  vertical-align: top;
+  background:white;
+  height: 25em;
+  border-radius: 0.3em;
+  overflow: hidden;
+  -moz-box-shadow: 0px 1px 2px 1px #F2F2F2;
+  -webkit-box-shadow: 0px 1px 2px 1px #F2F2F2;
+  -o-box-shadow: 0px 1px 2px 1px #F2F2F2;
+  box-shadow: 0px 1px 2px 1px #F2F2F2;
+  text-align: justify;
+}
 
+.post-index-img{
+  background: url(images/lelabo-bckgrnd.jpg);
+  height: 10em;
+}
 
+.cover{
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
 
+.post-index-txt{
+  padding: 1em;
+}
 
+.post-index-txt h2:hover{
+  color: rgb(0,78,192);
+  text-decoration: underline;
+}
 
+.post-index-txt h2{
+  font-family: "source_sans_proregular";
+  font-size:1.4em;
+}
 
+.post-index-txt h5{
+  font-family: "source_sans_proregular";
+  font-size:0.8em;
+  margin-top: -0.1em;
+  margin-left: 0.4em;
+  color: rgb(100,100,100);
+}
+
+.post-index-txt p{
+  font-family: "source_sans_prolight";
+  font-size:1em;
+  margin-top: -0.1em;
+  margin-left: 0.4em;
+  color: rgb(100,100,100);
+}
 
 
 

@@ -27,7 +27,7 @@
 		<%= image_tag "soon-banner.png", class: "soon-banner" %>
 		<p class="plan-price"><span><b>5</b>,95€</span></p>
 		<p class="plan-type">par utilisateur et par mois<br/>sans engagement.</p>
-		<p class="plan-btn plan-btn-color1">contactez-nous</p><br/>
+		<%= link_to new_contact_path do %><p class="plan-btn plan-btn-color1">contactez-nous</p><br/><% end %>
 		<p class="plan-type">plus d'info</p>
 		<%= image_tag "arrow-down.png", class: "btn_arrow" %>
 	</div>
@@ -37,6 +37,7 @@
 		<p>-Aide et support prioritaire</p>
 		<p>-Meilleure gestion de vos recettes</p>
 		<p>-Gestion des fournisseurs</p>
+		<p>-Ajout de photos à vos recettes</p>
 	</div>
 </div>
 <div class="plan-cntnr">
@@ -45,7 +46,7 @@
 		<%= image_tag "soon-banner.png", class: "soon-banner" %>
 		<p class="plan-price"><span><b>9</b>,95€</span></p>
 		<p class="plan-type">par utilisateur et par mois<br/>sans engagement.</p>
-		<p class="plan-btn plan-btn-color2">contactez-nous</p><br/>
+		<%= link_to new_contact_path do %><p class="plan-btn plan-btn-color2">contactez-nous</p><br/><% end %>
 		<p class="plan-type">plus d'info</p>
 		<%= image_tag "arrow-down.png", class: "btn_arrow" %>
 	</div>
@@ -54,7 +55,6 @@
 		<p>-Équilibrage de vos recettes</p>
 		<p>-Calculs de la composition de vos recettes</p>
 		<p>-Étape par étape</p>
-		<p>-Ajout de plusieurs photos à vos recettes</p>
 	</div>
 </div><br/><br/>
 <div class="sale-txt-cntnr">

@@ -39,6 +39,10 @@ gem 'rails_serve_static_assets'
 
 gem 'capybara'
 
+gem 'kaminari'
+
+gem 'figaro'
+
 gem 'guard-rspec'
 
 gem 'paperclip'
@@ -57,6 +61,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails_best_practices'
   gem 'brakeman'
+  gem 'quiet_assets'
 
 end
 
