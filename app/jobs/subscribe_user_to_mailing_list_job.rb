@@ -3,6 +3,7 @@ class SubscribeUserToMailingListJob < ActiveJob::Base
 
   def perform(user)
     gb = Gibbon::Request.new
-    gb.lists.subscribe({:id => Rails.application.secrets.mailchimp_list_id, :email => {email: user.email}, :merge_vars => { :L_NAME => user.name, :F_NAME => user.firstname}, :double_optin => false})
+    gb.lists(Rails.application.secrets.mailchimp_list_id).members.create(body: {email_address: user.email, status: "subscribed", merge_fields: {F_NAME: user.firstname, L_NAME: user.name}})
   end
 end
+
