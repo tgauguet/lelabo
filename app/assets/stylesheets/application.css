@@ -700,7 +700,6 @@ header .normal_header{
   width: auto;
   height: 100vh;
   margin-left: 15em;
-  background: rgba(0,0,0,0.2);
 }
 
 .logo-smll-cntr{
@@ -1221,5 +1220,18 @@ header .normal_header{
   background-image: url(images/arrow1.png);
 }
 
+.see-u-soon{
+  margin-top: 3em;
+  padding: 3em;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.see-u-img{
+  margin-bottom: 1em;
+  width: 10em;
+  height: auto;
+}
 
 
