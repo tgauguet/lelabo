@@ -275,6 +275,11 @@ ul li{
   text-align: center;
 }
 
+.standard-form3{
+  width: 65%;
+  margin-top: 5em;
+}
+
 .standard-form-cntnr i{
   font-size: 0.8em;
 }
@@ -1199,7 +1204,22 @@ header .normal_header{
   color: rgb(100,100,100);
 }
 
+.post-link{
+  padding-left:2em;
+  color: #3B3B3B
+}
 
+.link-img{
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  margin-top: -0.5em;
+  background-image: url(images/arrow2.png);
+}
+
+.link-img:hover{
+  background-image: url(images/arrow1.png);
+}
 
 
 

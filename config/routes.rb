@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     match '/informations-de-votre-compte' => 'users#second_step', via: [:get, :post]
     match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]
     match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
+    match "/article-test" => "blogs#article", via: [:get]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
 end

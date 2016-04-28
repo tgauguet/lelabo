@@ -6,11 +6,12 @@
 	</div>
 	<div class="standard-form-cntnr2">
 		<div class="post-cntnr">
-			<%= link_to do %><div class="post-index-img cover"></div><% end %>
+			<%= link_to article_test_path do %><div class="post-index-img cover"></div><% end %>
 			<div class="post-index-txt">
-				<%= link_to do %><h2 class="beautiful-txt-color">titre de l'article</h2><% end %>
+				<%= link_to article_test_path do %><h2 class="beautiful-txt-color">titre de l'article</h2><% end %>
 				<h5>Écris par Tim</h5>
-				<p>Lorem ipsum dolor blablabla blabl ablablab lablab lablab lablabla blabla blablabl ablablablab lablab lablabl ablabla blablablabl ablabla blablab lablabl ablabla blablab </p>
+				<p>Lorem ipsum dolor blablabla blabl ablablab lablab lablab lablabla blabla blablabl ablablablab lablab lablabl ablabla blablablabl ablabla blablab lablabl ablabla blablab </p><br/>
+				<%= link_to article_test_path do %><div class="cover link-img"></div><p class="post-link">Voir l'article</p><% end %>
 			</div>
 		</div>
 	</div>
