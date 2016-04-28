@@ -17,8 +17,10 @@
 <% if white_layouts %>
   <%= render "layouts/welcome_header" %>
 <% end %>
-<% flash.each do |type, msg| %>
-  <%= content_tag :p, msg, class: type %>
+<% if !do_not_flash %>
+  <% flash.each do |type, msg| %>
+    <%= content_tag :p, msg, class: type %>
+  <% end %>
 <% end %>
 <%= yield %>
 <% if white_layouts %>
