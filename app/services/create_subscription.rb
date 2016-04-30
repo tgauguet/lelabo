@@ -2,6 +2,7 @@ class CreateSubscription
 
 	def self.call(plan, email_address, token)
 		user, raw_token = CreateUser.call(email_address)
+		#user = User.find_by(email: email_address)
 
 		subscription = Subscription.new(
 			plan: plan,
@@ -21,10 +22,9 @@ class CreateSubscription
 				user.save!
 				stripe_sub = customer.subscriptions.first
 			else
-				customer = Stripe::Customer.retrieve(user.stripe_customer_id)
-				stripe_sub = customer.subscriptions.create(
-					plan: plan.stripe_id,
-				)
+				#new_plan = plan
+				#subscription = user.subscription
+				#stripe_sub = ChangePlan.call(subscription, new_plan)
 			end
 
 			subscription.stripe_id = stripe_sub.id
@@ -33,6 +33,6 @@ class CreateSubscription
 		rescue Stripe::StripeError => e
 			subscription.errors[:base] << e.message
 		end
-	subscription
+		subscription
 	end
 end

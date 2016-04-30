@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 			patch :set_parameters
 		end
 	end
-	resources :subscriptions, only: [:new, :create, :index]
+	resources :subscriptions, only: [:new, :create, :index, :update, :edit]
 	resources :users
 	resources :contacts, only: [:new,:create]
 	devise_scope :user do

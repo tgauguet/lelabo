@@ -6,6 +6,5 @@ class AddStuffsToUsers < ActiveRecord::Migration
     add_column :users, :company_image, :string
     add_column :users, :profile_image, :string
     add_column :users, :country, :string
-    add_column :users, :is_female, :boolean
   end
 end

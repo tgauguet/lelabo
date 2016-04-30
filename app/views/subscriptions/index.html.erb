@@ -1,3 +1,123 @@
-<% @plans.each do |plan| %>
-	<%= link_to "#{plan.name} (#{plan.amount})", new_subscription_path(plan_id: plan.id) %>
+<% title "Abonnements" %>
+<%= link_to root_path do %><p class="red-color"><span class="image-hovered"></span>Retour à l'accueil</p><% end %>
+<div class="title-cntnr">
+	<h1 class="big-white-h1">Tarifs</h1>
+	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le souhaitez.</p>
+</div>
+	<% @plans.each do |plan| %>
+		<div class="plan-cntnr">
+			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif pro_plan(plan) %> plan-color2 <% else %>plan-color3 <% end %>">
+				<p class="plan-title"><%= plan.name %></p>
+				<p class="plan-price">
+					<span>
+						<b><%= plan.amount[0,1] %></b>
+						<% if !plan.amount[2,3].nil? %>,<%= plan.amount[1,3] %><% end %>€
+					</span>
+				</p>
+				<p class="plan-type">par utilisateur et par mois<br/></p>
+				<% unless basic_plan(plan) %>
+					<p class="plan-type">sans engagement</p>
+					<%= image_tag "soon-banner.png", class: "soon-banner" %>
+				<% end %>
+				<% if user_with_no_subscription(@user) %>
+					<% if same_plan_id(@user, plan) %>
+						<p class="plan-btn">Votre formule</p>
+					<% else %>
+						<%= link_to new_subscription_path(plan_id: plan.id) do %>
+							<p class="plan-btn">
+							<% if basic_plan(plan)  %>
+								Passer à l'offre Basic
+							<% elsif pro_plan(plan)  %>
+								<% if user_have_basic_plan(@user) %>
+									Passer à une offre supérieure
+								<% else %>
+									Passer à l'offre Pro
+								<% end %>
+							<% else %>
+								Passer à une offre supérieure
+							<% end %>
+						<% end %>
+					<% end %>
+				<% else %>
+					<% if basic_plan(plan) %>
+						<% if @user %>
+							<p class="plan-btn">Votre formule</p>
+						<% else %>
+							<!-- faire un scroll down vers le bouton pour entrer son email -->
+								<p class="plan-btn">Commencer</p>
+							<!-- fin du scroll down -->
+						<% end %>
+					<% else %>
+						<%= link_to new_subscription_path(plan_id: plan.id) do %>
+							<% if !@user %>
+								<p class="plan-btn">Réserver ma place</p>
+							<% else %>
+								<!-- après validation des features : "Passer à une offre supérieure" -->
+								<p class="plan-btn">Réserver ma place</p>
+								<!-- Dans le paragraphe ci-dessus -->							
+								<% end %>
+						<% end %>
+					<% end %>
+				<% end %>
+				<br/>
+				<p class="plan-type">plus d'info</p>
+				<%= image_tag "arrow-down.png", class: "btn_arrow" %>
+			</div>
+			<div class="plan-txt-cntnr">
+				<% if basic_plan(plan) %>
+					<p class="colored-p-txt1"><b>BASIC inclus</b></p>
+					<p>-Création de vos recettes</p>
+					<p>-Ajouts de nouveaux ingrédients</p>
+					<p>-Partage sur les réseaux sociaux</p>
+					<p>-Aide et support</p>
+					<p>-Accès sur tous vos appareils</p>
+				<% end %>
+				<% if pro_plan(plan) %>
+					<p class="colored-p-txt2"><b>PRO inclus</b><br/>plus toutes les options de BASIC</p>
+					<p>-Calcul de vos coûts de revient</p>
+					<p>-Aide et support prioritaire</p>
+					<p>-Meilleure gestion de vos recettes</p>
+					<p>-Gestion des fournisseurs</p>
+					<p>-Ajout de photos à vos recettes</p>
+				<% end %>
+				<% if entreprise_plan(plan) %>
+					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
+					<p>-Équilibrage de vos recettes</p>
+					<p>-Calculs de la composition de vos recettes</p>
+					<p>-Étape par étape</p>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="sale-txt-cntnr">
+	<h2 class="big-white-h2">Éssai gratuit</h2>
+	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
+	<i>(formules prochainement disponibles)</i>
+</div>
+<div class="sale-bckgrnd">
+</div>
+<% unless signed_in? %>
+<div class="sale-txt-cntnr">
+	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
+        <%= f.submit "Bah oui !", class: "btn cta-btn" %>
+        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+      <% end %>
+</div>
 <% end %>
+<div class="sale-div-cntnr">
+	<div class="feature-cntnr">
+		<%= image_tag "feature1.jpg", class: "feature-img", alt: "feature" %>
+		<p>Vos données sont en sécurité</p>
+		<i>Vos données sont en sécurité et toujours accessibles sur nos serveurs sécurisés.</i>
+	</div>
+	<div class="feature-cntnr">
+		<%= image_tag "feature2.jpg", class: "feature-img", alt: "données sécurisées" %>
+		<p>Une équipe à votre écoute</p>
+		<i>Nous faisons le maximum pour perfectionner notre logiciel. Si toutefois vous avez un problème, notre équipe est à votre écoute.</i>
+	</div>
+</div>

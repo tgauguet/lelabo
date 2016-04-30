@@ -31,7 +31,7 @@
 				<% end %>
 				<%= link_to parametres_path do %><li>Paramètres</li><% end %>
 				<%= link_to modifier_votre_profil_path do %><li>Modifier mon profil</li><% end %>
-				<%= link_to root_path do %><li>Gérer mon abonnement</li><% end %>
+				<%= link_to subscriptions_path do %><li>Gérer mon abonnement</li><% end %>
 				<%= link_to root_path do %><li>Informations de paiement</li><% end %>
 				<%= link_to aide_path do %><li>Aide</li><% end %>
 				<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>Se déconnecter</li><% end %>
@@ -41,7 +41,6 @@
 </div>
 <div class="full-cntnr">
 	<div class="full-header"><br/>
-		
 	</div><br/>
 	<div class="see-u-soon">
 		<%= image_tag "happy.png", class: "see-u-img", alt: "prochainement happy face" %>
