@@ -33,10 +33,10 @@
       </ul>
       <ul>
         <li class="footer-ttl">LE LABO</li>
-        <li>Produits</li>
-        <li>Contact</li>
-        <li>Blog</li>
-        <li>Tarifs</li>
+        <%= link_to produits_path do %><li>Produits</li><% end %>
+        <%= link_to new_contact_path do %><li>Contact</li><% end %>
+        <%= link_to blog_path do %><li>Blog</li><% end %>
+        <%= link_to tarifs_path do %><li>Tarifs</li><% end %>
       </ul>
       <ul>
         <li class="footer-ttl">SOCIAL</li>

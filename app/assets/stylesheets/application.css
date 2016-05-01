@@ -276,9 +276,46 @@ ul li{
   text-align: center;
 }
 
+.blog-post-cntnr{
+  width: 40em;
+  margin-left: auto;
+  background: white; 
+  margin-right: auto;
+  z-index: 2;
+  text-align: justify;
+}
+
+.blog-post-cntnr p{
+  font-size: 1.1em;
+  font-weight: lighter;
+  color: #444444;
+}
+
+.blog-post-cntnr h2{
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+}
+
+.blog-post-cntnr a{
+  color: rgb(28,157,213);
+}
+
+.blog-head-img{
+  width: 100%;
+}
+
+.blog-pen{
+  width: 1em;
+  margin-right: 0.7em;
+}
+
 .standard-form3{
   width: 65%;
   margin-top: 5em;
+}
+
+.post-autor{
+  margin-top: -0.2em;
 }
 
 .standard-form-cntnr i{
@@ -373,7 +410,7 @@ ul li{
   color: rgb(43,54,69);
 }
 
-.background-colr, .step-bckgrnd, .sale-bckgrnd{
+.background-colr, .step-bckgrnd, .sale-bckgrnd, .blog-header-img{
   background-image: url(images/landing.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -382,6 +419,18 @@ ul li{
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
+}
+
+.blog-header-img{
+  height: 13em;
+  margin-top: -0.6em;
+}
+
+.blog-header-img p{
+  color: white;
+  font-size: 3em;
+  padding-top: 1.5em;
+  font-family: "source_sans_prolight";
 }
 
 .bckgrnd0{
@@ -1151,7 +1200,7 @@ header .normal_header{
   margin: 1em;
   vertical-align: top;
   background:white;
-  height: 25em;
+  height: 28em;
   border-radius: 0.3em;
   overflow: hidden;
   -moz-box-shadow: 0px 3px 1px #F2F2F2;
@@ -1172,7 +1221,7 @@ header .normal_header{
 }
 
 .post-index-img{
-  background: url(images/lelabo-bckgrnd.jpg);
+  background: url(images/optimisez-vos-ventes-patisseries.png);
   height: 10em;
 }
 
@@ -1198,6 +1247,7 @@ header .normal_header{
 .post-index-txt h2{
   font-family: "source_sans_proregular";
   font-size:1.4em;
+  text-align: left;
 }
 
 .post-index-txt h5{
@@ -1311,3 +1361,57 @@ header .normal_header{
   cursor: pointer;
   padding-right: 2em;
 }
+
+.blog-cta{
+  background: #8FE3F9;
+  text-align: center; 
+  border-radius: 0.3em;
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+}
+
+.blog-cta h2{
+  color: white;
+  font-size: 1.8em;
+  margin-top: -1.3em;
+  margin-bottom: -0.7em;
+}
+
+.blog-cta-img{
+  margin-top: 1em;
+  width: 7em;
+}
+
+.blog-btn{
+  color: white !important;
+  border-radius: 0.2em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-right: 2em;
+  padding-left: 2em;
+  width: 13em;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(27,189,157);  
+}
+
+.blog-img{
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.social-icn{
+  border: 1px solid rgb(230,230,230);
+  height: 7em;
+  width: 5em;
+  position: fixed;
+  padding-top: 1em;
+  background: white;
+  margin-top: -3em;
+  margin-left: 2em;
+  border-radius: 0.2em;
+}
+
+
+
