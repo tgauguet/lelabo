@@ -20,7 +20,7 @@
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
         <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
-        <%= f.submit "Utiliser gratuitement", class: "btn cta-btn" %>
+        <%= f.submit "Essayer gratuitement", class: "btn cta-btn" %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>
   </div>
