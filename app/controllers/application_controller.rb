@@ -1,3 +1,6 @@
+#!user/bin/env ruby
+# encoding: utf-8
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -6,7 +9,6 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_new_column_to_devise_permitted_parameters, if: :devise_controller?
   after_filter :store_location
-
 
   def set_newsletter
     @newsletter = Newsletter.new
@@ -52,3 +54,4 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
