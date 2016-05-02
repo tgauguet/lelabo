@@ -115,11 +115,11 @@ L’un des nombreux avantages de SumoMe est sa simplicité d’intégration et d
 Pour voir toute la puissance de HelloBar, il vous suffit d’entrer l’URL de votre site dans la page d’accueil de HelloBar. Vous pourrez ensuite, en 3 clicks, avoir un aperçu de ce que l’application peut vous apporter.</p><br/>
 
 <%= image_tag "hellobar.png", class: "blog-img" %>
-<a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u=https://www.lelabo-ondemand.com/blog/huit-outils-pour-accelerer-votre-business/&amp;t=8', 'facebookShare', 'width=626,height=436'); return false;" title="Share on Facebook">facebook</a>
-</li>
-<li class="post-social-twit">
-	<a href="#" onclick="window.open('http://twitter.com/share?text=8 &amp;url=https://www.lelabo-ondemand.com/blog/huit-outils-pour-accelerer-votre-business/', 'twitterShare', 'width=626,height=436'); return false;" title="Tweet This Post"><i class="fa fa-twitter fa-2"></i></a>	
-</li>
+<div class="social-share">
+	<p>Partager cet article</p>
+	<a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u=https://www.lelabo-ondemand.com/blog/huit-outils-pour-accelerer-votre-business/&amp;t=8', 'facebookShare', 'width=626,height=436'); return false;" title="Share on Facebook"><p class="social-btn">facebook</p></a>
+	<a href="#" onclick="window.open('http://twitter.com/share?text=8 &amp;url=https://www.lelabo-ondemand.com/blog/huit-outils-pour-accelerer-votre-business/', 'twitterShare', 'width=626,height=436'); return false;" title="Tweet This Post"><p class="social-btn">twitter</p></a>	
+</div>
 <% unless signed_in? %>
 	<%= link_to root_path do %>
 		<div class="blog-cta">
