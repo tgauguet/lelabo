@@ -1,4 +1,3 @@
-
 <div class="send-feedback">
 	<%= image_tag "people-can-ask.png", class: "people-ask-img" %>
 	<div class="ask">
@@ -41,10 +40,38 @@
 </div>
 <div class="full-cntnr">
 	<div class="full-header"><br/>
+		<ul>
+			<%= link_to to_do_lists_path, remote: true, class: "ajax-load" do %>
+				<div class="feat-img">
+					<li class="to-do">
+						<span><div class="arrow-container"><div class="arrow-up2"></div></div>To-do liste</span>
+					</li>
+				</div>
+			<% end %>
+		</ul>
 	</div><br/>
-	<div class="see-u-soon">
-		<%= image_tag "happy.png", class: "see-u-img", alt: "prochainement happy face" %>
-		<h3>Merci pour votre inscription, l'application sera bientôt disponible.</h3>
-		<p>Vous serez averti par email lors de la mise en place des fonctionnalités</p>
+	<div class="actions-cntnr">
+		<div class="action-cntnr">
+			<a class="ajax-load" href="/url3">Page 3</a>
+
+			<div class="ajax-content"></div>	
+		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+	$(".ask").click(function(){
+        $(".box").hide();
+        $(".form").show();
+    });
+});
+
+$(document).ready(function(){
+  $('.ajax-load').on('click', function(e){
+    e.preventDefault();
+    $('.ajax-content').load($(this).attr('href'));
+  });
+});
+
+</script>
+

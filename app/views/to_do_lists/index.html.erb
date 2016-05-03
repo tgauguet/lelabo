@@ -2,8 +2,9 @@
 <div class="title-cntnr">
 	<h1 class="lttl-intro-h1">To-dos listes</h1>
 	<p>Les to-dos listes vous aident à planifier vos journées</p><br/>
-	<%= render "to_do_lists/new" %>
-	<p class="btn blog-btn list-btn">Créer la première liste</p>
+	<%= link_to new_to_do_list_path, remote: true, class: "ajax-load" do %>
+		<p class="btn blog-btn list-btn">Créer la première liste</p>
+	<% end %>
 	<div class="explaination-cntnr">
 		<h2>Quand utiliser les to-dos ?</h2>
 		<div class="border-btm"></div>
@@ -14,3 +15,19 @@
 		<p>Pour assigner du travail à vous ou à votre équipe</p>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+	$(".ask").click(function(){
+        $(".box").hide();
+        $(".form").show();
+    });
+});
+
+$(document).ready(function(){
+  $('.ajax-load').on('click', function(e){
+    e.preventDefault();
+    $('.ajax-content').load($(this).attr('href'));
+  });
+});
+
+</script>
