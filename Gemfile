@@ -49,6 +49,8 @@ gem 'guard-rspec'
 
 gem 'paperclip'
 
+gem 'jquery-turbolinks'
+
 gem 'puma'
 
 gem 'therubyracer'

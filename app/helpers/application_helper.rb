@@ -28,6 +28,10 @@ module ApplicationHelper
         (controller.controller_name == "pages" && controller.action_name != "help" ) || controller.controller_name == "contacts" || controller.controller_name == "blogs"
     end
 
+    def not_useful
+        controller.controller_name == "users" || controller.controller_name == "subscriptions" || controller.controller_name == "blogs"
+    end
+
     def do_not_flash
         current_page?(nom_de_votre_compte_url) || current_page?(informations_de_votre_compte_url)
     end

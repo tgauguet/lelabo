@@ -15,32 +15,13 @@ body{
     outline: 0;
 }
 
-/****************
-*****************
-*****************
-
-FONTS ---- DESIGN
-
-*****************
-*****************
-****************/
-
-/*    color blue like in blog titles  */
-.blog-post-cntnr a, .to-do-cards h2{
-  color: rgb(28,157,213);
+.beautiful-txt-color{
+  color: rgb(43,54,69);
 }
 
 p, h2, h3{
   margin: 0.2em;
-  color: rgb(43,54,69);
-}
-
-.ghost-txt{
-  color: grey; 
-}
-
-.tasks-count{
-  width: 1em !important; 
+  color: #3E4149;
 }
 
 @font-face {
@@ -117,248 +98,13 @@ p, h2, h3{
          url('sourcesanspro-semibold-webfont.svg#source_sans_prosemibold') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
 
-/****************
-*****************
-*****************
-
-END FONTS  DESIGN
-
-*****************
-*****************
-****************/
-
-/****************
-*****************
-*****************
-
-CONTAINERS DESIGN
-
-*****************
-*****************
-****************/
-
-.action-cntnr, .explaination-cntnr, .post-cntnr, .card-cntnr, .to-do-cards, .tasks-cntnr{
-  -moz-box-shadow: 0px 3px 1px #F2F2F2;
-  -webkit-box-shadow: 0px 3px 1px #F2F2F2;
-  -o-box-shadow: 0px 3px 1px #F2F2F2;
-  box-shadow: 0px 3px 1px #F2F2F2;
-  border: 1px solid rgb(230,230,230);
-  border-radius: 0.3em;
-}
-
-/*****************
-******************
-******************
-
-/CONTAINERS DESIGN
-
-******************
-******************
-*****************/
-
-/****************
-*****************
-*****************
-
-BUTTONS -- DESIGN
-
-*****************
-*****************
-****************/
-
-/*   big buttons   */
-
-.btn, button, .plan-btn, .blog-btn, .delete-btn-cntnr{
-  border: none;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  cursor: pointer;
-}
-
-/*  small buttons  */
-
-.cancel-btn, .social-btn, .inside-btn{
-  border: none;
-  border-radius: 0.3em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-  padding-right: 2em;
-  padding-left: 2em;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-/*   absolute properties   */
-
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .cancel-btn{
-  border-radius: 0.3em;
-  opacity: 0.9;
-}
-
-.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .btn:hover, button:hover, .plan-btn:hover, .cancel-btn:hover{
-  opacity: 1;
-}
-
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .delete-btn-cntnr:hover, .cancel-btn{
-  color: white;
-}
-
-/*   buttons with a green background  */
-
-.blog-btn, .cta-btn, button, .inside-btn, .inside-btn{
+.blog-btn, .cta-btn, button{
   background: rgb(27,189,157); 
   border-bottom: 2px solid rgb(17,159,120) !important;
 }
-
-/*   buttons with an orange background  */
-
-.plan-btn{
-  background: #F9A121;
-}
-
-/*   inline-block buttons  */
-
-.social-btn,.cancel-btn, .inside-btn{
-  display: inline-block;
-  width: auto; 
-}
-
-/*   buttons for subscriptions#new/index pages  */ 
-
-.plan-btn{
-  opacity: 1;
-}
-
-.plan-btn{
-  margin-top: 3em;
-}
-
-.plan-btn:hover{
-  background: #E8900F;
-}
-
-.plan-btn-color1{
-  background: #06b597;
-}
-
-.plan-btn-color1:hover{
-  background: #16937e ;
-}
-.plan-btn-color2:hover{
-  background: #2d6faa ;
-}
-
-.plan-btn-color2{
-  background: #1c83ea;
-}
-
-/*  Button for feedbacks  */
-
-.hidden-btn{
-  border: none;
-  font-size: 0.8em;
-  background: white;
-  cursor: pointer;
-  margin-left: 2em;
-}
-
-.blog-btn{
-  width: 13em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.social-btn{
-  border: 2px solid rgb(27,189,157);
-  color: rgb(27,189,157) !important;
-  width: 7em;
-  text-align: center;
-}
-
-.cancel-btn{
-  background:#808285;
-  border-bottom: 2px solid #58595B;
-  width: 5em;
-}
-
-.cta-btn, button{
-  font-size: 1.2em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  border: 1px solid rgb(27,189,157);
-}
-
-.cta-btn:hover{
-  background: rgb(0,168,134);
-  border: 1px solid rgb(0,168,134);
-}
-
-.delete-btn-cntnr:hover{
-  background: rgb(235,77,92);
-}
-
-.delete-btn-cntnr{
-  float: right;
-  color: rgb(235,77,92);
-  padding-left: 1.2em;
-  margin-top: -1em;
-}
-
-button:hover .btn_arrow{
-  -webkit-transform: translate(0.3em,0);
-  -moz-transform: translate(0.3em,0);
-  -o-transform: translate(0.3em,0);
-  -ms-transform: translate(0.3em,0);
-}
-
-.btn_arrow{
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  width: 0.6em;
-  margin-left: 0.3em;
-  height: auto;
-}
-
-.btn_arrow:before{
-  position: absolute;
-  right: 1em;
-  padding: 0 1px;
-  font-family: FontAwesome;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.btn_arrow:hover:before, .btn_arrow:focus:before, .btn_arrow:active:before {
-  -webkit-transform: translateX(4px);
-  transform: translateX(4px);
-}
-
-/*****************
-******************
-******************
-
-END-BUTTONS DESIGN
-
-******************
-******************
-*****************/
 
 a, a:active, a:hover{
   text-decoration: none;
@@ -393,6 +139,15 @@ ul li{
   opacity: 1;
 }
 
+.btn, button{
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  border-radius: 0.3em;
+  border: 2px solid white;
+  cursor: pointer;
+}
 
 .white{
   opacity: 0.9;
@@ -413,6 +168,19 @@ ul li{
   width: 7em;
   margin-top: 0.4em;
   margin-left: 3em;
+}
+
+.cta-btn, button{
+  font-size: 1.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border: 1px solid rgb(27,189,157);
+  color: white;
+}
+
+.cta-btn:hover{
+  background: rgb(0,168,134);
+  border: 1px solid rgb(0,168,134);
 }
 
 .inscription_container{
@@ -530,6 +298,10 @@ ul li{
 .blog-post-cntnr h2{
   padding-top: 1.5em;
   padding-bottom: 1em;
+}
+
+.blog-post-cntnr a{
+  color: rgb(28,157,213);
 }
 
 .blog-head-img{
@@ -726,7 +498,7 @@ ul li{
 }
 
 .title-cntnr{
-  margin-bottom: 1em;
+  margin-bottom: 3em;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -773,6 +545,48 @@ ul li{
 
 .basic-note{
   font-size: 1em !important;
+}
+
+button:hover .btn_arrow{
+  -webkit-transform: translate(0.3em,0);
+  -moz-transform: translate(0.3em,0);
+  -o-transform: translate(0.3em,0);
+  -ms-transform: translate(0.3em,0);
+}
+
+.btn_arrow{
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  width: 0.6em;
+  margin-left: 0.3em;
+  height: auto;
+}
+
+.btn_arrow:before{
+  position: absolute;
+  right: 1em;
+  padding: 0 1px;
+  font-family: FontAwesome;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.btn_arrow:hover:before, .btn_arrow:focus:before, .btn_arrow:active:before {
+  -webkit-transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 .normal_header ul li{
@@ -839,7 +653,7 @@ header .normal_header{
   background: #0fa4ef;
 }
 
-.plan-title, .plan-price, .plan-type{
+.plan-title, .plan-price, .plan-btn, .plan-type{
   color: white;
 }
 
@@ -867,6 +681,28 @@ header .normal_header{
   font-size: 0.9em;
 }
 
+.plan-btn{
+  margin-top: 3em;
+  background: #F9A121;
+  cursor: pointer;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  border-radius: 0.3em;
+  color: white;
+}
+
+.plan-btn:hover{
+  background: #E8900F;
+}
+
+.plan-btn-color1{
+  background: #06b597;
+}
+
+.plan-btn-color1:hover{
+  background: #16937e ;
+}
+
 .soon-banner{
   position: absolute;
   width: 17.35em;
@@ -874,6 +710,14 @@ header .normal_header{
   z-index: 100;
   margin-top: -4em;
   transform: rotate(18deg);
+}
+
+.plan-btn-color2:hover{
+  background: #2d6faa ;
+}
+
+.plan-btn-color2{
+  background: #1c83ea;
 }
 
 .colored-p-txt2, .colored-p-txt2 b{
@@ -902,6 +746,22 @@ header .normal_header{
   opacity: 1;
 }
 
+.left-cntnr{
+  float: left;
+  background: rgb(54,79,158);
+  width: 15em;
+  height: 103vh;
+  position: fixed;
+  margin-top: -0.2em;
+  padding-top: 0.5em;
+}
+
+.full-cntnr{
+  width: auto;
+  min-height: 100vh;
+  margin-left: 15em;
+}
+
 .logo-smll-cntr{
   width: 4em;
   margin-right: auto;
@@ -919,6 +779,18 @@ header .normal_header{
 .micro-arrow{
   width: 0.55em;
   margin-left: 0.3em;
+}
+
+.user-btn{
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.2em;
+}
+
+.user-btn:hover{
+  background: rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 
 .feedback{
@@ -974,6 +846,23 @@ header .normal_header{
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
+}
+
+.delete-btn-cntnr:hover{
+  color: white;
+  background: rgb(235,77,92);
+}
+
+.delete-btn-cntnr{
+  float: right;
+  color: rgb(235,77,92);
+  padding-left: 1.2em;
+  margin-top: -1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 0.3em;
 }
 
 .people-ask-img{
@@ -1039,6 +928,14 @@ header .normal_header{
 
 .form{
   display: none;
+}
+
+.hidden-btn{
+  border: none;
+  font-size: 0.8em;
+  background: white;
+  cursor: pointer;
+  margin-left: 2em;
 }
 
 .exit-img{
@@ -1118,7 +1015,7 @@ header .normal_header{
   border: none; 
   margin-top: -1em;
   margin-right: 13em;
-  left: 40%;
+  left: 43%;
 }
 
 .firstname{
@@ -1210,7 +1107,7 @@ header .normal_header{
   height: 4em;
 }
 
-.feat-img, .feat-img2{
+.feat-img{
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -1218,6 +1115,7 @@ header .normal_header{
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
+  background-image: url(images/to-do-list1.png);
   float: right;
   margin-top: -1.6em;
   width: 2em;
@@ -1225,37 +1123,22 @@ header .normal_header{
   display: inline-block;
 }
 
-.feat-img2{
-  float: left;
-}
-
-.feat-img{
-  background-image: url(images/to-do-list1.png);
-}
-
 .feat-img:hover{
   background-image: url(images/to-do-list2.png);
 }
+@import "compass/css3";
 
-.feat-img2{
-  background-image: url(images/home.png);
-}
-
-.feat-img2:hover{
-  background-image: url(images/home2.png);
-}
-
-.feat-img:hover span, .feat-img2:hover span{
+.feat-img:hover span{
   opacity: 1;
-  transition: opacity 0.5s 0.2s ease;  
+  transition: opacity 0.9s 0.4s ease;  
 }
 
-.feat-img span, .feat-img2 span{
+.feat-img span{
   opacity: 0;
   display: block;
   position: absolute;
   border-radius: 0.2em;
-  margin-top: 3.2em;
+  margin-top: 2.7em;
   color: white;
   background: #1C274C;
   text-align: center;
@@ -1266,11 +1149,7 @@ header .normal_header{
   padding-bottom: 0.6em;
   font-weight: lighter;
   font-size: 0.8em;
-  transition: opacity 0.3s 0.3s ease; /* Mouse enter: delay */
-}
-
-.feat-img2 span{
-  margin-left: -1.4em;
+  transition: opacity 0.3s 0.6s ease; /* Mouse enter: delay */
 }
 
 .feat1{
@@ -1462,52 +1341,34 @@ header .normal_header{
   background-image: url(images/arrow1.png);
 }
 
-.left-cntnr{
-  float: left;
-  background: rgb(54,79,158);
-  width: 15em;
-  height: 103vh;
-  position: fixed;
-  margin-top: -0.2em;
-  padding-top: 0.5em;
-}
-
-.full-cntnr{
-  width: auto;
-  margin-left: 15em;
-}
-
 .actions-cntnr{
   width: 100%;
   min-height: 100vh;
   background:rgb(249,249,249);
   margin-right: auto;
-  padding-top: 3.1em;
+  padding-top: 2.1em;
   border: 1px solid transparent;
   margin-left: auto;
   padding-bottom: 2em;
-  margin-left: 15em;
-  width: auto;
 }
 
-.tasks-cntnr{
-  text-align: justify;
-}
-
-.ttl-task{
-  font-size: 1.6em; 
-  font-family: "source_sans_prosemibold";
-  margin-right: 1em;
-}
-
-.action-cntnr, .tasks-cntnr{
+.action-cntnr{
   background: white; 
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
-  max-width: 55em;
-  padding: 3em;
+  width: 90%;
+  padding-top: 1em;
   margin-top: 1em;
+}
+
+.action-cntnr, .explaination-cntnr, .post-cntnr, .card-cntnr{
+  -moz-box-shadow: 0px 3px 1px #F2F2F2;
+  -webkit-box-shadow: 0px 3px 1px #F2F2F2;
+  -o-box-shadow: 0px 3px 1px #F2F2F2;
+  box-shadow: 0px 3px 1px #F2F2F2;
+  border: 1px solid rgb(230,230,230);
+  border-radius: 0.3em;
 }
 
 .see-u-img{
@@ -1601,6 +1462,22 @@ header .normal_header{
   width: 7em;
 }
 
+.blog-btn{
+  color: white !important;
+  border-radius: 0.3em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-right: 2em;
+  padding-left: 2em;
+  width: 13em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list-btn{
+  width: 10em;
+}
+
 .blog-img{
   width: 100%;
   margin-top: 1em;
@@ -1617,6 +1494,17 @@ header .normal_header{
   margin-top: -3em;
   margin-left: 2em;
   border-radius: 0.2em;
+}
+
+.social-btn{
+  border: 2px solid rgb(27,189,157);
+  border-radius: 0.3em;
+  color: rgb(27,189,157) !important;
+  width: 7em;
+  text-align: center;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  display: inline-block;
 }
 
 .social-share{
@@ -1656,49 +1544,10 @@ header .normal_header{
   margin-bottom: 1em;
 }
 
-.simple-form-cntnr{
-  border-radius: 0.3em;
-  border: 1px solid rgb(230,230,230);
-  background: rgba(0,167,157,0.1); 
-  padding: 0.5em;
-  display: none;
-  margin-bottom: 0.5em;
-}
 
-.simple-field, .simple-field2{
-  margin: 0;
-  border:none;
-  background: transparent;
-  border-bottom:1px solid rgb(230,230,230);
-  border-radius: 0em;
-  width: 94%;
-}
 
-.simple-field{
-  font-family: "source_sans_prosemibold";
-}
 
-.simple-field2{
-  font-size: 0.9em;
-  margin-bottom: 0.4em;
-}
 
-.simple-field:focus, .simple-field2:focus{
-  border:0px;
-  border-bottom:1px solid rgb(230,230,230);
-}
 
-.to-do-cards{
-  padding: 1em;
-  text-align: justify;
-  width:20em; 
-  display: inline-block;
-  vertical-align: top;
-  margin: 0.3em;
-}
-
-.to-do-cards h2{
-  font-size: 1.3em;
-}
 
 

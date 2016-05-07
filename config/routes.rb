@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 	end
 	resources :feedbacks, only: [:create, :index, :destroy]
 	resources :tasks
-	resources :to_do_lists
+	resources :to_do_lists do
+		resources :tasks
+	end
 	resource :user, only: [:edit] do
 		collection do
 			patch :set_names
@@ -29,7 +31,6 @@ Rails.application.routes.draw do
     end
     match '/blog', to: "blogs#index", via: [:get]
     match "/creer-votre-mot-de-passe", to: "devise/confirmations#show", :via => [:get]
-    match "/tarifs", to: "pages#pricing", :via => [:get, :post]
     match "/produits", to: "pages#products", :via => [:get, :post]
     match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]
     match "/parametres", to: "users#parameters", via: [:get, :post]
