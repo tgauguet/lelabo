@@ -1,8 +1,16 @@
 <div class="create-task">
-	<% @list.tasks.each do |task| %>
+	<% @tasklist.each do |task| %>
 		<p>
 			<%= task.name %>
 			<% unless task.id.nil? %>
+					<%= form_for @list, remote: true do |f| %>
+						<%= f.fields_for :tasks, task do |ff| %>
+							<%= ff.text_field :name %>
+							<%= ff.text_field :assigns_to, placeholder: "assignée à..." %>
+							<%= ff.text_field :due_date, placeholder: "Échéance" %>
+							<%= ff.submit "go" %>
+						<% end %>
+					<% end %>
 				<%= link_to "Supprimer", to_do_list_task_path(@list, task.id), method: :delete, remote: true %>
 			<% end %>
 		</p>
