@@ -1,3 +1,7 @@
 <div class="create-task">
-	<%= task.name %>
+	<% @list.tasks.each do |task| %>
+	<p>
+		<%= task.name %>
+	</p>
+	<% end %>
 </div>
