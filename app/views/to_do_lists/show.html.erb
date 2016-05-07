@@ -1,0 +1,22 @@
+<% title "#{@list.title} - #{@user.account_name}" %>
+<div class="actions-cntnr">
+	<div class="tasks-cntnr">
+		<p class="ghost-txt">Votre liste</p>
+		<span class="ttl-task"><%= @list.title %></span> <span class="task-count"><%= @list.tasks.count %></span><br/><br/>
+		<%= @list.description %><br/>
+		<%= render @list.tasks %>
+		<p class="btn inside-btn hide-btn">Nouvelle tâche</p>
+		<div class="simple-form-cntnr">
+			<%= form_for(@task, remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
+				<p><%= f.text_field :name, class: "basic-field simple-field", placeholder: "Ajouter une chose à faire" %></p>
+				<%= f.hidden_field :to_do_list_id, value: @list.id %>
+				<p><%= f.text_field :assigns_to, class: "basic-field simple-field2", placeholder: "Assignée à..." %></p>
+				<p><%= f.date_select :due_date, class: "basic-field simple-field2", placeholder: "Échéance..." %></p>
+				<%= f.submit "Ajouter la liste", class: "btn inside-btn" %>
+				<p class="cancel-btn">Annuler</p>			
+			<% end %>
+		</div><br/>
+		<div class="done-tasks">	
+		</div>
+	</div>
+</div>

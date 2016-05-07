@@ -1,0 +1,60 @@
+<div class="send-feedback">
+	<%= image_tag "people-can-ask.png", class: "people-ask-img" %>
+	<div class="ask">
+		<div class="box">
+			<%= image_tag "buble1.png", class: "buble1" %>
+			<p>Dites-nous ce que nous pourrions améliorer !</p>
+		</div>
+	</div>
+	<div class="form">
+		<%= form_for @feedback do |f| %>
+			<%= image_tag "buble2.png", class: "buble2" %>
+			<%= f.text_area :message, placeholder: "Je pense que...", class: "hidden-field" %>
+			<%= f.hidden_field :user_id, value: @user.id %>
+			<%= f.submit "Envoyer", class: "hidden-btn" %>
+		<% end %>
+	</div>
+</div>
+<div class="left-cntnr">
+	<div class="left-cases">
+		<div class="user-btn">
+			<h3><%= @user.account_name.downcase %><%= image_tag "arrows.png", class: "micro-arrow" %><%= image_tag "weather.png", class: "img-right" %></h3>
+			<p><%= @user.firstname.downcase %> <%= @user.name.downcase %></p>
+		</div>
+		<div class="arrow-container"><div class="arrow-up"></div></div>
+		<div class="user-paths">
+			<ul>
+				<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar.url(:small), class: "small-avatar" %><% end %><span class="firstname"><%= @user.firstname.downcase %></span><br/>
+				<% if @user.admin? %>
+					<%= link_to feedbacks_path do %><li>tous les feedbacks</li><% end %>
+				<% end %>
+				<%= link_to parametres_path do %><li>Paramètres</li><% end %>
+				<%= link_to modifier_votre_profil_path do %><li>Modifier mon profil</li><% end %>
+				<%= link_to subscriptions_path do %><li>Gérer mon abonnement</li><% end %>
+				<%= link_to root_path do %><li>Informations de paiement</li><% end %>
+				<%= link_to aide_path do %><li>Aide</li><% end %>
+				<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>Se déconnecter</li><% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="full-cntnr">
+	<div class="full-header"><br/>
+		<ul>
+			<%= link_to root_path do %>
+				<div class="feat-img2">
+					<li class="to-do">
+						<span><div class="arrow-container"><div class="arrow-up2"></div></div>Accueil</span>
+					</li>
+				</div>
+			<% end %>
+			<%= link_to new_to_do_list_path do %>
+				<div class="feat-img">
+					<li class="to-do">
+						<span><div class="arrow-container"><div class="arrow-up2"></div></div>To-do liste</span>
+					</li>
+				</div>
+			<% end %>
+		</ul>
+	</div>
+</div>

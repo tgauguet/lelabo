@@ -1,0 +1,12 @@
+<div id="list-list">
+	<% unless !@lists %>
+		<% @lists.each do |list| %>
+			<div class="to-do-cards">
+				<%= link_to list do %>
+					<h2><%= list.title %></h2>
+				<% end %>
+				<%= link_to "Supprimer", to_do_list_path(list), method: :delete, remote: true %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

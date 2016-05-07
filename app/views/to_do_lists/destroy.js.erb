@@ -1,0 +1,6 @@
+$("#list-list").html( "<%= escape_javascript(render 'to_do_lists/lists') %>")
+
+// on ajax delete lists action
+$(".delete-pls").bind("ajax:success", function(){
+	$(this).closest(".to-do-cards").fadeOut();
+});
