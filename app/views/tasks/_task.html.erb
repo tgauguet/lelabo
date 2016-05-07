@@ -1,7 +1,10 @@
 <div class="create-task">
 	<% @list.tasks.each do |task| %>
-	<p>
-		<%= task.name %>
-	</p>
+		<p>
+			<%= task.name %>
+			<% unless task.id.nil? %>
+				<%= link_to "Supprimer", to_do_list_task_path(@list, task.id), method: :delete, remote: true %>
+			<% end %>
+		</p>
 	<% end %>
 </div>
