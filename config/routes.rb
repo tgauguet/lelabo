@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 	  end
 	end
 	resources :feedbacks, only: [:create, :index, :destroy]
-	resources :tasks
 	resources :to_do_lists do
 		resources :tasks
 	end

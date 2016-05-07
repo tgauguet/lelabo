@@ -11,21 +11,14 @@ class TasksController < ApplicationController
 	end
 
 	def update
-		@task = @list.task.find(params[:id])
-		if @task.update(tasks_params)
-			redirect_to (:back)
-		else
-			redirect_to(:back)
-		end
+		@task = @list.tasks.find(params[:id])
+		@task.update(tasks_params)
+		redirect_to (:back)
 	end
 
 	def destroy
-		@task = @list.task.find(params[:id])
-		if @task.destroy
-			redirect_to(:back)
-		else
-			redirect_to(:back)
-		end
+		@task = @list.tasks.find(params[:id])
+		@task.destroy
 	end
 
 	private

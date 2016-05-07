@@ -2,13 +2,12 @@
 # encoding: utf-8
 
 class ToDoListsController < ApplicationController
-	before_action :set_user, only: [:new, :index, :destroy]
+	before_action :set_user, only: [:new, :index, :show, :destroy]
 	before_action :current_list, only: [:update, :show, :destroy]
 	before_action :set_lists, only: [:new, :destroy]
 
 	def show
 		@task = @list.tasks.new
-		@build = @list.tasks.build
 	end
 
 	def new
@@ -29,10 +28,6 @@ class ToDoListsController < ApplicationController
 
 	def destroy
 		@list.destroy
-		respond_to do |format|
-			format.html { redirect_to @todolist }
-			format.js { }
-		end
 	end
 
 	def set_user
