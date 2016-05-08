@@ -1,5 +1,0 @@
-// on ajax delete tasks action
-$(".create-task").html( "<%= escape_javascript(render 'tasks/task') %>")
-$(".create-task").bind("ajax:success", function(){
-	$(this).closest("p").hide();
-});

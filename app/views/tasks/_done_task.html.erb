@@ -1,6 +1,6 @@
-<div class="create-task">
-	<% @tasklist.each do |task| %>
-		<div class="inline_divs">
+<div class="create-task2">
+	<% @done.each do |task| %>
+		<div>
 			<% unless task.id.nil? || task.nil? %>
 				<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %> 
 					<input type="checkbox">

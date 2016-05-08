@@ -1701,4 +1701,15 @@ header .normal_header{
   font-size: 1.3em;
 }
 
+.inline_divs .taskname{
+  display: inline-block;
+}
+
+.edittask{
+  display: none;
+}
+
+.taskname{
+  cursor: pointer;
+}
 

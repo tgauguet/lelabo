@@ -8,7 +8,8 @@ class ToDoListsController < ApplicationController
 
 	def show
 		@task = @list.tasks.new
-		@tasklist = @list.tasks.all.order('created_at DESC')
+		@tasklist = @list.tasks.where(done: false).order('created_at DESC')
+		@done = @list.tasks.where(done: true).order('created_at DESC')
 	end
 
 	def new
@@ -26,12 +27,14 @@ class ToDoListsController < ApplicationController
 
 	def update
 		@list.update(list_params)
-		redirect_to @list
+		redirect_to to_do_list_path
 	end
 
 	def destroy
 		@list.destroy
 	end
+
+	private
 
 	def set_user
 		@user = current_user
@@ -44,8 +47,6 @@ class ToDoListsController < ApplicationController
 	def set_lists
 		@lists = @user.to_do_lists.all
 	end
-
-	private
 
 	def list_params
 		params.require(:to_do_list).permit(:id, :title, :description, :user_id, tasks_attributes: [:id, :name, :details, :done, :due_date, :assigns_to] )

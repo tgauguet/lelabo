@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 	end
 	resources :feedbacks, only: [:create, :index, :destroy]
 	resources :to_do_lists do
-		resources :tasks
+		resources :tasks do
+			member do
+				patch :done
+			end
+		end
 	end
 	resource :user, only: [:edit] do
 		collection do

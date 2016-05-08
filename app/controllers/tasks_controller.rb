@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
 	before_action :set_to_do_list
+	respond_to :html, :js
 
 	def create
 		@task = @list.tasks.new(tasks_params)
@@ -10,10 +11,20 @@ class TasksController < ApplicationController
 		end
 	end
 
+	def done
+		@task = @list.tasks.find(params[:id])
+		if !@task.done? 
+			@task.update_attributes(done: true)
+		else
+			@task.update_attributes(done: false)
+		end
+		@tasklist = @list.tasks.where(done: false).order('created_at DESC')
+		@done = @list.tasks.where(done: true).order('created_at DESC')
+	end
+
 	def update
 		@task = @list.tasks.find(params[:id])
 		@task.update(tasks_params)
-		redirect_to (:back)
 	end
 
 	def destroy
@@ -28,6 +39,6 @@ class TasksController < ApplicationController
 	end
 
 	def tasks_params
-		params.require(:task).permit(:name, :assigns_to, :due_date, :done, :details, :to_do_list_id)
+		params.require(:task).permit(:name, :assigns_to, :due_date, :done, :details, :to_do_list_id, :done)
 	end
 end
