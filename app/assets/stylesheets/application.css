@@ -1399,9 +1399,13 @@ header .normal_header{
   padding-bottom: 2em;
 }
 
-.post-index-img{
+.post-index-img, .post-index-img2{
   background: url(images/optimisez-vos-ventes-patisseries.png);
   height: 10em;
+}
+
+.post-index-img2{
+  background: url(images/patisserie-surgelees-ou-non.jpg);
 }
 
 .cover{
