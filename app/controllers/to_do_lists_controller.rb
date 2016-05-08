@@ -8,8 +8,8 @@ class ToDoListsController < ApplicationController
 
 	def show
 		@task = @list.tasks.new
-		@tasklist = @list.tasks.where(done: false).order('created_at DESC')
-		@done = @list.tasks.where(done: true).order('created_at DESC')
+		@tasklist = @list.tasks.where(done: false).order('created_at ASC')
+		@done = @list.tasks.where(done: true).order('created_at ASC')
 	end
 
 	def new
