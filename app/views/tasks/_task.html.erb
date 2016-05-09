@@ -10,7 +10,7 @@
 						<%= f.fields_for :tasks, task do |ff| %>
 							<%= ff.text_field :name, id: "task-name" %>
 							<%= ff.text_field :assigns_to, placeholder: "assignée à..." %>
-							<%= ff.text_field :due_date, placeholder: "Échéance" %>
+							<%= ff.text_field :due_date, placeholder: "Échéance", id: "datepicker" %>
 							<%= ff.submit "go" %>
 						<% end %>
 						</div>
@@ -21,3 +21,4 @@
 		</div>
 	<% end %>
 </div>
+
