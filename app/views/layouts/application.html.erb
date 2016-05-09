@@ -5,11 +5,8 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <%= display_meta_tags site: 'My website' %>
-<<<<<<< HEAD
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-=======
   <%= javascript_include_tag "application" %>
->>>>>>> add_to_do_lists_and_ajax
 	<script type="text/javascript">
 		$(function(){
 		  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
