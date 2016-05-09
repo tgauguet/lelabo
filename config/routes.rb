@@ -9,6 +9,13 @@ Rails.application.routes.draw do
 	  end
 	end
 	resources :feedbacks, only: [:create, :index, :destroy]
+	resources :to_do_lists do
+		resources :tasks do
+			member do
+				patch :done
+			end
+		end
+	end
 	resource :user, only: [:edit] do
 		collection do
 			patch :set_names
@@ -27,7 +34,6 @@ Rails.application.routes.draw do
     end
     match '/blog', to: "blogs#index", via: [:get]
     match "/creer-votre-mot-de-passe", to: "devise/confirmations#show", :via => [:get]
-    match "/tarifs", to: "pages#pricing", :via => [:get, :post]
     match "/produits", to: "pages#products", :via => [:get, :post]
     match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]
     match "/parametres", to: "users#parameters", via: [:get, :post]
@@ -36,6 +42,7 @@ Rails.application.routes.draw do
     match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]
     match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
     match "/blog/huit-outils-pour-accelerer-votre-business" => "blogs#article", via: [:get]
+    match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
 end

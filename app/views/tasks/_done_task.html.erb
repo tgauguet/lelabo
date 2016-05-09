@@ -1,0 +1,23 @@
+<div class="create-task2">
+	<% @done.each do |task| %>
+		<div>
+			<% unless task.id.nil? || task.nil? %>
+				<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %> 
+					<input type="checkbox">
+				<% end %>
+					<%= form_for @list, remote: true do |f| %>
+						<div class="edittask">
+						<%= f.fields_for :tasks, task do |ff| %>
+							<%= ff.text_field :name, id: "task-name" %>
+							<%= ff.text_field :assigns_to, placeholder: "assignée à..." %>
+							<%= ff.text_field :due_date, placeholder: "Échéance" %>
+							<%= ff.submit "go" %>
+						<% end %>
+						</div>
+						<div class="taskname"><%= task.name %></div>
+					<% end %>
+				<%= link_to "Supprimer", to_do_list_task_path(@list, task.id), method: :delete, remote: true, id: "delete-task" %>
+			<% end %>
+		</div>
+	<% end %>
+</div>

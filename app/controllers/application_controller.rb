@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_new_column_to_devise_permitted_parameters, if: :devise_controller?
   after_filter :store_location
+  before_action :set_feedbacks_and_user
+
+  def set_feedbacks_and_user
+    @feedback = Feedback.new
+    @user = current_user
+  end
 
   def set_newsletter
     @newsletter = Newsletter.new
