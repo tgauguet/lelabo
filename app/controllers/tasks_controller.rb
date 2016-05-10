@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 	before_action :set_to_do_list
 	respond_to :html, :js
+	skip_before_filter :verify_authenticity_token 
 
 	def create
 		@task = @list.tasks.new(tasks_params)

@@ -5,6 +5,7 @@ class ToDoListsController < ApplicationController
 	before_action :set_user, only: [:new, :index, :show, :destroy, :update]
 	before_action :current_list, only: [:update, :show, :destroy, :update]
 	before_action :set_lists, only: [:new, :destroy]
+	skip_before_filter :verify_authenticity_token 
 
 	def show
 		@task = @list.tasks.new

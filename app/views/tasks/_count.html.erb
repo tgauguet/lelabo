@@ -1,0 +1,11 @@
+<div class="count-tasks">
+	<span class="ttl-task"><%= @list.title %></span>
+	<span class="task-count">
+    <%= @list.done_count %> / <%= @list.total_tasks %>
+    <% if @list.all_done %>
+      <%= image_tag 'complete.png', class: "tasks-cmplt" %>
+    <% end %>
+  </span>
+  <div class="progressBar"></div>
+	<br/><br/>
+</div>
