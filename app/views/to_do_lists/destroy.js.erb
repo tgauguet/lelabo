@@ -1,4 +1,5 @@
 $("#list-list").html( "<%= escape_javascript(render 'to_do_lists/lists') %>")
+$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count') %>")
 
 // on ajax delete lists action
 $(".delete-pls").bind("ajax:success", function(){

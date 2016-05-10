@@ -1,2 +1,12 @@
 $(".create-task").html( "<%= escape_javascript(render 'tasks/task') %>")
 $(".create-task2").html( "<%= escape_javascript(render 'tasks/done_task') %>")
+$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count') %>")
+
+$(function($){
+  $(".progressBar").each(function(){
+    $(this).progressbar({
+      value: <%= @list.tasks.where(done: true).count %>,
+      max: <%= @list.tasks.count %>
+    });
+  });
+});

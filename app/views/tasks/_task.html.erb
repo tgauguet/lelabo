@@ -1,24 +1,27 @@
 <div class="create-task">
 	<% @tasklist.each do |task| %>
-		<div class="inline_divs">
+		<div class="class-helper inline_divs">
 			<% unless task.id.nil? || task.nil? %>
 				<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %> 
-					<input type="checkbox">
+					<div class="check-cntnr">
+						<input type="checkbox" class="check">
+						<div class="valt"> &nbsp;√</div><label class="box1"></label>
+					</div>
 				<% end %>
 					<%= form_for @list, remote: true do |f| %>
 						<div class="edittask">
-						<%= f.fields_for :tasks, task do |ff| %>
-							<%= ff.text_field :name, id: "task-name" %>
-							<%= ff.text_field :assigns_to, placeholder: "assignée à..." %>
-							<%= ff.text_field :due_date, placeholder: "Échéance", id: "datepicker" %>
-							<%= ff.submit "go" %>
+						<%= f.fields_for :tasks, task, remote: true do |ff| %>
+							<%= ff.text_field :name, class: "task-field", id: "task-name", onclick: "(this).select();" %><br/>
+							<%= ff.text_field :assigns_to, class: "task-field", placeholder: "assignée à...", onclick: "(this).select();" %><br/>
+							<%= ff.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="cancel-btn smll-txt smll-btn">Annuler</span>	
 						<% end %>
 						</div>
 						<div class="taskname"><%= task.name %></div>
 					<% end %>
-				<%= link_to "Supprimer", to_do_list_task_path(@list, task.id), method: :delete, remote: true, id: "delete-task" %>
+				<%= link_to to_do_list_task_path(@list, task.id), method: :delete, remote: true, id: "delete-task" do %>
+					<%= image_tag "delete-sml.png", class: "delete-tsk-btn" %>
+				<% end %>
 			<% end %>
 		</div>
 	<% end %>
 </div>
-

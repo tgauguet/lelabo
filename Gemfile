@@ -50,6 +50,10 @@ gem "jquery-rails"
 
 gem 'jquery-ui-rails'
 
+gem 'jquery-turbolinks'
+
+gem 'turbolinks'
+
 gem 'puma'
 
 gem 'therubyracer'

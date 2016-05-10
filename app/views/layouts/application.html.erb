@@ -6,21 +6,9 @@
   <%= csrf_meta_tags %>
   <%= display_meta_tags site: 'My website' %>
   <%= javascript_include_tag "application" %>
-	<script type="text/javascript">
-		$(function(){
-		  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
-		});
-	</script>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script src="https://cdn.optimizely.com/js/3692194676.js"></script>
   <script id="dsq-count-scr" src="//wwwlelaboondemandcom.disqus.com/count.js" async></script>
-  <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.6&appId=146907392362598";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
 <% if white_layouts %>
@@ -41,25 +29,5 @@
   <%= render "layouts/welcome_footer" %>
 <% end %>
 </body>
-<script>
-/**
-* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-
-s.src = '//wwwlelaboondemandcom.disqus.com/embed.js';
-
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </html> 

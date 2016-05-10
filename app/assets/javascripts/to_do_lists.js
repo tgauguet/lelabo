@@ -13,8 +13,10 @@ $(document).ready(function(){
 	// hide form unless the user click on the task, show form if click on other ".taskname"
 	$(document).on('click', ".taskname", function(){
 		$(".edittask").hide();
+		$(".class-helper").addClass("inline_divs");
 		$(".taskname").show();
 		$(this).closest(".taskname").hide();
+		$(this).closest(".inline_divs").removeClass("inline_divs");
 		$(this).parent().find('.edittask').show();
 		$(this).parent().find('.task-name').focus();
 	});
@@ -24,4 +26,3 @@ $(document).ready(function(){
 		$(this).parent().hide();
 	});
 });
-

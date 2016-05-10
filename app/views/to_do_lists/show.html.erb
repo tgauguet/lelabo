@@ -2,26 +2,33 @@
 <div class="actions-cntnr">
 	<div class="tasks-cntnr">
 		<p class="ghost-txt">Votre liste</p>
-		<span class="ttl-task"><%= @list.title %></span> <span class="task-count"><%= @list.tasks.count %></span><br/><br/>
+		<%= render "tasks/count" %>
 		<%= @list.description %><br/>
 		<div id="progressbar"></div>
-		<form method="post">
-Date:<input type="text" id="datepicker" name="datepicker" />
-</form>
 		<%= render "tasks/task" %>
-		<p class="btn inside-btn hide-btn">Nouvelle tâche</p>
+		<div class="done-tasks">	
+			<%= render "tasks/done_task" %>
+		</div>
+		<p class="btn inside-btn hide-btn">Nouvel élément</p>
 		<div class="simple-form-cntnr">
 			<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
 				<p><%= f.text_field :name, class: "basic-field simple-field", placeholder: "Ajouter une chose à faire" %></p>
 				<%= f.hidden_field :to_do_list_id, value: @list.id %>
 				<p><%= f.text_field :assigns_to, class: "basic-field simple-field2", placeholder: "Assignée à...", id: "datepicker" %></p>
-				<p><%= f.text_field :due_date, class: "basic-field simple-field2", placeholder: "Échéance..." %></p>
-				<%= f.submit "Ajouter la liste", class: "btn inside-btn" %>
+				<p><%= f.text_field :due_date, class: "basic-field simple-field2 datepicker", placeholder: "Échéance..." %></p>
+				<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
 				<p class="cancel-btn">Annuler</p>			
 			<% end %>
 		</div><br/>
-		<div class="done-tasks">	
-			<%= render "tasks/done_task" %>
-		</div>
 	</div>
 </div>
+<script>
+$(function($){
+  $(".progressBar").each(function(){
+    $(this).progressbar({
+      value: <%= @list.tasks.where(done: true).count %>,
+      max: <%= @list.tasks.count %>
+    });
+  });
+});
+</script>

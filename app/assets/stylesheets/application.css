@@ -58,7 +58,18 @@ p, h2, h3{
          url('sourcesanspro-black-webfont.svg#source_sans_problack') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'sabatica_regular';
+    src: url('Sabatica-regular.eot');
+    src: url('Sabatica-regular.eot?#iefix') format('embedded-opentype'),
+         url('Sabatica-regular.woff2') format('woff2'),
+         url('Sabatica-regular.woff') format('woff'),
+         url('Sabatica-regular.ttf') format('truetype'),
+         url('Sabatica-regular.svg#Sabatica-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
@@ -1714,11 +1725,136 @@ header .normal_header{
   display: inline-block;
 }
 
+.inline_divs{
+  border-radius: 0.4em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 0em;
+  margin-right: -0.5em;
+  margin-left: -0.5em;
+  cursor: pointer;
+}
+
+.inline_divs:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+.create-task .check{
+  position: absolute;
+}
+
 .edittask{
   display: none;
 }
 
+.taskname, .edittask{
+  margin-left: 1.9em;
+}
+
 .taskname{
   cursor: pointer;
+  width: 90%; 
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  cursor: pointer;
 }
+
+.progressBar{
+  width: 100%; 
+}
+
+.ui-progressbar{
+  border: none !important;
+  border-radius: 1em !important;
+  height: 0.5em !important;
+  background:#E6E6E6 !important;
+}
+
+.ui-progressbar-value{
+  background: #2EC46B !important;
+  border-right:none !important;
+}
+
+.tasks-cmplt{
+  width: 2.1em;
+  margin-right: -1em; 
+  margin-top: -1.3em;
+  float: right;
+}
+
+.delete-tsk-btn{
+  width: 1em; 
+  float: right;
+  margin-right: 0.2em;
+  opacity: 0.4;
+  margin-top: -1.4em;
+}
+
+.delete-tsk-btn:hover{
+  opacity: 0.8;
+}
+
+.inline_divs input[type="checkbox"]:not(:checked),.inline_divs input[type="checkbox"]:checked{
+  display: none;
+}
+
+.check-cntnr{
+  position: absolute;
+}
+
+.valt, .class-helper label{
+  position: absolute;
+  background: white;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  border-radius: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+  font-family: 'sabatica_regular';
+  font-size: 1em;
+  color:#A3A3A3;
+}
+
+.task-field{
+  background: transparent;
+  width: 80%;
+  font-size: 1em;
+  padding-top: 0.2em;
+  box-shadow:inset 0 0 3px 1px rgb(240,240,240);
+  border:1px solid rgb(230,230,230);
+  padding: 0.4em;
+  border-radius: 0.2em;
+}
+
+.class-helper label{
+  border-radius: 0.2em;
+  border: 1px solid #E3E3E3; 
+}
+
+.check-cntnr label:hover{
+  background: transparent;
+}
+
+.bckgrnd-trsp label{
+  background: transparent;
+}
+
+.smll-txt{
+  font-size: 0.9em;
+}
+
+.smll-btn{
+  width: 5em !important;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  text-align: center;
+}
+
+.finished-tsks{
+  text-decoration: line-through;
+  color: #A3A3A3;
+}
+
+
 
