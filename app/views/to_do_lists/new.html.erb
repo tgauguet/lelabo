@@ -3,7 +3,7 @@
 	<div class="action-cntnr">
 		<div class="title-cntnr">
 			<h1 class="lttl-intro-h1">To-do listes</h1>
-			<% unless !empty_list %>
+			<% if empty_list %>
 				<p>Les to-do listes vous aident à planifier vos journées</p><br/>
 				<p class="btn inside-btn" id="list-btn">Créer la première liste</p>
 				<div class="explaination-cntnr">
@@ -22,8 +22,8 @@
 		<div class="simple-form-cntnr">
 			<%= form_for @list do |f| %>
 				<%= f.hidden_field :user_id, value: @user.id %>
-				<%= f.text_field :title, placeholder: "Donner un nom à la liste...", required: true, class: "basic-field simple-field"  %><br/>
-				<%=	f.text_field :description, placeholder: "Ajouter une description à la liste...", class: "basic-field simple-field2" %>
+				<%= f.text_field :title, placeholder: "Donner un nom à la liste...", required: true, class: "basic-field task-field big-field"  %><br/>
+				<%=	f.text_field :description, placeholder: "Ajouter une description à la liste...", class: "basic-field task-field smll-txt" %>
 				<%= f.submit "Ajouter la liste", class: "btn inside-btn" %>
 				<p class="cancel-btn">Annuler</p>
 			<% end %>

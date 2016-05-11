@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
     @user = current_user
   end
 
+  def search_engine
+    @search = User.search do
+      fulltext params[:search]
+    end
+    @results = @search.results
+  end
+
   def set_newsletter
     @newsletter = Newsletter.new
   end

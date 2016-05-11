@@ -2,10 +2,16 @@
 	<% unless !@lists %>
 		<% @lists.each do |list| %>
 			<div class="to-do-cards">
+				<% if list.all_done %>
+				  <%= image_tag 'complete.jpg', class: "tasks-cmplt2" %>
+				<% end %>
 				<%= link_to list do %>
 					<h2><%= list.title %></h2>
 				<% end %>
-				<%= link_to "Supprimer", to_do_list_path(list), method: :delete, remote: true %>
+				<span class="task-count">
+				    &nbsp;<%= list.done_count %> / <%= list.total_tasks %>
+			 	</span><br/><br/>
+				&nbsp;<%= link_to "Supprimer", to_do_list_path(list), method: :delete, remote: true, class: "delte-list" %>
 			</div>
 		<% end %>
 	<% end %>

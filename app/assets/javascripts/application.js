@@ -24,14 +24,6 @@ $(function(){
       Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
 });
 
-$(document).ready(function($) {
-  $(".datepicker").each(function() {
-     $(this).datepicker({
-       autoclose: true
-     });
-  });
-});
-
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -56,6 +48,11 @@ $(document).ready(function(){
   $(".cancel-btn").click(function(){
     $(".simple-form-cntnr").hide();
     $(".explaination-cntnr").show();
+  });
+  $(".cancel-btn").click(function(){
+    $(".simple-form-cntnr").hide();
+    $(".explaination-cntnr").show();
+    $(".hide-btn").show();
   });
 });
 

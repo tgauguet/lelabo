@@ -35,6 +35,10 @@ FONTS ---- DESIGN
   color: rgb(28,157,213);
 }
 
+.search-field:focus{
+  border: 1px solid rgb(28,157,213);
+}
+
 p, h2, h3{
   margin: 0.2em;
   color: rgb(43,54,69);
@@ -299,6 +303,7 @@ BUTTONS -- DESIGN
   background:#808285;
   border-bottom: 2px solid #58595B;
   width: 5em;
+  text-align: center;
 }
 
 .cta-btn, button{
@@ -1226,7 +1231,7 @@ header .normal_header{
   height: 4em;
 }
 
-.feat-img, .feat-img2{
+.feat-img, .feat-img2, .feat-img3, .feat-img4{
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -1235,13 +1240,38 @@ header .normal_header{
   background-size: cover;
   text-align: center;
   float: right;
-  margin-top: -1.6em;
-  width: 2em;
-  height: 2em;
+  margin-top: -1.5em;
+  width: 1.8em;
+  margin-left: 0.6em;
+  margin-right:0.6em; 
+  height: 1.8em;
   display: inline-block;
 }
 
-.feat-img2{
+.search-bar{
+  float: right;
+  margin-top: -1.2em;
+}
+
+.search-field{
+  font-size: 1em;
+  margin-top: -1.8em;
+  padding-right: 0.5em;
+  padding-left: 2em;
+  padding-top: 0.3em;
+  border-radius: 1em;
+  padding-bottom: 0.3em;
+  border:1px solid rgb(230,230,230);
+}
+
+.search-btn{
+  width: 1em;
+  margin-top: 0.1em;
+  position: absolute;
+  margin-left: 0.8em;
+}
+
+.feat-img2, .feat-img3, .feat-img4{
   float: left;
 }
 
@@ -1261,12 +1291,28 @@ header .normal_header{
   background-image: url(images/home2.png);
 }
 
-.feat-img:hover span, .feat-img2:hover span{
+.feat-img3{
+  background-image: url(images/add-circular-outlined-button.png);
+}
+
+.feat-img3:hover{
+  background-image: url(images/add-circular-outlined-button-2.png);
+}
+
+.feat-img4{
+  background-image: url(images/cloud.png);
+}
+
+.feat-img4:hover{
+  background-image: url(images/cloud-2.png);
+}
+
+.feat-img:hover span, .feat-img2:hover span, .feat-img3:hover span, .feat-img4:hover span{
   opacity: 1;
   transition: opacity 0.5s 0.2s ease;  
 }
 
-.feat-img span, .feat-img2 span{
+.feat-img span, .feat-img2 span, .feat-img3 span, .feat-img4 span{
   opacity: 0;
   display: block;
   position: absolute;
@@ -1287,6 +1333,14 @@ header .normal_header{
 
 .feat-img2 span{
   margin-left: -1.4em;
+}
+
+.feat-img3 span{
+  margin-left: -3em;
+}
+
+.feat-img4 span{
+  margin-left: -3.3em;
 }
 
 .feat1{
@@ -1678,8 +1732,6 @@ header .normal_header{
 
 .simple-form-cntnr{
   border-radius: 0.3em;
-  border: 1px solid rgb(230,230,230);
-  background: rgba(0,167,157,0.1); 
   padding: 0.5em;
   display: none;
   margin-bottom: 0.5em;
@@ -1698,12 +1750,7 @@ header .normal_header{
   font-family: "source_sans_prosemibold";
 }
 
-.simple-field2{
-  font-size: 0.9em;
-  margin-bottom: 0.4em;
-}
-
-.simple-field:focus, .simple-field2:focus{
+.simple-field:focus{
   border:0px;
   border-bottom:1px solid rgb(230,230,230);
 }
@@ -1711,10 +1758,12 @@ header .normal_header{
 .to-do-cards{
   padding: 1em;
   text-align: justify;
-  width:20em; 
+  width:18em; 
+  height: 6em;
   display: inline-block;
   vertical-align: top;
   margin: 0.3em;
+  overflow: hidden;
 }
 
 .to-do-cards h2{
@@ -1729,7 +1778,7 @@ header .normal_header{
   border-radius: 0.4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  margin: 0em;
+  margin: 0.3em;
   margin-right: -0.5em;
   margin-left: -0.5em;
   cursor: pointer;
@@ -1775,11 +1824,16 @@ header .normal_header{
   border-right:none !important;
 }
 
-.tasks-cmplt{
-  width: 2.1em;
+.tasks-cmplt, .tasks-cmplt2{
+  width: 3.6em;
   margin-right: -1em; 
-  margin-top: -1.3em;
+  margin-top: -3.3em;
   float: right;
+}
+
+.tasks-cmplt2{
+  margin-top: -1em;
+  margin-right: -1.5em;
 }
 
 .delete-tsk-btn{
@@ -1794,7 +1848,7 @@ header .normal_header{
   opacity: 0.8;
 }
 
-.inline_divs input[type="checkbox"]:not(:checked),.inline_divs input[type="checkbox"]:checked{
+.bckgrnd-trsp input[type="checkbox"],.inline_divs input[type="checkbox"]{
   display: none;
 }
 
@@ -1855,6 +1909,77 @@ header .normal_header{
   text-decoration: line-through;
   color: #A3A3A3;
 }
+
+.due-mnth, .day-name-cntnr, .mnth-name-cntnr{
+  position: absolute;
+}
+
+.due-mnth{
+  width: 3em;
+  height: 1em;
+  font-size: 0.6em;
+  border-top-right-radius: 0.2em;
+  border-top-left-radius: 0.2em;
+  text-align: center;
+  background: rgb(55,176,234);
+}
+
+.mnth-name-cntnr{
+  margin-top: -0.2em;
+  margin-left: -0.8em;
+  color: white;
+}
+
+.day-name-cntnr{
+  margin-top: 0.6em;
+  margin-left: -0.48em;
+}
+
+.due-day{
+  border: 1px solid rgb(55,176,234);
+  padding-right: 1.05em;
+  padding-bottom: 0.3em;
+  padding-left: 1.05em;
+  margin-top: 0.5em !important;
+  border-radius: 0.2em;
+  font-size: 0.8em;
+}
+
+.due-cntnr{
+  margin-left: 1em;
+}
+
+.done-tasks{
+  margin-bottom: 1em;
+}
+
+.element-btn{
+  cursor: pointer;
+}
+
+.big-field{
+  font-size: 1.2em;
+}
+
+.arrow-img{
+  width: 1em;
+  margin-left: 1em;
+  position: absolute;
+}
+
+.assigned{
+  margin-left: 2.3em;
+}
+
+.delte-list{
+  font-size: 0.9em;
+}
+
+.delte-list:hover{
+  color:rgb(209,72,65);
+}
+
+
 
 
 

@@ -11,6 +11,10 @@ gem 'pg', '~> 0.15'
 
 gem 'sass-rails', '~> 5.0'
 
+gem 'sunspot_rails'
+
+gem 'sunspot_solr' 
+
 gem "gibbon"
 
 gem 'uglifier', '>= 1.3.0'
@@ -79,9 +83,4 @@ group :development do
   gem 'spring'
 end
 
-group :assets do 
-
-  gem 'jquery-ui-rails'
-
-end
 

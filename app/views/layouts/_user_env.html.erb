@@ -49,12 +49,32 @@
 				</div>
 			<% end %>
 			<%= link_to new_to_do_list_path do %>
+				<div class="feat-img4">
+					<li class="to-do">
+						<span><div class="arrow-container"><div class="arrow-up2"></div></div>Toutes les recettes</span>
+					</li>
+				</div>
+			<% end %>
+			<%= link_to new_to_do_list_path do %>
+				<div class="feat-img3">
+					<li class="to-do">
+						<span><div class="arrow-container"><div class="arrow-up2"></div></div>Nouvelle recette</span>
+					</li>
+				</div>
+			<% end %>
+			<%= link_to new_to_do_list_path do %>
 				<div class="feat-img">
 					<li class="to-do">
 						<span><div class="arrow-container"><div class="arrow-up2"></div></div>To-do liste</span>
 					</li>
 				</div>
 			<% end %>
+			<div class="search-bar">
+				<%= form_for users_path do |f| %>
+					<%= image_tag "search-btn.png", class: "search-btn" %>
+					<%= f.text_field :search, class: "search-field" %>
+				<% end %>
+			</div>
 		</ul>
 	</div>
 </div>
