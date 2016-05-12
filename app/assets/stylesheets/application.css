@@ -1231,7 +1231,7 @@ header .normal_header{
   height: 4em;
 }
 
-.feat-img, .feat-img2, .feat-img3, .feat-img4{
+.feat-img, .feat-img2, .feat-img3, .feat-img4, .feat-img5{
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -1271,7 +1271,7 @@ header .normal_header{
   margin-left: 0.8em;
 }
 
-.feat-img2, .feat-img3, .feat-img4{
+.feat-img2, .feat-img3, .feat-img4, .feat-img5{
   float: left;
 }
 
@@ -1307,12 +1307,20 @@ header .normal_header{
   background-image: url(images/cloud-2.png);
 }
 
-.feat-img:hover span, .feat-img2:hover span, .feat-img3:hover span, .feat-img4:hover span{
+.feat-img5{
+  background-image: url(images/ming-circular-dots-lines-logo-2.png);
+}
+
+.feat-img5:hover{
+  background-image: url(images/ming-circular-dots-lines-logo.png);
+}
+
+.feat-img:hover span, .feat-img2:hover span, .feat-img3:hover span, .feat-img4:hover span, .feat-img5:hover span{
   opacity: 1;
   transition: opacity 0.5s 0.2s ease;  
 }
 
-.feat-img span, .feat-img2 span, .feat-img3 span, .feat-img4 span{
+.feat-img span, .feat-img2 span, .feat-img3 span, .feat-img4 span, .feat-img5 span{
   opacity: 0;
   display: block;
   position: absolute;
@@ -1335,7 +1343,7 @@ header .normal_header{
   margin-left: -1.4em;
 }
 
-.feat-img3 span{
+.feat-img3 span, .feat-img5 span{
   margin-left: -3em;
 }
 

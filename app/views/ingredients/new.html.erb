@@ -1,0 +1,33 @@
+
+<% title "Vos to-do listes" %>
+<div class="actions-cntnr">
+	<div class="action-cntnr">
+		<div class="title-cntnr">
+			<h1 class="lttl-intro-h1">Ingrédients</h1>
+			<h2>Nouvel ingrédient</h2>
+			<%= form_for @ingredient do |f| %>
+				<%= f.text_field :name, placeholder: "Nom de l'ingrédient..", class: "basic-field" %>
+				<%= f.text_field :price, placeholder: "Prix d'achat..", class: "basic-field" %>€/
+				<%= f.select :unit, ["Kg", "Litre", "Unité"] %>
+				<%= f.submit "Enregistrer" %>
+			<% end %><br/>
+			<h2>Tous les ingrédients</h2>
+			<p>Classer par : "Nom", "Type", "Croissant", "Décroissant"</p>
+			<% unless @ingredients.nil? %>
+				<% @ingredients.each do |ingredient| %>
+				<div>
+					<%= ingredient.name %>
+					<%= number_to_currency ingredient.price %>/<%= ingredient.unit %>
+					<%= link_to "Supprimer", ingredient_path(ingredient.id),  method: :delete %>
+					<%= form_for ingredient, action: :edit do |f| %>
+						<%= f.text_field :name, class: "basic-field" %>
+						<%= f.text_field :price, class: "basic-field" %>€/
+						<%= f.select :unit, ["Kilo", "Litre", "Unité"] %>
+						<%= f.submit "Modifier" %>
+					<% end %>
+ 				</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

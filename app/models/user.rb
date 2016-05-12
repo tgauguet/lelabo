@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
     has_many :feedbacks, dependent: :destroy
     has_many :to_do_lists, dependent: :destroy
+    has_many :ingredients, dependent: :destroy
     has_one :subscription, dependent: :destroy
     validates :account_name, uniqueness: true, presence: true, on: :set_names
     has_attached_file :avatar, {

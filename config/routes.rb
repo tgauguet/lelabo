@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	  end
 	end
 	resources :feedbacks, only: [:create, :index, :destroy]
+	# add tasks path to to_do_lists
 	resources :to_do_lists do
 		resources :tasks do
 			member do
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 			end
 		end
 	end
+	# create each registration steps
 	resource :user, only: [:edit] do
 		collection do
 			patch :set_names
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
 	end
 	resources :subscriptions, only: [:new, :create, :index, :update, :edit]
 	resources :users
+	resources :ingredients
 	resources :contacts, only: [:new,:create]
 	devise_scope :user do
       put "/confirm" => "confirmations#confirm"
