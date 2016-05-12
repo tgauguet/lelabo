@@ -21,10 +21,10 @@ class User < ActiveRecord::Base
                                 }
     validates_attachment_content_type :avatar, 
                                     :content_type => /^image\/(png|gif|jpeg)/
-    searchable do 
-        text :account_name
-        text :email
-    end
+    #searchable do 
+    #    text :account_name
+    #    text :email
+   # end
 
     def password_required?
         super if confirmed?
