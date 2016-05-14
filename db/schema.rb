@@ -74,10 +74,9 @@ ActiveRecord::Schema.define(version: 20160512052011) do
     t.string   "assigns_to"
     t.text     "details"
     t.integer  "to_do_list_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.boolean  "done",           default: false
-    t.integer  "to_do_lists_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "done",          default: false
   end
 
   create_table "to_do_lists", force: :cascade do |t|
@@ -118,7 +117,6 @@ ActiveRecord::Schema.define(version: 20160512052011) do
     t.string   "company_image"
     t.string   "profile_image"
     t.string   "country"
-    t.boolean  "is_female"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
