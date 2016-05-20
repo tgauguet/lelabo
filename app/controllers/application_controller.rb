@@ -50,17 +50,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation,:current_password, :date_of_birth, :pseudo, :firstname, :job, :status, :country, :city, :account_name) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation,:current_password, :date_of_birth, :pseudo, :firstname, :job, :status, :country, :city, :account_name) }
   end
 
   def configure_new_column_to_devise_permitted_parameters
       registration_params = [:name, :firstname, :email, :account_name, :password, :password_confirmation, :oauthdelivered]
       if params[:action] == 'create'
-          devise_parameter_sanitizer.permit(:sign_up) {
+          devise_parameter_sanitizer.for(:sign_up) {
               |u| u.permit(registration_params)
           }
           elsif params[:action] == 'update'
-          devise_parameter_sanitizer.permit(:account_update) {
+          devise_parameter_sanitizer.for(:account_update) {
               |u| u.permit(registration_params << :current_password)
           }
       end

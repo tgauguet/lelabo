@@ -33,7 +33,7 @@ gem 'rails_12factor'
 
 gem 'meta-tags'
 
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 
 gem 'factory_girl_rails'
 
