@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]
     match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
     match "/blog/huit-outils-pour-accelerer-votre-business" => "blogs#article", via: [:get]
+    match "/blog/dix-patissiers-francais-stars-de-instagram" => "blogs#instagramstar", via: [:get]
     match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
