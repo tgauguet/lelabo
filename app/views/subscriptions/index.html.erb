@@ -11,7 +11,7 @@
 				<p class="plan-price">
 					<span>
 						<b><% if !plan.price[0,1].nil? %><%= plan.price[0,1] %><% end %></b>
-						<% if !plan.price[2,3].nil? %>,<%= plan.price[1,3] %><% end %>€
+						<% if !plan.price[1,3].nil? %>,<%= plan.price[1,3] %><% end %>€
 					</span>
 				</p>
 				<p class="plan-type">par mois<br/></p>
