@@ -1,35 +1,46 @@
 <div class="create-task">
-	<% @tasklist.each do |task| %>
-		<div class="class-helper inline_divs">
-			<% unless task.id.nil? || task.nil? %>
-				<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %> 
-					<div class="check-cntnr">
-						<input type="checkbox" class="check">
-						<div class="valt"> &nbsp;√</div><label class="box1"></label>
-					</div>
-				<% end %>
-					<%= form_for @list, remote: true do |f| %>
-						<div class="edittask">
-						<%= f.fields_for :tasks, task, remote: true do |ff| %>
-							<%= ff.text_field :name, class: "task-field", id: "task-name", onclick: "(this).select();" %><br/>
-							<%= ff.text_field :assigns_to, class: "task-field smll-txt", placeholder: "assignée à...", onclick: "(this).select();" %><br/>
-							<%= ff.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>	
+	<!-- Index each task that will be done -->
+	<ul>
+		<li id="sortable">
+			<% @tasklist.each do |task| %>
+				<div class="class-helper inline_divs" data-id="<%= task.id %>" >
+					<% unless task.id.nil? || task.nil? %>
+						<!-- checkbox to mark tasks done -->
+						<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %> 
+							<div class="check-cntnr">
+								<input type="checkbox" class="check">
+								<div class="valt"> &nbsp;√</div><label class="box1"></label>
+							</div>
 						<% end %>
-						</div>
-						<div class="taskname">
-							<%= task.name %>
-							<% unless task.no_date %>
-								<span class="due-cntnr"><span class="due-mnth"><span class="mnth-name-cntnr"><%= task.month %></span></span><span class="due-day"><span class="day-name-cntnr"><%= task.day %></span></span></span>
-							<% end %>
-							<% unless task.not_assigned %>
-								<%= image_tag "right-arrow.png", class: "arrow-img" %><span class="assigned"><%= task.assigns_to %></span>
-							<% end %>
-						</div>
+						<!-- form for edit tasks -->
+						<%= form_for @list, remote: true do |f| %>
+							<div class="edittask">
+								<%= f.fields_for :tasks, task, remote: true do |ff| %>
+									<%= ff.text_field :name, class: "task-field", id: "task-name", onclick: "(this)select();" %><br/>
+									<%= ff.text_field :assigns_to, class: "task-field smll-txt", placeholder: "assignée à...", onclick: "(this).select();" %><br/>
+									<%= ff.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
+								<% end %>
+							</div>
+							<div class="taskname">
+								<%= task.name %>
+								<% unless task.no_date %>
+									<span class="due-cntnr"><span class="due-mnth"><span class="mnth-name-cntnr"><%= task.month %></span></span><span class="due-day"><span class="day-name-cntnr"><%= task.day %></span></span></span>
+								<% end %>
+								<% unless task.not_assigned %>
+									<%= image_tag "right-arrow.png", class: "arrow-img" %><span class="assigned"><%= task. assigns_to %></span>
+								<% end %>
+							</div>
+						<% end %>
+						<!-- link to delete task -->
+						<%= link_to to_do_list_task_path(@list, task.id), method: :delete, remote: true, id: "delete-task" do %>
+							<%= image_tag "delete-sml.png", class: "delete-tsk-btn" %>
+						<% end %>
 					<% end %>
-				<%= link_to to_do_list_task_path(@list, task.id), method: :delete, remote: true, id: "delete-task" do %>
-					<%= image_tag "delete-sml.png", class: "delete-tsk-btn" %>
-				<% end %>
+				</div>
 			<% end %>
-		</div>
-	<% end %>
+		</li>
+	</ul>
 </div>
+
+
+

@@ -26,11 +26,13 @@ class TasksController < ApplicationController
 	def update
 		@task = @list.tasks.find(params[:id])
 		@task.update(tasks_params)
+		render :nothing => true
 	end
 
 	def destroy
 		@task = @list.tasks.find(params[:id])
 		@task.destroy
+		redirect_to root_path
 	end
 
 	private
@@ -40,6 +42,6 @@ class TasksController < ApplicationController
 	end
 
 	def tasks_params
-		params.require(:task).permit(:name, :assigns_to, :due_date, :done, :details, :to_do_list_id, :done)
+		params.require(:task).permit(:name, :assigns_to, :due_date, :done, :details, :to_do_list_id, :done, :position)
 	end
 end

@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :ingredient do
-    price "MyString"
-    name "MyString"
-    quantity "MyString"
+    price "10,00"
+    name "Farine"
+    quantity "0.3"
     recipe_id 1
-    unit "MyString"
+    unit "Kilos"
   end
 end

@@ -12,6 +12,9 @@ class IngredientsController < ApplicationController
 		@ingredient = @user.ingredients.new
 	end
 
+	def index
+	end
+
 	def create
 		@ingredient = @user.ingredients.new(ingredients_params)
 		@ingredient.save

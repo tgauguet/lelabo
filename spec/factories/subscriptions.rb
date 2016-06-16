@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :subscription do
-    user ""
-    plan ""
-    stripe_id "MyString"
+    user "Roger"
+    plan "Basic"
+    stripe_id "hu332ly"
   end
 end

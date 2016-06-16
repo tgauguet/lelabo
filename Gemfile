@@ -19,6 +19,8 @@ gem "gibbon"
 
 gem 'uglifier', '>= 1.3.0'
 
+gem "acts_as_list"
+
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'aws-sdk', '< 2.0'
@@ -35,11 +37,7 @@ gem 'meta-tags'
 
 gem 'devise', '~> 3.4.1'
 
-gem 'factory_girl_rails'
-
 gem 'rails_serve_static_assets'
-
-gem 'capybara'
 
 gem 'kaminari'
 
@@ -70,6 +68,10 @@ group :development, :test do
   gem 'stripe-ruby-mock'
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'cucumber'
+  gem 'shoulda-matchers'
+  gem 'capybara'
   gem 'rails_best_practices'
   gem 'brakeman'
   gem 'quiet_assets'

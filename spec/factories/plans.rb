@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :plan do
-    stripe_id "MyString"
-    name "MyString"
-    description "MyText"
+    stripe_id "2"
+    name "Basic Plan"
+    description "ceci est un plan vraiment basique"
     amount 1
-    interval "MyString"
-    published false
+    interval "month"
+    published true
   end
 end

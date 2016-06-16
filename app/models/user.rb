@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     #searchable do 
     #    text :account_name
     #    text :email
-   # end
+    #end
 
     def password_required?
         super if confirmed?

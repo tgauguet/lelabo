@@ -5,12 +5,15 @@
 		<%= render "tasks/count" %>
 		<i class="grey-txt"><%= @list.description %></i><br/><br/>
 		<div id="progressbar"></div>
+		<!-- Index each tasks that isn't yet done -->
 		<%= render "tasks/task" %>
-		<div class="done-tasks">	
+		<div class="done-tasks">
+			<!-- Index each done tasks -->
 			<%= render "tasks/done_task" %>
 		</div>
 		<p class="element-btn">Ajouter un élément...</p>
 		<div class="simple-form-cntnr">
+			<!-- Form for create new task -->
 			<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
 				<p><%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Ajouter une chose à faire" %></p>
 				<%= f.hidden_field :to_do_list_id, value: @list.id %>

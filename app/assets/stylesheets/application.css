@@ -1996,6 +1996,9 @@ header .normal_header{
   color:rgb(209,72,65);
 }
 
+.create-task ul{
+  padding: 0;
+}
 
 
 

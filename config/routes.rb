@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 			end
 		end
 	end
-	# create each registration steps
+	# create routes for each registration steps
 	resource :user, only: [:edit] do
 		collection do
 			patch :set_names
@@ -29,6 +29,12 @@ Rails.application.routes.draw do
 	end
 	resources :subscriptions, only: [:new, :create, :index, :update, :edit]
 	resources :users
+	#create route for jquery sortable
+	resources :to_do_lists, only: [:show] do
+		collection do
+			put "/sort/:id" => "to_do_lists#sort"
+		end
+	end
 	resources :ingredients
 	resources :contacts, only: [:new,:create]
 	devise_scope :user do

@@ -9,13 +9,22 @@ class ToDoListsController < ApplicationController
 
 	def show
 		@task = @list.tasks.new
-		@tasklist = @list.tasks.where(done: false).order('created_at ASC')
-		@done = @list.tasks.where(done: true).order('created_at ASC')
+		@tasklist = @list.tasks.where(done: false).order('position ASC')
+		@done = @list.tasks.where(done: true).order('position ASC')
 	end
 
 	def new
 		@list = @user.to_do_lists.new
 	end 
+
+	def sort
+		# adjust the position of each task with jquery sortable
+		# inspired by tutorial : http://josephndungu.com/tutorials/ajax-sortable-lists-rails-4
+		params[:order].each do |key, value|
+			Task.find(value[:id]).update_attribute(:priority, value[:position])
+		end
+		render :nothing => true
+	end
 
 	def create
 		@list = @user.to_do_lists.new(list_params)
@@ -33,6 +42,7 @@ class ToDoListsController < ApplicationController
 
 	def destroy
 		@list.destroy
+		render :nothing => true
 	end
 
 	private

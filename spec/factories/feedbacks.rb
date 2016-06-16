@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :feedback do
-    message "MyText"
+    message "C'est cool mais ça pourrait etre encore mieux ;)"
   end
 end
