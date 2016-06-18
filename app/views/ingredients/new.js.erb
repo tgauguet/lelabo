@@ -1,0 +1,4 @@
+$(".ing-cntnr").html("<%= escape_javascript(render 'ingredients/ingredients')%>")
+
+// clear form fields when a task is created
+$('#clear_form').find("input[type=text], text").val("")

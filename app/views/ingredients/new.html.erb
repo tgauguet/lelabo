@@ -4,30 +4,37 @@
 	<div class="action-cntnr">
 		<div class="title-cntnr">
 			<h1 class="lttl-intro-h1">Ingrédients</h1>
-			<h2>Nouvel ingrédient</h2>
-			<%= form_for @ingredient do |f| %>
-				<%= f.text_field :name, placeholder: "Nom de l'ingrédient..", class: "basic-field" %>
-				<%= f.text_field :price, placeholder: "Prix d'achat..", class: "basic-field" %>€/
-				<%= f.select :unit, ["Kg", "Litre", "Unité"] %>
-				<%= f.submit "Enregistrer" %>
-			<% end %><br/>
-			<h2>Tous les ingrédients</h2>
-			<p>Classer par : "Nom", "Type", "Croissant", "Décroissant"</p>
-			<% unless @ingredients.nil? %>
-				<% @ingredients.each do |ingredient| %>
-				<div>
-					<%= ingredient.name %>
-					<%= number_to_currency ingredient.price %>/<%= ingredient.unit %>
-					<%= link_to "Supprimer", ingredient_path(ingredient.id),  method: :delete %>
-					<%= form_for ingredient, action: :edit do |f| %>
-						<%= f.text_field :name, class: "basic-field" %>
-						<%= f.text_field :price, class: "basic-field" %>€/
-						<%= f.select :unit, ["Kilo", "Litre", "Unité"] %>
-						<%= f.submit "Modifier" %>
+			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
+			<div class="ingredient-form">
+			<%= form_for @ingredient, remote: true, html: { data_type: "html", id: "clear_form"} do |f| %>
+				<%= f.text_field :name, placeholder: "Nom de l'ingrédient..", class: "basic-field task-field big-field" %>
+				<%= f.text_field :price, placeholder: "Prix d'achat..", class: "basic-field task-field smll-txt" %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
+				<div class="select-areas">
+					<p>Unité de mesure</p>
+					<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field", include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+				</div>
+				<div class="select-areas">
+				<p>Catégorie</p>
+					<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
+						<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
 					<% end %>
- 				</div>
-				<% end %>
-			<% end %>
+				</div><br/><br/>
+				<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
+				<p class="cancel-btn">Annuler</p>	
+			<% end %><br/>
+			</div>
+			<h3>Tous les ingrédients</h3><br/>
+			<%= render "ingredients/ingredients" %>
 		</div>
 	</div>
 </div>
+<script>
+	$(".ingredient-btn").click(function(){
+		$(".ingredient-btn").hide();
+		$(".ingredient-form").show();
+	});
+	$(".cancel-btn").click(function(){
+		$(".ingredient-form").hide();
+		$(".ingredient-btn").show();
+	});
+</script>

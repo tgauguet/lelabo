@@ -13,7 +13,7 @@
 		</div>
 		<p class="element-btn">Ajouter un élément...</p>
 		<div class="simple-form-cntnr">
-			<!-- Form for create new task -->
+			<!-- Form to create new tasks -->
 			<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
 				<p><%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Ajouter une chose à faire" %></p>
 				<%= f.hidden_field :to_do_list_id, value: @list.id %>

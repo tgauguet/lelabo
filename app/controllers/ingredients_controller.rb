@@ -37,11 +37,11 @@ class IngredientsController < ApplicationController
 	end
 
 	def set_ingredients
-		@ingredients = @user.ingredients.all
+		@ingredients = @user.ingredients.all.order("created_at DESC")
 	end
 
 	def ingredients_params
-		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id, :price)
+		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id, :price, ingredient_category_attributes: [:name] )
 	end
 
 end

@@ -1,0 +1,35 @@
+		<div class="ing-cntnr">
+			<% unless @ingredients.nil? %>
+				<% @ingredients.each do |ingredient| %>
+				<div class="class-helper inline_divs">
+					<% unless ingredient.ingredient_category.nil? %>
+						<div class="circle <%= category_color(ingredient) %>"></div>
+					<% end %>
+					<div class="taskname">
+						<span class="ing-name"><%= ingredient.name %></span>
+						<span class="ing-price"><%= number_to_currency ingredient.price %></span><span class="ing-unit"><%= ingredient.unit %></span>
+						<%= link_to ingredient_path(ingredient.id), method: :delete, remote: true, id: "delete-task" do %>
+							<%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
+						<% end %>
+					</div>
+					<div class="edittask">
+						<%= form_for ingredient, action: :edit do |f| %>
+							<%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Nom de l'ingrédient.." %>
+							<%= f.text_field :price, class: "basic-field task-field smll-txt", placeholder: "Prix de l'ingrédient.." %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
+							<div class="select-areas">
+					<p>Unité de mesure</p>
+						<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field", include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+					</div>
+					<div class="select-areas">
+					<p>Catégorie</p>
+						<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
+							<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+						<% end %>
+					</div>	<br/><br/>						
+					<%= f.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
+						<% end %>
+					</div>
+ 				</div>
+				<% end %>
+			<% end %>
+		</div>

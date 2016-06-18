@@ -1,0 +1,25 @@
+module IngredientsHelper
+
+	def category_color(ingredient)
+		i = ingredient.ingredient_category.name
+		if i == "chocolats"
+			"brown-cat"
+		elsif i == "divers"
+			"grey-cat"
+		elsif i == "céréales"
+			"orange-cat"
+		elsif i == "sucres"
+			"white-cat"
+		elsif i == "produits laitiers"
+			"blue-cat"
+		elsif i == "fruits"
+			"red-cat"
+		elsif i == "décors"
+			"pink-cat"
+		elsif i == "emballages"
+			"green-cat"
+		else
+		end	
+	end
+
+end

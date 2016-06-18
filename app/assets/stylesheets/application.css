@@ -39,6 +39,11 @@ FONTS ---- DESIGN
   border: 1px solid rgb(28,157,213);
 }
 
+.ingredient-btn:hover{
+  color: rgb(0,119,169);
+  text-decoration: underline;
+}
+
 p, h2, h3{
   margin: 0.2em;
   color: rgb(43,54,69);
@@ -487,7 +492,7 @@ ul li{
   margin-top: 1.4em;
 }
 
-.basic-field, .select-field{
+.basic-field{
   border-radius: 0.3em;
   border: none;
   background: white; 
@@ -736,13 +741,29 @@ ul li{
   position: relative;
 }
 
+.euro-img, .select-arrow-img{
+  height: 1em;
+  position: absolute;
+  margin-top: 0.6em;
+  margin-left: -1.5em;
+}
+
+.select-arrow-img{
+  height: 0.7em;
+  margin-top: 0.8em;
+}
+
+.edit-ing-form{
+  display: none;
+}
+
 .steps-cntnr h1{
   font-family: 'source_sans_proextralight';
   font-size: 2.8em;
   margin-top: -0.1em;
 }
 
-.steps-cntnr p, .title-cntnr p, .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
+.steps-cntnr p, .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
   font-size: 1.2em;
   text-align: justify;
   font-family: 'source_sans_prolight';
@@ -753,9 +774,25 @@ ul li{
   margin-bottom: 1em;
   margin-left: 10%;
   margin-right: 10%;
+  text-align: left;
 }
 
-.title-cntnr p, .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
+.ingredient-btn {
+  font-size: 1em !important;
+  font-family: 'source_sans_proregular' !important;
+  border:1px solid rgb(230,230,230);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  border-radius: 0.3em;
+  width: 8.7em;
+  margin-top: 1em;
+  cursor: pointer;
+  border-bottom:2px solid rgb(230,230,230);
+}
+
+.sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
   text-align: center;
   margin-top: 0.2em;
 }
@@ -1912,7 +1949,10 @@ a .tools-cntnr:hover{
   color:#A3A3A3;
 }
 
-.task-field{
+.task-field, .title-cntnr select{
+  -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
   background: transparent;
   width: 80%;
   font-size: 1em;
@@ -2024,6 +2064,96 @@ a .tools-cntnr:hover{
 .create-task ul{
   padding: 0;
 }
+
+.header-icn{
+  height: 2em;
+  margin-top: -0.2em;
+}
+
+.ingredient-form{
+  display: none;
+}
+
+.circle{
+  position: absolute;
+  padding: 0.3em;
+  width: 0.3em;
+  border-radius: 0.3em;
+  margin-left: 0.2em;
+  margin-top: 0.7em;
+}
+
+.orange-cat{
+  background: rgb(252,161,38);
+}
+
+.grey-cat{
+  background: rgb(210,214,217);
+}
+
+.brown-cat{
+  background: rgb(158,99,63);
+}
+
+.white-cat{
+  background: rgb(85,172,211);
+}
+
+.pink-cat{
+  background: rgb(148,102,185);
+}
+
+.yellow-cat{
+  background: rgb(250,198,29);
+}
+
+.green-cat{
+  background: rgb(98,190,110);
+}
+
+.red-cat{
+  background: rgb(209,72,65);
+}
+
+.blue-cat{
+  background: rgb(44,131,201);
+}
+
+.select-areas{
+  display: inline-block;
+  vertical-align: top;
+  width: 12em;
+}
+
+.delete-down{
+  margin-top: 0.1em;
+}
+
+.ing-name, .ing-price, .ing-unit{
+  float: left;
+  width: 4em;
+}
+
+.ing-price{
+  text-align: right;
+  padding-right: 1em;
+}
+
+.ing-name{
+  min-width: 15em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
