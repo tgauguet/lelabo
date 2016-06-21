@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require turbolinks
 //= require welcome
+//= require ingredients
 //= require subscriptions
 //= require to_do_lists
 //= require_tree .

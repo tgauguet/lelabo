@@ -11,6 +11,7 @@
     <div class="card-steps-cntnr">
       <h3><%= image_tag "checked.png", class: "checked-img" %>Etape 1 : Sélectionnez votre offre</h3>
       <p>Votre sélection : FORMULE <%= @plan.name %></p>
+      <i>Facturé annuellement</i>
       <% if entreprise_plan(@plan) %>
         <p>Tarif : <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€/an</p><br/><br/>
       <% elsif pro_plan(@plan) %>
@@ -29,8 +30,8 @@
         <input type="hidden" name="plan_id" value="<%= @plan.id %>" />
         <%= text_field_tag :card_number, nil, name: nil ,placeholder: 'Numéro de carte', class: "basic-field cc-number", :required => true, id: "cc-number", data: { stripe: "number"}  %><br/>
         <p>Date d'expiration</p>
-        <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %><%= image_tag "arrow-select.png", class: "select-img" %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+12}, {name: nil, id: "card_year",placeholder: 'Enter search term...', class: "select-field",  :required => true, :data => {:stripe => 'exp-year' }} %><%= image_tag "arrow-select.png", class: "select-img" %><br/>
+        <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field2",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %><%= image_tag "arrow-select.png", class: "select-img" %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+12}, {name: nil, id: "card_year",placeholder: 'Enter search term...', class: "select-field2",  :required => true, :data => {:stripe => 'exp-year' }} %><%= image_tag "arrow-select.png", class: "select-img" %><br/>
         <p>CVC <i class="grey-txt">(3 chiffres au dos de votre carte)</i></p>
         <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field" , :required => true, data: { stripe: "cvc" } %>
         <br/>

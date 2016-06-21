@@ -770,10 +770,14 @@ ul li{
   font-weight: bold;
 }
 
-.title-cntnr{
+.title-cntnr, .title-cntnr2{
   margin-bottom: 1em;
   margin-left: 10%;
   margin-right: 10%;
+  text-align: center;
+}
+
+.title-cntnr2{
   text-align: left;
 }
 
@@ -1724,7 +1728,7 @@ a .tools-cntnr:hover{
   color: rgb(170,170,170);
 }
 
-.select-field{
+.select-field, .select-field2{
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1732,6 +1736,15 @@ a .tools-cntnr:hover{
   appearance: none;
   cursor: pointer;
   padding-right: 2em;
+}
+
+.select-field2{
+  border:1px solid rgb(230,230,230);
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  padding-right: 3em;
+  padding-left: 1em;
+  font-size: 1.1em; 
 }
 
 .blog-cta{

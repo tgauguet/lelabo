@@ -1,4 +1,6 @@
-		<div class="ing-cntnr">
+<div class="ing-cntnr">
+	<ul>
+		<li id="sortable">
 			<% unless @ingredients.nil? %>
 				<% @ingredients.each do |ingredient| %>
 				<div class="class-helper inline_divs">
@@ -32,4 +34,6 @@
  				</div>
 				<% end %>
 			<% end %>
-		</div>
+		</li>
+	</ul>
+</div>

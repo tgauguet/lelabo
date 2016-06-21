@@ -19,8 +19,8 @@ class TasksController < ApplicationController
 		else
 			@task.update_attributes(done: false)
 		end
-		@tasklist = @list.tasks.where(done: false).order('created_at ASC')
-		@done = @list.tasks.where(done: true).order('created_at ASC')
+		@tasklist = @list.tasks.where(done: false).order('position ASC')
+		@done = @list.tasks.where(done: true).order('position ASC')
 	end
 
 	def update
