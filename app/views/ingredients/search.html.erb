@@ -1,0 +1,16 @@
+<% title "Vos to-do listes" %>
+<div class="actions-cntnr">
+	<div class="action-cntnr">
+		<div class="title-cntnr2">
+			<h1 class="lttl-intro-h1">Ingrédients</h1>
+			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
+			<div class="ingredient-form">
+			<% unless @results.blank? %>
+				<%= @results.each do |result| %>
+					<%= result.name %>
+				<% end %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

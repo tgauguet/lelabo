@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 	  end
 	end
 	resources :feedbacks, only: [:create, :index, :destroy]
+	### Note on "member do" and "collection do"
+	### member acts like a member, it requires an ID
+	### while collection don't require any ID
 	# add tasks path to to_do_lists
 	resources :to_do_lists do
 		resources :tasks do
@@ -33,6 +36,12 @@ Rails.application.routes.draw do
 	resources :to_do_lists, only: [:show] do
 		collection do
 			put "/sort/:id" => "to_do_lists#sort"
+		end
+	end
+	resources :ingredients do
+		collection do
+			put "/sort/:id" => "ingredients#sort"
+			get :search 
 		end
 	end
 	resources :ingredients

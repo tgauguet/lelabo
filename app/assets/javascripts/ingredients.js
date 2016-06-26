@@ -11,13 +11,13 @@ set_positions = function(){
 ready = function(){
 	//call set_positions function
 	set_positions();
-	$( "#sortable" ).sortable({
+	$( "#sortable1" ).sortable({
     	axis: "y", 
     	opacity: 0.8
 	});
 
 	//after the order change
-	$("#sortable").sortable().bind('sortupdate', function(e, ui) {
+	$("#sortable1").sortable().bind('sortupdate', function(e, ui) {
 		//array to store new order
 		updated_order = []
 		//set the updated positions
@@ -29,7 +29,7 @@ ready = function(){
 		//send the updated order via ajax
 		$.ajax({
 			type: "PUT",
-			url: '/to_do_lists/sort/:id',
+			url: '/ingredients/sort/:id',
 			data: { order: updated_order }
 		});
 	});
@@ -40,6 +40,7 @@ $(document).ready(ready);
  * if using turbolinks
  */
 $(document).on('page:load', ready);
+$(document).on('page:change', ready);
 
 $(document).ready(function(){
   $(".inside-btn").click(function(){

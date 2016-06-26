@@ -9,8 +9,8 @@ class ToDoListsController < ApplicationController
 
 	def show
 		@task = @list.tasks.new
-		@tasklist = @list.tasks.where(done: false).order('position ASC')
-		@done = @list.tasks.where(done: true).order('position ASC')
+		@tasklist = @list.tasks.where(done: false).order('priority ASC')
+		@done = @list.tasks.where(done: true).order('priority ASC')
 	end
 
 	def new

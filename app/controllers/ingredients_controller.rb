@@ -12,7 +12,25 @@ class IngredientsController < ApplicationController
 		@ingredient = @user.ingredients.new
 	end
 
-	def index
+	def search
+		@ingredient = @user.ingredients.new
+		@search = Ingredient.search do
+			fulltext params[:search]
+		end
+		@results = @search.results
+		respond_to do |format|
+			format.html { render :new }
+			format.xml { render xml: @results }
+		end
+	end
+
+	def sort
+		# adjust the position of each task with jquery sortable
+		# inspired by tutorial : http://josephndungu.com/tutorials/ajax-sortable-lists-rails-4
+		params[:order].each do |key, value|
+			Ingredient.find(value[:id]).update_attribute(:priority, value[:position])
+		end
+		render :nothing => true
 	end
 
 	def create
@@ -37,7 +55,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def set_ingredients
-		@ingredients = @user.ingredients.all.order("created_at DESC")
+		@ingredients = @user.ingredients.all.order("priority DESC")
 	end
 
 	def ingredients_params

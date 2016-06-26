@@ -492,7 +492,7 @@ ul li{
   margin-top: 1.4em;
 }
 
-.basic-field{
+.basic-field, .select-areas select{
   border-radius: 0.3em;
   border: none;
   background: white; 
@@ -502,6 +502,10 @@ ul li{
   padding-right: 1em;
   font-size: 1.2em;
   border: 1px solid rgb(230,230,230);
+}
+
+.select-areas select{
+  font-size: 1em;
 }
 
 .full-witdth{
@@ -1200,6 +1204,7 @@ header .normal_header{
   height:3.3em;
   padding-right: 1.5em;
   background: white;
+  z-index: 1000;
   position: fixed;
   right: 0;
   left: 15em;
@@ -1728,7 +1733,7 @@ a .tools-cntnr:hover{
   color: rgb(170,170,170);
 }
 
-.select-field, .select-field2{
+.select-areas select, .card-steps-cntnr select{
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1745,6 +1750,10 @@ a .tools-cntnr:hover{
   padding-right: 3em;
   padding-left: 1em;
   font-size: 1.1em; 
+}
+
+.test{
+  background: red;
 }
 
 .blog-cta{
@@ -2155,10 +2164,6 @@ a .tools-cntnr:hover{
 .ing-name{
   min-width: 15em;
 }
-
-
-
-
 
 
 

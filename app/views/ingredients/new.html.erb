@@ -16,7 +16,7 @@
 				<div class="select-areas">
 				<p>Catégorie</p>
 					<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
-						<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+						<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], class: "select-field basic-field", include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
 					<% end %>
 				</div><br/><br/>
 				<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
@@ -24,6 +24,8 @@
 			<% end %><br/>
 			</div>
 			<h3>Tous les ingrédients</h3><br/>
+
+			<p>Résultats de la recherche</p>
 			<%= render "ingredients/ingredients" %>
 		</div>
 	</div>

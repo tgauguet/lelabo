@@ -30,8 +30,8 @@
         <input type="hidden" name="plan_id" value="<%= @plan.id %>" />
         <%= text_field_tag :card_number, nil, name: nil ,placeholder: 'Numéro de carte', class: "basic-field cc-number", :required => true, id: "cc-number", data: { stripe: "number"}  %><br/>
         <p>Date d'expiration</p>
-        <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field2",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %><%= image_tag "arrow-select.png", class: "select-img" %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+12}, {name: nil, id: "card_year",placeholder: 'Enter search term...', class: "select-field2",  :required => true, :data => {:stripe => 'exp-year' }} %><%= image_tag "arrow-select.png", class: "select-img" %><br/>
+        <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field basic-field",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %><%= image_tag "arrow-select.png", class: "select-img" %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+12}, {name: nil, id: "card_year",placeholder: 'Enter search term...', class: "select-field basic-field",  :required => true, :data => {:stripe => 'exp-year' }} %><%= image_tag "arrow-select.png", class: "select-img" %><br/>
         <p>CVC <i class="grey-txt">(3 chiffres au dos de votre carte)</i></p>
         <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field" , :required => true, data: { stripe: "cvc" } %>
         <br/>
