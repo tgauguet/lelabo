@@ -1,7 +1,7 @@
 module IngredientsHelper
 
 	def category_color(ingredient)
-		i = ingredient.ingredient_category.name
+		i = ingredient.category
 		if i == "chocolats"
 			"brown-cat"
 		elsif i == "divers"

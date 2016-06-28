@@ -4,7 +4,7 @@
 			<% unless @ingredients.nil? %>
 				<% @ingredients.each do |ingredient| %>
 				<div class="class-helper inline_divs"  data-id="<%= ingredient.id %>">
-					<% unless ingredient.ingredient_category.nil? %>
+					<% unless ingredient.category.nil? %>
 						<div class="circle <%= category_color(ingredient) %>"></div>
 					<% end %>
 					<div class="taskname">
@@ -28,9 +28,7 @@
 					</div>
 					<div class="select-areas">
 					<p>Catégorie</p>
-						<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
-							<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], selected: f.object.ingredient_category.name, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
-						<% end %>
+						<%= f.select :category, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], selected: f.object.category, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
 					</div>	<br/><br/>						
 					<%= f.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
 						<% end %>
