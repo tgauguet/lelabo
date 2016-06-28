@@ -37,14 +37,6 @@ RSpec.describe IngredientsController, type: :controller do
 		end
 	end
 
-	#validates ingredients index
-	describe "#index" do
-		it "must index ingredients" do
-			get :index
-			expect(response).to render_template(:index)
-		end
-	end
-
 	#validates delete ingredients
 	describe "#destroy" do
 		before(:each) do

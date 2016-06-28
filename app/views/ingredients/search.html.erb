@@ -3,13 +3,14 @@
 	<div class="action-cntnr">
 		<div class="title-cntnr2">
 			<h1 class="lttl-intro-h1">Ingrédients</h1>
-			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
-			<div class="ingredient-form">
-			<% unless @results.blank? %>
-				<%= @results.each do |result| %>
-					<%= result.name %>
+			<%= link_to new_ingredient_path do %><p class="ingredient-btn">Retour à l'index</p><% end %><br/>
+			<div class="ingredient-for"><br/>
+				<h3>Résultats de la recherche</h3>
+				<% if @results.blank? %>
+					<p>Aucun ingrédient ne correspond à votre recherche.</p>
+				<% else %>
+					<%= render "ingredients/ingredients_result" %>
 				<% end %>
-			<% end %>
 			</div>
 		</div>
 	</div>

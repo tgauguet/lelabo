@@ -8,7 +8,7 @@
 						<div class="circle <%= category_color(ingredient) %>"></div>
 					<% end %>
 					<div class="taskname">
-						<span class="ing-name"><%= ingredient.name %></span>
+						<span class="ing-name"><%= ingredient.name.humanize %></span>
 						<span class="ing-price">
 							<% unless price_is_nil(ingredient) %>
 								<%= number_to_currency ingredient.price %></span><span class="ing-unit"><%= ingredient.unit %>

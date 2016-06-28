@@ -22,6 +22,10 @@ module IngredientsHelper
 		end	
 	end
 
+	def order_by_cat
+		
+	end
+
 	def price_is_nil(ingredient)
 		ingredient.price == "" || ingredient.price.nil?
 	end

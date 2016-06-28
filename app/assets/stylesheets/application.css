@@ -39,7 +39,7 @@ FONTS ---- DESIGN
   border: 1px solid rgb(28,157,213);
 }
 
-.ingredient-btn:hover{
+.ingredient-btn:hover, .search-go:hover{
   color: rgb(0,119,169);
   text-decoration: underline;
 }
@@ -1315,9 +1315,20 @@ header .normal_header{
 
 .search-btn{
   width: 1em;
-  margin-top: 0.1em;
+  margin-top: 0.6em;
   position: absolute;
   margin-left: 0.8em;
+}
+
+.search-go{
+  border: 1px solid rgb(230,230,230);
+  padding: 0.3em;
+  padding-left: 0.9em;
+  padding-right: 0.9em;
+  font-size: 1em;
+  border-radius: 1em;
+  background: white;
+  cursor: pointer;
 }
 
 .feat-img2, .feat-img3, .feat-img4, .feat-img5{

@@ -1,5 +1,4 @@
 class IngredientsController < ApplicationController
-	before_action :set_ingredients, only: [:new]
 	before_action :set_user
 	before_action :set_ingredient, only: [:update, :destroy]
 
@@ -10,16 +9,18 @@ class IngredientsController < ApplicationController
 
 	def new
 		@ingredient = @user.ingredients.new
+		@ingredients = @user.ingredients.all.order("name ASC")
 	end
 
 	def search
 		@ingredient = @user.ingredients.new
+		@ingredients = @user.ingredients.all.order("name ASC")
 		@search = Ingredient.search do
 			fulltext params[:search]
 		end
 		@results = @search.results
 		respond_to do |format|
-			format.html { render :new }
+			format.html { render :search }
 			format.xml { render xml: @results }
 		end
 	end
@@ -54,12 +55,8 @@ class IngredientsController < ApplicationController
 		@current_ingredient = Ingredient.find(params[:id])
 	end
 
-	def set_ingredients
-		@ingredients = @user.ingredients.all.order("priority DESC")
-	end
-
 	def ingredients_params
-		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id, :price, ingredient_category_attributes: [:name] )
+		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id, :priority, :price, ingredient_category_attributes: [:name] )
 	end
 
 end

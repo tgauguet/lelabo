@@ -6,6 +6,7 @@ require Rails.root.join("spec/support/controller_macros.rb")
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'capybara/rails'
+require 'sunspot/rails/spec_helper'
 require 'rspec/rails'
 require "devise"
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -61,6 +62,14 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.before(:each) do
+    ::Sunspot.session = ::Sunspot::Rails::StubSessionProxy.new(::Sunspot.session)
+  end
+
+  config.after(:each) do
+    ::Sunspot.session = ::Sunspot.session.original_session
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests

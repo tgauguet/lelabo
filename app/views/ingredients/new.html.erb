@@ -3,12 +3,18 @@
 <div class="actions-cntnr">
 	<div class="action-cntnr">
 		<div class="title-cntnr2">
-			<h1 class="lttl-intro-h1">Ingrédients</h1>
+			<h1 class="lttl-intro-h1">Ingrédients</h1><br/><br/>
+			<%= form_tag search_ingredients_path, method: :get do %>
+				<%= image_tag "search-btn.png", class: "search-btn" %>
+				<%= text_field_tag :search, "", class: "search-field", placeholder: "rechercher..." %>
+				<%= submit_tag "go", class: "search-go" %>
+			<% end %><br/>
 			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
 			<div class="ingredient-form">
 			<%= form_for @ingredient, remote: true, html: { data_type: "html", id: "clear_form"} do |f| %>
 				<%= f.text_field :name, placeholder: "Nom de l'ingrédient..", class: "basic-field task-field big-field" %>
 				<%= f.text_field :price, placeholder: "Prix d'achat..", class: "basic-field task-field smll-txt" %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
+				<%= f.hidden_field :priority, value: "1" %>
 				<div class="select-areas">
 					<p>Unité de mesure</p>
 					<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field", include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
@@ -24,8 +30,6 @@
 			<% end %><br/>
 			</div>
 			<h3>Tous les ingrédients</h3><br/>
-
-			<p>Résultats de la recherche</p>
 			<%= render "ingredients/ingredients" %>
 		</div>
 	</div>

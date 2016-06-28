@@ -1,0 +1,42 @@
+<div class="ing-cntnr">
+	<ul>
+		<li id="sortable1">
+				<% @results.each do |ingredient| %>
+				<div class="class-helper inline_divs"  data-id="<%= ingredient.id %>">
+					<% unless ingredient.ingredient_category.nil? %>
+						<div class="circle <%= category_color(ingredient) %>"></div>
+					<% end %>
+					<div class="taskname">
+						<span class="ing-name"><%= ingredient.name %></span>
+						<span class="ing-price">
+							<% unless price_is_nil(ingredient) %>
+								<%= number_to_currency ingredient.price %></span><span class="ing-unit"><%= ingredient.unit %>
+							<% end %>
+						</span>
+						<%= link_to ingredient_path(ingredient.id), method: :delete, remote: true, id: "delete-task" do %>
+							<%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
+						<% end %>
+					</div>
+					<div class="edittask">
+						<%= form_for ingredient, action: :edit, remote: true do |f| %>
+							<%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Nom de l'ingrédient.." %>
+							<%= f.text_field :price, class: "basic-field task-field smll-txt", placeholder: "Prix de l'ingrédient..", include_blank: true %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
+							<%= f.hidden_field :priority, value: "1" %>
+					<div class="select-areas">
+					<p>Unité de mesure</p>
+						<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field", selected: f.object.unit, include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+					</div>
+					<div class="select-areas">
+					<p>Catégorie</p>
+						<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
+							<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], selected: f.object.ingredient_category.name, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+						<% end %>
+					</div>	<br/><br/>						
+					<%= f.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
+						<% end %>
+					</div>
+ 				</div>
+				<% end %>
+		</li>
+	</ul>
+</div>
