@@ -12,18 +12,27 @@ class IngredientsController < ApplicationController
 		@ingredients = @user.ingredients.all.order("name ASC")
 	end
 
-	def search
-		@ingredient = @user.ingredients.new
-		@ingredients = @user.ingredients.all.order("name ASC")
-		@search = Ingredient.search do
-			fulltext params[:search]
-		end
-		@results = @search.results
-		respond_to do |format|
-			format.html { render :search }
-			format.xml { render xml: @results }
-		end
-	end
+	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
+	
+	#this code took place in ingredients/new.html.erb
+	#<%= form_tag search_ingredients_path, method: :get do %>
+	#		<%= image_tag "search-btn.png", class: "search-btn" %>
+	#		<%= text_field_tag :search, "", class: "search-field", placeholder: "rechercher..." %>
+	#		<%= submit_tag "go", class: "search-go" %>
+	#<% end %><br/>
+
+	#def search
+	#	@ingredient = @user.ingredients.new
+	#	@ingredients = @user.ingredients.all.order("name ASC")
+	#	@search = Ingredient.search do
+	#		fulltext params[:search]
+	#	end
+	#	@results = @search.results
+	#	respond_to do |format|
+	#		format.html { render :search }
+	#		format.xml { render xml: @results }
+	#	end
+	#end
 
 	def sort
 		# adjust the position of each task with jquery sortable

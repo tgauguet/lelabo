@@ -4,11 +4,7 @@
 	<div class="action-cntnr">
 		<div class="title-cntnr2">
 			<h1 class="lttl-intro-h1">Ingrédients</h1><br/><br/>
-			<%= form_tag search_ingredients_path, method: :get do %>
-				<%= image_tag "search-btn.png", class: "search-btn" %>
-				<%= text_field_tag :search, "", class: "search-field", placeholder: "rechercher..." %>
-				<%= submit_tag "go", class: "search-go" %>
-			<% end %><br/>
+			<!-- PUT HERE THE HTML CODE FOR SUNSPOT SOLR -->
 			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
 			<div class="ingredient-form">
 			<%= form_for @ingredient, remote: true, html: { data_type: "html", id: "clear_form"} do |f| %>
