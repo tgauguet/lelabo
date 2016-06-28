@@ -100,30 +100,30 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 										{ name: "Pistaches entières",price:"13.45" , unit: "Kg", category: "divers" },
 										{ name: "Noix de cajou",price:"11.17" , unit: "Kg", category: "divers" },
 										{ name: "Noix",price:"10.67" , unit: "Kg", category: "divers" },
-										{ name: "Noix de pécan",price:"9.80" , unit: "Kg", category: "divers" } },
-										{ name: "Noix du Brésil",price:"10.90" , unit: "Kg", category: "divers" } },
+										{ name: "Noix de pécan",price:"9.80" , unit: "Kg", category: "divers" },
+										{ name: "Noix du Brésil",price:"10.90" , unit: "Kg", category: "divers" },
 										{ name: "Cacahuètes",price:"7.33" , unit: "Kg", category: "divers" },
 										{ name: "Praliné noisettes 40/60",price:"16.63" , unit: "Kg", category: "divers" },
 										{ name: "Praliné amandes 40/60",price:"15.46" , unit: "Kg", category: "divers" },
 										{ name: "Praliné amandes et noisettes 50/50",price:"16.12" , unit: "Kg", category: "divers" },
 										{ name: "Alcool de poire",price:"14.50" , unit: "Litre", category: "divers" },
 										{ name: "Cointreau",price:"17.90" , unit: "Litre", category: "divers" },
-										{ name: "Cognac 40°",price:"27.12" , unit: "Litre", :category "divers" },
-										{ name: "Gingembre confit",price:"11.16" , unit: "Kg", :category "divers" },
-										{ name: "Gingembre en poudre",price:"10.90" , unit: "Kg", :category "divers" },
-										{ name: "Gomme arabyque",price:"35.08" , unit: "Kg", :category "divers" },
-										{ name: "Gélatine en poudre",price:"24.99" , unit: "Kg", :category "divers" },
-										{ name: "Lait de coco",price:"4.50" , unit: "Litre", :category "divers" },
-										{ name: "Pectine jaune",price:"37.80" , unit: "Kg", :category "divers" },
-										{ name: "Poudre à crème",price:"4.45" , unit: "Kg", :category "divers" },
-										{ name: "Sorbitol",price:"8.67" , unit: "Kg", :category "divers" },
-										{ name: "Thé Earl Grey",price:"32.50" , unit: "Kg", :category "divers" },
-										{ name: "Acide citrique",price:"8.10" , unit: "Kg", :category "divers" },
-										{ name: "Acide tartrique",price:"26.90" , unit: "Kg", :category "divers" },
-										{ name: "Crème de tartre",price:"23.35" , unit: "Kg", :category "divers" },
-										{ name: "Glaçage miroir",price:"8.77" , unit: "Kg", :category "divers" }])
+										{ name: "Cognac 40°",price:"27.12" , unit: "Litre", category: "divers" },
+										{ name: "Gingembre confit",price:"11.16" , unit: "Kg", category: "divers" },
+										{ name: "Gingembre en poudre",price:"10.90" , unit: "Kg", category: "divers" },
+										{ name: "Gomme arabyque",price:"35.08" , unit: "Kg", category: "divers" },
+										{ name: "Gélatine en poudre",price:"24.99" , unit: "Kg", category: "divers" },
+										{ name: "Lait de coco",price:"4.50" , unit: "Litre", category: "divers" },
+										{ name: "Pectine jaune",price:"37.80" , unit: "Kg", category: "divers" },
+										{ name: "Poudre à crème",price:"4.45" , unit: "Kg", category: "divers" },
+										{ name: "Sorbitol",price:"8.67" , unit: "Kg", category: "divers" },
+										{ name: "Thé Earl Grey",price:"32.50" , unit: "Kg", category: "divers" },
+										{ name: "Acide citrique",price:"8.10" , unit: "Kg", category: "divers" },
+										{ name: "Acide tartrique",price:"26.90" , unit: "Kg", category: "divers" },
+										{ name: "Crème de tartre",price:"23.35" , unit: "Kg", category: "divers" },
+										{ name: "Glaçage miroir",price:"8.77" , unit: "Kg", category: "divers" }])
 		rescue
-			flash[:error] = "Erreur lors de la création des ingrédients"
+			#flash[:error] = "Erreur lors de la création des ingrédients"
 		end
 	end
 
