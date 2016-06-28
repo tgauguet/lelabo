@@ -1,9 +1,10 @@
 class Ingredient < ActiveRecord::Base
 	belongs_to :user
 	validates :name, presence: true
-	searchable do
-		text :name, :stored => true
-	end
+	#code for sunspot solr
+	#searchable do
+	#		text :name, :stored => true
+	#end
 	before_validation :format_number
 
 	def format_number
