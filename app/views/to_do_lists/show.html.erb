@@ -1,6 +1,9 @@
 <% title "#{@list.title} - #{@user.account_name}" %>
 <div class="actions-cntnr">
 	<div class="tasks-cntnr">
+		<%= link_to new_to_do_list_path do %>
+			<p class="ingredient-btn">Retour à l'index</p>
+		<% end %><br/>
 		<p class="ghost-txt">Votre liste</p>
 		<%= render "tasks/count" %>
 		<i class="grey-txt"><%= @list.description %></i><br/><br/>

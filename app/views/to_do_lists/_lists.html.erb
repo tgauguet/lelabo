@@ -1,18 +1,32 @@
 <div id="list-list">
 	<% unless !@lists %>
 		<% @lists.each do |list| %>
-			<div class="to-do-cards">
-				<% if list.all_done %>
-				  <%= image_tag 'complete.jpg', class: "tasks-cmplt2" %>
-				<% end %>
-				<%= link_to list do %>
+			<%= link_to list do %>
+				<div class="to-do-cards">
+					<% if list.all_done %>
+					  <%= image_tag 'complete.jpg', class: "tasks-cmplt2" %>
+					<% end %>
 					<h2><%= list.title %></h2>
-				<% end %>
-				<span class="task-count">
-				    &nbsp;<%= list.done_count %> / <%= list.total_tasks %>
-			 	</span><br/><br/>
-				&nbsp;<%= link_to "Supprimer", to_do_list_path(list), method: :delete, remote: true, class: "delte-list" %>
-			</div>
+					<% if list.all_done %>
+						<span class="tasks-count white-count">
+						    <%= image_tag "checked-icn2.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
+					 	</span><br/>
+					<% else %>
+						<span class="tasks-count">
+						    <%= image_tag "checked-icn.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
+					 	</span><br/>
+				 	<% end %>
+				 	<p class="fake-cntnr">
+				 		<% unless list.tasks.first.blank? %>
+				 			<span class="fake-checkbox"></span>
+				 		<% end %>
+				 		<span class="fake-task"><%= list.tasks.first.name %></span>
+				 	</p>
+				 	<p class="fake-task">...</p>
+				 	<br/>
+					&nbsp;<%= link_to "Supprimer", to_do_list_path(list), method: :delete, remote: true, class: "delte-list" %>
+				</div>
+			<% end %>
 		<% end %>
 	<% end %>
 </div>

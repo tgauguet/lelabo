@@ -53,8 +53,30 @@ p, h2, h3{
   color: grey; 
 }
 
+.fake-checkbox{
+  border:1px solid rgb(210,210,210);
+  padding-left: 1.2em;
+  font-size: 0.7em;
+  position: absolute;
+  padding-top: 1.2em;
+  border-radius: 0.2em;
+  margin-top: 0.2em;
+}
+
+.fake-cntnr{
+  margin-top: 0.6em;
+}
+
+.fake-task{
+  margin-left: 1.4em;
+  color: rgb(210,210,210);
+}
+
 .tasks-count{
   width: 1em !important; 
+  padding: 0.1em;
+  padding-left: 1.7em;
+  border-radius: 0.3em;
 }
 
 @font-face {
@@ -1871,11 +1893,15 @@ a .tools-cntnr:hover{
   padding: 1em;
   text-align: justify;
   width:18em; 
-  height: 6em;
+  height: 9.5em;
   display: inline-block;
   vertical-align: top;
   margin: 0.3em;
   overflow: hidden;
+}
+
+.to-do-cards:hover{
+  background: rgb(249,249,249);
 }
 
 .to-do-cards h2{
@@ -1937,7 +1963,7 @@ a .tools-cntnr:hover{
 }
 
 .tasks-cmplt, .tasks-cmplt2{
-  width: 3.6em;
+  width: 3em;
   margin-right: -1em; 
   margin-top: -3.3em;
   float: right;
@@ -2176,10 +2202,19 @@ a .tools-cntnr:hover{
   min-width: 15em;
 }
 
+.smll-icn{
+  width: 1em;
+  position: absolute;
+  margin-top: 0.1em;
+  margin-left: -1.5em;
+}
 
-
-
-
+.white-count{
+  color: white;
+  background: rgb(46,196,107);
+  opacity: 1;
+  border:none;
+}
 
 
 
