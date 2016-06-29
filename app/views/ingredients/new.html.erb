@@ -7,7 +7,7 @@
 			<!-- PUT HERE THE HTML CODE FOR SUNSPOT SOLR -->
 			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
 			<div class="ingredient-form">
-			<%= form_for @ingredient, remote: true, html: { data_type: "html", id: "clear_form"} do |f| %>
+			<%= form_for @ingredient, html: { data_type: "html", id: "clear_form"} do |f| %>
 				<%= f.text_field :name, placeholder: "Nom de l'ingrédient..", class: "basic-field task-field big-field" %>
 				<%= f.text_field :price, placeholder: "Prix d'achat..", class: "basic-field task-field smll-txt" %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
 				<%= f.hidden_field :priority, value: "1" %>

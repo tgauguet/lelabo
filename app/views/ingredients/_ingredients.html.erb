@@ -19,7 +19,7 @@
 						<% end %>
 					</div>
 					<div class="edittask">
-						<%= form_for ingredient, action: :edit, remote: true do |f| %>
+						<%= form_for ingredient, action: :edit do |f| %>
 							<%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Nom de l'ingrédient.." %>
 							<%= f.text_field :price, class: "basic-field task-field smll-txt", placeholder: "Prix de l'ingrédient..", include_blank: true %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
 					<div class="select-areas">
