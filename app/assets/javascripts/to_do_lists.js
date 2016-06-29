@@ -65,14 +65,43 @@ set_positions = function(){
 }
 
 ready = function(){
-	//call set_positions function
+	//call set_positions function for tasks
 	set_positions();
 	$( "#sortable" ).sortable({
     	axis: "y", 
     	opacity: 0.8
 	});
 
-	//after the order change
+	//call set_positions function for to-do lists
+	set_positions();
+	$( "#sortable2" ).sortable({
+		tolerance: "pointer",
+		forcePlaceholderSize: true,
+		placeholder: "editsortable",
+		containment: "parent",
+		cursor: "-webkit-grabbing",
+    	opacity: 0.99
+	});
+
+	//after the order change sort to do lists
+	$("#sortable2").sortable().bind('sortupdate', function(e, ui) {
+		//array to store new order
+		updated_order = []
+		//set the updated positions
+		set_positions();
+		//populate the new updated_order with the new set_positions
+		$(".to-do-cards.to-do-default").each(function(i){
+			updated_order.push({ id: $(this).data("id"), position: i + 1 });
+		});
+		//send the updated order via ajax
+		$.ajax({
+			type: "PUT",
+			url: '/to_do_lists/resort/:id',
+			data: { order: updated_order }
+		});
+	});
+
+	//after the order change sort tasks
 	$("#sortable").sortable().bind('sortupdate', function(e, ui) {
 		//array to store new order
 		updated_order = []

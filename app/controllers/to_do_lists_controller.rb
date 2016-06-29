@@ -26,6 +26,13 @@ class ToDoListsController < ApplicationController
 		render :nothing => true
 	end
 
+	def resort
+		params[:order].each do |key, value|
+			ToDoList.find(value[:id]).update_attribute(:priority, value[:position])
+		end
+		render :nothing => true
+	end
+
 	def create
 		@list = @user.to_do_lists.new(list_params)
 		if @list.save
@@ -56,7 +63,7 @@ class ToDoListsController < ApplicationController
 	end
 
 	def set_lists
-		@lists = @user.to_do_lists.all
+		@lists = @user.to_do_lists.all.order('priority ASC')
 	end
 
 	def list_params

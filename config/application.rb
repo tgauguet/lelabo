@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Lelabo
   class Application < Rails::Application
+    config.exceptions_app = self.routes
     config.i18n.enforce_available_locales = false
     config.i18n.available_locales = [:fr]
     config.i18n.default_locale = :fr

@@ -740,6 +740,10 @@ ul li{
   background-image: url(images/lelabo-bckgrnd.jpg);
 }
 
+.bckgrnd5{
+  background-image: url(images/lelabo-bckgrnd2.png);
+}
+
 .degraded ul, .white-foot ul{
   display: inline-block;
   vertical-align: top;
@@ -1889,7 +1893,7 @@ a .tools-cntnr:hover{
   border-bottom:1px solid rgb(230,230,230);
 }
 
-.to-do-cards{
+.to-do-cards, .editsortable {
   padding: 1em;
   text-align: justify;
   width:18em; 
@@ -1898,6 +1902,17 @@ a .tools-cntnr:hover{
   vertical-align: top;
   margin: 0.3em;
   overflow: hidden;
+}
+
+.editsortable{
+  background: rgb(250,250,250);
+  border-radius:0.3em;
+  border:2px dashed rgb(230,230,230);
+}
+
+.ui-sortable-helper{
+  transform : rotate(1deg);
+  box-shadow: 2px 2px 5px rgb(240,240,240);
 }
 
 .to-do-cards:hover{
@@ -2215,8 +2230,6 @@ a .tools-cntnr:hover{
   opacity: 1;
   border:none;
 }
-
-
 
 
 

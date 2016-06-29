@@ -1,39 +1,24 @@
-<% title "Modifier le mot de passe" %>
-<% provide(:title, 'Nouveau mot de passe') %>
- <div class="container-fluid">
-        <div class="contacter">
-        <div>
-          <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h3>Formulaire invalide :</h3>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+
+<% title "Nouveau mot de passe" %>
+<div class="steps-cntnr">
+    <div class="step-left-part">
+        <%= image_tag "logo-le-labo.jpg", class: "logo-steps" %>
+        <h1>Modifier le mot de passe</h1>
+        <p class="low-txt">Merci d'entrer votre nouveau mot de passe</p><br/>
+        <div class="error_messages">
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.hidden_field :reset_password_token %>
+        <%= f.password_field :password, autofocus: true, placeholder: "Mot de passe", class: "basic-field" %>
+        <%= f.password_field :password_confirmation, autofocus: true, placeholder: "Confirmation", class: "basic-field" %><br/>
+        <%= f.submit "Modifier", class: "btn cta-btn" %>
+      <% end %>
     </div>
-  <% end %>
-        </div>
-        </div>
-        <div class="contact_page">
-
-              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-              <%= f.hidden_field :reset_password_token %>
-            <h3>Nouveau mot de passe</h3></br>
-
-              <%= hidden_field_tag :email, @user.email %>
-
-            <div class="input_last_text_required4">
-              <%= f.password_field :password, :id=>"inscription_field2", :placeholder => "Mot de passe"%>
-            </div>
-            <div class="input_text_required4">
-              <%= f.password_field :password_confirmation , :id=>"inscription_field2" , :placeholder => "Confirmation"%>
-            </div>
-              <%= f.submit "Modifier" , :class=>"bouton7"%>
-            <div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-</div>
+    <div class="step-right-part  step-bckgrnd bckgrnd5">
+    </div>
 </div>

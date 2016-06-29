@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= action_name.titleize %> :: <%= site_name %></title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div class="error_container">
+        <%= yield %>
+    </div>
+
+
+</body>
+</html>

@@ -33,9 +33,10 @@ Rails.application.routes.draw do
 	resources :subscriptions, only: [:new, :create, :index, :update, :edit]
 	resources :users
 	#create route for jquery sortable
-	resources :to_do_lists, only: [:show] do
+	resources :to_do_lists, only: [:show, :new] do
 		collection do
 			put "/sort/:id" => "to_do_lists#sort"
+			put "resort/:id" => "to_do_lists#resort"
 		end
 	end
 	resources :ingredients do
@@ -64,4 +65,7 @@ Rails.application.routes.draw do
     match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
+  	get '404', :to => 'application#page_not_found'
+	get '422', :to => 'application#server_error'
+	get '500', :to => 'application#server_error'
 end
