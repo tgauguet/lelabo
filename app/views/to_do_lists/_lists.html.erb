@@ -19,8 +19,8 @@
 				 	<p class="fake-cntnr">
 				 		<% unless list.tasks.first.blank? %>
 				 			<span class="fake-checkbox"></span>
+				 			<span class="fake-task"><%= list.tasks.first.name %></span>
 				 		<% end %>
-				 		<span class="fake-task"><%= list.tasks.first.name %></span>
 				 	</p>
 				 	<p class="fake-task">...</p>
 				 	<br/>
