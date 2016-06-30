@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
 
 	def new
 		@ingredient = @user.ingredients.new
-		@ingredients = @user.ingredients.all.order("name ASC")
+		@ingredients = @user.ingredients.all.order("priority ASC")
 	end
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)

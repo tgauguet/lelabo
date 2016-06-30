@@ -13,7 +13,12 @@ ready = function(){
 	set_positions();
 	$( "#sortable1" ).sortable({
     	axis: "y", 
-    	opacity: 0.8
+    	tolerance: "pointer",
+		forcePlaceholderSize: true,
+		placeholder: "editsortable2",
+		containment: "parent",
+		cursor: "-webkit-grabbing",
+    	opacity: 0.99
 	});
 
 	//after the order change
