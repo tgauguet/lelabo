@@ -42,9 +42,6 @@ module Lelabo
     config.autoload_paths += Dir["#{Rails.root}/app/validators"]
     config.autoload_paths += Dir["#{Rails.root}/app/jobs"]
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    #config.assets.precompile += %w( ckeditor/* )
-    #config.assets.precompile += Ckeditor.assets
     config.assets.enabled = true
     config.eager_load_paths += %W(
     #{config.root}/app/services
