@@ -1,5 +1,6 @@
 class Ingredient < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :provider
 	validates :name, presence: true
 	#code for sunspot solr
 	#searchable do

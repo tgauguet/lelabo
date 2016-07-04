@@ -16,17 +16,21 @@
 					<p>Pour assigner du travail à vous ou à votre équipe</p>
 				</div>
 			<% else %>
-				<p class="btn inside-btn">Nouvelle liste</p>
+				<p class="inside-btn ingredient-btn">Nouvelle liste</p>
 			<% end %>
 		</div>
 		<div class="simple-form-cntnr">
-			<%= form_for @list do |f| %>
-				<%= f.hidden_field :user_id, value: @user.id %>
-				<%= f.text_field :title, placeholder: "Donner un nom à la liste...", required: true, class: "basic-field task-field big-field"  %><br/>
-				<%=	f.text_field :description, placeholder: "Ajouter une description à la liste...", class: "basic-field task-field smll-txt" %>
-				<%= f.submit "Ajouter la liste", class: "btn inside-btn" %>
-				<p class="cancel-btn">Annuler</p>
-			<% end %>
+			<div class="smpl2-cntnr">
+				<%= form_for @list do |f| %>
+					<%= f.hidden_field :user_id, value: @user.id %>
+					<%= image_tag "title.png", class: "field-img2" %>
+					<%= f.text_field :title, placeholder: "Titre", required: true, class: "basic-field top-field"  %>
+					<%= image_tag "description.png", class: "field-img2" %>
+					<%=	f.text_area :description, placeholder: "Description", class: "basic-field bottom-field" %>
+					<%= f.submit "Ajouter la liste", class: "btn inside-btn" %>
+					<p class="cancel-btn">Annuler</p>
+				<% end %>
+			</div>
 		</div>
 		<%= render "to_do_lists/lists" %>
 	</div>

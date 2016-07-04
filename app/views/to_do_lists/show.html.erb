@@ -17,14 +17,19 @@
 		<p class="element-btn">Ajouter un élément...</p>
 		<div class="simple-form-cntnr">
 			<!-- Form to create new tasks -->
-			<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
-				<p><%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Ajouter une chose à faire" %></p>
-				<%= f.hidden_field :to_do_list_id, value: @list.id %>
-				<p><%= f.text_field :assigns_to, class: "basic-field task-field smll-txt", placeholder: "Mentionner quelqu'un...", id: "datepicker" %></p>
-				<p><%= f.text_field :due_date, class: "basic-field task-field smll-txt datepicker", placeholder: "Échéance..." %></p>
-				<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
-				<p class="cancel-btn">Annuler</p>			
-			<% end %>
+			<div class="smpl2-cntnr">
+				<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
+					<%= image_tag "title.png", class: "field-img2" %>
+					<%= f.text_field :name, class: "basic-field top-field", placeholder: "Tâche" %>
+					<%= f.hidden_field :to_do_list_id, value: @list.id %>
+					<%= image_tag "user.png", class: "field-img2" %>
+					<%= f.text_field :assigns_to, class: "basic-field middle-field", placeholder: "Réalisée par..", id: "datepicker" %>
+					<%= image_tag "calendar.png", class: "field-img2" %>
+					<%= f.text_field :due_date, class: "basic-field bottom-field datepicker", placeholder: "Avant le.." %>
+					<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
+					<p class="cancel-btn">Annuler</p>			
+				<% end %>
+			</div>
 		</div><br/>
 	</div>
 </div>

@@ -3,11 +3,13 @@
 		<h3>Merci pour votre inscription, l'application sera bientôt disponible.</h3>
 		<p>Vous serez averti par email lors de la mise en place des fonctionnalités</p>
 	</div>
-	<div class="tools-cntnr">
-		<h3>Recettes</h3>
-		<h5>Lire, créer et classer vos recettes</h5>
-		<%= image_tag "recipes.png", class: "tools-img" %>
-	</div>
+	<%= link_to recipes_path do %>
+		<div class="tools-cntnr">
+			<h3>Recettes</h3>
+			<h5>Lire, créer et classer vos recettes</h5>
+			<%= image_tag "recipes.png", class: "tools-img" %>
+		</div>
+	<% end %>
 	<%= link_to new_ingredient_path do %>
 		<div class="tools-cntnr">
 			<h3>Ingrédients</h3>

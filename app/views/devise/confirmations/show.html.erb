@@ -6,10 +6,14 @@
         <p class="low-txt">Créez votre mot de passe pour sécuriser votre compte.</p><br/>
 		<%= form_for(resource, as: resource_name, url: confirm_path(resource_name)) do |f| %>
 		    <%= devise_error_messages! %>
-		    <%= f.password_field :password, :placeholder => "Mot de passe", class: "basic-field" %>
-		    <%= f.password_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field" %>
-		    <%= f.hidden_field :confirmation_token, value: @original_token %>
-		    <%= f.submit "Valider mon mot de passe", class: "btn cta-btn" %>
+		    <%= image_tag "key.png", class: "field-img2" %>
+		    <%= f.password_field :password, :placeholder => "Mot de passe", class: "basic-field top-field" %>
+		    <%= image_tag "key.png", class: "field-img2" %>
+		    <%= f.password_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field bottom-field" %>
+		    <%= f.hidden_field :confirmation_token, value: @original_token %><br/>
+		    <%= f.button :submit do %>
+                VALIDER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+            <% end %>
 		<% end %>
     </div>
     <div class="step-right-part  step-bckgrnd bckgrnd0">

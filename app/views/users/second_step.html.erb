@@ -7,14 +7,14 @@
         <%= form_for(@user, action: :second_step) do |f| %>
             <%= devise_error_messages! %>
             <p>Vos noms</p>
-            <div class="field-cntnr" >
-                <%= f.text_field :name,required: true, autofocus: true, :placeholder => "Nom", class: "basic-field half-width1"  %>
-            </div>
-            <div class="field-cntnr" >
-                <%= f.text_field :firstname,required: true, autofocus: true, :placeholder => "Prénom", class: "basic-field half-width2"%>
-            </div><br/><br/>
+            <%= image_tag "user.png", class: "field-img2" %>
+            <%= f.text_field :name,required: true, autofocus: true, :placeholder => "Nom", class: "basic-field top-field"  %>
+            <%= image_tag "user2.png", class: "field-img2" %>
+            <%= f.text_field :firstname,required: true, autofocus: true, :placeholder => "Prénom", class: "basic-field bottom-field"%>
+            <br/><br/>
             <p>Votre entreprise</p>
-            <%= f.text_field :company,required: true, autofocus: true, :placeholder => "Entreprise", class: "basic-field full-witdth"  %>
+            <%= image_tag "company.png", class: "field-img2" %>
+            <%= f.text_field :company,required: true, autofocus: true, :placeholder => "Entreprise", class: "basic-field field"  %>
             <br/><br/>
             <%= f.button :submit do %>
                 Suivant<%= image_tag "arrow-right.png", class: "btn_arrow" %>

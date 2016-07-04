@@ -3,15 +3,16 @@
     <div class="step-left-part">
         <%= image_tag "logo-le-labo.jpg", class: "logo-steps" %>
         <h1>Comment allez-vous appeler votre compte?</h1>
-        <p class="low-txt">Nommer votre compte va vous permettre de partager plus simplement vos recettes.</p><br/>
+        <p class="low-txt">Nommer votre compte vous permet de partager plus simplement vos recettes.</p><br/>
         <p class="basic-note"><b>Nom du gestionnaire de recettes</b> (vous pourrez le changer plus tard)</p>
         <%= form_for(@user, action: :set_names) do |f| %>
             <% @user.errors.each_with_index do |msg, i| %>
               <li style="list-style:none;color:red;font-size:0.9em;"><%= msg[1] %></li>
-            <% end %>
-            <%= f.text_field :account_name,required: true, autofocus: true, :placeholder => "Ex. Pâtisserie Gilles", class: "basic-field full-witdth"  %><br/><br/>
+            <% end %><br/>
+            <%= image_tag "chef.png", class: "field-img2" %>
+            <%= f.text_field :account_name,required: true, autofocus: true, :placeholder => "Ex. Pâtisserie Gilles", class: "field basic-field full-witdth"  %><br/><br/>
             <%= f.button :submit do %>
-                Suivant<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+                SUIVANT<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>
         <% end %>
     </div>

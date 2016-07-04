@@ -10,19 +10,19 @@
 		<%= image_tag(@user.avatar.url(:medium), class: "user-img") %><br/>
 		<%= f.file_field :avatar %><br/><i>afin que votre image s'affiche correctement, nous vous conseillons de télécharger une image ayant une longueur et une hauteur similaires</i>
 		<p>Nom</p>
-		<%= f.text_field :name, placeholder: "Nom", class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :name, placeholder: "Nom", class: "field basic-field enlarge-field" %><br/>
 		<p>Prénom</p>
-		<%= f.text_field :firstname, placeholder: "Prénom", class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :firstname, placeholder: "Prénom", class: "field basic-field enlarge-field" %><br/>
 		<p>Entreprise</p>
-		<%= f.text_field :company, placeholder: "Nom de votre entreprise", class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :company, placeholder: "Nom de votre entreprise", class: "field basic-field enlarge-field" %><br/>
 		<p>Métier</p>
-		<%= f.text_field :job_type, placeholder: "Pâtissier, Chocolatier, Boulanger", class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :job_type, placeholder: "Pâtissier, Chocolatier, Boulanger", class: "field basic-field enlarge-field" %><br/>
 		<p>Pays</p>
-		<%= f.text_field :country, placeholder: "Pays", class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :country, placeholder: "Pays", class: "field basic-field enlarge-field" %><br/>
 		<p>Téléphone</p>
-		<%= f.text_field :phone, placeholder: "06 xx xx xx xx", class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :phone, placeholder: "06 xx xx xx xx", class: "field basic-field enlarge-field" %><br/>
 		<p>Skype</p>
-		<%= f.text_field :skype, placeholder: "skype", class: "basic-field enlarge-field" %><br/><br/>
+		<%= f.text_field :skype, placeholder: "skype", class: "field basic-field enlarge-field" %><br/><br/>
 		<p><%= f.submit "Enregistrer mes informations", class: "btn cta-btn float-right" %></p>
 	<% end %>
 </div>

@@ -1,0 +1,30 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions smpl2-cntnr">
+    <%= image_tag "title.png", class: "field-img2" %>
+    <%= f.text_field :name, class: "basic-field top-field" , placeholder: "Nom de la recette.." %>
+    <%= image_tag "description.png", class: "field-img2" %>
+    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Note.." %>
+    <%= image_tag 'user.png', class: "field-img2" %>
+    <%= f.text_field :author, class: "basic-field bottom-field", placeholder: "Auteur.." %><br/>
+    <%= image_tag "baking.png", class: "field-img2" %>
+    <%= f.text_field :baking, class: "basic-field rounded-field", placeholder: "cuisson" %>
+    <div class="select-areas">
+      <%= image_tag "category.png", class: "field-img2" %>
+      <%= f.select :category, ["Biscuit", "Chocolat", "Glace", "Ganache", "Confiserie"], include_blank: true, class: "rounded-field" %>
+    </div><br/>
+    <%= image_tag "process.png", class: "field-img2" %>
+    <%= f.cktext_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field" %><br/>
+    <%= f.submit "Créer", class: "btn cta-btn" %>
+  </div>
+<% end %>

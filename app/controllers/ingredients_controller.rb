@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
 
 	def new
 		@ingredient = @user.ingredients.new
-		@ingredients = @user.ingredients.all.order("priority ASC")
+		@ingredients = @user.ingredients.all.order("priority ASC, name ASC")
 	end
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
@@ -65,7 +65,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
-		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id, :priority, :price, :category )
+		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering )
 	end
 
 end

@@ -20,18 +20,49 @@
 					</div>
 					<div class="edittask">
 						<%= form_for ingredient, action: :edit do |f| %>
-							<%= f.text_field :name, class: "basic-field task-field big-field", placeholder: "Nom de l'ingrédient.." %>
-							<%= f.text_field :price, class: "basic-field task-field smll-txt", placeholder: "Prix de l'ingrédient..", include_blank: true %><span><%= image_tag "euro.png", class: "euro-img", alt:"prix de l'ingrédient" %></span>
-					<div class="select-areas">
-					<p>Unité de mesure</p>
-						<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field", selected: f.object.unit, include_blank: true %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
-					</div>
-					<div class="select-areas">
-					<p>Catégorie</p>
-						<%= f.select :category, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], selected: f.object.category, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
-					</div>	<br/><br/>						
-					<%= f.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
+							<%= image_tag "file.png", class: "field-img" %>
+							<%= f.text_field :name, placeholder: "Nom", class: "basic-field top-field" %>
+							<div class="double-field">
+								<%= image_tag "euro-3.png", class: "field-img" %>
+								<%= f.text_field :price, placeholder: "Prix", class: "basic-field bottom-field" %>
+								<span class="select-span">
+									<%= image_tag "arrow-down.png", class: "field-img select-img" %>
+									<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field" %>
+								</span>
+							</div>
+							<%= f.hidden_field :priority, value: "1" %>
+							<div class="composition">
+								<p>Composition ( en % )</p>
+								<div>
+									<%= image_tag "fat.png", class: "field-img" %>
+									<%= f.text_field :fat_percent, class: "basic-field top-rad", placeholder: "Mat.grasse" %>
+									<%= image_tag "water.png", class: "field-img" %>
+									<%= f.text_field :water_percent, class: "basic-field special-top", placeholder: "Eau" %>
+									<%= image_tag "sugar.png", class: "field-img" %>
+									<%= f.text_field :sugar_percent, class: "basic-field special-top", placeholder: "Sucre" %>
+									<%= image_tag "alcohol.png", class: "field-img" %>
+									<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad", placeholder: "Alcool" %>
+								</div>
+								<div class="left-compo">
+									<%= image_tag "dry.png", class: "field-img" %>
+									<%= f.text_field :dry_matter_percent, class: "basic-field top-rad", placeholder: "Mat.sèche" %>
+									<%= image_tag "chocolate.png", class: "field-img" %>
+									<%= f.text_field :cocoa_percent, class: "basic-field special-top", placeholder: "Cacao maigre" %>
+									<%= image_tag "cocoa-butter.png", class: "field-img" %>
+									<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top", placeholder: "Beurre de cacao" %>
+									<%= image_tag "bowl.png", class: "field-img" %>
+									<%= f.text_field :cocoa_total_percent, class: "basic-field special-top bot-rad", placeholder: "Cacao total" %>
+								</div>
+							</div>
+							<div class="select-areas">
+								<p>Catégorie</p>
+								<%= image_tag "category.png", class: "field-img" %><%= f.select :category, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], class: "rounded-field", include_blank: true, placeholder: "catégorie" %>
+							</div>
+							<br/><br/>
+							<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
+							<p class="cancel-btn">Annuler</p>	
 						<% end %>
+						<br/>
 					</div>
  				</div>
 				<% end %>

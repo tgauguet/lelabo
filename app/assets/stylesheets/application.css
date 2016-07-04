@@ -259,9 +259,17 @@ BUTTONS -- DESIGN
 
 /*   buttons with a green background  */
 
-.blog-btn, .cta-btn, button, .inside-btn, .inside-btn{
+.blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true{
   background: rgb(27,189,157); 
   border-bottom: 2px solid rgb(17,159,120) !important;
+}
+
+/*   buttons with a red background */
+
+.data-confirm .confirm-false{
+  background: #EB4E5C;
+  cursor: pointer;
+  border-bottom: 2px solid #C6434C;
 }
 
 /*   buttons with an orange background  */
@@ -481,6 +489,11 @@ ul li{
   color: white;
 }
 
+.no_cpt{
+  margin-top: 5em;
+  font-size: 0.8em;
+}
+
 .connexion_container{
   background: white;
   border-radius: 0.3em;
@@ -512,22 +525,6 @@ ul li{
   font-weight: lighter;
   font-size: 0.9em;
   margin-top: 1.4em;
-}
-
-.basic-field, .select-areas select{
-  border-radius: 0.3em;
-  border: none;
-  background: white; 
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  font-size: 1.2em;
-  border: 1px solid rgb(230,230,230);
-}
-
-.select-areas select{
-  font-size: 1em;
 }
 
 .full-witdth{
@@ -609,12 +606,9 @@ ul li{
   font-size: 0.8em;
 }
 
-.half-width1, .half-width2{
-  width: 77%;
-}
-
 .basic-field:focus{
   border: 1px solid rgb(37,129,250);
+  background: white;
 }
 
 .home-cntnr h1, .home-cntnr h2{
@@ -658,19 +652,19 @@ ul li{
     font-weight: 500;
 }
 .error, .alert {
-  background: rgb(242,96,81) ;
+  background: #EB4E5C;
   color: white;
-  border-bottom: 1px solid rgb(232,73,61);
+  border-bottom: 1px solid #C6434C;
 }
 
 .success{
-  background: #436AAF;
+  background: #1BBD9D;
   color: white;
 }
 
 .notice {
   color: white;
-  background:#436AAF;
+  background: #1BBD9D;
 }
 
 .degraded, .white-foot{
@@ -771,18 +765,6 @@ ul li{
   position: relative;
 }
 
-.euro-img, .select-arrow-img{
-  height: 1em;
-  position: absolute;
-  margin-top: 0.6em;
-  margin-left: -1.5em;
-}
-
-.select-arrow-img{
-  height: 0.7em;
-  margin-top: 0.8em;
-}
-
 .edit-ing-form{
   display: none;
 }
@@ -815,6 +797,7 @@ ul li{
   font-size: 1em !important;
   font-family: 'source_sans_proregular' !important;
   border:1px solid rgb(230,230,230);
+  border-bottom: 2px solid rgb(230,230,230) !important;
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 0.6em;
@@ -823,6 +806,8 @@ ul li{
   width: 8.7em;
   margin-top: 1em;
   cursor: pointer;
+  background: white;
+  color: rgb(43,54,69);;
   border-bottom:2px solid rgb(230,230,230);
 }
 
@@ -837,9 +822,13 @@ ul li{
 
 .step-left-part{
   width: 30%;
-  padding-right: 5%;
-  padding-left: 5%;
+  margin-left: 5%;
   float: left;
+  position: relative;
+}
+
+.step-left-part h1, .step-left-part p{
+  text-align: left;
 }
 
 .step-right-part{
@@ -1750,6 +1739,7 @@ a .tools-cntnr:hover{
 
 .select-img{
   width: 1em;
+  top: 0;
   margin-left: -2em;
   margin-top: 1.1em;
 }
@@ -1770,14 +1760,13 @@ a .tools-cntnr:hover{
   color: rgb(170,170,170);
 }
 
-.select-areas select, .card-steps-cntnr select{
+select{
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
   cursor: pointer;
-  padding-right: 2em;
 }
 
 .select-field2{
@@ -1871,8 +1860,16 @@ a .tools-cntnr:hover{
 .simple-form-cntnr{
   border-radius: 0.3em;
   padding: 0.5em;
+  padding-right: 2em;
+  padding-left: 2em;
   display: none;
   margin-bottom: 0.5em;
+  position: relative;
+}
+
+.smpl2-cntnr{
+  position: relative;
+  text-align: left;
 }
 
 .simple-field, .simple-field2{
@@ -1989,7 +1986,7 @@ a .tools-cntnr:hover{
   margin-right: -1.5em;
 }
 
-.delete-tsk-btn{
+.delete-tsk-btn, .delete-rcp{
   width: 1em; 
   float: right;
   margin-right: 0.2em;
@@ -2025,13 +2022,13 @@ a .tools-cntnr:hover{
 
 .task-field, .title-cntnr select{
   -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-  background: transparent;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+  appearance:none;
   width: 80%;
   font-size: 1em;
   padding-top: 0.2em;
-  box-shadow:inset 0 0 3px 1px rgb(240,240,240);
   border:1px solid rgb(230,230,230);
   padding: 0.4em;
   border-radius: 0.2em;
@@ -2048,10 +2045,6 @@ a .tools-cntnr:hover{
 
 .bckgrnd-trsp label{
   background: transparent;
-}
-
-.smll-txt{
-  font-size: 0.9em;
 }
 
 .smll-btn{
@@ -2113,10 +2106,6 @@ a .tools-cntnr:hover{
   cursor: pointer;
 }
 
-.big-field{
-  font-size: 1.2em;
-}
-
 .arrow-img{
   width: 1em;
   margin-left: 1em;
@@ -2146,6 +2135,7 @@ a .tools-cntnr:hover{
 
 .ingredient-form{
   display: none;
+  position: relative;
 }
 
 .circle{
@@ -2197,6 +2187,8 @@ a .tools-cntnr:hover{
   display: inline-block;
   vertical-align: top;
   width: 12em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .delete-down{
@@ -2231,7 +2223,330 @@ a .tools-cntnr:hover{
   border:none;
 }
 
+.little_field{
+  width: 3em;
+  margin-left: 1em;
+}
 
+.bottom-field{
+  border-top:none !important;
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+}
 
+.top-field{
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  -webkit-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  -moz-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  -ms-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  -o-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+}
+
+.bottom-field:focus{
+  margin-top: -1px;
+  border-top: 1px solid rgb(37,129,250) !important;
+}
+
+.bottom-field:focus + .select-span select{
+  border: 1px solid rgb(37,129,250);
+  margin-top: -1px;
+}
+
+.field-img, .field-img-big,.field-img2{
+  width: 1em;
+  position: absolute;
+  margin-top: 0.7em;
+  margin-left: 0.7em;
+  opacity: 0.7;
+  z-index: 2000;
+}
+
+.field-img2{
+  left: 0;
+}
+
+.field-img-big{
+  width: 1.02em;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+.select-img{
+  width: 0.7em;
+  position: absolute;
+  opacity: 0.7;
+  margin-top: 1.1em;
+  margin-left: 0.9em;
+}
+
+.rounded-field{
+  border-radius: 0.3em;
+}
+
+.basic-field, .select-areas select, .select-span select, .spec-select{
+  background: rgb(249,249,251); 
+  position: relative;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  padding-left: 2.3em;
+  padding-right: 1em;
+  font-size: 0.95em;
+  display: block;
+  margin:0;
+  border: 1px solid rgb(208,210,214);
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  resize:none;
+}
+
+.select-span select{
+  width: 7em;
+  border-top:0px;
+  position: absolute;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0.3em;
+  display: inline;
+  right: 0%;
+  top:0;
+}
+
+.field{
+  border-radius: 0.3em;
+}
+
+.double-field{
+  position: relative;
+}
+
+.select-areas select{
+  font-size: 1em;
+  border-radius: 0.3em;
+}
+
+.double-field .bottom-field{
+  width: 100%;
+}
+
+.double-field .bottom-field, .double-field .select-field{
+  display: inline;
+}
+
+.double-field .select-field{
+  margin-left: -0.5em;
+}
+
+.select-span .select-img{
+  right: 5em;
+  margin-top: 1em;
+  z-index: 1000;
+}
+
+.composition{
+  width: 22em;
+  display: inline-block;
+  margin-right: 1em;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+  position: relative;
+}
+
+.composition div{
+  width: 47%;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.left-compo{
+  margin-left: 0.9em !important;
+}
+
+.composition p, .select-areas p{
+  padding-bottom: 0.4em;
+}
+
+.special-top{
+  border-top:0px;
+}
+
+.special-top:focus{
+  margin-top: -1px;
+  border: 1px solid rgb(37,129,250);
+}
+
+.top-rad{
+  border-top-right-radius: 0.3em;
+  border-top-left-radius: 0.3em;
+  -webkit-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  -moz-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  -ms-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+  -o-box-shadow:inset 0px 1px 0px 0px rgb(240,241,243);
+}
+
+.bot-rad{
+  border-bottom-right-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+}
+
+.welcome-field{
+  width: 13em;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  font-size: 1.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: inline-block;
+  border-bottom: 2px solid rgb(209,201,201);
+}
+
+.welcome-field:focus{
+  border:1px solid rgb(240,240,240);
+  border-bottom: 2px solid rgb(179,171,171);
+}
+
+ .welcome-btn{
+  border-radius: 0;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  margin-left: -0.2em;
+  display: inline-block;
+}
+
+.abs-error{
+  border:1px solid red;
+  margin-bottom: 1em;
+  padding-bottom: 0em;
+  position: absolute;
+}
+
+.step-left-part button, .connex button{
+  right: 0;
+  font-size: 1em;
+  float: right;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.connex{
+  margin-left: 3em;
+  margin-right: 3em;
+  position: relative;
+}
+
+.need-val{
+  float: left;
+  margin-top: 1.1em;
+}
+
+.need-val span{
+  color: rgb(170,170,170);
+}
+
+.middle-field{
+  border-top: 0px ;
+}
+
+.middle-field:focus{
+  margin-top: -1px;
+  border-top:1px solid rgb(37,129,250);
+}
+
+.ui-datepicker {
+  z-index: 3000 !important;
+  font-family: "source_sans_proregular" !important;
+  border:0px !important;
+  border-left: 1px solid #F2F2F2 !important;
+  border-right: 1px solid #F2F2F2 !important;
+  -moz-box-shadow: 0px 3px 1px #F2F2F2!important;
+  -webkit-box-shadow: 0px 3px 1px #F2F2F2!important;
+  -o-box-shadow: 0px 3px 1px #F2F2F2!important;
+  box-shadow: 0px 3px 1px #F2F2F2!important;
+}
+
+.ui-datepicker-header {
+    background: rgb(231,240,250) !important;
+    border:0px !important;
+}
+
+.ui-datepicker-prev{
+  background-image: url("images/left.png") !important;
+  border:0px !important;
+}
+
+.ui-datepicker td a{
+  border:0px !important;
+  background: white !important;
+  border-radius: 0.2em !important;
+}
+
+.ui-state-hover{
+  background: transparent !important;
+  border:0px !important;
+}
+
+.ui-datepicker td a:hover{
+  border:0px !important;
+  background: rgb(231,240,250) !important;
+}
+
+.ui-datepicker-calendar .ui-state-active{
+  background: rgb(0,149,214) !important;
+  color: white !important;
+}
+
+.data-confirm{
+  width: 30em;
+  border-radius: 0.5em;
+  background: white;
+  margin: 0 auto;
+  margin-top: 12em;
+  padding: 2em;
+}
+
+.data-confirm div{
+  margin-top: 1em;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 0.3em;
+  color:white;
+  font-size: 0.9em;
+}
+
+.confirm-cntnr{
+  display: none;
+  position: fixed;
+  background: rgba(0,0,0,0.7);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 50000;
+}
+
+.paths-cntnr{
+  text-align: left;
+}
+
+.paths-cntnr a{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cke_contents{
+  background: red !important;
+}
 
 

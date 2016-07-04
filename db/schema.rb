@@ -11,10 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629071830) do
+ActiveRecord::Schema.define(version: 20160704140206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assemblies", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "recipe_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.text     "message"
@@ -30,25 +58,29 @@ ActiveRecord::Schema.define(version: 20160629071830) do
     t.integer  "user_id"
   end
 
-  create_table "ingredient_categories", force: :cascade do |t|
-    t.integer  "ingredient_id"
-    t.string   "name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "ingredients", force: :cascade do |t|
-    t.decimal  "price",      precision: 9, scale: 2
+    t.decimal  "price",                precision: 9, scale: 2
     t.string   "name"
     t.string   "quantity"
     t.integer  "recipe_id"
     t.string   "unit"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "user_id"
     t.integer  "position"
     t.integer  "priority"
     t.string   "category"
+    t.string   "ordering"
+    t.decimal  "fat_percent"
+    t.decimal  "water_percent"
+    t.decimal  "sugar_percent"
+    t.decimal  "kcal"
+    t.decimal  "sugar_power"
+    t.decimal  "alcool_percent"
+    t.decimal  "dry_matter_percent"
+    t.decimal  "cocoa_percent"
+    t.decimal  "cocoa_butter_percent"
+    t.decimal  "cocoa_total_percent"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -70,6 +102,40 @@ ActiveRecord::Schema.define(version: 20160629071830) do
     t.string   "price"
   end
 
+  create_table "providers", force: :cascade do |t|
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "author"
+    t.integer  "ingredient_id"
+    t.string   "name"
+    t.text     "description"
+    t.text     "process"
+    t.text     "note"
+    t.text     "equipment"
+    t.string   "category"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "step_id"
+    t.string   "baking"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "baking"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "plan_id"
@@ -87,7 +153,6 @@ ActiveRecord::Schema.define(version: 20160629071830) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.boolean  "done",          default: false
-    t.string   "position"
     t.integer  "priority"
   end
 

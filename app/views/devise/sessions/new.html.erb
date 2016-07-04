@@ -1,26 +1,32 @@
 <% title "Connexion" %>
 <div class="connexion-backgrnd">
-  <%= link_to root_path do %><%= image_tag "logo-bird.png", class: "logo-white" %><% end %>
+  <%= link_to root_path do %>
+    <%= image_tag "logo-bird.png", class: "logo-white" %>
+  <% end %>
   <div class="connexion_container">
     <H2 class="big-ttle beautiful-txt-color">Connexion</H2><br/>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-        <%= f.text_field :email, :placeholder => "Email", class: "basic-field" %><br/>
-        <%= f.password_field :password , :placeholder => "Mot de passe", class: "basic-field" %><br/><br/>
+    <div class="connex">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= image_tag "mail.png", class: "field-img2" %>
+        <%= f.text_field :email, :placeholder => "Email", class: "basic-field top-field" %>
+        <%= image_tag "key.png", class: "field-img2" %>
+        <%= f.password_field :password , :placeholder => "Mot de passe", class: "basic-field bottom-field" %><br/><br/>
         <div class="need-val">
-        <%= f.label :remember_me, class: "checkbox_inline" do %>
-        <%= f.check_box :remember_me %>
-        <span class="small-span">Se souvenir de moi</span><br/><br/>
-      <% end %></div>
-      <p class="checkout-btn btn-smaller btn-2sm"><%= f.submit "Connexion", class: "cta-btn btn" %></p>
-       </div>
-      <div class="no_cpt"></br>
-        <p class="small-span">
-          Pas encore inscrit ? <%= link_to "Je m'inscris", authenticated_root_path(resource_name), class: "link_decoration" %>
-        </p>
-    <% end %>
+          <%= f.label :remember_me, class: "checkbox_inline" do %>
+            <%= f.check_box :remember_me %>
+            <span class="small-span">Se souvenir de moi</span><br/><br/>
+          <% end %>
+        </div>
+        <%= f.button :submit do %>
+          CONNEXION<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="no_cpt"></br>
+      <p class="small-span">Pas encore inscrit ? <%= link_to "Je m'inscris", authenticated_root_path(resource_name), class: "link_decoration" %></p>
     <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-    <%= link_to "Mot de passe oublié ?", new_confirmation_path(resource_name) %><br />
-  <% end -%>
+      <%= link_to "Mot de passe oublié ?", new_confirmation_path(resource_name) %><br />
+    <% end %>
   </div>
 </div>

@@ -16,6 +16,8 @@
 //= require jquery-ui
 //= require turbolinks
 //= require welcome
+//= require ckeditor/init
+//= require recipes
 //= require ingredients
 //= require subscriptions
 //= require to_do_lists

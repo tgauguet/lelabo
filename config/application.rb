@@ -12,6 +12,7 @@ module Lelabo
     config.i18n.enforce_available_locales = false
     config.i18n.available_locales = [:fr]
     config.i18n.default_locale = :fr
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -42,6 +43,8 @@ module Lelabo
     config.autoload_paths += Dir["#{Rails.root}/app/jobs"]
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    #config.assets.precompile += %w( ckeditor/* )
+    #config.assets.precompile += Ckeditor.assets
     config.assets.enabled = true
     config.eager_load_paths += %W(
     #{config.root}/app/services

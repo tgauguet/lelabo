@@ -7,9 +7,9 @@
 <div class="standard-form-cntnr">
 	<%= form_for(@user, action: :set_parameters ) do |f| %>
 		<p>Nom de votre compte</p>
-		<%= f.text_field :account_name, class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :account_name, class: "field basic-field enlarge-field" %><br/>
 		<p>Email</p>
-		<%= f.text_field :email, class: "basic-field enlarge-field" %><br/>
+		<%= f.text_field :email, class: "field basic-field enlarge-field" %><br/>
 		<p><%= f.submit "Enregistrer mes informations", class: "btn cta-btn float-right" %></p>
 	<% end %>
 </div>

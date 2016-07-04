@@ -1,0 +1,13 @@
+<% title "Nouvel assemblage" %>
+<div class="actions-cntnr">
+ 	<div class="action-cntnr">
+	 	<div class="smpl2-cntnr">
+	 		<%= form_for @assembly do |f| %>
+	 			<%= image_tag "title.png", class: "field-img2" %>
+	 			<%= f.text_field :title, class: 'basic-field top-field', placeholder: "titre" %>
+	 			<%= image_tag "description.png", class: "field-img2" %>
+	 			<%= f.text_area :description, class: "basic-field bottom-field", placeholder: "Notes" %>
+	 		<% end %>
+	 	</div>
+  	</div>
+</div>
