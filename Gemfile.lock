@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 93c1b19ddb745c5bcad3a239438c229fab0b6e57
+  specs:
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://code.stripe.com/
@@ -171,7 +179,7 @@ GEM
     meta-tags (2.1.0)
       actionpack (>= 3.0.0)
     method_source (0.8.2)
-    mime-types (2.99.1)
+    mime-types (2.99.2)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.9.0)
@@ -356,6 +364,7 @@ DEPENDENCIES
   brakeman
   byebug
   capybara
+  ckeditor!
   coffee-rails (~> 4.1.0)
   cucumber
   database_cleaner

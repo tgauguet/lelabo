@@ -23,8 +23,7 @@
       <%= image_tag "category.png", class: "field-img2" %>
       <%= f.select :category, ["Biscuit", "Chocolat", "Glace", "Ganache", "Confiserie"], include_blank: true, class: "rounded-field" %>
     </div><br/>
-    <%= image_tag "process.png", class: "field-img2" %>
-    <%= f.text_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field" %><br/>
+    <%= f.cktext_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field" %><br/>
     <%= f.submit "Créer", class: "btn cta-btn" %>
   </div>
 <% end %>

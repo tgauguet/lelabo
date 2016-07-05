@@ -20,7 +20,8 @@
 //= require ingredients
 //= require subscriptions
 //= require to_do_lists
-//= require_tree .
+//= require ckeditor/init
+//= require_tree ./ckeditor
 
 $(function(){
       Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');

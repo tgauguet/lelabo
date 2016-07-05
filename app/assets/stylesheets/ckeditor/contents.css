@@ -1,0 +1,11 @@
+/*body{
+	background: rgb(249,249,251); 
+}
+body:focus{
+	background: white;
+}
+
+body:focus .cke_chrome{
+	border:1px solid red;
+}
+*/
