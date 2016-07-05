@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
   resources :recipes
 	devise_for :users, :controllers => {:confirmations => 'confirmations', :registrations => "registrations"}, path: 'utilisateur', path_names: { sign_out: 'deconnexion', password: 'mot-de-passe', confirmation: 'verification', unlock: 'debloquer', edit: "modifier" }, :except => [:update, :edit]
   	devise_scope :user do
