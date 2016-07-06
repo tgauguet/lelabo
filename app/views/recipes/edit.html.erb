@@ -1,6 +1,8 @@
-<h1>Editing Recipe</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+<% title "Modifier #{@recipe.name.humanize}" %>
+<div class="actions-cntnr">
+ 	<div class="action-cntnr">
+		<%= render 'form' %>
+		<%= link_to 'Voir', @recipe %> |
+		<%= link_to 'Retour', recipes_path %>
+	</div>
+</div>

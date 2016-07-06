@@ -87,5 +87,12 @@ s.setAttribute('data-timestamp', +new Date());
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+// reload ck editor
+$(document).on('page:update', function(){
+      console.log('page updated');
+      if ($('.ckeditor')[0]) {
+          CKEDITOR.replace($('.ckeditor').attr('id'));
+      }
+});
 
 

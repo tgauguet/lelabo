@@ -13,4 +13,8 @@ class Ingredient < ActiveRecord::Base
 		self.price = price_before_type_cast.to_s.gsub(",", ".").to_f
 	end
 
+	def name_humanized
+		"#{self.name.humanize}"
+	end
+
 end

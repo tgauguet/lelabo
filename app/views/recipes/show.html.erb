@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<% title "#{@recipe.name.humanize}" %>
+<div class="actions-cntnr">
+ 	<div class="action-cntnr">
+		<p id="notice"><%= notice %></p>
+		<h2><%= @recipe.name.humanize %></h2>
+		<p><%= @recipe.note %></p>
+		<p><%= @recipe.author %></p>
+		<p><%= image_tag @recipe.image_file_name %></p>
+		<p><%= @recipe.baking %></p>
+		<p><%= @recipe.category %></p>
+		<br/>
+		<p><%= raw(@recipe.process) %></p>
+		<br/>
+		<%= link_to 'Modifier', edit_recipe_path(@recipe) %> |
+		<%= link_to 'Retour', recipes_path %>
+	</div>
+</div>

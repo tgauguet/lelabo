@@ -9,21 +9,34 @@
       </ul>
     </div>
   <% end %>
-
   <div class="actions smpl2-cntnr">
+    <p>Informations</p>
     <%= image_tag "title.png", class: "field-img2" %>
-    <%= f.text_field :name, class: "basic-field top-field" , placeholder: "Nom de la recette.." %>
+    <%= f.text_field :name, class: "basic-field top-field" , placeholder: "Titre" %>
     <%= image_tag "description.png", class: "field-img2" %>
-    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Note.." %>
+    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Note" %>
     <%= image_tag 'user.png', class: "field-img2" %>
-    <%= f.text_field :author, class: "basic-field bottom-field", placeholder: "Auteur.." %><br/>
+    <%= f.text_field :author, class: "basic-field bottom-field", placeholder: "Auteur" %>
+    <br/>
+    <p>Image</p>
+    <%= f.file_field :image_file_name %>
+    <br/><br/>
+    <p>Ingredients</p>
+    <div class="add_ingredients">
+      <%= collection_select(:recipe, :first_ingredient, Ingredient.all.order("name ASC"), :id, :name_humanized ) %>
+      <%= collection_select(:recipe, :second_ingredient, Ingredient.all.order("name ASC"), :id, :name_humanized ) %>
+    </div>
     <%= image_tag "baking.png", class: "field-img2" %>
     <%= f.text_field :baking, class: "basic-field rounded-field", placeholder: "cuisson" %>
     <div class="select-areas">
       <%= image_tag "category.png", class: "field-img2" %>
       <%= f.select :category, ["Biscuit", "Chocolat", "Glace", "Ganache", "Confiserie"], include_blank: true, class: "rounded-field" %>
     </div><br/>
-    <%= f.cktext_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field" %><br/>
+    <div data-no-turbolink>
+      <p>Procédé</p>
+      <%= f.cktext_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field ckeditor" %>
+    </div>
+    <br/>
     <%= f.submit "Créer", class: "btn cta-btn" %>
   </div>
 <% end %>

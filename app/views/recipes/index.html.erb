@@ -25,14 +25,15 @@
           <% unless recipe.category.nil? %>
             <div class="circle <%= category_color(recipe) %>"></div>
           <% end %>
-          <div class="taskname">
-            <span class="ing-name"><%= recipe.name.humanize %></span>
-          </div>
+          <%= link_to recipe do %>
+            <div class="taskname2">
+              <span class="ing-name"><%= recipe.name.humanize %></span>
+            </div>
+            <tr>
+              <td><%= link_to 'Modifier', edit_recipe_path(recipe) %></td>
+            </tr>
+          <% end %>
           <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over" %>
-          <tr>
-            <td><%= link_to 'Voir la recette', recipe %></td>
-            <td><%= link_to 'Modifier la recette', edit_recipe_path(recipe) %></td>
-          </tr>
         <% end %>
   </div>
 </div>
