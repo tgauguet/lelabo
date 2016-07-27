@@ -2,6 +2,8 @@ class Ingredient < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :provider
 	validates :name, presence: true
+	has_many :quantities
+	has_many :recipe, through: :quantities
 	#code for sunspot solr
 	#searchable do
 	#		text :name, :stored => true

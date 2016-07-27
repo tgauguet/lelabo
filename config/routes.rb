@@ -22,6 +22,13 @@ Rails.application.routes.draw do
 			end
 		end
 	end
+	resources :recipes do
+		resources :quantities do
+			member do
+				patch :set_ingredient
+			end
+		end
+	end
 	resources :recipes
 	resources :assemblies
 	# create routes for each registration steps

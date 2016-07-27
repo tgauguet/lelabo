@@ -2528,7 +2528,7 @@ select{
 .confirm-cntnr{
   display: none;
   position: fixed;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.3) !important;
   width: 100vw;
   height: 100vh;
   left: 0;

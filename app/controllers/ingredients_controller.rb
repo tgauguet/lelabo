@@ -10,6 +10,7 @@ class IngredientsController < ApplicationController
 	def new
 		@ingredient = @user.ingredients.new
 		@ingredients = @user.ingredients.all.order("priority ASC, name ASC")
+		render "form", layout: false
 	end
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)

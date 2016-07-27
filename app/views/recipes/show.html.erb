@@ -11,6 +11,14 @@
 		<br/>
 		<p><%= raw(@recipe.process) %></p>
 		<br/>
+		<p>Ingredients:</p>
+		<ul>
+			<% @recipe.quantities.each do |ingredient| %>
+				<li><%= ingredient.ingredient.name %>&nbsp;<%= ingredient.weight %>kg</li>
+			<% end %>
+		</ul>
+		<p>Cout de revient : <%= number_to_currency @recipe.total_price %></p>
+		<br/>
 		<%= link_to 'Modifier', edit_recipe_path(@recipe) %> |
 		<%= link_to 'Retour', recipes_path %>
 	</div>
