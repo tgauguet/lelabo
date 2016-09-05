@@ -23,8 +23,7 @@
     <br/><br/>
     <p>Ingredients</p>
     <div class="add_ingredients">
-      <%= collection_select(:recipe, :first_ingredient, Ingredient.all.order("name ASC"), :id, :name_humanized ) %>
-      <%= collection_select(:recipe, :second_ingredient, Ingredient.all.order("name ASC"), :id, :name_humanized ) %>
+      <%= collection_select(:recipe, :ingredient_id, Ingredient.all.order("name ASC"), :id, :name_humanized ) %>
     </div>
     <%= image_tag "baking.png", class: "field-img2" %>
     <%= f.text_field :baking, class: "basic-field rounded-field", placeholder: "cuisson" %>
