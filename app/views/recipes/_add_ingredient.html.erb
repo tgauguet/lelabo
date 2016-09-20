@@ -1,6 +1,6 @@
 <div class="partial">
-	<%= f.fields_for :quantities, child_index: index do |ff| %>
-	    <%= ff.select(:ingredient_id, Ingredient.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true  ) %>
-	    <%= ff.text_field :weight, class: "basic-field rounded-field", placeholder: "quantité" %>
-	<% end %>
+	<%= ff.select(:ingredient_id, Ingredient.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true  ) %>
+	<%= ff.text_field :weight, class: "basic-field rounded-field", placeholder: "quantité" %>
+	<%= ff.hidden_field :_destroy %>
+	<%= remove_field "X", ff %>
 </div>

@@ -95,4 +95,29 @@ $(document).on('page:update', function(){
       }
 });
 
+// load and destroy new fields for quantities in recipes forms
 
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+}
+
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".partial").hide();
+}
+
+// infinite pagination scroll with will paginate javascript code
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').html('<img src="/assets/top.gif" alt="Loading..." title="Loading..." class="loading_gif" />');
+        return $.getScript(url);
+      }
+    });
+    return $(window).scroll();
+  }
+});

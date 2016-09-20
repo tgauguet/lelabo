@@ -14,7 +14,7 @@
     <%= image_tag "title.png", class: "field-img2" %>
     <%= f.text_field :name, class: "basic-field top-field" , placeholder: "Titre" %>
     <%= image_tag "description.png", class: "field-img2" %>
-    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Note" %>
+    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Notes" %>
     <%= image_tag 'user.png', class: "field-img2" %>
     <%= f.text_field :author, class: "basic-field bottom-field", placeholder: "Auteur" %>
     <br/>
@@ -24,10 +24,12 @@
     <p>Ingredients</p>
     <div class="ingredients-add-ctnr">
       <div class="add_ingredients">
-        <%= render "add_ingredient", f: f, index: Time.now.to_i %>
+        <%= f.fields_for :quantities do |ff| %>
+          <%= render "add_ingredient", ff: ff %>
+        <% end %>
       </div>
     </div>
-    <div class="add_field"><%= link_to "+", new_recipe_path %>"</div>
+    <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
     <%= image_tag "baking.png", class: "field-img2" %>
     <%= f.text_field :baking, class: "basic-field rounded-field", placeholder: "cuisson" %>
     <div class="select-areas">
@@ -46,9 +48,3 @@
     <% end %>
   </div>
 <% end %>
-<script>
-$(document).on("click", ".add_field", function(){
-  var $target = $(".add_ingredients");
-  $target.last().clone().appendTo(".ingredients-add-ctnr");
-});
-</script>

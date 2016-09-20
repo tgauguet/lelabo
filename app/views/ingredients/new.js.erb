@@ -1,7 +1,9 @@
-$(".ing-cntnr").html("<%= escape_javascript(render 'ingredients/ingredients')%>")
-
 // clear form fields when a task is created
 $('#clear_form').find("input[type=text], text").val("")
+
+// scroll to load next page ingredients with will_paginate
+$('#sortable1').append('<%= escape_javascript render(@ingredients) %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
 
 $(document).ready(function(){
   $(".inside-btn").click(function(){

@@ -11,6 +11,8 @@ gem 'pg', '~> 0.15'
 
 gem 'sass-rails', '~> 5.0'
 
+gem 'will_paginate', '~> 3.0.5'
+
 gem 'sunspot_rails'
 
 gem 'sunspot_solr' 

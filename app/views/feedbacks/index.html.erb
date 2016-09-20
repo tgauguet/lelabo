@@ -5,7 +5,7 @@
 		<% @feedback.each do |feedback| %>
 			<div class="feedback">
 				<% if !feedback.user.nil? %>
-					<p class="feed-from"><%= feedback.user.firstname.humanize %> <%= feedback.user.name.humanize %> à écrit :</p>
+					<p class="feed-from">Le <%= feedback.created_at.strftime("%d %b %Y") %>, <%= feedback.user.firstname.humanize %> <%= feedback.user.name.humanize %> à écrit :</p>
 					<%= link_to feedback_path(feedback), method: :delete do %><span class="delete-btn-cntnr">Supprimer</span><% end %>
 					<i><%= feedback.message %></i><br/>
 				<% end %>

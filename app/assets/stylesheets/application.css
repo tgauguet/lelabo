@@ -3,7 +3,6 @@
  *= require jquery-ui
  */
 
-
 body{
 	text-align: center;
 	font-family: Helvetica;
@@ -340,7 +339,7 @@ BUTTONS -- DESIGN
 .cancel-btn{
   background:#808285;
   border-bottom: 2px solid #58595B;
-  width: 5em;
+  width: 3em;
   text-align: center;
 }
 
@@ -2551,6 +2550,23 @@ select{
   padding-bottom: 1em;
   margin-bottom: 1em;
 }
+
+.pagination a, .pagination p, .pagination span, .pagination em{
+  display: none;
+}
+
+.pagination{
+  text-align: center;
+}
+
+.loading_gif{
+  width: 2em;
+}
+
+
+
+
+
 
 
 

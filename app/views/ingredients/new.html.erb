@@ -52,7 +52,17 @@
 			<% end %><br/>
 			</div>
 			<h3>Tous les ingrédients</h3><br/>
-			<%= render "ingredients/ingredients" %>
+			<div class="ing-cntnr">
+				<ul>
+					<li id="sortable1">
+						<% unless @ingredients.nil? %>
+							<%= render @ingredients%>
+						<% end %>
+					</li>
+					<br/>
+					<%= will_paginate %>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

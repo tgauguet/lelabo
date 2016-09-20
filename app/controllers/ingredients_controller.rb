@@ -9,8 +9,7 @@ class IngredientsController < ApplicationController
 
 	def new
 		@ingredient = @user.ingredients.new
-		@ingredients = @user.ingredients.all.order("priority ASC, name ASC")
-		render "form", layout: false
+		@ingredients = @user.ingredients.all.paginate(page: params[:page], per_page: 20).order("priority ASC, name ASC")
 	end
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
@@ -36,7 +35,7 @@ class IngredientsController < ApplicationController
 	#end
 
 	def sort
-		# adjust the position of each task with jquery sortable
+		# adjust the position of each ingredient with jquery sortable
 		# inspired by tutorial : http://josephndungu.com/tutorials/ajax-sortable-lists-rails-4
 		params[:order].each do |key, value|
 			Ingredient.find(value[:id]).update_attribute(:priority, value[:position])
