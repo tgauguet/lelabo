@@ -1,16 +1,10 @@
+#!usr/bin/env ruby
+#encoding: utf-8
+
 class IngredientsController < ApplicationController
 	before_action :set_user
-	before_action :set_ingredient, only: [:update, :destroy]
-
-	def update
-		@current_ingredient.update(ingredients_params)
-		redirect_to new_ingredient_path
-	end
-
-	def new
-		@ingredient = @user.ingredients.new
-		@ingredients = @user.ingredients.all.paginate(page: params[:page], per_page: 20).order("priority ASC, name ASC")
-	end
+	before_action :set_ingredient, only: [:update, :edit]
+	helper_method :sort_columns, :sort_direction
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
 	
@@ -34,38 +28,54 @@ class IngredientsController < ApplicationController
 	#	end
 	#end
 
-	def sort
-		# adjust the position of each ingredient with jquery sortable
-		# inspired by tutorial : http://josephndungu.com/tutorials/ajax-sortable-lists-rails-4
-		params[:order].each do |key, value|
-			Ingredient.find(value[:id]).update_attribute(:priority, value[:position])
-		end
-		render :nothing => true
+	def new
+		@ingredient = @user.ingredients.new
+		@ingredients = @user.ingredients.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
+	end
+
+	def edit
 	end
 
 	def create
-		@ingredient = @user.ingredients.new(ingredients_params)
-		@ingredient.save
+		if @user.ingredients.create(ingredients_params)
+			flash[:success] = "Votre nouvel ingrédient à été créé"
+		else
+			flash[:error] = "Erreur lors de la création de l'ingrédient"
+		end
+		redirect_to new_ingredient_path
+	end
+
+	def update
+		@ingredient.update(ingredients_params)
 		redirect_to new_ingredient_path
 	end
 
 	def destroy
+		@current_ingredient = Ingredient.find(params[:id])
 		@current_ingredient.destroy
-		redirect_to new_ingredient_path
+		render nothing: true
 	end 
 
 	private
+
+	def sort_columns
+		Ingredient.column_names.include?(params[:sort]) ? params[:sort] : "name"
+	end
+
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+	end
 
 	def set_user
 		@user = current_user
 	end
 
 	def set_ingredient
-		@current_ingredient = Ingredient.find(params[:id])
+		@ingredient = Ingredient.find(params[:id])
 	end
 
 	def ingredients_params
-		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering )
+		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, :provider_id )
 	end
 
 end

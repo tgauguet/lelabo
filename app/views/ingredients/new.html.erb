@@ -1,4 +1,3 @@
-
 <% title "Ingrédients" %>
 <div class="actions-cntnr">
 	<div class="action-cntnr">
@@ -7,52 +6,16 @@
 			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
 			<div class="ingredient-form">
 			<h3>Nouvel ingrédient</h3><br/>
-			<%= form_for @ingredient, html: { data_type: "html", id: "clear_form"} do |f| %>
-				<%= image_tag "file.png", class: "field-img" %>
-				<%= f.text_field :name, placeholder: "Nom", class: "basic-field top-field" %>
-				<div class="double-field">
-					<%= image_tag "euro-3.png", class: "field-img" %>
-					<%= f.text_field :price, placeholder: "Prix", class: "basic-field bottom-field" %>
-					<span class="select-span">
-						<%= image_tag "arrow-down.png", class: "field-img select-img" %>
-						<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field" %>
-					</span>
-				</div>
-				<%= f.hidden_field :priority, value: "1" %>
-				<div class="composition">
-					<p>Composition ( en % )</p>
-					<div>
-						<%= image_tag "fat.png", class: "field-img" %>
-						<%= f.text_field :fat_percent, class: "basic-field top-rad", placeholder: "Mat.grasse" %>
-						<%= image_tag "water.png", class: "field-img" %>
-						<%= f.text_field :water_percent, class: "basic-field special-top", placeholder: "Eau" %>
-						<%= image_tag "sugar.png", class: "field-img" %>
-						<%= f.text_field :sugar_percent, class: "basic-field special-top", placeholder: "Sucre" %>
-						<%= image_tag "alcohol.png", class: "field-img" %>
-						<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad", placeholder: "Alcool" %>
-					</div>
-					<div class="left-compo">
-						<%= image_tag "dry.png", class: "field-img" %>
-						<%= f.text_field :dry_matter_percent, class: "basic-field top-rad", placeholder: "Mat.sèche" %>
-						<%= image_tag "chocolate.png", class: "field-img" %>
-						<%= f.text_field :cocoa_percent, class: "basic-field special-top", placeholder: "Cacao maigre" %>
-						<%= image_tag "cocoa-butter.png", class: "field-img" %>
-						<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top", placeholder: "Beurre de cacao" %>
-						<%= image_tag "bowl.png", class: "field-img" %>
-						<%= f.text_field :cocoa_total_percent, class: "basic-field special-top bot-rad", placeholder: "Cacao total" %>
-					</div>
-				</div>
-				<div class="select-areas">
-					<p>Catégorie</p>
-					<%= image_tag "category.png", class: "field-img" %><%= f.select :category, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], class: "rounded-field", include_blank: true, placeholder: "catégorie" %>
-				</div>
-				<br/><br/>
-				<%= f.submit "Ajouter l'élément", class: "btn inside-btn" %>
-				<p class="cancel-btn">Annuler</p>	
-			<% end %><br/>
+			<%= render "form" %>
 			</div>
 			<h3>Tous les ingrédients</h3><br/>
 			<div class="ing-cntnr">
+			<span>Classer par: </span>
+		        <%= sortable "Nom", "name" %>
+		        <%= sortable "Dernier créé", "created_at" %>
+		        <%= sortable "Catégorie", "category" %>
+		        <%= sortable "Dernier modifié", "updated_at" %>
+		      </br><br/>
 				<ul>
 					<li id="sortable1">
 						<% unless @ingredients.nil? %>

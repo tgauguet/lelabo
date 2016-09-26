@@ -1,11 +1,12 @@
 class RecipesController < ApplicationController
+  helper_method :sort_columns, :sort_direction
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index]
 
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
-    @assemblies = Assembly.all.order("title ASC")
+    @recipes = @user.recipes.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
   end
 
   # GET /recipes/1
@@ -64,13 +65,24 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def set_user
+      @user = current_user
+    end
+
+    def sort_columns
+      Recipe.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.fetch(:recipe, {}).permit(:name, :image_file_name, :author, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy])
+      params.fetch(:recipe, {}).permit(:name, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy])
     end
 end

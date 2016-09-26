@@ -69,7 +69,8 @@ ready = function(){
 	set_positions();
 	$( "#sortable" ).sortable({
     	axis: "y", 
-    	opacity: 0.8
+    	opacity: 0.8,
+    	placeholder: "editsortable3"
 	});
 
 	//call set_positions function for to-do lists

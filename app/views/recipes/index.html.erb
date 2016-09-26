@@ -7,33 +7,17 @@
       <%= link_to new_recipe_path do %>
         <div class="ingredient-btn">Nouvelle recette</div><br/>
       <% end %>
-      <%= link_to new_assembly_path do %>
-        <div class="ingredient-btn">Nouvel assemblage</div>
-      <% end %>
     </div>
-      <%= render "assemblies" %>
-        <% @recipes.each do |recipe| %>
-          <div class="confirm-cntnr">
-              <div class="data-confirm">
-                <h3>Êtes-vous sûr de vouloir supprimer cette recette ?</h3>
-                <div class="confirm-false">ANNULER</div>
-                <%= link_to recipe_path(recipe.id), method: :delete, id: "delete-task" do %>
-                  <div class="confirm-true">CONFIRMER</div>
-                <% end %>
-              </div>
-            </div>
-          <% unless recipe.category.nil? %>
-            <div class="circle <%= category_color(recipe) %>"></div>
-          <% end %>
-          <%= link_to recipe do %>
-            <div class="taskname2">
-              <span class="ing-name"><%= recipe.name.humanize %></span>
-            </div>
-            <tr>
-              <td><%= link_to 'Modifier', edit_recipe_path(recipe) %></td>
-            </tr>
-          <% end %>
-          <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over" %>
-        <% end %>
+    <div id="paginate">
+      <span>Classer par: </span>
+        <%= sortable "Nom", "name" %>
+        <%= sortable "Étoile", "stared" %>
+        <%= sortable "Dernier créé", "created_at" %>
+        <%= sortable "Catégorie", "category" %>
+        <%= sortable "Dernier modifié", "updated_at" %>
+      </br><br/>
+      <%= render @recipes %>
+    </div>
+    <%= will_paginate %>
   </div>
 </div>

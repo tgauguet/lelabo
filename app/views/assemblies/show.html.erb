@@ -1,0 +1,9 @@
+<% title "#{@assembly.title}" %>
+<div class="actions-cntnr">
+ 	<div class="action-cntnr">
+		<%= @assembly.title %><br/></br>
+		<%= link_to "Modifier", edit_assembly_path(@assembly) %><br/>
+		<%= link_to "Supprimer", assembly_path, method: :delete %><br/>
+		<%= link_to "Index", assemblies_path %>
+	</div>
+</div>

@@ -16,10 +16,11 @@
     <%= image_tag "description.png", class: "field-img2" %>
     <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Notes" %>
     <%= image_tag 'user.png', class: "field-img2" %>
-    <%= f.text_field :author, class: "basic-field bottom-field", placeholder: "Auteur" %>
+    <%= f.text_field :owner, class: "basic-field bottom-field", placeholder: "Auteur", value: user_if_nil(@recipe) %>
     <br/>
     <p>Image</p>
-    <%= f.file_field :image_file_name %>
+    <%= image_tag(@recipe.image.url(:medium), class: "user-img") %>
+    <%= f.file_field :image %>
     <br/><br/>
     <p>Ingredients</p>
     <div class="ingredients-add-ctnr">

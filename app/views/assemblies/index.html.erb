@@ -1,0 +1,16 @@
+<% title "Tous les montages" %>
+<div class="actions-cntnr">
+ 	<div class="action-cntnr">
+ 		<%= link_to "Nouveau", new_assembly_path %><br/><br/>
+ 		<% if !@assemblies.blank? %>
+ 				<%= sortable "Nom", "title" %>
+		        <%= sortable "Dernier créé", "created_at" %>
+		        <%= sortable "Catégorie", "category" %>
+		        <%= sortable "Dernier modifié", "updated_at" %>
+ 			<div id="paginate">
+				<%= render @assemblies %>
+			</div>
+			<%= will_paginate %>
+		<% end %>
+	</div>
+</div>

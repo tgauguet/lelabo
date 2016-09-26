@@ -16,10 +16,15 @@
 	</div>
 </div>
 <div class="left-cntnr">
+	<div class="lft-logo-hdr">
+			<%= link_to root_path do %>
+				<%= image_tag "logo-white-head.png", class: "header-icn", alt: "page d'acceuil" %>
+			<% end %>
+		</div>
 	<div class="left-cases">
 		<div class="user-btn">
-			<h3><%= @user.account_name.downcase %><%= image_tag "arrows.png", class: "micro-arrow" %><%= image_tag "weather.png", class: "img-right" %></h3>
-			<p><%= @user.firstname.downcase %> <%= @user.name.downcase %></p>
+			<h3><%= truncate(@user.account_name.downcase, length: 10) %><%= image_tag "arrows.png", class: "micro-arrow" %></h3>
+			<p><%= @user.firstname.downcase %> <%= truncate(@user.name.downcase, length: 10) %></p>
 		</div>
 		<div class="arrow-container"><div class="arrow-up"></div></div>
 		<div class="user-paths">
@@ -37,15 +42,51 @@
 			</ul>
 		</div>
 	</div>
+	<br/>
+	<div class="cta-lft-cntnr">
+		<%= link_to subscriptions_path do %>
+			<div class="cta-lft-btn">+ S'ABONNER</div>
+		<% end %>
+	</div>
+	<div class="features-li">
+		<ul>
+			<%= link_to new_ingredient_path do %>
+				<li class="f-li1"><div class="feat-img-cntnr"><div class="feature-img1"></div></div>Ingrédients</li>
+			<% end %>
+			<%= link_to recipes_path do %>
+				<li class="f-li2"><div class="feat-img-cntnr"><div class="feature-img2"></div></div>Recettes</li>
+			<% end %>
+			<%= link_to assemblies_path do %>
+				<li class="f-li3"><div class="feat-img-cntnr"><div class="feature-img3"></div></div>Montages</li>
+			<% end %>
+			<%= link_to providers_path do %>
+				<li class="f-li4"><div class="feat-img-cntnr"><div class="feature-img4"></div></div>Fournisseurs</li>
+			<% end %>
+			<%= link_to new_to_do_list_path do %>
+				<li class="f-li5"><div class="feat-img-cntnr"><div class="feature-img5"></div></div>Organisation</li>
+			<% end %>
+		</ul>
+	</div>
 </div>
 <div class="full-cntnr">
 	<div class="full-header">
-		<ul>
-			<li>
-				<%= link_to root_path do %>
-					<%= image_tag "home.jpg", class: "header-icn", alt: "page d'acceuil" %>
-				<% end %>
-			</li>
-		</ul>
+		<div class="rgth-links">
+			<ul>
+				<li>
+					<%= link_to new_recipe_path do %><div class="header-img-grey3"></div><% end %>
+				</li>
+				<li>
+					<%= link_to new_recipe_path do %><div class="header-img-grey2"></div><% end %>
+				</li>
+				<li>
+					<%= link_to root_path do %><div class="header-img-grey1"></div><% end %>
+				</li>
+			</ul>
+		</div>
+		<div class="lft-links">
+			<ul>
+				<li>Search</li>
+			</ul>
+		</div>
 	</div>
 </div>

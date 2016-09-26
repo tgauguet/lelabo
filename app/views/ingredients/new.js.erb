@@ -1,4 +1,4 @@
-// clear form fields when a task is created
+// clear form fields when an ingredient is created
 $('#clear_form').find("input[type=text], text").val("")
 
 // scroll to load next page ingredients with will_paginate
@@ -6,62 +6,15 @@ $('#sortable1').append('<%= escape_javascript render(@ingredients) %>');
 $('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
 
 $(document).ready(function(){
-  $(".inside-btn").click(function(){
-    $(".explaination-cntnr").hide();
-    $(".simple-form-cntnr").show();
+  $(".ingredient-btn").click(function(){
+    $(".ingredient-btn").hide();
+    $(".ingredient-form").show();
   });
   $(".cancel-btn").click(function(){
-    $(".simple-form-cntnr").hide();
-    $(".explaination-cntnr").show();
-  });
-  $(".cancel-btn").click(function(){
-    $(".simple-form-cntnr").hide();
-    $(".explaination-cntnr").show();
-    $(".hide-btn").show();
+    $(".ingredient-form").hide();
+    $(".ingredient-btn").show();
   });
 });
-
-var ready, set_positions;
-
-set_positions = function(){
-  //look through and give each task a data-pos
-  //attributes that hold this position in the DOM
-  $(".class-helper.inline_divs").each(function(i){
-    $(this).attr("data-pos", i+1);
-  });
-}
-
-ready = function(){
-  //call set_positions function
-  set_positions();
-  $( "#sortable1" ).sortable({
-      axis: "y", 
-      tolerance: "pointer",
-      forcePlaceholderSize: true,
-      placeholder: "editsortable2",
-      containment: "parent",
-      cursor: "-webkit-grabbing",
-      opacity: 0.99
-  });
-
-  //after the order change
-  $("#sortable1").sortable().bind('sortupdate', function(e, ui) {
-    //array to store new order
-    updated_order = []
-    //set the updated positions
-    set_positions();
-    //populate the new updated_order with the new set_positions
-    $(".class-helper.inline_divs").each(function(i){
-      updated_order.push({ id: $(this).data("id"), position: i + 1 });
-    });
-    //send the updated order via ajax
-    $.ajax({
-      type: "PUT",
-      url: '/ingredients/sort/:id',
-      data: { order: updated_order }
-    });
-  });
-}
 
 $(document).ready(ready);
 /**

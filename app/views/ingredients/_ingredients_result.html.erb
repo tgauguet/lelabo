@@ -2,7 +2,7 @@
 	<ul>
 		<li id="sortable1">
 				<% @results.each do |ingredient| %>
-				<div class="class-helper inline_divs"  data-id="<%= ingredient.id %>">
+				<div class="class-helper inline_divs"">
 					<% unless ingredient.ingredient_category.nil? %>
 						<div class="circle <%= category_color(ingredient) %>"></div>
 					<% end %>

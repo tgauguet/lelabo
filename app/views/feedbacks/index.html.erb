@@ -1,5 +1,5 @@
 <% if @user.admin? %>
-<div class="connexion-backgrnd">
+	<div class="connexion-backgrnd">
 		<%= link_to root_path do %><%= image_tag "logo-bird.png", class: "logo-white" %><% end %>
 		<H2 class="big-ttle beautiful-txt-color">Tous les feedbacks</H2><br/>
 		<% @feedback.each do |feedback| %>

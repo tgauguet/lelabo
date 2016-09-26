@@ -36,6 +36,7 @@ module ApplicationHelper
         current_page?(nom_de_votre_compte_url) || current_page?(informations_de_votre_compte_url)
     end
 
+    #add the removed function "link_to_function"
     def link_to_function(name, *args, &block)
         html_options = args.extract_options!.symbolize_keys
 
@@ -44,6 +45,29 @@ module ApplicationHelper
         href = html_options[:href] || '#'
 
         content_tag(:a, name, html_options.merge(:href => href, :onclick => onclick))
+    end
+
+    def update_stared_item(item)
+        if item.stared
+            false
+        else
+            true
+        end
+    end
+
+    def user_if_nil(obj)
+        if obj.id == nil
+            (@user.firstname + " " + @user.name)
+        else
+            obj.owner
+        end
+    end
+
+    def sortable(name, column, title = nil)
+        title ||= name.titleize
+        css_class = (column == sort_columns) ? "sort-btn #{sort_direction}" : nil
+        direction = (column == sort_columns && sort_direction == "asc") ? "desc" : "asc"
+        link_to title, { sort: column, direction: direction}, class: css_class
     end
 
 end

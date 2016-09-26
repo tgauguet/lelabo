@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
-  resources :recipes
+  	mount Ckeditor::Engine => '/ckeditor'
+  	resources :recipes
 	devise_for :users, :controllers => {:confirmations => 'confirmations', :registrations => "registrations"}, path: 'utilisateur', path_names: { sign_out: 'deconnexion', password: 'mot-de-passe', confirmation: 'verification', unlock: 'debloquer', edit: "modifier" }, :except => [:update, :edit]
   	devise_scope :user do
 	  authenticated :user do
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 	    root :to => 'devise/registrations#new', as: :unauthenticated_root
 	  end
 	end
+	resources :providers
 	resources :feedbacks, only: [:create, :index, :destroy]
 	### Note on "member do" and "collection do"
 	### member acts like a member, it requires an ID

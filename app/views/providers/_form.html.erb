@@ -1,0 +1,16 @@
+<%= form_for @provider do |f| %>
+	<%= f.text_field :name, placeholder: "Nom", class: "basic-field" %>
+	<%= f.text_field :adress, placeholder: "Adresse", class: "basic-field" %>
+	<%= f.text_field :city, placeholder: "Ville", class: "basic-field" %>
+	<%= f.text_field :postal, placeholder: "Code postal", class: "basic-field" %>
+	<%= f.text_field :country, placeholder: "Pays", class: "basic-field" %>
+	<%= f.text_field :email, placeholder: "Email", class: "basic-field" %>
+	<%= f.text_field :website, placeholder: "Site internet", class: "basic-field" %>
+	<%= f.text_field :phone, placeholder: "Téléphone", class: "basic-field" %>
+	<%= f.text_field :fax, placeholder: "Fax", class: "basic-field" %>
+	<%= f.text_field :mobile_phone, placeholder: "Portable", class: "basic-field" %>
+	<%= f.text_field :vat, placeholder: "Numéro de TVA", class: "basic-field" %>
+	<%= f.text_field :siret, placeholder: "Siret", class: "basic-field" %>
+	<%= f.text_area :notes, placeholder: "Notes...", class: "basic-field" %>
+	<%= f.submit "Enregistrer" %>
+<% end %>

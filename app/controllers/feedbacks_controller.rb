@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
 
 	def index
-		@feedback = Feedback.all
+		@feedback = Feedback.all.order("created_at DESC")
 		@user = current_user
 	end
 

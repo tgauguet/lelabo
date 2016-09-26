@@ -1,0 +1,16 @@
+<% title "Ingrédients" %>
+<div class="actions-cntnr">
+	<div class="action-cntnr">
+		<%= link_to new_provider_path do %>
+			<button>Nouveau fournisseur</button>
+		<% end %>
+		<br/>
+		<% @providers.each do |provider| %>
+			<%= link_to provider_path(provider.id) do %>
+				<%= provider.name.humanize %>
+			<% end %>
+			<%= link_to "supprimer", provider, method: :delete %>
+			<br/>
+		<% end %>
+	</div>
+</div>

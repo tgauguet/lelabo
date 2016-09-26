@@ -1,0 +1,11 @@
+<%= form_for @assembly do |f| %>
+	<%= image_tag "title.png", class: "field-img2" %>
+	<%= f.text_field :title, class: 'basic-field top-field', placeholder: "titre" %>
+	<%= image_tag @assembly.image %>
+	<%= f.file_field :image %>
+	<%= image_tag "description.png", class: "field-img2" %>
+	<%= f.text_area :description, class: "basic-field bottom-field", placeholder: "Notes" %>
+	<%= f.text_field :owner, class: "basic-field", placeholder: "créateur", value: user_if_nil(@assembly) %>
+	<%= render "add_recipe", f: f %>
+	<%= f.submit "Enregistrer" %>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="updte-cntnr">
+  <div class="confirm-cntnr">
+    <div class="data-confirm">
+      <h3>Êtes-vous sûr de vouloir supprimer cette recette ?</h3>
+      <div class="confirm-false">ANNULER</div>
+        <%= link_to recipe_path(recipe.id), method: :delete, id: "delete-task" do %>
+          <div class="confirm-true">CONFIRMER</div>
+        <% end %>
+    </div>
+  </div>
+  <% unless recipe.category.nil? %>
+    <div class="circle <%= category_color(recipe) %>"></div>
+  <% end %>
+  <%= form_for recipe, remote: true do |f| %>
+        <%= f.hidden_field :stared, value: update_stared_item(recipe) %>
+        <% if recipe.stared %>
+          <%= image_submit_tag "star.png", class: "stared-item" %>
+        <% else %>
+          <%= image_submit_tag "missing-star.png", class: "stared-item" %>
+        <% end %>
+      <% end %>
+  <%= link_to recipe do %>
+      <div class="index-recipe"><%= recipe.name.humanize %></div>
+  <% end %>
+  <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over" %><br/>
+</div>
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706152546) do
+ActiveRecord::Schema.define(version: 20160924145558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20160706152546) do
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "owner"
+    t.string   "category"
+    t.integer  "user_id"
+    t.text     "notes"
+    t.integer  "position"
+    t.integer  "priority"
+    t.boolean  "stared"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -81,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160706152546) do
     t.decimal  "cocoa_percent"
     t.decimal  "cocoa_butter_percent"
     t.decimal  "cocoa_total_percent"
+    t.integer  "provider_id"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -106,6 +114,20 @@ ActiveRecord::Schema.define(version: 20160706152546) do
     t.integer  "ingredient_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.string   "adress"
+    t.string   "city"
+    t.string   "postal"
+    t.string   "country"
+    t.string   "email"
+    t.string   "website"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "mobile_phone"
+    t.string   "vat"
+    t.string   "siret"
+    t.text     "notes"
+    t.integer  "user_id"
   end
 
   create_table "quantities", force: :cascade do |t|
@@ -135,6 +157,8 @@ ActiveRecord::Schema.define(version: 20160706152546) do
     t.datetime "updated_at",         null: false
     t.integer  "step_id"
     t.string   "baking"
+    t.string   "owner"
+    t.boolean  "stared"
   end
 
   create_table "steps", force: :cascade do |t|
