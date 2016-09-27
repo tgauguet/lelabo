@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost]
   before_action :set_user, only: [:index]
 
   # GET /recipes
@@ -64,6 +64,12 @@ class RecipesController < ApplicationController
     end
   end
 
+  def production_cost
+  end
+
+  def balancing
+  end
+
   private
 
     def set_user
@@ -83,6 +89,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.fetch(:recipe, {}).permit(:name, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy])
+      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy])
     end
 end

@@ -1,6 +1,12 @@
 <% title "#{@recipe.name.humanize}" %>
 <div class="actions-cntnr">
  	<div class="action-cntnr">
+ 		<%= link_to balancing_recipe_path(@recipe) do %>
+ 			<p class="cta-btn">Equilibrer</p>
+ 		<% end %>
+ 		<%= link_to production_cost_recipe_path(@recipe) do %>
+ 			<p class="cta-btn">Coût de revient</p>
+ 		<% end %>
 		<p id="notice"><%= notice %></p>
 		<h2><%= @recipe.name.humanize %></h2>
 		<p><%= @recipe.note %></p>

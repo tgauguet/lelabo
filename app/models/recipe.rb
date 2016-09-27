@@ -19,4 +19,9 @@ class Recipe < ActiveRecord::Base
 	def total_price
 		self.quantities.collect { |q| q.price }.sum
 	end
+
+	def total_weight
+		self.quantities.collect { |q| q.weight }.sum
+	end
+
 end

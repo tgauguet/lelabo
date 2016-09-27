@@ -30,7 +30,12 @@ Rails.application.routes.draw do
 			end
 		end
 	end
-	resources :recipes
+	resources :recipes do
+		member do
+			get :balancing
+			get :production_cost
+		end
+	end
 	resources :assemblies
 	# create routes for each registration steps
 	resource :user, only: [:edit] do

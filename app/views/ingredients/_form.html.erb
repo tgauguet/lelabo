@@ -6,7 +6,7 @@
 		<%= f.text_field :price, placeholder: "Prix", class: "basic-field bottom-field" %>
 					<span class="select-span">
 			<%= image_tag "arrow-down.png", class: "field-img select-img" %>
-			<%= f.select :unit, ["Kg", "Litre", "Pièce"], class: "select-field basic-field" %>
+			<%= f.select :unit, ["Kg", "Litre"], class: "select-field basic-field" %>
 		</span>
 	</div>
 	<%= f.hidden_field :priority, value: "1" %>

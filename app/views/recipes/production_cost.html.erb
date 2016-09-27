@@ -1,0 +1,28 @@
+<% title "#{@recipe.name.humanize}" %>
+<div class="actions-cntnr">
+ 	<div class="action-cntnr">
+ 	<%= form_for @recipe, action: :edit do |f| %>
+ 		<% @recipe.quantities.each.with_index do |quantity, index| %>
+ 			<%= quantity.ingredient.name %> / 
+ 			<%= quantity.percent %> % / 
+ 			<%= number_to_currency quantity.price %>
+ 			<%= f.fields_for :quantities, quantity do |ff| %>
+ 				<%= ff.hidden_field :ingredient_id %>
+ 				<%= ff.text_field :weight, value: quantity.updated_value %> kg
+ 			<% end %>
+ 			<br/>
+ 		<% end %>
+ 		<%= f.text_field :total %>
+ 		<%= f.submit "Enregistrer" %>
+ 	<% end %>
+ 	<%= form_for @recipe, action: :edit do |f| %>
+ 		<% @recipe.quantities.each.with_index do |quantity, index| %>
+	 		<%= f.fields_for :quantities, quantity do |ff| %>
+	 			<%= ff.hidden_field :ingredient_id %>
+	 			<%= ff.hidden_field :weight, value: quantity.updated_value %>
+	 		<% end %>
+ 		<% end %>
+ 		<%= text_field_tag :total %>
+ 	<% end %>
+ 	</div>
+</div>
