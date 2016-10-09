@@ -31,8 +31,8 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recette créée avec succès' }
-        format.json { render :show, status: :created, location: @recipe }
+        format.html { redirect_to edit_recipe_path, notice: 'Recette créée avec succès' }
+        #format.json { render :edit, status: :created, location: edit_recipe_path }
       else
         format.html { render :new }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -45,8 +45,8 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recette modifiée avec succès' }
-        format.json { render :show, status: :ok, location: @recipe }
+        format.html { redirect_to edit_recipe_path, notice: 'Recette modifiée avec succès' }
+        #format.json { render :edit, status: :ok, location: edit_recipe_path }
       else
         format.html { render :edit }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -62,12 +62,6 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recette supprimée avec succès' }
       format.json { head :no_content }
     end
-  end
-
-  def production_cost
-  end
-
-  def balancing
   end
 
   private

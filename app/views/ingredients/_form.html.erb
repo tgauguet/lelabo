@@ -1,17 +1,14 @@
 <%= form_for @ingredient, html: { data_type: "html", id: "clear_form"} do |f| %>
+	<h3>Nom et catégorie</h3>
 	<%= image_tag "file.png", class: "field-img" %>
 	<%= f.text_field :name, placeholder: "Nom", class: "basic-field top-field" %>
-	<div class="double-field">
-		<%= image_tag "euro-3.png", class: "field-img" %>
-		<%= f.text_field :price, placeholder: "Prix", class: "basic-field bottom-field" %>
-					<span class="select-span">
-			<%= image_tag "arrow-down.png", class: "field-img select-img" %>
-			<%= f.select :unit, ["Kg", "Litre"], class: "select-field basic-field" %>
-		</span>
+	<div class="select-areas">
+		<%= image_tag "category.png", class: "field-img" %>
+		<%= f.select :category, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field", include_blank: true, placeholder: "catégorie" %>
+		<%= f.select :unit, ["Kg", "Litre"], class: "select-field basic-field" %>
 	</div>
-	<%= f.hidden_field :priority, value: "1" %>
+	<h3>Composition</h3>
 	<div class="composition">
-		<p>Composition ( en % )</p>
 		<div>
 			<%= image_tag "fat.png", class: "field-img" %>
 			<%= f.text_field :fat_percent, class: "basic-field top-rad", placeholder: "Mat.grasse" %>
@@ -34,15 +31,17 @@
 		</div>
 	</div>
 	<div class="select-areas">
-		<p>Catégorie</p>
-		<%= image_tag "category.png", class: "field-img" %>
-		<%= f.select :category, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], class: "rounded-field", include_blank: true, placeholder: "catégorie" %>
 		<%= image_tag "calories.png", class: "field-img" %>
 		<%= f.text_field :kcal, class: "basic-field special-top bot-rad", placeholder: "Calories" %>
-		<%= image_tag "cargo-truck.png", class: "field-img" %>
-		<%= f.select(:provider_id, current_user.providers.all.order("name ASC").collect { |p| [p.name, p.id] }, include_blank: true) %>
 	</div>
-	<br/><br/>
+	<br/>
+	<h3>Fournisseurs et prix</h3>
+	<div class="double-field">
+	  <%= f.fields_for :provider_prices do |ff| %>
+			<%= render "add_provider_prices", ff: ff %>
+		<% end %>
+	</div><br/>
+	<div class="add_field"><%= create_new_field "+", f, :provider_prices %></div>
 	<%= f.submit "Enregistrer", class: "btn inside-btn" %>
 	<%= link_to new_ingredient_path do %>
 		<p class="cancel-btn">Annuler</p>

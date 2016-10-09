@@ -7,7 +7,7 @@ class IngredientsController < ApplicationController
 	helper_method :sort_columns, :sort_direction
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
-	
+
 	#this code took place in ingredients/new.html.erb
 	#<%= form_tag search_ingredients_path, method: :get do %>
 	#		<%= image_tag "search-btn.png", class: "search-btn" %>
@@ -54,7 +54,7 @@ class IngredientsController < ApplicationController
 		@current_ingredient = Ingredient.find(params[:id])
 		@current_ingredient.destroy
 		render nothing: true
-	end 
+	end
 
 	private
 
@@ -75,7 +75,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
-		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, :provider_id )
+		params.require(:ingredient).permit(:name, :quantity, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
 	end
 
 end

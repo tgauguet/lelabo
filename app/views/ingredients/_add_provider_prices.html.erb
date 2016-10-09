@@ -1,0 +1,11 @@
+<div class="partial">
+    <div class="select-areas">
+      <%= image_tag "cargo-truck.png", class: "field-img" %>
+      <%= ff.select(:provider_id, current_user.providers.all.order("name ASC").collect { |p| [p.name, p.id] }, include_blank: true) %>
+    </div>
+    <%= image_tag "euro-3.png", class: "field-img" %>
+    <%= ff.text_field :price, placeholder: "Prix", class: "basic-field bottom-field" %>
+    <%= image_tag "arrow-down.png", class: "field-img select-img" %>
+    <%= ff.hidden_field :_destroy %>
+    <%= remove_field "X", ff %>
+</div>

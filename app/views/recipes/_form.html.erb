@@ -26,7 +26,7 @@
     <div class="ingredients-add-ctnr">
       <div class="add_ingredients">
         <%= f.fields_for :quantities do |ff| %>
-          <%= render "add_ingredient", ff: ff %>
+          <%= render "add_quantities", ff: ff %>
         <% end %>
       </div>
     </div>

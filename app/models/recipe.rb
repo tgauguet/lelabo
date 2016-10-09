@@ -9,7 +9,7 @@ class Recipe < ActiveRecord::Base
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :size => { :in => 0..300.kilobytes }
                                 }
-    validates_attachment_content_type :image, 
+    validates_attachment_content_type :image,
                                     :content_type => /^image\/(png|gif|jpeg)/
 
 	def reject_quantity(attribute)
@@ -22,6 +22,10 @@ class Recipe < ActiveRecord::Base
 
 	def total_weight
 		self.quantities.collect { |q| q.weight }.sum
+	end
+
+	def total_sugar
+		self.quantities.collect { |q| q.ingredient.name }.sum
 	end
 
 end

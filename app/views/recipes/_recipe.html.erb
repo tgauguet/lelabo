@@ -19,9 +19,8 @@
           <%= image_submit_tag "missing-star.png", class: "stared-item" %>
         <% end %>
       <% end %>
-  <%= link_to recipe do %>
+  <%= link_to edit_recipe_path(recipe) do %>
       <div class="index-recipe"><%= recipe.name.humanize %></div>
   <% end %>
   <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over" %><br/>
 </div>
-

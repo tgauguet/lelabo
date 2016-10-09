@@ -1,0 +1,13 @@
+<h1><%= @recipe.name %></h1>
+<%= form_for(@recipe) do |f| %>
+  <% @recipe.quantities.each_with_index do |ingredient, index| %>
+    <%= f.fields_for :quantities, ingredient do |ff| %>
+      <%= render "add_quantities", ff: ff %>
+      <%= ingredient.ingredient.unit %>
+    <% end %>
+  <% end %>
+  <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
+  <%= f.submit "Enregistrer" %>
+<% end %>
+Poids total de la recette : <%= @recipe.total_weight %> Kg<br/>
+Pouvoir sucrant : <%= @recipe.total_sugar %> Kg<br/>

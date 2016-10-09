@@ -29,9 +29,9 @@
 					<div class="select-areas">
 					<p>Catégorie</p>
 						<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
-							<%= cat.select :name, ["céréales", "produits laitiers", "sucres", "chocolats","fruits", "décors", "emballages", "divers"], selected: f.object.ingredient_category.name, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
+							<%= cat.select :name, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Légumes", "Produits laitiers", "Purées de fruits", "Sucres"], selected: f.object.ingredient_category.name, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
 						<% end %>
-					</div>	<br/><br/>						
+					</div>	<br/><br/>
 					<%= f.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
 						<% end %>
 					</div>

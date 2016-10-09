@@ -1,0 +1,10 @@
+<h1><%= @recipe.name %></h1>
+Créée par <%= @recipe.owner %><br/>
+<%= @recipe.description %><br/>
+<h3>Composition</h3>
+<% @recipe.quantities.each do |ingredient| %>
+  <%= ingredient.ingredient.name + " = " %>
+  <%= ingredient.weight %>
+  <%= ingredient.ingredient.unit %>
+  <br/>
+<% end %>
