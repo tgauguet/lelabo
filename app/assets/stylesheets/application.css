@@ -3,6 +3,13 @@
  *= require jquery-ui
  */
 
+ /*
+ BLURRED TEXT FOR NON SUSCRIBED USERS - TO BE USED WITH INGREDIENTS PERCENTAGES !
+ ________________________________________________________________________________
+ color: transparent;;
+ text-shadow: 0 0 7px rgba(0,0,0,1);
+ */
+
 body{
 	text-align: center;
 	font-family: Helvetica;
@@ -22,7 +29,7 @@ body{
 .feature-img1, .feature-img2, .feature-img3, .feature-img4, .feature-img5{
   width: 1.2em;
   height: 1.2em;
-  background-size: cover; 
+  background-size: cover;
   display: block;
   margin-top: -0.07em;
   margin-left: -1.6em;
@@ -98,7 +105,7 @@ p, h2, h3{
 }
 
 .ghost-txt{
-  color: grey; 
+  color: grey;
 }
 
 .fake-checkbox{
@@ -121,7 +128,7 @@ p, h2, h3{
 }
 
 .tasks-count{
-  width: 1em !important; 
+  width: 1em !important;
   padding: 0.1em;
   padding-left: 1.7em;
   border-radius: 0.3em;
@@ -308,7 +315,7 @@ BUTTONS -- DESIGN
 /*   buttons with a green background  */
 
 .blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true{
-  background: rgb(27,189,157); 
+  background: rgb(27,189,157);
   border-bottom: 2px solid rgb(17,159,120) !important;
 }
 
@@ -330,10 +337,10 @@ BUTTONS -- DESIGN
 
 .social-btn,.cancel-btn, .inside-btn{
   display: inline-block;
-  width: auto; 
+  width: auto;
 }
 
-/*   buttons for subscriptions#new/index pages  */ 
+/*   buttons for subscriptions#new/index pages  */
 
 .plan-btn{
   opacity: 1;
@@ -478,7 +485,7 @@ a, a:active, a:hover{
 
 header .transparent{
   border:1px solid transparent;
-  text-align: right; 
+  text-align: right;
 }
 
 .transparent ul li{
@@ -615,7 +622,7 @@ ul li{
 .blog-post-cntnr{
   width: 40em;
   margin-left: auto;
-  background: white; 
+  background: white;
   margin-right: auto;
   z-index: 2;
   text-align: justify;
@@ -1058,7 +1065,7 @@ header .normal_header{
 .feedback{
   background: white;
   border-radius: 0.3em;
-  border: 1px solid rgb(230,230,230); 
+  border: 1px solid rgb(230,230,230);
   margin-right: 10%;
   margin-left: 10%;
   margin-top: 0.5em;
@@ -1117,7 +1124,7 @@ header .normal_header{
 }
 
 .send-feedback{
-  position: fixed; 
+  position: fixed;
   z-index: 1000;
   margin-top: 83vh;
   text-align: justify;
@@ -1140,7 +1147,7 @@ header .normal_header{
   position: absolute;
   width: 2em;
   margin-left: -2em;
-  margin-top: 2em;  
+  margin-top: 2em;
 }
 
 .buble2{
@@ -1223,33 +1230,33 @@ header .normal_header{
 .left-cntnr .left-cases:hover .arrow-up, .arrow-up2 {
   padding: 0.08em;
   z-index: 3;
-  content: ''; 
-  background: white; 
+  content: '';
+  background: white;
   margin-left: 0.2em;
-  border: 1px solid rgb(230,230,230); 
-  border-width: 1px 1px 0 0; 
-  display: block; 
-  left: 80%; 
+  border: 1px solid rgb(230,230,230);
+  border-width: 1px 1px 0 0;
+  display: block;
+  left: 80%;
   margin-top: -0.35em;
   height:10px;
-  width: 10px;   
+  width: 10px;
   position: absolute;
-  /* Chrome */-webkit-transform: rotate(-45deg); 
-  /* Chrome */-webkit-transform-origin: 50% 50%; 
-  /* Mozilla */-moz-transform: rotate(-45deg); 
-  /* Mozilla */-moz-transform-origin: 50% 50%; 
-  /* IE 9 */-ms-transform: rotate(-45deg); 
-  /* IE 9 */-ms-transform-origin:50% 50%; 
-  /* Opera */-o-transform: rotate(-45deg); 
-  /* Opera */-o-transform-origin: 50% 50%; 
-  transform: rotate(-45deg); 
+  /* Chrome */-webkit-transform: rotate(-45deg);
+  /* Chrome */-webkit-transform-origin: 50% 50%;
+  /* Mozilla */-moz-transform: rotate(-45deg);
+  /* Mozilla */-moz-transform-origin: 50% 50%;
+  /* IE 9 */-ms-transform: rotate(-45deg);
+  /* IE 9 */-ms-transform-origin:50% 50%;
+  /* Opera */-o-transform: rotate(-45deg);
+  /* Opera */-o-transform-origin: 50% 50%;
+  transform: rotate(-45deg);
   transform-origin: 50% 50%
 }
 
 .arrow-up2{
   background: #1C274C;
   padding: 0.03em;
-  border: none; 
+  border: none;
   margin-top: -1em;
   margin-right: 13em;
   left: 40%;
@@ -1381,7 +1388,7 @@ header .normal_header{
   margin-top: -1.5em;
   width: 1.8em;
   margin-left: 0.6em;
-  margin-right:0.6em; 
+  margin-right:0.6em;
   height: 1.8em;
   display: inline-block;
 }
@@ -1466,7 +1473,7 @@ header .normal_header{
 
 .feat-img:hover span, .feat-img2:hover span, .feat-img3:hover span, .feat-img4:hover span, .feat-img5:hover span{
   opacity: 1;
-  transition: opacity 0.5s 0.2s ease;  
+  transition: opacity 0.5s 0.2s ease;
 }
 
 .feat-img span, .feat-img2 span, .feat-img3 span, .feat-img4 span, .feat-img5 span{
@@ -1573,7 +1580,7 @@ header .normal_header{
   border-radius: 0.3em;
   padding-right: 2em;
   padding-left: 2em;
-  margin-right: 3em; 
+  margin-right: 3em;
   text-align: justify;
   margin-top: -0.6em;
 }
@@ -1595,7 +1602,7 @@ header .normal_header{
 }
 
 .blue-bckgrnd{
-  background: #328ECC; 
+  background: #328ECC;
 }
 
 .blue-bckgrnd h2, .blue-bckgrnd p{
@@ -1735,13 +1742,13 @@ header .normal_header{
 }
 
 .ttl-task{
-  font-size: 1.6em; 
+  font-size: 1.6em;
   font-family: "source_sans_prosemibold";
   margin-right: 1em;
 }
 
 .action-cntnr, .tasks-cntnr, .tools-cntnr{
-  background: white; 
+  background: white;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -1822,7 +1829,7 @@ a .tools-cntnr:hover{
 .checkout{
   background: #3180FF;
   border: 1px solid #3180FF;
-  padding-left: 2.2em; 
+  padding-left: 2.2em;
 }
 
 .checkout:hover{
@@ -1850,7 +1857,7 @@ select{
   padding-bottom: 0.6em;
   padding-right: 3em;
   padding-left: 1em;
-  font-size: 1.1em; 
+  font-size: 1.1em;
 }
 
 .test{
@@ -1859,7 +1866,7 @@ select{
 
 .blog-cta{
   background: #8FE3F9;
-  text-align: center; 
+  text-align: center;
   border-radius: 0.3em;
   padding-bottom: 1em;
   margin-bottom: 2em;
@@ -1901,7 +1908,7 @@ select{
 }
 
 .base-page-cntnr{
-  background: rgb(249,249,249); 
+  background: rgb(249,249,249);
   min-height: 100vh;
   margin-top: -2.5em;
 }
@@ -1968,7 +1975,7 @@ select{
 .to-do-cards, .editsortable{
   padding: 1em;
   text-align: justify;
-  width:18em; 
+  width:18em;
   height: 9.5em;
   display: inline-block;
   vertical-align: top;
@@ -2031,7 +2038,7 @@ select{
 
 .taskname, .line-cntnr{
   cursor: pointer;
-  width: 90%; 
+  width: 90%;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   cursor: pointer;
@@ -2042,7 +2049,7 @@ select{
 }
 
 .progressBar{
-  width: 100%; 
+  width: 100%;
 }
 
 .ui-progressbar{
@@ -2059,7 +2066,7 @@ select{
 
 .tasks-cmplt, .tasks-cmplt2{
   width: 3em;
-  margin-right: -1em; 
+  margin-right: -1em;
   margin-top: -3.3em;
   float: right;
 }
@@ -2070,7 +2077,7 @@ select{
 }
 
 .delete-tsk-btn, .delete-rcp{
-  width: 1em; 
+  width: 1em;
   float: right;
   margin-right: 0.2em;
   opacity: 0.4;
@@ -2119,7 +2126,7 @@ select{
 
 .class-helper label{
   border-radius: 0.2em;
-  border: 1px solid #E3E3E3; 
+  border: 1px solid #E3E3E3;
 }
 
 .check-cntnr label:hover{
@@ -2369,7 +2376,7 @@ select{
 }
 
 .basic-field, .select-areas select, .select-span select, .spec-select{
-  background: rgb(249,249,251); 
+  background: rgb(249,249,251);
   position: relative;
   padding-top: 0.7em;
   padding-bottom: 0.7em;
@@ -2658,7 +2665,7 @@ CK-EDITOR DESIGN
 *****************/
 
 .cke_chrome{
-  background: rgb(249,249,251) !important; 
+  background: rgb(249,249,251) !important;
   border: 1px solid rgb(208,210,214) !important;
   border-radius: 0.3em;
   padding: 0.1em !important;
@@ -2933,17 +2940,3 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 .header-img-grey3{
   background-image: url(images/settings.png);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

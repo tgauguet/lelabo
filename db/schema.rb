@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007080317) do
+ActiveRecord::Schema.define(version: 20161010084854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20161007080317) do
     t.decimal  "cocoa_butter_percent"
     t.decimal  "cocoa_total_percent"
     t.integer  "provider_id"
+    t.boolean  "is_bio"
+    t.boolean  "is_glut_free"
   end
 
   create_table "newsletters", force: :cascade do |t|
