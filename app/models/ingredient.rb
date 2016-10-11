@@ -15,16 +15,16 @@ class Ingredient < ActiveRecord::Base
 
 	def default_value
 		# set the value at 0 if null
-		self.cocoa_percent = cocoa_percent ||= 0
-		self.sugar_power = sugar_power ||= 0
-		self.kcal = kcal ||= 0
-		self.sugar_percent = sugar_percent ||= 0
-		self.water_percent = water_percent ||= 0
-		self.fat_percent = fat_percent ||= 0
-		self.alcool_percent = alcool_percent ||= 0
-		self.dry_matter_percent = dry_matter_percent ||= 0
-		self.cocoa_butter_percent = cocoa_butter_percent ||= 0
-		self.cocoa_total_percent = cocoa_total_percent ||= 0
+		self.cocoa_percent = 0 unless self.cocoa_percent
+		self.sugar_power = 0 unless self.sugar_power
+		self.kcal = 0 unless self.kcal
+		self.sugar_percent = 0 unless self.sugar_percent
+		self.water_percent = 0 unless self.water_percent
+		self.fat_percent = 0 unless self.fat_percent
+		self.alcool_percent = 0 unless self.alcool_percent
+		self.dry_matter_percent = 0 unless self.dry_matter_percent
+		self.cocoa_butter_percent = 0 unless self.cocoa_butter_percent
+		self.cocoa_total_percent = 0 unless self.cocoa_total_percent
 	end
 
 	def format_number

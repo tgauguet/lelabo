@@ -1,13 +1,23 @@
+<div class="recipe_values">
 <h1><%= @recipe.name %></h1>
-<%= form_for(@recipe) do |f| %>
+<%= form_for(@recipe, remote: true) do |f| %>
   <% @recipe.quantities.each_with_index do |ingredient, index| %>
-    <%= f.fields_for :quantities, ingredient do |ff| %>
+    <%= f.fields_for:quantities, ingredient do |ff| %>
       <%= render "add_quantities", ff: ff %>
-      <%= ingredient.ingredient.unit %>
     <% end %>
   <% end %>
   <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
-  <%= f.submit "Enregistrer" %>
+  <%= f.submit "modifier" %>
 <% end %>
-Poids total de la recette : <%= @recipe.total_weight %> Kg<br/>
-Pouvoir sucrant : <%= @recipe.total_sugar %> Kg<br/>
+Poids total de la recette : <%= @recipe.show_total("weight") %> Kg<br/>
+Pouvoir sucrant : <%= number_to_percentage(@recipe.percentage_of("sugar_power"), precision: 1) %><br/>
+Matières grasses : <%= number_to_percentage(@recipe.percentage_of("fat_percent"), precision: 1) %><br/>
+Sucre : <%= number_to_percentage(@recipe.percentage_of("sugar_percent"), precision: 1) %><br/>
+Matières sèches : <%= number_to_percentage(@recipe.percentage_of("dry_matter_percent"), precision: 1) %><br/>
+Alcool : <%= number_to_percentage(@recipe.percentage_of("alcool_percent"), precision: 1) %><br/>
+Eau : <%= number_to_percentage(@recipe.percentage_of("water_percent"), precision: 1) %><br/>
+Calories / 100g : <%= @recipe.sum_of_kcal.to_i %> kcal<br/>
+Cacao : <%= number_to_percentage(@recipe.percentage_of("cocoa_percent"), precision: 1) %><br/>
+Beurre de cacao : <%= number_to_percentage(@recipe.percentage_of("cocoa_butter_percent"), precision: 1) %><br/>
+Cacao total : <%= number_to_percentage(@recipe.percentage_of("cocoa_total_percent"), precision: 1) %><br/>
+</div>

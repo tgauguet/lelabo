@@ -1,6 +1,7 @@
 class Quantity < ActiveRecord::Base
 	belongs_to :ingredient
 	belongs_to :recipe
+	default_scope { order(:id) }
 
 	def price
 		price = self.ingredient.price * self.weight
