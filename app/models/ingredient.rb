@@ -25,6 +25,7 @@ class Ingredient < ActiveRecord::Base
 		self.dry_matter_percent = 0 unless self.dry_matter_percent
 		self.cocoa_butter_percent = 0 unless self.cocoa_butter_percent
 		self.cocoa_total_percent = 0 unless self.cocoa_total_percent
+		self.stabilizer = 0 unless self.stabilizer
 	end
 
 	def format_number

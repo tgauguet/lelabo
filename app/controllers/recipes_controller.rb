@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost]
-  before_action :set_user, only: [:index]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total]
+  before_action :set_user, only: [:index, :new, :create]
 
   # GET /recipes
   # GET /recipes.json
@@ -16,21 +16,22 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    @recipe = @user.recipes.new
     @quantity = @recipe.quantities.build
   end
 
   # GET /recipes/1/edit
   def edit
+    @totals = @recipe.totals.all.order("id ASC")
   end
 
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = @user.recipes.new(recipe_params)
 
-    respond_to do |format|
       if @recipe.save
+        4.times { @recipe.totals.create(value:  (@recipe.totals.count + 1)) }
         redirect_to edit_recipe_path(@recipe)
         flash[:notice] = 'Recette créée avec succès'
         #format.json { render :edit, status: :created, location: edit_recipe_path }
@@ -38,7 +39,6 @@ class RecipesController < ApplicationController
         format.html { render :new }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /recipes/1
@@ -84,6 +84,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy])
+      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy])
     end
 end

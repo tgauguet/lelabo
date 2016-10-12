@@ -3,7 +3,7 @@
  	<div class="action-cntnr">
     <button class="recipe-btn" target="0">Base</button>
     <button class="recipe-btn" target='1'>Vue</button>
-    <button class="recipe-btn" target='2'>Calculs</button>
+    <button class="recipe-btn" target='2'>Quantité</button>
     <button class="recipe-btn" target='3'>Equilibrage</button>
     <button class="recipe-btn" target='4'>Cout de revient</button>
     <button class="recipe-btn" target='5'>Photos</button>
@@ -13,10 +13,10 @@
     <div id="div1" class="recipe-option" style="display:none;">
       <%= render "form" %>
     </div>
-    <div id="div2" class="recipe-option" style="display:none;">
+    <div id="div2" class="recipe-option">
       <%= render "quantities_form" %>
     </div>
-    <div id="div3" class="recipe-option">
+    <div id="div3" class="recipe-option" style="display:none;">
       <%= render "equilibrium_form" %>
     </div>
     <div id="div4" class="recipe-option" style="display:none;">

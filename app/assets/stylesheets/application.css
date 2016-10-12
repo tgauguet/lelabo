@@ -2940,3 +2940,11 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 .header-img-grey3{
   background-image: url(images/settings.png);
 }
+
+.green{
+	color:green !important;
+}
+
+.red{
+	color: red !important;
+}

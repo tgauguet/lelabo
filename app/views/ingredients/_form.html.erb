@@ -28,6 +28,9 @@
 			<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top", placeholder: "Beurre de cacao" %>
 			<%= image_tag "bowl.png", class: "field-img" %>
 			<%= f.text_field :cocoa_total_percent, class: "basic-field special-top bot-rad", placeholder: "Cacao total" %>
+			Bio<%= f.check_box :is_bio %><br/>
+			Gluten<%= f.check_box :is_glut_free %><br/>
+			Pulpe<%= f.check_box :is_pulp %><br/>
 		</div>
 	</div>
 	<div class="select-areas">

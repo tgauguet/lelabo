@@ -1,0 +1,40 @@
+<div class="quant_form">
+  <h1><%= @recipe.name %></h1>
+  <%= form_for(@recipe, remote: true) do |f| %>
+    <%= f.fields_for :totals, @totals do |ff| %>
+      Pour <%= ff.text_field :value, class: 'rounded-field' %>kg :<br/>
+    <% end %>
+    <%= f.submit "modifier" %>
+    <h2>Valeur initiale</h2>
+    <% @recipe.quantities.each do |q| %>
+      <%= q.ingredient.name %>
+      <%= number_with_precision(q.weight, precision: 2) %><%= q.ingredient.unit %><br/>
+    <% end %>
+    <h2>Pour 1Kg</h2>
+    <% @recipe.quantities.each do |q| %>
+      <%= q.ingredient.name %>
+      <%= number_with_precision(weight_by_kg(q, @recipe), precision: 2) %><%= q.ingredient.unit %><br/>
+    <% end %>
+    <h2>Pour <%= @recipe.totals.first.value %>Kg</h2>
+    <% @recipe.quantities.each do |q| %>
+      <%= q.ingredient.name %>
+      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.first.value), precision: 2) %><%= q.ingredient.unit %><br/>
+    <% end %>
+    <h2>Pour <%= @recipe.totals.second.value %>Kg</h2>
+    <% @recipe.quantities.each do |q| %>
+      <%= q.ingredient.name %>
+      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.second.value), precision: 2) %><%= q.ingredient.unit %><br/>
+    <% end %>
+    <h2>Pour <%= @recipe.totals.third.value %>Kg</h2>
+    <% @recipe.quantities.each do |q| %>
+      <%= q.ingredient.name %>
+      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.third.value), precision: 2) %><%= q.ingredient.unit %><br/>
+    <% end %>
+    <h2>Pour <%= @recipe.totals.fourth.value %>Kg</h2>
+    <% @recipe.quantities.each do |q| %>
+      <%= q.ingredient.name %>
+      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.fourth.value), precision: 2) %><%= q.ingredient.unit %><br/>
+    <% end %>
+    <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
+  <% end %>
+</div>
