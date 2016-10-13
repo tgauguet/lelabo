@@ -1,10 +1,10 @@
 class Ingredient < ActiveRecord::Base
 	belongs_to :user
 	validates :name, presence: true
-	has_many :quantities
+	has_many :quantities, dependent: :restrict_with_error
 	has_many :provider_prices, dependent: :destroy
 	has_many :providers, through: :provider_prices
-	has_many :recipe, through: :quantities
+	has_many :recipes, through: :quantities
 	accepts_nested_attributes_for :provider_prices, allow_destroy: true
 	#code for sunspot solr
 	#searchable do

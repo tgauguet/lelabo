@@ -4,10 +4,7 @@
     <% @recipe.quantities.each_with_index do |q, index| %>
       <%= f.fields_for :quantities, q do |ff| %>
       <div class="partial">
-        <%= ff.select(:ingredient_id, @user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true  ) %>
-        <%= ff.text_field :weight, class: "rounded-field", placeholder: "quantité" %> <%= q.ingredient.unit %>
-        <%= ff.hidden_field :_destroy %>
-        <%= remove_field "X", ff %>
+        <%= render "add_quantities", ff: ff %>
          (1kg:<%= number_to_currency q.ingredient.price %>)
          (recette:<%= number_to_currency recipe_price(q, @recipe) %>)
       </div>

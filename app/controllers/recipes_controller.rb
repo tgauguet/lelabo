@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   helper_method :sort_columns, :sort_direction
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total]
   before_action :set_user, only: [:index, :new, :create]
+  skip_before_filter :verify_authenticity_token, only: [:edit,:update]
 
   # GET /recipes
   # GET /recipes.json
@@ -22,7 +23,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    @totals = @recipe.totals.all.order("id ASC")
+    @totals = @recipe.totals.all.order("created_at ASC")
+    @images = @recipe.images.all.order("created_at ASC")
   end
 
   # POST /recipes
@@ -84,6 +86,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy])
+      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
     end
 end

@@ -2,7 +2,7 @@
   <h1><%= @recipe.name %></h1>
   <%= form_for(@recipe, remote: true) do |f| %>
     <% @recipe.quantities.each_with_index do |ingredient, index| %>
-      <%= f.fields_for:quantities, ingredient do |ff| %>
+      <%= f.fields_for :quantities, ingredient do |ff| %>
         <%= render "add_quantities", ff: ff %>
       <% end %>
     <% end %>
@@ -11,7 +11,7 @@
   <% end %>
   <div class="values">
     Calories / 100g : <%= @recipe.sum_of_kcal.to_i %> kcal<br/>
-    Poids total de la recette : <%= @recipe.show_total("weight") %> Kg<br/>
+    Poids total de la recette : <%= @recipe.show_total("weight") %> g<br/>
     Pouvoir sucrant : <span class="<%= sug_power_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("sugar_power"), precision: 1) %></span><br/>
     Matières grasses : <span class="<%= fat_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("fat_percent"), precision: 1) %></span><br/>
     Sucre : <span class="<%= sugar_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("sugar_percent"), precision: 1) %></span><br/>

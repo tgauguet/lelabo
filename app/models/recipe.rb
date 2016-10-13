@@ -4,10 +4,12 @@
 class Recipe < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :assembly, dependent: :destroy
+	has_many :images, dependent: :destroy
 	has_many :ingredients, through: :quantity
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy
 	accepts_nested_attributes_for :totals, allow_destroy: true
+	accepts_nested_attributes_for :images, allow_destroy: true
 	accepts_nested_attributes_for :quantities, reject_if: :reject_quantity, allow_destroy: true
 	validates_presence_of :name
 	has_attached_file :image, {
@@ -22,14 +24,14 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def percentage_of(matter)
-		matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * (q.weight / 100)) }.sum
-		matter_weight / recipe_weight * 100 unless recipe_weight == 0
+		matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum
+		matter_weight / recipe_weight unless recipe_weight == 0
 	end
 
 	def milk_of(matter)
 		milks = self.quantities.joins(:ingredient).where(ingredients: { category: "Produits laitiers" })
-		matter_weight = milks.collect { |q| q.ingredient.send(matter) * (q.weight / 100)}.sum
-		matter_weight / recipe_weight * 100 unless recipe_weight == 0
+		matter_weight = milks.collect { |q| q.ingredient.send(matter) * q.weight}.sum
+		matter_weight / recipe_weight unless recipe_weight == 0
 	end
 
 	def sum_of_kcal
@@ -40,7 +42,7 @@ class Recipe < ActiveRecord::Base
 	def pulp_percentage
 		pulps = self.quantities.joins(:ingredient).where(ingredients: { is_pulp: 1 })
 		total = pulps.collect { |q| q.weight }.sum
-		total / recipe_weight * 100 unless recipe_weight == 0
+		total * 100 / recipe_weight unless recipe_weight == 0
 	end
 
 	def milk_and_est(recipe)

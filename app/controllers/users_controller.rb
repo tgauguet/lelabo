@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 				      redirect_to informations_de_votre_compte_path
 				    elsif !@user.account_name.nil? && !@user.firstname.nil? && @user.terms == true
 				      CreateIngredientsBaseJob.perform_later(@user)
+							CreateProvidersBaseJob.perform_later(@user)
 				      redirect_to root_path
 				    elsif !@user.account_name.nil? && !@user.firstname.nil?
 				      SubscribeUserToMailingListJob.perform_later(@user)
@@ -32,8 +33,8 @@ class UsersController < ApplicationController
 				      redirect_to nom_de_votre_compte_path(@user)
 				    end
 				}
-				format.json { 
-					head :no_content 
+				format.json {
+					head :no_content
 				}
 			else
 				format.html {

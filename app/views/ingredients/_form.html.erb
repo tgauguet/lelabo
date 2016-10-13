@@ -6,6 +6,7 @@
 		<%= image_tag "category.png", class: "field-img" %>
 		<%= f.select :category, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field", include_blank: true, placeholder: "catégorie" %>
 		<%= f.select :unit, ["Kg", "Litre"], class: "select-field basic-field" %>
+		<%= f.text_field :price, placeholder: "Prix" %>
 	</div>
 	<h3>Composition</h3>
 	<div class="composition">
@@ -38,7 +39,7 @@
 		<%= f.text_field :kcal, class: "basic-field special-top bot-rad", placeholder: "Calories" %>
 	</div>
 	<br/>
-	<h3>Fournisseurs et prix</h3>
+	<h3>Fournisseur(s)</h3>
 	<div class="double-field">
 	  <%= f.fields_for :provider_prices do |ff| %>
 			<%= render "add_provider_prices", ff: ff %>

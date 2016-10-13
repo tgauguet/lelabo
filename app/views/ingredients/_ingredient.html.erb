@@ -10,7 +10,7 @@
 					<%= number_to_currency ingredient.price %></span><span class="ing-unit"><%= ingredient.unit %>
 				<% end %>
 			</span>
-			<%= link_to ingredient_path(ingredient.id), method: :delete, remote: true, id: "delete-task" do %>
+			<%= link_to ingredient_path(ingredient.id), method: :delete, id: "delete-task" do %>
 				<%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
 			<% end %>
 		</div>

@@ -52,8 +52,12 @@ class IngredientsController < ApplicationController
 
 	def destroy
 		@current_ingredient = Ingredient.find(params[:id])
-		@current_ingredient.destroy
-		render nothing: true
+		if @current_ingredient.destroy
+			flash[:success] = "Supprimé"
+		else
+			flash[:success] = "Supression annulée, l'ingrédient est utilisé dans une ou plusieurs recettes"
+		end
+		redirect_to new_ingredient_path
 	end
 
 	private

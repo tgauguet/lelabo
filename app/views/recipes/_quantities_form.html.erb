@@ -8,33 +8,32 @@
     <h2>Valeur initiale</h2>
     <% @recipe.quantities.each do |q| %>
       <%= q.ingredient.name %>
-      <%= number_with_precision(q.weight, precision: 2) %><%= q.ingredient.unit %><br/>
+      <%= q.weight.to_i %><%= weighing_unit(q.ingredient) %><br/>
     <% end %>
     <h2>Pour 1Kg</h2>
     <% @recipe.quantities.each do |q| %>
       <%= q.ingredient.name %>
-      <%= number_with_precision(weight_by_kg(q, @recipe), precision: 2) %><%= q.ingredient.unit %><br/>
+      <%= weight_by_kg(q, @recipe) %><%= weighing_unit(q.ingredient) %><br/>
     <% end %>
     <h2>Pour <%= @recipe.totals.first.value %>Kg</h2>
     <% @recipe.quantities.each do |q| %>
       <%= q.ingredient.name %>
-      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.first.value), precision: 2) %><%= q.ingredient.unit %><br/>
+      <%= (weight_by_kg(q, @recipe) * @recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
     <% end %>
     <h2>Pour <%= @recipe.totals.second.value %>Kg</h2>
     <% @recipe.quantities.each do |q| %>
       <%= q.ingredient.name %>
-      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.second.value), precision: 2) %><%= q.ingredient.unit %><br/>
+      <%= (weight_by_kg(q, @recipe) * @recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
     <% end %>
     <h2>Pour <%= @recipe.totals.third.value %>Kg</h2>
     <% @recipe.quantities.each do |q| %>
       <%= q.ingredient.name %>
-      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.third.value), precision: 2) %><%= q.ingredient.unit %><br/>
+      <%= (weight_by_kg(q, @recipe) * @recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
     <% end %>
     <h2>Pour <%= @recipe.totals.fourth.value %>Kg</h2>
     <% @recipe.quantities.each do |q| %>
       <%= q.ingredient.name %>
-      <%= number_with_precision((weight_by_kg(q, @recipe) * @recipe.totals.fourth.value), precision: 2) %><%= q.ingredient.unit %><br/>
+      <%= (weight_by_kg(q, @recipe) * @recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
     <% end %>
-    <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
   <% end %>
 </div>

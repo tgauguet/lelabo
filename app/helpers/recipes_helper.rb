@@ -82,12 +82,12 @@ module RecipesHelper
     if recipe.recipe_weight == 0
       0
     else
-      quantity.ingredient.price * quantity.weight
+      quantity.ingredient.price * quantity.weight / 1000
     end
   end
 
   def weight_by_kg(quantity, recipe)
-    quantity.weight / recipe.recipe_weight * 1
+     quantity.weight * 1000 / recipe.recipe_weight
   end
 
 end

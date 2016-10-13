@@ -36,4 +36,12 @@ module IngredientsHelper
 		ingredient.price == "" || ingredient.price.nil?
 	end
 
+	def weighing_unit(ingredient)
+		if ingredient.unit == "Kg"
+			"g"
+		elsif ingredient.unit == "Litre"
+			"ml"
+		end
+	end
+
 end

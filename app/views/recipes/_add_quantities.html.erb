@@ -1,6 +1,6 @@
 <div class="partial">
 	<%= ff.select(:ingredient_id, @user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true  ) %>
-	<%= ff.text_field :weight, class: "rounded-field", placeholder: "quantité" %> Kg/L
+	<%= ff.text_field :weight, class: "rounded-field", placeholder: "quantité" %> g
 	<%= ff.hidden_field :_destroy %>
 	<%= remove_field "X", ff %>
 </div>

@@ -1,0 +1,10 @@
+<div class="partial">
+  <% if image.nil? %>
+    <%= ff.file_field :picture %>
+  <% else %>
+    <%= image_tag image.picture %>
+  <% end %>
+  <%= ff.text_field :description, placeholder: "description" %>
+  <%= ff.hidden_field :_destroy %>
+	<%= remove_field "X", ff %>
+</div>

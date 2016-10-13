@@ -1,3 +1,6 @@
+#!/usr/env/bin ruby
+#encoding: utf-8
+
 class Total < ActiveRecord::Base
   belongs_to :recipe
   validate :limit_totals, on: :create

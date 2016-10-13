@@ -1,3 +1,4 @@
+<div class="recipe_form">
 <%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
@@ -28,9 +29,9 @@
         <%= f.fields_for :quantities do |ff| %>
           <%= render "add_quantities", ff: ff %>
         <% end %>
+        <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
       </div>
     </div>
-    <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
     <%= image_tag "baking.png", class: "field-img2" %>
     <%= f.text_field :baking, class: "basic-field rounded-field", placeholder: "cuisson" %>
     <div class="select-areas">
@@ -49,3 +50,4 @@
     <% end %>
   </div>
 <% end %>
+</div>
