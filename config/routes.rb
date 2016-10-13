@@ -29,12 +29,9 @@ Rails.application.routes.draw do
 				patch :set_ingredient
 			end
 		end
-	end
-	resources :recipes do
-		member do
-			get :balancing
-			get :production_cost
-		end
+    member do
+      get :download
+    end
 	end
 	resources :assemblies
 	# create routes for each registration steps
@@ -59,7 +56,7 @@ Rails.application.routes.draw do
 	resources :ingredients do
 		collection do
 			put "/sort/:id" => "ingredients#sort"
-			get :search 
+			get :search
 		end
 	end
 	resources :ingredients

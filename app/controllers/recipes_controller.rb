@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total]
-  before_action :set_user, only: [:index, :new, :create]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download]
+  before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
 
   # GET /recipes
@@ -25,6 +25,28 @@ class RecipesController < ApplicationController
   def edit
     @totals = @recipe.totals.all.order("created_at ASC")
     @images = @recipe.images.all.order("created_at ASC")
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: '@user.name',
+                template: 'recipes/show.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
+      end
+    end
+  end
+
+  def download
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @pdf = render_to_string  pdf: '@user.name',
+                template: 'recipes/show.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
+        send_data(@pdf, :filename => @recipe.name,  :type=>"application/pdf")
+      end
+    end
   end
 
   # POST /recipes

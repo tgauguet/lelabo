@@ -1,7 +1,6 @@
 <div class='show_recipe'>
   <h1><%= @recipe.name %></h1>
-  <%= link_to "Apperçu", edit_recipe_path(@recipe, format: :pdf), target: '_blank' %><br/>
-  <%= link_to "Enregistrer", download_recipe_path(format: :pdf), target: '_blank' %><br/>
+  <br/>
   Créée par <%= @recipe.owner %><br/>
   <%= @recipe.description %><br/>
   <h3>Composition</h3>

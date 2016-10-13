@@ -15,9 +15,13 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'sunspot_rails'
 
-gem 'sunspot_solr' 
+gem 'sunspot_solr'
 
 gem "gibbon"
+
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
 
 gem 'uglifier', '>= 1.3.0'
 
@@ -88,5 +92,3 @@ group :development do
 
   gem 'spring'
 end
-
-
