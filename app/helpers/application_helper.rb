@@ -84,4 +84,64 @@ module ApplicationHelper
 	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
 	  end
 
+		def grade(user)
+			if user.recipes.count < 10
+				"Novice"
+			elsif user.recipes.count < 15
+				"Apprenti"
+			elsif user.recipes.count < 20
+				"Commis"
+			elsif user.recipes.count < 35
+				"1/4 de chef de parti"
+			elsif user.recipes.count < 50
+				"1/2 Chef de parti"
+			elsif user.recipes.count < 100
+				"Chef de parti"
+			elsif user.recipes.count < 150
+				"Second"
+			elsif user.recipes.count < 200
+				"Chef"
+			elsif user.recipes.count < 250
+				"Commandant"
+			elsif user.recipes.count < 300
+				"Colonel"
+			elsif user.recipes.count < 400
+				"Général de brigade"
+			elsif user.recipes.count < 500
+				"Général de division"
+			elsif user.recipes.count >= 500
+				"Empereur"
+			end
+		end
+
+		def grade_img(grade)
+			if grade == "Novice"
+				"1"
+			elsif grade == "Apprenti"
+				"2"
+			elsif grade == "Commis"
+				"3"
+			elsif grade == "1/4 de chef de parti"
+				"4"
+			elsif grade == "1/2 Chef de parti"
+				"5"
+			elsif grade == "Chef de parti"
+				"6"
+			elsif grade == "Second"
+				"7"
+			elsif grade == "Chef"
+				"8"
+			elsif grade == "Commandant"
+				"9"
+			elsif grade == "Colonel"
+				"10"
+			elsif grade == "Général de brigade"
+				"11"
+			elsif grade == "Général de division"
+				"12"
+			elsif grade == "Empereur"
+				"13"
+			end
+		end
+
 end

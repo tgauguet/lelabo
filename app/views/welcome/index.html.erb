@@ -1,7 +1,89 @@
 <div class="actions-cntnr">
-	<div class="action-cntnr">
-		<h3>Merci pour votre inscription <%= @user.firstname %>, l'application sera bientôt disponible.</h3>
-		<p>Vous serez averti par email lors de la mise en place des fonctionnalités</p>
+	<div class="welcome-usr">
+		<div class="user-info">
+			<%= image_tag @user.avatar, class: "rounded-img" %>
+			<div class="usr-info-txt">
+				<h3><%= @user.account_name.humanize %> - <span><%= @user.firstname.humanize %> <%= @user.name.humanize %> </span></h3>
+				<%= link_to parametres_path do %>
+					<div class="grey-btn"><%= image_tag "settings-3.png", class: "mini-img" %>Mon compte</div>
+				<% end %>
+				<br/>
+				<p><%= image_tag "shield#{grade_img(grade(@user))}", class: "shield-img" %></p>
+				<br/>
+			</div>
+		</div>
+		<div class="user-grade">
+			<p class="grey-btn">
+				<span>Recettes</span> <%= @user.recipes.count %> -
+				<span>Montages</span> <%= @user.assemblies.count %> -
+				<span>Ingrédients</span> <%= @user.ingredients.count %> -
+				<span>Grade</span> <%= grade(@user) %>
+				<div style="display: inline;"><%= image_tag "questio.png", alt: "question", class: "mini-img question-img" %></div>
+					<div class="grade-index">
+						<h6 class="h7-txt ajust">Les grades sont définis en fonction<br/>du nombre de recettes créées</h6>
+						<p><%= image_tag "shield1.png", class: "small-img" %> Novice</p>
+						<p><%= image_tag "shield2.png", class: "small-img" %> Apprenti</p>
+						<p><%= image_tag "shield3.png", class: "small-img" %> Commis</p>
+						<p><%= image_tag "shield4.png", class: "small-img" %> 1/4 Chef de parti</p>
+						<p><%= image_tag "shield5.png", class: "small-img" %> 1/2 Chef de parti</p>
+						<p><%= image_tag "shield6.png", class: "small-img" %>Chef de parti</p>
+						<p><%= image_tag "shield7.png", class: "small-img" %> Second</p>
+						<p><%= image_tag "shield8.png", class: "small-img" %> Chef</p>
+						<p><%= image_tag "shield9.png", class: "small-img" %> Commandant</p>
+						<p><%= image_tag "shield10.png", class: "small-img" %> Colonel</p>
+						<p><%= image_tag "shield11.png", class: "small-img" %> Général de brigade</p>
+						<p><%= image_tag "shield12.png", class: "small-img" %> Général de division</p>
+						<p><%= image_tag "shield13.png", class: "small-img" %> Empereur</p>
+					</div>
+			</p>
+		</div>
+	</div>
+	<div class="welc-recipes action-cntnr">
+		<h3>RECETTES STAR</h3>
+		<h6>Vos dernières recettes star</h6>
+		<div class="welc-r-cntnr">
+			<% @user.recipes.where(stared: true).last(5).each do |recipe| %>
+				<div>
+					<%= link_to edit_recipe_path(recipe) do %>
+						<%= image_tag recipe.image, class: "" %>
+					<% end %>
+					<br/>
+					<%= truncate(recipe.name, length: 22) %><br/>
+					<h6 class="h7-txt">par <%= truncate(recipe.owner, length: 20) %></h6>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="welc-recipes action-cntnr">
+		<h3>RECETTES<h3>
+		<h6>Vos dernières recettes</h6>
+		<div class="welc-r-cntnr">
+			<% @user.recipes.last(5).each do |recipe| %>
+				<div>
+					<%= link_to edit_recipe_path(recipe) do %>
+						<%= image_tag recipe.image, class: "" %>
+					<% end %>
+					<br/>
+					<%= truncate(recipe.name, length: 22) %><br/>
+					<h6 class="h7-txt">par <%= truncate(recipe.owner, length: 20) %></h6>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="welc-recipes action-cntnr">
+		<h3>MONTAGES</h3>
+		<h6>Vos derniers montages</h6>
+		<div class="welc-r-cntnr">
+			<% @user.assemblies.last(5).each do |recipe| %>
+				<div>
+					<%= link_to edit_assembly_path(recipe) do %>
+						<%= image_tag recipe.image, class: "" %>
+					<% end %>
+					<br/>
+					<%= truncate(recipe.name, length: 22) %><br/>
+					<h6 class="h7-txt">par <%= truncate(recipe.owner, length: 20) %></h6>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>
-

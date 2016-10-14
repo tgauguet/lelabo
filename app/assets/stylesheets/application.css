@@ -19,11 +19,44 @@ body{
 
 *{
   font-family: "source_sans_proregular";
-  color: rgb(43,54,69);
+  color: rgb(43,54,69); /* #2B3645 */
 }
 
 :focus {
     outline: 0;
+}
+
+/* !!! css for border-radius */
+.grey-btn, .grade-index{
+	border-radius: 0.25em;
+}
+
+/* !!! css for borders */
+.grey-btn, .grade-index{
+	border:1px solid rgb(209,209,215);
+}
+
+/* !!! css for backgrounds */
+.grey-btn, .grade-index{
+	background: rgb(248,248,249);
+}
+
+/* !!! css for displays */
+.grey-btn{
+	display: inline-block;
+}
+
+/* !!! css for texts */
+.red-color, .feed-from{
+  font-family: 'source_sans_prosemibold';
+}
+
+.welc-recipes h6, .user-grade .grey-btn span, .h7-txt{
+	color: rgb(114, 114, 125); /* grey text color */
+}
+
+.welc-recipes h6{
+	font-family: 'source_sans_prolight';
 }
 
 .feature-img1, .feature-img2, .feature-img3, .feature-img4, .feature-img5{
@@ -250,6 +283,7 @@ a .tools-cntnr{
   -o-box-shadow: 0px 3px 1px #F2F2F2;
   box-shadow: 0px 3px 1px #F2F2F2;
   border: 1px solid rgb(230,230,230) !important;
+	border-top: 0px !important;
   border-radius: 0.3em;
 }
 
@@ -1076,11 +1110,9 @@ header .normal_header{
 
 .feed-from{
   color: rgb(27,189,157);
-  font-family: 'source_sans_prosemibold';
 }
 
 .red-color{
-  font-family: 'source_sans_prosemibold';
   position: absolute;
   right: 0;
   margin-right: 2em;
@@ -1272,7 +1304,7 @@ header .normal_header{
 }
 
 .full-header{
-  border-bottom: 1px solid rgb(230,230,230);
+	box-shadow: 0 2px 2px -2px gray;
   height:3.3em;
   padding-right: 1.5em;
   background: white;
@@ -1729,12 +1761,78 @@ header .normal_header{
   min-height: 100vh;
   background:rgb(249,249,249);
   margin-right: auto;
-  padding-top: 3.1em;
-  border: 1px solid transparent;
+  padding-top: 3.2em;
+	overflow: hidden;
   margin-left: auto;
   padding-bottom: 2em;
   margin-left: 12em;
   width: auto;
+}
+
+.welcome-usr{
+	padding-top: 1em;
+	overflow: visible !important;
+  background: -webkit-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: -moz-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: -ms-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: -o-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+	padding-bottom: 1em;
+}
+
+.shield-img{
+	width: 3em;
+}
+
+.user-info, .user-grade, .usr-info-txt{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.user-info, .user-grade{
+	width: 46%;
+	text-align: left;
+	min-height: 6em;
+}
+
+.usr-info-txt h3, .usr-info-txt h3 span{
+	color: white;
+}
+
+.user-grade .grey-btn{
+	color: rgb(101, 112, 225);
+}
+
+.user-grade .grey-btn span{
+	margin-right: 0.3em;
+}
+
+.usr-info-txt h3 span{
+	font-family: 'source_sans_proextralight';
+}
+
+.grey-btn{
+	padding: 0.4em;
+	margin-bottom: 0.5em;
+}
+
+.grey-btn:hover{
+	background: white;
+}
+
+.rounded-img{
+	border-radius: 100%;
+	margin-right: .7em;
+	width: 10em;
+	height: 10em;
+	border:2px solid white;
+}
+
+.mini-img{
+	width: 1em;
+	vertical-align: -0.2em;
+	margin-right: 0.1em;
+	margin-left: 0.2em;
 }
 
 .tasks-cntnr{
@@ -1751,8 +1849,7 @@ header .normal_header{
   background: white;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
-  max-width: 55em;
+  width: 59em;
   padding: 3em;
   margin-top: 1em;
 }
@@ -2947,4 +3044,57 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 .red{
 	color: red !important;
+}
+
+.welc-recipes{
+	padding: 1.5em;
+	padding-top: 2em;
+	background: white;
+	border-radius: 0.25em;
+	text-align: left;
+}
+
+.welc-recipes img{
+	width: 10em;
+	border-radius: 0.3em;
+}
+
+.welc-recipes h6{
+	margin-top: 0.1em;
+	font-size: 0.9em;
+}
+
+.welc-r-cntnr div{
+	display: inline-block;
+	margin: 0.5em;
+}
+
+.h7-txt{
+	font-size: 0.8em !important;
+}
+
+.grade-index{
+	position: absolute;
+	padding: 1em;
+	right:0;
+	opacity: 0;
+	margin-top: -0.7em;
+}
+
+.small-img{
+	width: 1.5em;
+	vertical-align: -0.4em;
+}
+
+.user-grade{
+	position: relative;
+}
+
+.ajust{
+	margin-top: -0.2em;
+	margin-bottom: 0.8em;
+}
+
+.user-grade div:hover + .grade-index{
+	opacity: 1;
 }
