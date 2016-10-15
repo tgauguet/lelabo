@@ -7,12 +7,10 @@ $('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
 
 $(document).ready(function(){
   $(".ingredient-btn").click(function(){
-    $(".ingredient-btn").hide();
     $(".ingredient-form").show();
   });
   $(".cancel-btn").click(function(){
     $(".ingredient-form").hide();
-    $(".ingredient-btn").show();
   });
 });
 

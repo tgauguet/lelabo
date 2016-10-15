@@ -1,41 +1,38 @@
 <% title "Ingrédients" %>
 <div class="actions-cntnr">
-	<div class="action-cntnr">
-		<div class="title-cntnr2">
-			<!-- PUT HERE THE HTML CODE FOR SUNSPOT SOLR -->
-			<p class="ingredient-btn">Nouvel ingrédient</p><br/>
-			<div class="ingredient-form">
-			<h3>Nouvel ingrédient</h3><br/>
+	<!-- PUT HERE THE HTML CODE FOR SUNSPOT SOLR -->
+	<div class="page-new-ttl action-cntnr">
+		<h2>INGREDIENTS</h2>
+		<p class="standard-btn grey-btn ingredient-btn">+ NOUVEAU</p>
+		<div class="ingredient-form">
+			<h3>NOUVEAU</h3><br/>
 			<%= render "form" %>
-			</div>
-			<h3>Tous les ingrédients</h3><br/>
-			<div class="ing-cntnr">
-			<span>Classer par: </span>
-		        <%= sortable "Nom", "name" %>
-		        <%= sortable "Dernier créé", "created_at" %>
-		        <%= sortable "Catégorie", "category" %>
-		        <%= sortable "Dernier modifié", "updated_at" %>
-		      </br><br/>
-				<ul>
+		</div>
+	</div>
+	<br/>
+		<div class="ing-cntnr">
+			<p class="sort-before"><%= sortable "Nom", "name" %></p>
+			<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+			<p class="sort-before"><%= sortable "Catégorie", "category" %></p>
+			<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+			<p class="sort-before"><%= sortable "Biologique", "is_bio" %></p>
+			<p class="sort-before"><%= sortable "Sans gluten", "is_glut_free" %></p>
+		</div>
+				<ul class="list-cntnr">
 					<li id="sortable1">
 						<% unless @ingredients.nil? %>
 							<%= render @ingredients%>
 						<% end %>
 					</li>
-					<br/>
 					<%= will_paginate %>
 				</ul>
 			</div>
-		</div>
-	</div>
 </div>
 <script>
 	$(".ingredient-btn").click(function(){
-		$(".ingredient-btn").hide();
 		$(".ingredient-form").show();
 	});
 	$(".cancel-btn").click(function(){
 		$(".ingredient-form").hide();
-		$(".ingredient-btn").show();
 	});
 </script>

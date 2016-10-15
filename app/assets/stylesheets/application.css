@@ -51,7 +51,7 @@ body{
   font-family: 'source_sans_prosemibold';
 }
 
-.welc-recipes h6, .user-grade .grey-btn span, .h7-txt{
+.welc-recipes h6, .user-grade .grey-btn span, .h7-txt, .ing-price, .ing-unit{
 	color: rgb(114, 114, 125); /* grey text color */
 }
 
@@ -127,9 +127,15 @@ FONTS ---- DESIGN
   border: 1px solid rgb(28,157,213);
 }
 
-.ingredient-btn:hover, .search-go:hover{
+.search-go:hover{
   color: rgb(0,119,169);
   text-decoration: underline;
+}
+
+.ingredient-btn{
+	margin-top: -2.4em;
+	padding-left: 1em !important;
+	padding-right: 1em !important;
 }
 
 p, h2, h3{
@@ -880,24 +886,6 @@ ul li{
 
 .title-cntnr2{
   text-align: left;
-}
-
-.ingredient-btn {
-  font-size: 1em !important;
-  font-family: 'source_sans_proregular' !important;
-  border:1px solid rgb(230,230,230);
-  border-bottom: 2px solid rgb(230,230,230) !important;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
-  border-radius: 0.3em;
-  width: 8.7em;
-  margin-top: 1em;
-  cursor: pointer;
-  background: white;
-  color: rgb(43,54,69);;
-  border-bottom:2px solid rgb(230,230,230);
 }
 
 .sale-txt-cntnr p, .sale-txt-cntnr i, .feature-cntnr p, .feature-cntnr i{
@@ -1811,9 +1799,29 @@ header .normal_header{
 	font-family: 'source_sans_proextralight';
 }
 
-.grey-btn{
+.grey-btn, .standard-btn, .sort-btn, .sort-before{
 	padding: 0.4em;
 	margin-bottom: 0.5em;
+	cursor: pointer;
+}
+
+.sort-btn, .sort-before{
+	background: rgb(103,114,229);
+	border:1px solid rgb(103,114,229);
+	margin: -0.4em;
+	border-radius: 0.2em;
+	color:white;
+}
+
+.standard-btn{
+	background: rgb(103,114,229);
+	border:none;
+	color:white;
+	float: left;
+}
+
+.standard-btn:hover{
+	background: rgb(119, 149, 248) !important;
 }
 
 .grey-btn:hover{
@@ -1846,7 +1854,7 @@ header .normal_header{
   margin-right: 1em;
 }
 
-.action-cntnr, .tasks-cntnr, .tools-cntnr{
+.action-cntnr, .tasks-cntnr, .tools-cntnr, .list-cntnr{
   background: white;
   margin-left: auto;
   margin-right: auto;
@@ -2109,13 +2117,34 @@ select{
 }
 
 .inline_divs{
-  border-radius: 0.4em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  margin: 0.3em;
-  margin-right: -0.5em;
-  margin-left: -0.5em;
+	border-bottom:1px solid rgb(227, 227, 227);;
   cursor: pointer;
+	left:0;
+	width: 55em;
+	height: 2em;
+	background: white;
+	padding-top: 0.2em;
+}
+
+.list-cntnr{
+	padding: 0;
+	border: 1px solid rgb(226, 226, 226);
+	width: 55em;
+}
+
+.page-new-ttl{
+	width: 53em;
+}
+
+.ing-cntnr{
+	text-align: left;
+	margin: auto;
+	width: 55em;
+	margin-top: 0.6em;
+}
+
+.ing-cntnr p{
+	display: inline;
 }
 
 .inline_divs:hover{
@@ -2143,7 +2172,12 @@ select{
 }
 
 .line-cntnr{
-  padding-bottom: 1.2em;
+  padding-bottom: 1.7em;
+	padding-top: 0.5em;
+	width: auto;
+	margin-left: 0;
+	margin-top: -0.2em;
+	padding-left: 1em;
 }
 
 .progressBar{
@@ -2327,16 +2361,51 @@ select{
 }
 
 .circle{
-  position: absolute;
-  padding: 0.3em;
-  width: 0.3em;
-  border-radius: 0.3em;
-  margin-left: 0.2em;
-  margin-top: 0.7em;
+  padding-right: 0.1em;
+	width: 3px;
+	height: 2.2em;
+	margin-top: -0.2em;
+	position: absolute;
 }
 
-.orange-cat{
-  background: rgb(252,161,38);
+.royal-cat, .sunflower-cat, .swimming-cat, .strawberry-cat, .lavender-cat, .mint-cat, .pumpkin-cat, .avacado-cat, .emerald-cat, .grey-cat, .brown-cat, .pink-cat, .blue-cat{
+	opacity: 0.8;
+}
+
+.royal-cat{
+	background: rgb(147, 153, 238);
+}
+
+.sunflower-cat{
+	background: rgb(253, 206, 84);
+}
+
+.swimming-cat{
+	background: rgb(80, 195, 232);
+}
+
+.strawberry-cat{
+	background: rgb(237, 85, 100);
+}
+
+.lavender-cat{
+	background: rgb(204, 148, 237);
+}
+
+.mint-cat{
+	background: rgb(72, 206, 193);
+}
+
+.pumpkin-cat{
+	background: rgb(251, 178, 83);
+}
+
+.avacado-cat{
+	background: rgb(195, 212, 105);
+}
+
+.emerald-cat{
+	background: rgb(68, 204, 111);
 }
 
 .grey-cat{
@@ -2347,24 +2416,8 @@ select{
   background: rgb(158,99,63);
 }
 
-.white-cat{
-  background: rgb(85,172,211);
-}
-
 .pink-cat{
   background: rgb(148,102,185);
-}
-
-.yellow-cat{
-  background: rgb(250,198,29);
-}
-
-.green-cat{
-  background: rgb(98,190,110);
-}
-
-.red-cat{
-  background: rgb(209,72,65);
 }
 
 .blue-cat{
@@ -2385,7 +2438,7 @@ select{
 
 .ing-name, .ing-price, .ing-unit{
   float: left;
-  width: 4em;
+  width: 5em;
 }
 
 .ing-price{
@@ -2393,8 +2446,16 @@ select{
   padding-right: 1em;
 }
 
+.ing-price, .ing-unit{
+	font-size: 0.9em;
+}
+
+.ing-unit, .ing-name{
+	text-align: left;
+}
+
 .ing-name{
-  min-width: 15em;
+  min-width: 35em;
 }
 
 .smll-icn{
@@ -2948,10 +3009,6 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
   text-align: left;
 }
 
-.sort-btn{
-  border:1px solid green;
-}
-
 .lft-logo-hdr{
   border-bottom: 1px solid rgb(30,30,30);
   height: 3.3em;
@@ -3098,4 +3155,26 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 .user-grade div:hover + .grade-index{
 	opacity: 1;
+}
+
+.sort-before{
+	background: white;
+	margin: 0.2em;
+	border:1px solid rgb(226, 226, 226);
+}
+
+.desc{
+	background-image: url("images/arrow-up.png");
+	background-size: 10px;
+	background-position: 96%;
+	background-repeat: no-repeat;
+	padding-right: 1em;
+}
+
+.asc{
+	background-image: url("images/arrow-do.png");
+	background-size: 10px;
+	background-position: 96%;
+	background-repeat: no-repeat;
+	padding-right: 1em;
 }
