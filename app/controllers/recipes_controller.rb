@@ -70,7 +70,11 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to edit_recipe_path(@recipe), notice: 'Recette modifiée avec succès' }
+        if !request.url.include?("edit")
+          format.html { redirect_to(:back) }
+        else
+          format.html { redirect_to edit_recipe_path(@recipe), notice: 'Recette modifiée avec succès' }
+        end
         #format.json { render :edit, status: :ok, location: edit_recipe_path }
       else
         format.html { render :edit }
@@ -108,6 +112,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
+      params.fetch(:recipe, {}).permit(:name, :total, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
     end
 end

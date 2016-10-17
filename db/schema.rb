@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013184306) do
+ActiveRecord::Schema.define(version: 20161017104756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(version: 20161013184306) do
     t.string   "owner"
     t.boolean  "stared"
     t.decimal  "total"
+    t.boolean  "loved"
   end
 
   create_table "steps", force: :cascade do |t|

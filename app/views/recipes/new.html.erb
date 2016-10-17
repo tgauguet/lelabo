@@ -1,10 +1,9 @@
 <% title "Nouvelle recette" %>
 <div class="actions-cntnr">
- 	<div class="action-cntnr">
-	  	<h1>Nouvelle recette</h1>
-	  	<%= link_to recipes_path do %>
-	      <p class="ingredient-btn">Retour à l'index</p><br/>
-	    <% end %>
-		<%= render 'form' %>
+  <div class="page-new-ttl action-cntnr">
+		<h2>NOUVELLE RECETTE</h2>
 	</div>
+  <div class="action-cntnr page-new-ttl">
+    <%= render "form" %>
+  </div>
 </div>

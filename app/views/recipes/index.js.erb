@@ -1,3 +1,4 @@
 // scroll to load next page ingredients with will_paginate
 $('#paginate').append('<%= escape_javascript render(@recipes) %>');
 $('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
+$(".list-cntnr").html("<%= escape_javascript render(@recipes) %>");

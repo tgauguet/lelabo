@@ -20,3 +20,15 @@ $(document).ready(function(){
     $("#div"+$(this).attr('target')).show();
   });
 });
+
+$(document).ready(function(){
+  $(".delete-pop-over").click(function(){
+      $(this).hide();
+      $(this).parent().find(".show-delete").show();
+  });
+  $(".remv-delete").click(function(){
+      $(this).hide();
+      $(this).parent().find(".show-delete").hide();
+      $(this).parent().find(".delete-pop-over").show();
+  });
+});

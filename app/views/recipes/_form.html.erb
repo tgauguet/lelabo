@@ -1,4 +1,3 @@
-<div class="recipe_form">
 <%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
@@ -10,19 +9,31 @@
       </ul>
     </div>
   <% end %>
-  <div class="actions smpl2-cntnr">
-    <p>Informations</p>
-    <%= image_tag "title.png", class: "field-img2" %>
-    <%= f.text_field :name, class: "basic-field top-field" , placeholder: "Titre" %>
-    <%= image_tag "description.png", class: "field-img2" %>
-    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Notes" %>
-    <%= image_tag 'user.png', class: "field-img2" %>
-    <%= f.text_field :owner, class: "basic-field bottom-field", placeholder: "Auteur", value: user_if_nil(@recipe) %>
-    <br/>
-    <p>Image</p>
-    <%= image_tag(@recipe.image.url(:medium), class: "user-img") %>
+<div class="recipe-form">
+  <div class="recipe-cntnr r-smll-cntnr">
+    <div class="composition-info">
+      <p>Titre</p>
+      <p>Catégorie</p>
+      <p>Auteur</p>
+      <br/>
+      <p>Cuisson</p>
+    </div>
+    <div class="composition">
+      <%= f.text_field :name, class: "basic-field top-field big-compo" %>
+      <div class="select-areas recipe-cat">
+        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet", "Tarte"], include_blank: true, class: "basic-field top-rad big-compo" %>
+      </div>
+      <%= f.text_field :owner, class: "basic-field bottom-field big-compo", value: user_if_nil(@recipe) %>
+      <br/>
+      <%= image_tag "celsius.png", class: "field-img euro-img" %>
+      <%= f.text_field :baking, class: "basic-field bot-rad top-rad recipe-comp-sel" %>
+    </div>
+  </div>
+  <div class="recipe-cntnr r-big-cntnr">
+    <%= image_tag(@recipe.image.url(:medium), class: "recipe-img") %>
     <%= f.file_field :image %>
     <br/><br/>
+  </div>
     <p>Ingredients</p>
     <div class="ingredients-add-ctnr">
       <div class="add_ingredients">
@@ -32,22 +43,18 @@
         <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
       </div>
     </div>
-    <%= image_tag "baking.png", class: "field-img2" %>
-    <%= f.text_field :baking, class: "basic-field rounded-field", placeholder: "cuisson" %>
-    <div class="select-areas">
-      <%= image_tag "category.png", class: "field-img2" %>
-      <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet", "Tarte"], include_blank: true, class: "rounded-field" %>
-    </div><br/>
     <div data-no-turbolink>
       <p>Procédé</p>
       <%= f.cktext_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field ckeditor" %>
     </div>
+    <%= image_tag "description.png", class: "field-img2" %>
+    <%= f.text_area :note, class: "basic-field middle-field", placeholder: "Notes" %>
     <br/>
     <% if current_page?(action: "new") %>
-      <%= f.submit "Créer", class: "btn cta-btn" %>
+      <%= f.submit "CRÉER", class: "btn cta-btn" %>
     <% else %>
-      <%= f.submit "Enregistrer", class: "btn, cta-btn" %>
+      <%= f.submit "ENREGISTRER", class: "btn, cta-btn" %>
     <% end %>
   </div>
-<% end %>
 </div>
+<% end %>

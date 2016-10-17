@@ -55,6 +55,14 @@ module ApplicationHelper
         end
     end
 
+		def update_loved_item(item)
+        if item.loved
+            false
+        else
+            true
+        end
+    end
+
     def user_if_nil(obj)
         if obj.id == nil
             (@user.firstname + " " + @user.name)
@@ -141,6 +149,39 @@ module ApplicationHelper
 				"12"
 			elsif grade == "Empereur"
 				"13"
+			end
+		end
+
+		def category_color(value)
+			i = value.category
+			if i == "Chocolats" || i == "Chocolat"
+				"brown-cat"
+			elsif i == "Divers" || i == "Tarte"
+				"royal-cat"
+			elsif i == "Céréales" || i == "Biscuit"
+				"sunflower-cat"
+			elsif i == "Sucres" || i == "Crème"
+				"swimming-cat"
+			elsif i == "Produits laitiers" || i == "Glace"
+				"blue-cat"
+			elsif i == "Fruits" || i == "Mousse"
+				"strawberry-cat"
+			elsif i == "Décors"
+				"pink-cat"
+			elsif i == "Additifs" || i == "Dessert"
+				"lavender-cat"
+			elsif i == "Alcools" || i == "Confiserie"
+				"mint-cat"
+			elsif i == "Épices" || i == "Pâte"
+				"pumpkin-cat"
+			elsif i == "Fruits secs" || i == "Macaron"
+				"avacado-cat"
+			elsif i == "Purées de fruits" || i == "Sorbet"
+				"emerald-cat"
+			elsif i == "Ganache"
+				"ganache-cat"
+			else
+				"grey-cat"
 			end
 		end
 

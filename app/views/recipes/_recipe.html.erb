@@ -1,26 +1,44 @@
-<div class="updte-cntnr">
-  <div class="confirm-cntnr">
-    <div class="data-confirm">
-      <h3>Êtes-vous sûr de vouloir supprimer cette recette ?</h3>
-      <div class="confirm-false">ANNULER</div>
+<div class="star">
+  <div class="class-helper inline_divs">
+    <% unless recipe.category.nil? %>
+    	<div class="circle <%= category_color(recipe) %>"></div>
+    <% end %>
+      <div class="line-cntnr">
+        <%= link_to edit_recipe_path(recipe) do %>
+          <span class="ing-name float">
+            <%= truncate(recipe.name.humanize, length: 25) %>
+          </span>
+        <% end %>
+        <span class="ing-price">
+          <span class="ing-img">
+            <%= form_for recipe, remote: true do |f| %>
+                <%= f.hidden_field :stared, value: update_stared_item(recipe) %>
+                <% if recipe.stared %>
+                  <%= image_submit_tag "star.png", class: "stared-item" %>
+                <% else %>
+                  <%= image_submit_tag "missing-star.png", class: "stared-item" %>
+                <% end %>
+            <% end %>
+          </span>
+          <span class="ing-img2">
+            <%= form_for recipe, remote: true do |f| %>
+                <%= f.hidden_field :loved, value: update_loved_item(recipe) %>
+                <% if recipe.loved %>
+                  <%= image_submit_tag "heart-2.png", class: "stared-item2" %>
+                <% else %>
+                  <%= image_submit_tag "heart.png", class: "stared-item2" %>
+                <% end %>
+            <% end %>
+          </span>
+  			</span>
+        <span class="ing-unit">
+  				<%= recipe.category %>
+  			</span>
+        <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
+        <%= image_tag "cancel.png", class: "show-delete remv-delete delete-rcp delete-tsk-btn delete-down", style:"display:none;" %>
         <%= link_to recipe_path(recipe.id), method: :delete, id: "delete-task" do %>
-          <div class="confirm-true">CONFIRMER</div>
+          <%= image_tag "checked-3.png", class: "show-delete delete-rcp delete-tsk-btn delete-down", style:"display:none;" %>
         <% end %>
     </div>
   </div>
-  <% unless recipe.category.nil? %>
-    <div class="circle <%= category_color(recipe) %>"></div>
-  <% end %>
-  <%= form_for recipe, remote: true do |f| %>
-        <%= f.hidden_field :stared, value: update_stared_item(recipe) %>
-        <% if recipe.stared %>
-          <%= image_submit_tag "star.png", class: "stared-item" %>
-        <% else %>
-          <%= image_submit_tag "missing-star.png", class: "stared-item" %>
-        <% end %>
-      <% end %>
-  <%= link_to edit_recipe_path(recipe) do %>
-      <div class="index-recipe"><%= recipe.name.humanize %></div>
-  <% end %>
-  <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over" %><br/>
 </div>

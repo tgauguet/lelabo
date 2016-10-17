@@ -42,7 +42,7 @@ body{
 }
 
 /* !!! css for displays */
-.grey-btn{
+.grey-btn, .auto-btn{
 	display: inline-block;
 }
 
@@ -326,25 +326,29 @@ BUTTONS -- DESIGN
 
 /*  small buttons  */
 
-.cancel-btn, .social-btn, .inside-btn{
+.cancel-btn, .social-btn, .inside-btn, .auto-btn{
   border: none;
   border-radius: 0.3em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-  padding-right: 2em;
-  padding-left: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
   cursor: pointer;
   font-size: 1em;
 }
 
+.cancel-btn:hover{
+	background: rgb(208, 64, 67); /* red color for buttons */
+}
+
 /*   absolute properties   */
 
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .cancel-btn{
+.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn{
   border-radius: 0.3em;
   opacity: 0.9;
 }
 
-.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .btn:hover, button:hover, .plan-btn:hover, .cancel-btn:hover{
+.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .btn:hover, button:hover, .plan-btn:hover{
   opacity: 1;
 }
 
@@ -355,8 +359,7 @@ BUTTONS -- DESIGN
 /*   buttons with a green background  */
 
 .blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true{
-  background: rgb(27,189,157);
-  border-bottom: 2px solid rgb(17,159,120) !important;
+  background: rgb(54, 201, 124);
 }
 
 /*   buttons with a red background */
@@ -434,21 +437,35 @@ BUTTONS -- DESIGN
 
 .cancel-btn{
   background:#808285;
-  border-bottom: 2px solid #58595B;
-  width: 3em;
+  display: inline-block;
   text-align: center;
+	-webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+	-webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+.auto-btn:hover{
+	background-color: rgb(95, 208, 137);
+  color: white;
 }
 
 .cta-btn, button{
   font-size: 1.2em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  border: 1px solid rgb(27,189,157);
+  border: 1px solid rgb(54, 201, 124);
 }
 
 .cta-btn:hover{
-  background: rgb(0,168,134);
-  border: 1px solid rgb(0,168,134);
+  background: rgb(54, 201, 124);
+  border: 1px solid rrgb(54, 201, 124);
 }
 
 .delete-btn-cntnr:hover{
@@ -913,10 +930,14 @@ ul li{
   float: right;
 }
 
-.user-img{
+.user-img, .recipe-img{
   width: 14em;
   border-radius: 0.3em;
   overflow: hidden;
+}
+
+.recipe-img{
+	width: 10em;
 }
 
 .float-right{
@@ -2183,6 +2204,7 @@ select{
 	margin-left: 0;
 	margin-top: -0.2em;
 	padding-left: 1em;
+	text-align: left;
 }
 
 .progressBar{
@@ -2436,6 +2458,10 @@ select{
   background: rgb(158,99,63);
 }
 
+.ganache-cat{
+  background: rgb(144,76,28);
+}
+
 .pink-cat{
   background: rgb(148,102,185);
 }
@@ -2455,6 +2481,8 @@ select{
 
 .ing-price{
   text-align: right;
+	position: relative;
+	border:1px solid transparent;
   padding-right: 1em;
 }
 
@@ -2472,6 +2500,12 @@ select{
 
 .ing-name{
   min-width: 35em;
+}
+
+.ing-img, .ing-img2{
+	right:0;
+	margin-right: 0.5em;
+	position: absolute;
 }
 
 .smll-icn{
@@ -3005,10 +3039,14 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 /* END OF CKEDITOR CSS CODE */
 
-.stared-item{
+.stared-item, .stared-item2{
   width: 1.2em;
-  vertical-align: middle;
-  position: absolute;
+	margin-right: 2em;
+}
+
+.stared-item2{
+	opacity: 0.7;
+	margin-right: 0.4em;
 }
 
 .index-recipe{
@@ -3143,6 +3181,7 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 .grade-index{
 	position: absolute;
 	padding: 1em;
+	z-index: 2;
 	right:0;
 	opacity: 0;
 	margin-top: -0.7em;
@@ -3225,6 +3264,10 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	border-bottom-right-radius: 0em;
 	padding-left: 2.5em;
 	margin-left: 0em;
+}
+
+.recipe-comp-sel{
+	width: 7em;
 }
 
 .provider-fields{
@@ -3360,4 +3403,58 @@ input[type="checkbox"] + span {
 
 .big-compo{
 	width: 21em;
+	padding-left: 0.7em;
+}
+
+.show-delete{
+	opacity: 1;
+}
+
+.auto-btn{
+	font-size: 1em;
+	border:0px;
+	opacity: 1 !important;
+	-webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+	-webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+.auto-btn:hover{
+	background-color: rgb(95, 208, 137);
+  color: white;
+}
+
+.recipe-cntnr{
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin-top: 2em;
+}
+
+.recipe-form{
+	text-align: left;
+}
+
+.r-smll-cntnr{
+	width: 30em;
+}
+
+.r-big-cntnr{
+	width: 20em;
+}
+
+.recipe-cat select{
+	border-bottom-left-radius: 0em;
+	border-bottom-right-radius: 0em;
+	border-top-left-radius: 0em;
+	border-top-right-radius: 0em;
+	border-top:none;
+	width: 21em !important;
 }

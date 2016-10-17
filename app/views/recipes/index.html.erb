@@ -1,23 +1,42 @@
 <% title "Vos recettes" %>
 <div class="actions-cntnr">
-  <div class="action-cntnr">
-    <p id="notice"><%= notice %></p>
-    <h1>Vos recettes</h1>
-    <div class="paths-cntnr">
-      <%= link_to new_recipe_path do %>
-        <div class="ingredient-btn">Nouvelle recette</div><br/>
-      <% end %>
-    </div>
-    <div id="paginate">
-      <span>Classer par: </span>
-        <%= sortable "Nom", "name" %>
-        <%= sortable "Étoile", "stared" %>
-        <%= sortable "Dernier créé", "created_at" %>
-        <%= sortable "Catégorie", "category" %>
-        <%= sortable "Dernier modifié", "updated_at" %>
-      </br><br/>
-      <%= render @recipes %>
-    </div>
-    <%= will_paginate %>
-  </div>
+  <div class="page-new-ttl action-cntnr">
+		<h2>RECETTES</h2>
+    <%= link_to new_recipe_path do %>
+		  <p class="standard-btn grey-btn ingredient-btn">+ CRÉER</p>
+    <% end %>
+	</div><br/>
+  <div class="hide">
+    <% unless @recipes.blank? %>
+		<div class="ing-cntnr">
+			<p class="sort-before"><%= sortable "Nom", "name" %></p>
+			<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+			<p class="sort-before"><%= sortable "Catégorie", "category" %></p>
+			<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+			<p class="sort-before"><%= sortable "Star", "stared" %></p>
+      <p class="sort-before"><%= sortable "Préférées", "loved" %></p>
+		</div>
+    <% end %>
+				<ul class="list-cntnr">
+					<li id="sortable1">
+						<% if @recipes.blank? %>
+              <br/><br/>
+              <%= link_to new_recipe_path do %>
+                <p class="auto-btn cta-btn">CRÉER LA PREMIÈRE RECETTE</p>
+              <% end %>
+              <div class="explaination-cntnr">
+                <h2>Comment créer une recette ?</h2>
+                <div class="border-btm"></div>
+                <p>Cliquez sur le bouton ci-dessus</p>
+                <div class="border-btm"></div>
+                <p>Remplissez les champs à l'intérieur du formulaire</p>
+              </div>
+              <br/><br/>
+            <% else %>
+							<%= render @recipes%>
+						<% end %>
+					</li>
+					<%= will_paginate %>
+				</ul>
+	</div>
 </div>

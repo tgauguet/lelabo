@@ -67,9 +67,9 @@
 		<p class="custom-checkbox check-green"><%= f.check_box :is_bio %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Biologique</p>
 		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p>
 	</div>
-	<%= f.submit "Enregistrer", class: "btn inside-btn" %>
+	<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
 	<%= link_to new_ingredient_path do %>
-		<p class="cancel-btn">Annuler</p>
+		<p class="cancel-btn">ANNULER</p>
 	<% end %>
 </div>
 <% end %>
