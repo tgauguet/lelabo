@@ -3,9 +3,10 @@
 
 class ProvidersController < ApplicationController
 	before_action :set_user
+	helper_method :sort_columns, :sort_direction
 
 	def index
-		@providers = @user.providers.all.paginate(page: params[:page], per_page: 20).order("name ASC")
+		@providers = @user.providers.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
 	end
 
 	def show
@@ -52,6 +53,14 @@ class ProvidersController < ApplicationController
 	end
 
 	private
+
+	def sort_columns
+		Provider.column_names.include?(params[:sort]) ? params[:sort] : "name"
+	end
+
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+	end
 
 	def set_user
 		@user = current_user

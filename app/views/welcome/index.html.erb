@@ -43,9 +43,14 @@
 		<h6>Vos dernières recettes star</h6>
 		<div class="welc-r-cntnr">
 			<% @user.recipes.where(stared: true).last(5).each do |recipe| %>
-				<div>
+				<div class="img-txt-cntnr">
 					<%= link_to edit_recipe_path(recipe) do %>
-						<%= image_tag recipe.image, class: "" %>
+						<div class="img_path">
+							<%= image_tag recipe.image %>
+							<span class="text-content">
+								<div><span><span>VOIR</span></span></div>
+							</span>
+						</div>
 					<% end %>
 					<br/>
 					<%= truncate(recipe.name, length: 22) %><br/>
@@ -59,9 +64,14 @@
 		<h6>Vos dernières recettes</h6>
 		<div class="welc-r-cntnr">
 			<% @user.recipes.last(5).each do |recipe| %>
-				<div>
+				<div class="img-txt-cntnr">
 					<%= link_to edit_recipe_path(recipe) do %>
-						<%= image_tag recipe.image, class: "" %>
+						<div class="img_path">
+							<%= image_tag recipe.image %>
+							<span class="text-content">
+								<div><span><span>VOIR</span></span></div>
+							</span>
+						</div>
 					<% end %>
 					<br/>
 					<%= truncate(recipe.name, length: 22) %><br/>
@@ -75,9 +85,14 @@
 		<h6>Vos derniers montages</h6>
 		<div class="welc-r-cntnr">
 			<% @user.assemblies.last(5).each do |recipe| %>
-				<div>
+				<div class="img-txt-cntnr">
 					<%= link_to edit_assembly_path(recipe) do %>
-						<%= image_tag recipe.image, class: "" %>
+						<div class="img_path">
+							<%= image_tag recipe.image %>
+							<span class="text-content">
+								<div><span><span>VOIR</span></span></div>
+							</span>
+						</div>
 					<% end %>
 					<br/>
 					<%= truncate(recipe.name, length: 22) %><br/>

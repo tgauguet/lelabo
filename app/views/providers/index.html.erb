@@ -1,16 +1,36 @@
 <% title "Ingrédients" %>
 <div class="actions-cntnr">
-	<div class="action-cntnr">
+	<div class="page-new-ttl action-cntnr">
+		<h2>FOURNISSEURS</h2>
 		<%= link_to new_provider_path do %>
-			<button>Nouveau fournisseur</button>
+			<p class="standard-btn grey-btn ingredient-btn">+ NOUVEAU</p>
 		<% end %>
-		<br/>
-		<% @providers.each do |provider| %>
-			<%= link_to provider_path(provider.id) do %>
-				<%= provider.name.humanize %>
-			<% end %>
-			<%= link_to "supprimer", provider, method: :delete %>
-			<br/>
-		<% end %>
+	</div>
+	<div class="hide">
+		<div class="ing-cntnr">
+			<p class="sort-before"><%= sortable "Nom", "name" %></p>
+			<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+			<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+		</div>
+				<ul class="list-cntnr">
+					<li id="sortable1">
+						<% @providers.each do |provider| %>
+							<div class="class-helper inline_divs">
+								<%= link_to edit_provider_path(provider) do %>
+									<div class="line-cntnr">
+										<span class="ing-name">
+											<%= truncate(provider.name.humanize, length: 25) %>
+										</span>
+										<%= link_to provider_path(provider.id), method: :delete, id: "delete-task" do %>
+											<%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
+										<% end %>
+									</div>
+								<% end %>
+							 </div>
+						<% end %>
+					</li>
+					<%= will_paginate %>
+				</ul>
+		</div>
 	</div>
 </div>

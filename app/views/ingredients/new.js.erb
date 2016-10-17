@@ -5,13 +5,13 @@ $('#clear_form').find("input[type=text], text").val("")
 $('#sortable1').append('<%= escape_javascript render(@ingredients) %>');
 $('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
 
-$(document).ready(function(){
-  $(".ingredient-btn").click(function(){
-    $(".ingredient-form").show();
-  });
-  $(".cancel-btn").click(function(){
-    $(".ingredient-form").hide();
-  });
+$(".ingredient-btn").click(function(){
+  $(".ingredient-form").show();
+  $('.hide').hide();
+});
+$(".cancel-btn").click(function(){
+  $(".ingredient-form").hide();
+  $('.hide').show();
 });
 
 $(document).ready(ready);

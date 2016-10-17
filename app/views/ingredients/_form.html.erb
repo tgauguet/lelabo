@@ -1,53 +1,76 @@
 <%= form_for @ingredient, html: { data_type: "html", id: "clear_form"} do |f| %>
-	<h3>Nom et catégorie</h3>
-	<%= image_tag "file.png", class: "field-img" %>
-	<%= f.text_field :name, placeholder: "Nom", class: "basic-field top-field" %>
-	<div class="select-areas">
-		<%= image_tag "category.png", class: "field-img" %>
-		<%= f.select :category, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field", include_blank: true, placeholder: "catégorie" %>
-		<%= f.select :unit, ["Kg", "Litre"], class: "select-field basic-field" %>
-		<%= f.text_field :price, placeholder: "Prix" %>
-	</div>
-	<h3>Composition</h3>
-	<div class="composition">
-		<div>
-			<%= image_tag "fat.png", class: "field-img" %>
-			<%= f.text_field :fat_percent, class: "basic-field top-rad", placeholder: "Mat.grasse" %>
-			<%= image_tag "water.png", class: "field-img" %>
-			<%= f.text_field :water_percent, class: "basic-field special-top", placeholder: "Eau" %>
-			<%= image_tag "sugar.png", class: "field-img" %>
-			<%= f.text_field :sugar_percent, class: "basic-field special-top", placeholder: "Sucre" %>
-			<%= image_tag "alcohol.png", class: "field-img" %>
-			<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad", placeholder: "Alcool" %>
+<div class="ing-form-cntnr">
+	<div class="basic-ing-info">
+		<h3>Informations</h3>
+		<p>Nom</p>
+		<%= f.text_field :name, class: "basic-field ing-field" %>
+		<div class="select-areas">
+			<p>Catégorie</p>
+			<%= f.select :category, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field ing-field", include_blank: true %>
+			<p>Prix</p>
+			<div class="price-field">
+				<%= f.text_field :price, placeholder: "Prix", class: "basic-field left-field" %>
+				<%= f.select :unit, ["Kg", "Litre"], class: "basic-field" %>
+			</div>
 		</div>
-		<div class="left-compo">
-			<%= image_tag "dry.png", class: "field-img" %>
-			<%= f.text_field :dry_matter_percent, class: "basic-field top-rad", placeholder: "Mat.sèche" %>
-			<%= image_tag "chocolate.png", class: "field-img" %>
-			<%= f.text_field :cocoa_percent, class: "basic-field special-top", placeholder: "Cacao maigre" %>
-			<%= image_tag "cocoa-butter.png", class: "field-img" %>
-			<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top", placeholder: "Beurre de cacao" %>
-			<%= image_tag "bowl.png", class: "field-img" %>
-			<%= f.text_field :cocoa_total_percent, class: "basic-field special-top bot-rad", placeholder: "Cacao total" %>
-			Bio<%= f.check_box :is_bio %><br/>
-			Gluten<%= f.check_box :is_glut_free %><br/>
-			Pulpe<%= f.check_box :is_pulp %><br/>
+		<br/>
+		<h3>Fournisseur(s)</h3>
+		<div class="double-field">
+		  <%= f.fields_for :provider_prices do |ff| %>
+				<%= render "add_provider_prices", ff: ff %>
+			<% end %>
+			<div class="add_field"><%= create_new_field "+", f, :provider_prices %></div>
+		</div><br/>
+	</div>
+	<div class="content-ing-info">
+		<h3>Composition</h3><br/>
+		<div class="composition-info">
+			<p>Matière grasse</p>
+			<p>Eau</p>
+			<p>Sucre</p>
+			<p>Pouvoir sucrant</p>
+			<p>Alcool</p>
 		</div>
+		<div class="composition">
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :fat_percent, class: "basic-field top-rad" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :water_percent, class: "basic-field special-top" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :sugar_percent, class: "basic-field special-top" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :sugar_power, class: "basic-field special-top" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad" %>
+		</div>
+		<div class="composition-info">
+			<p>Matière sèche</p>
+			<p>Cacao maigre</p>
+			<p>Beurre de cacao</p>
+			<p>Cacao total</p>
+			<p>Calories /100g</p>
+		</div>
+		<div class="composition">
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :dry_matter_percent, class: "basic-field top-rad" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :cocoa_percent, class: "basic-field special-top" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top" %>
+				<%= image_tag "percent.png", class: "field-img euro-img" %>
+				<%= f.text_field :cocoa_total_percent, class: "basic-field special-top" %>
+				<%= image_tag "grammes.png", class: "field-img euro-img" %>
+				<%= f.text_field :kcal, class: "basic-field special-top bot-rad" %>
+		</div>
+		<br/><br/>
+		<p class="custom-checkbox check-orange"><%= f.check_box :is_glut_free %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Contient du gluten</p>
+		<p class="custom-checkbox check-green"><%= f.check_box :is_bio %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Biologique</p>
+		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p>
 	</div>
-	<div class="select-areas">
-		<%= image_tag "calories.png", class: "field-img" %>
-		<%= f.text_field :kcal, class: "basic-field special-top bot-rad", placeholder: "Calories" %>
-	</div>
-	<br/>
-	<h3>Fournisseur(s)</h3>
-	<div class="double-field">
-	  <%= f.fields_for :provider_prices do |ff| %>
-			<%= render "add_provider_prices", ff: ff %>
-		<% end %>
-	</div><br/>
-	<div class="add_field"><%= create_new_field "+", f, :provider_prices %></div>
 	<%= f.submit "Enregistrer", class: "btn inside-btn" %>
 	<%= link_to new_ingredient_path do %>
 		<p class="cancel-btn">Annuler</p>
 	<% end %>
-<% end %><br/>
+</div>
+<% end %>
+<br/>
