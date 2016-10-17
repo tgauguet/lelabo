@@ -14,19 +14,8 @@
 		</div>
 				<ul class="list-cntnr">
 					<li id="sortable1">
-						<% @providers.each do |provider| %>
-							<div class="class-helper inline_divs">
-								<%= link_to edit_provider_path(provider) do %>
-									<div class="line-cntnr">
-										<span class="ing-name">
-											<%= truncate(provider.name.humanize, length: 25) %>
-										</span>
-										<%= link_to provider_path(provider.id), method: :delete, id: "delete-task" do %>
-											<%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
-										<% end %>
-									</div>
-								<% end %>
-							 </div>
+						<% unless @providers.nil? %>
+							<%= render @providers %>
 						<% end %>
 					</li>
 					<%= will_paginate %>

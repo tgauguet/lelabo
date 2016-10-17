@@ -1837,11 +1837,16 @@ header .normal_header{
 	background:white;
 }
 
-.mini-img{
+.mini-img, .mini-mini-img{
 	width: 1em;
 	vertical-align: -0.2em;
 	margin-right: 0.1em;
 	margin-left: 0.2em;
+}
+
+.mini-mini-img{
+	width: 0.6em;
+	vertical-align: 0em;
 }
 
 .tasks-cntnr{
@@ -3347,4 +3352,12 @@ input[type="checkbox"] + span {
 
 .img_path:hover .text-content{
   opacity: 1;
+}
+
+.notes{
+	height: 5.5em;
+}
+
+.big-compo{
+	width: 21em;
 }

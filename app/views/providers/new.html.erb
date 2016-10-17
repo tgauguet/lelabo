@@ -1,7 +1,12 @@
 <% title "Nouveau fournisseur" %>
 <div class="actions-cntnr">
 	<div class="action-cntnr">
+		<h2>NOUVEAU FOURNISSEUR</h2>
+		<%= link_to providers_path do %>
+			<p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "mini-mini-img" %> INDEX</p>
+		<% end %>
+	</div>
+	<div class="action-cntnr">
 		<%= render "form" %>
-		<%= link_to "retour à l'index", providers_path %>
 	</div>
 </div>
