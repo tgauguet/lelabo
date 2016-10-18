@@ -1,6 +1,7 @@
-<div class="partial">
-	<%= ff.select(:ingredient_id, @user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true  ) %>
-	<%= ff.text_field :weight, class: "rounded-field", placeholder: "quantité" %> g
+<div class="partial provider-field ingr-field select-areas">
+	<%= ff.select(:ingredient_id, @user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true , class: "basic-field" ) %>
+	<%= image_tag "gramme.png", class: "field-img euro-img" %>
+	<%= ff.text_field :weight, class: "basic-field right-field" %>
 	<%= ff.hidden_field :_destroy %>
-	<%= remove_field "X", ff %>
+	<%= remove_field "delete-sml.png", ff %>
 </div>

@@ -938,6 +938,7 @@ ul li{
 
 .recipe-img{
 	width: 10em;
+	border:1px solid rgb(197, 200, 205);
 }
 
 .float-right{
@@ -2657,6 +2658,10 @@ select{
 	padding-bottom: 0.35em;
 }
 
+.composition-info h3{
+	text-align: right;
+}
+
 .composition{
 	width: 6em;
 	margin-right: 1.2em;
@@ -2836,11 +2841,31 @@ select{
   vertical-align: top;
 }
 
+.ingredients-add-ctnr{
+	min-height: 20em;
+	height: auto;
+	position: relative;
+}
+
+.delete-ing{
+		margin-top: 0.8em;
+		margin-right: 3.5em;
+}
+
+.add_ingredients, .add_process{
+	display: inline-block;
+	vertical-align: top;
+}
+
 .add_ingredients{
-  border:1px solid blue;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
+	width: 27.5em;
+}
+
+.add_process{
+	width: 25em;
+	right: 0.2em;
+	position: absolute;
+	height: 100%;
 }
 
 .pagination a, .pagination p, .pagination span, .pagination em{
@@ -2871,6 +2896,9 @@ CK-EDITOR DESIGN
   border-radius: 0.3em;
   padding: 0.1em !important;
   box-shadow: none !important;
+	position: absolute !important;
+	height: 100% !important;
+	width: 100% !important
 }
 
 .cke_top{
@@ -2973,6 +3001,13 @@ a.cke_button_on{
   border:none !important;
 }
 
+.cke_contents {
+	width: 99% !important;
+	height: 87% !important;
+	bottom: 0 !important;
+	position: absolute !important;
+}
+
 .cke_dialog_contents_body{
   padding: 1.4em !important;
 }
@@ -3034,7 +3069,7 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 }
 
 .cke_dialog .cke_dark_background{
-  background-color:white !important
+  background-color:white !important;
 }
 
 /* END OF CKEDITOR CSS CODE */
@@ -3289,21 +3324,6 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	margin-bottom: 0.3em !important;
 }
 
-.add_field{
-	border: 1px solid rgb(43,54,69) !important;
-	width: 0.5em;
-	padding: 0.4em;
-	font-size: 1.2em;
-	padding-top: 0em;
-	padding-bottom: 0em;
-	border-radius: 100%;
-	cursor: pointer;
-}
-
-.add_field:hover{
-	background: rgb(247, 247, 247);
-}
-
 .euro-img{
 	margin-left: 4em;
 }
@@ -3451,10 +3471,37 @@ input[type="checkbox"] + span {
 }
 
 .recipe-cat select{
-	border-bottom-left-radius: 0em;
-	border-bottom-right-radius: 0em;
-	border-top-left-radius: 0em;
-	border-top-right-radius: 0em;
-	border-top:none;
+	border-radius: 0.3em;
+	border-top:1px solid rgb(197, 200, 205);
 	width: 21em !important;
+}
+
+.title-field{
+	width: 100%;
+	font-size: 1.2em;
+	border-radius: 0.3em;
+}
+
+.ingr-field select{
+	padding-left: 0.7em;
+	width: 16em !important;
+}
+
+.plus-field{
+	outline-offset: 15px;
+	background: rgb(83,87,220);
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+	color:white;
+	font-size: 1.2em;
+	cursor: pointer;
+	border-radius: 0.2em;
+}
+
+.add_field{
+	border: 1px dashed rgb(197, 200, 205) !important;
+	padding: 0.6em;
+	margin-top: 0.5em;
+	display: inline-block;
+	border-radius: 0.3em;
 }
