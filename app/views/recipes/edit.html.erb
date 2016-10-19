@@ -1,29 +1,32 @@
 <% title "#{@recipe.name.humanize}" %>
 <div class="actions-cntnr">
- 	<div class="action-cntnr">
-    <button class="recipe-btn" target="0">Base</button>
-    <button class="recipe-btn" target='1'>Vue</button>
-    <button class="recipe-btn" target='2'>Quantité</button>
-    <button class="recipe-btn" target='3'>Equilibrage</button>
-    <button class="recipe-btn" target='4'>Cout de revient</button>
-    <button class="recipe-btn" target='5'>Photos</button>
-    <div id="div0" class="recipe-option">
-      <%= render "show" %>
-    </div>
-    <div id="div1" class="recipe-option" style="display:none;">
-      <%= render "form" %>
-    </div>
-    <div id="div2" class="recipe-option" style="display:none;">
-      <%= render "quantities_form" %>
-    </div>
-    <div id="div3" class="recipe-option" style="display:none;">
-      <%= render "equilibrium_form" %>
-    </div>
-    <div id="div4" class="recipe-option" style="display:none;">
-      <%= render "cost_form" %>
-    </div>
-    <div id="div5" class="recipe-option" style="display:none;">
-      <%= render "pictures_form" %>
-    </div>
-	</div>
+      <div class="action-cntnr page-new-ttl">
+        <div class="recipe-btn-cntnr">
+          <p class="recipe-btn current-form" target="0">APERÇU</p>
+          <p class="recipe-btn" target='1'>MODIFIER</p>
+          <p class="recipe-btn" target='2'>QUANTITÉS</p>
+          <p class="recipe-btn" target='3'>ÉQUILIBRAGE</p>
+          <p class="recipe-btn" target='4'>COUT DE REVIENT</p>
+          <p class="recipe-btn" target='5'>PHOTOS</p>
+        </div>
+      <br/>
+      <div id="div0" class="recipe-option">
+        <%= render "show" %>
+      </div>
+      <div id="div1" class="recipe-option" style="display:none;">
+        <%= render "form" %>
+      </div>
+      <div id="div2" class="recipe-option" style="display:none;">
+        <%= render "quantities_form" %>
+      </div>
+      <div id="div3" class="recipe-option" style="display:none;">
+        <%= render "equilibrium_form" %>
+      </div>
+      <div id="div4" class="recipe-option" style="display:none;">
+        <%= render "cost_form" %>
+      </div>
+      <div id="div5" class="recipe-option" style="display:none;">
+        <%= render "pictures_form" %>
+      </div>
+  	</div>
 </div>

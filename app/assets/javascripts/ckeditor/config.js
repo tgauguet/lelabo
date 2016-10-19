@@ -1,4 +1,8 @@
-
+CKEDITOR.config.toolbar= [
+	{ name: 'document', items: ["Bold", "Italic", "Underline", "Strike",'-'] },
+	{ name: 'paragraph', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight'] },
+	{ name: 'styles', items: ['Format', "Smiley"] }
+];
 
 CKEDITOR.editorConfig = function (config) {
 	// ... other configuration ...
@@ -6,13 +10,13 @@ CKEDITOR.editorConfig = function (config) {
 	config.toolbar_Full = [
 		{ name: 'document', items: ["Bold", "Italic", "Underline", "Strike",'-'] },
     	{ name: 'paragraph', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight'] },
-    	{ name: 'styles', items: ['Format', "Smiley"] },
+    	{ name: 'styles', items: ['Format', "Smiley"] }
 	];
 
 	config.toolbar_mini = [
 		{ name: 'document', items: ["Bold", "Italic", "Underline", "Strike",'-'] },
     	{ name: 'paragraph', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight'] },
-    	{ name: 'styles', items: ['Format', "Smiley"] },
+    	{ name: 'styles', items: ['Format', "Smiley"] }
 	];
     config.removePlugins = 'elementspath';
     config.resize_enabled = false;

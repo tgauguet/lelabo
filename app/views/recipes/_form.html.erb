@@ -24,11 +24,11 @@
       <%= f.text_field :baking, class: "basic-field recipe-comp-sel rounded-field" %>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
+    <p>image</p>
     <%= image_tag(@recipe.image.url(:medium), class: "recipe-img") %>
     <%= f.file_field :image %>
     <br/><br/>
   </div>
-  <%= image_tag "description.png", class: "field-img2" %>
   <%= f.text_area :note, class: "basic-field rounded-field", placeholder: "Notes" %>
   <br/>
   <h3>Ingredients & process</h3>
@@ -40,15 +40,10 @@
       <p class="add_field"><%= create_new_field "+", f, :quantities %></p>
     </div>
     <div data-no-turbolink class="add_process">
-      <%= f.cktext_area :process, ckeditor: { toolbar: "mini" }, placeholder: "procédé", class: "basic-field rounded-field ckeditor" %>
+      <%= f.cktext_area :process, placeholder: "procédé", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
   </div>
     <br/>
-    <% if current_page?(action: "new") %>
-      <%= f.submit "CRÉER", class: "btn cta-btn" %>
-    <% else %>
-      <%= f.submit "ENREGISTRER", class: "btn, cta-btn" %>
-    <% end %>
+    <%= f.submit "ENREGISTRER", class: "btn cta-btn" %>
   </div>
-</div>
 <% end %>

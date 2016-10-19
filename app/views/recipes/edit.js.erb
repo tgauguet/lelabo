@@ -4,3 +4,13 @@ $(".quant_form").html("<%= escape_javascript (render 'recipes/quantities_form') 
 $(".recipe_form").html("<%= escape_javascript (render 'recipes/form') %>");
 $(".recipe_pics").html("<%= escape_javascript (render 'recipes/pictures_form') %>");
 $(".show_recipe").html("<%= escape_javascript (render 'recipes/show') %>");
+
+// hide and show each form in edit view
+$(document).ready(function(){
+  $('.recipe-btn').click(function(){
+    $(".recipe-option").hide();
+		$(".recipe-btn").removeClass("current-form");
+		$(this).addClass("current-form");
+    $("#div"+$(this).attr('target')).show();
+  });
+});

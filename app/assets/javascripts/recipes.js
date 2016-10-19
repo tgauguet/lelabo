@@ -17,6 +17,8 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('.recipe-btn').click(function(){
     $(".recipe-option").hide();
+		$(".recipe-btn").removeClass("current-form");
+		$(this).addClass("current-form");
     $("#div"+$(this).attr('target')).show();
   });
 });

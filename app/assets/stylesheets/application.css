@@ -930,10 +930,15 @@ ul li{
   float: right;
 }
 
-.user-img, .recipe-img{
+.user-img, .recipe-img, .user-img2{
   width: 14em;
   border-radius: 0.3em;
   overflow: hidden;
+}
+
+.user-img2{
+		width: 18em;
+		height: 18em;
 }
 
 .recipe-img{
@@ -2894,7 +2899,7 @@ CK-EDITOR DESIGN
   background: rgb(249,249,251) !important;
   border: 1px solid rgb(208,210,214) !important;
   border-radius: 0.3em;
-  padding: 0.1em !important;
+  padding: 0em !important;
   box-shadow: none !important;
 	position: absolute !important;
 	height: 100% !important;
@@ -2902,9 +2907,11 @@ CK-EDITOR DESIGN
 }
 
 .cke_top{
-  background: grey !important;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
+  background: rgb(201, 202, 205)!important;
+	background: -webkit-linear-gradient(rgb(201, 202, 205)) !important; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(201, 202, 205)) !important; /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(201, 202, 205)) !important; /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(201, 202, 205)) !important; /* Standard syntax */
   border-bottom: 0 !important;
   box-shadow: none !important;
 }
@@ -2913,76 +2920,32 @@ CK-EDITOR DESIGN
   background-color:none !important;
 }
 
-.cke_toolbar_separator{
-  float:left;
-  background-color:red !important;
-  background-color:rgba(0,0,0,.2);
-  margin:5px 2px 0;
-  height:18px;
-  width:1px;
-  box-shadow:1px 0 1px rgba(255,255,255,.5)
-}
-
 a.cke_button_on:hover,a.cke_button_on:focus,a.cke_button_on:active{
   box-shadow:none;
 }
 
-a.cke_button_off:hover,a.cke_button_off:focus,a.cke_button_off:active,a.cke_button_disabled:hover,a.cke_button_disabled:focus,a.cke_button_disabled:active{
-  box-shadow:0 0 1px rgba(0,0,0,.3) inset;
-  background:red !important;
-  background-image:linear-gradient(to bottom,#f2f2f2,#ccc);
-  filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#f2f2f2',endColorstr='#cccccc')
+a.cke_button_off:hover,a.cke_button_off:focus,a.cke_button_off:active,a.cke_button_disabled:hover,a.cke_button_disabled:focus,a.cke_button_disabled:active, a.cke_button_on{
+  box-shadow:none !important;
+  background:rgb(194,225,248)!important;
+  background-image:none !important;
+  filter:none !important;
 }
 
 a.cke_button_on{
-  box-shadow:0 1px 5px rgba(0,0,0,.6) inset,0 1px 0 rgba(0,0,0,.2);
-  background:green !important;
-  background-image:linear-gradient(to bottom,#aaa,#cacaca);
-  filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#aaaaaa',endColorstr='#cacaca')
+  background:rgb(141,175,246) !important;
 }
 
 .cke_toolgroup{
-  float:left;
   margin:0 6px 5px 0;
-  border:1px solid blue;
-  border-bottom-color:blue !important;
-  border-radius:3px;
-  box-shadow:0 1px 0 rgba(255,255,255,.5),0 0 2px rgba(255,255,255,.15) inset,0 1px 0 rgba(255,255,255,.15) inset;
-  background:#e4e4e4;
-  background-image:linear-gradient(to bottom,#fff,#e4e4e4);
-  filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#ffffff',endColorstr='#e4e4e4')
-}
-
-.cke_panel_grouptitle{
-  cursor:default;
-  font-size:11px;""
-  font-weight:bold;
-  white-space:nowrap;
-  margin:0;
-  padding:4px 6px;
-  color:#474747;
-  text-shadow:0 1px 0 rgba(255,255,255,.75);
-  border-bottom:1px solid #b6b6b6;
-  border-radius:2px 2px 0 0;
-  box-shadow:0 1px 0 #fff inset;
-  background:pink !important;
-  background-image:linear-gradient(to bottom,#f5f5f5,#cfd1cf);
-  filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#f5f5f5',endColorstr='#cfd1cf')
-}
-
-.cke_panel_listItem a{
-  padding:3px 4px;
-  display:block;
-  border:1px solid pink !important;
-  color:inherit!important;
-  text-decoration:none;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  border-radius:2px
+  border:none !important;
+  border-bottom-color:none !important;
+  box-shadow:none !important;
+  background:white !important;
+  background-image:none !important;
 }
 
 .cke_reset_all,.cke_reset_all *,.cke_reset_all a,.cke_reset_all textarea{
-  font-family: Arial;
+  font-family: 'source_sans_proregular' !important;
 }
 
 .cke_dialog_title{
@@ -3002,7 +2965,8 @@ a.cke_button_on{
 }
 
 .cke_contents {
-	width: 99% !important;
+	width: 100% !important;
+	border-radius: 0.3em;
 	height: 87% !important;
 	bottom: 0 !important;
 	position: absolute !important;
@@ -3480,6 +3444,7 @@ input[type="checkbox"] + span {
 	width: 100%;
 	font-size: 1.2em;
 	border-radius: 0.3em;
+	margin-bottom: -1.2em;
 }
 
 .ingr-field select{
@@ -3490,12 +3455,16 @@ input[type="checkbox"] + span {
 .plus-field{
 	outline-offset: 15px;
 	background: rgb(83,87,220);
-	padding-left: 0.4em;
-	padding-right: 0.4em;
+	padding-left: 1.4em;
+	padding-right: 1.4em;
 	color:white;
 	font-size: 1.2em;
 	cursor: pointer;
 	border-radius: 0.2em;
+}
+
+.plus-field:hover{
+	background: rgb(103, 110, 220);
 }
 
 .add_field{
@@ -3504,4 +3473,87 @@ input[type="checkbox"] + span {
 	margin-top: 0.5em;
 	display: inline-block;
 	border-radius: 0.3em;
+}
+
+.recipe-btn-cntnr{
+	border-bottom: 1px solid rgb(217,217,217);
+	background: white;
+	padding-top: 0.6em;
+	padding-bottom: 0.4em;
+	text-align: left;
+	overflow: hidden;
+}
+
+.recipe-btn{
+	display: inline;
+	background: rgb(242, 245, 250);
+	border:1px solid rgb(217,217,217);
+	cursor: pointer;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-left: 1em;
+	border-top-left-radius: 0.2em;
+	border-top-right-radius: 0.2em;
+	padding-right: 1em;
+}
+
+.recipe-btn:hover, .current-form{
+	background: rgb(83,87,220);
+	border: 1px solid rgb(83,87,220);
+	color:white;
+}
+
+.recipe-view{
+	text-align: left;
+}
+
+.recipe-links{
+	text-align: right;
+}
+
+.ing_comp_l, .ing_comp_r, .view-top-l, .view-top-r, .ing-rght, .ing-left{
+	display: inline-block;
+	vertical-align: top;
+	min-height: 5em;
+}
+
+.ing_comp_l{
+	padding: 2em;
+	background: rgb(237, 237, 237);
+	border-radius: 0.3em;
+	margin-right: 1em;
+}
+
+.ing_comp_l, .ing_comp_r{
+	margin-top: 3em;
+	width: 23em;
+	text-align: justify;;
+}
+
+.ing-rght p, .ing-left p{
+	font-family: "source_sans_prosemibold";
+}
+
+.ing_comp_cntnr h3{
+	font-size: 1.3em;
+}
+
+.view-top-l{
+	width: 30em;
+}
+
+.view-top-l h1{
+	margin-top: 0em;
+	margin-bottom: 0.2em;
+	font-size: 2.5em;
+	font-family: "source_sans_prosemibold";
+}
+
+.view-top-r{
+	text-align: right;
+	width: 20em;
+}
+
+.small-imgs{
+	width:2em;
 }

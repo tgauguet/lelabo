@@ -1,15 +1,41 @@
-<div class='show_recipe'>
-  <h1><%= @recipe.name %></h1>
-  <%= link_to "Apperçu", edit_recipe_path(@recipe, format: :pdf), target: '_blank' %><br/>
-  <%= link_to "Enregistrer", download_recipe_path(format: :pdf), target: '_blank' %><br/>
-  Créée par <%= @recipe.owner %><br/>
-  <%= @recipe.description %><br/>
-  <h3>Composition</h3>
-  <% @recipe.quantities.each do |q| %>
-    <%= q.ingredient.name + " = " %>
-    <%= q.weight %>
-    <%= weighing_unit(q.ingredient) %>
+<div class="recipe-view">
+  <div class="recipe-links">
+    <%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
+      <%= image_tag 'pdf.png' , class: 'small-imgs'%>
+    <% end %>
+    <%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
+      <%= image_tag 'download.png', class: 'small-imgs' %>
+    <% end %>
+  </div>
+  <div class="view-top-l">
+    <h1><%= @recipe.name.upcase %></h1>
+    <p><%= @recipe.category %> </p>
+    <p><b>par <%= @recipe.owner %></b></p><br/>
+    <p><%= image_tag "temperature.png", class: "mini-img" %><b> CUISSON : <%= @recipe.baking %> °C</b></p>
     <br/>
-  <% end %>
-  <%= @recipe.process.html_safe %>
+    <b>Notes:</b>
+    <p><%= @recipe.note %></p><br/>
+  </div>
+  <div class="view-top-r">
+    <%= image_tag @recipe.image, class: "user-img2" %>
+  </div>
+  <div class="ing_comp_cntnr">
+    <div class="ing_comp_l">
+      <h3>Ingrédients</h3><br/>
+      <div class="ing-rght">
+        <% @recipe.quantities.each do |q| %>
+          <p><%= q.weight %> <%= weighing_unit(q.ingredient) %></p>
+        <% end %>
+      </div>
+      <div class="ing-left">
+        <% @recipe.quantities.each do |q| %>
+          <p><%= q.ingredient.name %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="ing_comp_r">
+      <h3>Instructions</h3><br/>
+      <p><%= @recipe.process.html_safe %></p>
+    </div>
+  </div>
 </div>
