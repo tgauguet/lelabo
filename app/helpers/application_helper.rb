@@ -48,19 +48,11 @@ module ApplicationHelper
     end
 
     def update_stared_item(item)
-        if item.stared
-            false
-        else
-            true
-        end
+        item.stared ? false : true
     end
 
 		def update_loved_item(item)
-        if item.loved
-            false
-        else
-            true
-        end
+        item.loved ? false : true
     end
 
     def user_if_nil(obj)
@@ -89,7 +81,7 @@ module ApplicationHelper
 	        fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
 	          render("add_#{association}", :ff => builder, image: nil)
 	        end
-	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: "plus-field")
+	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: "plus-field big-plus")
 	  end
 
 		def grade(user)

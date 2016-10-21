@@ -1,3 +1,4 @@
 // render new assemblies when scroll down with will_paginate
 $("#paginate").append("<%= escape_javascript render(@assemblies) %>");
 $('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
+$(".list-cntnr").html("<%= escape_javascript render(@assemblies) %>");

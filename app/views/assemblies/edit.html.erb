@@ -1,8 +1,24 @@
-<% title "Modifier le montage" %>
+<% title "#{@assembly.title.humanize}" %>
 <div class="actions-cntnr">
- 	<div class="action-cntnr">
-	 	<div class="smpl2-cntnr">
-	 		<%= render "form" %>
-	 	</div>
+      <div class="action-cntnr page-new-ttl">
+        <div class="recipe-btn-cntnr">
+          <p class="recipe-btn current-form" target="0">APERÇU</p>
+          <p class="recipe-btn" target='1'>MODIFIER</p>
+          <p class="recipe-btn" target='4'>COUT DE REVIENT</p>
+          <p class="recipe-btn" target='5'>PHOTOS</p>
+        </div>
+      <br/>
+      <div id="div0" class="recipe-option">
+        <%= render "show" %>
+      </div>
+      <div id="div1" class="recipe-option" style="display:none;">
+        <%= render "form" %>
+      </div>
+      <div id="div4" class="recipe-option" style="display:none;">
+        <%= render "cost_form" %>
+      </div>
+      <div id="div5" class="recipe-option" style="display:none;">
+        <%= render "pictures_form" %>
+      </div>
   	</div>
 </div>

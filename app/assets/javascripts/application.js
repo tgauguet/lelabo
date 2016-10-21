@@ -96,7 +96,6 @@ $(document).on('page:update', function(){
 });
 
 // load and destroy new fields for quantities in recipes forms
-
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")

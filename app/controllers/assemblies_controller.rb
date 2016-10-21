@@ -5,6 +5,7 @@ class AssembliesController < ApplicationController
 	before_action :set_assembly, only: [:show, :edit, :update, :destroy]
 	before_action :set_user
 	helper_method :sort_columns, :sort_direction
+	skip_before_filter :verify_authenticity_token, only: [:edit,:update]
 
 	def index
 		@assemblies = @user.assemblies.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
@@ -39,16 +40,32 @@ class AssembliesController < ApplicationController
 	end
 
 	def edit
+		respond_to do |format|
+      format.html
+      format.js { render :edit }
+      format.pdf do
+        render  pdf: '@user.name',
+                template: 'assemblies/show.pdf.erb',
+                encoding: "UTF-8",
+                locals: { assembly: @assembly }
+      end
+    end
 	end
 
-	def update 
-		if @assembly.update(assembly_params)
-			redirect_to @assembly
-			flash[:success] = "Votre montage a bien été modifié"
-		else
-			redirect_to(:back)
-			flash[:error] = "Erreur lors de la modification du montage"
-		end
+	def update
+			respond_to do |format|
+				if @assembly.update(assembly_params)
+					if !request.url.include?("edit")
+						format.html { redirect_to(:back) }
+					else
+						format.html { redirect_to edit_assembly_path(@assembly), notice: 'Montage modifié avec succès' }
+					end
+					#format.json { render :edit, status: :ok, location: edit_recipe_path }
+				else
+					format.html { render :edit }
+					format.json { render json: @assembly.errors, status: :unprocessable_entity }
+				end
+			end
 	end
 
 	private
@@ -58,7 +75,7 @@ class AssembliesController < ApplicationController
 	end
 
 	def sort_direction
-		%w[asc desc].include?(params[:desc]) ? params[:desc] : "asc"
+		%w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
 	end
 
 	def set_user
@@ -70,6 +87,6 @@ class AssembliesController < ApplicationController
 	end
 
 	def assembly_params
-		params.require(:assembly).permit(:recipe_id, :image, :description, :title, :owner)
+		params.require(:assembly).permit(:recipe_id, :image, :description, :title, :owner, :loved, :stared, images_attributes: [:picture, :recipe_id , :description, :_destroy, :id])
 	end
 end

@@ -5,7 +5,8 @@
         <%= render "add_images", ff: ff, image: image %>
       <% end %>
     <% end %>
-    <div class="add_field"><%= create_new_field "+", f, :images %></div>
-    <%= f.submit "modifier" %>
+    <br/>
+    <div class="add_img"><%= create_new_field "+", f, :images %></div>
+    <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
   <% end %>
 </div>

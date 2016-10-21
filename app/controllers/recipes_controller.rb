@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
     @images = @recipe.images.all.order("created_at ASC")
     respond_to do |format|
       format.html
+      format.js { render :edit }
       format.pdf do
         render  pdf: '@user.name',
                 template: 'recipes/show.pdf.erb',
@@ -53,7 +54,6 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = @user.recipes.new(recipe_params)
-
       if @recipe.save
         4.times { @recipe.totals.create(value:  (@recipe.totals.count + 1)) }
         redirect_to edit_recipe_path(@recipe)

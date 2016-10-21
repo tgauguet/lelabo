@@ -1,11 +1,13 @@
 class Assembly < ActiveRecord::Base
 	has_many :recipes
 	belongs_to :user
+	has_many :images, dependent: :destroy
+	accepts_nested_attributes_for :images, allow_destroy: true
 	has_attached_file :image, {
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :size => { :in => 0..300.kilobytes }
                                 }
-    validates_attachment_content_type :image, 
+    validates_attachment_content_type :image,
                                     :content_type => /^image\/(png|gif|jpeg)/
 
 	def total_cost

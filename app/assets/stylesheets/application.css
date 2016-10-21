@@ -950,6 +950,10 @@ ul li{
   float: right;
 }
 
+.float{
+	float: left;
+}
+
 .logo-steps{
   width: 7em;
   margin-top: 3em;
@@ -3455,11 +3459,16 @@ input[type="checkbox"] + span {
 	border-radius: 0.2em;
 }
 
+.add_img .big-plus{
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
 .plus-field:hover{
 	background: rgb(103, 110, 220);
 }
 
-.add_field{
+.add_field, .add_img{
 	border: 1px dashed rgb(197, 200, 205) !important;
 	padding: 0.6em;
 	margin-top: 0.5em;
@@ -3467,6 +3476,14 @@ input[type="checkbox"] + span {
 	border-radius: 0.3em;
 	float:left;
 	margin-left: 0.5em;
+}
+
+.add_img{
+	padding-left: 4em;
+	padding-right: 4em;
+	padding-top: 6em;
+	padding-bottom: 6em;
+	float:none;
 }
 
 .recipe-btn-cntnr{
@@ -3736,4 +3753,48 @@ input[type="checkbox"] + span {
 
 .quant_form {
 	text-align:right;
+}
+
+.recipe-imgs, .imgs-field{
+	border-bottom-left-radius: 0em;
+	border-bottom-right-radius: 0em;
+}
+
+textarea {
+    resize: none;
+}
+
+.recipe-img-cntnr{
+	margin-bottom: 1em;
+	display: inline-block;
+	vertical-align: top;
+	width: 20em;
+	text-align: left;
+}
+
+.recipe-img-cntnr textarea{
+	border-bottom-left-radius: 0.3em;
+	border-bottom-right-radius: 0.3em;
+	font-size: 1em;
+	margin-left: 0em;
+	margin-top: -0.35em;
+	width: 18em;
+	padding-left: 0.5em;
+	height: 5em;
+	border-top:none;
+}
+
+.recipe-img-cntnr textarea:hover, .recipe-img-cntnr textarea:focus, .recipe-img-cntnr textarea:active{
+	border-top:none !important;
+}
+
+.imgs-field{
+	width: 18em;
+	background: rgb(217,217,217);
+	font-size: 1em;
+	text-align: center;
+	padding-top: 13em;
+	padding-bottom: 4em;
+	border-top-left-radius: 0.3em;
+	border-top-right-radius: 0.3em;
 }
