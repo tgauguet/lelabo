@@ -1,23 +1,48 @@
-<div class="cost_form">
-  <h1><%= @recipe.name %></h1>
-  <%= form_for(@recipe, remote: true) do |f| %>
-    <% @recipe.quantities.each_with_index do |q, index| %>
-      <%= f.fields_for :quantities, q do |ff| %>
-      <div class="partial">
-        <%= render "add_quantities", ff: ff %>
-         (1kg:<%= number_to_currency q.ingredient.price %>)
-         (recette:<%= number_to_currency recipe_price(q, @recipe) %>)
+<% if @recipe.quantities.blank? %>
+  <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
+<% else %>
+  <div class="cost_form">
+    <div class="ingredients-add-ctnr equ-left">
+      <div class="add_ingredients">
+        <p>Ingrédients</p>
+        <%= form_for(@recipe, remote: true) do |f| %>
+          <% @recipe.quantities.each_with_index do |ingredient, index| %>
+            <%= f.fields_for :quantities, ingredient do |ff| %>
+              <%= render "add_quantities", ff: ff %>
+            <% end %>
+          <% end %>
+          <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
       </div>
-      <% end %>
-    <% end %>
-    <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
-    <h2>Coût de revient</h2>
-    De la recette: <%= number_to_currency @recipe.total_cost %><br/>
-    Pour 1kg: <%= number_to_currency @recipe.kilo_cost %><br/>
-    Pour
-    <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
-      <%= ff.text_field :value, placeholder: "...", class: 'rounded-field' %>
-    <% end %>kg : <%= number_to_currency @recipe.custom_cost %><br/>
-    <%= f.submit "modifier" %>
-  <% end %>
-</div>
+    </div>
+    <div class="values">
+      <div class="cost-val">
+        <ul>
+          <% @recipe.quantities.each do |ingredient| %>
+            <li><%= number_to_currency recipe_price(ingredient, @recipe) %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="cost-ttl">
+        <h3>Cout de revient</h3>
+        <div class="cost-cost">
+          <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
+            <p>Recette</p>
+            <p>Pour 1kg</p>
+            <p>Pour <%= ff.text_field :value, class: 'rounded-field basic-field cost-field' %> kg</p>
+          <% end %>
+        </div>
+        <div class="cost-result">
+          <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
+            <p><%= number_to_currency @recipe.total_cost %></p>
+            <p><%= number_to_currency @recipe.kilo_cost %></p>
+            <p><%= number_to_currency @recipe.custom_cost %></p>
+          <% end %>
+        </div>
+        <br/>
+        <br/>
+        <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

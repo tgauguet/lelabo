@@ -1,39 +1,34 @@
-<div class="quant_form">
-  <h1><%= @recipe.name %></h1>
-  <%= form_for(@recipe, remote: true) do |f| %>
-    <%= f.fields_for :totals, @totals do |ff| %>
-      Pour <%= ff.text_field :value, class: 'rounded-field' %>kg :<br/>
+<% if @recipe.quantities.blank? %>
+  <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer les quantités</p>
+<% else %>
+  <div class="quant_form">
+    <%= form_for(@recipe, remote: true) do |f| %>
+      <div class="quant-fields-cntnr">
+        <div class="ing-ttl-cntnr">QUANTITÉ</div>
+        <div class="kg-field"><p class='basic-field recipe-comp-sel rounded-field kilo-field'>Recette</p></div>
+        <%= f.fields_for :totals, @totals do |ff| %>
+        <div class="kg-field kg-fields">
+          <%= image_tag "kg.png", class: "field-img euro-img" %>
+          <span><%= ff.text_field :value, class: 'basic-field recipe-comp-sel rounded-field kilo-field' %></span>
+        </div>
+        <% end %>
+      </div>
+      <div class="quant-values-cntnr">
+        <div class="quant-values-clmn ing-line-cntnr">
+          <% @recipe.quantities.each do |q| %>
+            <p>
+              <span class="quantities-name"><%= q.ingredient.name %></span>
+              <span class="quantities-num"><%= q.weight.to_i %><%= weighing_unit(q.ingredient) %></span>
+              <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+              <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+              <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+              <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <br/>
+      <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
     <% end %>
-    <%= f.submit "modifier" %>
-    <h2>Valeur initiale</h2>
-    <% @recipe.quantities.each do |q| %>
-      <%= q.ingredient.name %>
-      <%= q.weight.to_i %><%= weighing_unit(q.ingredient) %><br/>
-    <% end %>
-    <h2>Pour 1Kg</h2>
-    <% @recipe.quantities.each do |q| %>
-      <%= q.ingredient.name %>
-      <%= weight_by_kg(q, @recipe) %><%= weighing_unit(q.ingredient) %><br/>
-    <% end %>
-    <h2>Pour <%= @recipe.totals.first.value %>Kg</h2>
-    <% @recipe.quantities.each do |q| %>
-      <%= q.ingredient.name %>
-      <%= (weight_by_kg(q, @recipe) * @recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
-    <% end %>
-    <h2>Pour <%= @recipe.totals.second.value %>Kg</h2>
-    <% @recipe.quantities.each do |q| %>
-      <%= q.ingredient.name %>
-      <%= (weight_by_kg(q, @recipe) * @recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
-    <% end %>
-    <h2>Pour <%= @recipe.totals.third.value %>Kg</h2>
-    <% @recipe.quantities.each do |q| %>
-      <%= q.ingredient.name %>
-      <%= (weight_by_kg(q, @recipe) * @recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
-    <% end %>
-    <h2>Pour <%= @recipe.totals.fourth.value %>Kg</h2>
-    <% @recipe.quantities.each do |q| %>
-      <%= q.ingredient.name %>
-      <%= (weight_by_kg(q, @recipe) * @recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %><br/>
-    <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>

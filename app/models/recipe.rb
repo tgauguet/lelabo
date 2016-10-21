@@ -65,11 +65,11 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def total_cost
-		self.quantities.collect { |q| q.ingredient.price * q.weight }.sum
+		self.quantities.collect { |q| q.ingredient.price * q.weight }.sum / 1000
 	end
 
 	def kilo_cost
-		total_cost / recipe_weight unless recipe_weight == 0
+		total_cost / recipe_weight * 1000 unless recipe_weight == 0
 	end
 
 	def custom_cost

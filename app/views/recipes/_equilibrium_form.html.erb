@@ -1,36 +1,147 @@
-<div class="recipe_values">
-  <h1><%= @recipe.name %></h1>
-  <%= form_for(@recipe, remote: true) do |f| %>
-    <% @recipe.quantities.each_with_index do |ingredient, index| %>
-      <%= f.fields_for :quantities, ingredient do |ff| %>
-        <%= render "add_quantities", ff: ff %>
-      <% end %>
-    <% end %>
-    <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
-    <%= f.submit "modifier" %>
-  <% end %>
+<% if @recipe.quantities.blank? %>
+  <p>Ajoutez des ingrédients à votre recette pour pouvoir l'équilibrer</p>
+<% else %>
+  <div class="ingredients-add-ctnr equ-left">
+    <div class="add_ingredients">
+      <p>Ingrédients</p>
+      <%= form_for(@recipe, remote: true) do |f| %>
+        <% @recipe.quantities.each_with_index do |ingredient, index| %>
+          <%= f.fields_for :quantities, ingredient do |ff| %>
+            <%= render "add_quantities", ff: ff %>
+          <% end %>
+        <% end %>
+        <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
+    </div>
+  </div>
   <div class="values">
-    Calories / 100g : <%= @recipe.sum_of_kcal.to_i %> kcal<br/>
-    Poids total de la recette : <%= @recipe.show_total("weight") %> g<br/>
-    Pouvoir sucrant : <span class="<%= sug_power_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("sugar_power"), precision: 1) %></span><br/>
-    Matières grasses : <span class="<%= fat_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("fat_percent"), precision: 1) %></span><br/>
-    Sucre : <span class="<%= sugar_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("sugar_percent"), precision: 1) %></span><br/>
-    Matières sèches : <%= number_to_percentage(@recipe.percentage_of("dry_matter_percent"), precision: 1) %><br/>
-    Eau : <span class="<%= water_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("water_percent"), precision: 1) %></span><br/>
-    Cacao : <%= number_to_percentage(@recipe.percentage_of("cocoa_percent"), precision: 1) %><br/>
-    Beurre de cacao : <span class="<%= cocoa_butter_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("cocoa_butter_percent"), precision: 1) %></span><br/>
-    Cacao total : <%= number_to_percentage(@recipe.percentage_of("cocoa_total_percent"), precision: 1) %><br/>
-    Alcool : <%= number_to_percentage(@recipe.percentage_of("alcool_percent"), precision: 1) %><br/>
-    <% if is_ice_cream?(@recipe) || is_sorbet?(@recipe) %>
-      Stabilisateur : <span class="<%= stab_color(@recipe) %>"><%= number_to_percentage(@recipe.percentage_of("stabilizer"), precision: 1) %></span><br/>
-    <% end %>
-    <% if is_ice_cream?(@recipe) %>
-      MG du lait : <span class="<%= milk_fat_color(@recipe) %>"><%= number_to_percentage(@recipe.milk_of("fat_percent"), precision: 1) %></span><br/>
-      EST du lait : <span class="<%= milk_est_color(@recipe) %>"><%= number_to_percentage(@recipe.milk_of("dry_matter_percent"), precision: 1) %></span><br/>
-      MG + EST du lait : <span class="<%= milk_estmilk_color(@recipe) %>"><%= number_to_percentage(@recipe.milk_and_est(@recipe), precision: 1) %></span><br/>
-    <% end %>
-    <% if is_sorbet?(@recipe) %>
-      Pulpe : <span class="<%= pulp_color(@recipe) %>"><%= number_to_percentage(@recipe.pulp_percentage, precision: 1) %></span><br/>
+    <div class="val-name">
+      <p>Valeurs</p>
+      <ul>
+        <li>Pouvoir sucrant</li>
+        <li>Mat. grasses</li>
+        <li>Sucre</li>
+        <li>Ex. Sec Total</li>
+        <li>Eau</li>
+        <li>Cacao</li>
+        <li>B. de cacao</li>
+        <li>Total cacao</li>
+        <li>Alcool</li>
+        <% if is_ice_cream?(@recipe) || is_sorbet?(@recipe) %>
+          <li>Stabilisateur</li>
+        <% end %>
+        <% if is_ice_cream?(@recipe) %>
+          <li>M.G du lait</li>
+          <li>E.S.T du lait</li>
+          <li>M.G + E.S.T du lait</li>
+        <% end %>
+        <% if is_sorbet?(@recipe) %>
+          <li>Pulpe de fruit</li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="val-prcnt">
+      <p>% recette</p>
+      <ul>
+        <li><%= @recipe.percentage_of("sugar_power").round(1) %></li>
+        <li><%= @recipe.percentage_of("fat_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("sugar_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("dry_matter_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("water_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("cocoa_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("cocoa_butter_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("cocoa_total_percent").round(1) %></li>
+        <li><%= @recipe.percentage_of("alcool_percent").round(1) %></li>
+        <% if is_ice_cream?(@recipe) || is_sorbet?(@recipe) %>
+          <li><%= @recipe.percentage_of("stabilizer").round(1) %></li>
+        <% end %>
+        <% if is_ice_cream?(@recipe) %>
+          <li><%= @recipe.milk_of("fat_percent").round(1) %></li>
+          <li><%= @recipe.milk_of("dry_matter_percent").round(1) %></li>
+          <li><%= @recipe.milk_and_est(@recipe).round(1) %></li>
+        <% end %>
+        <% if is_sorbet?(@recipe) %>
+          <li><%= @recipe.pulp_percentage.round(1) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="val-wntd">
+      <p>% souhaité</p>
+      <ul>
+        <li class="<%= sug_power_color(@recipe) %>">
+          <% if is_ice_cream?(@recipe) %>
+            16 - 23
+          <% elsif is_sorbet?(@recipe) %>
+            25 - 33
+          <% else %>
+            <br/>
+          <% end %>
+        </li>
+        <li class="<%= fat_color(@recipe) %>">
+          <% if is_ganache?(@recipe) %>
+            10 - 20
+          <% else %>
+            <br/>
+          <% end %>
+        </li>
+        <li class="<%= sugar_color(@recipe) %>">
+          <% if is_ganache?(@recipe) %>
+            25 - 30
+          <% elsif is_ice_cream?(@recipe) %>
+            14 - 26
+          <% elsif is_sorbet?(@recipe) %>
+            18 - 33
+          <% else %>
+            <br/>
+          <% end %>
+        </li>
+        <li class="<%= dry_matter_color(@recipe) %>">
+          <% if is_ganache?(@recipe) %>
+            75 - 82
+          <% elsif is_ice_cream?(@recipe) %>
+            37 - 42
+          <% elsif is_sorbet?(@recipe) %>
+            29 - 33
+          <% else %>
+            <br/>
+          <% end %>
+        </li>
+        <li class="<%= water_color(@recipe) %>">
+          <% if is_ganache?(@recipe) %>
+            Max 25
+          <% else %>
+            <br/>
+          <% end %>
+        </li>
+        <li>
+          <br/>
+        </li>
+        <li class="<%= cocoa_butter_color(@recipe) %>">
+          <% if is_ganache?(@recipe) %>
+            18 - 20
+          <% else %>
+            <br/>
+          <% end %>
+        </li>
+        <li>
+          <br/>
+        </li>
+        <li>
+          <br/>
+        </li>
+        <% if is_ice_cream?(@recipe) || is_sorbet?(@recipe) %>
+          <li class="<%= stab_color(@recipe) %>">1</li>
+        <% end %>
+        <% if is_ice_cream?(@recipe) %>
+          <li class="<%= milk_fat_color(@recipe) %>">8 - 11</li>
+          <li class="<%= milk_est_color(@recipe) %>">37 - 42</li>
+          <li class="<%= milk_estmilk_color(@recipe) %>">16 - 22</li>
+        <% end %>
+        <% if is_sorbet?(@recipe) %>
+          <li class="<%= pulp_color(@recipe) %>">Min 25</li>
+        <% end %>
+      </ul>
+    </div>
+    <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
     <% end %>
   </div>
-</div>
+<% end %>

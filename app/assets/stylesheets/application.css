@@ -3141,14 +3141,6 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
   background-image: url(images/settings.png);
 }
 
-.green{
-	color:green !important;
-}
-
-.red{
-	color: red !important;
-}
-
 .welc-recipes{
 	padding: 1.5em;
 	padding-top: 2em;
@@ -3473,6 +3465,8 @@ input[type="checkbox"] + span {
 	margin-top: 0.5em;
 	display: inline-block;
 	border-radius: 0.3em;
+	float:left;
+	margin-left: 0.5em;
 }
 
 .recipe-btn-cntnr{
@@ -3556,4 +3550,190 @@ input[type="checkbox"] + span {
 
 .small-imgs{
 	width:2em;
+}
+
+.quant-fields-cntnr{
+	text-align: left;
+}
+
+.quant-values-clmn{
+	display: inline-block;
+	vertical-align: top;
+	width: 6.5em;
+}
+
+.quant-values-cntnr{
+	text-align: left;
+}
+
+.kg-field{
+	display: inline-block;
+	width: 6.5em;
+	margin-left: -0.1em;
+}
+
+.kilo-field{
+	padding-left: 1.5em;
+	border-radius:0;
+	background: rgb(246, 246, 246);
+}
+
+.kilo-field:active, .kilo-field:focus, .kilo-field:hover, .kilo-field{
+	border-bottom: 0px !important;
+}
+
+.kg-field p:nth-child(1){
+	border-top-left-radius: 0.3em;
+}
+
+.ing-ttl-cntnr{
+	text-align: left;
+	padding-left: 1em;
+	display: inline-block;
+	width: 17em;
+}
+
+.ing-ttl-cntnr p, .quant-values-clmn p{
+	padding-top: 0.5em;
+	padding-bottom: 0.4em;
+	margin-bottom: -0.2em;
+	padding-left: 1em;
+}
+
+.ing-line-cntnr{
+	width: 100%;
+}
+
+.quantities-name, .quantities-num{
+	width: 17.5em;
+	display: inline-block;
+}
+
+.quant-values-clmn p:nth-child(2n+2){
+	background: rgb(245, 245, 245);
+}
+
+.quantities-num{
+	width: 5.5em;
+	padding-left: 1em;
+}
+
+.equ-left{
+	display: inline-block;
+}
+
+.equ-left p{
+	text-align: left;
+	font-size: 1.1em;
+	padding-left: 0.3em;
+}
+
+.values, .cost-form, .cost-val{
+	width: 25em;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.val-name, .val-prcnt, .val-wntd, .cost-ttl{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.val-wntd, .val-prcnt{
+	width: 5.8em;
+	margin-left: -0.2em;
+}
+
+.val-name{
+	width: 12em;
+}
+
+.values li{
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+}
+
+.values ul li:nth-child(2n+2), .cost-cost p:nth-child(2n+2), .cost-result p:nth-child(2n+2){
+	background: rgb(245, 245, 245);
+}
+
+.values ul li{
+	padding-left: 0.2em;
+}
+
+.values ul{
+	padding-left: 0em;
+}
+
+.red, .green{
+	color:white !important;
+	border-radius: 0.3em;
+	text-align: center !important;
+	padding-top: 0.25em !important;
+	padding-bottom: 0.25em !important;
+}
+
+.green{
+	background:rgb(36,186,88) !important;
+	border:0.15em solid rgb(30, 164, 68);
+}
+
+.red{
+	background: rgb(236,54,40) !important;
+	border:0.15em solid rgb(187, 38, 27);
+}
+
+.cost_form .equ-left{
+	width: 24.5em;
+}
+
+.cost-val{
+	width: 5em;
+	margin-right: 3em;
+}
+
+.cost-ttl{
+	width: 16em;
+}
+
+.cost-val ul{
+	padding-top: 0.8em;
+}
+
+.cost-cost, .cost-result{
+	display: inline-block;
+	width: 6em;
+	vertical-align: top;
+}
+
+.cost-cost p, .cost-result p{
+	padding-top: 0.8em;
+	padding-left: 0.3em;
+	padding-bottom: 0.8em;
+}
+
+.cost-field{
+	width: 3em;
+	margin-top: -0.7em;
+	display: inline-block;
+	padding-left: 0.4em;
+	padding-right: 0.1em;
+}
+
+.cost-cost{
+	width: 9em;
+}
+
+.cost-val ul li{
+	border:1px solid transparent;
+	margin: 0 !important;
+	width: 5em;
+	display: inline-block;
+	padding-top: 0.65em;
+	padding-bottom: 0.65em;
+}
+
+.quant_form {
+	text-align:right;
 }
