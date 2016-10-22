@@ -15,7 +15,7 @@
   <div class="recipe-cntnr r-smll-cntnr">
       <div class="select-areas recipe-cat">
         <p>Catégorie</p>
-        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet", "Tarte"], include_blank: true, class: "basic-field" %>
+        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field" %>
       </div>
       <p>Auteur</p>
       <%= f.text_field :owner, class: "basic-field big-compo rounded-field", value: user_if_nil(@recipe) %>

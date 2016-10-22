@@ -3,9 +3,9 @@
 
 class Recipe < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :assembly, dependent: :destroy
 	has_many :images, dependent: :destroy
 	has_many :ingredients, through: :quantity
+	has_many :recipe_items, dependent: :restrict_with_error
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy
 	accepts_nested_attributes_for :totals, allow_destroy: true

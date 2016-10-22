@@ -1,11 +1,43 @@
-<%= form_for @assembly do |f| %>
-	<%= image_tag "title.png", class: "field-img2" %>
-	<%= f.text_field :title, class: 'basic-field top-field', placeholder: "titre" %>
-	<%= image_tag @assembly.image %>
-	<%= f.file_field :image %>
-	<%= image_tag "description.png", class: "field-img2" %>
-	<%= f.text_area :description, class: "basic-field bottom-field", placeholder: "Notes" %>
-	<%= f.text_field :owner, class: "basic-field", placeholder: "créateur", value: user_if_nil(@assembly) %>
-	<%= render "add_recipe", f: f %>
-	<%= f.submit "Enregistrer" %>
+<%= form_for(@assembly) do |f| %>
+  <% if @assembly.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assembly.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <ul>
+      <% @assembly.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="recipe-form">
+  <h3>Titre</h3>
+  <%= f.text_field :title, class: "basic-field big-compo title-field" %>
+  <div class="recipe-cntnr r-smll-cntnr">
+      <div class="select-areas recipe-cat">
+        <p>Catégorie</p>
+        <%= f.select :category, ["Tarte", "Entremet", "Bonbon", "Confiserie", "Wedding cake", "Macaron", "Pâte à choux", "Dessert"], include_blank: true, class: "basic-field" %>
+      </div>
+      <p>Auteur</p>
+      <%= f.text_field :owner, class: "basic-field big-compo rounded-field", value: user_if_nil(@assembly) %>
+  </div>
+  <div class="recipe-cntnr r-big-cntnr">
+    <p>image</p>
+    <%= image_tag(@assembly.image.url(:medium), class: "recipe-img") %>
+    <%= f.file_field :image %>
+    <br/><br/>
+  </div>
+  <%= f.text_area :notes, class: "basic-field rounded-field", placeholder: "Notes" %>
+  <br/>
+  <h3>Recettes</h3>
+  <div class="ingredients-add-ctnr">
+		<div class="add_ingredients">
+      <%= f.fields_for :recipe_items do |ff| %>
+        <%= render "add_recipe_items", ff: ff %>
+      <% end %>
+      <p class="add_field"><%= create_new_field "+", f, :recipe_items %></p>
+    </div>
+  </div>
+    <br/>
+    <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
+  </div>
 <% end %>

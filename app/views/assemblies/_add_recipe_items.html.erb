@@ -1,0 +1,5 @@
+<div class="partial add-recipe-cntnr">
+	<%= ff.select(:recipe_id, @user.recipes.all.order("name ASC").collect{ |i| [i.name, i.id] }, include_blank: true , class: "basic-field" ) %>
+	<%= ff.hidden_field :_destroy %>
+	<%= remove_field "delete-sml.png", ff %>
+</div>

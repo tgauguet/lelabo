@@ -87,6 +87,6 @@ class AssembliesController < ApplicationController
 	end
 
 	def assembly_params
-		params.require(:assembly).permit(:recipe_id, :image, :description, :title, :owner, :loved, :stared, images_attributes: [:picture, :recipe_id , :description, :_destroy, :id])
+		params.require(:assembly).permit(:recipe_id, :image, :category, :notes, :recipes, :description, :title, :owner, :loved, :stared, images_attributes: [:picture, :recipe_id , :description, :_destroy, :id], recipe_items_attributes: [:id, :_destroy, :recipe_id, :total])
 	end
 end
