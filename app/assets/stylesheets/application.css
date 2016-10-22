@@ -2594,7 +2594,7 @@ select{
   border-radius: 0.3em;
 }
 
-.basic-field, .select-areas select, .select-span select, .spec-select{
+.basic-field, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select{
   background: rgb(249,249,251);
   position: relative;
   padding-top: 0.7em;
@@ -3671,7 +3671,7 @@ input[type="checkbox"] + span {
 	padding-bottom: 0.4em;
 }
 
-.values ul li:nth-child(2n+2), .cost-cost p:nth-child(2n+2), .cost-result p:nth-child(2n+2){
+.values ul li:nth-child(2n+2), .cost-cost p:nth-child(2n+2), .cost-result p:nth-child(2n+2), .item-cost-list .item-list:nth-child(2n+2){
 	background: rgb(245, 245, 245);
 }
 
@@ -3751,6 +3751,14 @@ input[type="checkbox"] + span {
 	padding-bottom: 0.65em;
 }
 
+.item-cost-list .item-list{
+	width: 21em;
+	padding-top: 0.65em;
+	padding-bottom: 0.65em;
+	font-size: 1em;
+	margin: 0 !important;
+}
+
 .quant_form {
 	text-align:right;
 }
@@ -3772,8 +3780,10 @@ textarea {
 	text-align: left;
 }
 
-.recipe-img-cntnr textarea{
+.recipe-img-cntnr textarea, .add-recipe-cntnr select{
 	border-bottom-left-radius: 0.3em;
+	border-top-left-radius: 0em;
+	border-top-right-radius: 0em;
 	border-bottom-right-radius: 0.3em;
 	font-size: 1em;
 	margin-left: 0em;
@@ -3784,7 +3794,7 @@ textarea {
 	border-top:none;
 }
 
-.recipe-img-cntnr textarea:hover, .recipe-img-cntnr textarea:focus, .recipe-img-cntnr textarea:active{
+.recipe-img-cntnr textarea:hover, .recipe-img-cntnr textarea:focus, .recipe-img-cntnr textarea:active, .add-recipe-cntnr select:hover, .add-recipe-cntnr select:active, .add-recipe-cntnr select:focus{
 	border-top:none !important;
 }
 
@@ -3797,4 +3807,30 @@ textarea {
 	padding-bottom: 4em;
 	border-top-left-radius: 0.3em;
 	border-top-right-radius: 0.3em;
+}
+
+.add-recipe-cntnr select{
+	height: 3em;
+	padding-top: 0.5em;
+	width: 10.12em;
+}
+
+.item-img{
+	width: 10em;
+	height: 10em;
+	border: 1px solid rgb(208,210,214);
+}
+
+.item-cntnr{
+	margin: 0.3em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.items-cntnr{
+	width: 100%;
+}
+
+.item-cost-list h3{
+	text-align: left;
 }

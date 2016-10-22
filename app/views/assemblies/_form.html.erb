@@ -30,9 +30,11 @@
   <br/>
   <h3>Recettes</h3>
   <div class="ingredients-add-ctnr">
-		<div class="add_ingredients">
-      <%= f.fields_for :recipe_items do |ff| %>
-        <%= render "add_recipe_items", ff: ff %>
+		<div class="add_ingredients items-cntnr">
+      <% @assembly.recipe_items.each_with_index do |recipe, index| %>
+          <%= f.fields_for :recipe_items, recipe do |ff| %>
+            <%= render "add_recipe_items", ff: ff, recipe: recipe %>
+          <% end %>
       <% end %>
       <p class="add_field"><%= create_new_field "+", f, :recipe_items %></p>
     </div>

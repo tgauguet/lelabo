@@ -21,7 +21,8 @@ class AssembliesController < ApplicationController
 	def create
 		@assembly = @user.assemblies.create(assembly_params)
 		if @assembly
-			redirect_to @assembly
+			4.times { @assembly.totals.create(value:  (@assembly.totals.count + 1)) }
+			redirect_to edit_assembly_path(@assembly)
 			flash[:success] = "Vous avez créé un nouveau montage"
 		else
 			redirect_to assemblies_path
@@ -40,6 +41,8 @@ class AssembliesController < ApplicationController
 	end
 
 	def edit
+		@totals = @assembly.totals.all.order("created_at ASC")
+		@images = @assembly.images.all.order("created_at ASC")
 		respond_to do |format|
       format.html
       format.js { render :edit }
@@ -87,6 +90,6 @@ class AssembliesController < ApplicationController
 	end
 
 	def assembly_params
-		params.require(:assembly).permit(:recipe_id, :image, :category, :notes, :recipes, :description, :title, :owner, :loved, :stared, images_attributes: [:picture, :recipe_id , :description, :_destroy, :id], recipe_items_attributes: [:id, :_destroy, :recipe_id, :total])
+		params.require(:assembly).permit(:recipe_id, :image, :category, :notes, :recipes, :description, :title, :owner, :loved, :stared, images_attributes: [:picture, :recipe_id , :description, :_destroy, :id], totals_attributes: [:value, :total,  :id, :_destroy], recipe_items_attributes: [:id, :_destroy, :recipe_id, :total])
 	end
 end
