@@ -107,6 +107,12 @@ function remove_fields(link) {
   $(link).closest(".partial").hide();
 }
 
+$(document).ready(function(){
+	$(".delete-flash-message").click(function(){
+		$(".flash-msg-cntnr").hide();
+	});
+});
+
 // infinite pagination scroll with will paginate javascript code
 $(document).ready(function() {
   if ($('.pagination').length) {

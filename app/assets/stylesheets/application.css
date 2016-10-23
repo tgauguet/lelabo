@@ -714,20 +714,31 @@ ul li{
   background: white;
 }
 
+.flash-msg-cntnr{
+	position: absolute;
+	z-index: 100000;
+	margin-right: auto;
+	margin-left: 20%;
+	text-align: center;
+	width: 60%;
+}
+
 .error, .alert, .info, .notice {
-    padding:0.35em;
-    font-size: 0.9em;
-    margin-right: auto;
-    margin-left: 20%;
-    width: 60%;
+    padding:0.55em;
+    font-size: 0.95em;
     margin-top: 0.3em;
-    margin-bottom: 2.2em;
-    text-align: center;
     color: #333333;
     border-radius:0.3em;
-    position: fixed;
     font-weight: 500;
 }
+
+.delete-flash-message{
+	margin-top: -1.9em;
+	cursor:pointer;
+	padding-right: 1em;
+	float: right;
+}
+
 .error, .alert {
   background: #EB4E5C;
   color: white;

@@ -39,7 +39,10 @@
 <% end %>
 <% if !do_not_flash %>
   <% flash.each do |type, msg| %>
-    <%= content_tag :p, msg, class: type %>
+    <div class="flash-msg-cntnr">
+      <%= content_tag :p, msg, class: type %>
+      <%= image_tag "deletewhite.png", class: "mini-img delete-flash-message", alt: "delete message" %>
+    </div>
   <% end %>
 <% end %>
 <%= yield %>
