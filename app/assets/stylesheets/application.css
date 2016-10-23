@@ -3599,10 +3599,26 @@ input[type="checkbox"] + span {
 	text-align: left;
 }
 
+.pdf-quant-cntnr{
+	border-bottom: 1px solid rgb(227, 227, 227);
+	margin-top: 3em;
+	padding-bottom: 0.5em;
+}
+
 .quant-values-clmn{
 	display: inline-block;
 	vertical-align: top;
 	width: 6.5em;
+}
+
+.pdf-cntnr h3{
+	text-align: left;
+	margin-top: 3em;
+	font-size: 1.1em;
+}
+
+.recipe-notes{
+	text-align: left;
 }
 
 .quant-values-cntnr{
@@ -3613,6 +3629,11 @@ input[type="checkbox"] + span {
 	display: inline-block;
 	width: 6.5em;
 	margin-left: -0.1em;
+}
+
+.pdf-kg-field{
+	margin-left:1em;
+	width: 5.7em;
 }
 
 .kilo-field{

@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :pdf_quantities]
   before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
 
@@ -46,6 +46,20 @@ class RecipesController < ApplicationController
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }
         send_data(@pdf, :filename => @recipe.name,  :type=>"application/pdf")
+      end
+    end
+  end
+
+  def pdf_quantities
+    @totals = @recipe.totals.all.order("created_at ASC")
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: '@recipe.name',
+                orientation: 'Landscape',
+                template: 'recipes/quantities.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
       end
     end
   end

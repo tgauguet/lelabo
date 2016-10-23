@@ -1,0 +1,29 @@
+<%= wicked_pdf_stylesheet_link_tag "application.css" -%>
+<div class="pdf-cntnr">
+  <h1><%= @recipe.name.upcase %></h1>
+  <div class="quant-fields-cntnr pdf-quant-cntnr">
+    <div class="ing-ttl-cntnr">INGRÉDIENTS</div>
+    <div class="kg-field pdf-kg-field"><p class='recipe-comp-sel'>Recette</p></div>
+    <% @totals.each do |total| %>
+    <div class="kg-field pdf-kg-field kg-fields">
+      <span><%= total.value %> Kg</span>
+    </div>
+    <% end %>
+  </div>
+  <div class="quant-values-cntnr">
+    <div class="quant-values-clmn ing-line-cntnr">
+      <% @recipe.quantities.each do |q| %>
+        <p>
+          <span class="quantities-name"><%= q.ingredient.name %></span>
+          <span class="quantities-num"><%= q.weight.to_i %><%= weighing_unit(q.ingredient) %></span>
+          <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+          <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+          <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+          <span class="quantities-num"><%= (weight_by_kg(q, @recipe) * @recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>
+  <p class="recipe-notes"><%= @recipe.note %></p>
+</div>

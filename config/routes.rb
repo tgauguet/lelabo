@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 		end
     member do
       get :download
+      get :pdf_quantities
     end
 	end
 	resources :assemblies do
