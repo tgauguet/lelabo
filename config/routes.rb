@@ -33,7 +33,11 @@ Rails.application.routes.draw do
       get :download
     end
 	end
-	resources :assemblies
+	resources :assemblies do
+	  member do
+      get :download
+    end
+	end
 	# create routes for each registration steps
 	resource :user, only: [:edit] do
 		collection do

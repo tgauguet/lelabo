@@ -55,6 +55,19 @@ class AssembliesController < ApplicationController
     end
 	end
 
+	def download
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @pdf = render_to_string  pdf: '@user.name',
+                template: 'assemblies/show.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
+        send_data(@pdf, :filename => @recipe.name,  :type=>"application/pdf")
+      end
+    end
+  end
+
 	def update
 			respond_to do |format|
 				if @assembly.update(assembly_params)

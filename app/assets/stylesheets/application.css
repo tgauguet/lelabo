@@ -3522,35 +3522,54 @@ input[type="checkbox"] + span {
 	text-align: right;
 }
 
-.ing_comp_l, .ing_comp_r, .view-top-l, .view-top-r, .ing-rght, .ing-left{
+.ing_comp_l, .view-top-l, .view-top-r, .ing-rght, .ing-left{
 	display: inline-block;
 	vertical-align: top;
 	min-height: 5em;
 }
 
-.ing_comp_l{
+.ing_comp_l, .ing_comp_l_pdf{
 	padding: 2em;
 	background: rgb(237, 237, 237);
 	border-radius: 0.3em;
 	margin-right: 1em;
+	width: 23em;
+	float: left;
 }
 
-.ing_comp_l, .ing_comp_r{
-	margin-top: 3em;
-	width: 23em;
-	text-align: justify;;
+.ing_comp_l_pdf{
+	width: 20em;
+}
+
+.ing_comp_cntnr {
+	padding-top: 1em;
+}
+
+.clear{
+	clear: left;
+	display: block;
 }
 
 .ing-rght p, .ing-left p{
 	font-family: "source_sans_prosemibold";
 }
 
+.ing_comp_cntnr h2{
+	margin-bottom: .5em;
+	margin-top: 0.4em;
+}
 .ing_comp_cntnr h3{
 	font-size: 1.3em;
 }
 
 .view-top-l{
 	width: 30em;
+}
+
+.view-top-l-pdf{
+	width: 25em;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .view-top-l h1{
@@ -3563,6 +3582,13 @@ input[type="checkbox"] + span {
 .view-top-r{
 	text-align: right;
 	width: 20em;
+}
+
+.view-top-r-pdf{
+	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+	width: 18em;
 }
 
 .small-imgs{
@@ -3833,4 +3859,12 @@ textarea {
 
 .item-cost-list h3{
 	text-align: left;
+}
+
+.ing-rght{
+	width: 5em;
+}
+
+.ing-left{
+	width: 14.5em;
 }

@@ -1,16 +1,19 @@
+<%= wicked_pdf_stylesheet_link_tag "application.css" -%>
 <div class="recipe-view">
-
-  <div class="view-top-l">
+  <div class="view-top-l-pdf">
     <h1><%= @recipe.name.upcase %></h1>
     <p><%= @recipe.category %> </p>
     <p><b>par <%= @recipe.owner %></b></p><br/>
+    <p><%= wicked_pdf_image_tag "temperature.png", class: "mini-img" %><b> CUISSON : <%= @recipe.baking %> °C</b></p>
+    <br/>
     <b>Notes:</b>
     <p><%= @recipe.note %></p><br/>
   </div>
-  <div class="view-top-r">
+  <div class="view-top-r-pdf">
+    <%= wicked_pdf_image_tag @recipe.image, class: "user-img2" %>
   </div>
   <div class="ing_comp_cntnr">
-    <div class="ing_comp_l">
+    <div class="ing_comp_l_pdf">
       <h3>Ingrédients</h3><br/>
       <div class="ing-rght">
         <% @recipe.quantities.each do |q| %>
@@ -23,9 +26,8 @@
         <% end %>
       </div>
     </div>
-    <div class="ing_comp_r">
-      <h3>Instructions</h3><br/>
-      <p><%= @recipe.process.html_safe %></p>
-    </div>
+    <h3>Instructions</h3><br/>
+    <p><%= @recipe.process.html_safe %></p>
+    <span class="clear"></span>
   </div>
 </div>

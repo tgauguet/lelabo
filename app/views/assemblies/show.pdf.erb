@@ -1,13 +1,7 @@
+<%= wicked_pdf_stylesheet_link_tag "application.css" -%>
+<%= wicked_pdf_javascript_include_tag "application" %>
 <div class="recipe-view">
-  <div class="recipe-links">
-    <%= link_to edit_assembly_path(@assembly, format: :pdf), target: '_blank' do %>
-      <%= image_tag 'pdf.png' , class: 'small-imgs'%>
-    <% end %>
-    <%= link_to download_assembly_path(format: :pdf), target: '_blank' do %>
-      <%= image_tag 'download.png', class: 'small-imgs' %>
-    <% end %>
-  </div>
-  <div class="view-top-l">
+  <div class="view-top-l-pdf">
     <h1><%= @assembly.title.upcase %></h1>
     <p><%= @assembly.category %> </p>
     <p><b>par <%= @assembly.owner %></b></p><br/>
@@ -15,13 +9,13 @@
     <b>Notes:</b>
     <p><%= @assembly.notes %></p><br/>
   </div>
-  <div class="view-top-r">
-    <%= image_tag @assembly.image, class: "user-img2" %>
+  <div class="view-top-r-pdf">
+    <%= wicked_pdf_image_tag @assembly.image, class: "user-img2" %>
   </div>
   <% @assembly.recipe_items.each do |item| %>
     <div class="ing_comp_cntnr">
       <h2><%= item.recipe.name.upcase %></h2>
-      <div class="ing_comp_l">
+      <div class="ing_comp_l_pdf">
         <h3>Ingrédients</h3><br/>
           <div class="ing-rght">
             <% item.recipe.quantities.each do |q| %>
