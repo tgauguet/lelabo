@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
                                     :default_url => "/avatar/missing/missing.jpg",
                                     :size => { :in => 0..300.kilobytes }
                                 }
-    validates_attachment_content_type :avatar, 
+    validates_attachment_content_type :avatar,
                                     :content_type => /^image\/(png|gif|jpeg)/
 
     def password_required?
@@ -48,5 +48,17 @@ class User < ActiveRecord::Base
     def soft_delete
         update_attribute(:deleted_at, Time.current)
     end
+
+		def pro_user?
+			self.subscription && self.subscription.plan.name == "PRO"
+		end
+
+		def business_user?
+			self.subscription && self.subscription.plan.name == "ENTREPRISE"
+		end
+
+		def basic_user?
+			self.subscription.nil? || self.subscription.plan.name == "BASIC"
+		end
 
 end

@@ -1,4 +1,10 @@
-<div class="cost_form">
+<% if @user.basic_user? %>
+  <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
+  <%= link_to subscriptions_path do %>
+    <p class="auto-btn cta-btn">+ S'ABONNER</p>
+  <% end %>
+<% else %>
+  <div class="cost_form">
 <% if @recipe.quantities.blank? %>
   <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
 <% else %>
@@ -46,3 +52,4 @@
     </div>
 <% end %>
 </div>
+<% end %>

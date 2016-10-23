@@ -12,11 +12,7 @@
       <h3><%= image_tag "checked.png", class: "checked-img" %>Etape 1 : Sélectionnez votre offre</h3>
       <p>Votre sélection : FORMULE <%= @plan.name %></p>
       <i>Facturé annuellement</i>
-      <% if entreprise_plan(@plan) %>
-        <p>Tarif : <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€/an</p><br/><br/>
-      <% elsif pro_plan(@plan) %>
-        <p>Tarif : <%= @plan.amount[0,2] %>,<%= @plan.amount[2,4] %>€/an</p><br/><br/>
-      <% end %>
+      <p>Tarif : <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€ /an</p><br/><br/>
       <h3>Etape 2 : Informations de paiement</h3>
       <%= form_for @subscription , html: { id: 'payment-form' } do |f| %>
         <span class="errors" style='color:red;'></span>
@@ -87,4 +83,3 @@ function stripeResponseHandler(status, response) {
 };
 
 </script>
-

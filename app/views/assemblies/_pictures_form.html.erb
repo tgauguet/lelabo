@@ -1,3 +1,4 @@
+<% if @user.business_user? %>
 <div class="recipe_pics">
   <%= form_for(@assembly, remote: true) do |f| %>
     <% @assembly.images.each_with_index do |image, index| %>
@@ -10,3 +11,9 @@
     <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
   <% end %>
 </div>
+<% else %>
+  <p>Choisissez l'offre ENTREPRISE et profitez de cette fonctionnalité !</p>
+  <%= link_to subscriptions_path do %>
+    <p class="auto-btn cta-btn">+ S'ABONNER</p>
+  <% end %>
+<% end %>

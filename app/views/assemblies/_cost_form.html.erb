@@ -1,6 +1,11 @@
 <div class="cost_form">
-<% if @assembly.recipe_items.blank? %>
+<% if @assembly.recipe_items.blank? && !@user.basic_user? %>
   <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
+<% elsif @user.basic_user? %>
+  <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
+  <%= link_to subscriptions_path do %>
+    <p class="auto-btn cta-btn">+ S'ABONNER</p>
+  <% end %>
 <% else %>
   <%= form_for @assembly do |f| %>
     <div class="ingredients-add-ctnr equ-left">

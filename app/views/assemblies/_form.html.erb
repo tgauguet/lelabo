@@ -21,10 +21,17 @@
       <%= f.text_field :owner, class: "basic-field big-compo rounded-field", value: user_if_nil(@assembly) %>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
-    <p>image</p>
-    <%= image_tag(@assembly.image.url(:medium), class: "recipe-img") %>
-    <%= f.file_field :image %>
-    <br/><br/>
+    <% if @user.basic_user? %>
+      <h3>Ajoutez une image</h3>
+      <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
+      <p class="auto-btn cta-btn">+ S'ABONNER</p>
+      <br/><br/><br/><br/>
+    <% else %>
+      <p>image</p>
+      <%= image_tag(@assembly.image.url(:medium), class: "recipe-img") %>
+      <%= f.file_field :image %>
+      <br/><br/>
+    <% end %>
   </div>
   <%= f.text_area :notes, class: "basic-field rounded-field", placeholder: "Notes" %>
   <br/>

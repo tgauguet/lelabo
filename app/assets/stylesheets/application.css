@@ -343,7 +343,7 @@ BUTTONS -- DESIGN
 
 /*   absolute properties   */
 
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn{
+.blog-btn, .cta-btn, button, .inside-btn, .btn, button{
   border-radius: 0.3em;
   opacity: 0.9;
 }
@@ -370,46 +370,11 @@ BUTTONS -- DESIGN
   border-bottom: 2px solid #C6434C;
 }
 
-/*   buttons with an orange background  */
-
-.plan-btn{
-  background: #F9A121;
-}
-
 /*   inline-block buttons  */
 
 .social-btn,.cancel-btn, .inside-btn{
   display: inline-block;
   width: auto;
-}
-
-/*   buttons for subscriptions#new/index pages  */
-
-.plan-btn{
-  opacity: 1;
-}
-
-.plan-btn{
-  margin-top: 3em;
-}
-
-.plan-btn:hover{
-  background: #E8900F;
-}
-
-.plan-btn-color1{
-  background: #06b597;
-}
-
-.plan-btn-color1:hover{
-  background: #16937e ;
-}
-.plan-btn-color2:hover{
-  background: #2d6faa ;
-}
-
-.plan-btn-color2{
-  background: #1c83ea;
 }
 
 /*  Button for feedbacks  */
@@ -1024,11 +989,11 @@ header .normal_header{
 }
 
 .plan-color2{
-  background: #05d6b8;
+  background: rgb(27,166,137);
 }
 
 .plan-color3{
-  background: #0fa4ef;
+  background: rgb(26,108,229);
 }
 
 .plan-title, .plan-price, .plan-type{
@@ -1037,17 +1002,35 @@ header .normal_header{
 
 .plan-price{
   font-size: 2em;
-  margin-left: 1.75em;
-  margin-top: 1em;
-  margin-bottom: 1.4em;
+}
+
+.plan-btn-cntnr{
+	background: rgb(32, 40, 53);;
+	margin-left: -2em;
+	margin-right: -2em;
+	padding-top: 1.2em;
+	padding-bottom: 1.2em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-top: 0.5em;
+}
+
+.plan-btn{
+  background: rgb(239,139,17);
+	border-radius:0.3em;
+	color:white !important;
+}
+
+.plan-btn:hover{
+	background: rgb(229,120,10);
 }
 
 .plan-price b{
-  font-size: 3.3em;
+  font-size: 2.6em;
   color: white;
-  position: absolute;
-  margin-left: -0.5em;
+	text-align: center;
   margin-top: -0.3em;
+	font-family: "source_sans_prosemibold";
 }
 
 .plan-price span{

@@ -10,83 +10,83 @@
 				<p class="plan-title"><%= plan.name %></p>
 				<p class="plan-price">
 					<span>
-						<b><% if !plan.price[0,1].nil? %><%= plan.price[0,1] %><% end %></b>
-						<% if !plan.price[1,3].nil? %>,<%= plan.price[1,3] %><% end %>€
+						<b><% if !plan.price[0,2].nil? %><%= plan.price[0,2] %><% end %></b>€
 					</span>
 				</p>
 				<p class="plan-type">par mois<br/></p>
-				<% unless basic_plan(plan) %>
-					<p class="plan-type">facturé annuellement</p>
-					<%= image_tag "soon-banner.png", class: "soon-banner" %>
-				<% end %>
-				<% if user_with_no_subscription(@user) %>
-					<% if same_plan_id(@user, plan) %>
-						<p class="plan-btn">Votre formule</p>
-					<% else %>
-						<%= link_to new_subscription_path(plan_id: plan.id) do %>
-							<p class="plan-btn">
-							<% if basic_plan(plan)  %>
-								Passer à l'offre Basic
-							<% elsif pro_plan(plan)  %>
-								<% if user_have_basic_plan(@user) %>
-									Passer à une offre supérieure
-								<% else %>
-									Passer à l'offre Pro
-								<% end %>
-							<% else %>
-								Passer à une offre supérieure
-							<% end %>
-						<% end %>
-					<% end %>
+				<% if basic_plan(plan) %>
+					<p class="plan-type">sans carte bancaire</p>
 				<% else %>
-					<% if basic_plan(plan) %>
-						<% if @user %>
+					<p class="plan-type">facturé annuellement</p>
+				<% end %>
+				<div class="plan-btn-cntnr">
+					<% if user_with_no_subscription(@user) %>
+						<% if same_plan_id(@user, plan) %>
 							<p class="plan-btn">Votre formule</p>
 						<% else %>
-							<!-- faire un scroll down vers le bouton pour entrer son email -->
-								<p class="plan-btn">Commencer</p>
-							<!-- fin du scroll down -->
+							<%= link_to new_subscription_path(plan_id: plan.id) do %>
+								<% if basic_plan(plan)  %>
+									<p class="plan-btn">Passer à l'offre Basic</p>
+								<% elsif pro_plan(plan)  %>
+									<% if user_have_basic_plan(@user) %>
+										<p class="plan-btn">Passer à une offre supérieure</p>
+									<% else %>
+										<p class="plan-btn">Passer à l'offre Pro</p>
+									<% end %>
+								<% else %>
+									<p class="plan-btn">Passer à une offre supérieure</p>
+								<% end %>
+							<% end %>
 						<% end %>
 					<% else %>
-						<%= link_to new_subscription_path(plan_id: plan.id) do %>
-							<% if !@user %>
-								<p class="plan-btn">Réserver ma place</p>
+						<% if basic_plan(plan) %>
+							<% if @user %>
+								<p class="plan-btn">Votre formule</p>
 							<% else %>
-								<!-- après validation des features : "Passer à une offre supérieure" -->
-								<p class="plan-btn">Réserver ma place</p>
-								<!-- Dans le paragraphe ci-dessus -->							
+								<!-- faire un scroll down vers le bouton pour entrer son email -->
+									<p class="plan-btn">Commencer</p>
+								<!-- fin du scroll down -->
+							<% end %>
+						<% else %>
+							<%= link_to new_subscription_path(plan_id: plan.id) do %>
+								<% if !@user %>
+									<p class="plan-btn">Commencer</p>
+								<% else %>
+									<!-- après validation des features : "Passer à une offre supérieure" -->
+									<p class="plan-btn">Commencer</p>
+									<!-- Dans le paragraphe ci-dessus -->
 								<% end %>
+							<% end %>
 						<% end %>
-					<% end %>
-				<% end %>
-				<br/>
-				<p class="plan-type">plus d'info</p>
-				<%= image_tag "arrow-down.png", class: "btn_arrow" %>
+				<% end %></div>
 			</div>
+			<br/>
 			<div class="plan-txt-cntnr">
 				<% if basic_plan(plan) %>
 					<p class="colored-p-txt1"><b>BASIC inclus</b></p>
 					<p>-Création de vos recettes</p>
-					<p>-Ajouts de nouveaux ingrédients</p>
-					<p>-Partage sur les réseaux sociaux</p>
+					<p>-Création de vos montages</p>
+					<p>-Ajout de nouveaux ingrédients</p>
+					<p>-Téléchargements au format Pdf</p>
 					<p>-Aide et support</p>
 					<p>-Accès sur tous vos appareils</p>
 				<% end %>
 				<% if pro_plan(plan) %>
 					<p class="colored-p-txt2"><b>PRO inclus</b><br/>plus toutes les options de BASIC</p>
 					<p>-Calcul de vos coûts de revient</p>
-					<p>-Aide et support prioritaire</p>
+					<p>-Calcul des quantités de votre recette</p>
 					<p>-Meilleure gestion de vos recettes</p>
 					<p>-Gestion des fournisseurs</p>
-					<p>-Ajout de photos à vos recettes</p>
+					<p>-Ajout d'une photo à vos recettes</p>
 					<p>-Enlever le logo du Labo sur vos recettes</p>
+					<p>-Aide et support prioritaire</p>
 				<% end %>
 				<% if entreprise_plan(plan) %>
 					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
 					<p>-Équilibrage de vos recettes</p>
 					<p>-Calculs de la composition de vos recettes</p>
-					<p>-Étape par étape</p>
-					<p>-Inviter vos collaborateurs sur votre compte</p>
+					<p>-Ajout de plusieurs photos à vos recettes</p>
+					<p>-Inviter vos collaborateurs sur votre compte (prochainement)</p>
 				<% end %>
 			</div>
 		</div>
@@ -94,7 +94,6 @@
 	<div class="sale-txt-cntnr">
 	<h2 class="big-white-h2">Éssai gratuit</h2>
 	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
-	<i>(formules prochainement disponibles)</i>
 </div>
 <div class="sale-bckgrnd">
 </div>

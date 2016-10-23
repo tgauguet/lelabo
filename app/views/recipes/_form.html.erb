@@ -24,10 +24,16 @@
       <%= f.text_field :baking, class: "basic-field recipe-comp-sel rounded-field" %>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
-    <p>image</p>
-    <%= image_tag(@recipe.image.url(:medium), class: "recipe-img") %>
-    <%= f.file_field :image %>
-    <br/><br/>
+    <% if @user.basic_user? %>
+      <h3>Ajoutez une image</h3>
+      <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
+      <p class="auto-btn cta-btn">+ S'ABONNER</p>
+    <% else %>
+      <p>image</p>
+      <%= image_tag(@recipe.image.url(:medium), class: "recipe-img") %>
+      <%= f.file_field :image %>
+      <br/><br/>
+    <% end %>
   </div>
   <%= f.text_area :note, class: "basic-field rounded-field", placeholder: "Notes" %>
   <br/>
