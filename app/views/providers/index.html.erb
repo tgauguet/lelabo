@@ -1,25 +1,34 @@
-<% title "Ingrédients" %>
+<% title "Fournisseurs" %>
 <div class="actions-cntnr">
-	<div class="page-new-ttl action-cntnr">
-		<h2>FOURNISSEURS</h2>
-		<%= link_to new_provider_path do %>
-			<p class="standard-btn grey-btn ingredient-btn">+ CRÉER</p>
-		<% end %>
-	</div><br/>
-	<div class="hide">
-		<div class="ing-cntnr">
-			<p class="sort-before"><%= sortable "Nom", "name" %></p>
-			<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
-			<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+	<% if @user.basic_user? %>
+		<div class="page-new-ttl action-cntnr">
+			<p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
+			<%= link_to subscriptions_path do %>
+				<p class="auto-btn cta-btn">+ S'ABONNER</p>
+			<% end %>
 		</div>
-				<ul class="list-cntnr">
-					<li id="sortable1">
-						<% unless @providers.nil? %>
-							<%= render @providers %>
-						<% end %>
-					</li>
-					<%= will_paginate %>
-				</ul>
+	<% else %>
+		<div class="page-new-ttl action-cntnr">
+			<h2>FOURNISSEURS</h2>
+			<%= link_to new_provider_path do %>
+				<p class="standard-btn grey-btn ingredient-btn">+ CRÉER</p>
+			<% end %>
+		</div><br/>
+		<div class="hide">
+			<div class="ing-cntnr">
+				<p class="sort-before"><%= sortable "Nom", "name" %></p>
+				<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+				<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+			</div>
+					<ul class="list-cntnr">
+						<li id="sortable1">
+							<% unless @providers.nil? %>
+								<%= render @providers %>
+							<% end %>
+						</li>
+						<%= will_paginate %>
+					</ul>
+			</div>
 		</div>
-	</div>
+	<% end %>
 </div>
