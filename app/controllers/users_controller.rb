@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 					if !@user.account_name.nil? && @user.firstname.nil?
 				      redirect_to informations_de_votre_compte_path
 				    elsif !@user.account_name.nil? && !@user.firstname.nil? && @user.terms == true
-							if @user.ingredients.nil?
+							if @user.ingredients.blank?
 					      CreateIngredientsBaseJob.perform_later(@user)
 								CreateProvidersBaseJob.perform_later(@user)
 							end

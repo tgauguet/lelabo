@@ -25,7 +25,7 @@ class SubscriptionsController < ApplicationController
 				params[:stripe_token]
 			)
 			if @subscription.errors.blank?
-				flash[:notice] = "Merci, vous êtes désormais abonné à l'offre #{@plan.name}"
+				flash[:notice] = "Félicitations, vous êtes désormais abonné à l'offre #{@plan.name}"
 				redirect_to root_path
 			else
 				render :new

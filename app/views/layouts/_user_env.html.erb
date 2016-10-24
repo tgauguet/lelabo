@@ -73,7 +73,7 @@
 		<div class="rgth-links">
 			<ul>
 				<li>
-					<%= link_to new_recipe_path do %><div class="header-img-grey3"></div><% end %>
+					<%= link_to modifier_votre_profil_path do %><div class="header-img-grey3"></div><% end %>
 				</li>
 				<li>
 					<%= link_to new_recipe_path do %><div class="header-img-grey2"></div><% end %>
@@ -84,9 +84,8 @@
 			</ul>
 		</div>
 		<div class="lft-links">
-			<ul>
-				<li>Search</li>
-			</ul>
+			<%= image_tag "search.png", class: 'search-btn', alt: "rechercher" %>
+			<div class="search-field">Recherche</div>
 		</div>
 	</div>
 </div>

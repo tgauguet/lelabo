@@ -718,9 +718,9 @@ ul li{
 	position: absolute;
 	z-index: 100000;
 	margin-right: auto;
-	margin-left: 20%;
+	margin-left: 10%;
 	text-align: center;
-	width: 60%;
+	width: 80%;
 }
 
 .error, .alert, .info, .notice {
@@ -1438,15 +1438,12 @@ header .normal_header{
   display: inline-block;
 }
 
-.search-bar{
-  float: right;
-  margin-top: -1.2em;
-}
-
 .search-field{
+	width: 10em;
   font-size: 1em;
-  margin-top: -1.8em;
   padding-right: 0.5em;
+	margin-top: 0.65em;
+	margin-left: 2em;
   padding-left: 2em;
   padding-top: 0.3em;
   border-radius: 1em;
@@ -1456,9 +1453,9 @@ header .normal_header{
 
 .search-btn{
   width: 1em;
-  margin-top: 0.6em;
+  margin-top: 0.5em;
   position: absolute;
-  margin-left: 0.8em;
+  margin-left: 2.8em;
 }
 
 .search-go{

@@ -22,38 +22,38 @@
 				<div class="plan-btn-cntnr">
 					<% if user_with_no_subscription(@user) %>
 						<% if same_plan_id(@user, plan) %>
-							<p class="plan-btn">Votre formule</p>
+							<p class="plan-btn">VOTRE FORMULE</p>
 						<% else %>
 							<%= link_to new_subscription_path(plan_id: plan.id) do %>
 								<% if basic_plan(plan)  %>
-									<p class="plan-btn">Passer à l'offre Basic</p>
+									<p class="plan-btn">PASSER A L'OFFRE BASIC</p>
 								<% elsif pro_plan(plan)  %>
 									<% if user_have_basic_plan(@user) %>
-										<p class="plan-btn">Passer à une offre supérieure</p>
+										<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
 									<% else %>
-										<p class="plan-btn">Passer à l'offre Pro</p>
+										<p class="plan-btn">PASSER A L'OFFRE PRO</p>
 									<% end %>
 								<% else %>
-									<p class="plan-btn">Passer à une offre supérieure</p>
+									<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
 								<% end %>
 							<% end %>
 						<% end %>
 					<% else %>
 						<% if basic_plan(plan) %>
 							<% if @user %>
-								<p class="plan-btn">Votre formule</p>
+								<p class="plan-btn">VOTRE FORMULE</p>
 							<% else %>
 								<!-- faire un scroll down vers le bouton pour entrer son email -->
-									<p class="plan-btn">Commencer</p>
+									<p class="plan-btn">ESSAI GRATUIT</p>
 								<!-- fin du scroll down -->
 							<% end %>
 						<% else %>
 							<%= link_to new_subscription_path(plan_id: plan.id) do %>
 								<% if !@user %>
-									<p class="plan-btn">Commencer</p>
+									<p class="plan-btn">ESSAI GRATUIT</p>
 								<% else %>
 									<!-- après validation des features : "Passer à une offre supérieure" -->
-									<p class="plan-btn">Commencer</p>
+									<p class="plan-btn">ESSAI GRATUIT</p>
 									<!-- Dans le paragraphe ci-dessus -->
 								<% end %>
 							<% end %>
@@ -83,7 +83,9 @@
 				<% end %>
 				<% if entreprise_plan(plan) %>
 					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
-					<p>-Équilibrage de vos recettes</p>
+					<p>-Équilibrage de vos ganaches</p>
+					<p>-Équilibrage de vos glaces</p>
+					<p>-Équilibrage de vos sorbets</p>
 					<p>-Calculs de la composition de vos recettes</p>
 					<p>-Ajout de plusieurs photos à vos recettes</p>
 					<p>-Inviter vos collaborateurs sur votre compte (prochainement)</p>

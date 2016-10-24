@@ -14,8 +14,7 @@
         <%= f.password_field :password , :placeholder => "Mot de passe", class: "basic-field bottom-field" %><br/><br/>
         <div class="need-val">
           <%= f.label :remember_me, class: "checkbox_inline" do %>
-            <%= f.check_box :remember_me %>
-            <span class="small-span">Se souvenir de moi</span><br/><br/>
+          <p class="custom-checkbox check-green"><%= f.check_box :remember_me %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Se souvenir de moi</p>
           <% end %>
         </div>
         <%= f.button :submit do %>
