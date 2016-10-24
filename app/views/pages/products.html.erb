@@ -59,8 +59,10 @@
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
-        <%= f.submit "Bah oui !", class: "btn cta-btn" %>
+        <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
+				<%= f.button :submit do %>
+					BAH OUI !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>
 </div>

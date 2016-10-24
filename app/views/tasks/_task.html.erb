@@ -6,7 +6,7 @@
 				<div class="class-helper inline_divs" data-id="<%= task.id %>" >
 					<% unless task.id.nil? || task.nil? %>
 						<!-- checkbox to mark tasks done -->
-						<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %> 
+						<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %>
 							<div class="check-cntnr">
 								<input type="checkbox" class="check">
 								<div class="valt"> &nbsp;√</div><label class="box1"></label>
@@ -18,7 +18,7 @@
 								<%= f.fields_for :tasks, task, remote: true do |ff| %>
 									<%= ff.text_field :name, class: "task-field", id: "task-name", onclick: "(this)select();" %><br/>
 									<%= ff.text_field :assigns_to, class: "task-field smll-txt", placeholder: "assignée à...", onclick: "(this).select();" %><br/>
-									<%= ff.submit "Enregistrer", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
+									<%= ff.submit "ENREGISTRER", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">ANNULER</span>
 								<% end %>
 							</div>
 							<div class="taskname">
@@ -41,6 +41,3 @@
 		</li>
 	</ul>
 </div>
-
-
-

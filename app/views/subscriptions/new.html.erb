@@ -15,23 +15,32 @@
       <p>Tarif : <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€ /an</p><br/><br/>
       <h3>Etape 2 : Informations de paiement</h3>
       <%= form_for @subscription , html: { id: 'payment-form' } do |f| %>
+        <div class="secure-cntnr">
+          <%= image_tag "master-card.png", class: "card-img", alt: "carte de crédit" %>
+          <%= image_tag "visa.png", class: "card-img", alt: "carte de crédit" %>
+          <%= image_tag "carte-bleue.png", class: "card-img", alt: "carte de crédit" %>
+          <%= image_tag "american-express.png", class: "card-img", alt: "carte de crédit" %>
+          <p>Formulaire sécurisé <%= image_tag "padlock.png", class:"mini-img",alt: "securisé" %></p>
+        </div>
         <span class="errors" style='color:red;'></span>
         <% if signed_in? %>
-          <%= hidden_field_tag :email, nil, name: "email_address" ,placeholder: 'Email (requis)', :id=>"inscription_field3",  :required => true, value: @user.email %>
+          <%= hidden_field_tag :email, nil, name: "email_address" ,placeholder: 'Email (requis)', :id=>"inscription_field3 rounded-field",  :required => true, value: @user.email %>
         <% else %>
           <p>Email</p>
-          <%= text_field_tag :email, nil, name: "email_address" ,placeholder: 'Email (requis)', :class=>"basic-field",  :required => true %>
+          <%= text_field_tag :email, nil, name: "email_address" ,placeholder: 'Email (requis)', :class=>"basic-field rounded-field",  :required => true %>
         <% end %>
         <p>Numero de carte</p>
         <input type="hidden" name="plan_id" value="<%= @plan.id %>" />
-        <%= text_field_tag :card_number, nil, name: nil ,placeholder: 'Numéro de carte', class: "basic-field cc-number", :required => true, id: "cc-number", data: { stripe: "number"}  %><br/>
+        <%= text_field_tag :card_number, nil, name: nil ,placeholder: 'Numéro de carte', class: "basic-field cc-number rounded-field", :required => true, id: "cc-number", data: { stripe: "number"}  %><br/>
         <p>Date d'expiration</p>
-        <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field basic-field",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %><%= image_tag "arrow-select.png", class: "select-img" %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+12}, {name: nil, id: "card_year",placeholder: 'Enter search term...', class: "select-field basic-field",  :required => true, :data => {:stripe => 'exp-year' }} %><%= image_tag "arrow-select.png", class: "select-img" %><br/>
+        <div class="card-nb-cntnr">
+          <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field basic-field",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %>
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+12}, {name: nil, id: "card_year",placeholder: 'Enter search term...', class: "select-field basic-field",  :required => true, :data => {:stripe => 'exp-year' }} %>
+        </div>
         <p>CVC <i class="grey-txt">(3 chiffres au dos de votre carte)</i></p>
-        <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field" , :required => true, data: { stripe: "cvc" } %>
+        <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field rounded-field" , :required => true, data: { stripe: "cvc" } %>
         <br/>
-        <p class="float-right"><%= image_tag "secure.png", class: "secure-img" %><%= f.submit "Terminer la commande", class: "btn cta-btn checkout" %></p>
+        <p class="float-right"><%= f.submit "Terminer la commande", class: "btn cta-btn" %></p>
       <% end %>
     </div>
   </div>

@@ -5,7 +5,7 @@
 			<h1 class="lttl-intro-h1">To-do listes</h1>
 			<% if empty_list %>
 				<p>Les to-do listes vous aident à planifier vos journées</p><br/>
-				<p class="btn inside-btn" id="list-btn">Créer la première liste</p>
+				<p class="btn inside-btn" id="list-btn">CRÉER LA PREMIÈRE LISTE</p>
 				<div class="explaination-cntnr">
 					<h2>Quand utiliser les to-do ?</h2>
 					<div class="border-btm"></div>
@@ -16,7 +16,7 @@
 					<p>Pour assigner du travail à vous ou à votre équipe</p>
 				</div>
 			<% else %>
-				<p class="inside-btn ingredient-btn">Nouvelle liste</p>
+				<p class="inside-btn ingredient-btn">NOUVELLE LISTE</p>
 			<% end %>
 		</div>
 		<div class="simple-form-cntnr">
@@ -27,8 +27,8 @@
 					<%= f.text_field :title, placeholder: "Titre", required: true, class: "basic-field top-field"  %>
 					<%= image_tag "description.png", class: "field-img2" %>
 					<%=	f.text_area :description, placeholder: "Description", class: "basic-field bottom-field" %>
-					<%= f.submit "Ajouter la liste", class: "btn inside-btn" %>
-					<p class="cancel-btn">Annuler</p>
+					<%= f.submit "AJOUTER LA LISTE", class: "btn inside-btn" %>
+					<p class="cancel-btn">ANNULER</p>
 				<% end %>
 			</div>
 		</div>

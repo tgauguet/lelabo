@@ -43,9 +43,9 @@
 							<% if @user %>
 								<p class="plan-btn">VOTRE FORMULE</p>
 							<% else %>
-								<!-- faire un scroll down vers le bouton pour entrer son email -->
-									<p class="plan-btn">ESSAI GRATUIT</p>
-								<!-- fin du scroll down -->
+								<!-- scroll down to the email cta -->
+									<p class="plan-btn scroll">COMMENCER</p>
+								<!-- end of scroll down -->
 							<% end %>
 						<% else %>
 							<%= link_to new_subscription_path(plan_id: plan.id) do %>
@@ -96,17 +96,27 @@
 	<div class="sale-txt-cntnr">
 	<h2 class="big-white-h2">Éssai gratuit</h2>
 	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+				<%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
+				<%= f.button :submit do %>
+						COMMENCER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+				<% end %>
+      <% end %>
 </div>
 <div class="sale-bckgrnd">
 </div>
 <% unless signed_in? %>
-<div class="sale-txt-cntnr">
-	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2>
+<div class="sale-txt-cntnr scroll-here">
+	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2><br/>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field" %>
-        <%= f.submit "Bah oui !", class: "btn cta-btn" %>
+				<%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
+				<%= f.button :submit do %>
+						BAH OUI !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>
 </div>
@@ -123,3 +133,10 @@
 		<i>Nous faisons le maximum pour perfectionner notre logiciel. Si toutefois vous avez un problème, notre équipe est à votre écoute.</i>
 	</div>
 </div>
+<script>
+$(".scroll").click(function() {
+$('html,body').animate({
+		scrollTop: $(".scroll-here").offset().top},
+		'slow');
+});
+</script>

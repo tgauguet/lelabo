@@ -6,7 +6,7 @@
 					<%= link_to list do %>
 						<div class="to-do-cards to-do-default" data-id="<%= list.id %>">
 							<% if list.all_done %>
-							  <%= image_tag 'complete.jpg', class: "tasks-cmplt2" %>
+							  <%= image_tag 'clipboard.png', class: "tasks-cmplt2" %>
 							<% end %>
 							<h2><%= list.title %></h2>
 							<% if list.all_done %>
@@ -26,7 +26,7 @@
 						 	</p>
 						 	<p class="fake-task">...</p>
 						 	<br/>
-							&nbsp;<%= link_to "Supprimer", to_do_list_path(list), method: :delete, remote: true, class: "delte-list" %>
+							&nbsp;<%= link_to "SUPPRIMER", to_do_list_path(list), method: :delete, remote: true, class: "delte-list" %>
 						</div>
 					<% end %>
 				<% end %>
