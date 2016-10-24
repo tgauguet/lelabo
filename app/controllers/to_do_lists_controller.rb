@@ -5,7 +5,7 @@ class ToDoListsController < ApplicationController
 	before_action :set_user, only: [:new, :index, :show, :destroy, :update]
 	before_action :current_list, only: [:update, :show, :destroy, :update]
 	before_action :set_lists, only: [:new, :destroy]
-	skip_before_filter :verify_authenticity_token 
+	skip_before_filter :verify_authenticity_token
 
 	def show
 		@task = @list.tasks.new
@@ -15,7 +15,7 @@ class ToDoListsController < ApplicationController
 
 	def new
 		@list = @user.to_do_lists.new
-	end 
+	end
 
 	def sort
 		# adjust the position of each task with jquery sortable

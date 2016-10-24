@@ -3914,3 +3914,10 @@ textarea {
 .card-steps-cntnr .basic-field{
 	padding-left: 0.7em;
 }
+
+.brng-txt-cntnr{
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 1em;
+	text-align: justify;
+}

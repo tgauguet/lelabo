@@ -11,5 +11,5 @@ class ChangeSubscriptionCard
 			subscription.errors[:base] << e.message
 		end
 		subscription
-	end 
+	end
 end

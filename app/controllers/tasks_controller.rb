@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 	before_action :set_to_do_list
 	respond_to :html, :js
-	skip_before_filter :verify_authenticity_token 
+	skip_before_filter :verify_authenticity_token
 
 	def create
 		@task = @list.tasks.new(tasks_params)
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
 
 	def done
 		@task = @list.tasks.find(params[:id])
-		if !@task.done? 
+		if !@task.done?
 			@task.update_attributes(done: true)
 		else
 			@task.update_attributes(done: false)

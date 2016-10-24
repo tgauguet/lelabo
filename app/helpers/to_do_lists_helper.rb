@@ -1,7 +1,7 @@
 module ToDoListsHelper
 
 	def empty_list
-		@lists.blank? 
+		@lists.blank?
 	end
 
 end

@@ -82,6 +82,9 @@ Rails.application.routes.draw do
     match "/blog/huit-outils-pour-accelerer-votre-business" => "blogs#article", via: [:get]
     match "/blog/dix-patissiers-francais-stars-de-instagram" => "blogs#instagramstar", via: [:get]
     match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
+    match "/mentions-legales", to: "pages#mentions", via: [:get]
+    match "/conditions-generales-utilisation", to: "pages#utilisation", via: [:get]
+    match "/conditions-generales-vente", to: "pages#sale", via: [:get]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
   	get '404', :to => 'application#page_not_found'
