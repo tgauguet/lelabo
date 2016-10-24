@@ -3,7 +3,7 @@ Rails.application.configure do
 
     # Code is not reloaded between requests.
     config.cache_classes = true
-    config.action_mailer.default_url_options = {:host => "www.lelabo-ondemand.com"}
+    config.action_mailer.default_url_options = {:host => "localhost:3000"}
 
     # Eager load code on boot. This eager loads most of Rails and
     # your application in memory, allowing both threaded web servers
@@ -16,15 +16,15 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_mailer.delivery_method = :sendmail
     config.action_mailer.sendmail_settings = {arguments: '-i'}
-    config.paperclip_defaults = {
-      storage: :s3,
-      s3_credentials: {
-        bucket: ENV['S3_BUCKET_NAME'],
-        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-        s3_region: ENV['AWS_REGION'],
-      }
-    }
+    #config.paperclip_defaults = {
+    #  storage: :s3,
+    #  s3_credentials: {
+    #    bucket: ENV['S3_BUCKET_NAME'],
+    #    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    #    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    #    s3_region: ENV['AWS_REGION'],
+    #  }
+    #}
 
     # Enable Rack::Cache to put a simple HTTP cache in front of your application
     # Add `rack-cache` to your Gemfile before enabling this.
@@ -42,7 +42,7 @@ Rails.application.configure do
 
     # Do not fallback to assets pipeline if a precompiled asset is missed.
     config.serve_static_files = true
-    config.assets.compile = false
+    config.assets.compile = true
     config.assets.digest = true
 
     config.force_ssl = false
