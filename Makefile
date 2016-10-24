@@ -25,3 +25,8 @@ console:
 
 routes:
 	bundle exec rake routes
+
+brakeman:
+	brakeman -q -z
+
+	
