@@ -17,8 +17,6 @@
 //= require turbolinks
 //= require welcome
 //= require recipes
-//= require ingredients
-//= require subscriptions
 //= require to_do_lists
 //= require ckeditor/init
 //= require_tree ./ckeditor

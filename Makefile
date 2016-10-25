@@ -29,4 +29,10 @@ routes:
 brakeman:
 	brakeman -q -z
 
-	
+production-precompile:
+	RAILS_ENV=production bundle exec rake assets:clobber
+	RAILS_ENV=production bundle exec rake assets:precompile
+
+stage-precompile:
+	RAILS_ENV=production bundle exec rake assets:clobber
+	RAILS_ENV=production bundle exec rake assets:precompile

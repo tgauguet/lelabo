@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>Le Labo | <%= yield_or_default(:title, "Gérez vos recettes professionnelles") %></title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => "reload" %>
   <%= csrf_meta_tags %>
   <%= display_meta_tags site: 'My website' %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script src="https://cdn.optimizely.com/js/3692194676.js"></script>
   <script id="dsq-count-scr" src="//wwwlelaboondemandcom.disqus.com/count.js" async></script>
