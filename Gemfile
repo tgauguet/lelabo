@@ -37,7 +37,9 @@ gem 'friendly_id', '~> 5.0.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'rails_12factor'
+group :production, :stage do
+	gem 'rails_12factor'
+end
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
@@ -46,6 +48,8 @@ gem 'meta-tags'
 gem 'devise', '~> 3.4.1'
 
 gem 'rails_serve_static_assets'
+
+gem 'sprockets_better_errors'
 
 gem 'kaminari'
 
@@ -90,5 +94,5 @@ group :development do
 
   gem 'web-console', '~> 2.0'
   gem 'spring'
-	
+
 end

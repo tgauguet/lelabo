@@ -316,6 +316,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sprockets_better_errors (0.0.4)
+      sprockets-rails (>= 1.0.0)
     stripe (1.41.0)
       rest-client (~> 1.4)
     stripe-ruby-mock (2.2.4)
@@ -397,6 +399,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   shoulda-matchers
   spring
+  sprockets_better_errors
   stripe!
   stripe-ruby-mock
   sunspot_rails
