@@ -20,7 +20,7 @@ class ProvidersController < ApplicationController
 	def create
 		@provider = @user.providers.create(providers_params)
 		if @provider.valid?
-			redirect_to @provider
+			redirect_to providers_path
 			flash[:success] = "Vous avez créé un nouveau fournisseur"
 		else
 			redirect_to providers_path

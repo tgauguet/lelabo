@@ -51,19 +51,19 @@
 	<div class="features-li">
 		<ul>
 			<%= link_to new_ingredient_path do %>
-				<li class="f-li1"><div class="feat-img-cntnr"><div class="feature-img1"></div></div>Ingrédients</li>
+				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %></div>Ingrédients</li>
 			<% end %>
 			<%= link_to recipes_path do %>
-				<li class="f-li2"><div class="feat-img-cntnr"><div class="feature-img2"></div></div>Recettes</li>
+				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %></div>Recettes</li>
 			<% end %>
 			<%= link_to assemblies_path do %>
-				<li class="f-li3"><div class="feat-img-cntnr"><div class="feature-img3"></div></div>Montages</li>
+				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %></div>Montages</li>
 			<% end %>
 			<%= link_to providers_path do %>
-				<li class="f-li4"><div class="feat-img-cntnr"><div class="feature-img4"></div></div>Fournisseurs</li>
+				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img4.png", class: "feature-img", alt: "menu icon" %></div>Fournisseurs</li>
 			<% end %>
 			<%= link_to new_to_do_list_path do %>
-				<li class="f-li5"><div class="feat-img-cntnr"><div class="feature-img5"></div></div>Organisation</li>
+				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "checked.png", class: "feature-img", alt: "menu icon" %></div>Organisation</li>
 			<% end %>
 		</ul>
 	</div>
@@ -73,13 +73,13 @@
 		<div class="rgth-links">
 			<ul>
 				<li>
-					<%= link_to modifier_votre_profil_path do %><div class="header-img-grey3"></div><% end %>
+					<%= link_to new_assembly_path do %><%= image_tag "header-img2.png", class:"header-filter-img", alt: "icon header" %><% end %>
 				</li>
 				<li>
-					<%= link_to new_recipe_path do %><div class="header-img-grey2"></div><% end %>
+					<%= link_to new_recipe_path do %><%= image_tag "header-img3.png", class:"header-filter-img", alt: "icon header" %><% end %>
 				</li>
 				<li>
-					<%= link_to root_path do %><div class="header-img-grey1"></div><% end %>
+					<%= link_to root_path do %><%= image_tag "home.png", class:"header-filter-img", alt: "icon header" %><% end %>
 				</li>
 			</ul>
 		</div>

@@ -728,7 +728,7 @@ ul li{
   color: rgb(43,54,69);
 }
 
-.background-colr, .step-bckgrnd, .sale-bckgrnd, .blog-header-img, .feature-img{
+.background-colr, .step-bckgrnd, .sale-bckgrnd, .blog-header-img{
   background-image: url("<%= asset_path('landing.jpg') %>");
   background-repeat: no-repeat;
   background-position: center center;
@@ -1348,8 +1348,8 @@ header .normal_header{
   padding-top: 2em;
 }
 
-.feature-img{
-  width: 5em;
+.welc-recipes h6{
+       font-family: 'source_sans_prolight';
 }
 
 .product-cntnr, .product-left-cntnr{
@@ -3054,9 +3054,47 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
   position: absolute;
 }
 
-.feat-img-cntn{
-  border:1px solid blue;
-  text-align: right;
+.feature-img, .header-filter-img{
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+	width: 1em;
+	margin-left: -1.4em;
+}
+
+.header-filter-img{
+	width: 1.7em;
+}
+
+.rgth-links ul li:hover .header-filter-img{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	filter: grayscale(0%);
+	filter: none;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=0);
+}
+
+.rgth-links ul li{
+	margin-top: 0.7em;
+	display: inline-block;
+	width: 1.7em;
+}
+
+.features-li ul .f-li:hover .feature-img{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	filter: grayscale(0%);
+	filter: none;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=0);
+	width: 1em;
 }
 
 .cta-lft-btn{
@@ -3076,34 +3114,6 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 .cta-lft-btn:hover{
   background: rgb(119,149,248);
-}
-
-.header-img-grey1:hover{
-  background-image: url("<%= asset_path('blank-house.png') %>");
-}
-
-.header-img-grey2:hover{
-  background-image: url("<%= asset_path('add-page.png') %>");
-}
-
-.header-img-grey3:hover{
-  background-image: url("<%= asset_path('settings-2.png') %>");
-}
-
-.header-img-grey1, .header-img-grey2, .header-img-grey3{
-  background-image: url("<%= asset_path('blank-house-grey.png') %>");
-  width: 1.6em;
-  height: 1.6em;
-  margin-top: .8em;
-  background-size: cover;
-}
-
-.header-img-grey2{
-  background-image: url("<%= asset_path('add-page-2.png') %>");
-}
-
-.header-img-grey3{
-  background-image: url("<%= asset_path('settings.png') %>");
 }
 
 .welc-recipes{

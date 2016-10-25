@@ -42,6 +42,7 @@ Rails.application.configure do
 
     # Do not fallback to assets pipeline if a precompiled asset is missed.
     config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+    config.assets.precompile += %w(.svg)
     config.serve_static_files = true
     config.assets.compile = false
     config.assets.digest = true
