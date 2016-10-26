@@ -15,6 +15,8 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'sunspot_rails'
 
+gem 'delayed_job_active_record'
+
 gem 'sunspot_solr'
 
 gem "gibbon"
