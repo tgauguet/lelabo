@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body> 
+	<div style="background:rgb(249,249,249); height:auto; widt:100%; text-align:center; margin-top:1em;margin-left:3%;margin-right:3%;padding-bottom:2em;padding-top:2em;" >
+		<div style="border-radius:0.2em;margin-left:5%;margin-right:5%;margin-top:2em; background:white;font-family:Trebuchet MS, Helvetica, sans-serif; padding-top:2em;padding-bottom:2em;">  
+			<%= image_tag("logo-le-labo.jpg", :style => 'height:auto; width:10em; margin-top: 1em;margin-bottom:1em;') %>
+			<div style="margin-left:4%;margin-right:4%;margin-bottom:1em;">
+				<h2 style="font-size:1.8em;color:rgb(27,189,157);">Préparez-vous à créer de super recettes !</h2></br>
+        <p style="font-size:1.2em;">Bonjour <%= @user.firstname %>,</p>
+				<p style="font-size:1.2em;">Après des mois de travail, nous sommes ravis de vous annoncer le lancement officiel de notre nouveau site aujourd'hui!</p>
+        <p style="font-size:1.2em;">Découvrez-le dès maintenant en cliquant sur le bouton ci-dessous :</p><br/>
+        <p style="color:white;padding-top:1em;padding-bottom:1em;padding-right:1.3em;padding-left:1.3em;text-align:center;max-width:17em;background:white;border-radius:0.3em;margin-left:auto;margin-right:auto;background:rgb(27,189,157);">
+  				<%= link_to "VOIR LE SITE", root_url, style: "text-decoration:none;color:white;font-size:1.5em;" %>
+  			    </p><br/>
+				<p style="font-size:1.2em;">Nous espérons que vous trouverez ce nouveau site complet et moderne</p>
+				<p style="font-size:1.2em;">Pour toute question, remarque, suggestions, vous avez la possibilité de répondre directement via cet email ou via le formulaire disponible sur le site.</p>
+				<p style="font-size:1.2em;">Bonne visite,</p>
+				<p style="font-size:1.2em;">Tim, founder Le Labo</p>
+		  </div>
+	  	</div>
+	  	<p style="color:#777777;"><br/><br/>Le Labo | Wileoo<br/>10, rue de Penthièvre 75008 PARIS</p>
+  	</div>
+  </body>
+</html>
