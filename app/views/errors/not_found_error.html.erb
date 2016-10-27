@@ -1,10 +1,10 @@
 
 <style type="text/css">
-    iframe{
-        margin-top: 0.7em;
-        z-index: -2;
-        position: relative;
+
+    img{
+      width: 17em;
     }
+
     .iframe-cntnr{
         z-index: 1000;
         width: 300px;
@@ -17,27 +17,59 @@
         position: relative;
         border-radius: 0.5em;
     }
+
     .error-btn{
-        display: inline-block;
-        vertical-align: top;
+        width: 10em;
+        margin: 0.3em;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0.3em;
+        padding: 0.4em;
+        color:white;
+        background:  rgb(235,77,92);
     }
-    .error-txt-cntnr h1{
-        font-size: 3em;
+
+    a{
+      text-decoration: none;
+      font-style: none;
+    }
+
+    .error-txt-cntnr{
+        padding: 1em;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-radius: 0.5em;
+        text-align: center;
+        font-family: Arial;
         margin-bottom: 0em;
+        color: rgb(43,54,69);
+    }
+
+    h1{
+      font-size: 6em;
+      margin-top: -0.3em;
+      margin-bottom: -0.3em;
+    }
+
+    h3{
+      font-size: 1.5em;
+      margin-top: 0.5em;
+      margin-bottom: 0.4em;
+    }
+    p{
+      margin: 0em;
     }
 </style>
-<div class="iframe-cntnr">
-<iframe src="//giphy.com/embed/eGzVLDn2NV5DO" width="280" height="278" frameBorder="0"></iframe>
-</div>
 <div class="error-txt-cntnr">
-    <h1>Mayday, Mayday !</h1>
-    <h3>- Erreur 404 -</h3>
-    <h3>Nous sommes désolés, cette page ne mène nulle part.</h3>
-    <p>Pour reprendre votre navigation, cliquez sur un de boutons ci-dessous:</p><br/>
+    <%= image_tag 'fail-cake.png' %>
+    <h1>Oops!</h1><br/>
+    <h3>Nous ne parvenons pas à trouver la page que vous recherchez</h3>
+    <p><i>Code erreur: 404</i></p>
+    <p>Voici quelques liens utiles à la place:</p><br/>
     <%= link_to root_path do %>
         <p class="ingredient-btn error-btn">Accueil</p>
     <% end %>
-    <%= link_to new_contact_path do %>
-        <p class="ingredient-btn error-btn">Contact</p>
+    <%= link_to subscriptions_path do %>
+        <p class="ingredient-btn error-btn">Abonnements</p>
     <% end %>
 </div>

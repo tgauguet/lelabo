@@ -29,7 +29,7 @@ module ApplicationHelper
     end
 
     def not_useful
-        controller.controller_name == "users" || controller.controller_name == "subscriptions" || controller.controller_name == "blogs" || controller.controller_name == "feedbacks"
+        controller.controller_name == "users" || controller.controller_name == "subscriptions" || controller.controller_name == "blogs" || controller.controller_name == "feedbacks" || current_page?('/404') || current_page?('/500') || current_page?('/422')
     end
 
     def do_not_flash

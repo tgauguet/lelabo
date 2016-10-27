@@ -88,6 +88,6 @@ Rails.application.routes.draw do
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
   	get '404', :to => 'application#page_not_found'
-	get '422', :to => 'application#server_error'
-	get '500', :to => 'application#server_error'
+    get '422', :to => 'application#server_error'
+    get '500', :to => 'application#server_error'
 end
