@@ -1,6 +1,5 @@
 class Ingredient < ActiveRecord::Base
 	belongs_to :user
-	validates :name, presence: true
 	has_many :quantities, dependent: :restrict_with_error
 	has_many :provider_prices, dependent: :destroy
 	has_many :providers, through: :provider_prices
@@ -12,6 +11,7 @@ class Ingredient < ActiveRecord::Base
 	#end
 	before_validation :format_number
 	before_save :default_value
+	validates :name, :presence => { :message => 'Le nom ne peux pas etre vide' }
 
 	def default_value
 		# set the value at 0 if null

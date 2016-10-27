@@ -37,10 +37,11 @@ class IngredientsController < ApplicationController
 	end
 
 	def create
-		if @user.ingredients.create(ingredients_params)
+		@ingredient = @user.ingredients.create(ingredients_params)
+		if @ingredient.save
 			flash[:success] = "Votre nouvel ingrédient à été créé"
 		else
-			flash[:error] = "Erreur lors de la création de l'ingrédient"
+			flash[:error] = "Erreur - vous devez donner un nom à chaque nouvel ingrédient"
 		end
 		redirect_to new_ingredient_path
 	end
@@ -79,7 +80,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
-		params.require(:ingredient).permit(:name, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
+		params.require(:ingredient).permit(:name, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
 	end
 
 end
