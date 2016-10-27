@@ -63,7 +63,7 @@ class AssembliesController < ApplicationController
         @pdf = render_to_string  pdf: '@user.name',
                 template: 'assemblies/show.pdf.erb',
                 encoding: "UTF-8",
-                locals: { recipe: @recipe }
+                locals: { assembly: @assembly }
         send_data(@pdf, :filename => @assembly.title,  :type=>"application/pdf")
       end
     end
