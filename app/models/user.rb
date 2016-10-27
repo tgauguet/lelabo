@@ -54,11 +54,11 @@ class User < ActiveRecord::Base
 		end
 
 		def business_user?
-			self.subscription && self.subscription.plan.name == "ENTREPRISE"
+			(self.subscription && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com"
 		end
 
 		def basic_user?
-			self.subscription.nil? || self.subscription.plan.name == "BASIC"
+			self.subscription.nil? || self.subscription.plan.name == "BASIC" unless self.business_user?
 		end
 
 end
