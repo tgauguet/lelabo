@@ -2,7 +2,7 @@
 #encoding: utf-8
 
 class AssembliesController < ApplicationController
-	before_action :set_assembly, only: [:show, :edit, :update, :destroy]
+	before_action :set_assembly, only: [:show, :edit, :update, :destroy, :download]
 	before_action :set_user
 	helper_method :sort_columns, :sort_direction
 	skip_before_filter :verify_authenticity_token, only: [:edit,:update]
@@ -64,7 +64,7 @@ class AssembliesController < ApplicationController
                 template: 'assemblies/show.pdf.erb',
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }
-        send_data(@pdf, :filename => @recipe.name,  :type=>"application/pdf")
+        send_data(@pdf, :filename => @assembly.title,  :type=>"application/pdf")
       end
     end
   end
