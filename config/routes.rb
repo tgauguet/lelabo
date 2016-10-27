@@ -85,6 +85,7 @@ Rails.application.routes.draw do
     match "/mentions-legales", to: "pages#mentions", via: [:get]
     match "/conditions-generales-utilisation", to: "pages#utilisation", via: [:get]
     match "/conditions-generales-vente", to: "pages#sale", via: [:get]
+    match "/page-error", to: "pages#page_not_found", via: [:get]
   	root "welcome#index"
   	resources :newsletters, :only => [:create]
   	get '404', :to => 'application#page_not_found'

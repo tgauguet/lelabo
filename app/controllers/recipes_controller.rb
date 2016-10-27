@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :pdf_quantities]
   before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
+  before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :pdf_quantities]
 
   # GET /recipes
   # GET /recipes.json
@@ -108,6 +109,11 @@ class RecipesController < ApplicationController
   end
 
   private
+
+    def has_access?
+      @recipe = Recipe.find(params[:id])
+      redirect_to page_error_path unless user_signed_in? && (@recipe.user_id == current_user.id)
+    end
 
     def set_user
       @user = current_user

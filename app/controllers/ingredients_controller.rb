@@ -4,6 +4,7 @@
 class IngredientsController < ApplicationController
 	before_action :set_user
 	before_action :set_ingredient, only: [:update, :edit]
+	before_action :has_access?, only: [:update, :edit]
 	helper_method :sort_columns, :sort_direction
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
@@ -62,6 +63,11 @@ class IngredientsController < ApplicationController
 	end
 
 	private
+
+	def has_access?
+		@ingredient= Ingredient.find(params[:id])
+		redirect_to page_error_path unless user_signed_in? && (@ingredient.user_id == current_user.id)
+	end
 
 	def sort_columns
 		Ingredient.column_names.include?(params[:sort]) ? params[:sort] : "name"

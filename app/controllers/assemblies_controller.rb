@@ -6,6 +6,7 @@ class AssembliesController < ApplicationController
 	before_action :set_user
 	helper_method :sort_columns, :sort_direction
 	skip_before_filter :verify_authenticity_token, only: [:edit,:update]
+	before_action :has_access?, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@assemblies = @user.assemblies.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
@@ -85,6 +86,11 @@ class AssembliesController < ApplicationController
 	end
 
 	private
+
+	def has_access?
+		@assembly= Assembly.find(params[:id])
+		redirect_to page_error_path unless user_signed_in? && (@assembly.user_id == current_user.id)
+	end
 
 	def sort_columns
 		Assembly.column_names.include?(params[:sort]) ? params[:sort] : "title"

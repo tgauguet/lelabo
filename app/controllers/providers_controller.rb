@@ -3,6 +3,7 @@
 
 class ProvidersController < ApplicationController
 	before_action :set_user
+	before_action :has_access?, only: [:show, :edit, :update, :destroy]
 	helper_method :sort_columns, :sort_direction
 
 	def index
@@ -53,6 +54,11 @@ class ProvidersController < ApplicationController
 	end
 
 	private
+
+	def has_access?
+		@provider= Provider.find(params[:id])
+		redirect_to page_error_path unless user_signed_in? && (@provider.user_id == current_user.id)
+	end
 
 	def sort_columns
 		Provider.column_names.include?(params[:sort]) ? params[:sort] : "name"

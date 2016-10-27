@@ -1,0 +1,75 @@
+
+<style type="text/css">
+
+    img{
+      width: 17em;
+    }
+
+    .iframe-cntnr{
+        z-index: 1000;
+        width: 300px;
+        height:300px;
+        background: rgb(230,230,230);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4em;
+        margin-bottom: 2em;
+        position: relative;
+        border-radius: 0.5em;
+    }
+
+    .error-btn{
+        width: 10em;
+        margin: 0.3em;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0.3em;
+        padding: 0.4em;
+        color:white;
+        background:  rgb(235,77,92);
+    }
+
+    a{
+      text-decoration: none;
+      font-style: none;
+    }
+
+    .error-txt-cntnr{
+        padding: 1em;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-radius: 0.5em;
+        text-align: center;
+        font-family: Arial;
+        margin-bottom: 0em;
+        color: rgb(43,54,69);
+    }
+
+    h1{
+      font-size: 6em;
+      margin-top: -0.3em;
+      margin-bottom: -0.3em;
+    }
+
+    h3{
+      font-size: 1.5em;
+      margin-top: 0.5em;
+      margin-bottom: 0.4em;
+    }
+    p{
+      margin: 0em;
+    }
+</style>
+<div class="error-txt-cntnr">
+    <%= image_tag 'fail-cake.png' %>
+    <h1>Oops!</h1><br/>
+    <h3>Nous ne parvenons pas à trouver la page que vous recherchez</h3>
+    <p><i>Code erreur: 404</i></p>
+    <p>Voici quelques liens utiles à la place:</p><br/>
+    <%= link_to root_path do %>
+        <p class="ingredient-btn error-btn">Accueil</p>
+    <% end %>
+    <%= link_to subscriptions_path do %>
+        <p class="ingredient-btn error-btn">Abonnements</p>
+    <% end %>
+</div>
