@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     end
 
     def after_confirmation
-        UserMailer.welcome_email(self).deliver_now
+        UserMailer.delay.welcome_email(self)
     end
 
     def email_verified?

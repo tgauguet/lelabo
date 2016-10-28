@@ -8,6 +8,7 @@ class FeedbacksController < ApplicationController
 	def create
 		@feedback = Feedback.new(feedback_params)
 		if @feedback.save
+			UserMailer.delay.feedback_email(@feedback)
 			redirect_to root_path
 			flash[:success] = "Merci pour vos conseils !"
 		else

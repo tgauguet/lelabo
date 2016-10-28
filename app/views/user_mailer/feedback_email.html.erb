@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+		<style type="text/css">
+			.feedback{
+				background: white;
+				border-radius: 0.3em;
+				border: 1px solid rgb(230,230,230);
+				margin-right: 10%;
+				margin-left: 10%;
+				margin-top: 0.5em;
+				margin-bottom: 0.5em;
+				text-align: justify;
+				padding: 1em;
+			}
+			.feed-from{
+			  color: rgb(27,189,157);
+			}
+		</style>
+  </head>
+  <body> 
+	<div style="background:rgb(249,249,249); height:auto; widt:100%; text-align:center; margin-top:1em;margin-left:3%;margin-right:3%;padding-bottom:2em;padding-top:2em;" >
+		<div style="border-radius:0.2em;margin-left:5%;margin-right:5%;margin-top:2em; background:white;font-family:Trebuchet MS, Helvetica, sans-serif; padding-top:2em;padding-bottom:2em;">  
+				<div class="feedback">
+					<p class="feed-from">Le <%= @feedback.created_at.strftime("%d %b %Y") %>, <%= @feedback.user.firstname.humanize %> <%= @feedback.user.name.humanize %> ( <%= @feedback.user.email %> )à écrit :</p>
+					<i><%= @feedback.message %></i><br/>
+				</div>
+	  	</div>
+	  	<p style="color:#777777;"><br/><br/>Le Labo | Wileoo<br/>10, rue de Penthièvre 75008 PARIS</p>
+  	</div>
+  </body>
+</html>
