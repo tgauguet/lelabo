@@ -49,7 +49,7 @@ class ToDoListsController < ApplicationController
 
 	def destroy
 		@list.destroy
-		render :nothing => true
+		redirect_to new_to_do_list_path
 	end
 
 	private
