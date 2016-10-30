@@ -2616,13 +2616,18 @@ select{
   z-index: 1000;
 }
 
-.composition-info, .composition{
+.composition-info, .composition, .comp-cntnr{
 	display: inline-block;
 	vertical-align: top;
 }
 
+.comp-cntnr{
+	margin-bottom: 1em;
+}
+
 .composition-info{
 	padding-right: 0.1em;
+	width: 6em;
 }
 
 .composition-info p{
@@ -3888,4 +3893,65 @@ textarea {
 	margin-right: 10%;
 	padding: 1em;
 	text-align: justify;
+}
+
+@media screen and (max-width : 76em){
+
+	.action-cntnr, .tasks-cntnr, .tools-cntnr, .list-cntnr, .ing-cntnr, .inline_divs{
+	  width: 47em;
+	}
+
+	.page-new-ttl{
+		width: 44.9em;
+	}
+
+	.welc-recipes .img-txt-cntnr:last-child{
+		display: none;
+	}
+
+	.big-compo{
+		width: 80%;
+	}
+
+	.comp-cntnr{
+		display: block;
+	}
+
+	.title-field{
+		width: 100%;
+	}
+
+	.r-smll-cntnr{
+		width: 23em;
+	}
+
+	.recipe-cat select{
+		border-radius: 0.3em;
+		border-top:1px solid rgb(197, 200, 205);
+		width: 19.4em !important;
+	}
+
+	.add_ingredients{
+		display: block;
+	}
+
+	.add_process{
+		width: 100%;
+		margin-top: 1em;
+		position: relative;
+	}
+
+	.cke_chrome{
+		position: relative !important;
+		height: 20em !important;
+	}
+
+	.ing-unit{
+		display: none;
+	}
+
+	.recipe-btn{
+		font-size: 0.95em;
+	}
+
 }

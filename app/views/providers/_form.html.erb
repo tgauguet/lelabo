@@ -1,40 +1,44 @@
 <%= form_for @provider do |f| %>
 <div class="ing-form-cntnr">
 <h3>Informations</h3><br/>
-<div class="composition-info">
-	<p>Nom</p>
-	<p>Adresse</p>
-	<p>Ville</p>
-	<p>Code postal</p>
-	<p>Pays</p>
-	<p>Email</p>
-	<p>Site internet</p>
+<div class="comp-cntnr">
+	<div class="composition-info">
+		<p>Nom</p>
+		<p>Adresse</p>
+		<p>Ville</p>
+		<p>Code postal</p>
+		<p>Pays</p>
+		<p>Email</p>
+		<p>Site internet</p>
+	</div>
+	<div class="composition big-compo">
+			<%= f.text_field :name, class: "basic-field top-rad" %>
+			<%= f.text_field :adress, class: "basic-field special-top" %>
+			<%= f.text_field :city, class: "basic-field special-top" %>
+			<%= f.text_field :postal, class: "basic-field special-top" %>
+			<%= f.text_field :country, class: "basic-field special-top" %>
+			<%= f.text_field :email, class: "basic-field special-top" %>
+			<%= f.text_field :website, class: "basic-field special-top bot-rad" %>
+	</div>
 </div>
-<div class="composition big-compo">
-		<%= f.text_field :name, class: "basic-field top-rad" %>
-		<%= f.text_field :adress, class: "basic-field special-top" %>
-		<%= f.text_field :city, class: "basic-field special-top" %>
-		<%= f.text_field :postal, class: "basic-field special-top" %>
-		<%= f.text_field :country, class: "basic-field special-top" %>
-		<%= f.text_field :email, class: "basic-field special-top" %>
-		<%= f.text_field :website, class: "basic-field special-top bot-rad" %>
+<div class="comp-cntnr">
+	<div class="composition-info">
+		<p>Téléphone</p>
+		<p>Fax</p>
+		<p>Portable</p>
+		<p>N° de TVA</p>
+		<p>Siret</p>
+		<p>Notes</p>
+	</div>
+	<div class="composition big-compo">
+			<%= f.text_field :phone, class: "basic-field top-rad" %>
+			<%= f.text_field :fax, class: "basic-field special-top" %>
+			<%= f.text_field :mobile_phone, class: "basic-field special-top" %>
+			<%= f.text_field :vat, class: "basic-field special-top" %>
+			<%= f.text_field :siret, class: "basic-field special-top" %>
+			<%= f.text_area :notes, class: "basic-field special-top bot-rad notes" %>
+	</div>
 </div>
-<div class="composition-info">
-	<p>Téléphone</p>
-	<p>Fax</p>
-	<p>Portable</p>
-	<p>Numéro de TVA</p>
-	<p>Siret</p>
-	<p>Notes</p>
-</div>
-<div class="composition big-compo">
-		<%= f.text_field :phone, class: "basic-field top-rad" %>
-		<%= f.text_field :fax, class: "basic-field special-top" %>
-		<%= f.text_field :mobile_phone, class: "basic-field special-top" %>
-		<%= f.text_field :vat, class: "basic-field special-top" %>
-		<%= f.text_field :siret, class: "basic-field special-top" %>
-		<%= f.text_area :notes, class: "basic-field special-top bot-rad notes" %>
-</div><br/><br/><br/>
 <%= f.submit "Enregistrer", class: "btn inside-btn" %>
 <%= link_to providers_path do %>
 	<p class="cancel-btn">Annuler</p>
