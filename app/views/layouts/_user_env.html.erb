@@ -72,20 +72,70 @@
 	<div class="full-header">
 		<div class="rgth-links">
 			<ul>
-				<li>
+				<!-- images for semi-small size -->
+				<li class="show-respo2">
+					<%= link_to new_to_do_list_path do %><%= image_tag "checked.png", class:"header-filter-img", alt: "icon header" %><% end %>
+				</li>
+				<li class="show-respo2">
+					<%= link_to providers_path do %><%= image_tag "header-img7.png", class:"header-filter-img", alt: "icon header" %><% end %>
+				</li>
+				<li class="show-respo2">
+					<%= link_to assemblies_path do %><%= image_tag "header-img6.png", class:"header-filter-img", alt: "icon header" %><% end %>
+				</li>
+				<li class="show-respo2">
+					<%= link_to recipes_path do %><%= image_tag "header-img5.png", class:"header-filter-img", alt: "icon header" %><% end %>
+				</li>
+				<li class="show-respo2">
+					<%= link_to new_ingredient_path do %><%= image_tag "header-img4.png", class:"header-filter-img", alt: "icon header" %><% end %>
+				</li>
+				<!-- end of images for semi-small size -->
+				<!-- images for big size -->
+				<li class="hide-res">
 					<%= link_to new_assembly_path do %><%= image_tag "header-img2.png", class:"header-filter-img", alt: "icon header" %><% end %>
 				</li>
-				<li>
+				<li class="hide-res">
 					<%= link_to new_recipe_path do %><%= image_tag "header-img3.png", class:"header-filter-img", alt: "icon header" %><% end %>
 				</li>
-				<li>
+				<li class="hide-res">
 					<%= link_to root_path do %><%= image_tag "home.png", class:"header-filter-img", alt: "icon header" %><% end %>
 				</li>
+				<!-- end of images for big size -->
+				<!-- images for small size -->
+				<li class="show-respo show-burger2">
+					<a><%= image_tag @user.avatar, class:"header-filter-img brg-icn", alt:"icon burger" %></a>
+				</li>
+				<li class="beard-head show-burger">
+					<a><%= image_tag "burger-icn.png", class:"header-filter-img brg-icn", alt:"icon burger" %></a>
+				</li>
+				<!-- end of images for small size -->
 			</ul>
 		</div>
 		<div class="lft-links">
+			<%= link_to root_path do %><%= image_tag "logo-bird-head.png", class: "beard-head show-bird" %><% end %>
 			<%= image_tag "search.png", class: 'search-btn', alt: "rechercher" %>
 			<div class="search-field">Recherche</div>
 		</div>
+	</div>
+	<div class="full-header-resp">
+		<ul style="display:none;" class="show-burg">
+			<div class="arrow_box"></div>
+			<%= link_to new_ingredient_path do %><li>INGREDIENTS</li><% end %>
+			<%= link_to recipes_path do %><li>RECETTES</li><% end %>
+			<%= link_to assemblies_path do %><li>MONTAGES</li><% end %>
+			<%= link_to providers_path do %><li>FOURNISSEURS</li><% end %>
+			<%= link_to new_to_do_list_path do %><li>ORGANISATION</li><% end %>
+		</ul>
+		<ul style="display:none;" class="show-burg2">
+			<div class="arrow_box arrow-box-sec"></div>
+			<% if @user.admin? %>
+				<%= link_to feedbacks_path do %><li>TOUS LES FEEDBACKS</li><% end %>
+			<% end %>
+			<%= link_to parametres_path do %><li>PARAMETRES</li><% end %>
+			<%= link_to modifier_votre_profil_path do %><li>MODIFIER MON PROFIL</li><% end %>
+			<%= link_to subscriptions_path do %><li>ABONNEMENT</li><% end %>
+			<%= link_to root_path do %><li>INFORMATIONS DE PAIEMENT</li><% end %>
+			<%#= link_to aide_path do %><li>AIDE</li><%# end %>
+			<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>SE DECONNECTER</li><% end %>
+		</ul>
 	</div>
 </div>
