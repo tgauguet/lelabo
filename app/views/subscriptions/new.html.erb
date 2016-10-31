@@ -12,7 +12,18 @@
       <h3><%= image_tag "checked.png", class: "checked-img" %>Etape 1 : Sélectionnez votre offre</h3>
       <p>Votre sélection : FORMULE <%= @plan.name %></p>
       <i>Facturé annuellement</i>
-      <p>Tarif : <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€ /an</p><br/><br/>
+      <% if @user %><p>Tarif : <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€ /an</p><% end %>
+      <p>Vous pouvez résilier gratuitement votre abonnement à tout moment pendant 14 jours</p>
+      <p>Aucun prélèvement ne sera opéré durant la période d'essai</p><br/>
+      <p></p>
+      <% if @user && @user.business_user? %>
+        <p>Votre abonnement PRO débutera à partir de la date de fin de votre abonnement BUSINESS</p>
+      <% end %>
+      <% if @user && @user.pro_user? %>
+        <p>Un prorata de votre abonnement en cours sera effectué et le prix de votre abonnement BUSINESS sera déduit du montant correspondant à la fin de vos droits sur la formule PRO</p>
+      <% end %>
+      <br/><br/>
+      <% if @user %>
       <h3>Etape 2 : Informations de paiement</h3>
       <%= form_for @subscription , html: { id: 'payment-form' } do |f| %>
         <div class="secure-cntnr">
@@ -40,7 +51,12 @@
         <p>CVC <i class="grey-txt">(3 chiffres au dos de votre carte)</i></p>
         <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field rounded-field" , :required => true, data: { stripe: "cvc" } %>
         <br/>
-        <p class="float-right"><%= f.submit "Terminer la commande", class: "btn cta-btn" %></p>
+        <p class="float-right"><%= f.submit "TERMINER LA COMMANDE", class: "btn cta-btn" %></p>
+      <% end %>
+      <% else %>
+        <p>Vous devez vous inscrire afin de choisir votre formule d'abonnement</p>
+        <p>Commencez par entrer votre email sur la page suivante<br/>(cliquez sur le bouton ci-dessous)</p><br/>
+        <p><%= link_to "JE M'INSCRIS", root_path, class: "btn cta-btn" %></p>
       <% end %>
     </div>
   </div>

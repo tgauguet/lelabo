@@ -24,19 +24,23 @@
 						<% if same_plan_id(@user, plan) %>
 							<p class="plan-btn">VOTRE FORMULE</p>
 						<% else %>
-							<%= link_to new_subscription_path(plan_id: plan.id) do %>
 								<% if basic_plan(plan)  %>
-									<p class="plan-btn">PASSER A L'OFFRE BASIC</p>
+									<%= link_to new_contact_path do %>
+										<p class="plan-btn">ENVOYER UN EMAIL</p>
+									<% end %>
 								<% elsif pro_plan(plan)  %>
-									<% if user_have_basic_plan(@user) %>
-										<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
-									<% else %>
-										<p class="plan-btn">PASSER A L'OFFRE PRO</p>
+									<%= link_to new_subscription_path(plan_id: plan.id) do %>
+										<% if user_have_basic_plan(@user) %>
+											<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
+										<% else %>
+											<p class="plan-btn">PASSER A L'OFFRE PRO</p>
+										<% end %>
 									<% end %>
 								<% else %>
+								<%= link_to new_subscription_path(plan_id: plan.id) do %>
 									<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
 								<% end %>
-							<% end %>
+								<% end %>
 						<% end %>
 					<% else %>
 						<% if basic_plan(plan) %>
@@ -96,6 +100,9 @@
 	<div class="sale-txt-cntnr">
 	<h2 class="big-white-h2">Éssai gratuit</h2>
 	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
+	<% if @user %>
+		<i>Sélectionnez l'une des formules ci-dessus</i>
+	<% else %>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
@@ -104,6 +111,7 @@
 						COMMENCER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
       <% end %>
+	<% end %>
 </div>
 <div class="sale-bckgrnd">
 </div>
