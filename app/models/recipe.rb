@@ -21,7 +21,7 @@ class Recipe < ActiveRecord::Base
                                     :content_type => /^image\/(png|gif|jpeg)/
 
 	def reject_quantity(attribute)
-		attribute['ingredient_id'].blank? || attribute['weight'].blank?
+		attribute['ingredient_id'].blank?
 	end
 
 	def percentage_of(matter)

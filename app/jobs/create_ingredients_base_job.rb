@@ -674,6 +674,12 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 										fat_percent: "0.3", water_percent: "82", sugar_percent: "2.5", kcal: "51", dry_matter_percent: "18", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Chocolat blanc satin",price:"12.50" , unit: "Kg", category: "Chocolats", sugar_power: "43.8", alcool_percent: "", cocoa_butter_percent: "30.5",
 										fat_percent: "", water_percent: "0", sugar_percent: "43.8", kcal: "525", dry_matter_percent: "100", cocoa_percent: "", cocoa_total_percent: "30.5", provider_id: "" },
+										{ name: "Sorbitol",price:"15" , unit: "Kg", category: "Sucres", sugar_power: "50", alcool_percent: "", cocoa_butter_percent: "",
+										fat_percent: "", water_percent: "2", sugar_percent: "50", kcal: "240", dry_matter_percent: "98", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
+										{ name: "",price:"" , unit: "", category: "", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "",
+										fat_percent: "", water_percent: "", sugar_percent: "", kcal: "", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
+										{ name: "",price:"" , unit: "", category: "", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "",
+										fat_percent: "", water_percent: "", sugar_percent: "", kcal: "", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "",price:"" , unit: "", category: "", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "",
 										fat_percent: "", water_percent: "", sugar_percent: "", kcal: "", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" }
 										])
