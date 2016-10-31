@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = @user.recipes.new
-    @quantity = @recipe.quantities.build
+    6.times { @quantity = @recipe.quantities.build }
   end
 
   # GET /recipes/1/edit
@@ -75,8 +75,8 @@ class RecipesController < ApplicationController
         flash[:notice] = 'Recette créée avec succès'
         #format.json { render :edit, status: :created, location: edit_recipe_path }
       else
-        format.html { render :new }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        redirect_to recipes_path
+        flash[:error] = 'Erreur lors de la création de la recette'
       end
   end
 

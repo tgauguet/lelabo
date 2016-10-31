@@ -3241,12 +3241,21 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 .provider-field select{
 	width: 13em !important;
-	border-top-left-radius: 0.3em;
-	border-bottom-left-radius: 0.3em;
-	border-top-right-radius: 0em;
-	border-bottom-right-radius: 0em;
+	border-radius: 0em;
 	padding-left: 2.5em;
 	margin-left: 0em;
+}
+
+.add_ingredients .provider-field:first-child select{
+	border-top-left-radius: 0.3em;
+}
+
+.add_ingredients .ingr-field:first-child .right-field{
+	border-top-right-radius: 0.3em;
+}
+
+.ingr-field .right-field{
+	border-radius: 0em;
 }
 
 .recipe-comp-sel{
