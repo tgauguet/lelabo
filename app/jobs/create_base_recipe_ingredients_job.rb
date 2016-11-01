@@ -4,8 +4,6 @@ class CreateBaseRecipeIngredientsJob < ActiveJob::Base
 	def perform(user)
 		begin
 			user.ingredients.create!([
-            { name: "Chocolat blanc satin",price:"12.50" , unit: "Kg", category: "Chocolats", sugar_power: "43.8", alcool_percent: "", cocoa_butter_percent: "30.5",
-            fat_percent: "", water_percent: "0", sugar_percent: "43.8", kcal: "525", dry_matter_percent: "100", cocoa_percent: "", cocoa_total_percent: "30.5", provider_id: "" },
             { name: "Sorbitol",price:"15" , unit: "Kg", category: "Sucres", sugar_power: "50", alcool_percent: "", cocoa_butter_percent: "",
             fat_percent: "", water_percent: "2", sugar_percent: "50", kcal: "240", dry_matter_percent: "98", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
             { name: "Chocolat Amer",price:"9.8" , unit: "Kg", category: "Chocolats", sugar_power: "34.4", alcool_percent: "", cocoa_butter_percent: "40.3",
