@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 		end
 
 		def business_user?
-			(self.subscription && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com" || self.email == "severine.faure4@wanadoo.fr"
+			(self.subscription && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com" || self.email == "severine.faure4@wanadoo.fr" || self.email == "timothee.gauguet@orange.fr"
 		end
 
 		def basic_user?
