@@ -4,7 +4,7 @@ class CreateRecipesBaseJob < ActiveJob::Base
 	def perform(user)
 		begin
 			if !user.ingredients.blank?
-				image1 = File.new(Rails.root.join("public", "assets", "hot-chocolate.jpg"))
+				image1 = File.new(Rails.root.join(*%w( app assets images hot-chocolate.jpg)))
 				image2 = File.new(Rails.root.join("public", "assets", "gianduja.jpg"))
 				image3 = File.new(Rails.root.join("public", "assets", "truffe.jpg"))
 				image4 = File.new(Rails.root.join("public", "assets", "amandecara.jpg"))
