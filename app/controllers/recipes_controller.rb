@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
       format.html
       format.js { render :edit }
       format.pdf do
-        render  pdf: '@user.name',
+        render  pdf: @recipe.name,
                 template: 'recipes/show.pdf.erb',
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }
@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        @pdf = render_to_string  pdf: '@user.name',
+        @pdf = render_to_string  pdf: @recipe.name,
                 template: 'recipes/show.pdf.erb',
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }

@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 							if @user.ingredients.blank?
 					      CreateIngredientsBaseJob.delay.perform_later(@user)
 								CreateProvidersBaseJob.delay.perform_later(@user)
+								CreateRecipesBaseJob.delay.perform_later(@user)
 							end
 				      redirect_to root_path
 				    elsif !@user.account_name.nil? && !@user.firstname.nil?

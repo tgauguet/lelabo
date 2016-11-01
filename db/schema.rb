@@ -30,8 +30,6 @@ ActiveRecord::Schema.define(version: 20161026145850) do
     t.string   "category"
     t.integer  "user_id"
     t.text     "notes"
-    t.integer  "position"
-    t.integer  "priority"
     t.boolean  "stared"
     t.boolean  "loved"
   end
@@ -100,11 +98,9 @@ ActiveRecord::Schema.define(version: 20161026145850) do
     t.string   "quantity"
     t.integer  "recipe_id"
     t.string   "unit"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
     t.integer  "user_id"
-    t.integer  "position"
-    t.integer  "priority"
     t.string   "category"
     t.string   "ordering"
     t.decimal  "fat_percent"
@@ -121,7 +117,7 @@ ActiveRecord::Schema.define(version: 20161026145850) do
     t.boolean  "is_bio"
     t.boolean  "is_glut_free"
     t.integer  "stabilizer"
-    t.boolean  "is_pulp"
+    t.boolean  "is_pulp",                                      default: false
   end
 
   create_table "newsletters", force: :cascade do |t|
