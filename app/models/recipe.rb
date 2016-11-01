@@ -16,8 +16,6 @@ class Recipe < ActiveRecord::Base
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :size => { :in => 0..300.kilobytes },
 																		:default_url => "/images/missing-cake.png",
-																		:path => "public/system/:class/:id/:filename",
-    																:url => "/system/:class/:id/:basename.:extension"
                                 }
   validates_attachment_content_type :image,
                                     :content_type => /^image\/(png|gif|jpeg)/
