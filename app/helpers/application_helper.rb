@@ -33,7 +33,7 @@ module ApplicationHelper
     end
 
     def white_layouts
-        (controller.controller_name == "pages" && controller.action_name != "page_not_found" ) || controller.controller_name == "contacts" || controller.controller_name == "blogs"
+        (controller.controller_name == "pages" && controller.action_name != "page_not_found" ) || controller.controller_name == "contacts" || controller.controller_name == "blogs" 
     end
 
     def not_useful

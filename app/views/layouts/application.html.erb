@@ -46,7 +46,7 @@
   <% end %>
 <% end %>
 <%= yield %>
-<% if white_layouts || current_page?(root_url)%>
+<% if white_layouts || (!current_user && current_page?(root_url))%>
   <%= render "layouts/welcome_footer" %>
 <% end %>
 </body>
