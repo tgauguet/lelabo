@@ -1,7 +1,10 @@
 <% title "Abonnements" %>
 <%= link_to root_path do %><p class="red-color"><span class="image-hovered"></span>Retour à l'accueil</p><% end %>
-<div class="title-cntnr">
+<div class="title-cntnr scroll-here2">
 	<h1 class="big-white-h1">Tarifs</h1>
+	<h2 class="big-white-h2">Offre de lancement</h2>
+	<h3 class="big-white-h3">Profitez de - 20% sur toutes vos formules</h3>
+	<p>Offre valable avant le 31 Décembre 2016</p>
 	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le souhaitez.</p>
 </div>
 	<% @plans.each do |plan| %>
@@ -52,15 +55,15 @@
 								<!-- end of scroll down -->
 							<% end %>
 						<% else %>
-							<%= link_to new_subscription_path(plan_id: plan.id) do %>
 								<% if !@user %>
-									<p class="plan-btn">ESSAI GRATUIT</p>
+									<p class="plan-btn scroll">ESSAI GRATUIT</p>
 								<% else %>
-									<!-- après validation des features : "Passer à une offre supérieure" -->
-									<p class="plan-btn">ESSAI GRATUIT</p>
-									<!-- Dans le paragraphe ci-dessus -->
+									<%= link_to new_subscription_path(plan_id: plan.id) do %>
+										<!-- après validation des features : "Passer à une offre supérieure" -->
+										<p class="plan-btn">ESSAI GRATUIT</p>
+										<!-- Dans le paragraphe ci-dessus -->
+									<% end %>
 								<% end %>
-							<% end %>
 						<% end %>
 				<% end %></div>
 			</div>
@@ -73,6 +76,7 @@
 					<p>-Ajout de nouveaux ingrédients</p>
 					<p>-Téléchargements au format Pdf</p>
 					<p>-Aide et support</p>
+					<p>-Près de 400 ingrédients</p>
 					<p>-Accès sur tous vos appareils</p>
 				<% end %>
 				<% if pro_plan(plan) %>
@@ -81,9 +85,11 @@
 					<p>-Calcul des quantités de votre recette</p>
 					<p>-Meilleure gestion de vos recettes</p>
 					<p>-Gestion des fournisseurs</p>
+					<p>-Nouvelles options de téléchargements</p>
 					<p>-Ajout d'une photo à vos recettes</p>
 					<p>-Enlever le logo du Labo sur vos recettes</p>
 					<p>-Aide et support prioritaire</p>
+					<p>-Gestion des stocks (prochainement)</p>
 				<% end %>
 				<% if entreprise_plan(plan) %>
 					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
@@ -93,27 +99,24 @@
 					<p>-Calculs de la composition de vos recettes</p>
 					<p>-Ajout de plusieurs photos à vos recettes</p>
 					<p>-Inviter vos collaborateurs sur votre compte (prochainement)</p>
+					<p>-Impression des étiquettes de vos recettes (prochainement)</p>
+					<p>-Accès au mur de recettes (prochainement)</p>
 				<% end %>
 			</div>
 		</div>
 	<% end %>
-	<div class="sale-txt-cntnr">
-	<h2 class="big-white-h2">Éssai gratuit</h2>
-	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
-	<% if @user %>
-		<i>Sélectionnez l'une des formules ci-dessus</i>
-	<% else %>
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-				<%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
-				<%= f.button :submit do %>
-						COMMENCER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
-				<% end %>
-      <% end %>
-	<% end %>
-</div>
+	<br/><br/><br/>
 <div class="sale-bckgrnd">
+	<div class="sale-cntnr">
+		<%= image_tag "rocket.png", class: "rocket", alt: "rocket" %>
+	</div>
+	<div class="sale-cntnr">
+		<h2>Une nouvelle perspective</h2>
+		<p>Toute l'année, des ingénieurs travaillent sur Le Labo afin de mieux répondre à vos attentes.</p>
+		<p>Résultat : des features plus travaillées, des mises à jours régulières et la garantie d'utiliser une application en constante recherche de gain de temps et de qualité pour ses clients.</p>
+		<br/>
+		<p>Le Labo n'est pas seulement conçu pour les pros, il est amélioré à leurs côtés.</p>
+	</div>
 </div>
 <% unless signed_in? %>
 <div class="sale-txt-cntnr scroll-here">
@@ -130,21 +133,49 @@
 </div>
 <% end %>
 <div class="sale-div-cntnr">
-	<div class="feature-cntnr">
-		<%= image_tag "feature1.jpg", class: "feature-img2", alt: "feature" %>
-		<p>Vos données sont en sécurité</p>
-		<i>Vos données sont en sécurité et toujours accessibles sur nos serveurs sécurisés.</i>
+	<h2 class="big-white-h2">Questions Fréquentes</h2><br/><br/>
+	<div class="quest-cntnr">
+		<div>
+			<h3>Ou puis-je en savoir plus sur Le Labo ?</h3>
+			<p>La meilleure façon de savoir si Le Labo vous convient est de l'essayer. Notre offre gratuite possède une grande partie des options nécessaires pour vous faire une expérience complète.</p>
+		</div>
+		<div>
+			<h3>Comment se passe la sécurisation de mes données ?</h3>
+			<p>Nous prenons la sécurité de vos données très au sérieux. Et pour une bonne raison : chaque personne qui utilise Le Labo attend que ses données soient sécurisées et confidentielles. Nous travaillons pour maintenir cette confiance.</p>
+			<p>Toutes les pages sont sécurisées, notamment grace à l'encryption SSL.</p>
+		</div>
+		<div>
+			<h3>Quelle est l'approche du Labo vis à vis de mes données ?</h3>
+			<p>Tout ce que vous publiez sur Le Labo est privé et visible seulement depuis votre compte. Tout le contenu que vous créez demeure votre propriété.</p>
+		</div>
+		<div>
+			<h3>Puis-je utiliser Le Labo gratuitement ?</h3>
+			<p>Oui, vous pouvez utiliser Le Labo gratuitement. Vos options seront limitées.</p>
+		</div>
+		<div>
+			<h3>Quelles sont mes options de paiement ?</h3>
+			<p>Vous pouvez utiliser votre carte bancaire pour toute les formules. Vous recevrez votre facture immédiatement après votre abonnement.</p>
+			<p><%= link_to aide_path do %>Contactez-nous<% end %> en cas de question</p>
+		</div>
+		<div>
+			<h3>Comment profiter d'un essai gratuit ?</h3>
+			<p>Pour essayer toutes les options du Labo gratuitement, c'est très simple. Il vous suffit de procéder à la commande de la formule que vous souhaitez essayer.</p>
+			<p>Composez ensuite vos informations de paiement, vous aurez accès directement à la formule sans que rien ne vous soit débité.</p>
+			<p>Vous avez ensuite 14 jours pour nous <%= link_to aide_path do %>Contacter<% end %> si vous ne souhaitez pas poursuivre l'abonnement.</p>
+		</div>
 	</div>
-	<div class="feature-cntnr">
-		<%= image_tag "feature2.jpg", class: "feature-img2", alt: "données sécurisées" %>
-		<p>Une équipe à votre écoute</p>
-		<i>Nous faisons le maximum pour perfectionner notre logiciel. Si toutefois vous avez un problème, notre équipe est à votre écoute.</i>
-	</div>
+	<p class="btn back-to-top scroll2"><%= image_tag "arrow-top.png", class: "small-img", alt: "back to the top" %> RETOUR EN HAUT DE PAGE</p>
 </div>
 <script>
 $(".scroll").click(function() {
 $('html,body').animate({
 		scrollTop: $(".scroll-here").offset().top},
+		'slow');
+});
+
+$(".scroll2").click(function() {
+$('html,body').animate({
+		scrollTop: $(".scroll-here2").offset().top},
 		'slow');
 });
 </script>
