@@ -19,6 +19,8 @@
       </div>
       <p>Auteur</p>
       <%= f.text_field :owner, class: "basic-field big-compo rounded-field", value: user_if_nil(@assembly) %>
+      <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %>Recette star</p>
+      <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %>Recette préférée</p>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
     <% if @user.basic_user? %>

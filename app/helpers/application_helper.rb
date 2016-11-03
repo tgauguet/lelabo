@@ -12,6 +12,14 @@ module ApplicationHelper
         :user
     end
 
+		def stared(value)
+			value.stared ? "star.png" : "missing-star.png"
+		end
+
+		def loved(value)
+			value.loved ? "heart-2.png" : "heart.png"
+		end
+
     def resource
         @resource ||= User.new
     end
@@ -45,14 +53,6 @@ module ApplicationHelper
         href = html_options[:href] || '#'
 
         content_tag(:a, name, html_options.merge(:href => href, :onclick => onclick))
-    end
-
-    def update_stared_item(item)
-        item.stared ? false : true
-    end
-
-		def update_loved_item(item)
-        item.loved ? false : true
     end
 
     def user_if_nil(obj)

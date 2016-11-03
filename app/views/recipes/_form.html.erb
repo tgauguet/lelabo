@@ -22,6 +22,8 @@
       <p>Cuisson</p>
       <%= image_tag "celsius.png", class: "field-img euro-img" %>
       <%= f.text_field :baking, class: "basic-field recipe-comp-sel rounded-field" %>
+      <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %>Recette star</p>
+      <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %>Recette préférée</p>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
     <% if @user.basic_user? %>
@@ -50,7 +52,7 @@
       <%= f.cktext_area :process, placeholder: "procédé", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
   </div>
-    <br/>
-    <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
+  <br/>
+  <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
   </div>
 <% end %>

@@ -1,5 +1,4 @@
-<div class="star">
-  <div class="class-helper inline_divs">
+  <div class="class-helper inline_divs star">
     <% unless recipe.category.nil? %>
     	<div class="circle <%= category_color(recipe) %>"></div>
     <% end %>
@@ -11,24 +10,10 @@
         <% end %>
         <span class="ing-price">
           <span class="ing-img">
-            <%= form_for recipe, remote: true do |f| %>
-                <%= f.hidden_field :stared, value: update_stared_item(recipe) %>
-                <% if recipe.stared %>
-                  <%= image_submit_tag "star.png", class: "stared-item" %>
-                <% else %>
-                  <%= image_submit_tag "missing-star.png", class: "stared-item" %>
-                <% end %>
-            <% end %>
+            <%= image_tag stared(recipe), class: "stared-item" %>
           </span>
           <span class="ing-img2">
-            <%= form_for recipe, remote: true do |f| %>
-                <%= f.hidden_field :loved, value: update_loved_item(recipe) %>
-                <% if recipe.loved %>
-                  <%= image_submit_tag "heart-2.png", class: "stared-item2" %>
-                <% else %>
-                  <%= image_submit_tag "heart.png", class: "stared-item2" %>
-                <% end %>
-            <% end %>
+            <%= image_tag loved(recipe), class: "stared-item2" %>
           </span>
   			</span>
         <span class="ing-unit">
@@ -41,4 +26,3 @@
         <% end %>
     </div>
   </div>
-</div>
