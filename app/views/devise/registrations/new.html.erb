@@ -18,8 +18,8 @@
             <%= image_tag "speed-feeling.png", class: "speed-img", alt: "rapide" %>
             <%= image_tag "test.png", class: "logo-white new-home" %>
             <br/>
-            <h2><span class="element"></span></h2>
             <h1>VOS RECETTES</h1>
+            <h2><span class="element"></span></h2>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= devise_error_messages! %>
               <%= image_tag "mail.png", class: "field-img-big" %>
@@ -36,7 +36,7 @@
 <script>
 $(func = function () {
   $(".element").typed({
-      strings: ['RENTABILISEZ','CALCULEZ','EQUILIBREZ','AMELIOREZ','ORGANISEZ','ESTIMEZ',''],
+      strings: ['RENTABILISÉES','CALCULÉES','EQUILIBRÉES','AMÉLIORÉES','ORGANISÉES','ESTIMÉES',''],
       typeSpeed: 100, // typing speed
       backDelay: 2000,
       callback: function (){
