@@ -462,7 +462,6 @@ header .transparent{
 .transparent ul li{
   display: inline-block;
   font-size: 0.9em;
-  color: white;
   margin-left: 1em;
   margin-right: 1em;
   margin-top: -0.4em;
@@ -481,7 +480,8 @@ ul li{
 
 .white{
   opacity: 0.9;
-  border: 2px solid white;
+  border: 2px solid rgb(43,54,69);
+	color: rgb(43,54,69);
 }
 
 .black{
@@ -498,17 +498,6 @@ ul li{
   width: 7em;
   margin-top: 0.4em;
   margin-left: 3em;
-}
-
-.inscription_container{
-  border-radius: 0.3em;
-  background: rgba(0,0,0,0.5);
-  padding-top: 1em;
-  padding-bottom: 1em;
-  width: 35em;
-  margin-right: auto;
-  margin-top: 2em;
-  margin-left: auto;
 }
 
 .inscription_container ul li{
@@ -637,19 +626,87 @@ ul li{
   background: white !important;
 }
 
+.inscription_container{
+	background: rgb(84,88,223);
+	margin-left: auto;
+	margin-right: auto;
+	width: 46em;
+	margin-top: 4em;
+	height: 28em;
+	border-radius: 0.8em;
+	position: relative;
+}
+
+.new-home{
+	margin-top: -4.5em;
+	border-radius: 100%;
+	background: white;
+	padding: 1em;
+	width: 13em;
+	margin-bottom: 2.6em;
+}
+
+.background-colr, .sec-bck{
+	padding-bottom: 10em;
+	margin-bottom: -12.5em;
+	background: rgba(250, 250, 250, .1);
+	background-position: 0px 0px;
+	background-image: url("<%= asset_path('test2.png') %>");
+	background-repeat: repeat-x;
+	animation: animatedBackground 30s linear infinite;
+}
+
+.sec-bck{
+	animation: animatedBackground 25s linear infinite;
+}
+
+.first-bck{
+	background: rgba(250, 250, 250, .4);
+}
+
+.sec-bck{
+	background-image: url("<%= asset_path('speed2.png') %>");
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+.speed-img{
+	width: 7em;
+	position: absolute;
+	left: 0;
+	margin-top: 9em;
+	margin-left: -6.9em;
+}
+
 .home-cntnr h1, .home-cntnr h2{
 	color: white;
 	font-weight: 400;
 }
 
 .home-cntnr h1{
-  font-size: 3.4em;
-  font-weight: bold;
+  font-size: 5.5em;
+  font-family: 'source_sans_probold' !important;
   margin-bottom: -0.1em;
+	margin-top: -0.3em;
 }
 
-.home-cntnr h2{
-  font-size: 1.3em;
+.home-cntnr h2 span{
+  font-size: 2em;
+	margin-top: 0.3em;
+	color:white !important;
+	margin-bottom: 0em;
+	opacity: 0.7;
+	font-family: 'source_sans_probold' !important;
 }
 
 .alert_error{
@@ -704,21 +761,23 @@ ul li{
   background: #1BBD9D;
 }
 
-.degraded, .white-foot{
-  background: #333333;
+.white-foot{
+	background: white;
+  border-top: 1px solid rgb(230,230,230);
   margin-top:15em;
   padding-top: 1em;
-  padding-bottom: 4em;
+  padding-bottom: 1em;
   text-align: left;
   padding-left: 5em;
 }
 
-.white-foot{
-  background: white;
-  border-top: 1px solid rgb(230,230,230);
+.mini-footer{
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+	border-top: 1px solid rgb(230,230,230);
 }
 
-.degraded ul li, .white-foot ul li{
+.white-foot ul li{
   color: #D3D3D3;
   font-size: 0.8em;
   margin: 1em;
@@ -728,8 +787,8 @@ ul li{
   color: rgb(43,54,69);
 }
 
-.background-colr, .step-bckgrnd, .sale-bckgrnd, .blog-header-img{
-  background-image: url("<%= asset_path('landing.jpg') %>");
+.step-bckgrnd, .sale-bckgrnd, .blog-header-img{
+  background-image: url("<%= asset_path('test2.png') %>");
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -793,16 +852,6 @@ ul li{
 
 .footer-ttl{
   color: white !important;
-}
-
-.mini-footer{
-  background: #222222;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-}
-
-.mini-footer p{
-	color: white;
 }
 
 .step-left-part, .step-right-part{

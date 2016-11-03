@@ -1,59 +1,47 @@
 <% title "Gérez vos recettes professionnelles" %>
-<div class="background-colr">
-<header>
-  <div class="transparent">
-    <%= link_to root_path do %><%= image_tag "logo-txt-white.png", class: "logo-white to-the-right" %><% end %>
-    <ul>
-      <%= link_to produits_path do %><li>FONCTIONNALITÉS</li><% end %>
-      <%= link_to subscriptions_path do %><li>TARIFS</li><% end %>
-      <%= link_to new_contact_path do %><li>CONTACT</li><% end %>
-      <%= link_to new_user_session_path do %><li class="btn white">SE CONNECTER</li><% end %>
-    </ul>
-  </div>
-</header>
-<div class="home-cntnr">
-  <%= image_tag "logo-white.png", class: "logo-white" %>
-  <h1>Gérez vos recettes professionnelles</h1>
-  <h2>Avec le Labo, créez, améliorez, calculez et partagez vos recettes en toute simplicité</h2>
-  <div class="inscription_container">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <%= image_tag "mail.png", class: "field-img-big" %>
-        <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field welcome-field" %>
-        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-        <%= f.submit "Essayer gratuitement", class: "btn cta-btn welcome-btn" %>
-        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
-      <% end %>
-  </div>
-  <footer>
-    <div class="degraded">
-      <ul>
-        <li class="footer-ttl">NAVIGATION</li>
-        <%= link_to root_path do %><li>Accueil</li><% end %>
-        <%= link_to new_user_session_path do %><li>Se connecter</li><% end %>
-      </ul>
-      <ul>
-        <li class="footer-ttl">LE LABO</li>
-        <%= link_to produits_path do %><li>Produits</li><% end %>
-        <%= link_to new_contact_path do %><li>Contact</li><% end %>
-        <%= link_to blog_path do %><li>Blog</li><% end %>
-        <%= link_to subscriptions_path do %><li>Tarifs</li><% end %>
-      </ul>
-      <ul>
-        <li class="footer-ttl">SOCIAL</li>
-        <a href="https://www.facebook.com/lelaboondemand/"><li>Facebook</li></a>
-        <a href="https://www.instagram.com/le_labo_officiel/"><li>Instagram</li></a>
-      </ul>
-      <ul>
-        <li>AUTRE</li>
-        <%= link_to conditions_generales_utilisation_path do %><li>CGU</li><% end %>
-        <%= link_to conditions_generales_vente_path do %><li>CGV</li><% end %>
-        <%= link_to mentions_legales_path do %><li>Mentions Légales</li><% end %>
-      </ul>
+<div class="sec-bck">
+  <div class="background-colr">
+    <div class="first-bck">
+      <header>
+        <div class="transparent">
+          <%= link_to root_path do %><%= image_tag "logo-txt-black.png", class: "logo-white to-the-right" %><% end %>
+          <ul>
+            <%= link_to produits_path do %><li>FONCTIONNALITÉS</li><% end %>
+            <%= link_to subscriptions_path do %><li>TARIFS</li><% end %>
+            <%= link_to new_contact_path do %><li>CONTACT</li><% end %>
+            <%= link_to new_user_session_path do %><li class="btn white">SE CONNECTER</li><% end %>
+          </ul>
+        </div>
+      </header>
+      <div class="home-cntnr">
+        <div class="inscription_container">
+            <%= image_tag "speed-feeling.png", class: "speed-img", alt: "rapide" %>
+            <%= image_tag "test.png", class: "logo-white new-home" %>
+            <br/>
+            <h2><span class="element"></span></h2>
+            <h1>VOS RECETTES</h1>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+              <%= image_tag "mail.png", class: "field-img-big" %>
+              <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field welcome-field" %>
+              <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+              <%= f.submit "ESSAYER GRATUITEMENT", class: "btn cta-btn welcome-btn" %>
+              <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+            <% end %>
+        </div>
+      </div>
     </div>
-    <div class="mini-footer">
-      <p>© Copyright - lelabo 2016</p>
-    </div>
-  </footer>
+  </div>
 </div>
-</div>
+<script>
+$(func = function () {
+  $(".element").typed({
+      strings: ['RENTABILISEZ','CALCULEZ','EQUILIBREZ','AMELIOREZ','ORGANISEZ','ESTIMEZ',''],
+      typeSpeed: 100, // typing speed
+      backDelay: 2000,
+      callback: function (){
+        func();
+      }
+  });
+});
+</script>

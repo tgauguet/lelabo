@@ -76,6 +76,8 @@ gem 'therubyracer'
 
 gem 'paper_trail'
 
+gem "typedjs-rails", "~> 1.0.4"
+
 group :development, :test do
 
   gem 'byebug'
