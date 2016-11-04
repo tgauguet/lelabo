@@ -3,17 +3,26 @@
 <div class="title-cntnr scroll-here2">
 	<h1 class="big-white-h1">Tarifs</h1>
 	<h2 class="big-white-h2">Offre de lancement</h2>
-	<h3 class="big-white-h3">Profitez de - 20% sur toutes vos formules</h3>
-	<p>Offre valable avant le 31 Décembre 2016</p>
-	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le souhaitez.</p>
+	<h3 class="big-white-h3">20% de réduction <span>(pour toute commande avant le 31 Décembre 2016)</span></h3>
+	<p>Vous pouvez utiliser le Labo gratuitement (basic), aussi longtemps que vous le souhaitez.</p>
 </div>
 	<% @plans.each do |plan| %>
+	<% unless pro_plan(plan) || entreprise_plan(plan) %>
 		<div class="plan-cntnr">
-			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif pro_plan(plan) %> plan-color2 <% else %>plan-color3 <% end %>">
+			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
 				<p class="plan-title"><%= plan.name %></p>
 				<p class="plan-price">
+					<% unless basic_plan(plan) %>
+						<s>
+							<% if plan.name == "PRO" %>
+								11€
+							<% else %>
+								19€
+							<% end %>
+						</s>
+					<% end %>
 					<span>
-						<b><% if !plan.price[0,2].nil? %><%= plan.price[0,2] %><% end %></b>€
+						<b><%= plan.price.to_i %></b>, <% if plan.name == "ENTREPRISE" %><%= plan.price[3,4].to_i %><% else %><%= plan.price[2,4].to_i %><% end %>0€
 					</span>
 				</p>
 				<p class="plan-type">par mois<br/></p>
@@ -79,7 +88,7 @@
 					<p>-Près de 400 ingrédients</p>
 					<p>-Accès sur tous vos appareils</p>
 				<% end %>
-				<% if pro_plan(plan) %>
+				<% if pro_plan(plan) || plan.name == "PRO" %>
 					<p class="colored-p-txt2"><b>PRO inclus</b><br/>plus toutes les options de BASIC</p>
 					<p>-Calcul de vos coûts de revient</p>
 					<p>-Calcul des quantités de votre recette</p>
@@ -91,7 +100,7 @@
 					<p>-Aide et support prioritaire</p>
 					<p>-Gestion des stocks (prochainement)</p>
 				<% end %>
-				<% if entreprise_plan(plan) %>
+				<% if entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
 					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
 					<p>-Équilibrage de vos ganaches</p>
 					<p>-Équilibrage de vos glaces</p>
@@ -105,6 +114,7 @@
 			</div>
 		</div>
 	<% end %>
+	<% end %>
 	<br/><br/><br/>
 <div class="sale-bckgrnd">
 	<div class="sale-cntnr">
@@ -113,7 +123,7 @@
 	<div class="sale-cntnr">
 		<h2>Une nouvelle perspective</h2>
 		<p>Toute l'année, des ingénieurs travaillent sur Le Labo afin de mieux répondre à vos attentes.</p>
-		<p>Résultat : des features plus travaillées, des mises à jours régulières et la garantie d'utiliser une application en constante recherche de gain de temps et de qualité pour ses clients.</p>
+		<p>Résultat : des options plus travaillées, des mises à jours régulières et la garantie d'utiliser une application en constante recherche de gain de temps et de qualité pour ses clients.</p>
 		<br/>
 		<p>Le Labo n'est pas seulement conçu pour les pros, il est amélioré à leurs côtés.</p>
 	</div>
@@ -126,7 +136,7 @@
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
 				<%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
 				<%= f.button :submit do %>
-						BAH OUI !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+						ESSAYER GRATUITEMENT<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>

@@ -1,13 +1,13 @@
 <% title "Fonctionnalités" %>
 <div class="title-cntnr">
-	<h1 class="big-white-h1">Le meilleur travail commence avec les meilleures recettes.</h1>
+	<h1 class="big-white-h1">Le meilleur travail commence avec les meilleures recettes</h1>
 	<p>Le Labo vous permet d'optimiser et de gérer vos recettes, facilement.</p>
 </div>
 <div class="product-cntnr">
 	<div class="product-right-img-cntnr"><%= image_tag "lelabo-product.jpg", class: 'product-right-img', alt: "mode de fonctionnement" %></div>
 	<div class="product-left-cntnr">
 		<div class="abs-cntnr abs1">
-			<div class="abs-feature feat1"></div>
+			<div class="abs-feature"><%= image_tag "feat1.png", alt: "feature image" %></div>
 			<div class="abs-txt abs-t1">
 				<div class="txt-cntnr beautiful-txt-color">
 					<h3>Classements</h3>
@@ -16,25 +16,25 @@
 			</div>
 		</div>
 		<div class="abs-cntnr abs2">
-			<div class="abs-feature feat2"></div>
+			<div class="abs-feature"><%= image_tag "feat2.png", alt: "feature image" %></div>
 			<div class="abs-txt abs-t2">
 				<div class="txt-cntnr beautiful-txt-color">
-					<h3>Partages</h3>
-					<p>Partagez vos recettes auprès d'autres professionnels</p>
+					<h3>Équilibre</h3>
+					<p>Calculez leur composition et équilibrez vos recettes</p>
 				</div>
 			</div>
 		</div>
 		<div class="abs-cntnr abs3">
-			<div class="abs-feature feat3"></div>
+			<div class="abs-feature"><%= image_tag "feat3.png", alt: "feature image" %></div>
 			<div class="abs-txt abs-t3">
 				<div class="txt-cntnr beautiful-txt-color">
-					<h3>Optimisations</h3>
-					<p>Améliorez le goût et la rentabilité de vos recettes</p>
+					<h3>Coût de revient</h3>
+					<p>Gérez le coût et la rentabilité de vos recettes</p>
 				</div>
 			</div>
 		</div>
 		<div class="abs-cntnr abs4">
-			<div class="abs-feature feat4"></div>
+			<div class="abs-feature"><%= image_tag "feat4.png", alt: "feature image" %></div>
 			<div class="abs-txt abs-t4">
 				<div class="txt-cntnr beautiful-txt-color">
 					<h3>Sécurité</h3>
@@ -44,24 +44,53 @@
 		</div>
 	</div>
 </div>
-<div class="sale-txt-cntnr grey-bckgrnd">
-	<h2 class="big-white-h2">Le moyen le plus simple<br/> de créer de meilleurs produits</h2>
-	<p>Essayez PRO et BUSINESS gratuitement pendant 14 jours</p>
-	<br/><br/>
-</div>
-<div class="sale-txt-cntnr blue-bckgrnd">
-	<h2 class="big-white-h2">Vos nouveaux outils<br/>avec vous partout</h2>
-	<p>Utilisez le Labo sur ordinateur, smartphone et tablette.</p>
-	<%= image_tag "responsive.png", class: "reduce-img" %>
-</div>
-<div class="sale-txt-cntnr">
-	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2>
+<div class="sale-txt-cntnr no-btm-brd">
+	<h2 class="big-white-h2">Utiliser Le Labo gratuitement</h2>
+	<p>Aussi longtemps que vous le souhaitez</p><br/>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
         <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
 				<%= f.button :submit do %>
-					BAH OUI !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+					COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+				<% end %>
+        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+      <% end %>
+</div>
+<div class="sale-bckgrnd">
+	<div class="sale-cntnr">
+		<%= image_tag "blender.png", class: "rocket2", alt: "rocket" %>
+	</div>
+	<div class="sale-cntnr">
+		<h2 class="big-white-h2">Tous vos outils en un seul endroit.</h2>
+		<p>Connectez tous les outils que vous utilisez en un seul endroit. Calculs de vos coûts de revient, équilibrage de vos glaces, ganaches et sorbets, Impression de vos recettes, gestion de vos fournisseurs... et bien plus encore !</p>
+	</div>
+</div>
+<div class="sale-bckgrnd white-bck">
+	<div class="sale-cntnr">
+		<h2 class="big-white-h2">Vos recettes sont en sécurité</h2><br/>
+		<p>Toutes vos données restent exclusivement privées. Toutes vos recettes restent votre propriété.</p>
+		<p>Le Labo sauvegarde vos données chaque semaine sur des serveurs de secours.</p>
+	</div>
+	<div class="sale-cntnr">
+		<%= image_tag "security.png", class: "rocket2", alt: "rocket" %>
+	</div>
+</div>
+<div class="sale-txt-cntnr blue-bckgrnd">
+	<h2 class="big-white-h2">Partout ou vous allez</h2>
+	<p>Parce qu'il s'adapte à la taille de tous vos écrans. Vous pouvez utiliser Le Labo ou que vous soyez, quoi que vous fassiez.</p>
+	<p>Tous vos appareils sont désormais syncronisés.</p>
+	<%= image_tag "responsive.png", class: "reduce-img" %>
+</div>
+<div class="sale-txt-cntnr no-btm-brd">
+	<h2 class="big-white-h2">Utiliser Le Labo gratuitement</h2>
+	<p>Aussi longtemps que vous le souhaitez</p><br/>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+        <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
+				<%= f.button :submit do %>
+					COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>

@@ -984,6 +984,10 @@ header .normal_header{
 	margin-top: -0.4em;
 }
 
+.big-white-h3 span{
+  font-size: .6em;
+}
+
 .big-ttle{
   font-family: 'source_sans_prosemibold';
   font-size: 1.8em;
@@ -1029,6 +1033,14 @@ header .normal_header{
 
 .plan-price{
   font-size: 2em;
+}
+
+.plan-price s{
+	margin-top: -0.1em;
+	color: white;
+	opacity: 0.5;
+	display: block;
+	margin-bottom: -0.8em;
 }
 
 .plan-btn-cntnr{
@@ -1395,6 +1407,10 @@ header .normal_header{
 	width: 15em;
 }
 
+.rocket2{
+	width: 20em;
+}
+
 .sale-cntnr{
 	display: inline-block;
 	vertical-align: top;
@@ -1415,6 +1431,14 @@ header .normal_header{
   background: rgb(84,88,223);;
   padding-top: 4em;
 	padding-bottom: 4em;
+}
+
+.white-bck{
+	background: white;
+}
+
+.white-bck h2, .white-bck p{
+	color: rgb(43,54,69);
 }
 
 .sale-div-cntnr{
@@ -1480,32 +1504,13 @@ header .normal_header{
 }
 
 .abs-feature{
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
   width: 4em;
   height: 4em;
 }
 
-.feat-img, .feat-img2, .feat-img3, .feat-img4, .feat-img5{
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
-  float: right;
-  margin-top: -1.5em;
-  width: 1.8em;
-  margin-left: 0.6em;
-  margin-right:0.6em;
-  height: 1.8em;
-  display: inline-block;
+.abs-feature img{
+  width: 6em;
+  height: 6em;
 }
 
 .search-field{
@@ -1619,22 +1624,6 @@ header .normal_header{
   margin-left: -3.3em;
 }
 
-.feat1{
-  background-image: url("<%= asset_path('big-star2.png') %>");
-}
-
-.feat2{
-  background-image: url("<%= asset_path('big-fb2.png') %>");
-}
-
-.feat3{
-  background-image: url("<%= asset_path('big-calc2.png') %>");
-}
-
-.feat4{
-  background-image: url("<%= asset_path('big-lock2.png') %>");
-}
-
 .feat1:hover, .abs-cntnr:hover .feat1{
   background-image: url("<%= asset_path('big-star1.png') %>");
 }
@@ -1714,7 +1703,7 @@ header .normal_header{
 }
 
 .blue-bckgrnd{
-  background: #328ECC;
+  background: rgb(22, 82, 224);
 }
 
 .blue-bckgrnd h2, .blue-bckgrnd p{
@@ -1734,6 +1723,10 @@ header .normal_header{
   height: 28em;
   overflow: hidden;
   text-align: justify;
+}
+
+.no-btm-brd{
+	border-bottom: none;
 }
 
 .card-cntnr{
