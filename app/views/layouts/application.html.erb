@@ -45,10 +45,38 @@
     </div>
   <% end %>
 <% end %>
+<!-- Exit-intent pop over BEGIN -->
+<% if blog_pages %>
+  <div id="ouibounce-modal">
+    <div class="underlay"></div>
+    <div class="modal">
+      <div class="inside_modal">
+        <p class="big-txt">Êtes-vous pâtissier ?</p><br/>
+        <p>Rentabilisez vos recettes avec <%= link_to root_path do %>Le Labo<% end %>, l'application de gestion de votre production !</p><br/>
+        <%= image_tag "cta-img.png", class: "cta-img", alt: "macbook photo" %>
+        <div class="modal-footer">
+          <%= link_to root_path do %><p class="btn inside-btn" >ESSAYER GRATUITEMENT</p><% end %><br/>
+          <p class="no-thanks" onclick="document.getElementById('ouibounce-modal').style.display = 'none';">Non merci</p><br/>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!-- Exit-intent pop over END -->
 <%= yield %>
 <% if white_layouts || (!current_user && current_page?(root_url))%>
   <%= render "layouts/welcome_footer" %>
 <% end %>
 </body>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<noscript>
+  <h3>JavaScript Requis</h3>
+  <p>Pour pouvoir utiliser ce site, merci d'activer Javascript sur votre navigateur. Il est actuellement invalide.</p>
+  <p>Une fois Javascript activé, vous pouvez recharger la page.</p>
+</noscript>
+  <script>
+  //exit_intent popover script
+    var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'),{
+      aggressive: false, //Making this true makes ouibounce not to obey "once per visitor" rule
+    });
+  </script>
 </html>

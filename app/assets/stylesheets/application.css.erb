@@ -4393,9 +4393,60 @@ textarea {
 
 }
 
-/* RESPONSIVE DESIGN FOR IMAC VIEWS (PLACE WHERE BURGER MENU HAPPEN)*/
-@media screen and (max-width : 70em){
+/*** CSS design for exit intent pop over  **/
 
+#ouibounce-modal{
+    display: none;
+}
 
+.modal{
+	position: absolute;
+	position: fixed;
+	margin-top: -7em;
+	z-index: 400000;
+	width: 100%;
+	min-width: 100%;
+	height: 130%;
+  min-height: 100%;
+	background: rgba(0,0,0,0.6);
+}
 
+.inside_modal{
+	background: white;
+	width: 30em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 4em;
+	padding: 2em;
+	z-index: 390000;
+	border-radius: 0.6em;
+	padding-bottom: 2em;
+}
+
+.inside_modal .big-txt{
+	font-size: 2.5em;
+	font-family: "source_sans_prolight";
+}
+
+.modal p{
+	font-size: 1.1em;
+}
+
+.inside_modal p a{
+	color: rgb(22, 82, 224);
+}
+
+.cta-img{
+	width: 100%;
+	margin-bottom: -1em;
+	margin-top: -1em;
+}
+
+.no-thanks{
+	font-size: 0.85em !important;
+	color: rgb(144,144,144);
+	cursor: pointer;
+	width: 7em;
+	margin-left: auto;
+	margin-right: auto;
 }
