@@ -10,7 +10,7 @@
 			<p>Prix</p>
 			<div class="price-field">
 				<%= f.text_field :price, placeholder: "Prix", class: "basic-field left-field" %>
-				<%= f.select :unit, ["Kg", "Litre"], class: "basic-field" %>
+				<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field" %>
 			</div>
 		</div>
 		<p>TVA</p>
@@ -69,6 +69,19 @@
 		<p class="custom-checkbox check-orange"><%= f.check_box :is_glut_free %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Contient du gluten</p>
 		<p class="custom-checkbox check-green"><%= f.check_box :is_bio %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Biologique</p>
 		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p>
+		<br/><h3>Poids</h3><br/>
+		<div class="composition-info ing-weights">
+			<p>Poids du Produit</p>
+			<p>Nb d'Unités/Produit</p>
+			<p>Poids par Unité</p>
+		</div>
+		<div class="composition comp2">
+				<%= image_tag "gramme.png", class: "field-img euro-img" %>
+				<%= f.text_field :weight, class: "basic-field top-rad" %>
+				<%= f.text_field :unit_quantity, class: "basic-field special-top" %>
+				<%= image_tag "gramme.png", class: "field-img euro-img" %>
+				<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad" %>
+		</div>
 	</div>
 	<br/><br/>
 	<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>

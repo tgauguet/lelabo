@@ -11,22 +11,34 @@
   <% end %>
 <div class="recipe-form">
   <div class="recipe-cntnr r-smll-cntnr">
-      <p>*Nom</p>
-      <%= f.text_field :name, class: "basic-field big-compo rounded-field" %>
-      <div class="select-areas recipe-cat">
-        <p>Catégorie</p>
-        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field" %>
-      </div>
-      <p>Auteur</p>
-      <%= f.text_field :owner, class: "basic-field big-compo rounded-field", value: user_if_nil(@recipe) %>
-      <p>Cuisson</p>
-      <%= image_tag "celsius.png", class: "field-img euro-img" %>
-    <div class="form-div">
-      <%= f.text_field :baking, class: "basic-field recipe-comp-sel rounded-field" %>
-    </div>
+    <h3>Informations générales</h3>
+    <div class="composition-info to-left">
+  		<p>*Nom</p>
+  		<p>Catégorie</p>
+  		<p>Auteur</p>
+  		<p>Cuisson</p>
+  	</div>
+  	<div class="composition big-compo">
+      <%= f.text_field :name, class: "basic-field top-rad" %>
+      <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
+      <%= f.text_field :owner, class: "basic-field special-top", value: user_if_nil(@recipe) %>
+      <%= f.text_field :baking, class: "basic-field special-top bot-rad" %>
+  	</div>
+    <br/><br/>
+    <div class="composition-info to-left">
+      <p>Prix de vente</p>
+  		<p>Poids/part</p>
+      <p>Taux de TVA</p>
+  	</div>
+  	<div class="composition big-compo portion-cntnr">
+      <%= f.text_field :portion_price, class: "basic-field portion-field" %>
+      <%= f.select :portion, ["/Part"], class: "basic-field special-top" %>
+      <%= f.text_field :portion_weight, class: "basic-field special-top" %>
+      <%= f.text_field :vat, class: "basic-field special-top bot-rad" %>
+  	</div>
     <div class="form-divs">
-      <p class="custom-checkbox check-red"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %>Recette star</p>
-      <p class="custom-checkbox check-red"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %>Recette préférée</p>
+      <p class="custom-checkbox check-red"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
+      <p class="custom-checkbox check-red"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p>
     </div>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
@@ -42,7 +54,6 @@
       <br/><br/>
     <% end %>
   </div>
-  <%= f.text_area :note, class: "basic-field rounded-field", placeholder: "Notes" %>
   <br/>
   <h3>Ingredients & process</h3>
   <div class="ingredients-add-ctnr">
@@ -55,7 +66,8 @@
     <div data-no-turbolink class="add_process">
       <%= f.cktext_area :process, placeholder: "procédé", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
-  </div>
+  </div><br/>
+  <%= f.text_area :note, class: "basic-field rounded-field", placeholder: "Notes" %>
   <br/>
   <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
   </div>

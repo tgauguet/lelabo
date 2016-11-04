@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104150741) do
+ActiveRecord::Schema.define(version: 20161104181927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,9 @@ ActiveRecord::Schema.define(version: 20161104150741) do
     t.boolean  "is_pulp",                                      default: false
     t.string   "brand"
     t.integer  "vat"
+    t.integer  "weight"
+    t.integer  "unit_quantity"
+    t.integer  "unit_weight"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -211,6 +214,7 @@ ActiveRecord::Schema.define(version: 20161104150741) do
     t.string   "portion"
     t.integer  "portion_weight"
     t.decimal  "portion_price"
+    t.float    "vat"
   end
 
   create_table "steps", force: :cascade do |t|

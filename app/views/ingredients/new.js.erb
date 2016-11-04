@@ -1,6 +1,3 @@
-// clear form fields when an ingredient is created
-$('#clear_form').find("input[type=text], text").val("")
-
 // scroll to load next page ingredients with will_paginate
 $('#sortable1').append('<%= escape_javascript render(@ingredients) %>');
 $('.pagination').replaceWith('<%= escape_javascript will_paginate %>');

@@ -2443,6 +2443,10 @@ select{
 	width: 57%;
 }
 
+.ing-weights{
+	width: 9em !important;
+}
+
 .arrow-img{
   width: 1em;
   margin-left: 1em;
@@ -2657,7 +2661,7 @@ select{
   border-radius: 0.3em;
 }
 
-.basic-field, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select{
+.big-compo select, .basic-field, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select{
   position: relative;
   padding-top: 0.7em;
   padding-bottom: 0.7em;
@@ -2751,12 +2755,12 @@ select{
 	width: 5.7em;
 }
 
-.special-top{
+.special-top, .big-compo select{
   border-top:0px;
 	padding-left: 0.7em;
 }
 
-.special-top:focus{
+.special-top:focus, .big-compo select{
   margin-top: -1px;
   border: 1px solid rgb(37,129,250);
 }
@@ -3515,17 +3519,33 @@ input[type="checkbox"] + span {
 }
 
 .r-smll-cntnr{
-	width: 30em;
+	width: 35em;
 }
 
 .r-big-cntnr{
-	width: 20em;
+	width: 13em;
 }
 
-.recipe-cat select{
-	border-radius: 0.3em;
-	border-top:1px solid rgb(197, 200, 205);
-	width: 21em !important;
+.big-compo select{
+	border-radius: 0em;
+	border: 1px solid rgb(212,220,224);
+}
+
+.portion-cntnr select{
+	width: 50%;
+	margin-left: -0.22em;
+	display: inline-block;
+	border-top-right-radius: 0.3em;
+}
+
+.portion-field{
+	width: 50%;
+	display: inline-block;
+	border-top-left-radius: 0.3em;
+}
+
+.to-left p{
+	text-align: left !important;
 }
 
 .title-field{
@@ -4071,7 +4091,11 @@ textarea {
 	}
 
 	.r-smll-cntnr{
-		width: 23em;
+		width: 30em;
+	}
+
+	.recipe-cntnr .big-compo{
+		width: 22em;
 	}
 
 	.recipe-cat select{

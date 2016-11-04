@@ -11,16 +11,20 @@
   <% end %>
 <div class="recipe-form">
   <div class="recipe-cntnr r-smll-cntnr">
-      <p>*Nom</p>
-      <%= f.text_field :title, class: "basic-field big-compo rounded-field" %>
-      <div class="select-areas recipe-cat">
-        <p>Catégorie</p>
-        <%= f.select :category, ["Tarte", "Entremet", "Bonbon", "Confiserie", "Wedding cake", "Macaron", "Pâte à choux", "Dessert"], include_blank: true, class: "basic-field" %>
-      </div>
-      <p>Auteur</p>
-      <%= f.text_field :owner, class: "basic-field big-compo rounded-field", value: user_if_nil(@assembly) %>
-      <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %>Recette star</p>
-      <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %>Recette préférée</p>
+    <h3>Informations générales</h3>
+    <div class="composition-info to-left">
+  		<p>*Nom</p>
+  		<p>Catégorie</p>
+  		<p>Auteur</p>
+  	</div>
+  	<div class="composition big-compo">
+      <%= f.text_field :title, class: "basic-field top-rad" %>
+      <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
+      <%= f.text_field :owner, class: "basic-field special-top bot-rad", value: user_if_nil(@assembly) %>
+  	</div>
+    <br/><br/>
+    <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
+    <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
     <% if @user.basic_user? %>
