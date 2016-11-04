@@ -10,9 +10,9 @@
     </div>
   <% end %>
 <div class="recipe-form">
-  <h3>Titre</h3>
-  <%= f.text_field :title, class: "basic-field big-compo title-field" %>
   <div class="recipe-cntnr r-smll-cntnr">
+      <p>*Nom</p>
+      <%= f.text_field :title, class: "basic-field big-compo rounded-field" %>
       <div class="select-areas recipe-cat">
         <p>Catégorie</p>
         <%= f.select :category, ["Tarte", "Entremet", "Bonbon", "Confiserie", "Wedding cake", "Macaron", "Pâte à choux", "Dessert"], include_blank: true, class: "basic-field" %>

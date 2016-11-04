@@ -1,8 +1,8 @@
 body{
-	background: rgb(249,249,251);
+	background: white !important;
 }
 body:focus{
-	background: white;
+	background: white !important;
 }
 
 img{
