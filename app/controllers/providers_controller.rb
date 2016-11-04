@@ -40,7 +40,7 @@ class ProvidersController < ApplicationController
 		else
 			flash[:error] = "Erreur lors de la modification du fournisseur"
 		end
-		redirect_to provider_path
+		redirect_to providers_path
 	end
 
 	def destroy
