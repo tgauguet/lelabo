@@ -10,4 +10,3 @@ class SubscribeUserToMailingListJob < ActiveJob::Base
     end
   end
 end
-
