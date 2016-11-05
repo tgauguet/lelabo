@@ -1,4 +1,7 @@
 <%= wicked_pdf_stylesheet_link_tag "application.css" -%>
+<% if @user.basic_user? %>
+  <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
+<% end %>
 <div class="pdf-cntnr">
   <h1><%= @recipe.name.upcase %></h1>
   <div class="quant-fields-cntnr pdf-quant-cntnr">

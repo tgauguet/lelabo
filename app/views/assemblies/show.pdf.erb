@@ -1,4 +1,7 @@
 <%= wicked_pdf_stylesheet_link_tag "application.css" -%>
+<% if @user.basic_user? %>
+  <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
+<% end %>
 <div class="recipe-view">
   <div class="view-top-l-pdf">
     <h1><%= @assembly.title.upcase %></h1>
