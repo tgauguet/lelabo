@@ -1,5 +1,5 @@
   <div class="class-helper inline_divs star">
-    <% unless recipe.category.nil? %>
+    <% if recipe.category? %>
     	<div class="circle <%= category_color(recipe) %>"></div>
     <% end %>
       <div class="line-cntnr">

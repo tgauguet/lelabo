@@ -4,7 +4,7 @@
 	<% else %>
 		<%= image_tag "missing-cake.png", class: "user-img2 recipe-imgs item-img" %>
 	<% end %>
-	<%= ff.select(:recipe_id, @user.recipes.all.order("name ASC").collect{ |i| [i.name, i.id] }, include_blank: true , class: "basic-field" ) %>
+	<%= ff.select(:recipe_id, current_user.recipes.all.order("name ASC").collect{ |i| [i.name, i.id] }, include_blank: true , class: "basic-field" ) %>
 	<%= ff.hidden_field :_destroy %>
 	<%= remove_field "delete-sml.png", ff %>
 </div>

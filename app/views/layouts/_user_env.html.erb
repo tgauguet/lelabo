@@ -7,10 +7,10 @@
 		</div>
 	</div>
 	<div class="form">
-		<%= form_for @feedback do |f| %>
+		<%= form_for feedback do |f| %>
 			<%= image_tag "buble2.png", class: "buble2" %>
 			<%= f.text_area :message, placeholder: "Je pense que...", class: "hidden-field" %>
-			<%= f.hidden_field :user_id, value: @user.id %>
+			<%= f.hidden_field :user_id, value: user.id %>
 			<%= f.submit "Envoyer", class: "hidden-btn" %>
 		<% end %>
 	</div>
@@ -23,14 +23,14 @@
 		</div>
 	<div class="left-cases">
 		<div class="user-btn">
-			<h3><%= truncate(@user.account_name.downcase, length: 10) %><%= image_tag "arrows.png", class: "micro-arrow" %></h3>
-			<p><%= @user.firstname.downcase %> <%= truncate(@user.name.downcase, length: 10) %></p>
+			<h3><%= truncate(user.account_name.downcase, length: 10) %><%= image_tag "arrows.png", class: "micro-arrow" %></h3>
+			<p><%= user.firstname.downcase %> <%= truncate(user.name.downcase, length: 10) %></p>
 		</div>
 		<div class="arrow-container"><div class="arrow-up"></div></div>
 		<div class="user-paths">
 			<ul>
-				<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar.url(:small), class: "small-avatar" %><% end %><span class="firstname"><%= @user.firstname.downcase %></span><br/>
-				<% if @user.admin? %>
+				<%= link_to modifier_votre_profil_path do %><%= image_tag user.avatar.url(:small), class: "small-avatar" %><% end %><span class="firstname"><%= user.firstname.downcase %></span><br/>
+				<% if user.admin? %>
 					<%= link_to feedbacks_path do %><li>tous les feedbacks</li><% end %>
 				<% end %>
 				<%= link_to parametres_path do %><li>Paramètres</li><% end %>
@@ -102,7 +102,7 @@
 				<!-- end of images for big size -->
 				<!-- images for small size -->
 				<li class="show-respo show-burger2">
-					<a><%= image_tag @user.avatar, class:"header-filter-img brg-icn", alt:"icon burger" %></a>
+					<a><%= image_tag user.avatar, class:"header-filter-img brg-icn", alt:"icon burger" %></a>
 				</li>
 				<li class="beard-head show-burger">
 					<a><%= image_tag "burger-icn.png", class:"header-filter-img brg-icn", alt:"icon burger" %></a>
@@ -127,7 +127,7 @@
 		</ul>
 		<ul style="display:none;" class="show-burg2">
 			<div class="arrow_box arrow-box-sec"></div>
-			<% if @user.admin? %>
+			<% if user.admin? %>
 				<%= link_to feedbacks_path do %><li>TOUS LES FEEDBACKS</li><% end %>
 			<% end %>
 			<%= link_to parametres_path do %><li>PARAMETRES</li><% end %>

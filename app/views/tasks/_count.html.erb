@@ -1,9 +1,9 @@
 <!-- count how many tasks have been done -->
 <div class="count-tasks">
-	<span class="ttl-task"><%= @list.title %></span>
+	<span class="ttl-task"><%= list.title %></span>
 	<span class="task-count">
-    <%= @list.done_count %> / <%= @list.total_tasks %>
-    <% if @list.all_done %>
+    <%= list.done_count %> / <%= list.total_tasks %>
+    <% if list.all_done %>
       <%= image_tag 'clipboard.png', class: "tasks-cmplt" %>
     <% end %>
   </span>

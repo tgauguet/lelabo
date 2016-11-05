@@ -29,7 +29,7 @@
         <% end %>
       </div>
     </div>
-    <% unless @recipe.process.blank? %><h3>Instructions</h3><% end %><br/>
+    <% if @recipe.process? %><h3>Instructions</h3><% end %><br/>
     <p><%= @recipe.process.html_safe %></p>
     <span class="clear"></span>
   </div>

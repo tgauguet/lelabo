@@ -54,12 +54,6 @@ class Recipe < ActiveRecord::Base
 		self.quantities.collect { |q| q.send(matter) }.sum
 	end
 
-	def is_bio?
-	end
-
-	def is_gluten_free?
-	end
-
 	def recipe_weight
 		self.quantities.collect { |q| q.weight }.sum
 	end

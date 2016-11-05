@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104181927) do
+ActiveRecord::Schema.define(version: 20161105150819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.boolean  "stared"
     t.boolean  "loved"
   end
+
+  add_index "assemblies", ["recipe_id"], name: "index_assemblies_on_recipe_id", using: :btree
+  add_index "assemblies", ["user_id"], name: "index_assemblies_on_user_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -80,6 +83,8 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "user_id"
   end
 
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
+
   create_table "images", force: :cascade do |t|
     t.string   "picture_file_name"
     t.string   "picture_content_type"
@@ -91,6 +96,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "recipe_id"
     t.integer  "assembly_id"
   end
+
+  add_index "images", ["assembly_id"], name: "index_images_on_assembly_id", using: :btree
+  add_index "images", ["recipe_id"], name: "index_images_on_recipe_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
     t.decimal  "price",                precision: 9, scale: 2
@@ -125,6 +133,10 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "unit_weight"
   end
 
+  add_index "ingredients", ["provider_id"], name: "index_ingredients_on_provider_id", using: :btree
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
+  add_index "ingredients", ["user_id"], name: "index_ingredients_on_user_id", using: :btree
+
   create_table "newsletters", force: :cascade do |t|
     t.string   "email"
     t.datetime "created_at", null: false
@@ -152,6 +164,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "provider_id"
   end
 
+  add_index "provider_prices", ["ingredient_id"], name: "index_provider_prices_on_ingredient_id", using: :btree
+  add_index "provider_prices", ["provider_id"], name: "index_provider_prices_on_provider_id", using: :btree
+
   create_table "providers", force: :cascade do |t|
     t.integer  "ingredient_id"
     t.datetime "created_at",    null: false
@@ -172,6 +187,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "user_id"
   end
 
+  add_index "providers", ["ingredient_id"], name: "index_providers_on_ingredient_id", using: :btree
+  add_index "providers", ["user_id"], name: "index_providers_on_user_id", using: :btree
+
   create_table "quantities", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
@@ -181,6 +199,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "weight"
   end
 
+  add_index "quantities", ["ingredient_id"], name: "index_quantities_on_ingredient_id", using: :btree
+  add_index "quantities", ["recipe_id"], name: "index_quantities_on_recipe_id", using: :btree
+
   create_table "recipe_items", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "assembly_id"
@@ -188,6 +209,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "recipe_items", ["assembly_id"], name: "index_recipe_items_on_assembly_id", using: :btree
+  add_index "recipe_items", ["recipe_id"], name: "index_recipe_items_on_recipe_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "author"
@@ -217,6 +241,10 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.float    "vat"
   end
 
+  add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id", using: :btree
+  add_index "recipes", ["step_id"], name: "index_recipes_on_step_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
+
   create_table "steps", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -233,6 +261,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id", using: :btree
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.string   "due_date"
@@ -245,6 +276,8 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "priority"
   end
 
+  add_index "tasks", ["to_do_list_id"], name: "index_tasks_on_to_do_list_id", using: :btree
+
   create_table "to_do_lists", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -255,6 +288,8 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.integer  "priority"
   end
 
+  add_index "to_do_lists", ["user_id"], name: "index_to_do_lists_on_user_id", using: :btree
+
   create_table "totals", force: :cascade do |t|
     t.integer  "recipe_id"
     t.decimal  "value",       precision: 5, scale: 2
@@ -262,6 +297,9 @@ ActiveRecord::Schema.define(version: 20161104181927) do
     t.datetime "updated_at",                          null: false
     t.integer  "assembly_id"
   end
+
+  add_index "totals", ["assembly_id"], name: "index_totals_on_assembly_id", using: :btree
+  add_index "totals", ["recipe_id"], name: "index_totals_on_recipe_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

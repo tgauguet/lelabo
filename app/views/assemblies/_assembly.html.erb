@@ -1,5 +1,5 @@
   <div class="class-helper inline_divs star">
-		<% unless assembly.category.nil? %>
+		<% if assembly.category? %>
 			<div class="circle <%= category_color(assembly) %>"></div>
 		<% end %>
       <div class="line-cntnr">

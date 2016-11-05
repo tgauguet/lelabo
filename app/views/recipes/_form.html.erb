@@ -1,9 +1,9 @@
-<%= form_for(@recipe) do |f| %>
-  <% if @recipe.errors.any? %>
+<%= form_for(recipe) do |f| %>
+  <% if recipe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
       <ul>
-      <% @recipe.errors.full_messages.each do |message| %>
+      <% recipe.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -21,7 +21,8 @@
   	<div class="composition big-compo">
       <%= f.text_field :name, class: "basic-field top-rad" %>
       <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
-      <%= f.text_field :owner, class: "basic-field special-top", value: user_if_nil(@recipe) %>
+      <%= f.text_field :owner, class: "basic-field special-top", value: user_if_nil(recipe) %>
+
       <%= f.text_field :baking, class: "basic-field special-top bot-rad" %>
   	</div>
     <br/><br/>
@@ -31,6 +32,8 @@
       <p>Taux de TVA</p>
   	</div>
   	<div class="composition big-compo portion-cntnr">
+      <%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
+      <%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
       <%= f.text_field :portion_price, class: "basic-field portion-field" %>
       <%= f.select :portion, ["/Part"], class: "basic-field special-top" %>
       <%= f.text_field :portion_weight, class: "basic-field special-top" %>
@@ -42,14 +45,14 @@
     </div>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
-    <% if @user.basic_user? %>
+    <% if current_user.basic_user? %>
       <h3>Ajoutez une image</h3>
       <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
       <p class="auto-btn cta-btn">+ S'ABONNER</p>
       <br/><br/><br/><br/><br/><br/>
     <% else %>
       <p>image</p>
-      <%= image_tag(@recipe.image.url(:medium), class: "recipe-img") %>
+      <%= image_tag(recipe.image.url(:medium), class: "recipe-img") %>
       <%= f.file_field :image %>
       <br/><br/>
     <% end %>
@@ -67,6 +70,7 @@
       <%= f.cktext_area :process, placeholder: "procédé", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
   </div><br/>
+  <%= image_tag "title.png", class: "field-img-big" %>
   <%= f.text_area :note, class: "basic-field rounded-field", placeholder: "Notes" %>
   <br/>
   <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>

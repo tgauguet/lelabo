@@ -1,7 +1,7 @@
 <div class="ing-cntnr">
 	<ul>
 		<li id="sortable1">
-				<% @results.each do |ingredient| %>
+				<% results.each do |ingredient| %>
 				<div class="class-helper inline_divs"">
 					<% unless ingredient.ingredient_category.nil? %>
 						<div class="circle <%= category_color(ingredient) %>"></div>
@@ -28,7 +28,7 @@
 					</div>
 					<div class="select-areas">
 					<p>Catégorie</p>
-						<%= f.fields_for :ingredient_category, @ingredient do |cat| %>
+						<%= f.fields_for :ingredient_category, ingredient do |cat| %>
 							<%= cat.select :name, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Légumes", "Produits laitiers", "Purées de fruits", "Sucres"], selected: f.object.ingredient_category.name, class: "select-field basic-field" ,  include_blank: true  %><span><%= image_tag "select-arrow.png", class: "select-arrow-img", alt:"choisir l'unité de mesure" %></span>
 						<% end %>
 					</div>	<br/><br/>

@@ -9,7 +9,7 @@
 				<% if @results.blank? %>
 					<p>Aucun ingrédient ne correspond à votre recherche.</p>
 				<% else %>
-					<%= render "ingredients/ingredients_result" %>
+					<%= render "ingredients/ingredients_result", results: @results, ingredient: @ingredient %>
 				<% end %>
 			</div>
 		</div>

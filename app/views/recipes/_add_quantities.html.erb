@@ -1,5 +1,5 @@
 <div class="partial provider-field ingr-field select-areas">
-	<%= ff.select(:ingredient_id, @user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true , class: "basic-field" ) %>
+	<%= ff.select(:ingredient_id, current_user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true , class: "basic-field" ) %>
 	<%= image_tag "gramme.png", class: "field-img euro-img" %>
 	<%= ff.text_field :weight, class: "basic-field right-field" %>
 	<%= ff.hidden_field :_destroy %>

@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     @user = current_user
-    if @user.company.nil?
+    if !@user.company?
       nom_de_votre_compte_url
     else
       root_path

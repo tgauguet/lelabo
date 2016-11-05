@@ -1,5 +1,5 @@
 <div class="class-helper inline_divs">
-	<% unless ingredient.category.nil? %>
+	<% if ingredient.category? %>
 		<div class="circle <%= category_color(ingredient) %>"></div>
 	<% end %>
 	<%= link_to edit_ingredient_path(ingredient) do %>

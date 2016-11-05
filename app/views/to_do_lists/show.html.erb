@@ -5,14 +5,14 @@
 			<p class="ingredient-btn">Retour à l'index</p>
 		<% end %><br/>
 		<p class="ghost-txt">Votre liste</p>
-		<%= render "tasks/count" %>
+		<%= render "tasks/count", list: @list %>
 		<i class="grey-txt"><%= @list.description %></i><br/><br/>
 		<div id="progressbar"></div>
 		<!-- Index each tasks that isn't yet done -->
-		<%= render "tasks/task" %>
+		<%= render "tasks/task", tasklist: @tasklist, list: @list %>
 		<div class="done-tasks">
 			<!-- Index each done tasks -->
-			<%= render "tasks/done_task" %>
+			<%= render "tasks/done_task", done: @done, list: @list %>
 		</div>
 		<p class="element-btn">Ajouter un élément...</p>
 		<div class="simple-form-cntnr">

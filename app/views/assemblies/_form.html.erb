@@ -1,9 +1,9 @@
-<%= form_for(@assembly) do |f| %>
-  <% if @assembly.errors.any? %>
+<%= form_for(assembly) do |f| %>
+  <% if assembly.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assembly.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <h2><%= pluralize(assembly.errors.count, "error") %> prohibited this recipe from being saved:</h2>
       <ul>
-      <% @assembly.errors.full_messages.each do |message| %>
+      <% assembly.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -20,21 +20,21 @@
   	<div class="composition big-compo">
       <%= f.text_field :title, class: "basic-field top-rad" %>
       <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
-      <%= f.text_field :owner, class: "basic-field special-top bot-rad", value: user_if_nil(@assembly) %>
+      <%= f.text_field :owner, class: "basic-field special-top bot-rad", value: user_if_nil(assembly) %>
   	</div>
     <br/><br/>
     <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
     <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
-    <% if @user.basic_user? %>
+    <% if current_user.basic_user? %>
       <h3>Ajoutez une image</h3>
       <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
       <p class="auto-btn cta-btn">+ S'ABONNER</p>
       <br/><br/><br/><br/>
     <% else %>
       <p>image</p>
-      <%= image_tag(@assembly.image.url(:medium), class: "recipe-img") %>
+      <%= image_tag(assembly.image.url(:medium), class: "recipe-img") %>
       <%= f.file_field :image %>
       <br/><br/>
     <% end %>
@@ -44,7 +44,7 @@
   <h3>Recettes</h3>
   <div class="ingredients-add-ctnr">
 		<div class="add_ingredients items-cntnr">
-      <% @assembly.recipe_items.each_with_index do |recipe, index| %>
+      <% assembly.recipe_items.each_with_index do |recipe, index| %>
           <%= f.fields_for :recipe_items, recipe do |ff| %>
             <%= render "add_recipe_items", ff: ff, recipe: recipe %>
           <% end %>

@@ -1,6 +1,6 @@
-$(".create-task").html("<%= escape_javascript(render 'tasks/task') %>")
-$(".create-task2").html("<%= escape_javascript(render 'tasks/done_task') %>")
-$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count') %>")
+$(".create-task").html("<%= escape_javascript(render 'tasks/task', tasklist: @tasklist, list: @list) %>")
+$(".create-task2").html("<%= escape_javascript(render 'tasks/done_task', done: @done, list: @list) %>")
+$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count', list: @list) %>")
 
 // clear form fields when a task is created
 $('#clear_form').find("input[type=text], text").val("")

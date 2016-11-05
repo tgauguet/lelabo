@@ -1,6 +1,6 @@
 <div class="recipe-view">
   <div class="recipe-links">
-    <%= link_to edit_assembly_path(@assembly, format: :pdf), target: '_blank' do %>
+    <%= link_to edit_assembly_path(assembly, format: :pdf), target: '_blank' do %>
       <%= image_tag 'pdf.png' , class: 'small-imgs'%>
     <% end %>
     <%= link_to download_assembly_path(format: :pdf), target: '_blank' do %>
@@ -8,17 +8,17 @@
     <% end %>
   </div>
   <div class="view-top-l">
-    <h1><%= @assembly.title.upcase %></h1>
-    <p><%= @assembly.category %> </p>
-    <p><b>par <%= @assembly.owner %></b></p><br/>
+    <h1><%= assembly.title.upcase %></h1>
+    <p><%= assembly.category %> </p>
+    <p><b>par <%= assembly.owner %></b></p><br/>
     <br/>
     <b>Notes:</b>
-    <p><%= @assembly.notes %></p><br/>
+    <p><%= assembly.notes %></p><br/>
   </div>
   <div class="view-top-r">
-    <%= image_tag @assembly.image, class: "user-img2" %>
+    <%= image_tag assembly.image, class: "user-img2" %>
   </div>
-  <% @assembly.recipe_items.each do |item| %>
+  <% assembly.recipe_items.each do |item| %>
     <div class="ing_comp_cntnr">
       <h2><%= item.recipe.name.upcase %></h2>
       <div class="ing_comp_l">

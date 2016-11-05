@@ -40,15 +40,6 @@ class User < ActiveRecord::Base
         UserMailer.delay.welcome_email(self)
     end
 
-    def email_verified?
-        self.email && self.email !~ TEMP_EMAIL_REGEX
-    end
-
-    # instead of deleting, indicate the user requested a delete & timestamp it
-    def soft_delete
-        update_attribute(:deleted_at, Time.current)
-    end
-
 		def pro_user?
 			self.subscription && self.subscription.plan.name == "PRO"
 		end

@@ -11,22 +11,22 @@
         </div>
       <br/>
       <div id="div0" class="recipe-option">
-        <%= render "show" %>
+        <%= render "show", recipe: @recipe %>
       </div>
       <div id="div1" class="recipe-option" style="display:none;">
-        <%= render "form" %>
+        <%= render "form", recipe: @recipe %>
       </div>
       <div id="div2" class="recipe-option" style="display:none;">
-        <%= render "quantities_form" %>
+        <%= render "quantities_form", recipe: @recipe, totals: @totals %>
       </div>
       <div id="div3" class="recipe-option" style="display:none;">
-        <%= render "equilibrium_form" %>
+        <%= render "equilibrium_form", recipe: @recipe %>
       </div>
       <div id="div4" class="recipe-option" style="display:none;">
-        <%= render "cost_form" %>
+        <%= render "cost_form", recipe: @recipe %>
       </div>
       <div id="div5" class="recipe-option" style="display:none;">
-        <%= render "pictures_form" %>
+        <%= render "pictures_form", recipe: @recipe %>
       </div>
   	</div>
 </div>

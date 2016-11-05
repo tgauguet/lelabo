@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
 	def create
 		@user = current_user
 		@plan = Plan.find(params[:plan_id])
-		if @user.stripe_customer_id.blank?
+		if !@user.stripe_customer_id?
 			@subscription = CreateSubscription.call(
 				@plan,
 				params[:email_address],

@@ -1,4 +1,4 @@
-$('#list-list').html("<%= escape_javascript render 'to_do_lists/lists' %>")
+$('#list-list').html("<%= escape_javascript render 'to_do_lists/lists', lists: @lists %>")
 
 // Code for JQuery sortable
 var ready, set_positions;

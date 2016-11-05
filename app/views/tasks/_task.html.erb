@@ -2,18 +2,18 @@
 	<!-- Index each task that will be done -->
 	<ul>
 		<li id="sortable">
-			<% @tasklist.each do |task| %>
+			<% tasklist.each do |task| %>
 				<div class="class-helper inline_divs" data-id="<%= task.id %>" >
 					<% unless task.id.nil? || task.nil? %>
 						<!-- checkbox to mark tasks done -->
-						<%= link_to done_to_do_list_task_path(@list, task.id), method: :patch, remote: true do %>
+						<%= link_to done_to_do_list_task_path(list, task.id), method: :patch, remote: true do %>
 							<div class="check-cntnr">
 								<input type="checkbox" class="check">
 								<div class="valt"> &nbsp;√</div><label class="box1"></label>
 							</div>
 						<% end %>
 						<!-- form for edit tasks -->
-						<%= form_for @list, remote: true do |f| %>
+						<%= form_for list, remote: true do |f| %>
 							<div class="edittask">
 								<%= f.fields_for :tasks, task, remote: true do |ff| %>
 									<%= ff.text_field :name, class: "task-field", id: "task-name", onclick: "(this)select();" %><br/>
@@ -32,7 +32,7 @@
 							</div>
 						<% end %>
 						<!-- link to delete task -->
-						<%= link_to to_do_list_task_path(@list, task.id), method: :delete, remote: true, id: "delete-task" do %>
+						<%= link_to to_do_list_task_path(list, task.id), method: :delete, remote: true, id: "delete-task" do %>
 							<%= image_tag "delete-sml.png", class: "delete-tsk-btn" %>
 						<% end %>
 					<% end %>

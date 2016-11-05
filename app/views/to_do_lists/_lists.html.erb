@@ -1,8 +1,8 @@
 <div id="list-list">
-	<% unless !@lists %>
+	<% if lists %>
 		<ul>
 			<li id="sortable2">
-				<% @lists.each do |list| %>
+				<% lists.each do |list| %>
 					<%= link_to list do %>
 						<div class="to-do-cards to-do-default" data-id="<%= list.id %>">
 							<% if list.all_done %>

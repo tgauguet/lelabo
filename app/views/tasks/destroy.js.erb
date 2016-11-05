@@ -1,4 +1,4 @@
-$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count') %>")
+$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count', list: @list) %>")
 
 $(function($){
   $(".progressBar").each(function(){

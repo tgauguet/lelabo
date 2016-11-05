@@ -11,7 +11,7 @@ class CreateSubscription
 
 		begin
 			stripe_sub = nil
-			if user.stripe_customer_id.blank?
+			if !user.stripe_customer_id?
 				customer = Stripe::Customer.create(
 					source: token,
 					email: user.email,

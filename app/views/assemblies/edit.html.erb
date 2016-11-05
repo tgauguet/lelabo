@@ -9,16 +9,16 @@
         </div>
       <br/>
       <div id="div0" class="recipe-option">
-        <%= render "show" %>
+        <%= render "show", assembly: @assembly %>
       </div>
       <div id="div1" class="recipe-option" style="display:none;">
-        <%= render "form" %>
+        <%= render "form", assembly: @assembly %>
       </div>
       <div id="div4" class="recipe-option" style="display:none;">
-        <%= render "cost_form" %>
+        <%= render "cost_form", assembly: @assembly %>
       </div>
       <div id="div5" class="recipe-option" style="display:none;">
-        <%= render "pictures_form" %>
+        <%= render "pictures_form", assembly: @assembly %>
       </div>
   	</div>
 </div>

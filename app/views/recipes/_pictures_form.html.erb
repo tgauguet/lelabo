@@ -1,7 +1,7 @@
-<% if @user.business_user? %>
+<% if current_user.business_user? %>
   <div class="recipe_pics">
-    <%= form_for(@recipe, remote: true) do |f| %>
-      <% @recipe.images.each_with_index do |image, index| %>
+    <%= form_for(recipe, remote: true) do |f| %>
+      <% recipe.images.each_with_index do |image, index| %>
         <%= f.fields_for :images, image do |ff| %>
           <%= render "add_images", ff: ff, image: image %>
         <% end %>

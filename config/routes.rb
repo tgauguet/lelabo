@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 	### member acts like a member, it requires an ID
 	### while collection don't require any ID
 	# add tasks path to to_do_lists
-	resources :to_do_lists do
-		resources :tasks do
+	resources :to_do_lists, except: [:edit, :index] do
+		resources :tasks, only: [:create, :update, :destroy] do
 			member do
 				patch :done
 			end
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
 		end
 	end
 	resources :subscriptions, only: [:new, :create, :index, :update, :edit]
-	resources :users
+	resources :users, except: [:new, :create, :index]
 	#create route for jquery sortable
 	resources :to_do_lists, only: [:show, :new] do
 		collection do
@@ -58,13 +58,12 @@ Rails.application.routes.draw do
 			put "resort/:id" => "to_do_lists#resort"
 		end
 	end
-	resources :ingredients do
+	resources :ingredients, except: [:show, :index] do
 		collection do
 			put "/sort/:id" => "ingredients#sort"
 			get :search
 		end
 	end
-	resources :ingredients
 	resources :contacts, only: [:new,:create]
 	devise_scope :user do
       put "/confirm" => "confirmations#confirm"

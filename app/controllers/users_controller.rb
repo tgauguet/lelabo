@@ -20,19 +20,19 @@ class UsersController < ApplicationController
 				@user.save
 				sign_in @user, bypass: true
 				format.html {
-					if !@user.account_name.nil? && @user.firstname.nil?
+					if @user.account_name? && !@user.firstname?
 				      redirect_to informations_de_votre_compte_path
-				    elsif !@user.account_name.nil? && !@user.firstname.nil? && @user.terms == true
+				    elsif @user.account_name? && @user.firstname? && @user.terms == true
 							if @user.ingredients.blank?
 					      CreateIngredientsBaseJob.delay.perform_later(@user)
 								CreateProvidersBaseJob.delay.perform_later(@user)
 								CreateRecipesBaseJob.delay.perform_later(@user)
 							end
 				      redirect_to root_path
-				    elsif !@user.account_name.nil? && !@user.firstname.nil?
+				    elsif @user.account_name? && @user.firstname?
 				      SubscribeUserToMailingListJob.delay.perform_later(@user)
 				      redirect_to confirmation_de_votre_compte_path(@user)
-				    elsif @user.account_name.nil?
+				    elsif !@user.account_name?
 				      redirect_to nom_de_votre_compte_path(@user)
 				    end
 				}

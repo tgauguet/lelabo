@@ -1,18 +1,18 @@
-<% if @user.basic_user? %>
+<% if current_user.basic_user? %>
   <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
   <%= link_to subscriptions_path do %>
     <p class="auto-btn cta-btn">+ S'ABONNER</p>
   <% end %>
 <% else %>
   <div class="cost_form">
-<% if @recipe.quantities.blank? %>
+<% if recipe.quantities.blank? %>
   <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
 <% else %>
     <div class="ingredients-add-ctnr equ-left">
       <div class="add_ingredients">
         <p>Ingrédients</p>
-        <%= form_for(@recipe, remote: true) do |f| %>
-          <% @recipe.quantities.each_with_index do |ingredient, index| %>
+        <%= form_for(recipe, remote: true) do |f| %>
+          <% recipe.quantities.each_with_index do |ingredient, index| %>
             <%= f.fields_for :quantities, ingredient do |ff| %>
               <%= render "add_quantities", ff: ff %>
             <% end %>
@@ -23,25 +23,25 @@
     <div class="values resp-values">
       <div class="cost-val">
         <ul>
-          <% @recipe.quantities.each do |ingredient| %>
-            <li><%= number_to_currency recipe_price(ingredient, @recipe) %></li>
+          <% recipe.quantities.each do |ingredient| %>
+            <li><%= number_to_currency recipe_price(ingredient, recipe) %></li>
           <% end %>
         </ul>
       </div>
       <div class="cost-ttl">
         <h3>Cout de revient</h3>
         <div class="cost-cost">
-          <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
+          <%= f.fields_for :totals, recipe.totals.first do |ff| %>
             <p>Recette</p>
             <p>Pour 1kg</p>
             <p>Pour <%= ff.text_field :value, class: 'rounded-field basic-field cost-field' %> kg</p>
           <% end %>
         </div>
         <div class="cost-result">
-          <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
-            <p><%= number_to_currency @recipe.total_cost %></p>
-            <p><%= number_to_currency @recipe.kilo_cost %></p>
-            <p><%= number_to_currency @recipe.custom_cost %></p>
+          <%= f.fields_for :totals, recipe.totals.first do |ff| %>
+            <p><%= number_to_currency recipe.total_cost %></p>
+            <p><%= number_to_currency recipe.kilo_cost %></p>
+            <p><%= number_to_currency recipe.custom_cost %></p>
           <% end %>
         </div>
         <br/>

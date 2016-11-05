@@ -1,9 +1,9 @@
-$('.recipe_values').html("<%= escape_javascript (render 'recipes/equilibrium_form') %>");
-$(".cost_form").html("<%= escape_javascript (render 'recipes/cost_form') %>");
-$(".quant_form").html("<%= escape_javascript (render 'recipes/quantities_form') %>");
-$(".recipe_form").html("<%= escape_javascript (render 'recipes/form') %>");
-$(".recipe_pics").html("<%= escape_javascript (render 'recipes/pictures_form') %>");
-$(".show_recipe").html("<%= escape_javascript (render 'recipes/show') %>");
+$('.recipe_values').html("<%= escape_javascript (render 'recipes/equilibrium_form', recipe: @recipe) %>");
+$(".cost_form").html("<%= escape_javascript (render 'recipes/cost_form', recipe: @recipe) %>");
+$(".quant_form").html("<%= escape_javascript (render 'recipes/quantities_form', recipe: @recipe, totals: @totals) %>");
+$(".recipe_form").html("<%= escape_javascript (render 'recipes/form', recipe: @recipe) %>");
+$(".recipe_pics").html("<%= escape_javascript (render 'recipes/pictures_form', recipe: @recipe) %>");
+$(".show_recipe").html("<%= escape_javascript (render 'recipes/show', recipe: @recipe) %>");
 
 // hide and show each form in edit view
 $(document).ready(function(){
