@@ -72,32 +72,9 @@
 	<div class="full-header">
 		<div class="rgth-links">
 			<ul>
-				<!-- images for semi-small size -->
-				<li class="show-respo2">
-					<%= link_to new_to_do_list_path do %><%= image_tag "checked.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<li class="show-respo2">
-					<%= link_to providers_path do %><%= image_tag "header-img7.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<li class="show-respo2">
-					<%= link_to assemblies_path do %><%= image_tag "header-img6.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<li class="show-respo2">
-					<%= link_to recipes_path do %><%= image_tag "header-img5.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<li class="show-respo2">
-					<%= link_to new_ingredient_path do %><%= image_tag "header-img4.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<!-- end of images for semi-small size -->
 				<!-- images for big size -->
-				<li class="hide-res">
-					<%= link_to new_assembly_path do %><%= image_tag "header-img2.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<li class="hide-res">
-					<%= link_to new_recipe_path do %><%= image_tag "header-img3.png", class:"header-filter-img", alt: "icon header" %><% end %>
-				</li>
-				<li class="hide-res">
-					<%= link_to root_path do %><%= image_tag "home.png", class:"header-filter-img", alt: "icon header" %><% end %>
+				<li class="hide-res help-btn">
+					AIDE
 				</li>
 				<!-- end of images for big size -->
 				<!-- images for small size -->
@@ -137,5 +114,21 @@
 			<%#= link_to aide_path do %><li>AIDE</li><%# end %>
 			<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>SE DECONNECTER</li><% end %>
 		</ul>
+	</div>
+</div>
+<div class="total-body" style="display:none;">
+	<div class="help-cntnr">
+		<%= image_tag "delete-sml.png", class: "mini-img help-img", alt: "image remove helper" %>
+		<h3>Pages suggérées</h3><br/>
+		<ul>
+			<li><span></span>Essayer <b>toutes les options</b></li>
+			<li><span></span>Obtenir une <b>facture</b></li>
+			<li><span></span>Rapporter une <b>erreur</b></li>
+			<li><span></span><b>Soumettre</b> une proposition</li>
+			<li><span></span>Créer un <b>ingrédient</b></li>
+			<li><span></span>Créer un <b>montage</b></li>
+			<li><span></span>Créer une <b>recette</b></li>
+		</ul><br/>
+		<%= link_to aide_path, target: "_blank" do %><p><span>?</span>ACCEDER AUX PAGES D'AIDE</p><% end %>
 	</div>
 </div>

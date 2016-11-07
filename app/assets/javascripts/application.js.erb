@@ -114,6 +114,18 @@ $(document).ready(function(){
 	$(".delete-flash-message").click(function(){
 		$(".flash-msg-cntnr").hide();
 	});
+  $(".help-btn").click(function(){
+    $(".total-body").fadeIn();
+    $(".help-btn").addClass("cstm-help");
+  });
+  $(".cstm-help").click(function(){
+    $(".total-body").fadeOut();
+    $(".help-btn").removeClass("cstm-help");
+  });
+  $(".help-img").click(function(){
+    $(".total-body").fadeOut();
+    $(".help-btn").removeClass("cstm-help");
+  });
 });
 
 // infinite pagination scroll with will paginate javascript code

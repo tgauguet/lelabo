@@ -3495,6 +3495,94 @@ input[type="checkbox"] + span {
   opacity: 1;
 }
 
+.hide-res{
+	padding: 1em 1.5em 1em 1.3em;
+	margin-top: 0em !important;
+	cursor: pointer;
+	font-family: "source_sans_prosemibold";
+}
+
+.total-body{
+	background: rgba(0,0,0,0.3);
+	width: 100vw;
+}
+
+.help-cntnr, .total-body{
+	position: fixed;
+	z-index: 9999998;
+	height: 100vh;
+}
+
+.help-cntnr{
+	background: white;
+	right: 0;
+	width: 31em;
+	margin-top: 3.3em;
+	border-left: 2px solid rgb(146,146,146);
+	text-align: left;
+	padding: 3em 2em 2em 4em;
+}
+
+.help-cntnr h3{
+	color: rgb(146,146,146);
+}
+
+.help-cntnr ul{
+	padding: 0;
+}
+
+.help-cntnr ul li, .help-cntnr p{
+	padding-left: 2em;
+}
+
+.help-cntnr ul li span{
+	width: 0.6em;
+	padding: 0.1em;
+	margin-left: -1.6em;
+	margin-top: 0.5em;
+	background: #1C9DD5;
+	height: 2px;
+	border-radius: 0.2em;
+	position: absolute;
+}
+
+.help-cntnr ul li, .help-cntnr p{
+	border-radius: 0.3em;
+	padding: 0.6em 0em 0.6em 2.5em;
+	cursor: pointer;
+}
+
+.help-img{
+	float: right;
+	cursor: pointer;
+}
+
+.help-cntnr ul li:hover, .help-cntnr p:hover, .help-cntnr ul li:hover b{
+	background:rgb(51,63,85);
+	color: white;
+}
+
+.help-cntnr p span{
+	border: 2px solid #1C9DD5;
+	position: absolute;
+	margin-left: -1.9em;
+	margin-top: -0.1em;
+	border-radius: 0.2em;
+	padding: 0em 0.2em 0em 0.2em;
+	color: #1C9DD5;
+}
+
+.hide-res:hover{
+	background: rgb(51,63,85);
+	color: white;
+}
+
+.cstm-help{
+	background: rgb(51,63,85);
+	position: absolute !important;
+	color: #1C9DD5;
+}
+
 .notes{
 	height: 5.5em;
 }
@@ -4224,7 +4312,7 @@ textarea {
 
 @media screen and (min-width : 62em){
 
-	.beard-head, .show-respo, .show-respo2{
+	.beard-head, .show-respo, .beard-head .brg-icn, .show-burg2, .show-burg{
 		display: none !important;
 	}
 
@@ -4306,11 +4394,6 @@ textarea {
 		display: inline-block!important;
 	}
 
-	.show-respo img{
-		border-radius: 100%;
-		overflow: hidden;
-	}
-
 	.hide-res{
 		display: none !important;
 	}
@@ -4325,9 +4408,6 @@ textarea {
 }
 
 @media screen and (min-width : 50em){
-	.beard-head .brg-icn{
-		display: none !important;
-	}
 
 	.quantities-name{
 		width: 16em;
@@ -4341,7 +4421,7 @@ textarea {
 		width: 10em;
 	}
 
-	.hide-respo, .show-respo2{
+	.hide-respo{
 		display: none !important;
 	}
 
