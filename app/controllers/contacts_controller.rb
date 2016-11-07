@@ -10,12 +10,12 @@ class ContactsController < ApplicationController
 
 	def create
 		@contact = Contact.new(contact_params)
-		if @contact
+		if @contact.valid?
 			ContactMailer.delay.new_message(@contact)
 			redirect_to root_path
 			flash[:notice] = "Votre message a bien été envoyé, nous vous répondrons aussi vite que possible"
 		else
-			redirect_to root_path
+			redirect_to (:back)
 			flash[:error] = "Erreur lors de l'envoi du message"
 		end
 	end

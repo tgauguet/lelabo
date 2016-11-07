@@ -2,6 +2,16 @@ fr:
   activerecord:
     errors:
       models:
+        assembly:
+          attributes:
+            title:
+              missing: "Vous devez donner un nom à votre montage"
+              blank: "Vous devez donner un nom à votre montage"
+        recipe:
+          attributes:
+            name:
+              missing: "Vous devez donner un nom à votre recette"
+              blank: "Vous devez donner un nom à votre recette"
         user:
           attributes:
             account_name:

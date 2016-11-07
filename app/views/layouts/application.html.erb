@@ -30,7 +30,9 @@
 </head>
 <body>
 <% if white_layouts %>
-  <%= render "layouts/welcome_header" %>
+  <% unless signed_in? %>
+    <%= render "layouts/welcome_header" %>
+  <% end %>
 <% end %>
 <% if signed_in? %>
   <% unless not_useful %>
@@ -65,7 +67,9 @@
 <!-- Exit-intent pop over END -->
 <%= yield %>
 <% if white_layouts || (!current_user && current_page?(root_url))%>
-  <%= render "layouts/welcome_footer" %>
+  <% unless signed_in? %>
+    <%= render "layouts/welcome_footer" %>
+  <% end %>
 <% end %>
 </body>
 <noscript>

@@ -2,6 +2,12 @@ class Quantity < ActiveRecord::Base
 	belongs_to :ingredient
 	belongs_to :recipe
 	default_scope { order(:id) }
+	before_save :default_value
+
+	def default_value
+		# set the value at 100 if nil
+		self.weight = 100 unless self.weight
+	end
 
 	def price
 		price = self.ingredient.price * self.weight

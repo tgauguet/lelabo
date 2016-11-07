@@ -12,6 +12,7 @@ class Recipe < ActiveRecord::Base
 	accepts_nested_attributes_for :images, allow_destroy: true
 	accepts_nested_attributes_for :quantities, reject_if: :reject_quantity, allow_destroy: true
 	validates_presence_of :name
+	before_save :default_tva
 	has_attached_file :image, {
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :size => { :in => 0..300.kilobytes },
@@ -22,6 +23,10 @@ class Recipe < ActiveRecord::Base
 
 	def reject_quantity(attribute)
 		attribute['ingredient_id'].blank?
+	end
+
+	def default_tva
+		self.vat = 5.5 unless self.vat
 	end
 
 	def percentage_of(matter)

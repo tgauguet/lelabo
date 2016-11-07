@@ -1,12 +1,16 @@
 <% title "Nous contacter" %>
+<br/>
+<% if signed_in? %>
+	<%= link_to root_path do %><p class="red-color"><span class="image-hovered"></span>Retour à l'accueil</p><% end %>
+<% end %>
 <div class="standard-form-cntnr">
 	<div class="title-cntnr">
 		<h1 class="big-white-h1">Contacts</h1>
 		<p class="justify">Vous souhaitez nous envoyer une question, un avis(même les plus petits), une idée ou un conseil? Contactez nous simplement à l'aide du formulaire ci-dessous.</p>
 	</div>
 	<%= form_for @contact do |f| %>
-		<%= f.text_field :email, placeholder: "Email", class: "basic-field enlarge-field" %><br/>
-		<%= f.text_area :message, placeholder: "votre message ici...", class: "basic-field enlarge-field area-field" %><br/><br/>
-		<%= f.submit "Envoyer", class: "btn cta-btn float-right" %>
+		*Email<%= f.text_field :email, placeholder: "Votre email", class: "basic-field enlarge-field" %><br/>
+		*Message<%= f.text_area :message, placeholder: "Votre message ici...", class: "basic-field enlarge-field area-field" %><br/><br/>
+		<%= f.submit "ENVOYER", class: "btn cta-btn float-right" %>
 	<% end %>
 </div>
