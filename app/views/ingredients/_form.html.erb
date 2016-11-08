@@ -22,12 +22,18 @@
 			<%= f.text_field :brand, class: "basic-field bot-rad uppr-ing" %>
 		</div>
 		<br/><br/>
-		<h3>Fournisseur(s)</h3>
-		<div class="double-field">
-		  <%= f.fields_for :provider_prices do |ff| %>
-				<%= render "add_provider_prices", ff: ff %>
-			<% end %>
-			<div class="add_field"><%= create_new_field "+", f, :provider_prices %></div>
+		<h3>Poids</h3><br/>
+		<div class="composition-info ing-weights">
+			<p>Poids du Produit</p>
+			<p>Nb d'Unités/Produit</p>
+			<p>Poids par Unité</p>
+		</div>
+		<div class="composition comp2">
+				<%= image_tag "gramme.png", class: "field-img euro-img" %>
+				<%= f.text_field :weight, class: "basic-field top-rad" %>
+				<%= f.text_field :unit_quantity, class: "basic-field special-top" %>
+				<%= image_tag "gramme.png", class: "field-img euro-img" %>
+				<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad" %>
 		</div>
 	</div>
 	<div class="content-ing-info">
@@ -74,18 +80,13 @@
 		<p class="custom-checkbox check-orange"><%= f.check_box :is_glut_free %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Contient du gluten</p>
 		<p class="custom-checkbox check-green"><%= f.check_box :is_bio %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Biologique</p>
 		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p>
-		<br/><h3>Poids</h3><br/>
-		<div class="composition-info ing-weights">
-			<p>Poids du Produit</p>
-			<p>Nb d'Unités/Produit</p>
-			<p>Poids par Unité</p>
-		</div>
-		<div class="composition comp2">
-				<%= image_tag "gramme.png", class: "field-img euro-img" %>
-				<%= f.text_field :weight, class: "basic-field top-rad" %>
-				<%= f.text_field :unit_quantity, class: "basic-field special-top" %>
-				<%= image_tag "gramme.png", class: "field-img euro-img" %>
-				<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad" %>
+		<br/><br/>
+		<h3>Fournisseur(s)</h3>
+		<div class="double-field">
+		  <%= f.fields_for :provider_prices do |ff| %>
+				<%= render "add_provider_prices", ff: ff %>
+			<% end %>
+			<div class="add_field"><%= create_new_field "+", f, :provider_prices %></div>
 		</div>
 	</div>
 	<br/><br/>
