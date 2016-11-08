@@ -492,7 +492,7 @@ ul li{
 .to-the-right{
   float: left;
   width: 7em;
-  margin-top: 0.4em;
+  margin-top: 0em;
   margin-left: 3em;
 }
 
@@ -1359,7 +1359,7 @@ header .normal_header{
   z-index: 1000;
   position: fixed;
   right: 0;
-  left: 12em;
+  left: 13em;
 }
 
 .rgth-links{
@@ -1945,7 +1945,7 @@ header .normal_header{
 .left-cntnr{
   float: left;
   background: rgb(33,49,77);
-  width: 12em;
+  width: 13em;
   height: 103vh;
   position: fixed;
   margin-top: -0.2em;
@@ -1954,7 +1954,7 @@ header .normal_header{
 
 .full-cntnr{
   width: auto;
-  margin-left: 12em;
+  margin-left: 13em;
 }
 
 .actions-cntnr{
@@ -1965,7 +1965,7 @@ header .normal_header{
 	overflow: hidden;
   margin-left: auto;
   padding-bottom: 2em;
-  margin-left: 12em;
+  margin-left: 13em;
   width: auto;
 }
 
@@ -3298,17 +3298,40 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
   padding: 0;
 }
 
-.features-li ul li{
+.features-li ul .f-li{
   text-align: left;
   color: #798293;
   padding-left: 2.2em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
+	border-top:1px solid rgb(29,39,65);
+	margin-top: -1px;
+}
+
+.features-li ul:last-child .f-li{
+	border-bottom:1px solid rgb(29,39,65);
+}
+
+.feature-img{
+	opacity: 0.3;
+}
+
+.features-li ul .current-feat{
+	background: rgb(26,34,55);
+	color: rgb(240, 245, 250);
+}
+
+.features-li ul .current-feat .feature-img{
+	opacity: 1;
 }
 
 .features-li ul li:hover{
-  background: rgb(23,33, 47);
+  background: rgb(26,34,55);
   color: rgb(240, 245, 250);
+}
+
+.features-li ul li:hover .feature-img{
+  opacity: 1;
 }
 
 .feat-img-cntnr{

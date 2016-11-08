@@ -51,19 +51,44 @@
 	<div class="features-li">
 		<ul>
 			<%= link_to new_ingredient_path do %>
-				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %></div>Ingrédients</li>
+				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					Ingrédients
+				</li>
 			<% end %>
 			<%= link_to recipes_path do %>
-				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %></div>Recettes</li>
+				<li class="f-li <% if request.path.start_with?('/reci')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					Recettes
+				</li>
 			<% end %>
 			<%= link_to assemblies_path do %>
-				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %></div>Montages</li>
+				<li class="f-li <% if request.path.start_with?('/asse')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					Montages
+				</li>
 			<% end %>
 			<%= link_to providers_path do %>
-				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "feat-img4.png", class: "feature-img", alt: "menu icon" %></div>Fournisseurs</li>
+				<li class="f-li <% if request.path.start_with?('/prov')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img4.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					Fournisseurs
+				</li>
 			<% end %>
 			<%= link_to new_to_do_list_path do %>
-				<li class="f-li"><div class="feat-img-cntnr"><%= image_tag "checked.png", class: "feature-img", alt: "menu icon" %></div>Organisation</li>
+				<li class="f-li <% if request.path.start_with?('/to')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img5.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					Organisation
+				</li>
 			<% end %>
 		</ul>
 	</div>
