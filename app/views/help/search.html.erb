@@ -1,0 +1,18 @@
+<div class="help-body">
+  <%= render "help/cat" %>
+  <div class="help-cat2 help-tips">
+    <h2>Recherche</h2>
+    <p>Questions relatives aux paramètres de recherche</p>
+    <ul>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Je ne parviens pas à utiliser la barre de recherches, est-ce normal?</li>
+      <div class="arrow_box">
+        <p>Oui, car cette option est encore au stade de prototype.</p>
+      </div>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Quand pourrais-je y avoir accès ?</li>
+      <div class="arrow_box">
+        <p>Nous envisageons l'implémentation de cette fonctionnalité.</p>
+        <p>Si elle est importante pour vous, nous vous encourageons à nous le faire savoir en nous <%= link_to new_contact_path do %><b>Contactant</b><% end %></p>
+      </div>
+    </ul>
+  </div>
+</div>

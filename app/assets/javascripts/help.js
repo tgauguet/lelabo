@@ -1,9 +1,7 @@
-// hide and show each form in edit view
+// hide and show each form in help views
 $(document).ready(function(){
-  $('.help-cat ul li').click(function(){
-    $(".help-option").hide();
-    $(".help-cat ul li").removeClass("current-help");
-		$(this).addClass("current-help");
-    $("#div"+$(this).attr('target')).show();
+  $('.help-tips ul li').click(function(){
+		$(this).toggleClass("current-question");
+    $(this).nextAll('div').first().slideToggle();
   });
 });

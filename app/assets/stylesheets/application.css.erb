@@ -1435,9 +1435,129 @@ header .normal_header{
 }
 
 .sale-bckgrnd{
-  background: rgb(84,88,223);;
+  background: rgb(84,88,223);
   padding-top: 4em;
 	padding-bottom: 4em;
+}
+
+.help-header{
+	height: 4.2em;
+	background: rgb(25,36,60);
+	position: relative;
+	padding-right: 2em;
+}
+
+.help-header ul li{
+	color: white;
+	border: white;
+	display: inline;
+	margin-left: -0.2em;
+	padding: 1.5em 1em 1.4em 1em;
+}
+
+.help-header ul li:hover{
+	background: rgb(45,66,90);
+}
+
+.help-body{
+	padding-top: 3em;
+	padding-bottom: 3em;
+	min-height: 100vh;
+}
+
+.help-cat, .help-cat2, .help-tips{
+	display: inline-block;
+	vertical-align: top;
+	width: 20em;
+	padding: 2em;
+	text-align: left;
+}
+
+.help-cat ul, .help-cat2 ul{
+	margin:0;
+	padding: 0;
+}
+
+.help-cat ul li{
+	color: grey;
+	padding: 1em;
+	cursor: pointer;
+}
+
+.help-cat2 ul li{
+	font-size: 1.2em;
+	margin-top: 1em;
+	cursor: pointer;
+}
+
+.current-question{
+	font-family: "source_sans_probold";
+}
+
+.current-help{
+	background: white;
+	border-radius: 0.3em;
+	color: black !important;
+	font-family: "source_sans_probold";
+}
+
+.help-cat ul li:hover{
+	color: black;
+}
+
+.help-tips .arrow_box {
+	position: relative;
+	display: none;
+	background: #FBF6E8;
+	padding: 2em;
+	margin-top: 1em;
+	border: 1px solid #EBC63B;
+	border-radius: 0.2em;
+}
+
+.help-tips .arrow_box:after, .help-tips .arrow_box:before {
+	bottom: 100%;
+	left: 1.3em;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.help-tips .arrow_box:after {
+	border-color: rgba(251, 246, 232, 0);
+	border-bottom-color: #FBF6E8;
+	border-width: 12px;
+	margin-left: -12px;
+}
+.help-tips .arrow_box:before {
+	border-color: rgba(235, 198, 59, 0);
+	border-bottom-color: #EBC63B;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+.help-tips{
+	width: 45em;
+	background: white;
+	border-radius: 0.4em;
+	padding: 3em;
+	position: relative;
+}
+
+.help-tips .explain-img{
+	width: 100%;
+	margin: 1em 0 1em 0;
+}
+
+.help-header ul {
+	float: right;
+	padding: 0;
+	margin: 0;
+	margin-top: 1.5em;
+	text-align: right;
 }
 
 .white-bck{
@@ -1840,7 +1960,6 @@ header .normal_header{
 .actions-cntnr{
   width: 100%;
   min-height: 100vh;
-  background:rgb(239,241,245);
   margin-right: auto;
   padding-top: 3.2em;
 	overflow: hidden;
@@ -1848,6 +1967,10 @@ header .normal_header{
   padding-bottom: 2em;
   margin-left: 12em;
   width: auto;
+}
+
+.help-body, .actions-cntnr{
+	background:rgb(239,241,245);
 }
 
 .welcome-usr{
@@ -3517,7 +3640,6 @@ input[type="checkbox"] + span {
 	background: white;
 	right: 0;
 	width: 31em;
-	margin-top: 3.3em;
 	border-left: 2px solid rgb(146,146,146);
 	text-align: left;
 	padding: 3em 2em 2em 4em;
@@ -3579,8 +3701,13 @@ input[type="checkbox"] + span {
 
 .cstm-help{
 	background: rgb(51,63,85);
-	position: absolute !important;
-	color: #1C9DD5;
+	color: white;
+}
+
+.cstm-help2{
+	background: white;
+	border-radius: 0.3em;
+	color: black !important;
 }
 
 .notes{

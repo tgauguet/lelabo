@@ -29,6 +29,9 @@
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
+<% if request.path.start_with?('/aide') %>
+  <%= render 'layouts/help_env' %>
+<% end %>
 <% if white_layouts %>
   <% unless signed_in? %>
     <%= render "layouts/welcome_header" %>

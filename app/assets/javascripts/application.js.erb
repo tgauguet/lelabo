@@ -14,9 +14,9 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
+//= require help
 //= require turbolinks
 //= require welcome
-//= require help
 //= require recipes
 //= require subscriptions
 //= require to_do_lists
@@ -124,6 +124,10 @@ $(document).ready(function(){
     $(".help-btn").removeClass("cstm-help");
   });
   $(".help-img").click(function(){
+    $(".total-body").fadeOut();
+    $(".help-btn").removeClass("cstm-help");
+  });
+  $(".help-i").click(function(){
     $(".total-body").fadeOut();
     $(".help-btn").removeClass("cstm-help");
   });

@@ -1,0 +1,12 @@
+<div class="help-header">
+  <%= link_to root_path do %><%= image_tag "logo-txt-white.png", class: "logo-white to-the-right" %><% end %>
+    <ul>
+      <%= link_to subscriptions_path do %><li>S'ABONNER</li><% end %>
+      <%= link_to new_contact_path do %><li>CONTACT</li><% end %>
+      <% if signed_in? %>
+        <%= link_to root_path do %><li>RETOUR À L'ACCUEIL</li><% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %><li>SE CONNECTER</li><% end %>
+      <% end %>
+    </ul>
+</div>

@@ -1,0 +1,32 @@
+<div class="help-cat">
+  <h3>CATÉGORIES</h3>
+  <ul>
+    <%= link_to aide_categories_ingredients_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/i') %>cstm-help2<% end %>">Gestion des ingrédients</li>
+    <% end %>
+    <%= link_to aide_categories_recettes_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/rece') %>cstm-help2<% end %>">Gestion des recettes</li>
+    <% end %>
+    <%= link_to aide_categories_montages_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/m') %>cstm-help2<% end %>">Gestion des montages</li>
+    <% end %>
+    <%= link_to aide_categories_fournisseurs_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/f') %>cstm-help2<% end %>">Gestion des fournisseurs</li>
+    <% end %>
+    <%= link_to aide_categories_listes_de_taches_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/l') %>cstm-help2<% end %>">Gestion des listes de tâches</li>
+    <% end %>
+    <%= link_to aide_categories_recherche_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/rech') %>cstm-help2<% end %>">Recherche</li>
+    <% end %>
+    <%= link_to aide_categories_abonnements_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/a') %>cstm-help2<% end %>">Gestion de mon abonnement</li>
+    <% end %>
+    <%= link_to aide_categories_paiements_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/p') %>cstm-help2<% end %>">Paiement</li>
+    <% end %>
+    <%= link_to aide_categories_service_apres_vente_path do %>
+      <li class="<% if request.path.start_with?('/aide/categories/s') %>cstm-help2<% end %>">Après-vente</li>
+    <% end %>
+  </ul>
+</div>

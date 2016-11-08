@@ -121,14 +121,14 @@
 		<%= image_tag "delete-sml.png", class: "mini-img help-img", alt: "image remove helper" %>
 		<h3>Pages suggérées</h3><br/>
 		<ul>
-			<li><span></span>Essayer <b>toutes les options</b></li>
-			<li><span></span>Obtenir une <b>facture</b></li>
-			<li><span></span>Rapporter une <b>erreur</b></li>
-			<li><span></span><b>Soumettre</b> une proposition</li>
-			<li><span></span>Créer un <b>ingrédient</b></li>
-			<li><span></span>Créer un <b>montage</b></li>
-			<li><span></span>Créer une <b>recette</b></li>
+			<%= link_to aide_categories_abonnements_path, target: "_blank", class: "help-i" do %><li><span></span>Essayer <b>toutes les options</b></li><% end %>
+			<%= link_to aide_categories_paiements_path, target: "_blank", class: "help-i" do %><li><span></span>Obtenir une <b>facture</b></li><% end %>
+			<%= link_to aide_categories_service_apres_vente_path, target: "_blank", class: "help-i" do %><li><span></span>Rapporter une <b>erreur</b></li><% end %>
+			<%= link_to aide_categories_service_apres_vente_path, target: "_blank", class: "help-i" do %><li><span></span><b>Soumettre</b> une proposition</li><% end %>
+			<%= link_to aide_categories_ingredients_path, target: "_blank", class: "help-i" do %><li><span></span>Créer un <b>ingrédient</b></li><% end %>
+			<%= link_to aide_categories_montages_path, target: "_blank", class: "help-i" do %><li><span></span>Créer un <b>montage</b></li><% end %>
+			<%= link_to aide_categories_recettes_path, target: "_blank", class: "help-i" do %><li><span></span>Créer une <b>recette</b></li><% end %>
 		</ul><br/>
-		<%= link_to aide_path, target: "_blank" do %><p><span>?</span>ACCEDER AUX PAGES D'AIDE</p><% end %>
+		<%= link_to aide_categories_ingredients_path, target: "_blank", class: "help-i" do %><p><span>?</span>ACCEDER AUX PAGES D'AIDE</p><% end %>
 	</div>
 </div>
