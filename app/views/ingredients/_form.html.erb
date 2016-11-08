@@ -1,22 +1,27 @@
 <%= form_for ingredient, html: { data_type: "html", id: "clear_form"} do |f| %>
 <div class="ing-form-cntnr">
 	<div class="basic-ing-info">
-		<h3>Informations</h3>
-		<p>Nom</p>
-		<%= f.text_field :name, class: "basic-field ing-field" %>
-		<div class="select-areas">
+		<h3>Informations</h3><br/>
+		<div class="composition-info smllcmp">
+			<p>Nom</p>
 			<p>Catégorie</p>
-			<%= f.select :category, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field ing-field", include_blank: true %>
 			<p>Prix</p>
-			<div class="price-field">
-				<%= f.text_field :price, placeholder: "Prix", class: "basic-field left-field" %>
-				<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field" %>
-			</div>
+			<p>TVA</p>
+			<p>Marque</p>
 		</div>
-		<p>TVA</p>
-		<%= f.text_field :vat, class: "basic-field ing-field", value: "20.00" %>
-		<p>Marque</p>
-		<%= f.text_field :brand, class: "basic-field ing-field" %>
+		<div class="composition big-compo ing-inf">
+			<%= f.text_field :name, class: "basic-field top-rad" %>
+			<%= f.select :category, ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field ing-field", include_blank: true %>
+			<div class="portion-cntnr cubic">
+				<%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
+				<%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
+				<%= f.text_field :price, placeholder: "Prix", class: "basic-field portion-field" %>
+				<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field special-top" %>
+			</div>
+			<%= f.text_field :vat, class: "basic-field special-top" %>
+			<%= f.text_field :brand, class: "basic-field bot-rad uppr-ing" %>
+		</div>
+		<br/><br/>
 		<h3>Fournisseur(s)</h3>
 		<div class="double-field">
 		  <%= f.fields_for :provider_prices do |ff| %>

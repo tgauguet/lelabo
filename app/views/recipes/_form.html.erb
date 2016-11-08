@@ -22,7 +22,6 @@
       <%= f.text_field :name, class: "basic-field top-rad" %>
       <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
       <%= f.text_field :owner, class: "basic-field special-top", value: user_if_nil(recipe) %>
-
       <%= f.text_field :baking, class: "basic-field special-top bot-rad" %>
   	</div>
     <br/><br/>
