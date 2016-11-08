@@ -590,6 +590,47 @@ ul li{
   color: #444444;
 }
 
+.hover-helper{
+	opacity: 0;
+	position: absolute;
+}
+
+p:hover + .hover-helper{
+	position: absolute;
+	width: 20em;
+	background: rgba(0,10,30,0.9);
+	opacity: 1;
+	color: white;
+	font-size: 0.75em;
+	z-index: 999999;
+	margin-top: 0.3em;
+	text-align: center;
+	padding: 0.2em;
+	border-radius: 0.3em;
+}
+
+.ing-bg-name{
+	margin-bottom: -0.4em;
+	font-size: 2em;
+}
+
+.hover-helper:after, .hover-helper:before {
+	bottom: 100%;
+	left: 4em;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.hover-helper:after {
+	border-bottom-color: rgba(0,0,0,0.8);
+	border-width: 7px;
+	margin-left: -7px;
+}
+
 .blog-post-cntnr h2{
   padding-top: 1.5em;
   padding-bottom: 1em;

@@ -1,7 +1,7 @@
 <%= form_for(assembly) do |f| %>
   <% if assembly.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(assembly.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <h2><%= pluralize(assembly.errors.count, "error") %> Ont empêché la sauvegarde de ce montage</h2>
       <ul>
       <% assembly.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,7 +13,7 @@
   <div class="recipe-cntnr r-smll-cntnr">
     <h3>Informations générales</h3>
     <div class="composition-info to-left">
-  		<p>*Nom</p>
+  		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre montage (cette mention est nécessaire)</div>
   		<p>Catégorie</p>
   		<p>Auteur</p>
   	</div>
@@ -24,7 +24,7 @@
   	</div>
     <br/><br/>
     <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
-    <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p>
+    <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p><div class="hover-helper">Définir comme montage star et/ou recette préférée</div>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
     <% if current_user.basic_user? %>

@@ -1,7 +1,7 @@
 <% title "#{@ingredient.name.humanize}" %>
 <div class="actions-cntnr">
 	<div class="action-cntnr">
-		<h2><%= @ingredient.name.upcase %></h2><br/>
+		<h2 class="ing-bg-name"><%= @ingredient.name.upcase %></h2><br/>
 		<%= render "form", ingredient: @ingredient %>
 	</div>
 </div>

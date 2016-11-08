@@ -3,9 +3,9 @@
 	<div class="basic-ing-info">
 		<h3>Informations</h3><br/>
 		<div class="composition-info smllcmp">
-			<p>Nom</p>
+			<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre ingrédient (cette mention est nécessaire)</div>
 			<p>Catégorie</p>
-			<p>Prix</p>
+			<p>Prix</p><div class="hover-helper">Utilisé pour calculer le coût de revient de vos recettes</div>
 			<p>TVA</p>
 			<p>Marque</p>
 		</div>
@@ -24,8 +24,8 @@
 		<br/><br/>
 		<h3>Poids</h3><br/>
 		<div class="composition-info ing-weights">
-			<p>Poids du Produit</p>
-			<p>Nb d'Unités/Produit</p>
+			<p>Poids du Produit</p><div class="hover-helper">Poids net total de l'ingrédient</div>
+			<p>Nb d'Unités/Produit</p><div class="hover-helper">Nombre d'unité par ingrédient (si plusieurs par emballage)</div>
 			<p>Poids par Unité</p>
 		</div>
 		<div class="composition comp2">
@@ -39,11 +39,11 @@
 	<div class="content-ing-info">
 		<h3>Composition</h3><br/>
 		<div class="composition-info">
-			<p>Mat. grasse</p>
-			<p>Eau</p>
-			<p>Sucre</p>
-			<p>Pouvoir sucrant</p>
-			<p>Alcool</p>
+			<p>Mat. grasse</p><div class="hover-helper">Quantité de Matières grasses en %</div>
+			<p>Eau</p><div class="hover-helper">Quantité d'eau en %</div>
+			<p>Sucre</p><div class="hover-helper">Quantité de saccharose en %</div>
+			<p>Pouvoir sucrant</p><div class="hover-helper">Pouvoir sucrant (saccharose = 100%)</div>
+			<p>Alcool</p><div class="hover-helper">Quantité d'alcool en %</div>
 		</div>
 		<div class="composition comp2">
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
@@ -58,11 +58,11 @@
 				<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad" %>
 		</div>
 		<div class="composition-info">
-			<p>Mat. sèche</p>
-			<p>Cacao maigre</p>
-			<p>Beurre de cacao</p>
-			<p>Cacao total</p>
-			<p>Calories /100g</p>
+			<p>Mat. sèche</p><div class="hover-helper">Quantité de Matières sèches en %</div>
+			<p>Cacao maigre</p><div class="hover-helper">Quantité de pâte de cacao en %</div>
+			<p>Beurre de cacao</p><div class="hover-helper">Quantité de beurre de cacao en %</div>
+			<p>Cacao total</p><div class="hover-helper">Addition du % de cacao maigre et du % de beurre de cacao</div>
+			<p>Calories /100g</p><div class="hover-helper">Nombre de calories pour 100g</div>
 		</div>
 		<div class="composition comp2">
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
@@ -79,7 +79,7 @@
 		<br/><br/>
 		<p class="custom-checkbox check-orange"><%= f.check_box :is_glut_free %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Contient du gluten</p>
 		<p class="custom-checkbox check-green"><%= f.check_box :is_bio %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Biologique</p>
-		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p>
+		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p><div class="hover-helper">L'ingrédient est-il une purée de fruit ? (important pour l'équilibre des sorbets)</div>
 		<br/><br/>
 		<h3>Fournisseur(s)</h3>
 		<div class="double-field">

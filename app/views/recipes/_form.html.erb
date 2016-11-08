@@ -1,7 +1,7 @@
 <%= form_for(recipe) do |f| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <h2><%= pluralize(recipe.errors.count, "error") %> Ont empêché la sauvegarde de cette recette :</h2>
       <ul>
       <% recipe.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,10 +13,10 @@
   <div class="recipe-cntnr r-smll-cntnr">
     <h3>Informations générales</h3>
     <div class="composition-info to-left">
-  		<p>*Nom</p>
+  		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>
   		<p>Catégorie</p>
   		<p>Auteur</p>
-  		<p>Cuisson</p>
+  		<p>Cuisson</p><div class="hover-helper">La température de cuisson de votre recette</div>
   	</div>
   	<div class="composition big-compo">
       <%= f.text_field :name, class: "basic-field top-rad" %>
@@ -26,9 +26,9 @@
   	</div>
     <br/><br/>
     <div class="composition-info to-left">
-      <p>Prix de vente</p>
-  		<p>Poids/Part</p>
-      <p>Taux de TVA</p>
+      <p>Prix de vente</p><div class="hover-helper">Prix de vente TTC par part (une part ou portion)</div>
+  		<p>Poids/Part</p><div class="hover-helper">Le poids d'une part (ou portion)</div>
+      <p>Taux de TVA</p><div class="hover-helper">Le taux de TVA applicable à la recette</div>
   	</div>
   	<div class="composition big-compo portion-cntnr">
       <%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
@@ -40,7 +40,7 @@
   	</div>
     <div class="form-divs">
       <p class="custom-checkbox check-red"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
-      <p class="custom-checkbox check-red"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p>
+      <p class="custom-checkbox check-red"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p><div class="hover-helper">Définir comme recette star et/ou recette préférée</div>
     </div>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
