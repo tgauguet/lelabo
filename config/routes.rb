@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  	mount Ckeditor::Engine => '/ckeditor'
-  	resources :recipes
+  mount Ckeditor::Engine => '/ckeditor'
+  root "welcome#index"
 	devise_for :users, :controllers => {:confirmations => 'confirmations', :registrations => "registrations"}, path: 'utilisateur', path_names: { sign_out: 'deconnexion', password: 'mot-de-passe', confirmation: 'verification', unlock: 'debloquer', edit: "modifier" }, :except => [:update, :edit]
-  	devise_scope :user do
+  # redirect user if signed_in?
+  devise_scope :user do
 	  authenticated :user do
 	    root :to => 'welcome#index', as: :authenticated_root
 	  end
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
 			patch :set_parameters
 		end
 	end
-	resources :subscriptions, only: [:new, :create, :index, :update, :edit]
+	resources :subscriptions, only: [:new, :create, :index]
 	resources :users, except: [:new, :create, :index]
 	#create route for jquery sortable
 	resources :to_do_lists, only: [:show, :new] do
@@ -60,34 +61,44 @@ Rails.application.routes.draw do
 	end
 	resources :ingredients, except: [:show, :index] do
 		collection do
-			put "/sort/:id" => "ingredients#sort"
+			#put "/sort/:id" => "ingredients#sort" -> unused since jquery sortable has been removed
 			get :search
 		end
 	end
 	resources :contacts, only: [:new,:create]
 	devise_scope :user do
-      put "/confirm" => "confirmations#confirm"
-      patch "/confirm" => "confirmations#confirm"
-    end
-    match '/blog', to: "blogs#index", via: [:get]
-    match "/creer-votre-mot-de-passe", to: "devise/confirmations#show", :via => [:get]
-    match "/produits", to: "pages#products", :via => [:get, :post]
-    match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]
-    match "/parametres", to: "users#parameters", via: [:get, :post]
-    match "/aide", to: "pages#help", via: [:get]
-    match '/informations-de-votre-compte' => 'users#second_step', via: [:get, :post]
-    match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]
-    match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
-    match "/blog/huit-outils-pour-accelerer-votre-business" => "blogs#article", via: [:get]
-    match "/blog/dix-patissiers-francais-stars-de-instagram" => "blogs#instagramstar", via: [:get]
-    match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
-    match "/mentions-legales", to: "pages#mentions", via: [:get]
-    match "/conditions-generales-utilisation", to: "pages#utilisation", via: [:get]
-    match "/conditions-generales-vente", to: "pages#sale", via: [:get]
-    match "/page-error", to: "pages#page_not_found", via: [:get]
-  	root "welcome#index"
-  	resources :newsletters, :only => [:create]
-  	get '404', :to => 'application#page_not_found'
-    get '422', :to => 'application#server_error'
-    get '500', :to => 'application#server_error'
+    put "/confirm" => "confirmations#confirm"
+    patch "/confirm" => "confirmations#confirm"
+  end
+  match '/blog', to: "blogs#index", via: [:get]
+  match "/creer-votre-mot-de-passe", to: "devise/confirmations#show", :via => [:get]
+  match "/produits", to: "pages#products", :via => [:get, :post]
+  match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]
+  match "/parametres", to: "users#parameters", via: [:get, :post]
+  match '/informations-de-votre-compte' => 'users#second_step', via: [:get, :post]
+  match '/confirmation-de-votre-compte' => 'users#final_step', via: [:get, :post]
+  match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
+  match "/blog/huit-outils-pour-accelerer-votre-business" => "blogs#article", via: [:get]
+  match "/blog/dix-patissiers-francais-stars-de-instagram" => "blogs#instagramstar", via: [:get]
+  match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
+  match "/mentions-legales", to: "pages#mentions", via: [:get]
+  match "/conditions-generales-utilisation", to: "pages#utilisation", via: [:get]
+  match "/conditions-generales-vente", to: "pages#sale", via: [:get]
+  match "/page-error", to: "pages#page_not_found", via: [:get]
+  resources :newsletters, :only => [:create]
+  get '404', :to => 'application#page_not_found'
+  get '422', :to => 'application#server_error'
+  get '500', :to => 'application#server_error'
+  ###begining of help pages routing
+  # ROUTING for help categories
+  match "/aide/categories/ingredients", to: "help#ingredients", via: [:get]
+  match "/aide/categories/montages", to: "help#assemblies", via: [:get]
+  match "/aide/categories/paiements", to: "help#payment", via: [:get]
+  match "/aide/categories/fournisseurs", to: "help#providers", via: [:get]
+  match "/aide/categories/recettes", to: "help#recipes", via: [:get]
+  match "/aide/categories/recherche", to: "help#search", via: [:get]
+  match "/aide/categories/service-apres-vente", to: "help#service", via: [:get]
+  match "/aide/categories/abonnements", to: "help#subscription", via: [:get]
+  match "/aide/categories/listes-de-taches", to: "help#to_do_lists", via: [:get]
+  ###end of help pages routing
 end
