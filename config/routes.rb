@@ -100,4 +100,5 @@ Rails.application.routes.draw do
   match "/aide/categories/abonnements", to: "help#subscription", via: [:get]
   match "/aide/categories/listes-de-taches", to: "help#to_do_lists", via: [:get]
   ###end of help pages routing
+  root "welcome#index"
 end
