@@ -24,7 +24,7 @@
   	</div>
     <br/><br/>
     <p class="custom-checkbox check-green"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
-    <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p><div class="hover-helper">Définir comme montage star et/ou recette préférée</div>
+    <p class="custom-checkbox check-green"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p><div class="hover-helper">Définir comme montage star et/ou montage préféré</div>
   </div>
   <div class="recipe-cntnr r-big-cntnr">
     <% if current_user.basic_user? %>
