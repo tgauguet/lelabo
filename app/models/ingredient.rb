@@ -16,6 +16,8 @@ class Ingredient < ActiveRecord::Base
 	def default_value
 		# set the value at 0 if null
 		self.cocoa_percent = 0 unless self.cocoa_percent
+		self.protein = 0 unless self.protein
+		self.carbohydrates = 0 unless self.carbohydrates
 		self.sugar_power = 0 unless self.sugar_power
 		self.kcal = 0 unless self.kcal
 		self.sugar_percent = 0 unless self.sugar_percent
