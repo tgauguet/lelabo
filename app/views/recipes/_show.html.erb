@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <div class="view-top-l">
-    <h1><%= recipe.name.upcase %></h1>
+    <h1><%= recipe.name.mb_chars.upcase %></h1>
     <p><%= recipe.category %> </p>
     <p><b>par <%= recipe.owner %></b></p><br/>
     <p><%= image_tag "temperature.png", class: "mini-img" %><b> CUISSON : <%= recipe.baking %> °C</b></p>

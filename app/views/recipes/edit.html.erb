@@ -1,32 +1,48 @@
 <% title "#{@recipe.name.humanize}" %>
 <div class="actions-cntnr">
-      <div class="action-cntnr page-new-ttl">
-        <div class="recipe-btn-cntnr">
-          <p class="recipe-btn current-form" target="0">APERÇU</p>
-          <p class="recipe-btn" target='1'>MODIFIER</p>
-          <p class="recipe-btn" target='2'>QUANTITÉS</p>
-          <p class="recipe-btn" target='3'>ÉQUILIBRAGE</p>
-          <p class="recipe-btn" target='4'>COUT DE REVIENT</p>
-          <p class="recipe-btn" target='5'>PHOTOS</p>
-        </div>
+    <div class="recipe-btn-cntnr">
+      <p class="recipe-btn current-form" target="0"><%= image_tag"r-f-img1", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='1'><%= image_tag"r-f-img2", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='2'><%= image_tag"r-f-img3", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='3'><%= image_tag"r-f-img4", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='4'><%= image_tag"r-f-img5", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='5'><%= image_tag"r-f-img6", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='6'><%= image_tag"r-f-img7", alt: "recipe btn image" %></p>
+      <p class="recipe-btn" target='7'><%= image_tag"r-f-img8", alt: "recipe btn image" %></p>
+    </div>
+      <div class="action-cntnr page-new-ttl recipe-forms">
       <br/>
       <div id="div0" class="recipe-option">
+        <h2>APERÇU</h2>
         <%= render "show", recipe: @recipe %>
       </div>
       <div id="div1" class="recipe-option" style="display:none;">
+        <h2>MODIFIER</h2>
         <%= render "form", recipe: @recipe %>
       </div>
       <div id="div2" class="recipe-option" style="display:none;">
+        <h2>QUANTITÉS</h2>
         <%= render "quantities_form", recipe: @recipe, totals: @totals %>
       </div>
       <div id="div3" class="recipe-option" style="display:none;">
+        <h2>ÉQUILIBRE</h2>
         <%= render "equilibrium_form", recipe: @recipe %>
       </div>
       <div id="div4" class="recipe-option" style="display:none;">
+        <h2>COÛT DE REVIENT</h2>
         <%= render "cost_form", recipe: @recipe %>
       </div>
       <div id="div5" class="recipe-option" style="display:none;">
+        <h2>PHOTOS</h2>
         <%= render "pictures_form", recipe: @recipe %>
+      </div>
+      <div id="div6" class="recipe-option" style="display:none;">
+        <h2>ÉTIQUETTES</h2>
+        <%= render "sticker", recipe: @recipe %>
+      </div>
+      <div id="div7" class="recipe-option" style="display:none;">
+        <h2>STATISTIQUES</h2>
+        <%= render "stats", recipe: @recipe %>
       </div>
   	</div>
 </div>
