@@ -2399,6 +2399,14 @@ select{
 	width: 53em;
 }
 
+.recipe-forms{
+	display: inline-block;
+	vertical-align: top;
+	border-top-left-radius: 0em;
+	min-height: 36em;
+	padding: 1.2em;
+}
+
 .ing-cntnr{
 	text-align: left;
 	margin: auto;
@@ -3370,6 +3378,10 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	margin-top: -1px;
 }
 
+.features-li li span{
+	color: #798293;
+}
+
 .features-li ul:last-child .f-li{
 	border-bottom:1px solid rgb(29,39,65);
 }
@@ -3387,9 +3399,16 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	opacity: 1;
 }
 
+.features-li ul .current-feat span{
+	color: rgb(240, 245, 250);
+}
+
 .features-li ul li:hover{
   background: rgb(26,34,55);
-  color: rgb(240, 245, 250);
+}
+
+.features-li ul li:hover span{
+	color: rgb(240, 245, 250);
 }
 
 .features-li ul li:hover .feature-img{
@@ -3440,7 +3459,6 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	filter: grayscale(0%);
 	filter: none;
 	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=0);
-	width: 1em;
 }
 
 .cta-lft-btn{
@@ -3921,31 +3939,51 @@ input[type="checkbox"] + span {
 }
 
 .recipe-btn-cntnr{
-	border-bottom: 1px solid rgb(217,217,217);
-	background: white;
-	padding-top: 0.6em;
-	padding-bottom: 0.4em;
-	text-align: left;
-	overflow: hidden;
+	width: 5em;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 1em;
+	margin-right: 0.4em;
 }
 
 .recipe-btn{
-	display: inline;
-	background: rgb(242, 245, 250);
-	border:1px solid rgb(217,217,217);
+	padding: 1.3em 1em 1.1em 1em;
+	margin: 0em;
 	cursor: pointer;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	padding-left: 1em;
-	border-top-left-radius: 0.2em;
-	border-top-right-radius: 0.2em;
-	padding-right: 1em;
+	background: white;
 }
 
-.recipe-btn:hover, .current-form{
-	background: rgb(83,87,220);
-	border: 1px solid rgb(83,87,220);
-	color:white;
+.recipe-forms h2{
+	text-align: left;
+	margin-top: -0.7em;
+	margin-bottom: 1em;
+}
+
+.recipe-btn img{
+	width: 2em;
+}
+
+.recipe-btn:hover{
+	background: rgb(243,245,251);
+}
+
+.current-form{
+	position: relative;
+	background: #88b7d5 !important;
+}
+
+.current-form:after {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-left-color: #88b7d5;
+	border-width: 10px;
+	margin-top: -10px;
 }
 
 .recipe-view{
@@ -4457,10 +4495,6 @@ textarea {
 		display: none;
 	}
 
-	.recipe-btn{
-		font-size: 0.95em;
-	}
-
 	.view-top-l{
 		width: 100%;
 	}
@@ -4522,7 +4556,81 @@ textarea {
 
 }
 
-@media screen and (min-width : 62em){
+@media screen and (min-width: 67em) {
+	.user-btn img{
+		display: none;
+	}
+}
+
+@media screen and (max-width : 67em){
+
+	.left-cntnr{
+	  width: 5em;
+	}
+
+	.full-cntnr{
+	  margin-left: 5em;
+	}
+
+	.actions-cntnr{
+	  margin-left: 5em;
+	}
+
+	.full-header{
+	  left: 5em;
+	}
+
+	.send-feedback{
+		display: none;
+	}
+
+	.header-icn{
+		width: 4em;
+		height: auto;
+		margin-top: 0.7em;
+	}
+
+	.user-btn h3, .user-btn p{
+		display: none;
+	}
+
+	.user-btn img{
+		margin-left: auto;
+		margin-right: auto;
+		width: 3em;
+		margin-top: 0.2em;
+	}
+
+	.user-btn{
+		border: none;
+	}
+
+	.cta-lft-cntnr{
+		display: none;
+	}
+
+	.features-li li span{
+		display: none;
+	}
+
+	.features-li ul li .feat-img-cntnr{
+		width: 1em;
+		position: relative;
+		padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.features-li img{
+		position: relative;
+		width: 1.5em;
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+
+}
+
+@media screen and (min-width : 60em){
 
 	.beard-head, .show-respo, .beard-head .brg-icn, .show-burg2, .show-burg{
 		display: none !important;
@@ -4530,7 +4638,7 @@ textarea {
 
 }
 
-@media screen and (max-width : 62em){
+@media screen and (max-width : 60em){
 
 	.beard-head{
 		width: 2em;
@@ -4617,6 +4725,31 @@ textarea {
 		background: green !important
 	}
 
+	.recipe-btn-cntnr{
+		width: 100%;
+	}
+
+	.recipe-btn{
+		display: inline;
+		margin-left: -0.2em;
+		padding-bottom: 0.8em;
+	}
+
+	.recipe-btn img{
+		padding-top: 1em;
+		width: 1.4em;
+	}
+
+	.current-form:after {
+		top: 100%;
+		left: 50%;
+		border: solid transparent;
+		border-top-color: #88b7d5;
+		border-width: 10px;
+		margin-left: -10px;
+		margin-top: -1px;
+	}
+
 }
 
 @media screen and (min-width : 50em){
@@ -4624,6 +4757,7 @@ textarea {
 	.quantities-name{
 		width: 16em;
 	}
+
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE VIEWS (PLACE WHERE BURGER MENU HAPPEN)*/
@@ -4720,18 +4854,6 @@ textarea {
 
 	.content-ing-info .custom-checkbox{
 		margin-left: 0em;
-	}
-
-	.recipe-btn-cntnr{
-		margin: 0;
-		padding: 0;
-	}
-
-	.recipe-btn{
-		font-size: 0.8em;
-		padding: 0.2em;
-		margin-left: 0em !important;
-		margin-right: 0.1em !important;
 	}
 
 	.ing-ttl-cntnr{

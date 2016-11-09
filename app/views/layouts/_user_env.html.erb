@@ -25,6 +25,7 @@
 		<div class="user-btn">
 			<h3><%= truncate(user.account_name.downcase, length: 10) %><%= image_tag "arrows.png", class: "micro-arrow" %></h3>
 			<p><%= user.firstname.downcase %> <%= truncate(user.name.downcase, length: 10) %></p>
+			<%= image_tag user.avatar.url(:small), class: "small-avatar" %>
 		</div>
 		<div class="arrow-container"><div class="arrow-up"></div></div>
 		<div class="user-paths">
@@ -55,7 +56,7 @@
 					<div class="feat-img-cntnr">
 						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					Ingrédients
+					<span>Ingrédients</span>
 				</li>
 			<% end %>
 			<%= link_to recipes_path do %>
@@ -63,7 +64,7 @@
 					<div class="feat-img-cntnr">
 						<%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					Recettes
+					<span>Recettes</span>
 				</li>
 			<% end %>
 			<%= link_to assemblies_path do %>
@@ -71,7 +72,7 @@
 					<div class="feat-img-cntnr">
 						<%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					Montages
+					<span>Montages</span>
 				</li>
 			<% end %>
 			<%= link_to providers_path do %>
@@ -79,7 +80,7 @@
 					<div class="feat-img-cntnr">
 						<%= image_tag "feat-img4.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					Fournisseurs
+					<span>Fournisseurs</span>
 				</li>
 			<% end %>
 			<%= link_to new_to_do_list_path do %>
@@ -87,7 +88,7 @@
 					<div class="feat-img-cntnr">
 						<%= image_tag "feat-img5.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					Organisation
+					<span>Organisation</span>
 				</li>
 			<% end %>
 		</ul>
