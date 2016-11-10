@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110091611) do
+ActiveRecord::Schema.define(version: 20161110091715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20161110091611) do
     t.text     "notes"
     t.boolean  "stared"
     t.boolean  "loved"
+    t.integer  "stock"
+    t.integer  "to_produce"
+    t.integer  "sold"
   end
 
   add_index "assemblies", ["recipe_id"], name: "index_assemblies_on_recipe_id", using: :btree
