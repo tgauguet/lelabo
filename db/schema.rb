@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110091715) do
+ActiveRecord::Schema.define(version: 20161110173321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161110091715) do
     t.integer  "stock"
     t.integer  "to_produce"
     t.integer  "sold"
+    t.string   "unit"
   end
 
   add_index "assemblies", ["recipe_id"], name: "index_assemblies_on_recipe_id", using: :btree
@@ -246,8 +247,8 @@ ActiveRecord::Schema.define(version: 20161110091715) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "step_id"
     t.string   "baking"
     t.string   "owner"
@@ -261,6 +262,9 @@ ActiveRecord::Schema.define(version: 20161110091715) do
     t.integer  "stock"
     t.integer  "to_produce"
     t.integer  "sold"
+    t.string   "unit"
+    t.string   "portion_name"
+    t.boolean  "fast",               default: true
   end
 
   add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id", using: :btree

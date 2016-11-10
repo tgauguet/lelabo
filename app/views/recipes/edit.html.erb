@@ -12,7 +12,7 @@
     </div>
       <div class="action-cntnr page-new-ttl recipe-forms">
       <br/>
-      <div id="div0" class="recipe-option">
+      <div id="div0" class="recipe-option" style="display:none;">
         <h2>APERÇU</h2>
         <%= render "show", recipe: @recipe %>
       </div>
@@ -20,8 +20,7 @@
         <h2>MODIFIER</h2>
         <%= render "form", recipe: @recipe %>
       </div>
-      <div id="div2" class="recipe-option" style="display:none;">
-        <h2>QUANTITÉS</h2>
+      <div id="div2" class="recipe-option">
         <%= render "quantities_form", recipe: @recipe, totals: @totals %>
       </div>
       <div id="div3" class="recipe-option" style="display:none;">

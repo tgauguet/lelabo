@@ -4,6 +4,7 @@ class Assembly < ActiveRecord::Base
 	belongs_to :user
 	has_many :totals, dependent: :destroy
 	has_many :images, dependent: :destroy
+	validates_length_of :images, maximum: 8
 	validates_presence_of :title
 	accepts_nested_attributes_for :recipe_items, allow_destroy: true
 	accepts_nested_attributes_for :totals, allow_destroy: true

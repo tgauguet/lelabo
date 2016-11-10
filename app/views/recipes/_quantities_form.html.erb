@@ -7,9 +7,103 @@
   <% if recipe.quantities.blank? %>
     <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer les quantités</p>
   <% else %>
-    <div class="quant_form">
+    <div class="q-forms">
       <%= form_for(recipe, remote: true) do |f| %>
-        <div class="quant-fields-cntnr">
+        <div class="prod-quantities">
+          <h3>Quelle quantité produire ?</h3>
+          <div class="clcl-mode">
+            <div class="lfrd">
+              <%= f.radio_button 'fast', true, id: "rad6" %>
+              <label for="rad6" class="trigger2 lft-rd hide-meas" data-rel="tru">simple</label>
+            </div>
+            <div>
+              <%= f.radio_button 'fast', false, id: "rad7" %>
+              <label for="rad7" class="trigger2 rgt-rd hide-meas" data-rel="fal">stocks</label>
+            </div>
+          </div>
+          <br/>
+          <%= image_tag "measure.png", class: "field-img" %>
+          <div class="basic-field rounded-field meas-env">Unité de mesure : <%= recipe.unit %></div>
+          <br/>
+          <div class="tru content2 composition-info" style="<% if !recipe.fast %>display:none;<% end %>">
+            <p>À produire</p>
+          </div>
+          <div class="tru content2 composition" style="<% if !recipe.fast %>display:none;<% end %>">
+            <%= image_tag "hand.png", class: "field-img" %>
+            <%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
+          </div>
+          <div class="fal content2 composition-info" style="<% if recipe.fast %>display:none;<% end %>">
+            <p>Stock</p>
+            <p>À vendre</p>
+          </div>
+          <div class="fal content2 composition" style="<% if recipe.fast %>display:none;<% end %>">
+            <%= image_tag "stock.png", class: "field-img" %>
+            <%= f.text_field :stock, class: "basic-field top-rad hide-meas", placeholder:"Quantité..." %>
+            <%= image_tag "sold.png", class: "field-img" %>
+            <%= f.text_field :sold, class: "basic-field bot-rad special-top hide-meas", placeholder:"Quantité..." %>
+          </div>
+          <br/><br/>
+          <div>
+            <%= image_tag "production.png", class: "field-img" %>
+            <div class="basic-field rounded-field hide-meas">Produire pour : &nbsp;<%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></div>
+          </div>
+        </div>
+        <div class="prod-quantities prod-quantities2" >
+          <h3  class="select-measure" style="display:none;">Choisissez une unité de mesure</h3>
+          <div class="select-measure" style="display:none;">
+              <%= f.radio_button 'unit', "grammes", id: "rad1" %>
+              <label for="rad1" class="trigger">grammes</label>
+              <%= f.radio_button 'unit', "kilogrammes", id: "rad2" %>
+              <label for="rad2" class="trigger">kilogrammes</label>
+              <%= f.radio_button 'unit', "parts", id: "rad3" %>
+              <label for="rad3" class="trigger" data-rel="part">parts</label>
+              <%= f.radio_button 'unit', "recettes", id: "rad4" %>
+              <label for="rad4" class="trigger" data-rel="recipe">recettes</label>
+              <%= f.radio_button 'unit', "#{recipe.personnalized}", id: "rad5" %>
+              <label for="rad5" class="trigger last" data-rel="perso"><%= recipe.personnalized %></label>
+              <br/>
+              <div class="part content <% if recipe.unit == "parts" %>show<% end %>">
+                <div class="composition-info">
+                  <p>Poids/Part</p>
+                </div>
+                <div class="composition">
+                  <%= image_tag "gramme.png", class: "field-img euro-img" %>
+                  <%= f.text_field :portion_weight, class: "basic-field rounded-field", placeholder:"Poids..." %>
+                </div>
+              </div>
+              <div class="recipe content  <% if recipe.unit == "recettes" %>show<% end %>">
+                <div class="composition-info">
+                  <p>Poids/Recette</p>
+                </div>
+                <div class="composition">
+                  <%= f.fields_for :totals, recipe.totals.first do |ff| %>
+                    <%= image_tag "kg.png", class: "field-img euro-img" %>
+                    <span><%= ff.text_field :value, class: 'basic-field rounded-field' %></span>
+                  <% end %>
+                </div>
+              </div>
+              <div class="perso content <% if recipe.unit == "#{recipe.personnalized}" %>show<% end %>">
+                <div class="composition-info">
+                  <p>Nom</p>
+                  <p>Poids/Unité</p>
+                </div>
+                <div class="composition">
+                  <%= f.text_field :portion_name, class: "basic-field top-rad", placeholder:"Nom...", value: "#{recipe.personnalized}" %>
+                  <%= image_tag "gramme.png", class: "field-img euro-img" %>
+                  <%= f.text_field :portion, class: "basic-field bot-rad special-top", placeholder:"Poids..." %>
+                </div>
+              </div>
+            <br/>
+          </div>
+          <div class="print-measure" style="display:none;">
+            <h2></h2>
+            <br/>
+          </div>
+        </div>
+        <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn ingredient-btn hide-meas" %>
+      <% end %>
+      <%= form_for(recipe, remote: true) do |f| %>
+        <div class="quant-fields-cntnr" style="display:none;">
           <div class="ing-ttl-cntnr">QUANTITÉ</div>
           <div class="kg-field"><p class='basic-field recipe-comp-sel rounded-field kilo-field'>Recette</p></div>
           <%= f.fields_for :totals, totals do |ff| %>
@@ -19,23 +113,37 @@
           </div>
           <% end %>
         </div>
-        <div class="quant-values-cntnr">
-          <div class="quant-values-clmn ing-line-cntnr">
-            <% recipe.quantities.each do |q| %>
-              <p>
-                <span class="quantities-name"><%= q.ingredient.name %></span>
-                <span class="quantities-num"><%= q.weight.to_i %><%= weighing_unit(q.ingredient) %></span>
-                <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-              </p>
-            <% end %>
+        <div class="quant_form" style="display:none;">
+          <div class="quant-values-cntnr">
+            <div class="quant-values-clmn ing-line-cntnr">
+              <% recipe.quantities.each do |q| %>
+                <p>
+                  <span class="quantities-name"><%= q.ingredient.name %></span>
+                  <span class="quantities-num"><%= q.weight.to_i %><%= weighing_unit(q.ingredient) %></span>
+                  <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+                  <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+                  <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+                  <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %></span>
+                </p>
+              <% end %>
+            </div>
           </div>
+          <br/>
+          <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
         </div>
-        <br/>
-        <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
       <% end %>
     </div>
   <% end %>
 <% end %>
+<script>
+$(document).ready(function(){
+  $(".meas-env").click(function(){
+    $(".meas-env").toggleClass("div-active");
+    $(".select-measure").toggle();
+  });
+  $(".hide-meas").click(function(){
+    $(".select-measure").hide();
+    $(".meas-env").removeClass("div-active");
+  });
+});
+</script>

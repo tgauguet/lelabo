@@ -8,11 +8,12 @@ class Recipe < ActiveRecord::Base
 	has_many :recipe_items, dependent: :restrict_with_error
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy
+	validates_length_of :images, maximum: 8
 	accepts_nested_attributes_for :totals, allow_destroy: true
 	accepts_nested_attributes_for :images, allow_destroy: true
 	accepts_nested_attributes_for :quantities, reject_if: :reject_quantity, allow_destroy: true
 	validates_presence_of :name
-	before_save :default_tva
+	before_save :default_values
 	has_attached_file :image, {
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :size => { :in => 0..300.kilobytes },
@@ -25,8 +26,10 @@ class Recipe < ActiveRecord::Base
 		attribute['ingredient_id'].blank?
 	end
 
-	def default_tva
+	def default_values
 		self.vat = 5.5 unless self.vat
+		self.portion_weight = 100 unless self.portion_weight
+		self.portion = 100 unless self.portion
 	end
 
 	def percentage_of(matter)
@@ -73,6 +76,37 @@ class Recipe < ActiveRecord::Base
 
 	def custom_cost
 		self.kilo_cost * self.totals.first.value unless recipe_weight == 0
+	end
+
+	def to_product
+		if self.fast?
+			self.to_produce
+		else
+			if self.stock? && self.sold?
+				production = self.sold - self.stock
+				production >= 0 ? production : "0"
+			elsif !self.stock? && self.sold?
+				self.sold
+			else
+				"0"
+			end
+		end
+	end
+
+	def to_details
+		if self.unit == "parts"
+			self.portion_weight? ? "de " + self.portion_weight.to_s + " g" : "de ? g"
+		elsif self.unit == "recettes"
+			self.totals.first.value? ? "de " + (self.totals.first.value * 1000).to_i.to_s + " g" : "de ? g"
+		elsif self.unit == "#{self.portion_name}"
+			self.portion? ? "de " + self.portion + " g" : "de ? g"
+		else
+			" "
+		end
+	end
+
+	def personnalized
+		self.portion_name? ? self.portion_name : "portions"
 	end
 
 end

@@ -26,15 +26,14 @@
   	</div>
     <br/><br/>
     <div class="composition-info to-left">
-      <p>Prix de vente</p><div class="hover-helper">Prix de vente TTC par part (une part ou portion)</div>
+      <p>Prix Vte/Part</p><div class="hover-helper">Prix de vente TTC par part (une part ou portion)</div>
   		<p>Poids/Part</p><div class="hover-helper">Le poids d'une part (ou portion)</div>
       <p>Taux de TVA</p><div class="hover-helper">Le taux de TVA applicable à la recette</div>
   	</div>
   	<div class="composition big-compo portion-cntnr">
       <%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
       <%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
-      <%= f.text_field :portion_price, class: "basic-field portion-field" %>
-      <%= f.select :portion, ["/Part"], class: "basic-field special-top" %>
+      <%= f.text_field :portion_price, class: "basic-field top-rad" %>
       <%= f.text_field :portion_weight, class: "basic-field special-top" %>
       <%= f.text_field :vat, class: "basic-field special-top bot-rad" %>
   	</div>

@@ -1,6 +1,6 @@
 $('.recipe_values').html("<%= escape_javascript (render 'recipes/equilibrium_form', recipe: @recipe) %>");
 $(".cost_form").html("<%= escape_javascript (render 'recipes/cost_form', recipe: @recipe) %>");
-$(".quant_form").html("<%= escape_javascript (render 'recipes/quantities_form', recipe: @recipe, totals: @totals) %>");
+$(".q-forms").html("<%= escape_javascript (render 'recipes/quantities_form', recipe: @recipe, totals: @totals) %>");
 $(".recipe_form").html("<%= escape_javascript (render 'recipes/form', recipe: @recipe) %>");
 $(".recipe_pics").html("<%= escape_javascript (render 'recipes/pictures_form', recipe: @recipe) %>");
 $(".show_recipe").html("<%= escape_javascript (render 'recipes/show', recipe: @recipe) %>");
@@ -13,4 +13,20 @@ $(document).ready(function(){
 		$(this).addClass("current-form");
     $("#div"+$(this).attr('target')).show();
   });
+});
+
+// hide and show portions weights in select unit forms
+$(document).ready(function(){
+    $('.trigger').click(function() {
+        $('.content').hide();
+        $('.' + $(this).data('rel')).show();
+    });
+});
+
+// hide and show form informations in select quantities forms
+$(document).ready(function(){
+    $('.trigger2').click(function() {
+        $('.content2').hide();
+        $('.' + $(this).data('rel')).show();
+    });
 });

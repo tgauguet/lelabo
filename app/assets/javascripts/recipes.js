@@ -35,3 +35,19 @@ $(document).ready(function(){
       $(this).parent().find(".delete-pop-over").show();
   });
 });
+
+// hide and show portions weights in select unit forms
+$(document).ready(function(){
+    $('.trigger').click(function() {
+        $('.content').hide();
+        $('.' + $(this).data('rel')).show();
+    });
+});
+
+// hide and show form informations in select quantities forms
+$(document).ready(function(){
+    $('.trigger2').click(function() {
+        $('.content2').hide();
+        $('.' + $(this).data('rel')).show();
+    });
+});
