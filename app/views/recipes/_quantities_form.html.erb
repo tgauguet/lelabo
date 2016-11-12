@@ -27,6 +27,7 @@
           <br/>
           <div class="tru content2 composition-info" style="<% if !recipe.fast %>display:none;<% end %>">
             <p>À produire</p>
+            <p>&nbsp;</p>
           </div>
           <div class="tru content2 composition" style="<% if !recipe.fast %>display:none;<% end %>">
             <%= image_tag "hand.png", class: "field-img" %>
@@ -47,20 +48,23 @@
             <%= image_tag "production.png", class: "field-img" %>
             <div class="basic-field rounded-field hide-meas">Produire pour : &nbsp;<%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></div>
           </div>
+          <div class="show-pdf"><%= image_tag "pdf2.png", alt: "options" %> TÉLÉCHARGER</div>
+          <br/>
+          <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn ingredient-btn hide-meas" %>
         </div>
-        <div class="prod-quantities prod-quantities2" >
-          <h3  class="select-measure" style="display:none;">Choisissez une unité de mesure</h3>
+        <div class="prod-quantities prod-quantities2 prod-tip1" >
+          <h3 class="select-measure" style="display:none;">Quelle mesure utiliser ?</h3>
           <div class="select-measure" style="display:none;">
               <%= f.radio_button 'unit', "grammes", id: "rad1" %>
-              <label for="rad1" class="trigger">grammes</label>
+              <label for="rad1" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>grammes</label>
               <%= f.radio_button 'unit', "kilogrammes", id: "rad2" %>
-              <label for="rad2" class="trigger">kilogrammes</label>
+              <label for="rad2" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>kilogrammes</label>
               <%= f.radio_button 'unit', "parts", id: "rad3" %>
-              <label for="rad3" class="trigger" data-rel="part">parts</label>
+              <label for="rad3" class="trigger" data-rel="part"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>parts</label>
               <%= f.radio_button 'unit', "recettes", id: "rad4" %>
-              <label for="rad4" class="trigger" data-rel="recipe">recettes</label>
+              <label for="rad4" class="trigger" data-rel="recipe"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>recettes</label>
               <%= f.radio_button 'unit', "#{recipe.personnalized}", id: "rad5" %>
-              <label for="rad5" class="trigger last" data-rel="perso"><%= recipe.personnalized %></label>
+              <label for="rad5" class="trigger last" data-rel="perso"><%= image_tag "weighing.png", alt: "mini-img weighing img" %><%= recipe.personnalized %></label>
               <br/>
               <div class="part content <% if recipe.unit == "parts" %>show<% end %>">
                 <div class="composition-info">
@@ -93,14 +97,28 @@
                   <%= f.text_field :portion, class: "basic-field bot-rad special-top", placeholder:"Poids..." %>
                 </div>
               </div>
+              <br/>
+              <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn" %>
             <br/>
           </div>
           <div class="print-measure" style="display:none;">
-            <h2></h2>
-            <br/>
+            <h3>Télécharger / Partager</h3>
+            <%= link_to quantities_pdf_recipe_path(format: :pdf), target: '_blank' do %>
+              <div class="dnld-share"><%= image_tag "download.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>APERÇU PDF</p></div>
+            <% end %>
+            <div class="dnld-share"><%= image_tag "pdf.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>TÉLÉCHARGER PDF</p></div>
+            <div class="dnld-share"><%= image_tag "sendemail.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.txt<p>ENVOYER PAR EMAIL</p></div>
+          </div>
+          <div class="recipe-values">
+            <h3><%= recipe.name.humanize %></h3>
+            <% recipe.quantities.each do |q| %>
+              <div class="nth-chld">
+                <div class="r-q-name"><%= q.ingredient.name %></div>
+                <span><%= q.perfect_weight %> <%= weighing_quantities(q.ingredient, recipe) %></span>
+              </div>
+            <% end %>
           </div>
         </div>
-        <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn ingredient-btn hide-meas" %>
       <% end %>
       <%= form_for(recipe, remote: true) do |f| %>
         <div class="quant-fields-cntnr" style="display:none;">
@@ -135,15 +153,3 @@
     </div>
   <% end %>
 <% end %>
-<script>
-$(document).ready(function(){
-  $(".meas-env").click(function(){
-    $(".meas-env").toggleClass("div-active");
-    $(".select-measure").toggle();
-  });
-  $(".hide-meas").click(function(){
-    $(".select-measure").hide();
-    $(".meas-env").removeClass("div-active");
-  });
-});
-</script>

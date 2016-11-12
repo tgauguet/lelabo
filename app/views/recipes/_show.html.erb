@@ -6,9 +6,6 @@
     <%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
       <%= image_tag 'download.png', class: 'small-imgs' %>
     <% end %>
-    <%= link_to pdf_quantities_recipe_path(format: :pdf), target: '_blank' do %>
-      <%= image_tag 'download2.png', class: 'small-imgs' %>
-    <% end %>
   </div>
   <div class="view-top-l">
     <h1><%= recipe.name.mb_chars.upcase %></h1>

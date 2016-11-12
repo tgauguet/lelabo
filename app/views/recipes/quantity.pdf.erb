@@ -1,0 +1,24 @@
+<%= wicked_pdf_stylesheet_link_tag "application.css" -%>
+<title><%= @recipe.name %></title>
+<% if @user.basic_user? %>
+  <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
+<% end %>
+<div class="pdf-cntnr">
+  <h1><%= @recipe.name.upcase %></h1>
+  <div class="quant-fields-cntnr pdf-quant-cntnr">
+    <div class="ing-ttl-cntnr">INGRÉDIENTS</div>
+    <p>Recette pour : &nbsp;<%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></p><br/>
+  </div>
+  <div class="quant-values-cntnr">
+    <div class="quant-values-clmn ing-line-cntnr">
+      <% @recipe.quantities.each do |q| %>
+        <p>
+          <span class="quantities-name"><%= q.ingredient.name %></span>
+          <span class="quantities-num"><%= q.perfect_weight %> <%= weighing_quantities(q.ingredient, @recipe) %></span>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>
+  <p class="recipe-notes"><%= @recipe.note %></p>
+</div>

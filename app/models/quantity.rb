@@ -22,4 +22,21 @@ class Quantity < ActiveRecord::Base
 		value = self.recipe.total_weight * percent / 100
 		value.round(2)
 	end
+
+	def perfect_weight
+		if self.recipe.unit == "parts"
+			self.recipe.to_product ? ((self.weight * self.recipe.portion_weight.to_f / self.recipe.recipe_weight.to_f) * self.recipe.to_product.to_f).to_i : self.weight
+		elsif self.recipe.unit == "#{self.recipe.portion_name}"
+			self.recipe.to_product ? ((self.weight * self.recipe.portion.to_f / self.recipe.recipe_weight.to_f) * self.recipe.to_product.to_f).to_i : self.weight
+		elsif self.recipe.unit == "recettes"
+			self.recipe.to_product ? (((self.weight * self.recipe.totals.first.value.to_f / self.recipe.recipe_weight.to_f) * self.recipe.to_product.to_f) * 1000).to_i : self.weight
+		elsif self.recipe.unit == "grammes"
+			self.recipe.to_product ? (self.weight * self.recipe.to_product.to_f / self.recipe.recipe_weight.to_f).round(1) : self.weight
+		elsif self.recipe.unit == "kilogrammes"
+			self.recipe.to_product ? (self.weight.to_f * self.recipe.to_product.to_f / self.recipe.recipe_weight.to_f).round(3)  : self.weight
+		else
+			self.weight
+		end
+	end
+
 end

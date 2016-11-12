@@ -10,6 +10,16 @@
  text-shadow: 0 0 7px rgba(0,0,0,1);
  */
 
+ /******************** CSS COLORS PATERNS
+
+blue-violet : rgb(84,88,223)
+blue-violet2 : rgb(65, 61, 212)
+red : rgb(201,24,36)
+green : rgb(49, 194, 105)
+background : (235,237,243)
+
+ ***************************************/
+
 body{
 	text-align: center;
 	font-family: Helvetica;
@@ -1994,15 +2004,16 @@ header .normal_header{
 .prod-quantities2 {
 	position: relative;
 	background: white;
-	border: 1px solid rgb(202,212,217);
+	border-left: 7px solid rgb(202,212,217);
 	border-radius: 0.3em;
-	padding-top: 2em;
-	padding-left: 3em;
+	padding: 2em;
+	margin-top: 1.5em;
+	min-height: 19em;
 }
 
-.prod-quantities2:after, .prod-quantities2:before {
+.prod-tip2:after, .prod-tip2:before, .prod-tip1:after, .prod-tip1:before {
 	right: 100%;
-	top: 8.8em;
+	top: 7.3em;
 	border: solid transparent;
 	content: " ";
 	height: 0;
@@ -2011,28 +2022,87 @@ header .normal_header{
 	pointer-events: none;
 }
 
-.prod-quantities2:after {
+.r-q-name{
+	width: 12em;
+	padding-left: 0.3em;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.recipe-values .nth-chld:nth-child(2n+2){
+	background: rgb(246,248,251);
+}
+
+.recipe-values .nth-chld{
+	padding: 0.5em;
+}
+
+.prod-tip1:after, .prod-tip1:before {
+	top: 17.8em;
+}
+
+.prod-tip3:after, .prod-tip3:before {
+	top: 22.2em;
+}
+
+.prod-tip2:after, .prod-tip1:after {
 	border-color: rgba(255, 255, 255, 0);
-	border-right-color: white;
+	border-right-color:rgb(202,212,217);
 	border-width: 10px;
 	margin-top: -10px;
 }
-.prod-quantities2:before {
+.prod-tip2:before, .prod-tip1:before {
 	border-color: rgba(0, 0, 0, 0);
 	border-right-color: rgb(202,212,217);
-	border-width: 11px;
-	margin-top: -11px;
+	border-width: 20px;
+	margin-top: -20px;
 }
 
 .prod-quantities input[type=radio] + label {
-    padding: 0.4em 1em 0.4em 1em;
-    background-color: rgb(119,167,204);
+    padding: 0.7em 0em 0.7em 0em;
+    background-color: rgb(63,80,145);
 		color: white;
 		font-size: 0.95em;
 		margin: 0;
-		width: 75%;
+		width: 100%;
 		display: block;
 		cursor: pointer;
+}
+
+.clcl-mode input[type=radio] + label{
+	color: rgb(43,54,69);
+	border: 1px solid rgb(202,212,217);
+	background: white;
+}
+
+.clcl-mode input[type=radio] + label:hover{
+	background: rgb(245,247,248) !important;
+}
+
+.clcl-mode input[type=radio]:checked + label{
+	background: rgb(235,237,243)!important;
+}
+
+.show-pdf{
+	cursor: pointer;
+	float: right;
+	border:1px solid  rgb(203,22,31);
+	color: rgb(203,22,31);
+	margin-top: 2.2em;
+	border-radius: 0.3em;
+	padding: 0.4em;
+	font-size: 0.9em;
+}
+
+.show-pdf img{
+	height: 0.9em;
+}
+
+.prod-quantities input[type=radio] + label img{
+    width: 0.8em;
+		margin-right: 0.7em;
+		vertical-align: center;
+		margin-left: 1em;
 }
 
 .clcl-mode div {
@@ -2048,7 +2118,7 @@ header .normal_header{
 }
 
 .prod-quantities input[type=radio] + label:hover {
-    background-color: rgb(109,148,194);
+    opacity: 0.9;
 }
 
 .prod-quantities input[type=radio]:first-child + label {
@@ -2058,8 +2128,13 @@ header .normal_header{
 
 .q-forms .ingredient-btn{
 	font-size: 0.94em;
-	margin-top: 0.1em;
-	margin-left: 2.5em;
+	margin-top: 0.8em;
+}
+
+.q-forms .qtt-btn{
+	font-size: 0.94em;
+	margin-top: .7em;
+	padding-left: .7em;
 }
 
 .prod-quantities input[type=radio] + .last {
@@ -2068,7 +2143,38 @@ header .normal_header{
 }
 
 .prod-quantities input[type=radio]:checked + label {
-	background-color: rgb(109,148,194);
+	background-color: rgb(44,58,109);
+	opacity: 1 !important;
+}
+
+.dnld-share{
+	padding:1em;
+	margin-top: 0.2em;
+	padding-left: 3.5em;
+	min-height: 2em;
+	background: white;
+}
+
+.dnld-share p{
+	font-size: 0.9em;
+	color: #6D6D6D;
+}
+
+.print-measure img{
+	width: 2em;
+	position: absolute;
+	margin-left: -2.5em;
+	vertical-align: top;
+}
+
+.print-measure{
+	font-size: 1em;
+}
+
+.dnld-share:hover{
+	border-radius: 0.3em;
+	background: rgb(246,248,251);
+	cursor: pointer;
 }
 
 .meas-env{
@@ -2089,13 +2195,13 @@ header .normal_header{
 }
 
 .clcl-mode div input[type=radio] + .lft-rd {
-		border-top-left-radius: 0.3em !important;
-		border-bottom-left-radius: 0.3em !important;
+		border-top-left-radius: 1em !important;
+		border-bottom-left-radius: 1em !important;
 }
 
 .clcl-mode div input[type=radio] + .rgt-rd {
-		border-top-right-radius: 0.3em !important;
-		border-bottom-right-radius: 0.3em !important;
+		border-top-right-radius: 1em !important;
+		border-bottom-right-radius: 1em !important;
 }
 
 .to-prd{
