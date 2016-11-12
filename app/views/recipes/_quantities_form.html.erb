@@ -106,7 +106,9 @@
             <%= link_to quantities_pdf_recipe_path(format: :pdf), target: '_blank' do %>
               <div class="dnld-share"><%= image_tag "download.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>APERÇU PDF</p></div>
             <% end %>
-            <div class="dnld-share"><%= image_tag "pdf.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>TÉLÉCHARGER PDF</p></div>
+            <%= link_to d_quantities_pdf_recipe_path(format: :pdf), target: "_blank" do %>
+              <div class="dnld-share"><%= image_tag "pdf.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>TÉLÉCHARGER PDF</p></div>
+            <% end %>
             <div class="dnld-share"><%= image_tag "sendemail.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.txt<p>ENVOYER PAR EMAIL</p></div>
           </div>
           <div class="recipe-values">

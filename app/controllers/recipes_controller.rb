@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
-  before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf]
+  before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
 
   # GET /recipes
   # GET /recipes.json
@@ -56,11 +56,28 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render  pdf: '@recipe.name',
+        render  pdf: @recipe.name,
                 #orientation: 'Landscape',
+                title: @recipe.name,
                 template: 'recipes/quantity.pdf.erb',
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }
+      end
+    end
+  end
+
+  def d_quantities_pdf
+    @totals = @recipe.totals.all.order("created_at ASC")
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @pdf = render_to_string  pdf: @recipe.name,
+                #orientation: 'Landscape',
+                title: @recipe.name,
+                template: 'recipes/quantity.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
+        send_data(@pdf, :filename => @recipe.name,  :type=>"application/pdf")
       end
     end
   end
