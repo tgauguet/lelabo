@@ -12,7 +12,7 @@
     </div>
       <div class="action-cntnr page-new-ttl recipe-forms">
       <br/>
-      <div id="div0" class="recipe-option">
+      <div id="div0" class="recipe-option"  style="display:none;">
         <h2>APERÇU</h2>
         <%= render "show", recipe: @recipe %>
       </div>
@@ -23,7 +23,7 @@
       <div id="div2" class="recipe-option" style="display:none;">
         <%= render "quantities_form", recipe: @recipe, totals: @totals %>
       </div>
-      <div id="div3" class="recipe-option" style="display:none;">
+      <div id="div3" class="recipe-option">
         <h2>ÉQUILIBRE</h2>
         <%= render "equilibrium_form", recipe: @recipe %>
       </div>

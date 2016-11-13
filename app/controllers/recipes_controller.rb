@@ -58,7 +58,6 @@ class RecipesController < ApplicationController
       format.pdf do
         render  pdf: @recipe.name,
                 #orientation: 'Landscape',
-                title: @recipe.name,
                 template: 'recipes/quantity.pdf.erb',
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }
@@ -73,7 +72,6 @@ class RecipesController < ApplicationController
       format.pdf do
         @pdf = render_to_string  pdf: @recipe.name,
                 #orientation: 'Landscape',
-                title: @recipe.name,
                 template: 'recipes/quantity.pdf.erb',
                 encoding: "UTF-8",
                 locals: { recipe: @recipe }

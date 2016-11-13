@@ -123,8 +123,10 @@
         </div>
       <% end %>
       <%= form_for(recipe, remote: true) do |f| %>
-        <div class="quant-fields-cntnr" style="display:none;">
-          <div class="ing-ttl-cntnr">QUANTITÉ</div>
+        <div class="quant-fields-cntnr">
+          <h3>Créer un tableau</h3>
+          <br/>
+          <div class="ing-ttl-cntnr">INGRÉDIENTS</div>
           <div class="kg-field"><p class='basic-field recipe-comp-sel rounded-field kilo-field'>Recette</p></div>
           <%= f.fields_for :totals, totals do |ff| %>
           <div class="kg-field kg-fields">
@@ -133,7 +135,7 @@
           </div>
           <% end %>
         </div>
-        <div class="quant_form" style="display:none;">
+        <div class="quant_form">
           <div class="quant-values-cntnr">
             <div class="quant-values-clmn ing-line-cntnr">
               <% recipe.quantities.each do |q| %>
@@ -147,9 +149,10 @@
                 </p>
               <% end %>
             </div>
+            <br/>
+            <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn to-lft-btn" %>
           </div>
           <br/>
-          <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
         </div>
       <% end %>
     </div>
