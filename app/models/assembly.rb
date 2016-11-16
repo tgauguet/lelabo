@@ -6,7 +6,7 @@ class Assembly < ActiveRecord::Base
 	has_many :images, dependent: :destroy
 	validates_length_of :images, maximum: 8
 	validates_presence_of :title
-	accepts_nested_attributes_for :recipe_items, allow_destroy: true
+	accepts_nested_attributes_for :recipe_items, allow_destroy: true, reject_if: proc { |a| a['recipe_id'].blank? }
 	accepts_nested_attributes_for :totals, allow_destroy: true
 	accepts_nested_attributes_for :images, allow_destroy: true
 	has_attached_file :image, {
