@@ -66,6 +66,7 @@
 			<p>Cacao total</p><div class="hover-helper">Addition du % de cacao maigre et du % de beurre de cacao</div>
 			<p>Protéines /100g</p><div class="hover-helper">Protéines pour 100g</div>
 			<p>Glucides /100g</p><div class="hover-helper">Glucides pour 100g</div>
+			<p>Indx glycémique</p><div class="hover-helper">Index glycémique</div>
 			<p>Calories /100g</p><div class="hover-helper">Nombre de calories pour 100g</div>
 		</div>
 		<div class="composition comp2">
@@ -78,6 +79,7 @@
 				<%= f.text_field :cocoa_total_percent, class: "basic-field special-top" %>
 				<%= f.text_field :protein, class: "basic-field special-top" %>
 				<%= f.text_field :carbohydrates, class: "basic-field special-top" %>
+				<%= f.text_field :ig, class: "basic-field special-top" %>
 				<%= image_tag "grammes.png", class: "field-img euro-img" %>
 				<%= f.text_field :kcal, class: "basic-field special-top bot-rad" %>
 		</div>
