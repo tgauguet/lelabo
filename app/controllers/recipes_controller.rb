@@ -125,28 +125,29 @@ class RecipesController < ApplicationController
 
   private
 
-    def has_access?
-      @recipe = Recipe.find(params[:id])
-      redirect_to page_error_path unless user_signed_in? && (@recipe.user_id == current_user.id)
-    end
+  def has_access?
+    @recipe = Recipe.find(params[:id])
+    redirect_to page_error_path unless user_signed_in? && (@recipe.user_id == current_user.id)
+  end
 
-    def set_user
-      @user = current_user
-    end
+  def set_user
+    @user = current_user
+  end
 
-    def sort_columns
-      Recipe.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
+  def sort_columns
+    Recipe.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
 
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-    end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
 
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
-    def recipe_params
-      params.fetch(:recipe, {}).permit(:name, :vat, :fast, :unit, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
-    end
+  def recipe_params
+    params.fetch(:recipe, {}).permit(:name, :vat, :fast, :unit, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
+  end
+
 end
