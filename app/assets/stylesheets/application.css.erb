@@ -477,6 +477,7 @@ header .transparent{
   margin-top: -0.4em;
   opacity: 0.9;
   cursor:pointer;
+	color: white;
 }
 
 ul li{
@@ -490,8 +491,7 @@ ul li{
 
 .white{
   opacity: 0.9;
-  border: 2px solid rgb(43,54,69);
-	color: rgb(43,54,69);
+  border: 2px solid white;
 }
 
 .black{
@@ -678,49 +678,35 @@ p:hover + .hover-helper{
 }
 
 .inscription_container{
-	background: rgb(84,88,223);
+	background: rgba(252,252,252,0.7) !important;
 	margin-left: auto;
+	padding-top: 4em;
 	margin-right: auto;
 	width: 46em;
 	margin-top: 4em;
-	height: 28em;
+	height: 24em;
 	border-radius: 0.8em;
 	position: relative;
 }
 
 .new-home{
-	margin-top: -3.5em;
-	background: white;
-	width: 6em;
+	margin-top: -4.9em;
+	width: 12em;
 	border-radius: 100%;
-	margin-bottom: 2.6em;
+	margin-bottom: 4.8em;
 }
 
 .background-colr, .sec-bck{
 	padding-bottom: 10em;
 	margin-bottom: -12.5em;
-	background: rgba(250, 250, 250, .1);
 	background-position: 0px 0px;
-	background-image: url("<%= asset_path('test2.png') %>");
-	background-repeat: repeat-x;
-	animation: animatedBackground 30s linear infinite;
-}
-
-.sec-bck{
-	animation: animatedBackground 25s linear infinite;
-}
-
-.first-bck{
-	background: rgba(250, 250, 250, .4);
-}
-
-.sec-bck{
-	background-image: url("<%= asset_path('speed2.png') %>");
-}
-
-@keyframes animatedBackground {
-	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
+	background-image: url("<%= asset_path('raspberry.jpg') %>");
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .typed-cursor{
@@ -739,7 +725,6 @@ p:hover + .hover-helper{
 }
 
 .home-cntnr h1, .home-cntnr h2{
-	color: white;
 	font-weight: 400;
 }
 
@@ -753,10 +738,13 @@ p:hover + .hover-helper{
 .home-cntnr h2 span{
   font-size: 2em;
 	margin-top: 0.3em;
-	color:white !important;
 	margin-bottom: 0em;
-	opacity: 0.7;
+	opacity: 0.8;
 	font-family: 'source_sans_probold' !important;
+}
+
+.w-btn{
+	background: rgb(84,88,223);
 }
 
 .alert_error{
@@ -3264,8 +3252,15 @@ select{
   border-top-right-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
   margin-left: -0.2em;
-	border-bottom: 2px solid rgb(50,191,126);
+	border: 1px solid rgb(84,88,223);;
+	border-bottom: 2px solid rgb(84,88,223);
   display: inline-block;
+	opacity: 1;
+	background: rgb(84,88,223);
+}
+
+.welcome-btn:hover{
+ background: rgb(84,88,223);
 }
 
 .abs-error{
