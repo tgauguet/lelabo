@@ -48,7 +48,15 @@
             <%= image_tag "production.png", class: "field-img" %>
             <div class="basic-field rounded-field hide-meas">Produire pour : &nbsp;<%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></div>
           </div>
-          <div class="show-pdf"><%= image_tag "pdf2.png", alt: "options" %> TÉLÉCHARGER</div>
+          <div class="dl-cntnr">
+            <%= link_to quantities_pdf_recipe_path(format: :pdf), target: '_blank' do %>
+              <%= image_tag "download.png", alt:"doc pdf" %>
+            <% end %>
+            <%= link_to d_quantities_pdf_recipe_path(format: :pdf), target: "_blank" do %>
+              <%= image_tag "pdf.png", alt:"doc pdf" %>
+            <% end %>
+              <%= image_tag "sendemail.png", alt:"doc pdf" %>
+          </div>
           <br/>
           <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn ingredient-btn hide-meas" %>
         </div>
@@ -100,16 +108,6 @@
               <br/>
               <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn" %>
             <br/>
-          </div>
-          <div class="print-measure" style="display:none;">
-            <h3>Télécharger / Partager</h3>
-            <%= link_to quantities_pdf_recipe_path(format: :pdf), target: '_blank' do %>
-              <div class="dnld-share"><%= image_tag "download.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>APERÇU PDF</p></div>
-            <% end %>
-            <%= link_to d_quantities_pdf_recipe_path(format: :pdf), target: "_blank" do %>
-              <div class="dnld-share"><%= image_tag "pdf.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.pdf<p>TÉLÉCHARGER PDF</p></div>
-            <% end %>
-            <div class="dnld-share"><%= image_tag "sendemail.png", alt:"doc pdf" %><%= recipe.name.parameterize %>.txt<p>ENVOYER PAR EMAIL</p></div>
           </div>
           <div class="recipe-values">
             <h3><%= recipe.name.humanize %></h3>
