@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 class User < ActiveRecord::Base
+	has_paper_trail
 	TEMP_EMAIL_PREFIX = 'change@me'
     TEMP_EMAIL_REGEX = /\Achange@me/
 	# Include default devise modules. Others available are:

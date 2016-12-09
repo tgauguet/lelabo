@@ -3,6 +3,7 @@
 
 class UsersController < ApplicationController
 	before_action :set_user
+	before_action :set_paper_trail_whodunnit
 
 	def show
 	end

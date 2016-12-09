@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
+  before_action :set_paper_trail_whodunnit
 
   # GET /recipes
   # GET /recipes.json

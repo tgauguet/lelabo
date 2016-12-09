@@ -2,6 +2,7 @@ class Assembly < ActiveRecord::Base
 	has_many :recipes, through: :recipe_item
 	has_many :recipe_items, dependent: :destroy
 	belongs_to :user
+	has_paper_trail
 	has_many :totals, dependent: :destroy
 	has_many :images, dependent: :destroy
 	validates_length_of :images, maximum: 8

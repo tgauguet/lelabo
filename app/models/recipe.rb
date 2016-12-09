@@ -3,6 +3,7 @@
 
 class Recipe < ActiveRecord::Base
 	belongs_to :user
+	has_paper_trail
 	has_many :images, dependent: :destroy
 	has_many :ingredients, through: :quantity
 	has_many :recipe_items, dependent: :restrict_with_error
@@ -25,6 +26,10 @@ class Recipe < ActiveRecord::Base
 	def reject_quantity(attribute)
 		attribute['ingredient_id'].blank?
 	end
+
+	def portion_price=(val)
+		self['portion_price'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
+	end	
 
 	def default_values
 		self.vat = 5.5 unless self.vat

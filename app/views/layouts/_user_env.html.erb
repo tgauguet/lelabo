@@ -32,7 +32,8 @@
 			<ul>
 				<%= link_to modifier_votre_profil_path do %><%= image_tag user.avatar.url(:small), class: "small-avatar" %><% end %><span class="firstname"><%= user.firstname.downcase %></span><br/>
 				<% if user.admin? %>
-					<%= link_to feedbacks_path do %><li>tous les feedbacks</li><% end %>
+					<%= link_to feedbacks_path do %><li>Feedbacks</li><% end %>
+					<%= link_to metrics_path do %><li>Metrics</li><% end %>
 				<% end %>
 				<%= link_to parametres_path do %><li>Préférences</li><% end %>
 				<%= link_to modifier_votre_profil_path do %><li>Modifier mon profil</li><% end %>

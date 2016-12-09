@@ -4,6 +4,7 @@
 class SubscriptionsController < ApplicationController
 	skip_before_filter :authenticate_user!
 	before_filter :load_plans
+	before_action :set_paper_trail_whodunnit
 
 	def index
 		@user = current_user

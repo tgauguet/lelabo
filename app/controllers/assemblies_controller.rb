@@ -7,6 +7,7 @@ class AssembliesController < ApplicationController
 	helper_method :sort_columns, :sort_direction
 	skip_before_filter :verify_authenticity_token, only: [:edit,:update]
 	before_action :has_access?, only: [:show, :edit, :update, :destroy, :download]
+	before_action :set_paper_trail_whodunnit
 
 	def index
 		@assemblies = @user.assemblies.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
