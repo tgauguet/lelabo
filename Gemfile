@@ -88,6 +88,8 @@ group :development, :test do
   gem 'cucumber'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'nokogiri'
+  gem 'mechanize'
   gem 'rails_best_practices'
   gem 'brakeman'
   gem 'quiet_assets'
