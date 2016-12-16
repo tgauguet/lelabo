@@ -44,8 +44,10 @@ class SubscriptionsController < ApplicationController
 				subscription.save
 				from_subscription.plan = @plan
 				from_subscription.save
+				flash[:notice] = "Félicitations, vous êtes désormais abonné à l'offre #{@plan.name}"
 			rescue Stripe::StripeError => e
 				from_subscription.errors[:base] << e.message
+				flash[:error] = "Une erreur a empêché le changement de votre formule d'abonnement"
 			end
 			redirect_to root_path
 		end
