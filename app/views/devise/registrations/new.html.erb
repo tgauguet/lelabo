@@ -23,7 +23,7 @@
               <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field welcome-field" %>
               <%= f.hidden_field :oauthdelivered, :value => 'true' %>
               <%= f.submit "ESSAYER GRATUITEMENT", class: "btn cta-btn welcome-btn w-btn" %>
-              <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+              <p>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
             <% end %>
         </div>
       </div>
