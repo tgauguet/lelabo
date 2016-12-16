@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
 	def launch_email(user)
 		@user = user
 		@url = "http://www.lelabo-ondemand.com"
-		mail( to: @user.email, subject: "Lancement officiel")
+		mail( to: @user.email, subject: "Offre de lancement")
 	end
 
 	def feedback_email(feedback)
