@@ -689,11 +689,7 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 										{ name: "Fruits secs caramélisés",price:"9.8" , unit: "Kg", category: "Fruits secs", sugar_power: "30", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "30", kcal: "", dry_matter_percent: "100", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Alcool à 60°",price:"9.14" , unit: "Litre", category: "Alcools", sugar_power: "", alcool_percent: "60", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
-										fat_percent: "", water_percent: "40", sugar_percent: "", kcal: "180", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
-										{ name: "",price:"" , unit: "", category: "", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
-										fat_percent: "", water_percent: "", sugar_percent: "", kcal: "", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
-										{ name: "",price:"" , unit: "", category: "", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
-										fat_percent: "", water_percent: "", sugar_percent: "", kcal: "", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" }
+										fat_percent: "", water_percent: "40", sugar_percent: "", kcal: "180", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" }
 										])
 		rescue
 			#flash[:error] = "Erreur lors de la création des ingrédients"
