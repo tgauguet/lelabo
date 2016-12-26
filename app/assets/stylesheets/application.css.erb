@@ -511,7 +511,7 @@ ul li{
 }
 
 .inscription_container ul li{
-  color: black; 
+  color: black;
 }
 
 .no_cpt{
@@ -678,15 +678,19 @@ p:hover + .hover-helper{
 }
 
 .inscription_container{
-	background: rgba(252,252,252,0.7) !important;
 	margin-left: auto;
-	padding-top: 4em;
+	padding-top: 3em;
 	margin-right: auto;
+	background: rgba(0,0,0,0.5);
 	width: 46em;
 	margin-top: 4em;
-	height: 24em;
+	height: 22em;
 	border-radius: 0.8em;
 	position: relative;
+}
+
+.inscription_container p, .inscription_container p span{
+	color:white;
 }
 
 .new-home{
@@ -700,7 +704,7 @@ p:hover + .hover-helper{
 	padding-bottom: 10em;
 	margin-bottom: -12.5em;
 	background-position: 0px 0px;
-	background-image: url("<%= asset_path('k1.jpg') %>");
+	background-image: url("<%= asset_path('wlpper-winter.jpg') %>");
 	background-repeat: no-repeat;
 	background-position: center center;
 	-webkit-background-size: cover;
@@ -726,10 +730,11 @@ p:hover + .hover-helper{
 
 .home-cntnr h1, .home-cntnr h2{
 	font-weight: 400;
+	color: white;
 }
 
 .home-cntnr h1{
-  font-size: 5.5em;
+  font-size: 5em;
   font-family: 'source_sans_probold' !important;
   margin-bottom: -0.3em;
 	margin-top: -0.1em;
@@ -738,6 +743,7 @@ p:hover + .hover-helper{
 .home-cntnr h2 span{
   font-size: 2em;
 	margin-top: 0.3em;
+	color: white;
 	margin-bottom: 0em;
 	opacity: 0.8;
 	font-family: 'source_sans_probold' !important;
