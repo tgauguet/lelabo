@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
-ingredient = "Chocolat noir"
+ingredient = "pomme"
 
 url = "http://www.monmenu.fr/s/rechercher-un-aliment-pid142?target=%252Fs%252Fchercher-un-aliment-pid142&search=#{ingredient}"
 page = Nokogiri::HTML(open(url))
