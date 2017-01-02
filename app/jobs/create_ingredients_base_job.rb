@@ -4,9 +4,9 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 	def perform(user)
 		begin
 			user.ingredients.create!([
-										{ name: "Abricots",price:"8.77" , unit: "Kg", category: "Fruits", sugar_power: "19.5", alcool_percent: "", cocoa_butter_percent: "", protein: "1.4", carbohydrates: "11", salt: "1", ig: "57", 
+										{ name: "Abricots",price:"8.77" , unit: "Kg", category: "Fruits", sugar_power: "19.5", alcool_percent: "", cocoa_butter_percent: "", protein: "1.4", carbohydrates: "11", salt: "1", ig: "57",
 										fat_percent: "0.5", water_percent: "77", sugar_percent: "14", kcal: "48", dry_matter_percent: "23", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
-										{ name: "Abricots au sirop",price:"5.15" , unit: "Kg", category: "Fruits", sugar_power: "20.5", alcool_percent: "", cocoa_butter_percent: "", protein: "1.4", carbohydrates: "11", salt: "1", ig: "64", 
+										{ name: "Abricots au sirop",price:"5.15" , unit: "Kg", category: "Fruits", sugar_power: "20.5", alcool_percent: "", cocoa_butter_percent: "", protein: "1.4", carbohydrates: "11", salt: "1", ig: "64",
 										fat_percent: "0.1", water_percent: "82", sugar_percent: "15", kcal: "68", dry_matter_percent: "18", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Abricots secs",price:"10.49" , unit: "Kg", category: "Fruits", sugar_power: "52.65", alcool_percent: "", cocoa_butter_percent: "", protein: "1.4", carbohydrates: "11", salt: "1", ig: "30",
 										fat_percent: "0.8", water_percent: "29", sugar_percent: "40.5", kcal: "271", dry_matter_percent: "71", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
@@ -472,7 +472,7 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 										fat_percent: "0.3", water_percent: "85", sugar_percent: "8.7", kcal: "53", dry_matter_percent: "15", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Pectine jaune",price:"1.79" , unit: "Kg", category: "Fruits", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
 										fat_percent: "0.3", water_percent: "4", sugar_percent: "", kcal: "325", dry_matter_percent: "96", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
-										{ name: "Pectine NH",price:"64.15" , unit: "Kg", category: "Additifs", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
+										{ name: "Pectine NH Nappage",price:"64.15" , unit: "Kg", category: "Additifs", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
 										fat_percent: "0.3", water_percent: "4", sugar_percent: "", kcal: "325", dry_matter_percent: "96", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Pétales de rose",price:"102" , unit: "Kg", category: "Divers", sugar_power: "", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "", kcal: "", dry_matter_percent: "", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
@@ -682,7 +682,7 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 										fat_percent: "", water_percent: "2", sugar_percent: "50", kcal: "240", dry_matter_percent: "98", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Chocolat Amer",price:"9.8" , unit: "Kg", category: "Chocolats", sugar_power: "34.4", alcool_percent: "", cocoa_butter_percent: "40.3", protein: "", carbohydrates: "34.4", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "34.4", kcal: "432", dry_matter_percent: "100", cocoa_percent: "24.4", cocoa_total_percent: "64.7", provider_id: "" },
-										{ name: "Chocolat Extra",price:"10.2" , unit: "Kg", category: "Chocolats", sugar_power: "34.4", alcool_percent: "", cocoa_butter_percent: "40.3", protein: "", carbohydrates: "34.4", salt: "", ig: "",
+										{ name: "Chocolat Extra Bitter",price:"10.2" , unit: "Kg", category: "Chocolats", sugar_power: "34.4", alcool_percent: "", cocoa_butter_percent: "40.3", protein: "", carbohydrates: "34.4", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "34.4", kcal: "512", dry_matter_percent: "100", cocoa_percent: "24.4", cocoa_total_percent: "64.7", provider_id: "" },
 										{ name: "Chocolat lacté Supérieur",price:"11.40" , unit: "Kg", category: "Chocolats", sugar_power: "37.3", alcool_percent: "", cocoa_butter_percent: "32", protein: "", carbohydrates: "37.3", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "37.3", kcal: "456", dry_matter_percent: "100", cocoa_percent: "6.1", cocoa_total_percent: "38.1", provider_id: "" },
