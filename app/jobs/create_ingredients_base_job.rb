@@ -682,8 +682,6 @@ class CreateIngredientsBaseJob < ActiveJob::Base
 										fat_percent: "", water_percent: "2", sugar_percent: "50", kcal: "240", dry_matter_percent: "98", cocoa_percent: "", cocoa_total_percent: "", provider_id: "" },
 										{ name: "Chocolat Amer",price:"9.8" , unit: "Kg", category: "Chocolats", sugar_power: "34.4", alcool_percent: "", cocoa_butter_percent: "40.3", protein: "", carbohydrates: "34.4", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "34.4", kcal: "432", dry_matter_percent: "100", cocoa_percent: "24.4", cocoa_total_percent: "64.7", provider_id: "" },
-										{ name: "Chocolat Extra Bitter",price:"10.2" , unit: "Kg", category: "Chocolats", sugar_power: "34.4", alcool_percent: "", cocoa_butter_percent: "40.3", protein: "", carbohydrates: "34.4", salt: "", ig: "",
-										fat_percent: "", water_percent: "", sugar_percent: "34.4", kcal: "512", dry_matter_percent: "100", cocoa_percent: "24.4", cocoa_total_percent: "64.7", provider_id: "" },
 										{ name: "Chocolat lacté Supérieur",price:"11.40" , unit: "Kg", category: "Chocolats", sugar_power: "37.3", alcool_percent: "", cocoa_butter_percent: "32", protein: "", carbohydrates: "37.3", salt: "", ig: "",
 										fat_percent: "", water_percent: "", sugar_percent: "37.3", kcal: "456", dry_matter_percent: "100", cocoa_percent: "6.1", cocoa_total_percent: "38.1", provider_id: "" },
 										{ name: "Fruits secs caramélisés",price:"9.8" , unit: "Kg", category: "Fruits secs", sugar_power: "30", alcool_percent: "", cocoa_butter_percent: "", protein: "", carbohydrates: "", salt: "", ig: "",
