@@ -13,7 +13,8 @@ module Lelabo
     config.serve_static_files = true
     config.i18n.available_locales = [:fr]
     config.i18n.default_locale = :fr
-
+    config.action_controller.asset_host
+    config.action_mailer.asset_host
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
