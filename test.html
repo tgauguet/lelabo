@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body> 
+	<div style="background:rgb(249,249,249);height:auto; widt:100%; text-align:center; margin-top:1em;margin-left:3%;margin-right:3%;padding-bottom:2em;padding-top:2em;" >
+		<div style="border-radius:0.2em;margin-left:5%;margin-right:5%;margin-top:2em; background:white;font-family:Trebuchet MS, Helvetica, sans-serif; padding-top:2em;padding-bottom:2em;">  
+			<%= image_tag("logo-txt-black.png", :style => 'height:auto; width:10em; margin-top: 1em;margin-bottom:1em;') %>
+			<div style="margin-left:4%;margin-right:4%;margin-bottom:1em;">
+				<h2 style="font-size:1.8em;color:rgb(27,189,157);">C'est le moment de créer votre mot de passe !</h2></br>
+				<p style="font-size:1.2em;">La prochaine étape pour préparer votre compte est de choisir un mot de passe.</p>
+				<p style="font-size:1.2em;">Nous sommes ravis que vous utilisiez le Labo !</p>
+			    <p style="color:white;padding-top:1em;padding-bottom:0.1em;padding-right:1.3em;padding-left:1.3em;text-align:center;max-width:17em;background:white;border-radius:0.3em;margin-left:auto;margin-right:auto;background:rgb(27,189,157);">
+				<%= link_to "Créer mon mot de passe" , confirmation_url(@resource, confirmation_token: @token), style: "text-decoration:none;color:white;font-size:1.5em;" %>
+			    </p>
+			    <p style="padding-bottom:1em;">PS : Si vous avez la moindre question, vous pouvez nous contacter en répondant à cet email.</p>
+		  </div>
+	  	</div>
+	  	<p style="color:#777777;"><br/><br/>Le Labo | Wileoo<br/>10, rue de Penthièvre 75008 PARIS</p>
+  	</div>
+  </body>
+</html>
