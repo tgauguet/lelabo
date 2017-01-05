@@ -34,10 +34,12 @@
 				<%= f.text_field :unit_quantity, class: "basic-field special-top" %>
 				<%= image_tag "gramme.png", class: "field-img euro-img" %>
 				<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad" %>
-		</div>
+		</div><br/>
+		<p>Composition</p><div class="hover-helper">Si l'ingrédient est composé de plusieurs ingrédients (ex du praliné: "sucre, noisettes, amandes")</div><p>
+		<%= f.text_area :composition, class: "basic-field rounded-field" %>
 	</div>
 	<div class="content-ing-info">
-		<h3>Composition</h3><br/>
+		<h3>Valeur nutritionnelle</h3><br/>
 		<div class="composition-info">
 			<p>Mat. grasse</p><div class="hover-helper">Quantité de Matières grasses en %</div>
 			<p>Mat. sèche</p><div class="hover-helper">Quantité de Matières sèches en %</div>

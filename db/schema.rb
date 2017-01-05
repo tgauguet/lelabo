@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116080117) do
+ActiveRecord::Schema.define(version: 20170104164752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20161116080117) do
     t.integer  "carbohydrates"
     t.integer  "salt"
     t.integer  "ig"
+    t.text     "composition"
   end
 
   add_index "ingredients", ["provider_id"], name: "index_ingredients_on_provider_id", using: :btree
