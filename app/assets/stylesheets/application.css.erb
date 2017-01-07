@@ -94,7 +94,6 @@ FONTS ---- DESIGN
 }
 
 .ingredient-btn{
-	margin-top: -2.4em;
 	padding-left: 1em !important;
 	padding-right: 1em !important;
 }
@@ -2669,7 +2668,29 @@ select{
 }
 
 .ing-cntnr p{
-	display: inline;
+	display: inline-block;
+}
+
+.sort-before{
+	background: white;
+	margin: 0.2em;
+	border:1px solid rgb(226, 226, 226);
+}
+
+.desc{
+	background-image: url("<%= asset_path('arrow-up.png') %>");
+	background-size: 10px;
+	background-position: 96%;
+	background-repeat: no-repeat;
+	padding-right: 1em;
+}
+
+.asc{
+	background-image: url("<%= asset_path('arrow-do.png') %>");
+	background-size: 10px;
+	background-position: 96%;
+	background-repeat: no-repeat;
+	padding-right: 1em;
 }
 
 .inline_divs:hover{
@@ -3182,42 +3203,41 @@ select{
 	border-top: 1px solid rgb(31,104,248)!important;
 }
 
-.plus_select select{
-	width: 15em;
-	display: inline;
+.cat-form{
+	padding: 3em;
 }
 
-.plus_select span{
-	display: inline;
-	border-radius: 0em;
-	border-top: 0px;
-	border-bottom: 0px;
-	border-left: 0px;
-	padding: 0.7em;
-	margin-left: -0.2em;
-	padding-bottom: 0.8em;
-	padding-left: 1.93em;
-	padding-right: 0.9em;
+.white-cat{
+	right: 0;
+	float: left;
 }
 
-.plus_select span:hover{
-	background: rgb(144,148,223);
-	cursor: pointer;
+.categories ul{
+	padding-right: 3em;
 }
 
-.plus_select span:hover img{
-	filter: brightness(180%);
-	-webkit-filter: brightness(180%);
-	-moz-filter: brightness(180%);
-	-ms-filter: brightness(180%);
-	-o-filter: brightness(180%);
+.categories ul li{
+	padding: 0.4em;
+	text-align: left;
+	border-radius: 0.3em;
 }
 
-.plus_select span img{
-	position: absolute;
-	width: 1.1em;
-	margin-top: 0.7em;
-	margin-left: -1.1em;
+.categories ul li:hover{
+	background: rgb(241,243,244);
+}
+
+.categories ul li a{
+	float: right;
+	color:rgb(201,24,36);
+}
+
+.cat-form input{
+	padding-left: 0.6em;
+}
+
+.cat-form .cta-btn{
+	float: right;
+	margin-top: 1em;
 }
 
 .ing-inf{
@@ -3865,28 +3885,6 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 .user-grade div:hover + .grade-index{
 	opacity: 1;
-}
-
-.sort-before{
-	background: white;
-	margin: 0.2em;
-	border:1px solid rgb(226, 226, 226);
-}
-
-.desc{
-	background-image: url("<%= asset_path('arrow-up.png') %>");
-	background-size: 10px;
-	background-position: 96%;
-	background-repeat: no-repeat;
-	padding-right: 1em;
-}
-
-.asc{
-	background-image: url("<%= asset_path('arrow-do.png') %>");
-	background-size: 10px;
-	background-position: 96%;
-	background-repeat: no-repeat;
-	padding-right: 1em;
 }
 
 .ing-field, .select-areas select{

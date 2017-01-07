@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 			end
 		end
 	end
+  resources :categories, only: [:new, :create, :destroy]
 	resources :recipes do
 		resources :quantities do
 			member do

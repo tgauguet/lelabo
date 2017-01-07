@@ -1,0 +1,21 @@
+<% title "Catégories" %>
+<div class="actions-cntnr">
+	<div class="page-new-ttl action-cntnr categories">
+    <h2>NOUVELLE CATÉGORIE</h2>
+    <div class="cat-form">
+      <%= form_for @category do |f| %>
+        <%= f.text_field :name, placeholder: "Nom", class: "basic-field rounded-field" %>
+        <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
+      <% end %>
+    </div>
+    <ul>
+      <h2>Vos catégories personnalisées</h2>
+      <% @categories.each do |c| %>
+        <li>
+          <%= c.name %>
+          <%= link_to "Supprimer", category_path(c.id), method: :delete %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -30,13 +30,13 @@ class IngredientsController < ApplicationController
 	#end
 
 	def new
-		@categories = @user.categories.all
+		@categories = @user.category.all
 		@ingredient = @user.ingredients.new
 		@ingredients = @user.ingredients.all.paginate(:page => params[:page], :per_page => 30).order(sort_columns + " " + sort_direction)
 	end
 
 	def edit
-		@categories = @user.categories.all
+		@categories = @user.category.all
 	end
 
 	def create
