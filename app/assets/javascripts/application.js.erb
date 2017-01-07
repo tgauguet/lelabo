@@ -133,19 +133,19 @@ $(document).ready(function(){
   });
 });
 
-// infinite pagination scroll with will paginate javascript code
-$(document).ready(function() {
-  if ($('.pagination').length) {
-    $(window).scroll(function() {
-      var url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        $('.pagination').html('<%= image_tag "top.gif",  alt:"Loading...", title:"Loading...", class:"loading_gif" %>');
-        return $.getScript(url);
-      }
-    });
-    return $(window).scroll();
-  }
-});
+//!!!!!!!!!!!! infinite pagination scroll with will paginate javascript code
+//$(document).ready(function() {
+//  if ($('.pagination').length) {
+//    $(window).scroll(function() {
+//      var url = $('.pagination .next_page').attr('href');
+//      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+//        $('.pagination').html('<%= image_tag "top.gif",  alt:"Loading...", title:"Loading...", class:"loading_gif" %>');
+//        return $.getScript(url);
+//      }
+//    });
+//    return $(window).scroll();
+//  }
+//});
 
 // show HEADER menu with responsive design
 $(function() {

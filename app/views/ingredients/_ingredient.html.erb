@@ -5,7 +5,7 @@
 	<%= link_to edit_ingredient_path(ingredient) do %>
 		<div class="line-cntnr">
 			<span class="ing-name">
-				<%= truncate(ingredient.name.humanize, length: 25) %>
+				<%= truncate(ingredient.name.humanize, length: 35) %>
 				<span class="ing-imgs">
 					<% if ingredient.is_bio? %>
 						<%= image_tag "bio.png", class: "mini-img" %>

@@ -26,9 +26,8 @@
 							<%= render @ingredients%>
 						<% end %>
 					</li>
-					<%= will_paginate %>
 				</ul>
-		</div>
+				<%= will_paginate @ingredients %>
 </div>
 <script>
 	$(".ingredient-btn").click(function(){

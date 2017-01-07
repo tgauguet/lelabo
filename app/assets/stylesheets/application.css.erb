@@ -3182,6 +3182,44 @@ select{
 	border-top: 1px solid rgb(31,104,248)!important;
 }
 
+.plus_select select{
+	width: 15em;
+	display: inline;
+}
+
+.plus_select span{
+	display: inline;
+	border-radius: 0em;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	padding: 0.7em;
+	margin-left: -0.2em;
+	padding-bottom: 0.8em;
+	padding-left: 1.93em;
+	padding-right: 0.9em;
+}
+
+.plus_select span:hover{
+	background: rgb(144,148,223);
+	cursor: pointer;
+}
+
+.plus_select span:hover img{
+	filter: brightness(180%);
+	-webkit-filter: brightness(180%);
+	-moz-filter: brightness(180%);
+	-ms-filter: brightness(180%);
+	-o-filter: brightness(180%);
+}
+
+.plus_select span img{
+	position: absolute;
+	width: 1.1em;
+	margin-top: 0.7em;
+	margin-left: -1.1em;
+}
+
 .ing-inf{
 	width: 17em !important;
 }
@@ -3426,12 +3464,41 @@ select{
 	height: 100%;
 }
 
-.pagination a, .pagination p, .pagination span, .pagination em{
-  display: none;
+.pagination {
+  background:white;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default;
 }
 
-.pagination{
-  text-align: center;
+.pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em;
+}
+
+.pagination .disabled {
+    color: #aaaaaa;
+}
+
+.pagination .current{
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+
+.pagination a{
+    text-decoration: none;
+}
+
+.pagination a:hover, .apple_pagination a:focus{
+      text-decoration: underline;
 }
 
 .loading_gif{

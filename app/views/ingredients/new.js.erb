@@ -1,7 +1,3 @@
-// scroll to load next page ingredients with will_paginate
-$('#sortable1').append('<%= escape_javascript render(@ingredients) %>');
-$('.pagination').replaceWith('<%= escape_javascript will_paginate %>');
-
 $(".ingredient-btn").click(function(){
   $(".ingredient-form").show();
   $('.hide').hide();

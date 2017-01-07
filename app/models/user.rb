@@ -2,15 +2,16 @@
 # encoding: utf-8
 
 class User < ActiveRecord::Base
-	has_paper_trail
-	TEMP_EMAIL_PREFIX = 'change@me'
+		has_paper_trail
+		TEMP_EMAIL_PREFIX = 'change@me'
     TEMP_EMAIL_REGEX = /\Achange@me/
-	# Include default devise modules. Others available are:
-	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-	#before_save :after_confirmation
-	validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+		# Include default devise modules. Others available are:
+		# :confirmable, :lockable, :timeoutable and :omniauthable
+		devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+		#before_save :after_confirmation
+		validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
     has_many :feedbacks, dependent: :destroy
+		has_many :categories, dependent: :destroy
     has_many :to_do_lists, dependent: :destroy
     has_many :providers, dependent: :destroy
     has_many :recipes, dependent: :destroy
