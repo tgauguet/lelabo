@@ -4,7 +4,6 @@
   <title>Le Labo | <%= yield_or_default(:title, "Gérez vos recettes professionnelles") %></title>
   <%= stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => "reload" %>
   <%= csrf_meta_tags %>
-  <%= display_meta_tags site: 'My website' %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

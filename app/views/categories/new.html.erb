@@ -4,12 +4,14 @@
     <h2>NOUVELLE CATÉGORIE</h2>
     <div class="cat-form">
       <%= form_for @category do |f| %>
-        <%= f.text_field :name, placeholder: "Nom", class: "basic-field rounded-field" %>
+				<p>Nom</p>
+        <%= f.text_field :name, placeholder: "Légumes, Bonbons...", class: "basic-field rounded-field" %>
         <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
       <% end %>
     </div>
+	</div>
+	<div class="page-new-ttl action-cntnr categories">
     <ul>
-      <h2>Vos catégories personnalisées</h2>
       <% @categories.each do |c| %>
         <li>
           <%= c.name %>

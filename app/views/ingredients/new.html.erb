@@ -26,10 +26,6 @@
 			<p class="sort-before"><%= sortable "Prix", "price" %></p>
 			<p class="sort-before"><%= sortable "Biologique", "is_bio" %></p>
 			<p class="sort-before"><%= sortable "Gluten", "is_glut_free" %></p>
-			<br/>
-			<p class="comp-search-btn">Recherche par composition</p>
-		</div>
-		<div class="ing-cntnr comp-btns" style="display:none;">
 			<p class="sort-before"><%= sortable "% sucre", "sugar_percent" %></p>
 			<p class="sort-before"><%= sortable "% eau", "water_percent" %></p>
 			<p class="sort-before"><%= sortable "% mat. grasse", "fat_percent" %></p>
@@ -54,9 +50,6 @@
 				<%= will_paginate @ingredients %>
 </div>
 <script>
-	$('.comp-search-btn').click(function(){
-		$('.comp-btns').slideToggle();
-	});
 	$(".ingredient-btn").click(function(){
 		$(".ingredient-form").show();
 		$('.hide').hide();
