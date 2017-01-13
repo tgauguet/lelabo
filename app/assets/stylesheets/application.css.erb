@@ -301,13 +301,17 @@ BUTTONS -- DESIGN
 
 /*   absolute properties   */
 
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button{
+.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .standard-btn{
   border-radius: 0.3em;
   opacity: 0.9;
 }
 
-.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .btn:hover, button:hover, .plan-btn:hover{
+.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .btn:hover, button:hover, .plan-btn:hover, .standard-btn:hover{
   opacity: 1;
+}
+
+.standard-btn:hover{
+	background: rgb(253,133,9) !important;
 }
 
 .blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .delete-btn-cntnr:hover, .cancel-btn{
@@ -316,8 +320,14 @@ BUTTONS -- DESIGN
 
 /*   buttons with a green background  */
 
-.blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true, .plan-btn{
+.blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true, .plan-btn, .standard-btn{
   background: rgb(253,133,9);
+}
+
+.standard-btn{
+	border:none;
+	color:white;
+	float: left;
 }
 
 .plan-btn{
@@ -2314,17 +2324,6 @@ header .normal_header{
 	margin: -0.4em;
 	border-radius: 0.2em;
 	color:white;
-}
-
-.standard-btn{
-	background: rgb(103,114,229);
-	border:none;
-	color:white;
-	float: left;
-}
-
-.standard-btn:hover{
-	background: rgb(119, 149, 248) !important;
 }
 
 .grey-btn:hover{

@@ -1,10 +1,13 @@
 <% title "Vos montages" %>
 <div class="actions-cntnr">
+  <div class="page-new-ttl action-cntnr hide">
+    <%= link_to new_assembly_path do %>
+		  <p class="standard-btn grey-btn ingredient-btn">+ CRÉER UN MONTAGE</p>
+    <% end %>
+		<br/><br/>
+	</div>
   <div class="page-new-ttl action-cntnr">
 		<h2>MONTAGES</h2>
-    <%= link_to new_assembly_path do %>
-		  <p class="standard-btn grey-btn ingredient-btn">+ CRÉER</p>
-    <% end %>
 	</div><br/>
   <div class="hide">
     <% unless @assemblies.blank? %>

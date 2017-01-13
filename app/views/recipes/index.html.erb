@@ -1,10 +1,13 @@
 <% title "Vos recettes" %>
 <div class="actions-cntnr">
+  <div class="page-new-ttl action-cntnr hide">
+    <%= link_to new_recipe_path do %>
+		  <p class="standard-btn grey-btn ingredient-btn">+ CRÉER UNE RECETTE</p>
+    <% end %>
+		<br/><br/>
+	</div>
   <div class="page-new-ttl action-cntnr">
 		<h2>RECETTES</h2>
-    <%= link_to new_recipe_path do %>
-		  <p class="standard-btn grey-btn ingredient-btn">+ CRÉER</p>
-    <% end %>
 	</div><br/>
   <div class="hide">
     <% unless @recipes.blank? %>
