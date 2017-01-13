@@ -8,11 +8,14 @@
 			<% end %>
 		</div>
 	<% else %>
+		<div class="page-new-ttl action-cntnr hide">
+			<%= link_to new_provider_path do %>
+				<p class="standard-btn grey-btn ingredient-btn">+ CRÉER UN FOURNISSEUR</p>
+			<% end %>
+			<br/><br/>
+		</div>
 		<div class="page-new-ttl action-cntnr">
 			<h2>FOURNISSEURS</h2>
-			<%= link_to new_provider_path do %>
-				<p class="standard-btn grey-btn ingredient-btn">+ CRÉER</p>
-			<% end %>
 		</div><br/>
 		<div class="hide">
 			<div class="ing-cntnr">
