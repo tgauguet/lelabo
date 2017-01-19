@@ -103,8 +103,16 @@ p, h2, h3{
   color: rgb(43,54,69);
 }
 
-input[type=radio] {
+.q-forms input[type=radio] {
     display:none;
+}
+
+.up-div{
+	margin-top: -1.5em;
+}
+
+.r-img-cntnr input[type=radio] {
+	margin-right: 0.6em;
 }
 
 .ghost-txt{
@@ -247,7 +255,6 @@ a .tools-cntnr{
 
 .action-cntnr, .explaination-cntnr, .post-cntnr, .card-cntnr, .to-do-cards, .tasks-cntnr, .tools-cntnr{
   border: 1px solid rgb(212,220,224) !important;
-	border-top: 0px !important;
   border-radius: 0.3em;
 }
 
@@ -320,8 +327,14 @@ BUTTONS -- DESIGN
 
 /*   buttons with a green background  */
 
-.blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true, .plan-btn, .standard-btn{
+.blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true, .plan-btn, .standard-btn, .ingredient-btn{
   background: rgb(253,133,9);
+	border-bottom: 2px solid rgb(215, 119, 3) !important;
+}
+
+.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .inside-btn:hover, .data-confirm .confirm-true:hover, .plan-btn:hover, .standard-btn:hover{
+  background: rgb(243,123,7) !important;
+	border-bottom: 2px solid rgb(215, 119, 3) !important;
 }
 
 .standard-btn{
@@ -389,6 +402,28 @@ BUTTONS -- DESIGN
   transition-property: color, background-color;
 }
 
+.recipe-frm .to-left .basic-field, .recipe-frm .to-left select{
+	padding-left: 0.7em !important;
+	border-radius: 0.3em;
+	width: 22em !important;
+}
+
+.bgr-ttl{
+	font-family: 'source_sans_prosemibold';
+	font-size: 1.3em;
+}
+
+.recipe-frm{
+	padding: 2em;
+	padding-top: 1.5em;
+}
+
+.recipe-frm h3{
+	margin-bottom: 1em;
+	font-family: "source_sans_prosemibold";
+	font-weight: normal;
+}
+
 .auto-btn:hover{
 	background-color: rgb(95, 208, 137);
   color: white;
@@ -396,8 +431,8 @@ BUTTONS -- DESIGN
 
 .cta-btn, button{
   font-size: 1.2em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
 }
 
 .float-right button{
@@ -2747,7 +2782,7 @@ select{
   margin-right: -1.5em;
 }
 
-.delete-tsk-btn, .delete-rcp{
+.delete-rcp{
   width: 1em;
   float: right;
   margin-right: 0.4em;
@@ -2755,7 +2790,17 @@ select{
   margin-top: -1.4em;
 }
 
-.delete-tsk-btn:hover{
+.delete-ing{
+		width: 1em;
+		opacity: 0.4;
+		float: right;
+		padding: .78em;
+		display: inline-block;
+		border-radius: 0.3em;
+		border:1px solid rgb(212,220,224);
+}
+
+.delete-tsk-btn:hover, .delete-ing:hover{
   opacity: 0.8;
 }
 
@@ -3104,7 +3149,7 @@ select{
   border-radius: 0.3em;
 }
 
-.big-compo select, .basic-field, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select{
+.big-compo select, .basic-field, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select, .recipe-frm .to-left select{
   position: relative;
   padding-top: 0.7em;
   padding-bottom: 0.7em;
@@ -3440,14 +3485,13 @@ select{
 }
 
 .ingredients-add-ctnr{
-	min-height: 20em;
 	height: auto;
 	position: relative;
 }
 
-.delete-ing{
-		margin-top: 0.8em;
-		margin-right: 3.5em;
+.ingredients-add-ctnr .white-cat{
+	margin-top: 1em;
+	margin-left: 1em;
 }
 
 .add_ingredients, .add_process{
@@ -3456,7 +3500,7 @@ select{
 }
 
 .add_ingredients{
-	width: 27.5em;
+	width: 100%;
 }
 
 .add_ingredients h3{
@@ -3471,10 +3515,9 @@ select{
 }
 
 .add_process{
-	width: 25em;
+	width: 100%;
 	right: 0.2em;
-	position: absolute;
-	height: 100%;
+	height: 12.4em;
 }
 
 .pagination {
@@ -3533,9 +3576,8 @@ CK-EDITOR DESIGN
   border-radius: 0.3em;
   padding: 0em !important;
   box-shadow: none !important;
-	position: absolute !important;
 	height: 100% !important;
-	width: 100% !important
+	width: 100% !important;
 }
 
 .cke_top{
@@ -3591,12 +3633,12 @@ a.cke_button_on{
 
 .upper-field-img{
 		margin-top: .8em;
-		margin-left: 12.5em;
+		margin-left: 5em;
 }
 
 .rght-field-img{
-	margin-left: 14.6em;
-	width: 1.2em;
+	margin-left: 6.3em;
+	width: 1.4em;
 }
 
 .cke_dialog_contents{
@@ -3609,9 +3651,8 @@ a.cke_button_on{
 .cke_contents {
 	width: 100% !important;
 	border-radius: 0.3em;
-	height: 87% !important;
 	bottom: 0 !important;
-	position: absolute !important;
+	height: auto !important;
 }
 
 .cke_dialog_contents_body{
@@ -3624,10 +3665,6 @@ a.cke_button_on{
   padding: 0.2em !important;
   outline:none !important;
 	background: white !important;
-}
-
-.cke_resizer{
-  display: none !important;
 }
 
 a.cke_dialog_ui_button{
@@ -3963,11 +4000,15 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	margin-left: 4em;
 }
 
+.g-img{
+	margin-left: 7em;
+}
+
 input[type="checkbox"] {
     display: block;
     position: absolute; /* remove it from the flow */
-    width: 1.7em;
-    height: 1.7em;
+    width: 2em;
+    height: 2em;
     cursor: pointer;
     opacity: 0; /* make it transparent */
     z-index: 666; /* place it on top of everything else */
@@ -3976,12 +4017,27 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + span {
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     border: 1px solid rgb(208,210,214);
     margin-right: .5rem;
-    border-radius: 0.2em;
+    border-radius: 0.3em;
 		vertical-align: -0.1em;
+}
+
+.stari input[type="checkbox"] + span {
+    display: inline-block;
+    width: 5.3em;
+    height: 5.3em;
+    border: 1px solid rgb(208,210,214);
+    margin:0;
+    border-radius: 0.3em;
+}
+
+.stari input[type="checkbox"] {
+	display: inline-block;
+	width: 7em;
+	height: 7em;
 }
 
 .check-red > input[type="checkbox"]:checked + span {
@@ -3990,8 +4046,8 @@ input[type="checkbox"] + span {
 }
 
 .check-orange > input[type="checkbox"]:checked + span {
-    background:rgb(239, 139, 17);
-    border: 1px solid rgb(239, 139, 17);
+    background:rgb(253,133,9);
+    border: 1px solid rgb(253,133,9);
 }
 
 .check-green > input[type="checkbox"]:checked + span {
@@ -3999,9 +4055,74 @@ input[type="checkbox"] + span {
     border: 1px solid rgb(25, 194, 96);
 }
 
+.stari > input[type="checkbox"]:checked + img{
+	-webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  filter: none; /* IE 6-9 */
+}
+
 .custom-checkbox span img{
 	width: 0.8em;
-	margin-left: 0.1em;
+	margin-left: 0.2em;
+	margin-top: 0.1em;
+}
+
+.stari img{
+	width: 6em;
+	margin-left: -.3em;
+	margin-top: -.3em;
+}
+
+.greyscale{
+	-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+}
+
+.form-border{
+	border-top:1px solid rgb(212,220,224);
+	margin-top:  1.9em;
+	margin-bottom: 1.9em;
+}
+
+.r-img-cntnr{
+	float: right;
+	width: 20em;
+}
+
+.sort-select, .sort-ing-arrow{
+	position: absolute;
+	float: right;
+	margin-top: -1.7em;
+	margin-left: 19em;
+	width: .7em;
+}
+
+.ingr-field .basic-field{
+	width: 6em;
+	margin-left: 1em;
+	display: inline-block;
+	padding-left: 0.7em;
+	border-radius: 0.3em;
+}
+
+.sort-ing-arrow{
+	margin-top: 1em;
+	margin-left: -2.2em;
+}
+
+.r-smll-cntnr{
+	width: 100%;
+}
+
+.recipe-head{
+	width: 22em;
 }
 
 .img_path{
@@ -4108,6 +4229,16 @@ input[type="checkbox"] + span {
 	cursor: pointer;
 }
 
+.r-img-cntnr .custom-checkbox{
+	width: 6em;
+	text-align: center;
+	display: inline-block;
+}
+
+.align-right{
+	text-align: right;
+}
+
 .help-img{
 	float: right;
 	cursor: pointer;
@@ -4188,10 +4319,6 @@ input[type="checkbox"] + span {
 	text-align: left;
 }
 
-.r-smll-cntnr{
-	width: 35em;
-}
-
 .r-big-cntnr{
 	width: 13em;
 }
@@ -4206,6 +4333,12 @@ input[type="checkbox"] + span {
 	margin-left: -0.22em;
 	display: inline-block;
 	border-top-right-radius: 0.3em;
+}
+
+.recipe-frm .recipe-form .recipe-cntnr .p-field{
+	width: 5em !important;
+	display: inline-block;
+	margin-right: 4.4em;
 }
 
 .portion-field{
@@ -4228,7 +4361,18 @@ input[type="checkbox"] + span {
 
 .ingr-field select{
 	padding-left: 0.7em;
-	width: 16em !important;
+	border-radius: 0.3em;
+	width: 22em !important;
+	display: inline;
+}
+
+.ingr-field{
+	margin: .2em;
+}
+
+.ingr-field span select{
+	width: 6em !important;
+	margin-left: 1em;
 }
 
 .plus-field{
@@ -4788,10 +4932,6 @@ textarea {
 
 	.title-field{
 		width: 100%;
-	}
-
-	.r-smll-cntnr{
-		width: 30em;
 	}
 
 	.recipe-cntnr .big-compo{

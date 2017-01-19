@@ -16,14 +16,6 @@ module ApplicationHelper
 			request.path.start_with?('/blog')
 		end
 
-		def stared(value)
-			value.stared ? "star.png" : "missing-star.png"
-		end
-
-		def loved(value)
-			value.loved ? "heart-2.png" : "heart.png"
-		end
-
     def resource
         @resource ||= User.new
     end
@@ -75,7 +67,7 @@ module ApplicationHelper
     end
 
 		def remove_field(name, f)
-		    link_to_function(image_tag(name, class: "delete-tsk-btn delete-ing"), "remove_fields(this)")
+		    link_to_function(image_tag(name, class: "delete-ing"), "remove_fields(this)")
 		end
 
 		def create_new_field(name, f, association)
@@ -85,7 +77,7 @@ module ApplicationHelper
 	        fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
 	          render("add_#{association}", :ff => builder, image: nil)
 	        end
-	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: "plus-field big-plus")
+	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: "plus-field big-plus new_#{association}")
 	  end
 
 		def grade(user)

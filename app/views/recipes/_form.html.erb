@@ -1,76 +1,103 @@
-<%= form_for(recipe) do |f| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> Ont empêché la sauvegarde de cette recette :</h2>
-      <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="recipe-form">
-  <div class="recipe-cntnr r-smll-cntnr">
-    <h3>Informations générales</h3>
-    <div class="composition-info to-left">
-  		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>
-  		<p>Catégorie</p>
-  		<p>Auteur</p>
-  		<p>Cuisson</p><div class="hover-helper">La température de cuisson de votre recette</div>
-  	</div>
-  	<div class="composition big-compo">
-      <%= f.text_field :name, class: "basic-field top-rad" %>
-      <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
-      <%= f.text_field :owner, class: "basic-field special-top", value: user_if_nil(recipe) %>
-      <%= f.text_field :baking, class: "basic-field special-top bot-rad" %>
-  	</div>
-    <br/><br/>
-    <div class="composition-info to-left">
-      <p>Prix Vte/Part</p><div class="hover-helper">Prix de vente TTC par part (une part ou portion)</div>
-  		<p>Poids/Part</p><div class="hover-helper">Le poids d'une part (ou portion)</div>
-      <p>Taux de TVA</p><div class="hover-helper">Le taux de TVA applicable à la recette</div>
-  	</div>
-  	<div class="composition big-compo portion-cntnr">
-      <%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
-      <%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
-      <%= f.text_field :portion_price, class: "basic-field top-rad" %>
-      <%= f.text_field :portion_weight, class: "basic-field special-top" %>
-      <%= f.text_field :vat, class: "basic-field special-top bot-rad" %>
-  	</div>
-    <div class="form-divs">
-      <p class="custom-checkbox check-red"><%= f.check_box :stared %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "star.png", class: "stared-item" %></p>
-      <p class="custom-checkbox check-red"><%= f.check_box :loved %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span><%= image_tag "heart-2.png", class: "stared-item" %></p><div class="hover-helper">Définir comme recette star et/ou recette préférée</div>
-    </div>
-  </div>
-  <div class="recipe-cntnr r-big-cntnr">
-    <% if current_user.basic_user? %>
-      <h3>Ajoutez une image</h3>
-      <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
-      <p class="auto-btn cta-btn">+ S'ABONNER</p>
-      <br/><br/><br/><br/><br/><br/>
-    <% else %>
-      <p>image</p>
-      <%= image_tag(recipe.image.url(:medium), class: "recipe-img") %>
-      <%= f.file_field :image %>
-      <br/><br/>
+<div class="recipe-frm">
+  <%= form_for(recipe) do |f| %>
+    <% if recipe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(recipe.errors.count, "error") %> Ont empêché la sauvegarde de cette recette :</h2>
+        <ul>
+        <% recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-  </div>
-  <br/>
-  <h3>Ingredients & process</h3>
-  <div class="ingredients-add-ctnr">
-    <div class="add_ingredients">
-      <%= f.fields_for :quantities do |ff| %>
-        <%= render "add_quantities", ff: ff %>
-      <% end %>
-      <p class="add_field"><%= create_new_field "+", f, :quantities %></p>
+  <div class="recipe-form">
+    <div class="recipe-cntnr r-smll-cntnr">
+      <h3 class="bgr-ttl">Créer une nouvelle recette</h3>
+      <div class="r-img-cntnr">
+        <% if current_user.basic_user? %>
+          <h3>Ajoutez une image</h3>
+          <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
+          <p class="auto-btn cta-btn">+ S'ABONNER</p>
+          <br/><br/><br/><br/><br/><br/>
+        <% else %>
+          <p>image</p>
+          <%= image_tag(recipe.image.url(:medium), class: "recipe-img") %>
+          <%= f.file_field :image %>
+          <br/><br/>
+        <% end %>
+      </div>
+      <div class="to-left recipe-head">
+    		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>
+        <%= f.text_field :name, class: "basic-field" %>
+    		<p>Catégorie</p>
+        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
+        <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
+        <div>
+          <p>Auteur</p>
+          <%= f.text_field :owner, class: "basic-field", value: user_if_nil(recipe) %>
+        </div>
+        <br/>
+      </div>
+      <div class="form-border"></div>
+      <div class="r-img-cntnr">
+        <h3>Taux de TVA</h3>
+      </div>
+      <h3>Prix de vente &&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Poids/Part</h3>
+      <br/>
+      <div class="r-img-cntnr up-div">
+        <p><%= f.radio_button :vat, "20.00%" %> 20,00 %</p>
+        <p><%= f.radio_button :vat, "10.00%", checked: true %> 10,00 %</p>
+        <p><%= f.radio_button :vat, "5.50%" %> 5,50%</p>
+      </div>
+      <div class="recipe-head to-left up-div">
+        <%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
+        <%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
+        <%= f.text_field :portion_price, class: "basic-field p-field" %>
+        <%= image_tag "gramme.png", class: "field-img-big upper-field-img" %>
+        <%= f.text_field :portion_weight, class: "basic-field p-field" %>
+    	</div>
+      <br/>
+      <div class="form-border"></div>
     </div>
+    <br/>
+    <h3>Ingrédients</h3>
+    <div class="ingredients-add-ctnr">
+      <div class="add_ingredients">
+        <%= f.fields_for :quantities do |ff| %>
+          <%= render "add_quantities", ff: ff %>
+        <% end %>
+        <p class="add_field"><%= create_new_field "+", f, :quantities %></p>
+        <p class="grey-btn hide white-cat">+ CRÉER UN NOUVEL INGRÉDIENT</p>
+      </div>
+    </div><br/>
+    <div class="form-border"></div>
+    <h3>Process</h3>
     <div data-no-turbolink class="add_process">
       <%= f.cktext_area :process, placeholder: "procédé", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
-  </div><br/>
-  <%= image_tag "title.png", class: "field-img-big" %>
-  <%= f.text_area :note, class: "basic-field rounded-field", placeholder: "Notes" %>
-  <br/>
-  <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
-  </div>
-<% end %>
+    <div class="r-img-cntnr up-div">
+      <br/>
+      <br/>
+      <p class="custom-checkbox stari">
+        <%= f.check_box :stared %>
+        <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+        Star
+      </p>
+      <p class="custom-checkbox stari">
+        <%= f.check_box :loved %>
+        <%= image_tag "heart-big.png", alt: "checktag", class: "greyscale" %>
+        Favoris
+    </div>
+    <div class="to-left recipe-head">
+      <p>Cuisson</p>
+      <%= f.text_field :baking, class: "basic-field" %>
+      <p>Notes</p>
+      <%= f.text_area :note, class: "basic-field" %>
+      <br/>
+    </div>
+    <div class="align-right">
+      <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
+    </div>
+    </div>
+  <% end %>
+</div>

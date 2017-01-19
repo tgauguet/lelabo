@@ -10,10 +10,10 @@
         <% end %>
         <span class="ing-price">
           <span class="ing-img">
-            <%= image_tag stared(assembly), class: "stared-item" %>
+            <% if assembly.stared? %><%= image_tag "star.png", class: "stared-item" %><% end %>
           </span>
           <span class="ing-img2">
-            <%= image_tag loved(assembly), class: "stared-item2" %>
+            <% if assembly.loved? %><%= image_tag "heart.png", class: "stared-item2" %><% end %>
           </span>
   			</span>
         <span class="ing-unit">

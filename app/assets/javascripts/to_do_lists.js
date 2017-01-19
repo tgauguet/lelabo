@@ -9,6 +9,9 @@ $(document).ready(function(){
 		$(".explaination-cntnr").show();
 		$(".element-btn").show();
 	});
+	$("#list-btn").click(function(){
+		$("#list-btn").hide();
+	});
 	$(".cancel-btn").click(function(){
 		$(".edittask").hide();
 		$(".taskname").show();
@@ -35,7 +38,7 @@ $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
 $(document).ready(function($) {
   $(".datepicker").each(function() {
      $(this).datepicker({
-       	autoclose: true, 
+       	autoclose: true,
        	dateFormat: "dd-mm-yy",
        	closeText: 'Fermer',
 		prevText: 'Précédent',
@@ -68,7 +71,7 @@ ready = function(){
 	//call set_positions function for tasks
 	set_positions();
 	$( "#sortable" ).sortable({
-    	axis: "y", 
+    	axis: "y",
     	opacity: 0.8,
     	placeholder: "editsortable3"
 	});

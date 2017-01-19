@@ -1,4 +1,4 @@
-<%= form_for ingredient, html: { data_type: "html", id: "clear_form"} do |f| %>
+<%= form_for ingredient, html: { data_type: "html", id: "clear_form", name:"fform" } do |f| %>
 <div class="ing-form-cntnr">
 	<div class="basic-ing-info">
 		<h3>Informations</h3><br/>
@@ -16,7 +16,7 @@
 				<%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
 				<%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
 				<%= f.text_field :price, placeholder: "Prix", class: "basic-field portion-field" %>
-				<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field special-top" %>
+				<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field special-top", name: "funit" %>
 			</div>
 			<%= f.text_field :vat, class: "basic-field special-top" %>
 			<%= f.text_field :brand, class: "basic-field bot-rad uppr-ing" %>
@@ -24,13 +24,16 @@
 		<br/><br/>
 		<h3>Poids</h3><br/>
 		<div class="composition-info ing-weights">
-			<p>Poids du Produit</p><div class="hover-helper">Poids net total de l'ingrédient</div>
+			<p>Poids net</p><div class="hover-helper">Poids net total de l'ingrédient</div>
+			<p>Poids brut</p><div class="hover-helper">Poids brut de l'ingrédient</div>
 			<p>Nb d'Unités/Produit</p><div class="hover-helper">Nombre d'unité par ingrédient (si plusieurs par emballage)</div>
 			<p>Poids par Unité</p>
 		</div>
 		<div class="composition comp2">
 				<%= image_tag "gramme.png", class: "field-img euro-img" %>
 				<%= f.text_field :weight, class: "basic-field top-rad" %>
+				<%= image_tag "gramme.png", class: "field-img euro-img" %>
+				<%= f.text_field :brut_weight, class: "basic-field special-top" %>
 				<%= f.text_field :unit_quantity, class: "basic-field special-top" %>
 				<%= image_tag "gramme.png", class: "field-img euro-img" %>
 				<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad" %>
@@ -99,7 +102,7 @@
 		</div>
 	</div>
 	<br/><br/>
-	<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn" %>
+	<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn", id: "submit-ing" %>
 	<%= link_to new_ingredient_path do %>
 		<p class="cancel-btn">ANNULER</p>
 	<% end %>
