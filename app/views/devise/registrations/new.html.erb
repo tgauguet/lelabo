@@ -20,10 +20,12 @@
             <br/>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= devise_error_messages! %>
-              <%= image_tag "mail.png", class: "field-img-big" %>
-              <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field welcome-field" %>
-              <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-              <%= f.submit "ESSAYER GRATUITEMENT", class: "btn cta-btn welcome-btn w-btn" %>
+              <div class="wlcm-btn-cntnr">
+                <%= image_tag "mail.png", class: "field-img-big" %>
+                <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field welcome-field" %>
+                <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+                <%= f.submit "ESSAYER GRATUITEMENT", class: "btn cta-btn welcome-btn w-btn" %>
+              </div>
               <p>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
             <% end %>
         </div>
