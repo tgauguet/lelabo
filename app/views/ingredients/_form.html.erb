@@ -1,45 +1,55 @@
 <%= form_for ingredient, html: { data_type: "html", id: "clear_form", name:"fform" } do |f| %>
 <div class="ing-form-cntnr">
 	<div class="basic-ing-info">
-		<h3>Informations</h3><br/>
-		<div class="composition-info smllcmp">
-			<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre ingrédient (cette mention est nécessaire)</div>
-			<p>Catégorie</p>
-			<p>Prix</p><div class="hover-helper">Utilisé pour calculer le coût de revient de vos recettes</div>
-			<p>TVA</p>
-			<p>Marque</p>
-		</div>
-		<div class="composition big-compo ing-inf">
-			<%= f.text_field :name, class: "basic-field top-rad" %>
-			<%= f.select(:category, @categories.collect{ |c| c.name } + ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field ing-field", include_blank: true) %>
-			<div class="portion-cntnr cubic">
-				<%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
-				<%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
-				<%= f.text_field :price, placeholder: "Prix", class: "basic-field portion-field" %>
-				<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field special-top", name: "funit" %>
+		<div class="b-i-left">
+			<h3>Informations générales</h3>
+			<br/>
+			<div class="composition-info smllcmp">
+				<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre ingrédient (cette mention est nécessaire)</div>
+				<p>Catégorie</p>
+				<p>Prix</p><div class="hover-helper">Utilisé pour calculer le coût de revient de vos recettes</div>
+				<p>Marque</p>
 			</div>
-			<%= f.text_field :vat, class: "basic-field special-top" %>
-			<%= f.text_field :brand, class: "basic-field bot-rad uppr-ing" %>
+			<div class="composition big-compo ing-inf">
+				<%= f.text_field :name, class: "basic-field top-rad", placeholder: " " %><%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow2" %>
+				<%= f.select(:category, @categories.collect{ |c| c.name } + ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field ing-field", selected: "Divers") %>
+				<div class="portion-cntnr cubic">
+					<%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
+					<%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
+					<%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow2" %>
+					<%= f.text_field :price, placeholder: "Prix", class: "basic-field portion-field", placeholder: " " %>
+					<%= f.select :unit, ["Kg", "Litre", "Unité"], class: "basic-field special-top", name: "funit", placeholder: " " %>
+				</div>
+				<%= f.text_field :brand, class: "basic-field bot-rad uppr-ing", placeholder: " " %>
+			</div>
+			<h3>TVA</h3>
+			<div class="r-img-cntnr up-div">
+        <p><%= f.radio_button :vat, "20.00%" %> 20,00 %</p>
+        <p><%= f.radio_button :vat, "10.00%", checked: true %> 10,00 %</p>
+        <p><%= f.radio_button :vat, "5.50%" %> 5,50%</p>
+      </div>
 		</div>
-		<br/><br/>
-		<h3>Poids</h3><br/>
-		<div class="composition-info ing-weights">
-			<p>Poids net</p><div class="hover-helper">Poids net total de l'ingrédient</div>
-			<p>Poids brut</p><div class="hover-helper">Poids brut de l'ingrédient</div>
-			<p>Nb d'Unités/Produit</p><div class="hover-helper">Nombre d'unité par ingrédient (si plusieurs par emballage)</div>
-			<p>Poids par Unité</p>
+		<div class="b-i-right">
+			<h3>Poids</h3><br/>
+			<div class="composition-info ing-weights">
+				<p>Poids net total</p><div class="hover-helper">Poids net total de l'ingrédient</div>
+				<p>Poids brut total</p><div class="hover-helper">Poids brut de l'ingrédient</div>
+				<p>Nb d'Unités/Produit</p><div class="hover-helper">Nombre d'unité par ingrédient (si plusieurs par emballage)</div>
+				<p>Poids par Unité</p>
+			</div>
+			<div class="composition comp2">
+					<%= image_tag "gramme.png", class: "field-img euro-img" %>
+					<%= f.text_field :weight, class: "basic-field top-rad", placeholder: " " %>
+					<%= image_tag "gramme.png", class: "field-img euro-img" %>
+					<%= f.text_field :brut_weight, class: "basic-field special-top", placeholder: " " %>
+					<%= f.text_field :unit_quantity, class: "basic-field special-top", placeholder: " " %>
+					<%= image_tag "gramme.png", class: "field-img euro-img" %>
+					<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad", placeholder: " " %>
+			</div>
 		</div>
-		<div class="composition comp2">
-				<%= image_tag "gramme.png", class: "field-img euro-img" %>
-				<%= f.text_field :weight, class: "basic-field top-rad" %>
-				<%= image_tag "gramme.png", class: "field-img euro-img" %>
-				<%= f.text_field :brut_weight, class: "basic-field special-top" %>
-				<%= f.text_field :unit_quantity, class: "basic-field special-top" %>
-				<%= image_tag "gramme.png", class: "field-img euro-img" %>
-				<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad" %>
-		</div><br/>
-		<p>Composition</p><div class="hover-helper">Si l'objet est composé de plusieurs ingrédients (ex du praliné: "sucre, noisettes, amandes")</div><p>
-		<%= f.text_area :composition, class: "basic-field rounded-field" %>
+		<p>Composition</p><div class="hover-helper">Si l'objet est composé de plusieurs ingrédients (ex: praliné: "sucre, noisettes, amandes")</div><p>
+		<%= f.text_area :composition, class: "basic-field rounded-field uppr-ing", placeholder: " " %>
+		<div class="form-border"></div>
 	</div>
 	<div class="content-ing-info">
 		<h3>Valeur nutritionnelle</h3><br/>
@@ -53,17 +63,17 @@
 		</div>
 		<div class="composition comp2">
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :fat_percent, class: "basic-field top-rad" %>
+				<%= f.text_field :fat_percent, class: "basic-field top-rad", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :dry_matter_percent, class: "basic-field special-top" %>
+				<%= f.text_field :dry_matter_percent, class: "basic-field special-top", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :water_percent, class: "basic-field special-top" %>
+				<%= f.text_field :water_percent, class: "basic-field special-top", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :sugar_percent, class: "basic-field special-top" %>
+				<%= f.text_field :sugar_percent, class: "basic-field special-top", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :sugar_power, class: "basic-field special-top" %>
+				<%= f.text_field :sugar_power, class: "basic-field special-top", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad" %>
+				<%= f.text_field :alcool_percent, class: "basic-field special-top bot-rad", placeholder: " " %>
 		</div>
 		<div class="composition-info">
 			<p>Cacao maigre</p><div class="hover-helper">Quantité de pâte de cacao en %</div>
@@ -75,25 +85,38 @@
 			<p>Calories /100g</p><div class="hover-helper">Nombre de calories pour 100g</div>
 		</div>
 		<div class="composition comp2">
-
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :cocoa_percent, class: "basic-field top-rad" %>
+				<%= f.text_field :cocoa_percent, class: "basic-field top-rad", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top" %>
+				<%= f.text_field :cocoa_butter_percent, class: "basic-field special-top", placeholder: " " %>
 				<%= image_tag "percent.png", class: "field-img euro-img" %>
-				<%= f.text_field :cocoa_total_percent, class: "basic-field special-top" %>
-				<%= f.text_field :protein, class: "basic-field special-top" %>
-				<%= f.text_field :carbohydrates, class: "basic-field special-top" %>
-				<%= f.text_field :ig, class: "basic-field special-top" %>
+				<%= f.text_field :cocoa_total_percent, class: "basic-field special-top", placeholder: " " %>
+				<%= f.text_field :protein, class: "basic-field special-top", placeholder: " " %>
+				<%= f.text_field :carbohydrates, class: "basic-field special-top", placeholder: " " %>
+				<%= f.text_field :ig, class: "basic-field special-top", placeholder: " " %>
 				<%= image_tag "grammes.png", class: "field-img euro-img" %>
-				<%= f.text_field :kcal, class: "basic-field special-top bot-rad" %>
+				<%= f.text_field :kcal, class: "basic-field special-top bot-rad", placeholder: " " %>
 		</div>
-		<br/><br/>
-		<p class="custom-checkbox check-orange"><%= f.check_box :is_glut_free %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Contient du gluten</p>
-		<p class="custom-checkbox check-green"><%= f.check_box :is_bio %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Biologique</p>
-		<p class="custom-checkbox check-red"><%= f.check_box :is_pulp %><span><%= image_tag "correct-symbol.png", alt: "checktag" %></span> Purée de fruits</p><div class="hover-helper">L'ingrédient est-il une purée de fruit ? (important pour l'équilibre des sorbets)</div>
-		<br/><br/>
+		<div class="ing-chk-cntnr">
+			<p class="custom-checkbox stari">
+				<%= f.check_box :is_bio %>
+				<%= image_tag "bio-big.png", alt: "checktag", class: "greyscale" %>
+				Biologique
+			</p>
+			<p class="custom-checkbox stari">
+				<%= f.check_box :is_glut_free %>
+				<%= image_tag "glut-big.png", alt: "checktag", class: "greyscale" %>
+				Sans gluten
+			</p>
+			<p class="custom-checkbox stari">
+				<%= f.check_box :is_pulp %>
+				<%= image_tag "fruit-big.png", alt: "checktag", class: "greyscale" %>
+				Purée de fruits
+			</p>
+		</div>
+		<div class="form-border"></div>
 		<h3>Fournisseur(s)</h3>
+		<br/>
 		<div class="double-field">
 		  <%= f.fields_for :provider_prices do |ff| %>
 				<%= render "add_provider_prices", ff: ff %>
@@ -101,7 +124,7 @@
 			<div class="add_field"><%= create_new_field "+", f, :provider_prices %></div>
 		</div>
 	</div>
-	<br/><br/>
+	<br/><br/><br/>
 	<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn", id: "submit-ing" %>
 	<%= link_to new_ingredient_path do %>
 		<p class="cancel-btn">ANNULER</p>

@@ -28,9 +28,9 @@
       </div>
       <div class="to-left recipe-head">
     		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>
-        <%= f.text_field :name, class: "basic-field" %>
+        <%= f.text_field :name, class: "basic-field", placeholder: " " %>
     		<p>Catégorie</p>
-        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], include_blank: true, class: "basic-field special-top" %>
+        <%= f.select :category, ["Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Divers", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], selected: "Divers", class: "basic-field special-top" %>
         <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
         <div>
           <p>Auteur</p>
@@ -52,9 +52,9 @@
       <div class="recipe-head to-left up-div">
         <%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
         <%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>
-        <%= f.text_field :portion_price, class: "basic-field p-field" %>
+        <%= f.text_field :portion_price, class: "basic-field p-field", placeholder: " " %>
         <%= image_tag "gramme.png", class: "field-img-big upper-field-img" %>
-        <%= f.text_field :portion_weight, class: "basic-field p-field" %>
+        <%= f.text_field :portion_weight, class: "basic-field p-field", placeholder: " " %>
     	</div>
       <br/>
       <div class="form-border"></div>
@@ -73,7 +73,7 @@
     <div class="form-border"></div>
     <h3>Process</h3>
     <div data-no-turbolink class="add_process">
-      <%= f.cktext_area :process, placeholder: "procédé", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
+      <%= f.cktext_area :process, placeholder: " ", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
     <div class="r-img-cntnr up-div">
       <br/>
@@ -90,9 +90,9 @@
     </div>
     <div class="to-left recipe-head">
       <p>Cuisson</p>
-      <%= f.text_field :baking, class: "basic-field" %>
+      <%= f.text_field :baking, class: "basic-field", placeholder: " " %>
       <p>Notes</p>
-      <%= f.text_area :note, class: "basic-field" %>
+      <%= f.text_area :note, class: "basic-field", placeholder: " " %>
       <br/>
     </div>
     <div class="align-right">

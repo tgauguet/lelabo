@@ -2803,13 +2803,25 @@ select{
 }
 
 .delete-ing{
-		width: 1em;
-		opacity: 0.4;
-		float: right;
-		padding: .78em;
-		display: inline-block;
-		border-radius: 0.3em;
-		border:1px solid rgb(212,220,224);
+	width: 1em;
+	opacity: 0.4;
+	float: right;
+	padding: .78em;
+	display: inline-block;
+	border-radius: 0.3em;
+	border:1px solid rgb(212,220,224);
+}
+
+input:placeholder-shown, textarea:placeholder-shown{
+  background: rgb(249,250,251); /* Red border only if the input is empty */
+	border: 1px solid rgb(232,238,239);
+	-webkit-box-shadow: inset 0px 15px 0px -14px rgb(241,242,245);
+	-moz-box-shadow: inset 0px 15px 0px -14px rgb(241,242,245);
+	box-shadow: inset 0px 15px 0px -14px rgb(241,242,245);
+}
+
+.special-top:placeholder-shown{
+	border-top:0px;
 }
 
 .delete-tsk-btn:hover, .delete-ing:hover{
@@ -2930,13 +2942,19 @@ select{
 }
 
 .basic-ing-info, .content-ing-info{
-	width: 23em;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+}
+
+.b-i-left, .b-i-right{
+	width: 25em;
 	display: inline-block;
 	vertical-align: top;
 }
 
-.content-ing-info{
-	width: 27em;
+.b-i-right{
+	width: 17em;
 }
 
 .ing-weights{
@@ -3232,7 +3250,23 @@ select{
 }
 
 .content-ing-info .composition-info{
+	width: 10em;
+}
+
+.ing-chk-cntnr .stari{
 	width: 7em;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+
+.stari{
+	font-size: 0.9em;
+	margin-top: -0.2em;
+}
+
+.ing-chk-cntnr{
+	margin-top: 0.3em;
 }
 
 .smllcmp{
@@ -3281,8 +3315,8 @@ select{
 	color:rgb(201,24,36);
 }
 
-.cat-form input{
-	padding-left: 0.6em;
+.cat-form input, .uppr-ing{
+	padding-left: 0.7em;
 }
 
 .cat-form .cta-btn{
@@ -4093,7 +4127,7 @@ input[type="checkbox"] + span {
 .stari img{
 	width: 6em;
 	margin-left: -.3em;
-	margin-top: -.3em;
+	margin-top: -.1em;
 }
 
 .greyscale{
@@ -4116,7 +4150,7 @@ input[type="checkbox"] + span {
 	width: 20em;
 }
 
-.sort-select, .sort-ing-arrow{
+.sort-select, .sort-ing-arrow, .sort-ing-arrow2{
 	position: absolute;
 	float: right;
 	margin-top: -1.7em;
@@ -4134,7 +4168,13 @@ input[type="checkbox"] + span {
 
 .sort-ing-arrow{
 	margin-top: 1em;
-	margin-left: -2.2em;
+	margin-left: -1.7em;
+}
+
+.sort-ing-arrow2{
+	margin-top: 1em;
+	margin-left: 15em;
+	z-index: 2;
 }
 
 .r-smll-cntnr{
@@ -4365,7 +4405,7 @@ input[type="checkbox"] + span {
 	width: 50%;
 	display: inline-block;
 	border-top-left-radius: 0.3em;
-	padding-left: 3.4em;
+	padding-left: .7em;
 }
 
 .to-left p{

@@ -8,10 +8,13 @@
 				<%= truncate(ingredient.name.humanize, length: 35) %>
 				<span class="ing-imgs">
 					<% if ingredient.is_bio? %>
-						<%= image_tag "bio.png", class: "mini-img" %>
+						<%= image_tag "bio-smll.png", class: "small-img" %>
 					<% end %>
 					<% if ingredient.is_glut_free? %>
-						<%= image_tag "wheat.png", class: "mini-img" %>
+						<%= image_tag "glut-smll.png", class: "small-img" %>
+					<% end %>
+					<% if ingredient.is_pulp? %>
+						<%= image_tag "fruit-smll.png", class: "small-img" %>
 					<% end %>
 				</span>
 			</span>
@@ -21,7 +24,7 @@
 				<% end %>
 			</span>
 			<%= link_to ingredient_path(ingredient.id), method: :delete, id: "delete-task" do %>
-				<%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
+				<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
 			<% end %>
 		</div>
 	<% end %>
