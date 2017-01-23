@@ -436,7 +436,8 @@ BUTTONS -- DESIGN
 }
 
 .float-right button{
-	background: rgb(11,102,254);
+	background: rgb(11,102,254) !important;
+	border-bottom: 2px solid rgb(8, 82, 234) !important;
 }
 
 .delete-btn-cntnr:hover{
@@ -1037,7 +1038,7 @@ p:hover + .hover-helper{
 
 .recipe-img{
 	width: 10em;
-	border:1px solid rgb(197, 200, 205);
+	border:1px solid rgb(232,238,239);
 }
 
 .float-right{
@@ -2175,6 +2176,11 @@ header .normal_header{
 		border-top-right-radius: 0.3em;
 }
 
+.clcl-choice{
+		height: 3em;
+		padding-left: 2.2em;
+}
+
 .q-forms .ingredient-btn{
 	font-size: 0.94em;
 	margin-top: 0.8em;
@@ -2243,6 +2249,53 @@ header .normal_header{
 
 .to-prd{
 	margin-left: 2em;
+}
+
+.meas-env .grey-btn{
+	float: right;
+	font-size: .8em;
+	margin-top: -.3em;
+}
+
+.popover-bck{
+	position: absolute;
+	background: rgba(80,92,99, 0.6);
+	z-index: 99999999;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+.popover{
+	background: white;
+	width: 30em;
+	margin-top: 3em;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	position: relative;
+	border-radius: 0.3em;
+	overflow: hidden;
+}
+
+.popover .prod-quantities{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.popover-ttl{
+	padding: 0.4em;
+	text-align: left;
+	background: rgb(25,36,60);
+}
+
+.popover-cntnt{
+	padding: 2em;
+}
+
+.popover-ttl h3{
+	color: white;
 }
 
 .select-measure .content input{
@@ -3622,7 +3675,7 @@ CK-EDITOR DESIGN
   border-radius: 0.3em;
   padding: 0em !important;
   box-shadow: none !important;
-	height: 100% !important;
+	height: auto !important;
 	width: 100% !important;
 }
 
@@ -4604,7 +4657,6 @@ input[type="checkbox"] + span {
 
 .quant-fields-cntnr{
 	text-align: left;
-	margin-top: 2em;
 	padding: 2em 2em 0em 2em;
 }
 
@@ -4970,6 +5022,10 @@ textarea {
 
 @media screen and (max-width : 76em){
 
+	.r-img-cntnr{
+		width: 14em;
+	}
+
 	.action-cntnr, .tasks-cntnr, .tools-cntnr, .list-cntnr, .ing-cntnr, .inline_divs{
 	  width: 47em;
 	}
@@ -5002,21 +5058,6 @@ textarea {
 		border-radius: 0.3em;
 		border-top:1px solid rgb(197, 200, 205);
 		width: 19.4em !important;
-	}
-
-	.add_ingredients{
-		display: block;
-	}
-
-	.add_process{
-		width: 100%;
-		margin-top: 1em;
-		position: relative;
-	}
-
-	.cke_chrome{
-		position: relative !important;
-		height: 20em !important;
 	}
 
 	.ing-unit{
@@ -5288,11 +5329,32 @@ textarea {
 
 }
 
+@media screen and (max-width: 43em) {
+
+	.r-img-cntnr{
+		display: block;
+		width: 100%;
+	}
+
+	.rsp-dl{
+		display: none;
+	}
+
+}
+
 /* RESPONSIVE DESIGN FOR MOBILE VIEWS (PLACE WHERE BURGER MENU HAPPEN)*/
 @media screen and (max-width : 50em){
 
+	.ingr-field select{
+		width: 10em !important;
+	}
+
+	.ingr-field span select{
+		width:4.5em !important;
+	}
+
 	.rgth-links{
-		width: 10em;
+		width: 12em;
 	}
 
 	.hide-respo{
@@ -5459,4 +5521,8 @@ textarea {
 	width: 7em;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.btn-force-border{
+	border-bottom: 2px solid rgb(215, 119, 3) !important;
 }

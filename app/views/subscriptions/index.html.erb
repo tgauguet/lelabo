@@ -65,11 +65,11 @@
 							<% end %>
 						<% else %>
 								<% if !@user %>
-									<p class="plan-btn scroll">ESSAI GRATUIT</p>
+									<p class="plan-btn scroll btn-force-border">ESSAI GRATUIT</p>
 								<% else %>
 									<%= link_to new_subscription_path(plan_id: plan.id) do %>
 										<!-- après validation des features : "Passer à une offre supérieure" -->
-										<p class="plan-btn">ESSAI GRATUIT</p>
+										<p class="plan-btn btn-force-border">ESSAI GRATUIT</p>
 										<!-- Dans le paragraphe ci-dessus -->
 									<% end %>
 								<% end %>

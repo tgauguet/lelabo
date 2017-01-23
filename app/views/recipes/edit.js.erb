@@ -13,6 +13,10 @@ $(document).ready(function(){
 		$(this).addClass("current-form");
     $("#div"+$(this).attr('target')).show();
   });
+  // hide and show each cells
+  $('.tab').click(function() {
+    $('.q-f1, .q-f2, .tab').toggle();
+  });
   // hide and show portions weights in select unit forms
   $('.trigger').click(function() {
       $('.content').hide();
@@ -24,25 +28,11 @@ $(document).ready(function(){
         $('.' + $(this).data('rel')).show();
     });
   // ADD JQUERY FOR QUANTITIES PAGES
-  $(".meas-env").click(function(){
-    $(".meas-env").addClass("div-active");
-    $(".select-measure").show();
-		$(".recipe-values, .print-measure").hide();
-    $('.prod-quantities').addClass("prod-tip2");
-    $('.prod-quantities').removeClass("prod-tip1 prod-tip3");
-  });
   $(".hide-meas").click(function(){
     $(".print-measure, .select-measure").hide();
 		$(".recipe-values").show();
     $(".meas-env").removeClass("div-active");
     $('.prod-quantities').removeClass("prod-tip2 prod-tip3");
     $('.prod-quantities').addClass("prod-tip1");
-  });
-	$(".show-pdf").click(function(){
-    $(".select-measure, .recipe-values").hide();
-    $(".print-measure").show();
-		$(".meas-env").removeClass("div-active");
-    $('.prod-quantities').removeClass("prod-tip2");
-    $('.prod-quantities').addClass("prod-tip3 prod-tip1");
   });
 });

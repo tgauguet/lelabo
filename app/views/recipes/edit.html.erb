@@ -1,4 +1,61 @@
 <% title "#{@recipe.name.humanize}" %>
+<%= form_for(@recipe, remote: true) do |f| %>
+  <div class="select-measure popover-bck">
+    <div class="popover">
+      <div class="popover-ttl"><h3><%= image_tag "width.png", class: "mini-img" %> Quelle mesure utiliser ?</h3></div>
+      <div class="popover-cntnt">
+        <div class="prod-quantities">
+          <%= f.radio_button 'unit', "grammes", id: "rad1" %>
+          <label for="rad1" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>grammes</label>
+          <%= f.radio_button 'unit', "kilogrammes", id: "rad2" %>
+          <label for="rad2" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>kilogrammes</label>
+          <%= f.radio_button 'unit', "parts", id: "rad3" %>
+          <label for="rad3" class="trigger" data-rel="part"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>parts</label>
+          <%= f.radio_button 'unit', "recettes", id: "rad4" %>
+          <label for="rad4" class="trigger" data-rel="recipe"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>recettes</label>
+          <%= f.radio_button 'unit', "#{@recipe.personnalized}", id: "rad5" %>
+          <label for="rad5" class="trigger last" data-rel="perso"><%= image_tag "weighing.png", alt: "mini-img weighing img" %><%= @recipe.personnalized %></label>
+          <br/>
+          <div class="part content <% if @recipe.unit == "parts" %>show<% end %>">
+            <div class="composition-info">
+              <p>Poids/Part</p>
+            </div>
+            <div class="composition">
+              <%= image_tag "gramme.png", class: "field-img euro-img" %>
+              <%= f.text_field :portion_weight, class: "basic-field rounded-field", placeholder:"Poids..." %>
+            </div>
+          </div>
+          <div class="recipe content  <% if @recipe.unit == "recettes" %>show<% end %>">
+            <div class="composition-info">
+              <p>Poids/Recette</p>
+            </div>
+            <div class="composition">
+              <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
+                <%= image_tag "kg.png", class: "field-img euro-img" %>
+                <span><%= ff.text_field :value, class: 'basic-field rounded-field' %></span>
+              <% end %>
+            </div>
+          </div>
+          <div class="perso content <% if @recipe.unit == "#{@recipe.personnalized}" %>show<% end %>">
+            <div class="composition-info">
+              <p>Nom</p>
+              <p>Poids/Unité</p>
+            </div>
+            <div class="composition">
+              <%= f.text_field :portion_name, class: "basic-field top-rad", placeholder:"Nom...", value: "#{@recipe.personnalized}" %>
+              <%= image_tag "gramme.png", class: "field-img euro-img" %>
+              <%= f.text_field :portion, class: "basic-field bot-rad special-top", placeholder:"Poids..." %>
+            </div>
+          </div>
+          <br/>
+          <p class="cancel-btn pop-on">ANNULER</p>
+          <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn" %>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 <div class="actions-cntnr">
     <div class="recipe-btn-cntnr">
       <p class="recipe-btn current-form" target="0"><%= image_tag"r-f-img1.png", alt: "recipe btn image" %></p>
@@ -12,7 +69,7 @@
     </div>
       <div class="action-cntnr page-new-ttl recipe-forms">
       <br/>
-      <div id="div0" class="recipe-option">
+      <div id="div0" class="recipe-option" style="display:none;">
         <h2>APERÇU</h2>
         <%= render "show", recipe: @recipe %>
       </div>
@@ -20,7 +77,7 @@
         <h2>MODIFIER</h2>
         <%= render "form", recipe: @recipe %>
       </div>
-      <div id="div2" class="recipe-option" style="display:none;">
+      <div id="div2" class="recipe-option">
         <%= render "quantities_form", recipe: @recipe, totals: @totals %>
       </div>
       <div id="div3" class="recipe-option"  style="display:none;">

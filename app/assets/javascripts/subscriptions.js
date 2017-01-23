@@ -29,7 +29,7 @@ var errorMessages = {
 function stripeResponseHandler(status, response) {
   var $form = $('#payment-form');
 
-  if ( response.error && response.error.type == 'card_error' ){
+  if (( response.error && response.error.type == 'card_error' ) || ( document.forms["fform"]["card-nb"].value === "")){
     $( '.errors' ).text( errorMessages[ response.error.code ] );
   }
   else {

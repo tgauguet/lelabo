@@ -29,11 +29,9 @@ class Recipe < ActiveRecord::Base
 
 	def portion_price=(val)
 		self['portion_price'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def default_values
-		self.vat = 5.5 unless self.vat
-		self.unit = "grammes" unless self.unit
 		self.to_produce = 100 unless self.to_produce
 		self.portion_weight = 100 unless self.portion_weight
 		self.portion = 100 unless self.portion

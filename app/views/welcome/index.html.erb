@@ -1,7 +1,7 @@
 <div class="actions-cntnr">
 	<div class="welcome-usr">
 		<div class="user-info">
-			<%= image_tag @user.avatar, class: "rounded-img" %>
+			<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar, class: "rounded-img" %><% end %>
 			<div class="usr-info-txt">
 				<h3><%= @user.account_name.humanize %> - <span><%= @user.firstname.humanize %> <%= @user.name.humanize %> </span></h3>
 				<%= link_to parametres_path do %>

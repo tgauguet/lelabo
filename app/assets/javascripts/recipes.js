@@ -24,6 +24,13 @@ $(document).ready(function(){
   });
 });
 
+// hide and show each cells
+$(document).ready(function() {
+  $('.tab').click(function() {
+    $('.q-f1, .q-f2, .tab').toggle();
+  });
+});
+
 $(document).ready(function(){
   $(".delete-pop-over").click(function(){
       $(this).hide();
@@ -53,27 +60,14 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-  $(".meas-env").click(function(){
-    $(".meas-env").addClass("div-active");
-    $(".select-measure").show();
-		$(".recipe-values, .print-measure").hide();
-		$(".show-pdf").removeClass("div-active");
-    $('.prod-quantities').addClass("prod-tip2");
-    $('.prod-quantities').removeClass("prod-tip1 prod-tip3");
+  $(".pop-on").click(function(){
+    $(".select-measure").toggle();
   });
   $(".hide-meas").click(function(){
     $(".print-measure, .select-measure").hide();
 		$(".recipe-values").show();
-    $(".meas-env").removeClass("div-active");
 		$(".show-pdf").removeClass("div-active");
     $('.prod-quantities').removeClass("prod-tip2 prod-tip3");
     $('.prod-quantities').addClass("prod-tip1");
-  });
-	$(".show-pdf").click(function(){
-    $(".select-measure, .recipe-values").hide();
-    $(".print-measure").show();
-		$(".meas-env").removeClass("div-active");
-    $('.prod-quantities').removeClass("prod-tip2");
-    $('.prod-quantities').addClass("prod-tip3 prod-tip1");
   });
 });

@@ -17,8 +17,10 @@ module IngredientsHelper
 	def weighing_quantities(ingredient, recipe)
 		if ingredient.unit == "Kg"
 			recipe.unit == "kilogrammes" ? "Kg" : "g"
-		elsif ingredient.unit == "Litre"
+		elsif ingredient.unit == "L"
 			recipe.unit == "kilogrammes" ? "L" : "ml"
+		else
+			recipe.unit
 		end
 	end
 

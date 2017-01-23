@@ -31,7 +31,7 @@
       <br/><br/>
       <% if @user %>
       <h3>Etape 2 : Informations de paiement</h3>
-      <%= form_for @subscription , html: { id: 'payment-form' } do |f| %>
+      <%= form_for @subscription , html: { id: 'payment-form', name: "fform" } do |f| %>
         <div class="secure-cntnr">
           <%= image_tag "master-card.png", class: "card-img", alt: "carte de crédit" %>
           <%= image_tag "visa.png", class: "card-img", alt: "carte de crédit" %>
@@ -48,7 +48,7 @@
         <% end %>
         <p>Numero de carte</p>
         <input type="hidden" name="plan_id" value="<%= @plan.id %>" />
-        <%= text_field_tag :card_number, nil, name: nil ,placeholder: 'Numéro de carte', class: "basic-field cc-number rounded-field", :required => true, id: "cc-number", data: { stripe: "number"}  %><br/>
+        <%= text_field_tag :card_number, nil, name: "card-nb" ,placeholder: 'Numéro de carte', class: "basic-field cc-number rounded-field", required: true, id: "cc-number", data: { stripe: "number"}  %><br/>
         <p>Date d'expiration</p>
         <div class="card-nb-cntnr">
           <%= select_month nil, {use_two_digit_numbers: true}, {name: nil, id: "card_month", class: "select-field basic-field",placeholder: 'Enter search term...', :required => true, :data => {:stripe => 'exp-month' }} %>
@@ -58,7 +58,7 @@
         <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field rounded-field" , :required => true, data: { stripe: "cvc" } %>
         <br/>
         <p class="terms">En cliquant sur "terminer la commande", vous reconnaissez accepter les <%= link_to conditions_generales_vente_path, target: "_blank" do %>Conditions Générales de Vente<% end %></p>
-        <p class="float-right">  <button type="submit" class="btn-next">TERMINER LA COMMANDE</button>
+        <p class="float-right">  <button type="submit">TERMINER LA COMMANDE</button>
 </p>
       <% end %>
       <% else %>
