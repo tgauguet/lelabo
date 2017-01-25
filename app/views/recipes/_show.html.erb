@@ -1,13 +1,3 @@
-<div class="recipe-view">
-  <div class="recipe-links">
-    <%= link_to edit_recipe_path(recipe, format: :pdf), target: '_blank' do %>
-      <%= image_tag 'pdf.png' , class: 'small-imgs'%>
-    <% end %>
-    <%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
-      <%= image_tag 'download.png', class: 'small-imgs' %>
-    <% end %>
-  </div>
-  <div class="view-top-l">
     <h1><%= recipe.name.mb_chars.upcase %></h1>
     <p><%= recipe.category %> </p>
     <p><b>par <%= recipe.owner %></b></p><br/>
@@ -35,6 +25,3 @@
     </div>
     <% if recipe.process? %><h3>Instructions</h3><% end %><br/>
     <p><%= recipe.process.html_safe %></p>
-    <span class="clear"></span>
-  </div>
-</div>

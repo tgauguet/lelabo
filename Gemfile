@@ -19,6 +19,8 @@ gem 'delayed_job_active_record'
 
 gem 'sunspot_solr'
 
+gem 'multi_fetch_fragments'
+
 gem "gibbon"
 
 gem 'wicked_pdf'

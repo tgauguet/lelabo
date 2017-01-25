@@ -1,7 +1,7 @@
 /*
  *= require_self
  *= require jquery-ui
- */
+*/
 
  /*
  BLURRED TEXT FOR NON SUSCRIBED USERS - TO BE USED WITH INGREDIENTS PERCENTAGES !
@@ -101,10 +101,6 @@ FONTS ---- DESIGN
 p, h2, h3{
   margin: 0.2em;
   color: rgb(43,54,69);
-}
-
-.q-forms input[type=radio] {
-    display:none;
 }
 
 .up-div{
@@ -348,6 +344,10 @@ BUTTONS -- DESIGN
 	color:white !important;
 }
 
+.fl-rgt{
+	float: right;
+}
+
 /*   buttons with a red background */
 
 .data-confirm .confirm-false{
@@ -400,6 +400,11 @@ BUTTONS -- DESIGN
   transition-duration: 0.2s;
 	-webkit-transition-property: color, background-color;
   transition-property: color, background-color;
+}
+
+.prod-quantities .cancel-btn{
+	font-size: 0.9em;
+	float: right;
 }
 
 .recipe-frm .to-left .basic-field, .recipe-frm .to-left select{
@@ -2031,12 +2036,12 @@ header .normal_header{
 }
 
 .prod-quantities{
-	padding: 1.5em;
 	display: inline-block;
 	vertical-align: top;
 	text-align: left;
 	margin-bottom: 1em;
-	width: 41%;
+	padding-top: 2em;
+	padding-bottom: 1em;
 }
 
 .prod-quantities input{
@@ -2051,14 +2056,35 @@ header .normal_header{
 	text-align: left;
 }
 
+.qt-bck{
+	background: rgb(249,250,251); /* Red border only if the input is empty */
+	border-bottom: 1px solid rgb(241,242,245);
+	border-top: 1px solid rgb(241,242,245);
+	width: 100%;
+	padding: 0;
+}
+.qt-bck .prod-quantities{
+	width: 40em;
+}
+
 .prod-quantities2 {
 	position: relative;
 	background: white;
-	border-left: 7px solid rgb(202,212,217);
 	border-radius: 0.3em;
-	padding: 2em;
 	margin-top: 1.5em;
 	min-height: 19em;
+	width: 100%;
+	padding-top: 0em;
+	font-size: 1.05em;
+}
+
+.meas-env{
+	background: white;
+}
+
+.recipe-values, .prod-quantities2 h3{
+	padding-left: 2em;
+	padding-right: 2em;
 }
 
 .prod-tip2:after, .prod-tip2:before, .prod-tip1:after, .prod-tip1:before {
@@ -2072,40 +2098,50 @@ header .normal_header{
 	pointer-events: none;
 }
 
-.r-q-name{
-	width: 12em;
+.r-q-name, .r-q-name2{
+	width: 8em;
 	padding-left: 0.3em;
 	overflow: hidden;
 	display: inline-block;
 }
 
-.recipe-values .nth-chld:nth-child(2n+2){
-	background: rgb(246,248,251);
+.r-q-name2{
+	text-align: right;
+	padding-right: 0.3em;
+}
+
+.r-q-name3{
+	text-align: left;
+}
+
+.r-q-name{
+	width: 19em;
+}
+
+.recipe-values .nth-chld{
+	border-bottom: 1px solid rgb(202,212,217);
+	padding-top: 1.7em;
+	padding-bottom: 1.7em;
+}
+
+.nth-ttl{
+	padding-left: .3em;
+}
+
+.recipe-values .nth-chld:hover{
+	background: rgb(245,247,252);
+}
+
+.recipe-values .nth-chld:nth-last-child(1){
+	border-bottom: none;
 }
 
 .recipe-values .nth-chld{
 	padding: 0.5em;
 }
 
-.prod-tip1:after, .prod-tip1:before {
-	top: 17.8em;
-}
-
-.prod-tip3:after, .prod-tip3:before {
-	top: 22.2em;
-}
-
-.prod-tip2:after, .prod-tip1:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-right-color:rgb(202,212,217);
-	border-width: 10px;
-	margin-top: -10px;
-}
-.prod-tip2:before, .prod-tip1:before {
-	border-color: rgba(0, 0, 0, 0);
-	border-right-color: rgb(202,212,217);
-	border-width: 20px;
-	margin-top: -20px;
+.q-forms input[type=radio] {
+		display: none;
 }
 
 .prod-quantities input[type=radio] + label {
@@ -2131,6 +2167,11 @@ header .normal_header{
 
 .clcl-mode input[type=radio]:checked + label{
 	background: rgb(235,237,243)!important;
+}
+
+.clcl-mode{
+	width: 12em;
+	float: right;
 }
 
 .show-pdf{
@@ -2192,6 +2233,13 @@ header .normal_header{
 	padding-left: .7em;
 }
 
+.rgt-btn{
+	text-align: center !important;
+	float: right;
+	font-size: 1em !important;
+	margin-top: 0em !important;
+}
+
 .prod-quantities input[type=radio] + .last {
     border-bottom-left-radius: 0.3em;
 		border-bottom-right-radius: 0.3em;
@@ -2206,8 +2254,9 @@ header .normal_header{
 	width: 9em;
 	display: inline-block;
 	float: right;
-	margin-top: 1.8em;
+	margin-top: .2em;
 	text-align: right;
+	padding-right: 2em;
 }
 
 .dl-cntnr img{
@@ -2268,7 +2317,7 @@ header .normal_header{
 
 .popover{
 	background: white;
-	width: 30em;
+	width: 27em;
 	margin-top: 3em;
 	margin-left: auto;
 	margin-right: auto;
@@ -2291,7 +2340,7 @@ header .normal_header{
 }
 
 .popover-cntnt{
-	padding: 2em;
+	padding: 3em;
 }
 
 .popover-ttl h3{
@@ -5525,4 +5574,126 @@ textarea {
 
 .btn-force-border{
 	border-bottom: 2px solid rgb(215, 119, 3) !important;
+}
+
+/* AJAX LOADING GIF CODE */
+
+#circleG{
+	width:75px;
+	margin:auto;
+}
+
+.circleG{
+	background-color:rgb(255,255,255);
+	float:left;
+	height:8px;
+	margin-left:8px;
+	width:8px;
+	animation-name:bounce_circleG;
+		-o-animation-name:bounce_circleG;
+		-ms-animation-name:bounce_circleG;
+		-webkit-animation-name:bounce_circleG;
+		-moz-animation-name:bounce_circleG;
+	animation-duration:0.9775s;
+		-o-animation-duration:0.9775s;
+		-ms-animation-duration:0.9775s;
+		-webkit-animation-duration:0.9775s;
+		-moz-animation-duration:0.9775s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+	border-radius:10px;
+		-o-border-radius:10px;
+		-ms-border-radius:10px;
+		-webkit-border-radius:10px;
+		-moz-border-radius:10px;
+}
+
+#circleG_1{
+	animation-delay:0.1995s;
+		-o-animation-delay:0.1995s;
+		-ms-animation-delay:0.1995s;
+		-webkit-animation-delay:0.1995s;
+		-moz-animation-delay:0.1995s;
+}
+
+#circleG_2{
+	animation-delay:0.4555s;
+		-o-animation-delay:0.4555s;
+		-ms-animation-delay:0.4555s;
+		-webkit-animation-delay:0.4555s;
+		-moz-animation-delay:0.4555s;
+}
+
+#circleG_3{
+	animation-delay:0.5885s;
+		-o-animation-delay:0.5885s;
+		-ms-animation-delay:0.5885s;
+		-webkit-animation-delay:0.5885s;
+		-moz-animation-delay:0.5885s;
+}
+
+
+
+@keyframes bounce_circleG{
+	0%{}
+
+	50%{
+		background-color:rgb(132,145,167);
+	}
+
+	100%{}
+}
+
+@-o-keyframes bounce_circleG{
+	0%{}
+
+	50%{
+		background-color:rgb(132,145,167);
+	}
+
+	100%{}
+}
+
+@-ms-keyframes bounce_circleG{
+	0%{}
+
+	50%{
+		background-color:rgb(132,145,167);
+	}
+
+	100%{}
+}
+
+@-webkit-keyframes bounce_circleG{
+	0%{}
+
+	50%{
+		background-color:rgb(132,145,167);
+	}
+
+	100%{}
+}
+
+@-moz-keyframes bounce_circleG{
+	0%{}
+
+	50%{
+		background-color:rgb(132,145,167);
+	}
+
+	100%{}
+}
+
+/* END OF LOADING GIF */
+
+.up-img{
+	margin-top: .1em;
 }

@@ -1,10 +1,10 @@
 <% title "#{@recipe.name.humanize}" %>
 <%= form_for(@recipe, remote: true) do |f| %>
-  <div class="select-measure popover-bck">
+  <div class="select-measure popover-bck"  style="display:none;">
     <div class="popover">
       <div class="popover-ttl"><h3><%= image_tag "width.png", class: "mini-img" %> Quelle mesure utiliser ?</h3></div>
       <div class="popover-cntnt">
-        <div class="prod-quantities">
+        <div class="prod-quantities q-forms">
           <%= f.radio_button 'unit', "grammes", id: "rad1" %>
           <label for="rad1" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>grammes</label>
           <%= f.radio_button 'unit', "kilogrammes", id: "rad2" %>
@@ -48,8 +48,8 @@
             </div>
           </div>
           <br/>
+          <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn rgt-btn" %>
           <p class="cancel-btn pop-on">ANNULER</p>
-          <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn" %>
           <br/>
         </div>
       </div>
@@ -69,36 +69,84 @@
     </div>
       <div class="action-cntnr page-new-ttl recipe-forms">
       <br/>
+      <div>
+      <!-- RECIPE SHOW CODE -->
       <div id="div0" class="recipe-option" style="display:none;">
         <h2>APERÇU</h2>
-        <%= render "show", recipe: @recipe %>
+        <div class="recipe-view">
+          <div class="recipe-links">
+            <%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
+              <%= image_tag 'pdf.png' , class: 'small-imgs'%>
+            <% end %>
+            <%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
+              <%= image_tag 'download.png', class: 'small-imgs' %>
+            <% end %>
+          </div>
+          <div class="view-top-l">
+            <%= render "show", recipe: @recipe, cache: true %>
+            <span class="clear"></span>
+          </div>
+        </div>
       </div>
+      <!-- RECIPE FORM CODE -->
       <div id="div1" class="recipe-option" style="display:none;">
         <h2>MODIFIER</h2>
-        <%= render "form", recipe: @recipe %>
+        <%= render "form", recipe: @recipe, cache: true %>
       </div>
+      <!-- RECIPE QUANTITIES CODE -->
       <div id="div2" class="recipe-option">
-        <%= render "quantities_form", recipe: @recipe, totals: @totals %>
+        <% if current_user.basic_user? %>
+          <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
+          <%= link_to subscriptions_path do %>
+            <p class="auto-btn cta-btn">+ S'ABONNER</p>
+          <% end %>
+        <% else %>
+          <% if @recipe.quantities.blank? %>
+            <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer les quantités</p>
+          <% else %>
+            <%= render "quantities_form", recipe: @recipe, totals: @totals, cache: true %>
+          <% end %>
+        <% end %>
       </div>
+      <!-- RECIPE EQUILIBRIUM CODE -->
       <div id="div3" class="recipe-option"  style="display:none;">
         <h2>ÉQUILIBRE</h2>
-        <%= render "equilibrium_form", recipe: @recipe %>
+        <%= render "equilibrium_form", recipe: @recipe, cache: true %>
       </div>
+      <!-- RECIPE COST CODE -->
       <div id="div4" class="recipe-option" style="display:none;">
         <h2>COÛT DE REVIENT</h2>
-        <%= render "cost_form", recipe: @recipe %>
+        <% if current_user.basic_user? %>
+          <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
+          <%= link_to subscriptions_path do %>
+            <p class="auto-btn cta-btn">+ S'ABONNER</p>
+          <% end %>
+        <% else %>
+          <%= render "cost_form", recipe: @recipe, cache: true %>
+        <% end %>
       </div>
+      <!-- RECIPE PICTURES CODE -->
       <div id="div5" class="recipe-option" style="display:none;">
         <h2>PHOTOS</h2>
-        <%= render "pictures_form", recipe: @recipe %>
+        <% if current_user.business_user? %>
+        <%= render "pictures_form", recipe: @recipe, cache: true %>
+        <% else %>
+          <p>Choisissez l'offre ENTREPRISE et profitez de cette fonctionnalité !</p>
+          <%= link_to subscriptions_path do %>
+            <p class="auto-btn cta-btn">+ S'ABONNER</p>
+          <% end %>
+        <% end %>
       </div>
+      <!-- RECIPE STICKERS CODE -->
       <div id="div6" class="recipe-option" style="display:none;">
         <h2>ÉTIQUETTES</h2>
-        <%= render "sticker", recipe: @recipe %>
+        <%= render "sticker", recipe: @recipe, cache: true %>
       </div>
+      <!-- RECIPE METRICS CODE -->
       <div id="div7" class="recipe-option" style="display:none;">
         <h2>STATISTIQUES</h2>
-        <%= render "stats", recipe: @recipe %>
+        <%= render "stats", recipe: @recipe, cache: true %>
       </div>
   	</div>
+  </div>
 </div>

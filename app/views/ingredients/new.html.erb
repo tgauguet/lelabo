@@ -43,7 +43,7 @@
 				<ul class="list-cntnr">
 					<li id="sortable1">
 						<% unless @ingredients.nil? %>
-							<%= render @ingredients%>
+							<%= render @ingredients, cached: true %>
 						<% end %>
 					</li>
 				</ul>

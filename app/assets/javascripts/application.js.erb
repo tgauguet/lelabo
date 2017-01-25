@@ -47,6 +47,26 @@ $(document).ready(function(){
         $(".form").show();
     });
 });
+
+$(document).ready(function(){
+  // show indicator during ajax loadtime
+  $(".loading-indicator").hide();
+  $(document).ajaxStart(function(){
+    $(".loading-indicator").show();
+    $(".ajax-hide").hide();
+  });
+  $(document).ajaxStop(function(){
+    $(".loading-indicator").hide();
+    $(".ajax-hide").show();
+  });
+  $(document).on("page:fetch", function(){
+    $(".loading-indicator").show();
+  });
+  $(document).on("page:receive", function(){
+    $(".loading-indicator").hide();
+  });
+});
+
 $(document).ready(function(){
   $(".inside-btn").click(function(){
     $(".explaination-cntnr").hide();

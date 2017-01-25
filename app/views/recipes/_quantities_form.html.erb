@@ -1,12 +1,3 @@
-<% if current_user.basic_user? %>
-  <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
-  <%= link_to subscriptions_path do %>
-    <p class="auto-btn cta-btn">+ S'ABONNER</p>
-  <% end %>
-<% else %>
-  <% if recipe.quantities.blank? %>
-    <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer les quantités</p>
-  <% else %>
     <div class="q-forms">
       <div class="clcl-choice">
         <p class="grey-btn hide white-cat tab">
@@ -18,6 +9,7 @@
       </div>
       <div class="q-f1">
         <%= form_for(recipe, remote: true) do |f| %>
+        <div class="qt-bck">
           <div class="prod-quantities">
             <h3>Quelle quantité produire ?</h3>
             <div class="clcl-mode">
@@ -31,17 +23,8 @@
               </div>
             </div>
             <br/>
-            <%= image_tag "measure.png", class: "field-img" %>
-            <div class="basic-field rounded-field meas-env">
-              Unité de mesure : <%= recipe.unit %>
-              <span class="grey-btn pop-on">
-        			     <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
-          		</span>
-            </div>
-            <br/>
             <div class="tru content2 composition-info" style="<% if !recipe.fast %>display:none;<% end %>">
               <p>À produire</p>
-              <p>&nbsp;</p>
             </div>
             <div class="tru content2 composition" style="<% if !recipe.fast %>display:none;<% end %>">
               <%= image_tag "hand.png", class: "field-img" %>
@@ -58,35 +41,50 @@
               <%= f.text_field :sold, class: "basic-field bot-rad special-top hide-meas", placeholder:"Quantité..." %>
             </div>
             <br/><br/>
-            <div>
-              <%= image_tag "production.png", class: "field-img" %>
-              <div class="basic-field rounded-field hide-meas">Produire pour : &nbsp;<%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></div>
+            <div class="basic-field rounded-field meas-env">
+              <%= image_tag "measure.png", class: "field-img2 up-img" %>
+              Unité de mesure : <%= recipe.unit %>
+              <span class="grey-btn pop-on">
+        			     <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
+          		</span>
             </div>
-            <div class="dl-cntnr">
-              <%= link_to quantities_pdf_recipe_path(format: :pdf), target: '_blank' do %>
-                <%= image_tag "download.png", alt:"doc pdf" %>
-              <% end %>
-              <%= link_to d_quantities_pdf_recipe_path(format: :pdf), target: "_blank" do %>
-                <%= image_tag "pdf.png", alt:"doc pdf" %>
-              <% end %>
-                <%= image_tag "sendemail.png", alt:"doc pdf" %>
-            </div>
-            <br/>
-            <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn ingredient-btn hide-meas" %>
+            <%= f.submit "CALCULER", class: "standard-btn grey-btn ingredient-btn fl-rgt" %>
           </div>
-            <div class="recipe-values">
-              <h3><%= recipe.name.humanize %></h3>
-              <% recipe.quantities.each do |q| %>
-                <div class="nth-chld">
-                  <div class="r-q-name"><%= q.ingredient.name %></div>
-                  <span><%= q.perfect_weight %> <%= weighing_quantities(q.ingredient, recipe) %></span>
-                </div>
-              <% end %>
-            </div>
+        </div>
+        <div id="circleG" class="loading-indicator" style="display:none;">
+          <br/><br/>
+        	<div id="circleG_1" class="circleG"></div>
+        	<div id="circleG_2" class="circleG"></div>
+        	<div id="circleG_3" class="circleG"></div>
+        </div>
+        <div class="prod-quantities prod-quantities2 ajax-hide" >
+          <div class="dl-cntnr">
+            <%= link_to quantities_pdf_recipe_path(format: :pdf), target: '_blank' do %>
+              <%= image_tag "download.png", alt:"doc pdf" %>
+            <% end %>
+            <%= link_to d_quantities_pdf_recipe_path(format: :pdf), target: "_blank" do %>
+              <%= image_tag "pdf.png", alt:"doc pdf" %>
+            <% end %>
+              <%= image_tag "sendemail.png", alt:"doc pdf" %>
           </div>
+          <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+          <div class="recipe-values">
+            <div class="nth-ttl">
+              <b><div class="r-q-name">Ingrédient</div>
+              <div class="r-q-name2">Quantité</div>
+              <div class="r-q-name2 r-q-name3">Unité</div></b>
+            </div><br/>
+            <% recipe.quantities.each do |q| %>
+              <div class="nth-chld">
+                <div class="r-q-name"><%= q.ingredient.name %></div>
+                <div class="r-q-name2"><%= q.perfect_weight %></div>
+                <div class="r-q-name2 r-q-name3"><%= weighing_quantities(q.ingredient, recipe) %></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
         <% end %>
       </div>
-      <div class="prod-quantities prod-quantities2 prod-tip1" >
       <div class="q-f2" style="display:none;">
         <%= form_for(recipe, remote: true) do |f| %>
           <div class="quant-fields-cntnr">
@@ -115,12 +113,10 @@
                 <% end %>
               </div>
               <br/>
-              <%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn to-lft-btn" %>
+              <%= f.submit "CALCULER", class: "standard-btn grey-btn qtt-btn to-lft-btn" %>
             </div>
             <br/>
           </div>
         <% end %>
       </div>
     </div>
-  <% end %>
-<% end %>
