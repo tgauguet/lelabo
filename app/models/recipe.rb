@@ -67,8 +67,9 @@ class Recipe < ActiveRecord::Base
 		self.quantities.collect { |q| q.send(matter) }.sum
 	end
 
+	# sum of all quantities weights in grammes
 	def recipe_weight
-		self.quantities.collect { |q| q.weight }.sum
+		self.quantities.collect { |q| q.quantity_weight }.sum
 	end
 
 	def total_cost

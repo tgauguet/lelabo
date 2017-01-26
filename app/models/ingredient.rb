@@ -20,39 +20,40 @@ class Ingredient < ActiveRecord::Base
 
 	def cocoa_butter_percent=(val)
 		self['cocoa_butter_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def sugar_percent=(val)
 		self['sugar_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def water_percent=(val)
 		self['water_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def fat_percent=(val)
 		self['fat_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def alcool_percent=(val)
 		self['alcool_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def dry_matter_percent=(val)
 		self['dry_matter_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def cocoa_total_percent=(val)
 		self['cocoa_total_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def stabilizer=(val)
 		self['stabilizer'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
-	end	
+	end
 
 	def default_value
-		# set the value at 0 if null
+		# set the value at 0 or 100 if null
 		self.cocoa_percent = 0 unless self.cocoa_percent
+		self.unit_weight = 100 unless self.unit_weight
 		self.protein = 0 unless self.protein
 		self.carbohydrates = 0 unless self.carbohydrates
 		self.sugar_power = 0 unless self.sugar_power

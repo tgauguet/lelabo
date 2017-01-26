@@ -42,7 +42,7 @@ $(document).ready(function(){
   });
 });
 
-// hide and show portions weights in select unit forms
+// hide and show forms in select unit popover
 $(document).ready(function(){
     $('.trigger').click(function() {
         $('.content').hide();
@@ -50,23 +50,19 @@ $(document).ready(function(){
     });
 });
 
-// hide and show form informations in select quantities forms
 $(document).ready(function(){
-    $('.trigger2').click(function() {
-        $('.content2').hide();
-        $('.' + $(this).data('rel')).show();
-    });
-});
-
-$(document).ready(function(){
+	// hide and show form informations in select quantities forms
+  $('.trigger2').click(function() {
+      $('.content2').hide();
+      $('.' + $(this).data('rel')).show();
+  });
+	// toggle pop over
   $(".pop-on").click(function(){
     $(".select-measure").toggle();
   });
+	// basic grestion of quantities form
   $(".hide-meas").click(function(){
     $(".print-measure, .select-measure").hide();
-		$(".recipe-values").show();
-		$(".show-pdf").removeClass("div-active");
-    $('.prod-quantities').removeClass("prod-tip2 prod-tip3");
     $('.prod-quantities').addClass("prod-tip1");
   });
 });

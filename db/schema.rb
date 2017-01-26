@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121043159) do
+ActiveRecord::Schema.define(version: 20170126034835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,19 +154,6 @@ ActiveRecord::Schema.define(version: 20170121043159) do
   add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   add_index "ingredients", ["user_id"], name: "index_ingredients_on_user_id", using: :btree
 
-  create_table "measures", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "weight"
-    t.integer  "recipe_id"
-    t.integer  "assembly_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "measures", ["assembly_id"], name: "index_measures_on_assembly_id", using: :btree
-  add_index "measures", ["name"], name: "index_measures_on_name", using: :btree
-  add_index "measures", ["recipe_id"], name: "index_measures_on_recipe_id", using: :btree
-
   create_table "newsletters", force: :cascade do |t|
     t.string   "email"
     t.datetime "created_at", null: false
@@ -277,6 +264,8 @@ ActiveRecord::Schema.define(version: 20170121043159) do
     t.string   "portion_name"
     t.boolean  "fast",               default: true
     t.integer  "portion_number"
+    t.string   "array_unit"
+    t.boolean  "page_selector"
   end
 
   add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id", using: :btree

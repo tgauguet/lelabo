@@ -13,6 +13,21 @@ class Quantity < ActiveRecord::Base
 		price = self.ingredient.price * self.weight
 	end
 
+	# calculate the weight of each ingredients in grammes
+	def quantity_weight
+		if self.unit == "U"
+			self.weight * self.ingredient.unit_weight
+		elsif self.unit == "Kg" || self.unit == "kg"
+			self.weight * 1000
+		elsif self.unit == "Litre" || self.unit == "L"
+			self.weight * 1000
+		elsif self.unit == "QS"
+			0
+		else
+			self.weight
+		end
+	end
+
 	def percent
 		percent = self.weight * 100 / self.recipe.total_weight
 		percent.round(2)
@@ -23,19 +38,59 @@ class Quantity < ActiveRecord::Base
 		value.round(2)
 	end
 
-	def perfect_weight
+	def clean_weight
+		self.unit == "QS" ? " " : self.weight
+	end
+
+	def quantity_wanted
 		if self.recipe.unit == "parts"
-			self.recipe.to_product ? ((self.weight * self.recipe.portion_weight.to_f / self.recipe.recipe_weight.to_f) * self.recipe.to_product.to_f).to_i : self.weight
+			(self.recipe.portion_weight.to_f * self.recipe.to_product.to_f).to_i
 		elsif self.recipe.unit == "#{self.recipe.portion_name}"
-			self.recipe.to_product ? ((self.weight * self.recipe.portion.to_f / self.recipe.recipe_weight.to_f) * self.recipe.to_product.to_f).to_i : self.weight
+			(self.recipe.portion.to_f  * self.recipe.to_product.to_f).to_i
 		elsif self.recipe.unit == "recettes"
-			self.recipe.to_product ? (((self.weight * self.recipe.totals.first.value.to_f / self.recipe.recipe_weight.to_f) * self.recipe.to_product.to_f) * 1000).to_i : self.weight
+			((self.recipe.totals.first.value.to_f * self.recipe.to_product.to_f) * 1000).to_i
 		elsif self.recipe.unit == "grammes"
-			self.recipe.to_product ? (self.weight * self.recipe.to_product.to_f / self.recipe.recipe_weight.to_f).round(1) : self.weight
+			self.recipe.to_product.to_f
 		elsif self.recipe.unit == "kilogrammes"
-			self.recipe.to_product ? (self.weight.to_f * self.recipe.to_product.to_f / self.recipe.recipe_weight.to_f).round(3)  : self.weight
+			self.recipe.to_product.to_f * 1000
 		else
 			self.weight
+		end
+	end
+
+	def perfect_weight
+		if self.recipe.to_product
+			weight = self.weight * self.quantity_wanted / self.recipe.recipe_weight
+			if ((self.unit == "kg" || self.unit == "Kg") && weight < 1)
+				(weight * 1000).to_i
+			elsif ((self.unit == "L" || self.unit == "Litre") && weight < 1)
+				(weight * 1000).to_i
+			elsif ((self.unit == "g" || self.unit == "grammes") && weight > 9999)
+				(weight / 1000).round(2)
+			elsif (self.unit == "ml" && weight > 9999)
+				(weight / 1000).round(2)
+			elsif self.unit == "g" || self.unit == "ml"
+				weight.to_i
+			else
+				weight.round(2)
+			end
+		else
+			self.weight
+		end
+	end
+
+	def perfect_unit
+		weight = self.weight * self.quantity_wanted / self.recipe.recipe_weight
+		if ((self.unit == "kg" || self.unit == "Kg") && weight < 1)
+			'g'
+		elsif ((self.unit == "L" || self.unit == "Litre") && weight < 1)
+			"ml"
+		elsif ((self.unit == "g" || self.unit == "grammes") && weight > 9999)
+			'kg'
+		elsif (self.unit == "ml" && weight > 9999)
+			"L"
+		else
+			self.unit
 		end
 	end
 

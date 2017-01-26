@@ -8,6 +8,7 @@ $(".show_recipe").html("<%= escape_javascript (render 'recipes/show', recipe: @r
 $(document).ready(function(){
   // show indicator during ajax loadtime
   $(".loading-indicator").hide();
+  $(".popover-bck").hide();
   $(document).ajaxStart(function(){
     $(".loading-indicator").show();
     $(".ajax-hide").hide();
@@ -51,5 +52,8 @@ $(document).ready(function(){
     $(".print-measure, .select-measure").hide();
 		$(".recipe-values").show();
     $(".meas-env").removeClass("div-active");
+  });
+  $("#array-btn").bind("ajaxStart", function() {
+    $(this).hide();
   });
 });

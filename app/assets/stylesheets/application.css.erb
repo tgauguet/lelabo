@@ -2063,8 +2063,22 @@ header .normal_header{
 	width: 100%;
 	padding: 0;
 }
+
 .qt-bck .prod-quantities{
 	width: 40em;
+}
+
+.qt-bck .array-bck{
+	width: 40em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.array-bck .qtt-btn{
+	float: right;
 }
 
 .prod-quantities2 {
@@ -2087,27 +2101,39 @@ header .normal_header{
 	padding-right: 2em;
 }
 
-.prod-tip2:after, .prod-tip2:before, .prod-tip1:after, .prod-tip1:before {
-	right: 100%;
-	top: 7.3em;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
-
 .r-q-name, .r-q-name2{
 	width: 8em;
 	padding-left: 0.3em;
 	overflow: hidden;
 	display: inline-block;
+	margin-left: -.2em;
 }
 
 .r-q-name2{
 	text-align: right;
 	padding-right: 0.3em;
+}
+
+.r-q-name4{
+	text-align: right;
+	width: 6em;
+}
+
+.nth-ttl .r-q-name2{
+	padding-right: .2em;
+}
+
+.r-q-base{
+	padding-right: 1.5em;
+	width: 5.7em;
+}
+
+.r-q-name4 div{
+	margin-right: -.4em;
+	width: 1.5em;
+	display: inline-block;
+	text-align: left;
+	padding-left: .5em;
 }
 
 .r-q-name3{
@@ -2118,41 +2144,80 @@ header .normal_header{
 	width: 19em;
 }
 
-.recipe-values .nth-chld{
+.quant-values-cntnr .r-q-name{
+	width: 14em;
+}
+
+.recipe-values .nth-chld, .quant-values-cntnr .nth-chld{
 	border-bottom: 1px solid rgb(202,212,217);
-	padding-top: 1.7em;
-	padding-bottom: 1.7em;
+	padding: 0.5em;
 }
 
 .nth-ttl{
 	padding-left: .3em;
 }
 
-.recipe-values .nth-chld:hover{
+.recipe-values .nth-chld:hover, .quant-values-cntnr .nth-chld:hover{
 	background: rgb(245,247,252);
 }
 
-.recipe-values .nth-chld:nth-last-child(1){
+.recipe-values .nth-chld:nth-last-child(1), .quant-values-cntnr .nth-chld:nth-last-child(1){
 	border-bottom: none;
 }
 
-.recipe-values .nth-chld{
-	padding: 0.5em;
-}
-
-.q-forms input[type=radio] {
+.q-forms input[type=radio], .slct-measure input[type=radio]{
 		display: none;
 }
 
-.prod-quantities input[type=radio] + label {
-    padding: 0.7em 0em 0.7em 0em;
-    background-color: rgb(63,80,145);
-		color: white;
-		font-size: 0.95em;
+.slct-measure input[type=radio] + label img{
+	margin-right: 1em;
+	margin-left: 0.7em;
+	opacity: .7;
+}
+
+.slct-measure input[type=radio] + label, .prod-quantities input[type=radio] + label{
+    padding: 0.7em 0.7em 0.7em 0em;
+    background-color: white;
+		text-align: left;
+		font-size: 1em;
 		margin: 0;
 		width: 100%;
 		display: block;
 		cursor: pointer;
+		margin-top: -1px;
+		background: rgb(249,250,251); /* Red border only if the input is empty */
+		border: 1px solid rgb(232,238,239);
+		-webkit-box-shadow: inset 0px 15px 0px -14px rgb(241,242,245);
+		-moz-box-shadow: inset 0px 15px 0px -14px rgb(241,242,245);
+		box-shadow: inset 0px 15px 0px -14px rgb(241,242,245);
+}
+
+.slct-measure input[type=radio]:checked + label{
+	border: 1px solid rgb(202,212,217);
+	background: white;
+	border-bottom: 2px solid rgb(202,212,217);
+}
+
+.slct-measure input[type=radio]:checked + label img{
+	opacity: .9;
+}
+
+.slct-measure input[type=radio]:checked + .last{
+	border-bottom: 1px solid rgb(202,212,217);
+}
+
+.pop-on{
+	font-size: .9em;
+}
+
+.slct-measure .first{
+	border-top-left-radius: .3em;
+	border-top-right-radius: .3em;
+}
+
+.slct-measure .last{
+	border-bottom-left-radius: .3em;
+	border-bottom-right-radius: .3em;
 }
 
 .clcl-mode input[type=radio] + label{
@@ -3281,7 +3346,7 @@ input:placeholder-shown, textarea:placeholder-shown{
   border-radius: 0.3em;
 }
 
-.big-compo select, .basic-field, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select, .recipe-frm .to-left select{
+.big-compo select, .basic-field, .array-bck select, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select, .recipe-frm .to-left select{
   position: relative;
   padding-top: 0.7em;
   padding-bottom: 0.7em;
@@ -3298,6 +3363,11 @@ input:placeholder-shown, textarea:placeholder-shown{
   -o-box-sizing: border-box;
   box-sizing: border-box;
   resize:none;
+}
+
+.array-bck select{
+	width: 5em;
+	padding-left: .7em;
 }
 
 .select-span select{
@@ -4260,6 +4330,10 @@ input[type="checkbox"] + span {
 	width: .7em;
 }
 
+.array-bck .sort-select{
+	margin-left: 3em;
+}
+
 .ingr-field .basic-field{
 	width: 6em;
 	margin-left: 1em;
@@ -4704,11 +4778,6 @@ input[type="checkbox"] + span {
 	width:2em;
 }
 
-.quant-fields-cntnr{
-	text-align: left;
-	padding: 2em 2em 0em 2em;
-}
-
 .pdf-quant-cntnr{
 	border-bottom: 1px solid rgb(227, 227, 227);
 	margin-top: 3em;
@@ -4739,14 +4808,20 @@ input[type="checkbox"] + span {
 	margin-left: -0.1em;
 }
 
+.kg-field span:nth-last-child(2){
+	border-top-left-radius: .3em;
+	border-bottom-left-radius: .3em;
+}
+
 .pdf-kg-field{
 	margin-left:1em;
 	width: 5.7em;
 }
 
 .kilo-field{
-	padding-left: 1.5em;
-	border-radius:0;
+	margin-left: .2em;
+	padding-left: .7em;
+	width: 5em;
 }
 
 .to-lft-btn{
@@ -4754,36 +4829,8 @@ input[type="checkbox"] + span {
 	margin-bottom: 3em;
 }
 
-.ing-ttl-cntnr{
-	text-align: left;
-	padding-left: .2em;
-	display: inline-block;
-	width: 13em;
-}
-
-.ing-ttl-cntnr p, .quant-values-clmn p{
-	padding-top: 0.5em;
-	padding-bottom: 0.4em;
-	margin-bottom: -0.2em;
-}
-
-.ing-line-cntnr{
-	width: 90%;
-}
-
-.quantities-name, .quantities-num{
-	display: inline-block;
-	width: 13.3em !important;
-}
-
 .quant-values-clmn p:nth-child(2n+2){
 	background: rgb(244, 246, 250);
-}
-
-.quantities-num{
-	width: 4.5em !important;
-	padding-left: 2em;
-	margin-left: -.2em;
 }
 
 .equ-left{
@@ -5132,10 +5179,6 @@ textarea {
 		width: 21em;
 	}
 
-	.ing-ttl-cntnr{
-		font-size: 0.95em;
-	}
-
 	.kilo-field{
 		padding-left: 1em;
 		width: 5.8em;
@@ -5143,15 +5186,6 @@ textarea {
 
 	.kg-field{
 		width: 5.3em;
-	}
-
-	.quantities-num{
-		width: 5em;
-		padding-left: 0.2em;
-	}
-
-	.quantities-name{
-		width: 16em;
 	}
 
 	.resp-values{
@@ -5493,10 +5527,6 @@ textarea {
 
 	.content-ing-info .custom-checkbox{
 		margin-left: 0em;
-	}
-
-	.ing-ttl-cntnr{
-		display: none;
 	}
 
 	.quant_form .quantities-name{

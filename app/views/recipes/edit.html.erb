@@ -1,20 +1,29 @@
 <% title "#{@recipe.name.humanize}" %>
 <%= form_for(@recipe, remote: true) do |f| %>
-  <div class="select-measure popover-bck"  style="display:none;">
+  <div class="select-measure popover-bck" style="display:none;">
     <div class="popover">
-      <div class="popover-ttl"><h3><%= image_tag "width.png", class: "mini-img" %> Quelle mesure utiliser ?</h3></div>
-      <div class="popover-cntnt">
-        <div class="prod-quantities q-forms">
+      <div class="popover-ttl">
+        <h3><%= image_tag "width.png", class: "mini-img" %> Quelle mesure utiliser ?</h3>
+      </div>
+      <div id="circleG" class="loading-indicator" style="display:none;">
+        <br/><br/>
+        <div id="circleG_1" class="circleG"></div>
+        <div id="circleG_2" class="circleG"></div>
+        <div id="circleG_3" class="circleG"></div>
+        <br/><br/><br/>
+      </div>
+      <div class="popover-cntnt ajax-hide">
+        <div class="slct-measure">
           <%= f.radio_button 'unit', "grammes", id: "rad1" %>
-          <label for="rad1" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>grammes</label>
+          <label for="rad1" class="first trigger"><%= image_tag "weighing.png", class: "mini-img" %>grammes</label>
           <%= f.radio_button 'unit', "kilogrammes", id: "rad2" %>
-          <label for="rad2" class="trigger"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>kilogrammes</label>
+          <label for="rad2" class="trigger"><%= image_tag "weighing.png", class: "mini-img" %>kilogrammes</label>
           <%= f.radio_button 'unit', "parts", id: "rad3" %>
-          <label for="rad3" class="trigger" data-rel="part"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>parts</label>
+          <label for="rad3" class="trigger" data-rel="part"><%= image_tag "weighing.png", class: "mini-img" %>parts</label>
           <%= f.radio_button 'unit', "recettes", id: "rad4" %>
-          <label for="rad4" class="trigger" data-rel="recipe"><%= image_tag "weighing.png", alt: "mini-img weighing img" %>recettes</label>
+          <label for="rad4" class="trigger" data-rel="recipe"><%= image_tag "weighing.png", class: "mini-img" %>recettes</label>
           <%= f.radio_button 'unit', "#{@recipe.personnalized}", id: "rad5" %>
-          <label for="rad5" class="trigger last" data-rel="perso"><%= image_tag "weighing.png", alt: "mini-img weighing img" %><%= @recipe.personnalized %></label>
+          <label for="rad5" class="trigger last" data-rel="perso"><%= image_tag "weighing.png", class: "mini-img" %><%= @recipe.personnalized %></label>
           <br/>
           <div class="part content <% if @recipe.unit == "parts" %>show<% end %>">
             <div class="composition-info">
@@ -25,7 +34,7 @@
               <%= f.text_field :portion_weight, class: "basic-field rounded-field", placeholder:"Poids..." %>
             </div>
           </div>
-          <div class="recipe content  <% if @recipe.unit == "recettes" %>show<% end %>">
+          <div class="recipe content <% if @recipe.unit == "recettes" %>show<% end %>">
             <div class="composition-info">
               <p>Poids/Recette</p>
             </div>

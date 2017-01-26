@@ -30,6 +30,16 @@ module RecipesHelper
     end
   end
 
+  def q_round(quantity, value)
+    if quantity.unit == "QS"
+      " "
+    elsif quantity.unit == "U" || quantity.recipe.array_unit == "Kg"
+      value.round(2)
+    else
+      value.to_i
+    end
+  end
+
   def sugar_color(recipe)
     if is_ganache?(recipe)
       recipe.percentage_of("sugar_percent").between?(25, 30) ? "green" : "red"
@@ -84,10 +94,6 @@ module RecipesHelper
     else
       quantity.ingredient.price * quantity.weight / 1000
     end
-  end
-
-  def weight_by_kg(quantity, recipe)
-     quantity.weight * 1000 / recipe.recipe_weight
   end
 
 end

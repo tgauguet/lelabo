@@ -3,7 +3,7 @@
         <p class="grey-btn hide white-cat tab">
     			<%= image_tag "little-table.png", class: "mini-img", alt: "tableau" %> TABLEAU DE CALCULS
     		</p>
-        <p class="grey-btn hide white-cat tab" style="display:none;">
+        <p class="grey-btn hide white-cat tab">
     			<%= image_tag "measure.png", class: "mini-img", alt: "tableau" %> CALCUL DE PRODUCTION
     		</p>
       </div>
@@ -67,7 +67,7 @@
             <% end %>
               <%= image_tag "sendemail.png", alt:"doc pdf" %>
           </div>
-          <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+          <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %> (total = <%= recipe.quantities.first.quantity_wanted %>)</h3>
           <div class="recipe-values">
             <div class="nth-ttl">
               <b><div class="r-q-name">Ingrédient</div>
@@ -78,42 +78,61 @@
               <div class="nth-chld">
                 <div class="r-q-name"><%= q.ingredient.name %></div>
                 <div class="r-q-name2"><%= q.perfect_weight %></div>
-                <div class="r-q-name2 r-q-name3"><%= weighing_quantities(q.ingredient, recipe) %></div>
+                <div class="r-q-name2 r-q-name3"><%= q.perfect_unit %></div>
               </div>
             <% end %>
           </div>
         </div>
         <% end %>
       </div>
-      <div class="q-f2" style="display:none;">
+      <div class="q-f2"  style="display:none;">
         <%= form_for(recipe, remote: true) do |f| %>
-          <div class="quant-fields-cntnr">
-            <h3>Créer un tableau</h3>
-            <div class="ing-ttl-cntnr">INGRÉDIENTS</div>
-            <div class="kg-field"><p class='basic-field recipe-comp-sel rounded-field kilo-field'>Recette</p></div>
-            <%= f.fields_for :totals, totals do |ff| %>
-            <div class="kg-field kg-fields">
-              <%= image_tag "kg.png", class: "field-img euro-img" %>
-              <span><%= ff.text_field :value, class: 'basic-field recipe-comp-sel rounded-field kilo-field' %></span>
+          <div class="qt-bck">
+            <div class="array-bck" id="parent">
+              <h3>Créer un tableau</h3>
+              <p>Unité de mesure</p>
+              <%= f.select :array_unit, ["g", "Kg"] %>
+              <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
+              <p>Quantités à insérer</p>
+              <%= f.fields_for :totals, totals do |ff| %>
+                <div class="kg-field">
+                  <%= ff.text_field :value, class: 'basic-field recipe-comp-sel rounded-field kilo-field' %>
+                </div>
+              <% end %>
+              <%= f.submit "CALCULER", class: "standard-btn grey-btn ingredient-btn fl-rgt array-btn", id: "array-btn" %>
             </div>
-            <% end %>
           </div>
+          <br/>
           <div class="quant_form">
-            <div class="quant-values-cntnr">
+            <div id="circleG" class="loading-indicator" style="display:none;">
+              <br/><br/>
+            	<div id="circleG_1" class="circleG"></div>
+            	<div id="circleG_2" class="circleG"></div>
+            	<div id="circleG_3" class="circleG"></div>
+            </div>
+            <div class="quant-values-cntnr ajax-hide">
               <div class="quant-values-clmn ing-line-cntnr">
+                <div class="nth-ttl">
+                  <b><div class="r-q-name">Ingrédient</div>
+                  <div class="r-q-name2 r-q-name4 r-q-base">Base</div>
+                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.first.value.to_f %> <%= recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.second.value.to_f %> <%= recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.third.value.to_f %> <%= recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.fourth.value.to_f %> <%= recipe.array_unit %></div>
+                </b>
+                </div><br/>
                 <% recipe.quantities.each do |q| %>
-                  <p>
-                    <span class="quantities-name"><%= q.ingredient.name %></span>
-                    <span class="quantities-num"><%= q.weight.to_i %><%= weighing_unit(q.ingredient) %></span>
-                    <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.first.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                    <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.second.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                    <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.third.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                    <span class="quantities-num"><%= (weight_by_kg(q, recipe) * recipe.totals.fourth.value).to_i %><%= weighing_unit(q.ingredient) %></span>
-                  </p>
+                  <div class="nth-chld">
+                    <div class="r-q-name"><%= q.ingredient.name %></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.weight %><div><%= weighing_unit(q) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.first.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.second.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.third.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.fourth.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
+                  </div>
                 <% end %>
               </div>
               <br/>
-              <%= f.submit "CALCULER", class: "standard-btn grey-btn qtt-btn to-lft-btn" %>
             </div>
             <br/>
           </div>
