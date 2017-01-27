@@ -1,8 +1,9 @@
+
 <div class="partial ingr-field select-areas">
 	<%= ff.select(:ingredient_id, current_user.ingredients.all.order("name ASC").collect{ |i| [i.name_humanized, i.id] }, include_blank: true ) %>
 	<%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow" %>
-	<%= ff.text_field :weight, class: "basic-field", placeholder: "poids" %>
-	<span><%= ff.select(:unit, ["g", "kg", "ml", "L", "U", "QS"]) %><%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow" %></span>
+	<%= ff.text_field :weight, class: "basic-field", placeholder: "poids", id: "disable-input" %>
+	<span><%= ff.select(:unit, ["g", "kg", "ml", "L", "U", "QS"], {},{ class: "ffunit" }) %><%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow" %></span>
 	<%= ff.hidden_field :_destroy %>
 	<%= remove_field "delete-sml.png", ff %>
 </div>

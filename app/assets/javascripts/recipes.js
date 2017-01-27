@@ -13,6 +13,19 @@ $(document).ready(function(){
 	});
 });
 
+// disable and clear form weight if QS value is selected
+$(document).ready(function(){
+  $('*[id^="recipe"]').on('change', function(){
+    var  others = $(this).val();
+    if(others == "QS"){
+      $(this).parent().parent().find('input').attr('disabled','disabled');
+      $(this).parent().parent().find('input').val("");
+      }else{
+      $(this).parent().parent().find('input').removeAttr('disabled');
+    }
+  });
+});
+
 // hide and show each form in edit view
 $(document).ready(function(){
   $('.recipe-btn').click(function(){
@@ -56,9 +69,12 @@ $(document).ready(function(){
       $('.content2').hide();
       $('.' + $(this).data('rel')).show();
   });
-	// toggle pop over
+	// toggle pop overs
   $(".pop-on").click(function(){
     $(".select-measure").toggle();
+  });
+	$(".pop-2").click(function(){
+    $(".send-email").toggle();
   });
 	// basic grestion of quantities form
   $(".hide-meas").click(function(){

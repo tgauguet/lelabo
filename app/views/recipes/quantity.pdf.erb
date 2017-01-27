@@ -5,20 +5,24 @@
 <% end %>
 <div class="pdf-cntnr">
   <h1><%= @recipe.name.upcase %></h1>
-  <div class="quant-fields-cntnr pdf-quant-cntnr">
-    <div class="ing-ttl-cntnr">INGRÉDIENTS</div>
-    <p>Recette pour : &nbsp;<%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></p><br/>
+  <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+  <br/><br/>
+  <div class="recipe-values">
+    <div class="nth-ttl">
+      <b><div class="r-q-name">Ingrédient</div>
+      <div class="r-q-name2">Quantité</div>
+      <div class="r-q-name2 r-q-name3">Unité</div></b>
+    </div><br/>
+    <% recipe.quantities.each do |q| %>
+      <div class="nth-chld">
+        <div class="r-q-name"><%= q.ingredient.name %></div>
+        <div class="r-q-name2"><%= q.perfect_weight %></div>
+        <div class="r-q-name2 r-q-name3"><%= q.perfect_unit %></div>
+      </div>
+    <% end %>
   </div>
-  <div class="quant-values-cntnr">
-    <div class="quant-values-clmn ing-line-cntnr">
-      <% @recipe.quantities.each do |q| %>
-        <p>
-          <span class="quantities-name"><%= q.ingredient.name %></span>
-          <span class="quantities-num"><%= q.perfect_weight %> <%= weighing_quantities(q.ingredient, @recipe) %></span>
-        </p>
-      <% end %>
-    </div>
-  </div>
-  <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>
-  <p class="recipe-notes"><%= @recipe.note %></p>
+  <% if !@recipe.note.blank? %>
+    <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>
+    <p class="recipe-notes"><%= @recipe.note %></p>
+  <% end %>
 </div>

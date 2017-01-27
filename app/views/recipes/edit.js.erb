@@ -48,6 +48,9 @@ $(document).ready(function(){
   $(".pop-on").click(function(){
     $(".select-measure").toggle();
   });
+	$(".pop-2").click(function(){
+    $(".send-email").toggle();
+  });
   $(".hide-meas").click(function(){
     $(".print-measure, .select-measure").hide();
 		$(".recipe-values").show();
@@ -55,5 +58,17 @@ $(document).ready(function(){
   });
   $("#array-btn").bind("ajaxStart", function() {
     $(this).hide();
+  });
+});
+// disable and clear form weight if QS value is selected
+$(document).ready(function(){
+  $('*[id^="recipe"]').on('change', function(){
+    var  others = $(this).val();
+    if(others == "QS"){
+      $(this).parent().parent().find('input').attr('disabled','disabled');
+      $(this).parent().parent().find('input').val("");
+      }else{
+      $(this).parent().parent().find('input').removeAttr('disabled');
+    }
   });
 });

@@ -3,7 +3,7 @@
         <p class="grey-btn hide white-cat tab">
     			<%= image_tag "little-table.png", class: "mini-img", alt: "tableau" %> TABLEAU DE CALCULS
     		</p>
-        <p class="grey-btn hide white-cat tab">
+        <p class="grey-btn hide white-cat tab" style="display:none;">
     			<%= image_tag "measure.png", class: "mini-img", alt: "tableau" %> CALCUL DE PRODUCTION
     		</p>
       </div>
@@ -65,9 +65,8 @@
             <%= link_to d_quantities_pdf_recipe_path(format: :pdf), target: "_blank" do %>
               <%= image_tag "pdf.png", alt:"doc pdf" %>
             <% end %>
-              <%= image_tag "sendemail.png", alt:"doc pdf" %>
           </div>
-          <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %> (total = <%= recipe.quantities.first.quantity_wanted %>)</h3>
+          <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
           <div class="recipe-values">
             <div class="nth-ttl">
               <b><div class="r-q-name">Ingrédient</div>
@@ -85,7 +84,7 @@
         </div>
         <% end %>
       </div>
-      <div class="q-f2"  style="display:none;">
+      <div class="q-f2" style="display:none;">
         <%= form_for(recipe, remote: true) do |f| %>
           <div class="qt-bck">
             <div class="array-bck" id="parent">
@@ -110,6 +109,16 @@
             	<div id="circleG_2" class="circleG"></div>
             	<div id="circleG_3" class="circleG"></div>
             </div>
+            <div class="dl-cntnr ajax-hide">
+              <%= link_to quantities_array_pdf_recipe_path(format: :pdf), target: '_blank' do %>
+                <%= image_tag "download.png", alt:"doc pdf" %>
+              <% end %>
+              <%= link_to d_quantities_array_pdf_recipe_path(format: :pdf), target: "_blank" do %>
+                <%= image_tag "pdf.png", alt:"doc pdf" %>
+              <% end %>
+            </div>
+            <br/>
+            <h3 class="ajax-hide">Tableau de quantités</h3>
             <div class="quant-values-cntnr ajax-hide">
               <div class="quant-values-clmn ing-line-cntnr">
                 <div class="nth-ttl">
@@ -124,11 +133,11 @@
                 <% recipe.quantities.each do |q| %>
                   <div class="nth-chld">
                     <div class="r-q-name"><%= q.ingredient.name %></div>
-                    <div class="r-q-name2 r-q-name4"><%= q.weight %><div><%= weighing_unit(q) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.first.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.second.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.third.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q_round(q, (q.weight * recipe.totals.fourth.value).to_f / recipe.recipe_weight) %><div><%= q_weighing_unit(q) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.weight %><div><%= q.unit %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.first.value) %><div><%= q.perfect_array_unit(recipe.totals.first.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.second.value) %><div><%= q.perfect_array_unit(recipe.totals.second.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.third.value) %><div><%= q.perfect_array_unit(recipe.totals.third.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.fourth.value) %><div><%= q.perfect_array_unit(recipe.totals.fourth.value) %></div></div>
                   </div>
                 <% end %>
               </div>

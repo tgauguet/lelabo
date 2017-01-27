@@ -65,6 +65,7 @@
     </div>
   </div>
 <% end %>
+
 <div class="actions-cntnr">
     <div class="recipe-btn-cntnr">
       <p class="recipe-btn current-form" target="0"><%= image_tag"r-f-img1.png", alt: "recipe btn image" %></p>
@@ -80,8 +81,7 @@
       <br/>
       <div>
       <!-- RECIPE SHOW CODE -->
-      <div id="div0" class="recipe-option" style="display:none;">
-        <h2>APERÇU</h2>
+      <div id="div0" class="recipe-option">
         <div class="recipe-view">
           <div class="recipe-links">
             <%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
@@ -103,7 +103,7 @@
         <%= render "form", recipe: @recipe, cache: true %>
       </div>
       <!-- RECIPE QUANTITIES CODE -->
-      <div id="div2" class="recipe-option">
+      <div id="div2" class="recipe-option" style="display:none;">
         <% if current_user.basic_user? %>
           <p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
           <%= link_to subscriptions_path do %>
@@ -118,7 +118,7 @@
         <% end %>
       </div>
       <!-- RECIPE EQUILIBRIUM CODE -->
-      <div id="div3" class="recipe-option"  style="display:none;">
+      <div id="div3" class="recipe-option" style="display:none;">
         <h2>ÉQUILIBRE</h2>
         <%= render "equilibrium_form", recipe: @recipe, cache: true %>
       </div>
