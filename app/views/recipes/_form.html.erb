@@ -26,7 +26,6 @@
           <br/><br/>
         <% end %>
       </div>
-      <div class="test btn">TEST</div>
       <div class="to-left recipe-head">
     		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>
         <%= f.text_field :name, class: "basic-field", placeholder: " " %>
@@ -76,7 +75,7 @@
       <br/>
     </div><br/>
     <div class="form-border"></div>
-    <h3>Process</h3>
+    <h3>Instructions</h3>
     <div data-no-turbolink class="add_process">
       <%= f.cktext_area :process, placeholder: " ", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
     </div>
@@ -94,8 +93,12 @@
         Favoris
     </div>
     <div class="to-left recipe-head">
-      <p>Cuisson</p>
+      <p>T° Cuisson (en degrés °C)</p>
       <%= f.text_field :baking, class: "basic-field", placeholder: " " %>
+      <p>Temps de Cuisson (en minutes)</p>
+      <%= f.text_field :baking_minutes, class: "basic-field", placeholder: " " %>
+      <p>Temps de préparation (en minutes)</p>
+      <%= f.text_field :preparation_minutes, class: "basic-field", placeholder: " " %>
       <p>Notes</p>
       <%= f.text_area :note, class: "basic-field", placeholder: " " %>
       <br/>

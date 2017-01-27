@@ -99,7 +99,6 @@
       </div>
       <!-- RECIPE FORM CODE -->
       <div id="div1" class="recipe-option" style="display:none;">
-        <h2>MODIFIER</h2>
         <%= render "form", recipe: @recipe, cache: true %>
       </div>
       <!-- RECIPE QUANTITIES CODE -->
@@ -136,7 +135,6 @@
       </div>
       <!-- RECIPE PICTURES CODE -->
       <div id="div5" class="recipe-option" style="display:none;">
-        <h2>PHOTOS</h2>
         <% if current_user.business_user? %>
         <%= render "pictures_form", recipe: @recipe, cache: true %>
         <% else %>
