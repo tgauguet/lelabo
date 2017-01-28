@@ -29,6 +29,7 @@ class RecipesController < ApplicationController
     @images = @recipe.images.all.order("created_at ASC")
     respond_to do |format|
       format.html
+      format.json { head :no_content }
       format.js { render :edit }
       format.pdf do
         render  pdf: @recipe.name,

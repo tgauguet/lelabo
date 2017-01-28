@@ -71,7 +71,10 @@ $(document).ready(function(){
   });
 	// toggle pop overs
   $(".pop-on").click(function(){
-    $(".select-measure").toggle();
+    $(".select-measure").show();
+  });
+	$(".pop-off").click(function(){
+    $(".select-measure").hide();
   });
 	$(".pop-2").click(function(){
     $(".send-email").toggle();
