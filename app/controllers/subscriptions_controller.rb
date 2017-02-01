@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
 			if @subscription.errors.blank?
 				flash[:notice] = "Félicitations, vous êtes désormais abonné à l'offre #{@plan.name}"
 				redirect_to root_path
-				UserMailer.subscription_email(@user) #delay
+				UserMailer.subscription_email(@user).deliver_now #delay
 			else
 				render :new
 				flash[:error] = "Une erreur a eu lieu lors de la création de votre abonnement, merci de réessayer"

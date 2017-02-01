@@ -76,8 +76,12 @@
             <% recipe.quantities.each do |q| %>
               <div class="nth-chld">
                 <div class="r-q-name"><%= q.ingredient.name %></div>
-                <div class="r-q-name2"><%= q.perfect_weight %></div>
-                <div class="r-q-name2 r-q-name3"><%= q.perfect_unit %></div>
+                <% if !(q.unit == "QS") %>
+                  <div class="r-q-name2"><%= q.perfect_weight %></div>
+                  <div class="r-q-name2 r-q-name3"><%= q.perfect_unit %></div>
+                <% else %>
+                  <div class="r-q-name2 qs-val"><%= q.perfect_unit %></div>
+                <% end %>
               </div>
             <% end %>
           </div>

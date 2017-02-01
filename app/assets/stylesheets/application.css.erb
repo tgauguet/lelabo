@@ -107,6 +107,29 @@ p, h2, h3{
   color: rgb(43,54,69);
 }
 
+.pdf-r-cntnr .view-top-l{
+	width: 68%;
+	margin-bottom: -1em;
+}
+
+.pdf-r-cntnr .view-top-l .recipe-info h3{
+	font-size: 1em;
+}
+
+.pdf-r-cntnr .view-top-l h1{
+	font-size: 1.8em;
+}
+
+.pdf-r-cntnr .view-top-r{
+	width: 31%;
+	margin-top: 0em;
+}
+
+.pdf-r-cntnr .view-top-r img{
+	width: 12em;
+	height: 12em;
+}
+
 .up-div{
 	margin-top: -1.5em;
 }
@@ -1927,6 +1950,10 @@ header .normal_header{
   margin-top: -0.6em;
 }
 
+.qs-val{
+	width: 8.4em !important;
+}
+
 .abs-cntnr:hover .abs-txt{
   display: block;
 }
@@ -2155,6 +2182,18 @@ header .normal_header{
 .recipe-values .nth-chld, .quant-values-cntnr .nth-chld{
 	border-bottom: 1px solid rgb(202,212,217);
 	padding: 0.5em;
+}
+
+.ing_comp_cntnr .recipe-values .nth-chld{
+	border:none;
+}
+
+.ing_comp_cntnr .recipe-values .nth-chld:hover{
+	background: white;
+}
+
+.ing_comp_cntnr .recipe-values .nth-chld:nth-child(2n+2){
+	background: rgb(245,247,252);
 }
 
 .nth-ttl{
@@ -4707,33 +4746,25 @@ input[type="checkbox"] + span {
 
 .recipe-view{
 	text-align: left;
+	padding: .5em;
 }
 
 .recipe-links{
 	text-align: right;
 }
 
-.ing_comp_l, .view-top-l, .view-top-r, .ing-rght, .ing-left{
+.view-top-l, .view-top-r, .ing-rght, .ing-left{
 	display: inline-block;
 	vertical-align: top;
 	min-height: 5em;
 }
 
-.ing_comp_l, .ing_comp_l_pdf{
-	padding: 2em;
-	background: rgb(237, 237, 237);
-	border-radius: 0.3em;
-	margin-right: 1em;
-	width: 23em;
-	float: left;
-}
-
-.ing_comp_l_pdf{
-	width: 20em;
-}
-
 .ing_comp_cntnr {
 	padding-top: 1em;
+}
+
+.ing_comp_l {
+	padding-left: 1em;
 }
 
 .clear{
@@ -4753,8 +4784,36 @@ input[type="checkbox"] + span {
 	font-size: 1.3em;
 }
 
+.recipe-info-cntnr{
+	text-align: center;
+}
+
+.recipe-info h3{
+	font-size: 1.1em;
+}
+
+.recipe-info-cntnr .form-border{
+	margin-top: .4em;
+	margin-bottom: .4em;
+}
+
+.recipe-info{
+	width: 30%;
+	padding: .3em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.recipe-info{
+	border-right:1px dashed rgb(197, 200, 205);
+}
+
+.recipe-info:nth-last-child(2){
+	border-right:none;
+}
+
 .view-top-l{
-	width: 30em;
+	width: 63%;
 }
 
 .view-top-l-pdf{
@@ -4767,13 +4826,19 @@ input[type="checkbox"] + span {
 	margin-top: 0em;
 	margin-bottom: 0.2em;
 	font-size: 2.5em;
-	font-family: "source_sans_prosemibold";
 }
 
 .view-top-r{
 	text-align: right;
-	width: 20em;
+	width: 36%;
+	margin-left: -.2em;
 }
+
+.view-top-r img{
+	width: 16em;
+	height: 16em;
+}
+
 
 .view-top-r-pdf{
 	display: inline-block;
@@ -5197,12 +5262,13 @@ textarea {
 
 	.view-top-r{
 		width: 100%;
-		margin-top: -10em;
+		margin-top: -4em;
+		margin-bottom: -2em;
 	}
 
-	.ing_comp_l{
-		padding: 1em;
-		width: 21em;
+	.view-top-r img{
+		width: 10em;
+		height: 10em;
 	}
 
 	.kilo-field{
@@ -5468,6 +5534,18 @@ textarea {
 
 	.hide-respo{
 		display: none !important;
+	}
+
+	.r-q-name{
+		width: 15em;
+	}
+
+	.r-q-name2{
+		width: 3.5em;
+	}
+
+	.qs-val{
+		width: 4em !important;
 	}
 
 	.actions-cntnr{

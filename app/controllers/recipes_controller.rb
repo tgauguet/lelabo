@@ -178,7 +178,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.fetch(:recipe, {}).permit(:name, :vat, :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
+    params.fetch(:recipe, {}).permit(:name, :vat, :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :preparation_minutes, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
   end
 
 end
