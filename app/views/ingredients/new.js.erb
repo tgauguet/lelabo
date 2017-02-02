@@ -1,3 +1,7 @@
+$("#flash-mssg").show();
+$("#flash-mssg").html("<%= flash[:success] %>");
+$(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");
+
 $(".ingredient-btn").click(function(){
   $(".ingredient-form").show();
   $('.hide').hide();

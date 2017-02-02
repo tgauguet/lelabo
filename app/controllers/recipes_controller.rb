@@ -26,6 +26,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @totals = @recipe.totals.all.order("created_at ASC")
+    @ingredient = @user.ingredients.new
+    @categories = @user.category.all
     @images = @recipe.images.all.order("created_at ASC")
     respond_to do |format|
       format.html

@@ -10,6 +10,7 @@
         </ul>
       </div>
     <% end %>
+  <div id="flash-mssg" style="display:none;"></div>
   <div class="recipe-form">
     <div class="recipe-cntnr r-smll-cntnr">
       <h3 class="bgr-ttl">Informations de la recette</h3>
@@ -56,8 +57,10 @@
         <%= image_tag "gramme.png", class: "field-img-big upper-field-img" %>
         <%= f.text_field :portion_weight, class: "basic-field p-field", placeholder: " " %>
         <p>Nombre de parts/recette</p>
-        <%= f.select :portion_number, (1..100).map { |i| [i, i] } %>
+        <%= f.select :portion_number, (1..100).map { |i| [i, i] }, include_blank: true %>
         <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
+        <p>Intitulé des parts (bonbons, entremets...)</p>
+        <%= f.text_field :portion_name, class: "basic-field", placeholder: " " %>
     	</div>
       <br/>
       <div class="form-border"></div>
@@ -70,7 +73,7 @@
           <%= render "add_quantities", ff: ff %>
         <% end %>
         <p class="add_field"><%= create_new_field "+", f, :quantities %></p>
-        <p class="grey-btn hide white-cat">+ CRÉER UN NOUVEL INGRÉDIENT</p>
+        <p class="grey-btn hide white-cat pop-over-new">+ CRÉER UN NOUVEL INGRÉDIENT</p>
       </div>
       <br/>
     </div><br/>

@@ -34,6 +34,9 @@ $(document).ready(function(){
 		$(this).addClass("current-form");
     $("#div"+$(this).attr('target')).show();
   });
+	$(".pop-over-new").click(function(){
+    $(".popover-new").show();
+  });
 });
 
 // hide and show each cells
@@ -64,20 +67,28 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+	$(".actions-cntnr").removeClass("no-scroll");
 	// hide and show form informations in select quantities forms
   $('.trigger2').click(function() {
       $('.content2').hide();
       $('.' + $(this).data('rel')).show();
   });
 	// toggle pop overs
-  $(".pop-on").click(function(){
-    $(".select-measure").show();
+	$(".pop-on").click(function(){
+    $(".pop-qt").show();
+    $(".actions-cntnr").addClass("no-scroll");
   });
-	$(".pop-off").click(function(){
+	$('.hide-pop').click(function(){
+		$('.select-measure').hide();
+		$(".actions-cntnr").removeClass("no-scroll");
+	});
+  $(".pop-over-new").click(function(){
+    $(".popover-new").show();
+    $(".actions-cntnr").addClass("no-scroll");
+  });
+  $(".pop-off").click(function(){
     $(".select-measure").hide();
-  });
-	$(".pop-2").click(function(){
-    $(".send-email").toggle();
+    $(".actions-cntnr").removeClass("no-scroll");
   });
 	// basic grestion of quantities form
   $(".hide-meas").click(function(){

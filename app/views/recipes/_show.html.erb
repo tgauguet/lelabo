@@ -72,12 +72,12 @@
       <p><%= recipe.process.html_safe %></p>
     </div>
     <% end %>
-    <% if recipe.portion_number && recipe.portion_name %>
-    <div class="form-border"></div>
-    <h3>QUANTITÉS</h3><br/>
-    <div class="ing_comp_l">
-      <p>Recette pour <%= recipe.portion_number %> <%= recipe.portion_name %></p>
-    </div>
+    <% if !recipe.portion_number.blank? %>
+      <div class="form-border"></div>
+      <h3>QUANTITÉS</h3><br/>
+      <div class="ing_comp_l">
+        <p>Recette pour <%= recipe.portion_number %> <%= recipe.portion_name %></p>
+      </div>
     <% end %>
   </div>
   <br/><br/>

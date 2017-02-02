@@ -41,10 +41,23 @@ class IngredientsController < ApplicationController
 
 	def create
 		@ingredient = @user.ingredients.create(ingredients_params)
-		if @ingredient.save
-			flash[:success] = "Votre nouvel ingrédient à été créé"
+		url = request.path_info
+  	if url.include?('recipes')
+			if @ingredient.save
+				respond_to do |format|
+					format.js { flash[:success] = "GREEAAAAT"}
+				end
+			else
+				respond_to do |format|
+					format.js { flash[:success] = "NOOOOOOO"}
+				end
+			end
 		else
-			flash[:error] = "Erreur - vous devez donner un nom à chaque nouvel ingrédient"
+			if @ingredient.save
+				flash[:success] = "Nouvel ingrédient créé avec succès"
+			else
+				flash[:error] = "Erreur lors de la création"
+			end
 		end
 		redirect_to new_ingredient_path
 	end

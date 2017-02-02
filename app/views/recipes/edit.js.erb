@@ -6,6 +6,7 @@ $(".recipe_pics").html("<%= escape_javascript (render 'recipes/pictures_form', r
 $(".show_recipe").html("<%= escape_javascript (render 'recipes/show', recipe: @recipe) %>");
 
 $(document).ready(function(){
+  $(".actions-cntnr").removeClass("no-scroll");
   // show indicator during ajax loadtime
   $(".loading-indicator").hide();
   $(".popover-bck").hide();
@@ -46,14 +47,24 @@ $(document).ready(function(){
     });
   // ADD JQUERY FOR QUANTITIES PAGES
   $(".pop-on").click(function(){
-    $(".select-measure").show();
+    $(".pop-qt").show();
+    $(".actions-cntnr").addClass("no-scroll");
+  });
+  $(".pop-over-new").click(function(){
+    $(".popover-new").show();
+    $(".actions-cntnr").addClass("no-scroll");
   });
   $(".pop-off").click(function(){
     $(".select-measure").hide();
+    $(".actions-cntnr").removeClass("no-scroll");
   });
 	$(".pop-2").click(function(){
     $(".send-email").toggle();
   });
+  $('.hide-pop').click(function(){
+		$('.select-measure').hide();
+    $(".actions-cntnr").removeClass("no-scroll");
+	});
   $(".hide-meas").click(function(){
     $(".print-measure, .select-measure").hide();
 		$(".recipe-values").show();
@@ -62,9 +73,7 @@ $(document).ready(function(){
   $("#array-btn").bind("ajaxStart", function() {
     $(this).hide();
   });
-});
-// disable and clear form weight if QS value is selected
-$(document).ready(function(){
+  // disable and clear form weight if QS value is selected
   $('*[id^="recipe"]').on('change', function(){
     var  others = $(this).val();
     if(others == "QS"){

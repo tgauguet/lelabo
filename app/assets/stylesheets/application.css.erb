@@ -859,21 +859,25 @@ p:hover + .hover-helper{
 }
 
 .flash-msg-cntnr{
-	position: absolute;
+	position: fixed;
 	z-index: 100000;
-	margin-right: auto;
-	margin-left: 10%;
-	text-align: center;
-	width: 80%;
+	right: 5%;
+	top: 4em;
+	text-align: justify;
+	width: 20em;
 }
 
 .error, .alert, .info, .notice, .success {
     padding:0.55em;
     font-size: 0.95em;
     margin-top: 0.3em;
-    color: white;
     border-radius:0.3em;
     font-weight: 500;
+		background: white;
+		border: 1px solid rgba(137, 139, 148, 0.37);
+		-webkit-box-shadow: 4px 4px 0px 0px rgba(137, 139, 148, 0.37);
+		-moz-box-shadow:    4px 4px 0px 0px rgba(137, 139, 148, 0.37);
+		box-shadow:         4px 4px 0px 0px rgba(137, 139, 148, 0.37);
 }
 
 .delete-flash-message{
@@ -881,17 +885,6 @@ p:hover + .hover-helper{
 	cursor:pointer;
 	padding-right: 1em;
 	float: right;
-}
-
-.error, .alert {
-  background: #EB4E5C;
-  color: white;
-  border-bottom: 1px solid #C6434C;
-}
-
-.success{
-  background: #1BBD9D;
-  color: white;
 }
 
 .notice {
@@ -2419,12 +2412,18 @@ header .normal_header{
 }
 
 .popover-bck{
-	position: absolute;
 	background: rgba(80,92,99, 0.6);
 	z-index: 99999999;
 	width: 100%;
 	height: 100%;
 	position: fixed;
+	overflow: hidden;
+}
+
+.no-scroll{
+	position: fixed;
+	right: 0;
+	left: 0;
 }
 
 .popover{
@@ -2434,15 +2433,27 @@ header .normal_header{
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0;
-	position: relative;
-	border-radius: 0.3em;
 	overflow: hidden;
+	border-radius: 0.3em;
+	max-height: 40em;
+}
+
+.popover-cnt{
+	padding: 1.4em;
+	overflow: hidden;
+	overflow-y: scroll;
+	position: relative;
+	max-height: 36em;
 }
 
 .popover .prod-quantities{
 	width: 100%;
 	padding: 0;
 	margin: 0;
+}
+
+.popover-big{
+	width: 50em;
 }
 
 .popover-ttl{
