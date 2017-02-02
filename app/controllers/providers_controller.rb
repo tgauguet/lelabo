@@ -22,7 +22,7 @@ class ProvidersController < ApplicationController
 		@provider = @user.providers.create(providers_params)
 		if @provider.valid?
 			redirect_to providers_path
-			flash[:success] = "Vous avez créé un nouveau fournisseur"
+			flash[:notice] = "Vous avez créé un nouveau fournisseur"
 		else
 			redirect_to providers_path
 			flash[:error] = "Une erreur à eu lieu lors de la création du fournisseur"
@@ -36,7 +36,7 @@ class ProvidersController < ApplicationController
 	def update
 		@provider = Provider.find(params[:id])
 		if @provider.update(providers_params)
-			flash[:success] = "Le fournisseur a été modifié"
+			flash[:notice] = "Le fournisseur a été modifié"
 		else
 			flash[:error] = "Erreur lors de la modification du fournisseur"
 		end
@@ -46,7 +46,7 @@ class ProvidersController < ApplicationController
 	def destroy
 		@provider = Provider.find(params[:id])
 		if @provider.destroy
-			flash[:success] = "Le fournisseur a été supprimé"
+			flash[:notice] = "Le fournisseur a été supprimé"
 		else
 			flash[:error] = "Erreur lors de la suppression du fournisseur"
 		end

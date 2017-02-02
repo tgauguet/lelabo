@@ -120,7 +120,7 @@ class RecipesController < ApplicationController
       if @recipe.save
         4.times { @recipe.totals.create(value:  (@recipe.totals.count + 1)) }
         redirect_to edit_recipe_path(@recipe)
-        flash[:notice] = 'Recette créée avec succès'
+        flash[:notice] = 'Recette crée avec succès'
         #format.json { render :edit, status: :created, location: edit_recipe_path }
       else
         redirect_to recipes_path

@@ -1,5 +1,6 @@
 $("#flash-mssg").show();
-$("#flash-mssg").html("<%= flash[:success] %>");
+$(".flsh").show();
+$("#flash-mssg").html("<%= flash[:notice] %>");
 $(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");
 
 $(".ingredient-btn").click(function(){

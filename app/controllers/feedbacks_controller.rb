@@ -10,7 +10,7 @@ class FeedbacksController < ApplicationController
 		if @feedback.save
 			UserMailer.feedback_email(@feedback) #delay
 			redirect_to root_path
-			flash[:success] = "Merci pour vos conseils !"
+			flash[:notice] = "Merci pour vos conseils !"
 		else
 			redirect_to root_path
 			flash[:error] = "Une erreur s'est produite lors de l'envoi du message"

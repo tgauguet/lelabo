@@ -12,3 +12,8 @@ $(function(){
 		}
 	})
 })
+
+$(".flsh").show();
+$("#flash-mssg").show();
+$("#flash-mssg").html("<%= flash[:notice] %>");
+$(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");

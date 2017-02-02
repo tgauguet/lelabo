@@ -863,33 +863,105 @@ p:hover + .hover-helper{
 	z-index: 100000;
 	right: 5%;
 	top: 4em;
-	text-align: justify;
+	text-align: left;
 	width: 20em;
+	-webkit-box-shadow: 4px 4px 0px 0px rgba(137, 139, 148, 0.37);
+	-moz-box-shadow:    4px 4px 0px 0px rgba(137, 139, 148, 0.37);
+	box-shadow:         4px 4px 0px 0px rgba(137, 139, 148, 0.37);
+	padding:0.35em;
+	color: white;
+	border-radius:0.3em;
+	animation:signup-response 0.5s 1;
+	-webkit-animation:signup-response 0.5s 1;
+	animation-fill-mode: forwards;
+	animation-delay:4s;
+	-webkit-animation-delay:4s; /* Safari and Chrome */
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes signup-response{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+
+@-webkit-keyframes signup-response{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+
+.flash-msg-cntnr p{
+	display: inline-block;
+	vertical-align: top;
+	width: 14em;
+	color: white;
+}
+
+.flash-img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 3em;
+	border-radius: .2em;
+}
+
+.flash-img img{
+	height: 1em;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	margin-left: .5em;
 }
 
 .error, .alert, .info, .notice, .success {
-    padding:0.55em;
-    font-size: 0.95em;
     margin-top: 0.3em;
-    border-radius:0.3em;
-    font-weight: 500;
-		background: white;
-		border: 1px solid rgba(137, 139, 148, 0.37);
-		-webkit-box-shadow: 4px 4px 0px 0px rgba(137, 139, 148, 0.37);
-		-moz-box-shadow:    4px 4px 0px 0px rgba(137, 139, 148, 0.37);
-		box-shadow:         4px 4px 0px 0px rgba(137, 139, 148, 0.37);
+    font-size: 0.95em;
 }
 
-.delete-flash-message{
-	margin-top: -1.9em;
+.del_error, .del_alert{
+    background: #F64747;
+}
+
+.del_info, .del_notice{
+    background: #446CB3;
+}
+
+.del_success {
+    background: #00A678;
+}
+
+.error_bck, .alert_bck{
+	background: #F1A9A0;
+}
+
+.info_bck, .notice_bck{
+	background: #6BB9F0;
+}
+
+.success_bck {
+	background: #66CC99;
+}
+
+.eq-cle{
+	display: flex;
+}
+
+.del-cnt{
+	vertical-align: middle;
 	cursor:pointer;
-	padding-right: 1em;
 	float: right;
+	margin-left: 0em;
+	margin-top: -.3em;
 }
 
-.notice {
-  color: white;
-  background: #1BBD9D;
+.del-cnt img{
+	padding: .3em;
+	width: .9em;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	border-radius: 100%;
+	margin-left: -.5em;
 }
 
 .logo-love{

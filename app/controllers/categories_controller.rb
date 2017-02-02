@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def create
     @category = @user.category.create(cat_params)
     if @category
-      flash[:success] = "Félicitations, vous avez créé une nouvelle catégorie d'ingrédients."
+      flash[:notice] = "Félicitations, vous avez créé une nouvelle catégorie d'ingrédients."
       redirect_to new_ingredient_path
     else
       flash[:error] = "Erreur lors de la création d'une catégorie."

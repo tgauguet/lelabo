@@ -45,16 +45,16 @@ class IngredientsController < ApplicationController
   	if url.include?('recipes')
 			if @ingredient.save
 				respond_to do |format|
-					format.js { flash[:success] = "GREEAAAAT"}
+					format.js { flash[:notice] = "Nouvel ingrédient créé avec succès"}
 				end
 			else
 				respond_to do |format|
-					format.js { flash[:success] = "NOOOOOOO"}
+					format.js { flash[:notice] = "Erreur lors de la création"}
 				end
 			end
 		else
 			if @ingredient.save
-				flash[:success] = "Nouvel ingrédient créé avec succès"
+				flash[:notice] = "Nouvel ingrédient créé avec succès"
 			else
 				flash[:error] = "Erreur lors de la création"
 			end
@@ -70,9 +70,9 @@ class IngredientsController < ApplicationController
 	def destroy
 		@current_ingredient = Ingredient.find(params[:id])
 		if @current_ingredient.destroy
-			flash[:success] = "Supprimé"
+			flash[:notice] = "L'ingrédient a été supprimé"
 		else
-			flash[:success] = "Supression annulée, l'ingrédient est utilisé dans une ou plusieurs recettes"
+			flash[:error] = "Supression annulée, l'ingrédient est utilisé dans une ou plusieurs recettes"
 		end
 		redirect_to new_ingredient_path
 	end

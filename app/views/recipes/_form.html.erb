@@ -1,16 +1,12 @@
 <div class="recipe-frm">
   <%= form_for(recipe) do |f| %>
-    <% if recipe.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(recipe.errors.count, "error") %> Ont empêché la sauvegarde de cette recette :</h2>
-        <ul>
-        <% recipe.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <div id="flash-mssg" style="display:none;"></div>
+  <div class="flash-msg-cntnr notice_bck flsh" style="display:none;">
+    <div class="eq-cle">
+      <div class="flash-img notice_border"><%= image_tag "notice.png" %></div>
+      <p class="fl-ms" id="flash-mssg"></p>
+    </div>
+    <div class="del-cnt"><%= image_tag "deletewhite.png", class: "mini-img delete-flash-message del_notice", alt: "delete message" %></div>
+  </div>
   <div class="recipe-form">
     <div class="recipe-cntnr r-smll-cntnr">
       <h3 class="bgr-ttl">Informations de la recette</h3>

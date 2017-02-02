@@ -25,7 +25,7 @@ class AssembliesController < ApplicationController
 		if @assembly.save
 			4.times { @assembly.totals.create(value:  (@assembly.totals.count + 1)) }
 			redirect_to edit_assembly_path(@assembly)
-			flash[:success] = "Vous avez créé un nouveau montage"
+			flash[:notice] = "Vous avez créé un nouveau montage"
 		else
 			redirect_to assemblies_path
 			flash[:error] = "Erreur lors de la création du montage"
@@ -35,7 +35,7 @@ class AssembliesController < ApplicationController
 	def destroy
 		if @assembly.destroy
 			redirect_to assemblies_path
-			flash[:success] = "Le montage a été supprimé"
+			flash[:notice] = "Le montage a été supprimé"
 		else
 			redirect_to(:back)
 			flash[:error] = "Erreur lors de la suppression du montage"
