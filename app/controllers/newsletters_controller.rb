@@ -8,7 +8,7 @@ class NewslettersController < ApplicationController
     def create
         @newsletter = Newsletter.new(newsletter_params)
         if @newsletter.save
-            flash[:notice] = "Félicitations, vous êtes bien inscrit à la newsletter"
+            flash[:notice] = "Félicitations, vous êtes inscrit à la newsletter"
             redirect_to root_path
         else
             flash[:error] = "Votre inscription à échoué, merci de réessayer"

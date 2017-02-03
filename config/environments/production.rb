@@ -2,6 +2,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
     # Code is not reloaded between requests.
+    require 'uglifier'
+    config.assets.js_compressor = Uglifier.new(output: {ascii_only: true, quote_keys: true})
     config.cache_classes = true
     config.action_mailer.default_url_options = {:host => "www.lelabo-ondemand.com"}
 

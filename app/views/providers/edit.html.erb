@@ -2,11 +2,20 @@
 <div class="actions-cntnr">
 	<div class="action-cntnr">
 		<h2><%= @provider.name.upcase %></h2>
-		<%= link_to providers_path do %>
-			<p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "mini-mini-img" %> INDEX</p>
-		<% end %>
 	</div>
 	<div class="action-cntnr">
+		<div class="provider-ingredients">
+			<h3>Ingrédients</h3>
+			<% if @provider.provider_prices %>
+				<% @provider.provider_prices.each do |p| %>
+					<%= link_to edit_ingredient_path(p.ingredient_id) do %>
+						<ul>
+							<li><%= Ingredient.find(p.ingredient_id).name.humanize %></li>
+						</ul>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
 		<%= render "form", provider: @provider %>
 	</div>
 </div>

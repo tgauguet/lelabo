@@ -43,13 +43,15 @@
 <% end %>
 <% if !do_not_flash %>
   <% flash.each do |type, msg| %>
-    <div class="flash-msg-cntnr <%= type %>_bck">
-      <div class="eq-cle">
-        <div class="flash-img <%= type %>_border"><% if type == "error" %><%= image_tag "error.png" %><% elsif type == "success" %><%= image_tag "success.png" %><% else %><%= image_tag "notice.png" %><% end %></div>
-        <%= content_tag :p, msg, class: type %>
+    <% if msg.length > 0 %>
+      <div class="flash-msg-cntnr <%= type %>_bck">
+        <div class="eq-cle">
+          <div class="flash-img <%= type %>_border"><% if type == "error" %><%= image_tag "error.png" %><% elsif type == "success" %><%= image_tag "success.png" %><% else %><%= image_tag "notice.png" %><% end %></div>
+          <%= content_tag :p, msg, class: type %>
+        </div>
+        <div class="del-cnt"><%= image_tag "deletewhite.png", class: "mini-img delete-flash-message del_#{type}", alt: "delete message" %></div>
       </div>
-      <div class="del-cnt"><%= image_tag "deletewhite.png", class: "mini-img delete-flash-message del_#{type}", alt: "delete message" %></div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
 <!-- Exit-intent pop over BEGIN -->

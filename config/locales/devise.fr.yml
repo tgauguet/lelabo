@@ -257,7 +257,7 @@ fr:
       send_instructions: 'Nous vous avons envoyé un e-mail avec les instructions nécessaires à la confirmation de votre compte'
       send_paranoid_instructions: 'Si votre e-mail existe dans notre base de données, vous allez bientôt recevoir un e-mail contenant les instructions de confirmation de votre compte'
       user:
-        confirmed: "Félicitations, il ne vous reste plus qu'a confirmer ces informations !"
+        confirmed: ""
     failure:
       deleted_account: "Votre compte a été supprimé, nous espérons vous revoir bientôt !"
       already_authenticated: "Vous êtes déjà connecté"
@@ -288,16 +288,16 @@ fr:
       updated_not_active: 'Votre mot de passe a été changé avec succès'
     registrations:
       destroyed: 'Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt'
-      signed_up: 'Bienvenue, vous êtes connecté'
+      signed_up: ''
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé"
       signed_up_but_locked: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte est verrouillé"
       signed_up_but_unconfirmed: "Un message contenant un lien de confirmation a été envoyé à votre adresse email, merci d'ouvrir ce lien pour confirmer votre compte"
       update_needs_confirmation: "Votre compte a bien été mis à jour mais nous devons vérifier votre nouvelle adresse email. Merci de vérifier vos emails et de cliquer sur le lien de confirmation pour finaliser la validation de votre nouvelle adresse"
       updated: 'Votre compte a été modifié avec succès'
     sessions:
-      signed_in: "Connecté avec succès"
-      signed_out: "Déconnecté avec succès"
-      already_signed_out: "Déconnecté avec succès"
+      signed_in: ""
+      signed_out: ""
+      already_signed_out: ""
     unlocks:
       send_instructions: 'Vous allez recevoir les instructions nécessaires au déverrouillage de votre compte dans quelques instants'
       send_paranoid_instructions: 'Si votre compte existe, vous allez bientôt recevoir un email contenant les instructions pour le déverrouiller'

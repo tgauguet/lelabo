@@ -5,8 +5,8 @@
         <%= truncate(provider.name.humanize, length: 25) %>
       </span>
       <%= link_to provider_path(provider.id), method: :delete, id: "delete-task" do %>
-        <%= image_tag "delete-sml.png", class: "delete-tsk-btn delete-down" %>
-      <% end %>
+				<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
+			<% end %>
     </div>
   <% end %>
 </div>

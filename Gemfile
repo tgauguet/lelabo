@@ -17,6 +17,8 @@ gem 'sunspot_rails'
 
 gem 'delayed_job_active_record'
 
+gem "select2-rails"
+
 gem 'sunspot_solr'
 
 gem 'multi_fetch_fragments'

@@ -1,6 +1,7 @@
 /*
  *= require_self
  *= require jquery-ui
+ *= require select2
 */
 
  /*
@@ -25,10 +26,6 @@ body{
 	font-family: Helvetica;
   margin: 0;
   padding: 0;
-}
-
-.test2{
-	background: red !important;
 }
 
 *{
@@ -2153,11 +2150,20 @@ header .normal_header{
 }
 
 .qt-bck{
-	background: rgb(249,250,251); /* Red border only if the input is empty */
+	background: rgb(249,250,251);
 	border-bottom: 1px solid rgb(241,242,245);
 	border-top: 1px solid rgb(241,242,245);
 	width: 100%;
 	padding: 0;
+}
+
+.provider-ingredients{
+	text-align: left;
+	padding: 1em;
+}
+
+.provider-ingredients ul li{
+	color: blue;
 }
 
 .qt-bck .prod-quantities{
@@ -5913,4 +5919,9 @@ textarea {
 
 .up-img{
 	margin-top: .1em;
+}
+
+.test2{
+	background: red !important;
+	border:1px solid red !important;
 }
