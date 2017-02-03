@@ -10,7 +10,7 @@
 				<% @provider.provider_prices.each do |p| %>
 					<%= link_to edit_ingredient_path(p.ingredient_id) do %>
 						<ul>
-							<li><%= Ingredient.find(p.ingredient_id).name.humanize %></li>
+							<li><%= @user.ingredients.find(p.ingredient_id).name.humanize %></li>
 						</ul>
 					<% end %>
 				<% end %>

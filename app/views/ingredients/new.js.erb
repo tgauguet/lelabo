@@ -2,6 +2,9 @@ $("#flash-mssg").show();
 $(".flsh").show();
 $("#flash-mssg").html("<%= flash[:notice] %>");
 $(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");
+$('[id*="ingredient_id"]').append(
+    '<option value=" <%= @user.ingredients.order("created_at").last.id %>"><%= @user.ingredients.find(@user.ingredients.order("created_at").last.id).name %></option>'
+);
 
 $(".ingredient-btn").click(function(){
   $(".ingredient-form").show();

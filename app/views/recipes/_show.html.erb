@@ -54,15 +54,17 @@
     <h3>INGRÉDIENTS</h3><br/>
       <div class="recipe-values">
         <% recipe.quantities.each do |q| %>
-          <div class="nth-chld">
-            <div class="r-q-name"><%= q.ingredient.name %></div>
-            <% if !(q.unit == "QS") %>
-              <div class="r-q-name2"><%= q.weight %></div>
-              <div class="r-q-name2 r-q-name3"><%= q.unit %></div>
-            <% else %>
-              <div class="r-q-name2 qs-val"><%= q.unit %></div>
-            <% end %>
-          </div>
+            <div class="nth-chld">
+              <%= link_to edit_ingredient_path(q.ingredient.id), target: '_blank' do %>
+                <div class="r-q-name"><%= q.ingredient.name %></div>
+              <% end %>
+              <% if !(q.unit == "QS") %>
+                <div class="r-q-name2"><%= q.weight %></div>
+                <div class="r-q-name2 r-q-name3"><%= q.unit %></div>
+              <% else %>
+                <div class="r-q-name2 qs-val"><%= q.unit %></div>
+              <% end %>
+            </div>
         <% end %>
       </div>
     <% if recipe.process? %>
