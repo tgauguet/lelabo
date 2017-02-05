@@ -20,6 +20,7 @@ CKEDITOR.editorConfig = function (config) {
 	];
     config.removePlugins = 'elementspath';
     config.resize_enabled = false;
+		config.resize_dir = 'vertical';
     config.smiley_columns = 12;
     config.font_defaultLabel = 'Helvetica';
     config.disableObjectResizing = true;
