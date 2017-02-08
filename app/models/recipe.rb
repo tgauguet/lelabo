@@ -49,8 +49,13 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def sum_of_kcal
-		total = self.quantities.collect { |q| q.ingredient.kcal }.sum
-		total / recipe_weight unless recipe_weight == 0
+		total = self.quantities.collect { |q| (q.ingredient.kcal * q.weight) }.sum
+		total / recipe_weight * 100 unless recipe_weight == 0
+	end
+
+	def for_100_gram(value)
+		total = self.quantities.collect { |q| (q.ingredient.send(value) * q.quantity_weight) }.sum
+		total / recipe_weight  unless recipe_weight == 0
 	end
 
 	def pulp_percentage
@@ -96,6 +101,15 @@ class Recipe < ActiveRecord::Base
 			else
 				"0"
 			end
+		end
+	end
+
+	def cunsumption_date
+		if !self.production_date.blank? && self.consumption_days
+			date = DateTime.parse(self.production_date) + self.consumption_days.days
+			date.strftime("%d/%m/%Y")
+		else
+			""
 		end
 	end
 

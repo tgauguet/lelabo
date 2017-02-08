@@ -29,6 +29,10 @@ class Quantity < ActiveRecord::Base
 		end
 	end
 
+	def self.order_by_weight_in_grammes
+		Quantity.all.sort_by(&:quantity_weight).reverse
+	end
+
 	def percent
 		percent = self.weight * 100 / self.recipe.total_weight
 		percent.round(2)

@@ -1,2 +1,112 @@
-<%= image_tag "presentation1.png", class: "p-img", alt: "etiquettes", title: "etiquettes" %>
-<p class="option-p">Option prochainement disponible</p>
+<%= form_for @recipe do |f| %>
+  <h3>CONSERVATION & PRODUCTION</h3>
+  <p>NUMÉRO DE PRODUCTION</p>
+  <%= f.text_field :production_number %>
+  <p>Date de production</p>
+  <%= f.text_field :production_date, class: "basic-field bottom-field datepicker" %>
+  <p>Durée de conservation (en jours)</p>
+  <%= f.text_field :consumption_days %>
+  <p>Conseils de conservation</p>
+  <%= f.text_field :conservation %>
+  <h3>ALLÈRGÈNES</h3>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "lait", @recipe.allergen.include?("lait") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Lait
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "fruits à coque", @recipe.allergen.include?("fruits à coque") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Fruits à coque
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "arachides", @recipe.allergen.include?("arachides") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Arachides
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "oeuf", @recipe.allergen.include?("oeuf") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Oeuf
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "soja", @recipe.allergen.include?("soja") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Soja
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "céréales contenant du gluten", @recipe.allergen.include?("céréales contenant du gluten") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Céréales contenant du gluten
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "graines de sésame", @recipe.allergen.include?("graines de sésame") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Graines de sésame
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "crustacés", @recipe.allergen.include?("crustacés") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Crustacés
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "poisson", @recipe.allergen.include?("poisson") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Poisson
+  </p>
+  <p class="custom-checkbox stari">
+    <%= check_box_tag "recipe[allergen][]", "céleri", @recipe.allergen.include?("céleri") %>
+    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+    Céleri
+  </p>
+  <%= f.submit "ENREGISTRER" %>
+<% end %>
+<h3><%= @recipe.name %></h3>
+<p class="option-p">
+  Ingrédients :
+  <% @sticker_value.each do |q| %>
+    <%= q.ingredient.name %>
+    <% if q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
+    <% unless q == @sticker_value.last %>,<% end %>
+  <% end %>.
+</p>
+<p class="option-p">
+  <% unless @recipe.allergen.blank? %>Contient : <%= @recipe.allergen.to_sentence %><% end %>
+</p>
+<table>
+  <tr>
+    <th>Valeurs nutritionnelles pour 100g</th>
+  </tr>
+  <tr>
+    <td>Énergie:</td>
+    <td><%= @recipe.for_100_gram("kcal").to_i %> kcal</td>
+  </tr>
+  <tr>
+    <td>Matières grasses:</td>
+    <td><%= @recipe.for_100_gram("fat_percent").to_i %> g</td>
+  </tr>
+  <tr>
+    <td>Glucides:</td>
+    <td><%= @recipe.for_100_gram("carbohydrates") %> g</td>
+  </tr>
+  <tr>
+    <td>Dont sucre:</td>
+    <td><%= @recipe.for_100_gram("sugar_percent").to_i %> g</td>
+  </tr>
+  <tr>
+    <td>Protéines:</td>
+    <td><%= @recipe.for_100_gram("protein").to_i %> g</td>
+  </tr>
+</table>
+<% if !@recipe.production_date.blank? %>
+  <p>Date de fabrication: <%= DateTime.parse(@recipe.production_date).strftime("%d/%m/%Y") %></p>
+<% end %>
+<% if !@recipe.cunsumption_date.blank? %>
+  <p>DLC: <%= @recipe.cunsumption_date %></p>
+<% end %>
+<% if !@recipe.conservation.blank? %>
+  <p>Conseils de conservation: <%= @recipe.conservation %></p>
+<% end %>
+<% if !@recipe.production_number.blank? %>
+  <p>N° de fabrication: <%= @recipe.production_number %></p>
+<% end %>

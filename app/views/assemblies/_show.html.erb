@@ -25,7 +25,7 @@
         <h3>Ingrédients</h3><br/>
           <div class="ing-rght">
             <% item.recipe.quantities.each do |q| %>
-              <p><%= q.weight %> <%= weighing_unit(q.ingredient) %></p>
+              <p><%= q.weight %> <%= q.unit %></p>
             <% end %>
           </div>
           <div class="ing-left">
