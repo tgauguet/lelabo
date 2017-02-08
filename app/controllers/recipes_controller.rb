@@ -1,4 +1,9 @@
+require 'barby'
+require 'barby/barcode/ean_13'
+require 'barby/outputter/html_outputter'
+
 class RecipesController < ApplicationController
+  include RecipesHelper
   helper_method :sort_columns, :sort_direction
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf, :quantities_array_pdf, :d_quantities_array_pdf]
   before_action :set_user, only: [:index, :new, :create, :download]
@@ -26,6 +31,10 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @totals = @recipe.totals.all.order("created_at ASC")
+    if is_barcode?(@recipe.bar)
+      @bar = Barby::EAN13.new(@recipe.bar.to_s)
+      @barcode = Barby::HtmlOutputter.new(@bar)
+    end
     @ingredient = @user.ingredients.new
     @sticker_value = @recipe.quantities.all.order_by_weight_in_grammes
     @categories = @user.category.all
@@ -182,7 +191,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.fetch(:recipe, {}).permit(:name, :production_date, :production_number, :conservation, :consumption_days, :vat, {:allergen => []} , :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :preparation_minutes, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
+    params.fetch(:recipe, {}).permit(:name, :bar, :production_date, :production_number, :conservation, :consumption_days, :vat, {:allergen => []} , :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :preparation_minutes, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
   end
 
 end

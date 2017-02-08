@@ -8,6 +8,9 @@
   <%= f.text_field :consumption_days %>
   <p>Conseils de conservation</p>
   <%= f.text_field :conservation %>
+  <p>Code barre</p>
+  <i>(12 chiffres sans espaces)</i>
+  <%= f.text_field :bar %>
   <h3>ALLÈRGÈNES</h3>
   <p class="custom-checkbox stari">
     <%= check_box_tag "recipe[allergen][]", "lait", @recipe.allergen.include?("lait") %>
@@ -73,31 +76,33 @@
 <p class="option-p">
   <% unless @recipe.allergen.blank? %>Contient : <%= @recipe.allergen.to_sentence %><% end %>
 </p>
-<table>
-  <tr>
-    <th>Valeurs nutritionnelles pour 100g</th>
-  </tr>
-  <tr>
-    <td>Énergie:</td>
-    <td><%= @recipe.for_100_gram("kcal").to_i %> kcal</td>
-  </tr>
-  <tr>
-    <td>Matières grasses:</td>
-    <td><%= @recipe.for_100_gram("fat_percent").to_i %> g</td>
-  </tr>
-  <tr>
-    <td>Glucides:</td>
-    <td><%= @recipe.for_100_gram("carbohydrates") %> g</td>
-  </tr>
-  <tr>
-    <td>Dont sucre:</td>
-    <td><%= @recipe.for_100_gram("sugar_percent").to_i %> g</td>
-  </tr>
-  <tr>
-    <td>Protéines:</td>
-    <td><%= @recipe.for_100_gram("protein").to_i %> g</td>
-  </tr>
-</table>
+<div class="composition-table">
+  <table>
+    <tr>
+      <th>Valeurs nutritionnelles pour 100g</th>
+    </tr>
+    <tr>
+      <td>Énergie:</td>
+      <td><%= @recipe.for_100_gram("kcal").to_i %> kcal</td>
+    </tr>
+    <tr>
+      <td>Matières grasses:</td>
+      <td><%= @recipe.for_100_gram("fat_percent").to_i %> g</td>
+    </tr>
+    <tr>
+      <td>Glucides:</td>
+      <td><%= @recipe.for_100_gram("carbohydrates") %> g</td>
+    </tr>
+    <tr>
+      <td>Dont sucre:</td>
+      <td><%= @recipe.for_100_gram("sugar_percent").to_i %> g</td>
+    </tr>
+    <tr>
+      <td>Protéines:</td>
+      <td><%= @recipe.for_100_gram("protein").to_i %> g</td>
+    </tr>
+  </table>
+</div>
 <% if !@recipe.production_date.blank? %>
   <p>Date de fabrication: <%= DateTime.parse(@recipe.production_date).strftime("%d/%m/%Y") %></p>
 <% end %>
@@ -109,4 +114,8 @@
 <% end %>
 <% if !@recipe.production_number.blank? %>
   <p>N° de fabrication: <%= @recipe.production_number %></p>
+<% end %>
+<h3>CODE BARRE</h3>
+<% if is_barcode?(@recipe.bar) %>
+  <%= @barcode.to_html.html_safe %>
 <% end %>

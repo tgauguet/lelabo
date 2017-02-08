@@ -74,6 +74,10 @@ module RecipesHelper
     recipe.category == "Glace"
   end
 
+  def is_barcode?(value)
+    value && Math.log10(value).to_i == 11
+  end
+
   def is_sorbet?(recipe)
     recipe.category == "Sorbet"
   end
