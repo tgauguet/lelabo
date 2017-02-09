@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @totals = @recipe.totals.all.order("created_at ASC")
-    if is_barcode?(@recipe.bar)
+    if @recipe.bar && is_barcode?(@recipe.bar)
       @bar = Barby::EAN13.new(@recipe.bar.to_s)
       @barcode = Barby::HtmlOutputter.new(@bar)
     end

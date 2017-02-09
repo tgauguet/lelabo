@@ -67,11 +67,11 @@
 <h3><%= @recipe.name %></h3>
 <p class="option-p">
   Ingrédients :
-  <% @sticker_value.each do |q| %>
+  <% if @sticker_value %><% @sticker_value.each do |q| %>
     <%= q.ingredient.name %>
     <% if q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
     <% unless q == @sticker_value.last %>,<% end %>
-  <% end %>.
+  <% end %>.<% end %>
 </p>
 <p class="option-p">
   <% unless @recipe.allergen.blank? %>Contient : <%= @recipe.allergen.to_sentence %><% end %>
@@ -116,6 +116,6 @@
   <p>N° de fabrication: <%= @recipe.production_number %></p>
 <% end %>
 <h3>CODE BARRE</h3>
-<% if is_barcode?(@recipe.bar) %>
+<% if @barcode && is_barcode?(@recipe.bar) %>
   <%= @barcode.to_html.html_safe %>
 <% end %>
