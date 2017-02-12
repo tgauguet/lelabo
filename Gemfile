@@ -19,6 +19,8 @@ gem 'barby'
 
 gem 'delayed_job_active_record'
 
+gem 'chart-js-rails'
+
 gem "select2-rails"
 
 gem 'sunspot_solr'

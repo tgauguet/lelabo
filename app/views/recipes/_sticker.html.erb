@@ -68,8 +68,16 @@
 <p class="option-p">
   Ingrédients :
   <% if @sticker_value %><% @sticker_value.each do |q| %>
-    <%= q.ingredient.name %>
-    <% if q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
+    <% if defined?(q.ingredient) %>
+      <%= q.ingredient.name %>
+    <% else %>
+      <%= q.current_recipe.name %>
+      (<% q.current_recipe.compo.each do |comp| %>
+        <%= comp.ingredient.name %>
+        <% unless comp == q.current_recipe.compo.last %>, <% end %>
+      <% end %>)
+    <% end %>
+    <% if defined?(q.ingredient) && q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
     <% unless q == @sticker_value.last %>,<% end %>
   <% end %>.<% end %>
 </p>

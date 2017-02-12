@@ -10,8 +10,9 @@ class Quantity < ActiveRecord::Base
 		self.weight = 100 unless self.weight
 	end
 
+	#calculate the price of 1 quantity
 	def price
-		price = self.ingredient.price * self.weight
+		self.ingredient.price * self.weight
 	end
 
 	# calculate the weight of each ingredients in grammes
@@ -29,13 +30,9 @@ class Quantity < ActiveRecord::Base
 		end
 	end
 
-	def self.order_by_weight_in_grammes
-		Quantity.all.sort_by(&:quantity_weight).reverse
-	end
-
+	#calculate the percentage of a quantity in the recipe
 	def percent
-		percent = self.weight * 100 / self.recipe.total_weight
-		percent.round(2)
+		(self.weight * 100 / self.recipe.total_weight).round(2)
 	end
 
 	def updated_value

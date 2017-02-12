@@ -74,8 +74,15 @@
       <br/>
     </div><br/>
     <h3>Recettes</h3>
-    <p class="grey-btn hide white-cat pop-over-new">+ AJOUTER UNE RECETTE</p>
-    <br/>
+    <div class="ingredients-add-ctnr">
+      <div class="add_ingredients">
+        <%= f.fields_for :sub_recipes do |ff| %>
+          <%= render "add_sub_recipes", ff: ff %>
+        <% end %>
+        <p class="add_field"><%= create_new_field "+", f, :sub_recipes %></p>
+      </div>
+      <br/>
+    </div><br/>
     <div class="form-border"></div>
     <h3>Instructions</h3>
     <div data-no-turbolink class="add_process">

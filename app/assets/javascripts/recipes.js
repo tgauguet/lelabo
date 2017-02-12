@@ -12,6 +12,7 @@ $(document).ready(function(){
 		$(".confirm-cntnr").hide();
 	});
 	$('[id*="ingredient_id"]').select2();
+	$('[id*="sub_id"]').select2();
 });
 
 // disable and clear form weight if QS value is selected

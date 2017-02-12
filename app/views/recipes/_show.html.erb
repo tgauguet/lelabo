@@ -66,6 +66,15 @@
               <% end %>
             </div>
         <% end %>
+        <% recipe.sub_recipes.each do |q| %>
+            <div class="nth-chld">
+              <%= link_to edit_recipe_path(q.sub_id), target: '_blank' do %>
+                <div class="r-q-name"><%= current_user.recipes.find(q.sub_id).name %></div>
+              <% end %>
+              <div class="r-q-name2"><%= q.weight %></div>
+              <div class="r-q-name2 r-q-name3">g</div>
+            </div>
+        <% end %>
       </div>
     <% if recipe.process? %>
     <div class="form-border"></div>

@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
       @barcode = Barby::HtmlOutputter.new(@bar)
     end
     @ingredient = @user.ingredients.new
-    @sticker_value = @recipe.quantities.all.order_by_weight_in_grammes
+    @sticker_value = (@recipe.quantities + @recipe.sub_recipes).sort{ |a, b| b.weight <=> a.weight }
     @categories = @user.category.all
     @images = @recipe.images.all.order("created_at ASC")
     respond_to do |format|
@@ -191,7 +191,14 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.fetch(:recipe, {}).permit(:name, :bar, :production_date, :production_number, :conservation, :consumption_days, :vat, {:allergen => []} , :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total, :portion, :portion_weight, :preparation_minutes, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking, :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy], totals_attributes: [:value, :total,  :id, :_destroy], images_attributes:[:id, :_destroy, :picture, :recipe_id, :description])
+    params.fetch(:recipe, {}).permit(:name, :bar, :production_date, :production_number, :conservation, :consumption_days,
+     :vat, {:allergen => []} , :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total,
+      :portion, :portion_weight, :preparation_minutes, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking,
+       :ingredient_id, :description, :process, :note, :equipment, :category, :user_id,
+        quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy],
+         totals_attributes: [:value, :total,  :id, :_destroy],
+          images_attributes:[:id, :_destroy, :picture, :recipe_id, :description],
+           sub_recipes_attributes: [:recipe_id, :weight, :sub_id, :id, :_destroy])
   end
 
 end

@@ -68,14 +68,6 @@
 					<span>Recettes</span>
 				</li>
 			<% end %>
-			<%= link_to assemblies_path do %>
-				<li class="f-li <% if request.path.start_with?('/asse')%>current-feat<% end %>">
-					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %>
-					</div>
-					<span>Montages</span>
-				</li>
-			<% end %>
 			<%= link_to providers_path do %>
 				<li class="f-li <% if request.path.start_with?('/prov')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">

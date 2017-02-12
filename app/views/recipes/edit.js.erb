@@ -8,6 +8,7 @@ $(".show_recipe").html("<%= escape_javascript (render 'recipes/show', recipe: @r
 $(document).ready(function(){
   $(".actions-cntnr").removeClass("no-scroll");
   $('[id*="ingredient_id"]').select2();
+  $('[id*="sub_id"]').select2();
   // show indicator during ajax loadtime
   $(".loading-indicator").hide();
   $(".popover-bck").hide();

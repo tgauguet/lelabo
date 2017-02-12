@@ -6,12 +6,15 @@ class Recipe < ActiveRecord::Base
 	has_paper_trail
 	has_many :images, dependent: :destroy
 	has_many :ingredients, through: :quantity
+	has_many :recipes, through: :sub_recipe
+	has_many :sub_recipes, dependent: :destroy
 	has_many :recipe_items, dependent: :restrict_with_error
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy
 	validates_length_of :images, maximum: 8
 	accepts_nested_attributes_for :totals, allow_destroy: true
 	accepts_nested_attributes_for :images, allow_destroy: true
+	accepts_nested_attributes_for :sub_recipes, reject_if: :reject_recipe, allow_destroy: true
 	accepts_nested_attributes_for :quantities, reject_if: :reject_quantity, allow_destroy: true
 	validates_presence_of :name
 	before_save :default_values
@@ -27,6 +30,10 @@ class Recipe < ActiveRecord::Base
 		attribute['ingredient_id'].blank?
 	end
 
+	def reject_recipe(attribute)
+		attribute['sub_id'].blank? || attribute["weight"].blank?
+	end
+
 	def portion_price=(val)
 		self['portion_price'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
 	end
@@ -37,9 +44,20 @@ class Recipe < ActiveRecord::Base
 		self.portion = 100 unless self.portion
 	end
 
+	# sum of all quantities weights in grammes !!!CHECKED!!!
+	def recipe_weight
+		weight = self.quantities.collect { |q| q.quantity_weight }.sum
+		weight + self.sub_recipes.collect { |s| s.weight }.sum
+	end
+
 	def percentage_of(matter)
 		matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum
+		matter_weight = matter_weight + self.sub_recipes.collect { |s| s.current_recipe.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum }.sum
 		matter_weight / recipe_weight unless recipe_weight == 0
+	end
+
+	def compo
+		self.quantities.all.order("weight DESC")
 	end
 
 	def milk_of(matter)
@@ -48,13 +66,9 @@ class Recipe < ActiveRecord::Base
 		matter_weight / recipe_weight unless recipe_weight == 0
 	end
 
-	def sum_of_kcal
-		total = self.quantities.collect { |q| (q.ingredient.kcal * q.weight) }.sum
-		total / recipe_weight * 100 unless recipe_weight == 0
-	end
-
 	def for_100_gram(value)
-		total = self.quantities.collect { |q| (q.ingredient.send(value) * q.quantity_weight) }.sum
+		total = self.sub_recipes.collect { |s| ( s.current_recipe.quantities.collect { |q| (q.ingredient.send(value) * q.weight) }.sum) }.sum
+		total = total + self.quantities.collect { |q| (q.ingredient.send(value) * q.quantity_weight) }.sum
 		total / recipe_weight  unless recipe_weight == 0
 	end
 
@@ -70,11 +84,6 @@ class Recipe < ActiveRecord::Base
 
 	def show_total(matter)
 		self.quantities.collect { |q| q.send(matter) }.sum
-	end
-
-	# sum of all quantities weights in grammes
-	def recipe_weight
-		self.quantities.collect { |q| q.quantity_weight }.sum
 	end
 
 	def total_cost

@@ -84,6 +84,13 @@
                 <% end %>
               </div>
             <% end %>
+            <% recipe.sub_recipes.each do |s| %>
+                <div class="nth-chld">
+                  <div class="r-q-name"><%= current_user.recipes.find(s.sub_id).name %></div>
+                  <div class="r-q-name2"><%= s.perfect_weight %></div>
+                  <div class="r-q-name2 r-q-name3"><%= s.perfect_unit %></div>
+                </div>
+            <% end %>
           </div>
         </div>
         <% end %>
@@ -143,6 +150,16 @@
                     <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.third.value) %><div><%= q.perfect_array_unit(recipe.totals.third.value) %></div></div>
                     <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.fourth.value) %><div><%= q.perfect_array_unit(recipe.totals.fourth.value) %></div></div>
                   </div>
+                <% end %>
+                <% recipe.sub_recipes.each do |s| %>
+                    <div class="nth-chld">
+                      <div class="r-q-name"><%= current_user.recipes.find(s.sub_id).name %></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.weight %><div>g</div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.first.value) %><div><%= s.perfect_array_unit(recipe.totals.first.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.second.value) %><div><%= s.perfect_array_unit(recipe.totals.second.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.third.value) %><div><%= s.perfect_array_unit(recipe.totals.third.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.fourth.value) %><div><%= s.perfect_array_unit(recipe.totals.fourth.value) %></div></div>
+                    </div>
                 <% end %>
               </div>
               <br/>
