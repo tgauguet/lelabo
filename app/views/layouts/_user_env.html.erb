@@ -52,6 +52,14 @@
 	</div>
 	<div class="features-li">
 		<ul>
+			<%= link_to root_path do %>
+				<li class="f-li <% if current_page?(root_url) %>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					<span>Accueil</span>
+				</li>
+			<% end %>
 			<%= link_to new_ingredient_path do %>
 				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">

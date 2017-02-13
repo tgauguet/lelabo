@@ -47,14 +47,6 @@ class CreateRecipesBaseJob < ActiveJob::Base
 	        4.times { recipe.totals.create(value:  (recipe.totals.count + 1)) }
 	      end
 
-				fruitscaramelise = user.recipes.find_by_name("Fruits secs caramélisés")
-				enrobagefruits = user.recipes.find_by_name("Enrobage pour fruits")
-				glacagegomme = user.recipes.find_by_name("Glaçage gomme arabique")
-
-				user.assemblies.create!([
-					{ title:"Noisettes enrobées", category: "Confiserie", owner:"Le Labo",image: File.open(Rails.root.join("public", "assets", "noisette.jpg")), "recipe_items_attributes"=>{"0"=>{recipe_id: fruitscaramelise.id, "_destroy"=>"false"}, "1"=>{recipe_id: enrobagefruits.id, "_destroy"=>"false"}, "2"=>{recipe_id: glacagegomme.id, "_destroy"=>"false"}}},
-					{ title:"Amandes enrobées", category: "Confiserie", owner:"Le Labo",image: File.open(Rails.root.join("public", "assets", "amandes.jpg")), "recipe_items_attributes"=>{"0"=>{recipe_id: fruitscaramelise.id, "_destroy"=>"false"}, "1"=>{recipe_id: enrobagefruits.id, "_destroy"=>"false"}, "2"=>{recipe_id: glacagegomme.id, "_destroy"=>"false"}}}
-					])
 		rescue
 			#flash[:error] = "Erreur lors de la création des ingrédients"
 		end

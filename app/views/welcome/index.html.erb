@@ -15,31 +15,9 @@
 		<div class="user-grade">
 			<p class="grey-btn">
 				<span>Recettes</span> <%= @user.recipes.count %> -
-				<span>Montages</span> <%= @user.assemblies.count %> -
 				<span>Ingrédients</span> <%= @user.ingredients.count %> -
 				<span>Grade</span> <%= grade(@user) %>
 			</p>
-		</div>
-	</div>
-	<div class="welc-recipes action-cntnr">
-		<h3>RECETTES STAR</h3>
-		<h6>Vos dernières recettes star</h6>
-		<div class="welc-r-cntnr">
-			<% @user.recipes.where(stared: true).last(5).each do |recipe| %>
-				<div class="img-txt-cntnr">
-					<%= link_to edit_recipe_path(recipe) do %>
-						<div class="img_path">
-							<%= image_tag recipe.image %>
-							<span class="text-content">
-								<div><span><span>VOIR</span></span></div>
-							</span>
-						</div>
-					<% end %>
-					<br/>
-					<%= truncate(recipe.name, length: 22) %><br/>
-					<h6 class="h7-txt">par <%= truncate(recipe.owner, length: 20) %></h6>
-				</div>
-			<% end %>
 		</div>
 	</div>
 	<div class="welc-recipes action-cntnr">
@@ -59,27 +37,6 @@
 					<br/>
 					<%= truncate(recipe.name, length: 22) %><br/>
 					<h6 class="h7-txt">par <%= truncate(recipe.owner, length: 20) %></h6>
-				</div>
-			<% end %>
-		</div>
-	</div>
-	<div class="welc-recipes action-cntnr">
-		<h3>MONTAGES</h3>
-		<h6>Vos derniers montages</h6>
-		<div class="welc-r-cntnr">
-			<% @user.assemblies.last(5).each do |assembly| %>
-				<div class="img-txt-cntnr">
-					<%= link_to edit_assembly_path(assembly) do %>
-						<div class="img_path">
-							<%= image_tag assembly.image %>
-							<span class="text-content">
-								<div><span><span>VOIR</span></span></div>
-							</span>
-						</div>
-					<% end %>
-					<br/>
-					<%= truncate(assembly.title, length: 22) %><br/>
-					<h6 class="h7-txt">par <%= truncate(assembly.owner, length: 20) %></h6>
 				</div>
 			<% end %>
 		</div>

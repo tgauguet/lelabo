@@ -1,11 +1,15 @@
-<% title "Vos to-do listes" %>
+<% title "Organisation" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Organisation</h1>
+	</div>
+	<div class="page-ctas">
+		<p class="inside-btn ingredient-btn" id="list-btn">+ NOUVELLE LISTE</p>
+	</div>
+</div>
 <div class="actions-cntnr">
-	<div class="action-cntnr">
 		<div class="title-cntnr">
-			<h1 class="lttl-intro-h1">Organisation</h1><br/>
 			<% if empty_list %>
-				<p>Les listes de tâches vous aident à planifier vos journées</p><br/>
-				<p class="btn inside-btn" id="list-btn">CRÉER LA PREMIÈRE LISTE</p>
 				<div class="explaination-cntnr">
 					<h2>Quand utiliser les listes de tâches ?</h2>
 					<div class="border-btm"></div>
@@ -15,8 +19,6 @@
 					<div class="border-btm"></div>
 					<p>Pour assigner du travail à vous ou à votre équipe</p>
 				</div>
-			<% else %>
-				<p class="inside-btn ingredient-btn" id="list-btn">NOUVELLE LISTE</p>
 			<% end %>
 		</div>
 		<div class="simple-form-cntnr">
@@ -33,5 +35,4 @@
 			</div>
 		</div>
 		<%= render "to_do_lists/lists", lists: @lists %>
-	</div>
 </div>

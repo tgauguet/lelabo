@@ -8,25 +8,28 @@
 							<% if list.all_done %>
 							  <%= image_tag 'clipboard.png', class: "tasks-cmplt2" %>
 							<% end %>
-							<h2><%= list.title %></h2>
+							<h2><%= list.title.upcase %></h2>
 							<% if list.all_done %>
 								<span class="tasks-count white-count">
-								    <%= image_tag "checked-icn2.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
-							 	</span><br/>
+										<%= image_tag "checked-icn2.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
+								</span><br/>
 							<% else %>
 								<span class="tasks-count">
-								    <%= image_tag "checked-icn.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
-							 	</span><br/>
-						 	<% end %>
-						 	<p class="fake-cntnr">
-						 		<% unless list.tasks.first.blank? %>
-						 			<span class="fake-checkbox"></span>
-						 			<span class="fake-task"><%= list.tasks.first.name %></span>
-						 		<% end %>
-						 	</p>
-						 	<p class="fake-task">...</p>
-						 	<br/>
-							&nbsp;<%= link_to "SUPPRIMER", to_do_list_path(list), method: :delete, class: "delte-list" %>
+										<%= image_tag "checked-icn.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
+								</span><br/>
+							<% end %>
+							<div>
+								<% list.tasks.take(6).each do |t| %>
+									<p class="fake-cntnr">
+								 		<% if t.done %><span class="fake-checkbox"><%= image_tag "chec.png" %></span><% else %><span class="fake-checkbox"></span><% end %>
+								 		<span class="fake-task"><%= truncate(t.name) %></span>
+									</p>
+								<% end %>
+							 	</p>
+							 	<p class="fake-task">...</p>
+							 	<br/>
+							</div>
+							<div class="float-right">&nbsp;<%= link_to "SUPPRIMER", to_do_list_path(list), method: :delete, class: "delte-list" %></div>
 						</div>
 					<% end %>
 				<% end %>

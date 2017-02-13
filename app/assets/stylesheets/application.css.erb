@@ -149,6 +149,13 @@ p, h2, h3{
   margin-top: 0.2em;
 }
 
+.fake-checkbox img{
+	width: 1em;
+	position: absolute;
+	margin-left: -1.1em;
+	margin-top: -1.1em;
+}
+
 .fake-cntnr{
   margin-top: 0.6em;
 }
@@ -163,6 +170,11 @@ p, h2, h3{
   padding: 0.1em;
   padding-left: 1.7em;
   border-radius: 0.3em;
+}
+
+.ttl-header{
+	background: white;
+	padding: 1em;
 }
 
 @font-face {
@@ -274,7 +286,7 @@ a .tools-cntnr{
 }
 
 .action-cntnr, .explaination-cntnr, .post-cntnr, .card-cntnr, .to-do-cards, .tasks-cntnr, .tools-cntnr{
-  border: 1px solid rgb(212,220,224) !important;
+  border-bottom: 1px solid rgb(212,220,224) !important;
   border-radius: 0.3em;
 }
 
@@ -1547,8 +1559,8 @@ header .normal_header{
 }
 
 .full-header{
-	box-shadow: 0 2px 2px -2px gray;
-  height:3.3em;
+	border-bottom: 1px solid rgb(225,228,232);
+  height:2.8em;
   padding-right: 1.5em;
   background: white;
   z-index: 1000;
@@ -1575,6 +1587,7 @@ header .normal_header{
 
 .lft-links{
   text-align: left;
+	margin-top: -.25em;
 }
 
 .full-header ul li{
@@ -2618,7 +2631,7 @@ header .normal_header{
   width: 100%;
   min-height: 100vh;
   margin-right: auto;
-  padding-top: 3.2em;
+  padding-top: 6.8em;
 	overflow: hidden;
   margin-left: auto;
   padding-bottom: 2em;
@@ -2626,8 +2639,44 @@ header .normal_header{
   width: auto;
 }
 
+.ttl-header{
+	margin-left: 13em;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	overflow: hidden;
+	padding-left: 2em;
+	margin-right: auto;
+	padding-top: 3.6em;
+	position: fixed;
+	padding-bottom: .4em;
+	border-bottom: 1px solid rgb(225,228,232);
+}
+
+.ttl-header h1{
+	margin-top: .1em;
+	font-family: "source_sans_proregular";
+}
+
+.ttl-header .page-ctas, .ttl-header .page-ttl{
+	display: inline-block;
+	vertical-align: top;
+	padding: 0;
+}
+
+.ttl-header .page-ttl{
+	float: left;
+}
+
+.ttl-header .page-ctas{
+	float: right;
+	padding-right: 2em;
+	min-height: 2.8em;
+	margin-top: -.2em;
+}
+
 .help-body, .actions-cntnr{
-	background:rgb(239,241,245);
+	background:rgb(235,239,244);
 }
 
 .welcome-usr{
@@ -2896,7 +2945,7 @@ select{
   padding-bottom: 2em;
   padding-right: 2em;
   padding-left: 2em;
-  background: rgb(255,250,229);
+  background: white;
 }
 
 .explaination-cntnr h2{
@@ -2949,18 +2998,17 @@ select{
 .to-do-cards, .editsortable{
   padding: 1em;
   text-align: justify;
-  width:18em;
-  height: 9.5em;
+  width:16em;
+  height: 24em;
   display: inline-block;
   vertical-align: top;
   margin: 0.3em;
-  overflow: hidden;
 }
 
 .editsortable, .editsortable2, .editsortable3{
-  background: rgb(250,250,250);
+  background: rgb(219,225,235);
   border-radius:0.3em;
-  border:2px dashed rgb(230,230,230) !important;
+  /*border:2px dashed rgb(230,230,230) !important;*/
 }
 
 .editsortable3{
@@ -2972,12 +3020,31 @@ select{
   box-shadow: 2px 2px 5px rgb(240,240,240);
 }
 
-.to-do-cards:hover{
-  background: rgb(249,249,249);
+.to-do-cards{
+  background: rgb(245,247,250);
+}
+
+.to-do-cards div{
+	background: white;
+	border-bottom: 1px solid rgb(235,238,242);
+	height: 70%;
+	margin-top: 1.1em;
+	margin-bottom: -.6em;
+	padding: .7em;
+	border-radius: .2em;
+}
+
+.to-do-cards .float-right{
+	padding: .1em;
+	padding-left: .5em;
+	padding-right: .5em;
+	height: auto;
+	background: rgb(215,219,225);
 }
 
 .to-do-cards h2{
-  font-size: 1.3em;
+  font-size: 1.1em;
+	color:rgb(43,54,69);
 }
 
 .inline_divs .taskname{
@@ -3096,14 +3163,14 @@ select{
 }
 
 .tasks-cmplt, .tasks-cmplt2{
-  width: 3em;
+  width: 3.5em;
   margin-right: -1em;
   margin-top: -3.3em;
   float: right;
 }
 
 .tasks-cmplt2{
-  margin-top: -1em;
+  margin-top: -1.5em;
   margin-right: -1.5em;
 }
 
@@ -3298,7 +3365,7 @@ input:placeholder-shown, textarea:placeholder-shown{
 
 .header-icn{
   height: 2em;
-	padding-top: 0.4em;
+	padding-top: 0.2em;
   margin-top: 0.2em;
 }
 
@@ -3425,7 +3492,7 @@ input:placeholder-shown, textarea:placeholder-shown{
 
 .white-count{
   color: white;
-  background: rgb(46,196,107);
+  background: rgb(64,174,17);
   opacity: 1;
   border:none;
 }
@@ -4106,7 +4173,7 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 
 .lft-logo-hdr{
   border-bottom: 1px solid rgb(30,30,30);
-  height: 3.3em;
+  height: 2.8em;
   background: rgb(23,33, 47);
   margin-top:-0.3em;
 }
@@ -5971,3 +6038,8 @@ table.barby-barcode { border-spacing: 0; }
 tr.barby-row {}
 td.barby-cell { width: .01em; height: 70px; }
 td.barby-cell.on { background: #000; }
+
+.rgth-links .help-btn{
+	padding-top: .8em;
+	padding-bottom: .7em;
+}
