@@ -20,7 +20,7 @@
 						<div class="taskname"><i class="finished-tsks"><%= task.name %></i></div>
 					<% end %>
 				<%= link_to to_do_list_task_path(list, task.id), method: :delete, remote: true, id: "delete-task" do %>
-					<%= image_tag "delete-sml.png", class: "delete-tsk-btn" %>
+					<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn" %>
 				<% end %>
 			<% end %>
 		</div>

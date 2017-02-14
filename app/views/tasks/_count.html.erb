@@ -1,6 +1,6 @@
 <!-- count how many tasks have been done -->
 <div class="count-tasks">
-	<span class="ttl-task"><%= list.title %></span>
+	<span class="ttl-task"><%= list.title.humanize %></span>
 	<span class="task-count">
     <%= list.done_count %> / <%= list.total_tasks %>
     <% if list.all_done %>
@@ -9,5 +9,4 @@
   </span>
   <!-- Tasks progress bar -->
   <div class="progressBar"></div>
-	<br/><br/>
 </div>

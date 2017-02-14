@@ -1,36 +1,54 @@
-<% title "#{@list.title}" %>
-<div class="actions-cntnr">
-	<div class="tasks-cntnr">
-		<%= link_to new_to_do_list_path do %>
-			<p class="ingredient-btn">Retour à l'index</p>
-		<% end %><br/>
-		<p class="ghost-txt">Votre liste</p>
-		<%= render "tasks/count", list: @list %>
-		<i class="grey-txt"><%= @list.description %></i><br/><br/>
-		<div id="progressbar"></div>
-		<!-- Index each tasks that isn't yet done -->
-		<%= render "tasks/task", tasklist: @tasklist, list: @list %>
-		<div class="done-tasks">
-			<!-- Index each done tasks -->
-			<%= render "tasks/done_task", done: @done, list: @list %>
+<div class="rgt-menu">
+	<div class="rgt-area">
+		<div class="rgt-area-ttl">
+			<h3>Toutes les listes</h3>
+			<%= link_to new_to_do_list_path do %><p class="add"><%= image_tag "add.png", class: "mini-img" %></p><% end %>
+			<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
-		<p class="element-btn">Ajouter un élément...</p>
-		<div class="simple-form-cntnr">
-			<!-- Form to create new tasks -->
-			<div class="smpl2-cntnr">
-				<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
-					<%= image_tag "title.png", class: "field-img2" %>
-					<%= f.text_field :name, class: "basic-field top-field", placeholder: "Tâche" %>
-					<%= f.hidden_field :to_do_list_id, value: @list.id %>
-					<%= image_tag "user.png", class: "field-img2" %>
-					<%= f.text_field :assigns_to, class: "basic-field middle-field", placeholder: "Réalisée par..", id: "datepicker" %>
-					<%= image_tag "calendar.png", class: "field-img2" %>
-					<%= f.text_field :due_date, class: "basic-field bottom-field datepicker", placeholder: "Avant le.." %>
-					<%= f.submit "AJOUTER", class: "btn inside-btn" %>
-					<p class="cancel-btn">ANNULER</p>
-				<% end %>
+	</div>
+</div>
+<% title "#{@list.title}" %>
+<div class="ttl-header action-rgt-ttl">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Votre liste</h1>
+		<p class="lft-p"><% if @list.all_done %>Bravo ! Vous avez réalisé toutes les tâches de votre liste<% else %>Déjà <%= @list.done_count %> tâches effectuées<% end %></p>
+	</div>
+	<div class="page-ctas">
+		<%= link_to new_to_do_list_path do %>
+			<p class="inside-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+		<% end %><br/>
+	</div>
+</div>
+<div class="rgt-helper">
+</div>
+<div class="action-cntnt action-rgt">
+	<div class="actions-cntnr to-do-cntrn">
+		<div class="tasks-cntnr">
+			<%= render "tasks/count", list: @list %>
+			<i class="grey-txt"><%= @list.description %></i><br/>
+			<div id="progressbar"></div>
+			<!-- Index each tasks that isn't yet done -->
+			<%= render "tasks/task", tasklist: @tasklist, list: @list %>
+			<div class="done-tasks">
+				<!-- Index each done tasks -->
+				<%= render "tasks/done_task", done: @done, list: @list %>
 			</div>
-		</div><br/>
+			<p class="element-btn">Ajouter un élément...</p>
+			<div class="simple-form-cntnr">
+				<!-- Form to create new tasks -->
+				<div class="smpl2-cntnr">
+					<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
+						<%= f.text_field :name, class: "basic-field top-field", placeholder: "Ajouter un élément..." %>
+						<%= f.hidden_field :to_do_list_id, value: @list.id %>
+						<%= f.text_field :assigns_to, class: "basic-field special-top", placeholder: "Réalisée par..", id: "datepicker" %>
+						<%= f.text_field :due_date, class: "basic-field bottom-field datepicker", placeholder: "Avant le.." %>
+						<br/>
+						<%= f.submit "AJOUTER", class: "btn inside-btn" %>
+						<p class="cancel-btn">Annuler</p>
+					<% end %>
+				</div>
+			</div><br/>
+		</div>
 	</div>
 </div>
 <script>

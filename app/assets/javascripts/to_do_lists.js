@@ -1,25 +1,25 @@
 $(document).ready(function(){
-	$(".element-btn").click(function(){
-		$(".explaination-cntnr").hide();
-		$(".element-btn").hide();
-		$(".simple-form-cntnr").show();
+	$(".inside-btn").click(function(){
+		$('#lst-index').hide();
+		$('#lst-new').show();
+		$('.page-ctas').hide();
+		$(".to-do-form").show();
 	});
 	$(".cancel-btn").click(function(){
-		$(".simple-form-cntnr").hide();
-		$(".explaination-cntnr").show();
+		$('#lst-index').show();
+		$('#lst-new').hide();
+		$('.page-ctas').show();
+		$(".to-do-form").hide();
 		$(".element-btn").show();
 	});
-	$("#list-btn").click(function(){
-		$("#list-btn").hide();
-	});
-	$(".cancel-btn").click(function(){
-		$(".edittask").hide();
-		$(".taskname").show();
+	$(".element-btn").click(function(){
+		$('.simple-form-cntnr').show();
+		$(this).hide();
 	});
 	// hide form unless the user click on the task, show form if click on other ".taskname"
 	$(document).on('click', ".taskname", function(){
 		$(".edittask").hide();
-		$(".simple-form-cntnr").hide();
+		$(".rgt_white-cntnr").hide();
 		$(".element-btn").show();
 		$(".class-helper").addClass("inline_divs");
 		$(".taskname").show();

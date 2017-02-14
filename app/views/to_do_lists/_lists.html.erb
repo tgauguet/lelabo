@@ -2,6 +2,16 @@
 	<% if lists %>
 		<ul>
 			<li id="sortable2">
+				<div class="to-do-cards to-do-default to-do-form" style="display:none;">
+					<%= form_for @list do |f| %>
+						<h2><%= f.text_field :title, placeholder: "Titre", required: true, class: "basic-field no-border-field"  %></h2>
+						<%=	f.text_area :description, placeholder: "Description", class: "basic-field no-border-field" %>
+						<%= f.hidden_field :user_id, value: @user.id %>
+						<br/>
+						<%= f.submit "AJOUTER LA LISTE", class: "btn inside-btn" %>
+						<p class="cancel-btn">Annuler</p>
+					<% end %>
+				</div>
 				<% lists.each do |list| %>
 					<%= link_to list do %>
 						<div class="to-do-cards to-do-default" data-id="<%= list.id %>">

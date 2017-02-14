@@ -18,6 +18,11 @@ $(function($){
 $(".cancel-btn").click(function(){
 		$(".edittask").hide();
 		$(".taskname").show();
+    $(".element-btn").show();
+});
+$(".element-btn").click(function(){
+  $('.simple-form-cntnr').show();
+  $(this).hide();
 });
 
 //save position after dragging and dropping

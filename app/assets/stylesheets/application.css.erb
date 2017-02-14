@@ -173,7 +173,7 @@ p, h2, h3{
 }
 
 .ttl-header{
-	background: white;
+	background: rgb(247,249,252);
 	padding: 1em;
 }
 
@@ -323,7 +323,7 @@ BUTTONS -- DESIGN
 
 /*  small buttons  */
 
-.cancel-btn, .social-btn, .inside-btn, .auto-btn{
+.social-btn, .inside-btn, .auto-btn{
   border: none;
   border-radius: 0.3em;
   padding-top: 0.5em;
@@ -335,7 +335,9 @@ BUTTONS -- DESIGN
 }
 
 .cancel-btn:hover{
-	background: rgb(208, 64, 67); /* red color for buttons */
+	color: rgb(208, 64, 67); /* red color for buttons */
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 /*   absolute properties   */
@@ -353,7 +355,7 @@ BUTTONS -- DESIGN
 	background: rgb(253,133,9) !important;
 }
 
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .delete-btn-cntnr:hover, .cancel-btn{
+.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .delete-btn-cntnr:hover{
   color: white;
 }
 
@@ -423,19 +425,9 @@ BUTTONS -- DESIGN
 }
 
 .cancel-btn{
-  background:#808285;
   display: inline-block;
   text-align: center;
-	-webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-	-webkit-transition-property: color, background-color;
-  transition-property: color, background-color;
+	bottom: 0;
 }
 
 .prod-quantities .cancel-btn{
@@ -1188,6 +1180,20 @@ header .normal_header{
   font-size: 1.6em;
 }
 
+.page-ttl p{
+	font-size: .9em;
+	margin: 0;
+	margin-bottom: .5em;
+	padding-left: .2em;
+	margin-top: -.1em;
+	opacity: .8;
+}
+
+.page-ttl{
+	text-align: left;
+	margin-left: 2em;
+}
+
 .big-white-h2{
   font-size: 2.4em;
 }
@@ -1566,7 +1572,7 @@ header .normal_header{
   z-index: 1000;
   position: fixed;
   right: 0;
-  left: 13em;
+  left: 12em;
 }
 
 .rgth-links{
@@ -2615,7 +2621,7 @@ header .normal_header{
 .left-cntnr{
   float: left;
   background: rgb(33,49,77);
-  width: 13em;
+  width: 12em;
   height: 103vh;
   position: fixed;
   margin-top: -0.2em;
@@ -2624,23 +2630,92 @@ header .normal_header{
 
 .full-cntnr{
   width: auto;
-  margin-left: 13em;
+  margin-left: 12em;
 }
 
 .actions-cntnr{
-  width: 100%;
-  min-height: 100vh;
+  height: auto;
   margin-right: auto;
-  padding-top: 6.8em;
-	overflow: hidden;
-  margin-left: auto;
   padding-bottom: 2em;
-  margin-left: 13em;
+	position: relative;
   width: auto;
 }
 
+.action-cntnt{
+	top: 7.8em;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 12em;
+	overflow-y: scroll;
+	border-left: 1px solid rgb(225,228,232);
+}
+
+.rgt-menu{
+	left: 12em;
+	position: fixed;
+	overflow: hidden;
+	overflow-y: scroll;
+	bottom: 0;
+	width: 15em;
+	top: 2.8em;
+	border-right: 1px solid rgb(225,228,232);
+}
+
+.rgt-area{
+	position: relative;
+	width: auto;
+	height: auto;
+}
+
+.rgt-area-ttl{
+	text-align: left;
+	border-bottom: 1px solid rgb(225,228,232);
+}
+
+.rgt-area-ttl h3{
+	font-weight: lighter;
+	padding: .2em;
+	padding-top: .7em;
+	padding-bottom: .7em;
+}
+
+.rgt-area-ttl h3, .rgt-area-ttl p{
+	display: inline-block;
+}
+
+.rgt-area-ttl p{
+	margin-right: .1em;
+	padding: .2em;
+	padding-right: .3em;
+	border:1px solid rgb(225,228,232);
+	border-radius: .2em;
+	cursor: pointer;
+}
+
+.rgt-area-ttl .add{
+	background: rgb(103,114,229);
+	border: 1px solid rgb(83,94,219);
+}
+
+.rgt-area-ttl p img{
+	opacity: .7;
+}
+
+.rgt-area-ttl .add img{
+	opacity: 1
+}
+
+#list-list{
+	overflow: hidden;
+	overflow-x: scroll;
+	position: absolute;
+	max-height: 30em;
+}
+
 .ttl-header{
-	margin-left: 13em;
+	margin-left: 12em;
 	left: 0;
 	right: 0;
 	z-index: 3;
@@ -2651,6 +2726,15 @@ header .normal_header{
 	position: fixed;
 	padding-bottom: .4em;
 	border-bottom: 1px solid rgb(225,228,232);
+	border-left: 1px solid rgb(225,228,232);
+}
+
+.action-rgt{
+	left: 27em;
+}
+
+.action-rgt-ttl{
+	margin-left: 27em;
 }
 
 .ttl-header h1{
@@ -2672,11 +2756,11 @@ header .normal_header{
 	float: right;
 	padding-right: 2em;
 	min-height: 2.8em;
-	margin-top: -.2em;
+	margin-top: .2em;
 }
 
-.help-body, .actions-cntnr{
-	background:rgb(235,239,244);
+.help-body, .action-cntnt{
+	background:rgb(242,244,248);
 }
 
 .welcome-usr{
@@ -2762,6 +2846,13 @@ header .normal_header{
 
 .tasks-cntnr{
   text-align: justify;
+	margin-left: auto;
+	margin-right: auto;
+	background: white;
+	padding: 1em;
+	position: relative;
+	margin-top: 2em;
+	width: 40em !important;
 }
 
 .ttl-task{
@@ -2770,7 +2861,7 @@ header .normal_header{
   margin-right: 1em;
 }
 
-.action-cntnr, .tasks-cntnr, .tools-cntnr, .list-cntnr{
+.action-cntnr, .tools-cntnr, .list-cntnr{
   background: white;
   margin-left: auto;
   margin-right: auto;
@@ -2965,16 +3056,8 @@ select{
 .simple-form-cntnr{
   border-radius: 0.3em;
   padding: 0.5em;
-  padding-right: 2em;
-  padding-left: 2em;
   display: none;
-  margin-bottom: 0.5em;
   position: relative;
-}
-
-.smpl2-cntnr{
-  position: relative;
-  text-align: left;
 }
 
 .simple-field, .simple-field2{
@@ -2995,20 +3078,9 @@ select{
   border-bottom:1px solid rgb(230,230,230);
 }
 
-.to-do-cards, .editsortable{
-  padding: 1em;
-  text-align: justify;
-  width:16em;
-  height: 24em;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0.3em;
-}
-
 .editsortable, .editsortable2, .editsortable3{
   background: rgb(219,225,235);
   border-radius:0.3em;
-  /*border:2px dashed rgb(230,230,230) !important;*/
 }
 
 .editsortable3{
@@ -3017,11 +3089,11 @@ select{
 
 .ui-sortable-helper{
   transform : rotate(1deg);
-  box-shadow: 2px 2px 5px rgb(240,240,240);
+  box-shadow: 2px 2px 5px rgb(200,203,208);
 }
 
 .to-do-cards{
-  background: rgb(245,247,250);
+  background: rgb(232,235,240);
 }
 
 .to-do-cards div{
@@ -3052,11 +3124,12 @@ select{
 }
 
 .inline_divs{
-	border-bottom:1px solid rgb(227, 227, 227);;
   cursor: pointer;
 	left:0;
-	width: 55em;
-	height: 2em;
+	width: auto;
+	padding-left: .3em;
+	padding-bottom: .2em;
+	padding-top: .1em;
 	background: white;
 	padding-top: 0.2em;
 }
@@ -3146,6 +3219,53 @@ select{
 	text-align: left;
 }
 
+.to-do-form{
+	height: 14em !important;
+}
+
+.over-x{
+	position: absolute;
+	right: 0;
+	left: 0;
+	height: 33em;
+	margin-left: 2em;
+	margin-right: 2em;
+	overflow: hidden;
+	overflow-x: scroll;
+}
+
+#list-list{
+	overflow: hidden;
+	overflow-x: scroll;
+	position: absolute;
+	max-height: 30em;
+}
+
+.to-do-cards, .editsortable{
+  padding: 1em;
+  text-align: justify;
+  width:16em;
+  height: 24em;
+	display: inline-block;
+  vertical-align: top;
+  margin: 0.3em;
+}
+
+#list-list ul{
+	white-space: nowrap;
+	padding: 1em;
+}
+
+.to-do-form .btn{
+	float: right;
+}
+
+.to-do-form .cancel-btn{
+	float: right;
+	margin-top: .9em;
+	margin-right: .5em;
+}
+
 .progressBar{
   width: 100%;
 }
@@ -3158,18 +3278,19 @@ select{
 }
 
 .ui-progressbar-value{
-  background: #2EC46B !important;
+  background: rgb(64,174,17) !important;
   border-right:none !important;
 }
 
 .tasks-cmplt, .tasks-cmplt2{
-  width: 3.5em;
-  margin-right: -1em;
-  margin-top: -3.3em;
+  width: 4.5em;
+  margin-right: -1.8em;
+  margin-top: -1.8em;
   float: right;
 }
 
 .tasks-cmplt2{
+	width: 3.5em;
   margin-top: -1.5em;
   margin-right: -1.5em;
 }
@@ -6042,4 +6163,15 @@ td.barby-cell.on { background: #000; }
 .rgth-links .help-btn{
 	padding-top: .8em;
 	padding-bottom: .7em;
+}
+
+.no-border-field{
+	border:none;
+	border-radius: .3em;
+	border-bottom: 1px solid rgb(202,212,217) !important;
+	padding-left: 0.7em;
+}
+
+.to-do-cards textarea{
+	height: 6em;
 }

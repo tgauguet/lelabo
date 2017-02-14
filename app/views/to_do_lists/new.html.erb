@@ -1,13 +1,19 @@
 <% title "Organisation" %>
 <div class="ttl-header">
-	<div class="page-ttl">
+	<div class="page-ttl" id="lst-index">
 		<h1 class="lttl-intro-h1">Organisation</h1>
+		<p>Vos listes de tâches</p>
 	</div>
 	<div class="page-ctas">
-		<p class="inside-btn ingredient-btn" id="list-btn">+ NOUVELLE LISTE</p>
+		<p class="inside-btn ingredient-btn">+ NOUVELLE LISTE</p>
+	</div>
+	<div class="page-ttl" id="lst-new" style="display:none;">
+		<h1 class="lttl-intro-h1">Nouvelle liste</h1>
+		<p>Créer une nouvelle liste</p>
 	</div>
 </div>
-<div class="actions-cntnr">
+<div class="action-cntnt">
+	<div class="actions-cntnr">
 		<div class="title-cntnr">
 			<% if empty_list %>
 				<div class="explaination-cntnr">
@@ -21,18 +27,6 @@
 				</div>
 			<% end %>
 		</div>
-		<div class="simple-form-cntnr">
-			<div class="smpl2-cntnr">
-				<%= form_for @list do |f| %>
-					<%= f.hidden_field :user_id, value: @user.id %>
-					<%= image_tag "title.png", class: "field-img2" %>
-					<%= f.text_field :title, placeholder: "Titre", required: true, class: "basic-field top-field"  %>
-					<%= image_tag "description.png", class: "field-img2" %>
-					<%=	f.text_area :description, placeholder: "Description", class: "basic-field bottom-field" %>
-					<%= f.submit "AJOUTER LA LISTE", class: "btn inside-btn" %>
-					<p class="cancel-btn">ANNULER</p>
-				<% end %>
-			</div>
-		</div>
-		<%= render "to_do_lists/lists", lists: @lists %>
+		<div class="over-x"><%= render "to_do_lists/lists", lists: @lists %></div>
+	</div>
 </div>
