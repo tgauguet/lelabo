@@ -1,53 +1,55 @@
 <% title "Ingrédients" %>
-<div class="actions-cntnr">
-	<!-- PUT HERE THE HTML CODE FOR SUNSPOT SOLR -->
-	<div class="page-new-ttl action-cntnr hide">
-		<p class="standard-btn grey-btn ingredient-btn">+ CRÉER UN INGRÉDIENT</p>
-		<p class="grey-btn hide white-cat">
-			<%= link_to new_category_path do %>+ NOUVELLE CATÉGORIE<% end %>
-		</p>
-		<br/><br/>
-	</div>
-	<div class="page-new-ttl action-cntnr">
-		<h2>INGREDIENT<span class="hide">S</span></h2>
-	</div>
-	<div class="ingredient-form">
-		<div class="action-cntnr page-new-ttl">
-			<%= render "form", ingredient: @ingredient %>
+<div class="action-cntnt">
+	<div class="actions-cntnr">
+		<!-- PUT HERE THE HTML CODE FOR SUNSPOT SOLR -->
+		<div class="page-new-ttl action-cntnr hide">
+			<p class="standard-btn grey-btn ingredient-btn">+ CRÉER UN INGRÉDIENT</p>
+			<p class="grey-btn hide white-cat">
+				<%= link_to new_category_path do %>+ NOUVELLE CATÉGORIE<% end %>
+			</p>
+			<br/><br/>
 		</div>
-	</div>
-	<br/>
-	<div class="hide">
-		<div class="ing-cntnr">
-			<p class="sort-before"><%= sortable "Nom", "name" %></p>
-			<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
-			<p class="sort-before"><%= sortable "Catégorie", "category" %></p>
-			<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
-			<p class="sort-before"><%= sortable "Prix", "price" %></p>
-			<p class="sort-before"><%= sortable "Biologique", "is_bio" %></p>
-			<p class="sort-before"><%= sortable "Gluten", "is_glut_free" %></p>
-			<p class="sort-before"><%= sortable "% sucre", "sugar_percent" %></p>
-			<p class="sort-before"><%= sortable "% eau", "water_percent" %></p>
-			<p class="sort-before"><%= sortable "% mat. grasse", "fat_percent" %></p>
-			<p class="sort-before"><%= sortable "% alcool", "alcool_percent" %></p>
-			<p class="sort-before"><%= sortable "% mat. sèche", "dry_matter_percent" %></p>
-			<p class="sort-before"><%= sortable "% cacao sec", "cocoa_percent" %></p>
-			<p class="sort-before"><%= sortable "% cacao total", "cocoa_total_percent" %></p>
-			<p class="sort-before"><%= sortable "% beurre de cacao", "cocoa_butter_percent" %></p>
-			<p class="sort-before"><%= sortable "% eau", "water_percent" %></p>
-			<p class="sort-before"><%= sortable "% glucides", "carbohydrates" %></p>
-			<p class="sort-before"><%= sortable "% protéines", "protein" %></p>
-			<p class="sort-before"><%= sortable "Pouvoir sucrant", "sugar_power" %></p>
-			<p class="sort-before"><%= sortable "Purée de fruits", "is_pulp" %></p>
+		<div class="page-new-ttl action-cntnr">
+			<h2>INGREDIENT<span class="hide">S</span></h2>
 		</div>
-				<ul class="list-cntnr">
-					<li id="sortable1">
-						<% unless @ingredients.nil? %>
-							<%= render @ingredients, cached: true %>
-						<% end %>
-					</li>
-				</ul>
-				<%= will_paginate @ingredients %>
+		<div class="ingredient-form">
+			<div class="action-cntnr page-new-ttl">
+				<%= render "form", ingredient: @ingredient %>
+			</div>
+		</div>
+		<br/>
+		<div class="hide">
+			<div class="ing-cntnr">
+				<p class="sort-before"><%= sortable "Nom", "name" %></p>
+				<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+				<p class="sort-before"><%= sortable "Catégorie", "category" %></p>
+				<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+				<p class="sort-before"><%= sortable "Prix", "price" %></p>
+				<p class="sort-before"><%= sortable "Biologique", "is_bio" %></p>
+				<p class="sort-before"><%= sortable "Gluten", "is_glut_free" %></p>
+				<p class="sort-before"><%= sortable "% sucre", "sugar_percent" %></p>
+				<p class="sort-before"><%= sortable "% eau", "water_percent" %></p>
+				<p class="sort-before"><%= sortable "% mat. grasse", "fat_percent" %></p>
+				<p class="sort-before"><%= sortable "% alcool", "alcool_percent" %></p>
+				<p class="sort-before"><%= sortable "% mat. sèche", "dry_matter_percent" %></p>
+				<p class="sort-before"><%= sortable "% cacao sec", "cocoa_percent" %></p>
+				<p class="sort-before"><%= sortable "% cacao total", "cocoa_total_percent" %></p>
+				<p class="sort-before"><%= sortable "% beurre de cacao", "cocoa_butter_percent" %></p>
+				<p class="sort-before"><%= sortable "% eau", "water_percent" %></p>
+				<p class="sort-before"><%= sortable "% glucides", "carbohydrates" %></p>
+				<p class="sort-before"><%= sortable "% protéines", "protein" %></p>
+				<p class="sort-before"><%= sortable "Pouvoir sucrant", "sugar_power" %></p>
+				<p class="sort-before"><%= sortable "Purée de fruits", "is_pulp" %></p>
+			</div>
+					<ul class="list-cntnr">
+						<li id="sortable1">
+							<% unless @ingredients.nil? %>
+								<%= render @ingredients, cached: true %>
+							<% end %>
+						</li>
+					</ul>
+					<%= will_paginate @ingredients %>
+	</div>
 </div>
 <script>
 	$(".ingredient-btn").click(function(){

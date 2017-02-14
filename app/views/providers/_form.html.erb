@@ -12,13 +12,13 @@
 		<p>Site internet</p>
 	</div>
 	<div class="composition big-compo">
-			<%= f.text_field :name, class: "basic-field top-rad" %>
-			<%= f.text_field :adress, class: "basic-field special-top" %>
-			<%= f.text_field :city, class: "basic-field special-top" %>
-			<%= f.text_field :postal, class: "basic-field special-top" %>
-			<%= f.text_field :country, class: "basic-field special-top" %>
-			<%= f.text_field :email, class: "basic-field special-top" %>
-			<%= f.text_field :website, class: "basic-field special-top bot-rad" %>
+			<%= f.text_field :name, class: "basic-field top-rad", placeholder:" " %>
+			<%= f.text_field :adress, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :city, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :postal, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :country, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :email, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :website, class: "basic-field special-top bot-rad", placeholder:" " %>
 	</div>
 </div>
 <div class="comp-cntnr">
@@ -31,12 +31,12 @@
 		<p>Notes</p>
 	</div>
 	<div class="composition big-compo">
-			<%= f.text_field :phone, class: "basic-field top-rad" %>
-			<%= f.text_field :fax, class: "basic-field special-top" %>
-			<%= f.text_field :mobile_phone, class: "basic-field special-top" %>
-			<%= f.text_field :vat, class: "basic-field special-top" %>
-			<%= f.text_field :siret, class: "basic-field special-top" %>
-			<%= f.text_area :notes, class: "basic-field special-top bot-rad notes" %>
+			<%= f.text_field :phone, class: "basic-field top-rad", placeholder:" " %>
+			<%= f.text_field :fax, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :mobile_phone, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :vat, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_field :siret, class: "basic-field special-top", placeholder:" " %>
+			<%= f.text_area :notes, class: "basic-field special-top bot-rad notes", placeholder:" " %>
 	</div>
 </div>
 <%= f.submit "Enregistrer", class: "btn inside-btn" %>

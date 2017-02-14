@@ -4,7 +4,7 @@
 class ToDoListsController < ApplicationController
 	before_action :set_user, only: [:new, :index, :show, :destroy, :update]
 	before_action :current_list, only: [:update, :show, :destroy, :update]
-	before_action :set_lists, only: [:new, :destroy]
+	before_action :set_lists, only: [:new, :destroy, :show]
 	skip_before_filter :verify_authenticity_token
 
 	def show
@@ -49,6 +49,7 @@ class ToDoListsController < ApplicationController
 
 	def destroy
 		@list.destroy
+		flash[:success] = "La liste a été supprimée"
 		redirect_to new_to_do_list_path
 	end
 

@@ -3,15 +3,11 @@
 
 class ProvidersController < ApplicationController
 	before_action :set_user
-	before_action :has_access?, only: [:show, :edit, :update, :destroy]
+	before_action :has_access?, only: [:edit, :update, :destroy]
 	helper_method :sort_columns, :sort_direction
 
 	def index
 		@providers = @user.providers.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
-	end
-
-	def show
-		@provider = Provider.find(params[:id])
 	end
 
 	def new
@@ -31,6 +27,7 @@ class ProvidersController < ApplicationController
 
 	def edit
 		@provider = Provider.find(params[:id])
+		@providers = @user.providers.all.order("name ASC")
 	end
 
 	def update

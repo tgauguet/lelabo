@@ -2,16 +2,37 @@
 	<div class="rgt-area">
 		<div class="rgt-area-ttl">
 			<h3>Toutes les listes</h3>
-			<%= link_to new_to_do_list_path do %><p class="add"><%= image_tag "add.png", class: "mini-img" %></p><% end %>
-			<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
+			<div>
+				<%= link_to new_to_do_list_path do %><p class="add"><%= image_tag "add.png", class: "mini-img" %></p><% end %>
+				<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
+			</div>
 		</div>
+		<ul>
+			<% @lists.each do |l| %>
+				<%= link_to l do %>
+					<li>
+						<% if l.all_done %>
+							<div class="done"></div>
+						<% else %>
+							<div></div>
+						<% end %>
+						<%= l.title %>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
 	</div>
 </div>
 <% title "#{@list.title}" %>
 <div class="ttl-header action-rgt-ttl">
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1">Votre liste</h1>
-		<p class="lft-p"><% if @list.all_done %>Bravo ! Vous avez réalisé toutes les tâches de votre liste<% else %>Déjà <%= @list.done_count %> tâches effectuées<% end %></p>
+		<p class="lft-p">
+			<% if @list.all_done %>Bravo ! Vous avez réalisé toutes les tâches de votre liste
+			<% elsif @list.done_count == 0 %>Aucune tâche effectuée
+			<% else %>Déjà <%= @list.done_count %> tâches effectuées
+			<% end %>
+		</p>
 	</div>
 	<div class="page-ctas">
 		<%= link_to new_to_do_list_path do %>

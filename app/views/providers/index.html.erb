@@ -1,37 +1,44 @@
 <% title "Fournisseurs" %>
-<div class="actions-cntnr">
-	<% if @user.basic_user? %>
-		<div class="page-new-ttl action-cntnr">
-			<p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
-			<%= link_to subscriptions_path do %>
-				<p class="auto-btn cta-btn">+ S'ABONNER</p>
-			<% end %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Fournisseurs</h1>
+		<p class="lft-p">Index des fournisseurs</p>
+	</div>
+	<div class="page-ctas">
+		<%= link_to new_provider_path do %>
+			<p class="standard-btn grey-btn ingredient-btn">+ NOUVEAU FOURNISSEUR</p>
+		<% end %>
+		<div>
+			<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
-	<% else %>
-		<div class="page-new-ttl action-cntnr hide">
-			<%= link_to new_provider_path do %>
-				<p class="standard-btn grey-btn ingredient-btn">+ CRÉER UN FOURNISSEUR</p>
-			<% end %>
-			<br/><br/>
-		</div>
-		<div class="page-new-ttl action-cntnr">
-			<h2>FOURNISSEURS</h2>
-		</div><br/>
-		<div class="hide">
-			<div class="ing-cntnr">
-				<p class="sort-before"><%= sortable "Nom", "name" %></p>
-				<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
-				<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+	</div>
+</div>
+<div class="action-cntnt">
+	<div class="actions-cntnr">
+		<% if @user.basic_user? %>
+			<div class="page-new-ttl action-cntnr">
+				<p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
+				<%= link_to subscriptions_path do %>
+					<p class="auto-btn cta-btn">+ S'ABONNER</p>
+				<% end %>
 			</div>
-					<ul class="list-cntnr">
-						<li id="sortable1">
-							<% unless @providers.nil? %>
-								<%= render @providers %>
-							<% end %>
-						</li>
-						<%= will_paginate %>
-					</ul>
+		<% else %>
+			<div class="hide">
+				<div class="ing-cntnr">
+					<p class="sort-before"><%= sortable "Nom", "name" %></p>
+					<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+					<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+				</div>
+						<ul class="list-cntnr">
+							<li id="sortable1">
+								<% unless @providers.nil? %>
+									<%= render @providers %>
+								<% end %>
+							</li>
+							<%= will_paginate %>
+						</ul>
+				</div>
 			</div>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
 </div>

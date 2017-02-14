@@ -2,7 +2,7 @@
 	<% if lists %>
 		<ul>
 			<li id="sortable2">
-				<div class="to-do-cards to-do-default to-do-form" style="display:none;">
+				<div class="to-do-default to-do-form" style="display:none;">
 					<%= form_for @list do |f| %>
 						<h2><%= f.text_field :title, placeholder: "Titre", required: true, class: "basic-field no-border-field"  %></h2>
 						<%=	f.text_area :description, placeholder: "Description", class: "basic-field no-border-field" %>
@@ -18,7 +18,7 @@
 							<% if list.all_done %>
 							  <%= image_tag 'clipboard.png', class: "tasks-cmplt2" %>
 							<% end %>
-							<h2><%= list.title.upcase %></h2>
+							<h2><%= truncate(list.title.upcase, length: 25) %></h2>
 							<% if list.all_done %>
 								<span class="tasks-count white-count">
 										<%= image_tag "checked-icn2.png", class: "smll-icn" %>&nbsp;<%= list.done_count %> / <%= list.total_tasks %>
