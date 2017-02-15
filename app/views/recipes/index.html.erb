@@ -1,45 +1,64 @@
-<% title "Vos recettes" %>
-<div class="actions-cntnr">
-  <div class="page-new-ttl action-cntnr hide">
+<% title "Recettes" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Recettes</h1>
+		<p class="lft-p">Index des recettes</p>
+	</div>
+	<div class="page-ctas">
     <%= link_to new_recipe_path do %>
-		  <p class="standard-btn grey-btn ingredient-btn">+ CRÉER UNE RECETTE</p>
+      <p class="standard-btn grey-btn ingredient-btn">+ CRÉER UNE RECETTE</p>
     <% end %>
-		<br/><br/>
-	</div>
-  <div class="page-new-ttl action-cntnr">
-		<h2>RECETTES</h2>
-	</div><br/>
-  <div class="hide">
-    <% unless @recipes.blank? %>
-		<div class="ing-cntnr">
-			<p class="sort-before"><%= sortable "Nom", "name" %></p>
-			<p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
-			<p class="sort-before"><%= sortable "Catégorie", "category" %></p>
-			<p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
-			<p class="sort-before"><%= sortable "Star", "stared" %></p>
-      <p class="sort-before"><%= sortable "Préférées", "loved" %></p>
+		<div>
+			<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
-    <% end %>
-				<ul class="list-cntnr">
-					<li id="sortable1">
-						<% if @recipes.blank? %>
-              <br/><br/>
-              <%= link_to new_recipe_path do %>
-                <p class="auto-btn cta-btn">CRÉER LA PREMIÈRE RECETTE</p>
-              <% end %>
-              <div class="explaination-cntnr">
-                <h2>Comment créer une recette ?</h2>
-                <div class="border-btm"></div>
-                <p>Cliquez sur le bouton ci-dessus</p>
-                <div class="border-btm"></div>
-                <p>Remplissez les champs à l'intérieur du formulaire</p>
-              </div>
-              <br/><br/>
-            <% else %>
-							<%= render @recipes, cache: true %>
-						<% end %>
-					</li>
-					<%= will_paginate %>
-				</ul>
+		<div>
+			<p><%= image_tag "colors.png", class: "mini-img" %></p>
+		</div>
 	</div>
+</div>
+<div class="sort-ttl-cntnr">
+	<div class="list-width">
+		<p class="major-td"><%= sortable "NOM", "name" %></p>
+		<p class="basic-td">FAVORIS</p>
+		<p class="basic-td"><%= sortable "TYPE", "category" %></p>
+	</div>
+</div>
+<div class="action-cntnt action-plus-list">
+  <div class="actions-cntnr">
+    <div class="hide">
+  			<ul class="list-cntnr">
+          <div class="list-width">
+  					<li id="sortable1">
+  						<% if @recipes.blank? %>
+                <br/><br/>
+                <%= link_to new_recipe_path do %>
+                  <p class="auto-btn cta-btn">CRÉER LA PREMIÈRE RECETTE</p>
+                <% end %>
+                <div class="explaination-cntnr">
+                  <h2>Comment créer une recette ?</h2>
+                  <div class="border-btm"></div>
+                  <p>Cliquez sur le bouton ci-dessus</p>
+                  <div class="border-btm"></div>
+                  <p>Remplissez les champs à l'intérieur du formulaire</p>
+                </div>
+                <br/><br/>
+              <% else %>
+  							<%= render @recipes, cache: true %>
+  						<% end %>
+  					</li>
+          </div>
+  					<%= will_paginate %>
+  				</ul>
+  	</div>
+    <% unless @recipes.blank? %>
+    <div class="ing-cntnr">
+      <p class="sort-before"><%= sortable "Nom", "name" %></p>
+      <p class="sort-before"><%= sortable "Date de création", "created_at" %></p>
+      <p class="sort-before"><%= sortable "Catégorie", "category" %></p>
+      <p class="sort-before"><%= sortable "Date de modification", "updated_at" %></p>
+      <p class="sort-before"><%= sortable "Star", "stared" %></p>
+      <p class="sort-before"><%= sortable "Préférées", "loved" %></p>
+    </div>
+    <% end %>
+  </div>
 </div>

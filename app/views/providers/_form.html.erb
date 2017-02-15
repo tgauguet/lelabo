@@ -1,47 +1,43 @@
 <%= form_for provider do |f| %>
-<div class="ing-form-cntnr">
-<h3>Informations</h3><br/>
-<div class="comp-cntnr">
-	<div class="composition-info">
-		<p>Nom</p>
-		<p>Adresse</p>
-		<p>Ville</p>
-		<p>Code postal</p>
-		<p>Pays</p>
-		<p>Email</p>
-		<p>Site internet</p>
+	<div class="ing-form-cntnr">
+			<div class="compostion big-compo prov-fields">
+					<h3>Informations</h3><br/>
+					<p>Nom</p>
+					<%= f.text_field :name, class: "basic-field", placeholder:" " %>
+					<p>Adresse</p>
+					<%= f.text_field :adress, class: "basic-field", placeholder:" " %>
+					<p>Ville</p>
+					<%= f.text_field :city, class: "basic-field", placeholder:" " %>
+					<p>Code postal</p>
+					<%= f.text_field :postal, class: "basic-field", placeholder:" " %>
+					<p>Pays</p>
+					<%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow2" %>
+					<%= f.country_select(:country, selected: @provider.country, priority_countries: ["BE", "FR"], class: "basic-field", placeholder:" ", include_blank: true) %>
+					<p>Email</p>
+					<%= f.text_field :email, class: "basic-field", placeholder:" " %>
+					<div class="form-border"></div>
+				</div>
+				<div class="compostion big-compo prov-fields">
+					<h3>Contacts & entreprise</h3><br/>
+					<p>Site internet</p>
+					<%= f.text_field :website, class: "basic-field", placeholder:" " %>
+					<p>Téléphone</p>
+					<%= f.text_field :phone, class: "basic-field", placeholder:" " %>
+					<p>Fax</p>
+					<%= f.text_field :fax, class: "basic-field", placeholder:" " %>
+					<p>Portable</p>
+					<%= f.text_field :mobile_phone, class: "basic-field", placeholder:" " %>
+					<p>N° de TVA</p>
+					<%= f.text_field :vat, class: "basic-field", placeholder:" " %>
+					<p>Siret</p>
+					<%= f.text_field :siret, class: "basic-field", placeholder:" " %>
+					<p>Notes</p>
+					<%= f.text_area :notes, class: "basic-field notes", placeholder:" " %>
+			</div>
+			<br/><br/>
+		<%= f.submit "ENREGISTRER", class: "btn inside-btn" %>
+		<%= link_to providers_path do %>
+			<p class="cancel-btn">Annuler</p>
+		<% end %>
 	</div>
-	<div class="composition big-compo">
-			<%= f.text_field :name, class: "basic-field top-rad", placeholder:" " %>
-			<%= f.text_field :adress, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :city, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :postal, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :country, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :email, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :website, class: "basic-field special-top bot-rad", placeholder:" " %>
-	</div>
-</div>
-<div class="comp-cntnr">
-	<div class="composition-info">
-		<p>Téléphone</p>
-		<p>Fax</p>
-		<p>Portable</p>
-		<p>N° de TVA</p>
-		<p>Siret</p>
-		<p>Notes</p>
-	</div>
-	<div class="composition big-compo">
-			<%= f.text_field :phone, class: "basic-field top-rad", placeholder:" " %>
-			<%= f.text_field :fax, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :mobile_phone, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :vat, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_field :siret, class: "basic-field special-top", placeholder:" " %>
-			<%= f.text_area :notes, class: "basic-field special-top bot-rad notes", placeholder:" " %>
-	</div>
-</div>
-<%= f.submit "Enregistrer", class: "btn inside-btn" %>
-<%= link_to providers_path do %>
-	<p class="cancel-btn">Annuler</p>
 <% end %>
-<% end %>
-</div>

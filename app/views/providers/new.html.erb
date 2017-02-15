@@ -1,12 +1,19 @@
 <% title "Nouveau fournisseur" %>
-<div class="actions-cntnr">
-	<div class="action-cntnr">
-		<h2>NOUVEAU FOURNISSEUR</h2>
-		<%= link_to providers_path do %>
-			<p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "mini-mini-img" %> INDEX</p>
-		<% end %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Nouveau fournisseur</h1>
+		<p class="lft-p">Créer un nouveau fournisseur</p>
 	</div>
-	<div class="action-cntnr">
-		<%= render "form", provider: @provider %>
+	<div class="page-ctas">
+		<%= link_to providers_path do %>
+			<p class="inside-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+		<% end %><br/>
+	</div>
+</div>
+<div class="action-cntnt">
+	<div class="actions-cntnr">
+		<div class="action-cntnr">
+			<%= render "form", provider: @provider %>
+		</div>
 	</div>
 </div>

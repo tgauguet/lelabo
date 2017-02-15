@@ -60,7 +60,7 @@ module ApplicationHelper
     end
 
     def sortable(name, column, title = nil)
-        title ||= name.titleize
+        title ||= name
         css_class = (column == sort_columns) ? "sort-btn #{sort_direction}" : nil
         direction = (column == sort_columns && sort_direction == "asc") ? "desc" : "asc"
         link_to title, { sort: column, direction: direction}, class: css_class

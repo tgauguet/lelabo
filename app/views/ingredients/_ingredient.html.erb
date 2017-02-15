@@ -1,31 +1,33 @@
-<div class="class-helper inline_divs">
-	<% if ingredient.category? %>
-		<div class="circle <%= category_color(ingredient) %>"></div>
-	<% end %>
-	<%= link_to edit_ingredient_path(ingredient) do %>
-		<div class="line-cntnr">
-			<span class="ing-name">
-				<%= truncate(ingredient.name.humanize, length: 35) %>
-				<span class="ing-imgs">
-					<% if ingredient.is_bio? %>
-						<%= image_tag "bio-smll.png", class: "small-img" %>
-					<% end %>
-					<% if ingredient.is_glut_free? %>
-						<%= image_tag "glut-smll.png", class: "small-img" %>
-					<% end %>
-					<% if ingredient.is_pulp? %>
-						<%= image_tag "fruit-smll.png", class: "small-img" %>
-					<% end %>
-				</span>
-			</span>
-			<span class="ing-price">
-				<% unless price_is_nil(ingredient) %>
-					<%= number_to_currency ingredient.price %></span><span class="ing-unit"><%= ingredient.unit %>
+<%= link_to edit_ingredient_path(ingredient) do %>
+	<div class="class-helper inline_divs">
+		<% if ingredient.category? %>
+			<div class="circle <%= category_color(ingredient) %>"></div>
+		<% end %>
+			<div class="line-cntnr">
+			 <div class="major-td">
+ 				 <%= truncate(ingredient.name.humanize, length: 35) %>
+ 			 </div>
+ 			 <div class="basic-td">
+				 <% unless price_is_nil(ingredient) %>
+					 <%= number_to_currency ingredient.price %>
+				 <% end %>
+ 			 </div>
+			 <div class="basic-td">
+				 <span class="ing-imgs">
+					 <% if ingredient.is_bio? %>
+						 <%= image_tag "bio-smll.png", class: "small-img" %>
+					 <% end %>
+					 <% if ingredient.is_glut_free? %>
+						 <%= image_tag "glut-smll.png", class: "small-img" %>
+					 <% end %>
+					 <% if ingredient.is_pulp? %>
+						 <%= image_tag "fruit-smll.png", class: "small-img" %>
+					 <% end %>
+				 </span>
+ 			 </div>
+				<%= link_to ingredient_path(ingredient.id), method: :delete, id: "delete-task" do %>
+					<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
 				<% end %>
-			</span>
-			<%= link_to ingredient_path(ingredient.id), method: :delete, id: "delete-task" do %>
-				<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
-			<% end %>
-		</div>
-	<% end %>
- </div>
+			</div>
+	 </div>
+ <% end %>
