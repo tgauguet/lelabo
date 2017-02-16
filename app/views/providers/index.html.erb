@@ -9,9 +9,19 @@
 			<p class="standard-btn grey-btn ingredient-btn">+ NOUVEAU FOURNISSEUR</p>
 		<% end %>
 		<div>
-			<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
+			<p class="sort-show show-sort"><%= image_tag "sort-img.png", class: "mini-img" %></p>
+		</div>
 		</div>
 	</div>
+</div>
+<div class="sort-paths">
+	<div class="arrow-container"><div class="arrow-up"></div></div>
+	<p>TRIER PAR</p>
+	<ul>
+		<li><%= sortable "Nom", "name" %></li>
+		<li><%= sortable "Date de Création", "created_at" %></li>
+		<li><%= sortable "Date de Modification", "updated_at" %></li>
+	</ul>
 </div>
 <div class="sort-ttl-cntnr">
 	<div class="list-width">
