@@ -225,6 +225,7 @@ GEM
     notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    nprogress-rails (0.2.0.2)
     ntlm-http (0.1.1)
     orm_adapter (0.5.0)
     paper_trail (5.0.1)
@@ -434,6 +435,7 @@ DEPENDENCIES
   meta-tags
   multi_fetch_fragments
   nokogiri
+  nprogress-rails
   paper_trail
   paperclip
   pg (~> 0.15)

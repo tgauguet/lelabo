@@ -1,6 +1,6 @@
 $(".create-task").html("<%= escape_javascript(render 'tasks/task', tasklist: @tasklist, list: @list) %>")
 $(".create-task2").html("<%= escape_javascript(render 'tasks/done_task', done: @done, list: @list) %>")
-$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count', list: @list) %>")
+$(".task-count").html( "<%= escape_javascript (render 'tasks/count', list: @list) %>")
 
 // clear form fields when a task is created
 $('#clear_form').find("input[type=text], text").val("")
@@ -15,14 +15,23 @@ $(function($){
   });
 });
 
+$('.ttl-task').click(function(){
+  $('.form-task').show();
+  $(this).hide();
+  $('.form-task').focus();
+});
 $(".cancel-btn").click(function(){
 		$(".edittask").hide();
 		$(".taskname").show();
     $(".element-btn").show();
 });
 $(".element-btn").click(function(){
-  $('.simple-form-cntnr').show();
+  $('.smpl2-cntnr').show();
   $(this).hide();
+  $(".focus").focus();
+});
+$('.ingredient-btn').click(function(){
+  $(".smpl2-cntnr").hide();
 });
 
 //save position after dragging and dropping

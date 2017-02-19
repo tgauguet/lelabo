@@ -1,6 +1,6 @@
 $(".create-task").html( "<%= escape_javascript(render 'tasks/task', tasklist: @tasklist, list: @list) %>")
 $(".create-task2").html( "<%= escape_javascript(render 'tasks/done_task', done: @done, list: @list) %>")
-$(".count-tasks").html( "<%= escape_javascript (render 'tasks/count', list: @list) %>")
+$(".task-count").html( "<%= escape_javascript (render 'tasks/count', list: @list) %>")
 $(function($){
   $(".progressBar").each(function(){
     $(this).progressbar({
@@ -13,8 +13,6 @@ $(".cancel-btn").click(function(){
 		$(".edittask").hide();
 		$(".taskname").show();
 });
-
-
 
 var ready, set_positions;
 

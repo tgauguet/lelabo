@@ -18,7 +18,7 @@
 								<%= f.fields_for :tasks, task, remote: true do |ff| %>
 									<%= ff.text_field :name, class: "task-field", id: "task-name", onclick: "(this)select();" %><br/>
 									<%= ff.text_field :assigns_to, class: "task-field smll-txt", placeholder: "assignée à...", onclick: "(this).select();" %><br/>
-									<%= ff.submit "ENREGISTRER", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">ANNULER</span>
+									<%= ff.submit "ENREGISTRER", class: "inside-btn smll-txt" %><span class="smll-txt smll-btn cancel-btn">Annuler</span>
 								<% end %>
 							</div>
 							<div class="taskname">

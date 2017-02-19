@@ -10,23 +10,31 @@ $(document).ready(function(){
 		$('#lst-new').hide();
 		$('.page-ctas').show();
 		$(".to-do-form").hide();
+		$(".edittask").hide();
+		$(".taskname").show();
 		$(".element-btn").show();
-	});
-	$(".element-btn").click(function(){
-		$('.simple-form-cntnr').show();
-		$(this).hide();
 	});
 	// hide form unless the user click on the task, show form if click on other ".taskname"
 	$(document).on('click', ".taskname", function(){
 		$(".edittask").hide();
 		$(".rgt_white-cntnr").hide();
 		$(".element-btn").show();
+		$(".smpl2-cntnr").hide();
 		$(".class-helper").addClass("inline_divs");
+		$('.element-btn').show();
 		$(".taskname").show();
 		$(this).closest(".taskname").hide();
 		$(this).closest(".inline_divs").removeClass("inline_divs");
 		$(this).parent().find('.edittask').show();
 		$(this).parent().find('.task-name').focus();
+	});
+	$('.ttl-task').click(function(){
+	  $('.form-task').show();
+		$(this).hide();
+		$('.form-task').focus();
+	});
+	$('.ingredient-btn').click(function(){
+	  $(".smpl2-cntnr").hide();
 	});
 
 	// hide div on link click, action: delete
@@ -53,8 +61,12 @@ $(document).ready(function($) {
 		dateFormat: 'dd-M-yy'
      });
   });
+	$(".element-btn").click(function(){
+		$(this).hide();
+		$('.simple-form-cntnr').show();
+		$(".focus").focus();
+	});
 });
-
 
 // Code for JQuery sortable
 var ready, set_positions;

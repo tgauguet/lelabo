@@ -2,6 +2,8 @@
  *= require_self
  *= require jquery-ui
  *= require select2
+ *= require nprogress
+ *= require nprogress-turbolinks5
 */
 
  /*
@@ -26,6 +28,19 @@ body{
 	font-family: Helvetica;
   margin: 0;
   padding: 0;
+}
+
+#nprogress .spinner-icon{
+	display: none;
+}
+
+#nprogress .bar {
+  background: rgb(66,61,215) !important;
+  width: 100vw;
+}
+
+#nprogress .peg {
+  box-shadow: none !important;
 }
 
 *{
@@ -3028,10 +3043,23 @@ header .normal_header{
 	padding-bottom: 2em;
 }
 
-.ttl-task{
+.ttl-task, .form-task input{
   font-size: 1.6em;
   font-family: "source_sans_prosemibold";
   margin-right: 1em;
+	border-radius: .2em;
+}
+
+.ttl-task{
+	cursor: pointer;
+}
+
+.form-task input{
+	border:1px solid rgb(226,226,226);
+}
+
+.form-task input:focus{
+	border:1px solid rgb(37,129,250);
 }
 
 .action-cntnr, .tools-cntnr{
@@ -3504,8 +3532,13 @@ select{
 .tasks-cmplt, .tasks-cmplt2{
   width: 4.5em;
   margin-right: -1.8em;
-  margin-top: -1.8em;
+  margin-top: -3.8em;
   float: right;
+}
+
+.mini-span{
+	font-size: .7em;
+	float: right;
 }
 
 .tasks-cmplt2{
@@ -6367,4 +6400,15 @@ td.barby-cell.on { background: #000; }
 
 .to-do-default textarea{
 	height: 6em;
+}
+
+.lst-dlt{
+	border-radius: .3em;
+	background: rgb(212,216,223);
+	border-bottom: 1px solid rgb(202,212,217) !important;
+	margin-right: 5.3em;
+	margin-top: 1em;
+	padding: .5em 1em .5em 1em;
+	color: white !important;
+
 }

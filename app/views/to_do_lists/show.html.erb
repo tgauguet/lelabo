@@ -17,6 +17,7 @@
 							<div></div>
 						<% end %>
 						<%= l.title %>
+						<span class="mini-span"><%= l.done_count %> / <%= l.total_tasks %></span>
 					</li>
 				<% end %>
 			<% end %>
@@ -45,7 +46,13 @@
 <div class="action-cntnt action-rgt">
 	<div class="actions-cntnr to-do-cntrn">
 		<div class="tasks-cntnr">
-			<%= render "tasks/count", list: @list %>
+			<div>
+				<%= form_for(@list, action: :edit )do |f| %>
+					<span class="ttl-task"><%= @list.title.humanize %></span>
+					<span class="form-task" style="display:none;"><%= f.text_field :title, value: @list.title.humanize %></span>
+				<% end %>
+				<%= render "tasks/count", list: @list %>
+			</div>
 			<i class="grey-txt"><%= @list.description %></i><br/>
 			<div id="progressbar"></div>
 			<!-- Index each tasks that isn't yet done -->
@@ -59,7 +66,7 @@
 				<!-- Form to create new tasks -->
 				<div class="smpl2-cntnr">
 					<%= form_for([@list, @task], remote: true, html: { data_type: "html", id: "clear_form"}) do |f| %>
-						<%= f.text_field :name, class: "basic-field top-field", placeholder: "Ajouter un élément..." %>
+						<%= f.text_field :name, class: "basic-field top-field focus", placeholder: "Ajouter un élément..." %>
 						<%= f.hidden_field :to_do_list_id, value: @list.id %>
 						<%= f.text_field :assigns_to, class: "basic-field special-top", placeholder: "Réalisée par..", id: "datepicker" %>
 						<%= f.text_field :due_date, class: "basic-field bottom-field datepicker", placeholder: "Avant le.." %>
@@ -70,6 +77,7 @@
 				</div>
 			</div><br/>
 		</div>
+		<div class="float-right lst-dlt"><%= image_tag "trash.png", class:"mini-mini-img" %>&nbsp;<%= link_to "SUPPRIMER", to_do_list_path(@list), method: :delete, class: "delte-list" %></div>
 	</div>
 </div>
 <script>

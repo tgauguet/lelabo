@@ -33,6 +33,8 @@ gem "gibbon"
 
 gem 'wicked_pdf'
 
+gem 'nprogress-rails'
+
 gem 'wkhtmltopdf-binary'
 
 gem 'uglifier', '>= 1.3.0'
