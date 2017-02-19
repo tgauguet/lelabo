@@ -32,7 +32,13 @@
 </div>
 <div class="action-cntnt action-plus-list">
 	<div class="list-cntnr">
-		<div class="list-width">
+		<div id="circleG" class="loading-indicator" style="display:none;">
+			<br/><br/>
+			<div id="circleG_1" class="circleG"></div>
+			<div id="circleG_2" class="circleG"></div>
+			<div id="circleG_3" class="circleG"></div>
+		</div>
+		<div class="list-width ajax-hide">
 			<% if @user.basic_user? %>
 				<div class="page-new-ttl action-cntnr">
 					<p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
@@ -53,6 +59,6 @@
 				</div>
 			<% end %>
 		</div>
-		<%= will_paginate %>
+		<div class="ajax-hide"><%= will_paginate %></div>
 	</div>
 </div>

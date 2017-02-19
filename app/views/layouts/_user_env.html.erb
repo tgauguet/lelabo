@@ -60,7 +60,7 @@
 					<span>Accueil</span>
 				</li>
 			<% end %>
-			<%= link_to new_ingredient_path do %>
+			<%= link_to ingredients_path do %>
 				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
 						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>

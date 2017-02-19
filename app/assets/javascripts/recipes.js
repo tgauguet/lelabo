@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	$(".delete-pop-over").click(function(){
 		$(".confirm-cntnr").show();

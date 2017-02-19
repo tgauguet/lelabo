@@ -1,4 +1,24 @@
 <% title "#{@recipe.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
+		<p class="lft-p" id="div0">Aperçu de la recette</p>
+		<!--
+		<p class="lft-p" id="div1" style="display:none;">Édition de la recette</p>
+		<p class="lft-p" id="div2" style="display:none;">Calculs de la recette</p>
+		<p class="lft-p" id="div3" style="display:none;">Équilibre de la recette</p>
+		<p class="lft-p" id="div4" style="display:none;">Coût de revient de la recette</p>
+		<p class="lft-p" id="div5" style="display:none;">Photos de la recette</p>
+		<p class="lft-p" id="div6" style="display:none;">Étiquettes de la recette</p>
+		<p class="lft-p" id="div7" style="display:none;">Statistiques de la recette</p>
+	-->
+	</div>
+	<div class="page-ctas">
+    <%= link_to recipes_path do %>
+      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+    <% end %>
+	</div>
+</div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
       <div class="recipe-btn-cntnr">

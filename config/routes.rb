@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 			put "resort/:id" => "to_do_lists#resort"
 		end
 	end
-	resources :ingredients, except: [:show, :index] do
+	resources :ingredients, except: [:show] do
 		collection do
 			#put "/sort/:id" => "ingredients#sort" -> unused since jquery sortable has been removed
 			get :search

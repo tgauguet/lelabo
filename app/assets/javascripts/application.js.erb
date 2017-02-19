@@ -64,9 +64,11 @@ $(document).ready(function(){
   });
   $(document).on("page:fetch", function(){
     $(".loading-indicator").show();
+    $(".ajax-hide").hide();
   });
   $(document).on("page:receive", function(){
     $(".loading-indicator").hide();
+    $(".ajax-hide").show();
   });
 });
 

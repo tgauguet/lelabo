@@ -1,8 +1,18 @@
 <% title "#{@ingredient.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @ingredient.name.humanize %></h1>
+		<p class="lft-p">Modification de l'ingrédient</p>
+	</div>
+	<div class="page-ctas">
+		<%= link_to ingredients_path do %>
+			<p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+		<% end %>
+	</div>
+</div>
 <div class="action-cntnt">
 	<div class="actions-cntnr">
 		<div class="action-cntnr">
-			<h2 class="ing-bg-name"><%= @ingredient.name.mb_chars.upcase %></h2><br/>
 			<%= render "form", ingredient: @ingredient %>
 		</div>
 	</div>

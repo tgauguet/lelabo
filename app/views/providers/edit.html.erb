@@ -32,10 +32,18 @@
 	</div>
 </div>
 <div class="action-cntnt action-rgt">
+	<div class="provider-info">
+		<% if !@provider.website.blank? %>
+			<a href="<%= @provider.website %>" target="_blank"><div class="grey-cntnr"><%= image_tag "link.png", class: "mini-mini-img" %> Voir le site</div></a>
+		<% end %>
+		<div class="blue-cntnr">
+				<span><%= @provider.provider_prices.count %></span> ingrédients associés
+		</div>
+	</div>
 	<div class="actions-cntnr to-do-cntrn">
 		<div class="tasks-cntnr">
 			<div class="provider-ingredients">
-				<h3>Ingrédients liés</h3>
+				<h3>Ingrédients associés</h3>
 				<% if @provider.provider_prices %>
 					<% @provider.provider_prices.each do |p| %>
 						<%= link_to edit_ingredient_path(p.ingredient_id) do %>

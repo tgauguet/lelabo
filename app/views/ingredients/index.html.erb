@@ -1,0 +1,70 @@
+<% title "Ingrédients" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Ingrédients</h1>
+		<p class="lft-p">Index des ingrédients</p>
+	</div>
+	<div class="page-ctas">
+		<%= link_to new_ingredient_path do %>
+			<p class="standard-btn grey-btn ingredient-btn">+ NOUVEL INGRÉDIENT</p>
+		<% end %>
+		<p class="grey-btn hide white-cat">
+			<%= link_to new_category_path do %>+ NOUVELLE CATÉGORIE<% end %>
+		</p>
+		<div>
+			<p class="show-sort sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
+		</div>
+		<div>
+			<p><%= image_tag "colors.png", class: "mini-img" %></p>
+		</div>
+	</div>
+</div>
+<div class="sort-paths">
+		<div class="arrow-container"><div class="arrow-up"></div></div>
+		<p>TRIER PAR</p>
+		<ul>
+			<li><%= sortable "Date de création", "created_at" %></li>
+			<li><%= sortable "Date de modification", "updated_at" %></li>
+			<li><%= sortable "Biologique", "is_bio" %></li>
+			<li><%= sortable "Gluten", "is_glut_free" %></li>
+			<li><%= sortable "% sucre", "sugar_percent" %></li>
+			<li><%= sortable "% eau", "water_percent" %></li>
+			<li><%= sortable "% mat. grasse", "fat_percent" %></li>
+			<li><%= sortable "% alcool", "alcool_percent" %></li>
+			<li><%= sortable "% mat. sèche", "dry_matter_percent" %></li>
+			<li><%= sortable "% cacao sec", "cocoa_percent" %></li>
+			<li><%= sortable "% cacao total", "cocoa_total_percent" %></li>
+			<li><%= sortable "% beurre de cacao", "cocoa_butter_percent" %></li>
+			<li><%= sortable "% glucides", "carbohydrates" %></li>
+			<li><%= sortable "% protéines", "protein" %></li>
+			<li><%= sortable "Pouvoir sucrant", "sugar_power" %></li>
+			<li><%= sortable "Purée de fruits", "is_pulp" %></li>
+		</ul>
+</div>
+<div class="sort-ttl-cntnr">
+	<div class="list-width">
+		<p class="major-td"><%= sortable "NOM", "name" %></p>
+		<p class="basic-td"><%= sortable "PRIX", "price" %>/KG</p>
+		<p class="basic-td">TYPE</p>
+	</div>
+</div>
+<div class="action-cntnt action-plus-list">
+	<div class="actions-cntnr">
+			<div id="circleG" class="loading-indicator" style="display:none;">
+				<br/><br/>
+				<div id="circleG_1" class="circleG"></div>
+				<div id="circleG_2" class="circleG"></div>
+				<div id="circleG_3" class="circleG"></div>
+			</div>
+			<ul class="list-cntnr ajax-hide">
+				<div class="list-width">
+						<li id="sortable1">
+							<% unless @ingredients.nil? %>
+								<%= render @ingredients, cached: true %>
+							<% end %>
+						</li>
+				</div>
+			</ul>
+			<div class="ajax-hide"><%= will_paginate @ingredients %></div>
+	</div>
+</div>

@@ -9,23 +9,6 @@ $(document).ready(function(){
   $(".actions-cntnr").removeClass("no-scroll");
   $('[id*="ingredient_id"]').select2();
   $('[id*="sub_id"]').select2();
-  // show indicator during ajax loadtime
-  $(".loading-indicator").hide();
-  $(".popover-bck").hide();
-  $(document).ajaxStart(function(){
-    $(".loading-indicator").show();
-    $(".ajax-hide").hide();
-  });
-  $(document).ajaxStop(function(){
-    $(".loading-indicator").hide();
-    $(".ajax-hide").show();
-  });
-  $(document).on("page:fetch", function(){
-    $(".loading-indicator").show();
-  });
-  $(document).on("page:receive", function(){
-    $(".loading-indicator").hide();
-  });
   // hide and show each form in edit view
   $('.recipe-btn').click(function(){
     $(".recipe-option").hide();

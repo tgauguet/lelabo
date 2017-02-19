@@ -3324,6 +3324,7 @@ select{
 	border-top-left-radius: 0em;
 	min-height: 36em;
 	padding: 1.2em;
+	margin-left: 8em;
 }
 
 .sort-ttl-cntnr p{
@@ -3355,6 +3356,45 @@ select{
 
 .basic-td{
 	width: 16em;
+}
+
+.provider-info{
+	margin-bottom: -1.2em;
+	margin-top: .8em;
+}
+
+.provider-info div{
+	display: inline-block;
+	width: 15em;
+	vertical-align: top;
+	border-radius: .3em;
+	padding: 1em;
+}
+
+.grey-cntnr{
+	background: rgb(222,225,231);
+	border-bottom: 1px solid rgb(202,205,211);
+}
+
+.grey-cntnr:hover{
+	background: rgb(212,215,221);
+}
+
+.blue-cntnr{
+	background: rgb(21,160,207);
+	border-bottom: 1px solid rgb(18,153,202);
+	color: white;
+	font-family: "source_sans_prosemibold";
+	cursor: default;
+}
+
+.blue-cntnr span{
+	color: white;
+	font-family: "source_sans_prosemibold";
+	font-size: 2em;
+	position: absolute;
+	margin-top: -.3em;
+	margin-left: -.8em;
 }
 
 .basic-td a:hover{
@@ -3668,11 +3708,6 @@ input:placeholder-shown, textarea:placeholder-shown{
   height: 2em;
 	padding-top: 0.2em;
   margin-top: 0.2em;
-}
-
-.ingredient-form{
-  display: none;
-  position: relative;
 }
 
 .circle{
@@ -4266,13 +4301,13 @@ input:placeholder-shown, textarea:placeholder-shown{
 }
 
 .pagination .disabled {
-    color: #aaaaaa;
+    color: #bbbbbb;
 }
 
 .pagination .current{
     font-style: normal;
     font-weight: bold;
-    background-color: #bebebe;
+    background-color: rgb(84,88,223);
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
@@ -4280,7 +4315,8 @@ input:placeholder-shown, textarea:placeholder-shown{
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+		color: white;
+}
 
 .pagination a{
     text-decoration: none;
@@ -5162,11 +5198,11 @@ input[type="checkbox"] + span {
 }
 
 .recipe-btn-cntnr{
-	width: 5em;
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 1em;
-	margin-right: 0.4em;
+	width: 8em;
+	position: fixed;
+	bottom: 0;
+	padding-bottom: .7em;
+	background: white;
 }
 
 .recipe-btn{

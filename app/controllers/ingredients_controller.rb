@@ -29,10 +29,13 @@ class IngredientsController < ApplicationController
 	#	end
 	#end
 
-	def new
-		@categories = @user.category.all
-		@ingredient = @user.ingredients.new
+	def index
 		@ingredients = @user.ingredients.all.paginate(:page => params[:page], :per_page => 30).order(sort_columns + " " + sort_direction)
+	end
+
+	def new
+		@ingredient = @user.ingredients.new
+		@categories = @user.category.all
 	end
 
 	def edit
@@ -59,7 +62,7 @@ class IngredientsController < ApplicationController
 				flash[:error] = "Erreur lors de la création"
 			end
 		end
-		redirect_to new_ingredient_path
+		redirect_to ingredients_path
 	end
 
 	def update
