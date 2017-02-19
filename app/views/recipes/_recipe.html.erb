@@ -2,7 +2,7 @@
     <% if recipe.category? %>
     	<div class="circle <%= category_color(recipe) %>"></div>
     <% end %>
-    <%= link_to edit_recipe_path(recipe) do %>
+    <%= link_to recipe_path(recipe) do %>
       <div class="line-cntnr">
         <div class="major-td">
   				 <%= truncate(recipe.name.humanize, length: 35) %>

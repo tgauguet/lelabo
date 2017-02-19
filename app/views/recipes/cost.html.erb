@@ -1,0 +1,67 @@
+<% title "#{@recipe.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
+		<p class="lft-p">Photos de la recette</p>
+	</div>
+	<div class="page-ctas">
+    <%= link_to recipes_path do %>
+      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+    <% end %>
+	</div>
+</div>
+<div class="action-cntnt">
+  <div class="actions-cntnr">
+      <%= render "recipe_bar" %>
+      <div class="action-cntnr">
+<div class="cost_form">
+<% if @recipe.quantities.blank? %>
+  <p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
+<% else %>
+    <div class="ingredients-add-ctnr equ-left">
+      <div class="add_ingredients">
+        <p>Ingrédients</p>
+        <%= form_for(@recipe, remote: true) do |f| %>
+          <% @recipe.quantities.each_with_index do |ingredient, index| %>
+            <%= f.fields_for :quantities, ingredient do |ff| %>
+              <%= render "add_quantities", ff: ff %>
+            <% end %>
+          <% end %>
+          <div class="add_field"><%= create_new_field "+", f, :quantities %></div>
+      </div>
+    </div>
+    <div class="values resp-values">
+      <div class="cost-val">
+        <ul>
+          <% @recipe.quantities.each do |ingredient| %>
+            <li><%= number_to_currency recipe_price(ingredient, @recipe) %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="cost-ttl">
+        <h3>Cout de revient</h3>
+        <div class="cost-cost">
+          <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
+            <p>Recette</p>
+            <p>Pour 1kg</p>
+            <p>Pour <%= ff.text_field :value, class: 'rounded-field basic-field cost-field' %> kg</p>
+          <% end %>
+        </div>
+        <div class="cost-result">
+          <%= f.fields_for :totals, @recipe.totals.first do |ff| %>
+            <p><%= number_to_currency @recipe.total_cost %></p>
+            <p><%= number_to_currency @recipe.kilo_cost %></p>
+            <p><%= number_to_currency @recipe.custom_cost %></p>
+          <% end %>
+        </div>
+        <br/>
+        <br/>
+        <%= f.submit "MODIFIER", class: "auto-btn cta-btn" %>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>

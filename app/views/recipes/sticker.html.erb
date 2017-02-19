@@ -1,3 +1,19 @@
+<% title "#{@recipe.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
+		<p class="lft-p">Calculs de la recette</p>
+	</div>
+	<div class="page-ctas">
+    <%= link_to recipes_path do %>
+      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+    <% end %>
+	</div>
+</div>
+<div class="action-cntnt">
+  <div class="actions-cntnr">
+      <%= render "recipe_bar" %>
+      <div class="action-cntnr">
 <%= form_for @recipe do |f| %>
   <h3>CONSERVATION & PRODUCTION</h3>
   <p>NUMÉRO DE PRODUCTION</p>
@@ -127,3 +143,6 @@
 <% if @barcode && is_barcode?(@recipe.bar) %>
   <%= @barcode.to_html.html_safe %>
 <% end %>
+</div>
+</div>
+</div>

@@ -32,6 +32,13 @@ Rails.application.routes.draw do
 		end
     member do
       get :download
+      get :quant
+      get :sticker
+      get :show
+      get :stats
+      get :pictures
+      get :equilibrium
+      get :cost
       get :quantities_pdf
       get :d_quantities_pdf
       get :quantities_array_pdf

@@ -5,11 +5,12 @@ require 'barby/outputter/html_outputter'
 class RecipesController < ApplicationController
   include RecipesHelper
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf, :quantities_array_pdf, :d_quantities_array_pdf]
+  before_action :set_recipe, except: [:index]
   before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_paper_trail_whodunnit
+  before_action :recipe_edit_helpers, except: [:index]
 
   # GET /recipes
   # GET /recipes.json
@@ -22,6 +23,30 @@ class RecipesController < ApplicationController
   def show
   end
 
+  def quant
+  end
+
+  def pictures
+    @images = @recipe.images.all.order("created_at ASC")
+  end
+
+  def equilibrium
+  end
+
+  def cost
+  end
+
+  def stats
+  end
+
+  def sticker
+    if @recipe.bar && is_barcode?(@recipe.bar)
+      @bar = Barby::EAN13.new(@recipe.bar.to_s)
+      @barcode = Barby::HtmlOutputter.new(@bar)
+    end
+    @sticker_value = (@recipe.quantities + @recipe.sub_recipes).sort{ |a, b| b.weight <=> a.weight }
+  end
+
   # GET /recipes/new
   def new
     @recipe = @user.recipes.new
@@ -30,15 +55,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    @totals = @recipe.totals.all.order("created_at ASC")
-    if @recipe.bar && is_barcode?(@recipe.bar)
-      @bar = Barby::EAN13.new(@recipe.bar.to_s)
-      @barcode = Barby::HtmlOutputter.new(@bar)
-    end
     @ingredient = @user.ingredients.new
-    @sticker_value = (@recipe.quantities + @recipe.sub_recipes).sort{ |a, b| b.weight <=> a.weight }
-    @categories = @user.category.all
-    @images = @recipe.images.all.order("created_at ASC")
     respond_to do |format|
       format.html
       format.json { head :no_content }
@@ -172,6 +189,11 @@ class RecipesController < ApplicationController
   def has_access?
     @recipe = Recipe.find(params[:id])
     redirect_to page_error_path unless user_signed_in? && (@recipe.user_id == current_user.id)
+  end
+
+  def recipe_edit_helpers
+    @totals = @recipe.totals.all.order("created_at ASC")
+    @categories = @user.category.all
   end
 
   def set_user

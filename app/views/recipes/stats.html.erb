@@ -1,4 +1,23 @@
+<% title "#{@recipe.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
+		<p class="lft-p">Calculs de la recette</p>
+	</div>
+	<div class="page-ctas">
+    <%= link_to recipes_path do %>
+      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+    <% end %>
+	</div>
+</div>
+<div class="action-cntnt">
+  <div class="actions-cntnr">
+  </div class="action-cntnr">
+      <%= render "recipe_bar" %>
 <canvas id="myChart" width="200" height="200"></canvas>
+</div>
+</div>
+</div>
 <script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {

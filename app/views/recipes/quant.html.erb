@@ -1,3 +1,19 @@
+<% title "#{@recipe.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
+		<p class="lft-p">Calculs de la recette</p>
+	</div>
+	<div class="page-ctas">
+    <%= link_to recipes_path do %>
+      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+    <% end %>
+	</div>
+</div>
+<div class="action-cntnt">
+  <div class="actions-cntnr">
+      <%= render "recipe_bar" %>
+			<div class="action-cntnr">
     <div class="q-forms">
       <div class="clcl-choice">
         <p class="grey-btn hide white-cat tab">
@@ -8,7 +24,7 @@
     		</p>
       </div>
       <div class="q-f1">
-        <%= form_for(recipe, remote: true) do |f| %>
+        <%= form_for(@recipe, remote: true) do |f| %>
         <div class="qt-bck">
           <div class="prod-quantities">
             <h3>Quelle quantité produire ?</h3>
@@ -23,18 +39,18 @@
               </div>
             </div>
             <br/><br/>
-            <div class="tru content2 composition-info" style="<% if !recipe.fast %>display:none;<% end %>">
+            <div class="tru content2 composition-info" style="<% if !@recipe.fast %>display:none;<% end %>">
               <p>À produire</p>
             </div>
-            <div class="tru content2 composition" style="<% if !recipe.fast %>display:none;<% end %>">
+            <div class="tru content2 composition" style="<% if !@recipe.fast %>display:none;<% end %>">
               <%= image_tag "hand.png", class: "field-img" %>
               <%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
             </div>
-            <div class="fal content2 composition-info" style="<% if recipe.fast %>display:none;<% end %>">
+            <div class="fal content2 composition-info" style="<% if @recipe.fast %>display:none;<% end %>">
               <p>Stock</p>
               <p>À vendre</p>
             </div>
-            <div class="fal content2 composition" style="<% if recipe.fast %>display:none;<% end %>">
+            <div class="fal content2 composition" style="<% if @recipe.fast %>display:none;<% end %>">
               <%= image_tag "stock.png", class: "field-img" %>
               <%= f.text_field :stock, class: "basic-field top-rad hide-meas", placeholder:"Quantité..." %>
               <%= image_tag "sold.png", class: "field-img" %>
@@ -43,7 +59,7 @@
             <br/><br/>
             <div class="basic-field rounded-field meas-env">
               <%= image_tag "measure.png", class: "field-img2 up-img" %>
-              Unité de mesure : <%= recipe.unit %>
+              Unité de mesure : <%= @recipe.unit %>
               <span class="grey-btn pop-on">
         			     <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
           		</span>
@@ -66,14 +82,14 @@
               <%= image_tag "pdf.png", alt:"doc pdf" %>
             <% end %>
           </div>
-          <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+          <h3>Recette pour <%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></h3>
           <div class="recipe-values">
             <div class="nth-ttl">
               <b><div class="r-q-name">Ingrédient</div>
               <div class="r-q-name2">Quantité</div>
               <div class="r-q-name2 r-q-name3">Unité</div></b>
             </div><br/>
-            <% recipe.quantities.each do |q| %>
+            <% @recipe.quantities.each do |q| %>
               <div class="nth-chld">
                 <div class="r-q-name"><%= q.ingredient.name %></div>
                 <% if !(q.unit == "QS") %>
@@ -84,7 +100,7 @@
                 <% end %>
               </div>
             <% end %>
-            <% recipe.sub_recipes.each do |s| %>
+            <% @recipe.sub_recipes.each do |s| %>
                 <div class="nth-chld">
                   <div class="r-q-name"><%= current_user.recipes.find(s.sub_id).name %></div>
                   <div class="r-q-name2"><%= s.perfect_weight %></div>
@@ -96,7 +112,7 @@
         <% end %>
       </div>
       <div class="q-f2" style="display:none;">
-        <%= form_for(recipe, remote: true) do |f| %>
+        <%= form_for(@recipe, remote: true) do |f| %>
           <div class="qt-bck">
             <div class="array-bck" id="parent">
               <h3>Créer un tableau</h3>
@@ -104,7 +120,7 @@
               <%= f.select :array_unit, ["g", "Kg"] %>
               <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
               <p>Quantités à insérer</p>
-              <%= f.fields_for :totals, totals do |ff| %>
+              <%= f.fields_for :totals, @totals do |ff| %>
                 <div class="kg-field">
                   <%= ff.text_field :value, class: 'basic-field recipe-comp-sel rounded-field kilo-field' %>
                 </div>
@@ -135,30 +151,30 @@
                 <div class="nth-ttl">
                   <b><div class="r-q-name">Ingrédient</div>
                   <div class="r-q-name2 r-q-name4 r-q-base">Base</div>
-                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.first.value.to_f %> <%= recipe.array_unit %></div>
-                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.second.value.to_f %> <%= recipe.array_unit %></div>
-                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.third.value.to_f %> <%= recipe.array_unit %></div>
-                  <div class="r-q-name2 r-q-name4"><%= recipe.totals.fourth.value.to_f %> <%= recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= @recipe.totals.first.value.to_f %> <%= @recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= @recipe.totals.second.value.to_f %> <%= @recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= @recipe.totals.third.value.to_f %> <%= @recipe.array_unit %></div>
+                  <div class="r-q-name2 r-q-name4"><%= @recipe.totals.fourth.value.to_f %> <%= @recipe.array_unit %></div>
                 </b>
                 </div><br/>
-                <% recipe.quantities.each do |q| %>
+                <% @recipe.quantities.each do |q| %>
                   <div class="nth-chld">
                     <div class="r-q-name"><%= q.ingredient.name %></div>
                     <div class="r-q-name2 r-q-name4"><%= q.weight %><div><%= q.unit %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.first.value) %><div><%= q.perfect_array_unit(recipe.totals.first.value) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.second.value) %><div><%= q.perfect_array_unit(recipe.totals.second.value) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.third.value) %><div><%= q.perfect_array_unit(recipe.totals.third.value) %></div></div>
-                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.fourth.value) %><div><%= q.perfect_array_unit(recipe.totals.fourth.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(@recipe.totals.first.value) %><div><%= q.perfect_array_unit(@recipe.totals.first.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(@recipe.totals.second.value) %><div><%= q.perfect_array_unit(@recipe.totals.second.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(@recipe.totals.third.value) %><div><%= q.perfect_array_unit(@recipe.totals.third.value) %></div></div>
+                    <div class="r-q-name2 r-q-name4"><%= q.perfect_array(@recipe.totals.fourth.value) %><div><%= q.perfect_array_unit(@recipe.totals.fourth.value) %></div></div>
                   </div>
                 <% end %>
-                <% recipe.sub_recipes.each do |s| %>
+                <% @recipe.sub_recipes.each do |s| %>
                     <div class="nth-chld">
                       <div class="r-q-name"><%= current_user.recipes.find(s.sub_id).name %></div>
                       <div class="r-q-name2 r-q-name4"><%= s.weight %><div>g</div></div>
-                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.first.value) %><div><%= s.perfect_array_unit(recipe.totals.first.value) %></div></div>
-                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.second.value) %><div><%= s.perfect_array_unit(recipe.totals.second.value) %></div></div>
-                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.third.value) %><div><%= s.perfect_array_unit(recipe.totals.third.value) %></div></div>
-                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(recipe.totals.fourth.value) %><div><%= s.perfect_array_unit(recipe.totals.fourth.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(@recipe.totals.first.value) %><div><%= s.perfect_array_unit(@recipe.totals.first.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(@recipe.totals.second.value) %><div><%= s.perfect_array_unit(@recipe.totals.second.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(@recipe.totals.third.value) %><div><%= s.perfect_array_unit(@recipe.totals.third.value) %></div></div>
+                      <div class="r-q-name2 r-q-name4"><%= s.perfect_array(@recipe.totals.fourth.value) %><div><%= s.perfect_array_unit(@recipe.totals.fourth.value) %></div></div>
                     </div>
                 <% end %>
               </div>
@@ -169,3 +185,7 @@
         <% end %>
       </div>
     </div>
+  </div>
+</div>
+</div>
+</div>
