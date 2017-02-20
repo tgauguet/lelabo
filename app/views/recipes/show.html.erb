@@ -2,7 +2,7 @@
 <div class="ttl-header">
 	<div class="page-ttl">
     <h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
-		<p class="lft-p">Apperçu de la recette</p>
+		<p class="lft-p">Aperçu de la recette</p>
   </div>
   <div class="page-ctas">
     <%= link_to recipes_path do %>
@@ -10,19 +10,23 @@
     <% end %>
 	</div>
 </div>
+<div class="rec-rgt-menu">
+	<div class="rgt-area">
+		<%= render "recipe_bar" %>
+	</div>
+</div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
-    <div class="action-cntnr page-new-ttl recipe-forms">
-      <%= render "recipe_bar" %>
+    <div class="rec-cntnr">
+			<div class="recipe-links">
+				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
+					<%= image_tag 'pdf2.png' , class: 'mini-mini-img'%> Enregistrer
+				<% end %>
+				<%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
+					<%= image_tag 'pdf.png', class: 'mini-mini-img' %> Aperçu PDF
+				<% end %>
+			</div>
       <div class="recipe-view">
-        <div class="recipe-links">
-          <%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
-            <%= image_tag 'download.png' , class: 'small-imgs'%>
-          <% end %>
-          <%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
-            <%= image_tag 'pdf.png', class: 'small-imgs' %>
-          <% end %>
-        </div>
         <div class="view-top-l">
           <h1><%= @recipe.name.mb_chars.upcase %></h1>
           <div class="recipe-info-cntnr">
@@ -47,7 +51,7 @@
                 <% end %>
               </p>
             </div>
-            <div class="@recipe-info">
+            <div class="recipe-info">
               <h3>T° CUISSON</h3>
               <p>
                 <% if @recipe.baking? %>

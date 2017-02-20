@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     has_many :to_do_lists, dependent: :destroy
     has_many :providers, dependent: :destroy
     has_many :recipes, dependent: :destroy
+		has_many :staffs, dependent: :destroy
     has_many :ingredients, dependent: :destroy
     has_many :assemblies, dependent: :destroy
     has_one :subscription, dependent: :destroy

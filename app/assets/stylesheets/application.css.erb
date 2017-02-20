@@ -1427,8 +1427,8 @@ header .normal_header{
 
 .send-feedback{
   position: fixed;
-  z-index: 1000;
-  margin-top: 83vh;
+  z-index: 10;
+  bottom: 1em;
   text-align: justify;
 }
 
@@ -1479,6 +1479,7 @@ header .normal_header{
   width: 10em;
   margin-top: -9em;
   margin-left: 3em;
+	box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
   padding: 0.5em;
 }
 
@@ -2136,10 +2137,6 @@ header .normal_header{
   background: rgb(249,249,249);
 }
 
-.blue-bckgrnd{
-  background: rgb(22, 82, 224);
-}
-
 .blue-bckgrnd h2, .blue-bckgrnd p{
   color: white;
 }
@@ -2254,12 +2251,12 @@ header .normal_header{
 }
 
 .qt-bck{
-	background: rgb(249,250,251);
-	border-bottom: 1px solid rgb(241,242,245);
-	border-top: 1px solid rgb(241,242,245);
-	width: 100%;
+	width: 80%;
 	text-align: left;
 	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: .2em;
 }
 
 .composition-table td, .composition-table th, .composition-table table{
@@ -2311,8 +2308,7 @@ header .normal_header{
 	border-radius: 0.3em;
 	margin-top: 1.5em;
 	min-height: 19em;
-	width: 100%;
-	padding-top: 0em;
+	width: 90%;
 	font-size: 1.05em;
 }
 
@@ -2340,7 +2336,17 @@ header .normal_header{
 
 .r-q-name4{
 	text-align: right;
-	width: 6em;
+	width: 5em;
+}
+
+.yellow-btn{
+	background: rgb(253,180,19);
+	opacity: 1;
+	border-color: rgb(243,150,14) !important;
+}
+
+.yellow-btn:hover{
+	background: rgb(243,170,17) !important;
 }
 
 .nth-ttl .r-q-name2{
@@ -2479,8 +2485,9 @@ header .normal_header{
 }
 
 .clcl-mode{
-	width: 12em;
+	width: 9em;
 	float: right;
+	margin-top: -3em;
 }
 
 .show-pdf{
@@ -2513,6 +2520,20 @@ header .normal_header{
 	vertical-align: top;
 }
 
+.staff-cntnr{
+	border-bottom:1px solid rgb(226,226,226);
+	background: white;
+	text-align: left;
+	padding: 2em;
+}
+
+.staff-lst-img{
+	width: 6em;
+	height: 6em;
+	border-radius: 50%;
+	border:4px solid white;
+}
+
 .clcl-mode .lfrd{
 	margin-left: 0em;
 }
@@ -2524,11 +2545,6 @@ header .normal_header{
 .prod-quantities input[type=radio]:first-child + label {
     border-top-left-radius: 0.3em;
 		border-top-right-radius: 0.3em;
-}
-
-.clcl-choice{
-		height: 3em;
-		padding-left: 2.2em;
 }
 
 .q-forms .ingredient-btn{
@@ -2719,7 +2735,7 @@ header .normal_header{
   float: left;
   background: rgb(33,49,77);
   width: 12em;
-  height: 103vh;
+  height: 100%;
   position: fixed;
   margin-top: -0.2em;
   padding-top: 0.5em;
@@ -2742,7 +2758,7 @@ header .normal_header{
 	top: 7.8em;
 	overflow: hidden;
 	position: absolute;
-	right: 0;
+	right: 0em;
 	z-index: -1;
 	bottom: 0;
 	left: 12em;
@@ -2750,7 +2766,7 @@ header .normal_header{
 	border-left: 1px solid rgb(225,228,232);
 }
 
-.rgt-menu{
+.rgt-menu, .rec-rgt-menu{
 	left: 12em;
 	position: fixed;
 	overflow: hidden;
@@ -2759,6 +2775,11 @@ header .normal_header{
 	width: 15em;
 	top: 2.8em;
 	border-right: 1px solid rgb(225,228,232);
+}
+
+.rec-rgt-menu{
+	width: 8em;
+	top: 7.8em;
 }
 
 .rgt-menu ul{
@@ -2794,7 +2815,8 @@ header .normal_header{
 .rgt-area{
 	position: relative;
 	width: auto;
-	height: auto;
+	height: 100%;
+	background: white;
 }
 
 .rgt-area-ttl{
@@ -3066,7 +3088,7 @@ header .normal_header{
   background: white;
   margin-left: auto;
   margin-right: auto;
-  width: 59em;
+  width: 55em;
   padding: 3em;
 }
 
@@ -3338,21 +3360,12 @@ select{
 	border-bottom: 1px solid rgb(226, 226, 226);
 }
 
-.inline_divs:last-child{
+.inline_divs:last-child, .staff-cntnr:last-child{
 	border:none;
 }
 
 .tasks-cntnr .inline_divs{
 	border:none;
-}
-
-.recipe-forms{
-	display: inline-block;
-	vertical-align: top;
-	border-top-left-radius: 0em;
-	min-height: 36em;
-	padding: 1.2em;
-	margin-left: 8em;
 }
 
 .sort-ttl-cntnr p{
@@ -3434,8 +3447,9 @@ select{
 	vertical-align: top;
 }
 
-.inline_divs:hover{
-  background: rgba(0,0,0,0.05);
+.inline_divs:hover, .staff-cntnr:hover{
+  background: rgb(246,248,251);
+	cursor: pointer;
 }
 
 .create-task .check{
@@ -3953,6 +3967,10 @@ input:placeholder-shown, textarea:placeholder-shown{
 	padding-left: .7em;
 }
 
+.array-bck{
+	padding-top: 1em;
+}
+
 .select-span select{
   border-top:0px;
   border-top-right-radius: 0;
@@ -4095,8 +4113,14 @@ input:placeholder-shown, textarea:placeholder-shown{
 }
 
 .composition{
-	width: 5em;
+	width: 19em;
 	margin-right: .2em;
+	margin-top: -.7em;
+}
+
+.composition div{
+	display: inline-block;
+	width: 9em;
 }
 
 .comp2{
@@ -5132,6 +5156,10 @@ input[type="checkbox"] + span {
 	text-align: left;
 }
 
+.rec-cntnr{
+	margin-left: 8em;
+}
+
 .recipe-form{
 	text-align: left;
 }
@@ -5231,11 +5259,7 @@ input[type="checkbox"] + span {
 }
 
 .recipe-btn-cntnr{
-	width: 8em;
-	position: fixed;
-	bottom: 0;
-	padding-bottom: .7em;
-	background: white;
+	width: auto;
 }
 
 .recipe-btn{
@@ -5243,6 +5267,11 @@ input[type="checkbox"] + span {
 	margin: 0em;
 	cursor: pointer;
 	background: white;
+	border-bottom: 1px solid rgb(226,226,226);
+}
+
+.recipe-btn span{
+	font-size: .8em;
 }
 
 .recipe-forms h2{
@@ -5252,7 +5281,7 @@ input[type="checkbox"] + span {
 }
 
 .recipe-btn img{
-	width: 2em;
+	width: 1.7em;
 }
 
 .recipe-btn:hover{
@@ -5260,8 +5289,8 @@ input[type="checkbox"] + span {
 }
 
 .current-form{
-	position: relative;
-	background: #88b7d5 !important;
+	background: rgb(213,217,240) !important;
+	box-shadow: inset 0 -3px 0 rgb(103,109,143);
 }
 
 .current-form:after {
@@ -5281,10 +5310,61 @@ input[type="checkbox"] + span {
 .recipe-view{
 	text-align: left;
 	padding: .5em;
+	background: white;
+	margin-left: auto;
+	position: relative;
+	margin-right: auto;
+	width: 50em;
+	margin-top: 1em;
+	padding: 1.7em;
+	border: 1px solid rgba(0, 0, 0, 0.150);
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.recipe-view:before, .recipe-view:after {
+  content: "";
+  height: 98%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.recipe-view:before {
+  background: #fafafa;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  left: -5px;
+  top: 4px;
+  transform: rotate(-.5deg);
+}
+.recipe-view:after {
+  background: #f6f6f6;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1deg);
 }
 
 .recipe-links{
 	text-align: right;
+	margin-right: 4em;
+	margin-top: .8em;
+	margin-bottom: 1.6em;
+	height: 2em;
+}
+
+.recipe-links a, .recipe-links p{
+	background: rgb(226,230,236);
+	border-bottom: 1px solid rgb(196,199,206);
+	border-radius: .2em;
+	margin: .3em;
+	cursor: pointer;
+	float: right;
+	padding: .5em 1em .5em 1em;
+}
+
+.recipe-links a:hover, .recipe-links p:hover{
+	background: rgb(216,219,226);
 }
 
 .view-top-l, .view-top-r, .ing-rght, .ing-left{
@@ -5323,7 +5403,7 @@ input[type="checkbox"] + span {
 }
 
 .recipe-info h3{
-	font-size: 1.1em;
+	font-size: 1em;
 }
 
 .recipe-info-cntnr .form-border{
@@ -5369,8 +5449,9 @@ input[type="checkbox"] + span {
 }
 
 .view-top-r img{
-	width: 16em;
-	height: 16em;
+	width: 14em;
+	height: 14em;
+	margin-top: .5em;
 }
 
 
@@ -5999,10 +6080,6 @@ textarea {
 		background: green !important
 	}
 
-	.recipe-btn-cntnr{
-		width: 100%;
-	}
-
 	.recipe-btn{
 		display: inline;
 		margin-left: -0.2em;
@@ -6411,4 +6488,13 @@ td.barby-cell.on { background: #000; }
 	padding: .5em 1em .5em 1em;
 	color: white !important;
 
+}
+
+.blue-bckgrnd{
+  background: rgb(13,94,163);/*rgb(225, 228, 235);*/
+	border-bottom: 1px solid rgb(12, 32, 84);
+}
+
+.blue-bckgrnd h3{
+	color: white;
 }

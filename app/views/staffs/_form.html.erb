@@ -1,0 +1,36 @@
+
+<%= form_for(@staff) do |f| %>
+<div class="ing-form-cntnr">
+  <% if @staff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
+      <ul>
+      <% @staff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="compostion big-compo prov-fields">
+        <h3>Informations</h3><br/>
+        <p>Nom</p>
+        <%= f.text_field :name, class: "basic-field", placeholder:" " %>
+        <p>Prénom</p>
+        <%= f.text_field :name, class: "basic-field", placeholder:" " %>
+        <p>Adresse</p>
+        <%= f.text_field :address, class: "basic-field", placeholder:" " %>
+        <p>Ville</p>
+        <%= f.text_field :city, class: "basic-field", placeholder:" " %>
+        <p>Code postal</p>
+        <%= f.text_field :postal, class: "basic-field", placeholder:" " %>
+        <p>Email</p>
+        <%= f.text_field :email, class: "basic-field", placeholder:" " %>
+        <p>Téléphone</p>
+        <%= f.text_field :phone, class: "basic-field", placeholder:" " %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+    </div>
+    <%= f.submit "ENREGISTRER", class: "btn inside-btn" %>
+		<p class="cancel-btn">Annuler</p>
+  </div>
+</div>
+<% end %>

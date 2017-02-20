@@ -1,0 +1,42 @@
+<% title "Équipe" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1">Équipe</h1>
+		<p class="lft-p">Index des équipiers</p>
+	</div>
+	<div class="page-ctas">
+		<p class="standard-btn grey-btn ingredient-btn">+ NOUVEL ÉQUIPIER</p>
+		<div>
+			<p class="sort-show show-sort"><%= image_tag "sort-img.png", class: "mini-img" %></p>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="sort-paths">
+	<div class="arrow-container"><div class="arrow-up"></div></div>
+	<p>TRIER PAR</p>
+	<ul>
+		<li><%= sortable "Nom", "name" %></li>
+		<li><%= sortable "Date de Création", "created_at" %></li>
+		<li><%= sortable "Date de Modification", "updated_at" %></li>
+	</ul>
+</div>
+<div class="sort-ttl-cntnr">
+	<div class="list-width">
+		<p class="major-td"><%= sortable "NOM", "name" %></p>
+	</div>
+</div>
+<div class="action-cntnt action-plus-list">
+  <div class="actions-cntnr">
+		<div class="title-cntnr">
+  <%#= render 'form' %>
+  <% @staffs.each do |staff| %>
+    <%= link_to staff do %>
+      <div class="staff-cntnr">
+        <% if staff.photo? %><%= image_tag staff.photo %><% else %><%= image_tag "missing-staff.png", class:"staff-lst-img" %><% end %>
+        <%= staff.name %>
+        <%= staff.firstname %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

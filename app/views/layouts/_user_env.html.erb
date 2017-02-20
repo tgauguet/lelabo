@@ -76,6 +76,14 @@
 					<span>Recettes</span>
 				</li>
 			<% end %>
+			<%= link_to new_to_do_list_path do %>
+				<li class="f-li <% if request.path.start_with?('/to')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img5.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					<span>Organisation</span>
+				</li>
+			<% end %>
 			<%= link_to providers_path do %>
 				<li class="f-li <% if request.path.start_with?('/prov')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
@@ -84,12 +92,12 @@
 					<span>Fournisseurs</span>
 				</li>
 			<% end %>
-			<%= link_to new_to_do_list_path do %>
-				<li class="f-li <% if request.path.start_with?('/to')%>current-feat<% end %>">
+			<%= link_to new_staff_path do %>
+				<li class="f-li <% if request.path.start_with?('/sta')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img5.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img6.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					<span>Organisation</span>
+					<span>Équipe</span>
 				</li>
 			<% end %>
 		</ul>
