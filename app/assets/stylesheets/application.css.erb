@@ -2521,10 +2521,40 @@ header .normal_header{
 }
 
 .staff-cntnr{
-	border-bottom:1px solid rgb(226,226,226);
+	border-bottom:1px solid rgb(226,226,226) !important;
 	background: white;
 	text-align: left;
 	padding: 2em;
+}
+
+.staff-form{
+	margin-top: 2em;
+	margin-bottom: 1em;
+	border-radius: .3em;
+	text-align: left;
+	padding: 1em;
+	background: rgb(232,235,240);
+}
+
+.staff-form input{
+	width: 15em;
+	border-radius: .3em;
+	padding-left: .7em;
+}
+
+.staff-form .btn{
+	width: 10em;
+}
+
+.staff-form p{
+	margin-top: .4em;
+}
+
+.staff-info{
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 1em;
+	margin-left: 1em;
 }
 
 .staff-lst-img{
@@ -4603,6 +4633,10 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	border-bottom:1px solid rgb(29,39,65);
 }
 
+.cost_form table tr:last-child td{
+	border-bottom: none;
+}
+
 .feature-img{
 	opacity: 0.3;
 }
@@ -5549,27 +5583,6 @@ input[type="checkbox"] + span {
 	padding-left: 0.3em;
 }
 
-.values, .cost-form, .cost-val{
-	width: 25em;
-	text-align: left;
-	display: inline-block;
-	vertical-align: top;
-}
-
-.val-name, .val-prcnt, .val-wntd, .cost-ttl{
-	display: inline-block;
-	vertical-align: top;
-}
-
-.val-wntd, .val-prcnt{
-	width: 5.8em;
-	margin-left: -0.2em;
-}
-
-.val-name{
-	width: 12em;
-}
-
 .values li{
 	padding-top: 0.4em;
 	padding-bottom: 0.4em;
@@ -5585,6 +5598,106 @@ input[type="checkbox"] + span {
 
 .values ul{
 	padding-left: 0em;
+}
+
+.r-c-cnt{
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.cost_form{
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	margin-top: 1em;
+	border-radius: .3em;
+	overflow: hidden;
+}
+
+.r-c-ttl p{
+	font-family: "source_sans_prosemibold";
+}
+
+.cost_form{
+	margin-top: 1em;
+	border-bottom: 1px solid rgb(202,212,217);
+}
+
+.cost_form table{
+	border-collapse:collapse;
+	width: 100%;
+}
+
+.cost_form table tr th{
+	padding: 1em;
+	text-align: left;
+	color: white;
+}
+
+.cost_form table tr td{
+	padding: .8em 0em .8em 1em;
+	text-align: left;
+	border-bottom: 1px solid rgb(226,226,226);
+	background: white;
+}
+
+.cost-val{
+	background: white;
+	text-align: left;
+}
+
+.cost_form .float-right{
+	border: 1px solid rgb(230,230,230);
+	background: white;
+	padding: .5em;
+	border-radius: .3em;
+}
+
+.cost_form .float-right:hover{
+	background: rgb(245,247,251);
+}
+
+.duo-cntnr{
+	position: relative;
+	text-align: left;
+	border:none;
+}
+
+.duo-cntnr .float-right{
+	border:none;
+	padding: 0;
+}
+
+.duo-cntnr .float-right:hover{
+	background: white;
+}
+
+.duo-cntnr .cntnr{
+	width: 48%;
+	background: white;
+	min-height: 5em;
+	border-radius: .3em;
+	border-bottom: 1px solid rgb(202,212,217);
+	vertical-align: top;
+	left: 0;
+	margin: .2em;
+	margin-left: -.05em;
+	display: inline-block;
+}
+
+canvas{
+	border:1px solid red;
+}
+
+.cost-val div{
+	padding: 1em;
+}
+
+.recipe-cost p{
+	width: 30%;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .red, .green{
@@ -5603,64 +5716,6 @@ input[type="checkbox"] + span {
 .red{
 	background: rgb(236,54,40) !important;
 	border:0.15em solid rgb(187, 38, 27);
-}
-
-.cost_form .equ-left{
-	width: 24.5em;
-}
-
-.cost-val{
-	width: 5em;
-	margin-right: 3em;
-}
-
-.cost-ttl{
-	width: 16em;
-}
-
-.cost-val ul{
-	padding-top: 0.8em;
-}
-
-.cost-cost, .cost-result{
-	display: inline-block;
-	width: 6em;
-	vertical-align: top;
-}
-
-.cost-cost p, .cost-result p{
-	padding-top: 0.8em;
-	padding-left: 0.3em;
-	padding-bottom: 0.8em;
-}
-
-.cost-field{
-	width: 3em;
-	margin-top: -0.7em;
-	display: inline-block;
-	padding-left: 0.4em;
-	padding-right: 0.1em;
-}
-
-.cost-cost{
-	width: 9em;
-}
-
-.cost-val ul li{
-	border:1px solid transparent;
-	margin: 0 !important;
-	width: 5em;
-	display: inline-block;
-	padding-top: 0.65em;
-	padding-bottom: 0.65em;
-}
-
-.item-cost-list .item-list{
-	width: 21em;
-	padding-top: 0.65em;
-	padding-bottom: 0.65em;
-	font-size: 1em;
-	margin: 0 !important;
 }
 
 .quant_form {
@@ -6493,6 +6548,11 @@ td.barby-cell.on { background: #000; }
 .blue-bckgrnd{
   background: rgb(13,94,163);/*rgb(225, 228, 235);*/
 	border-bottom: 1px solid rgb(12, 32, 84);
+}
+
+.clear-blue-bckgrnd{
+  background: rgba(13,94,163, .6);/*rgb(225, 228, 235);*/
+	border-bottom: 1px solid rgba(12, 32, 84, .3);
 }
 
 .blue-bckgrnd h3{

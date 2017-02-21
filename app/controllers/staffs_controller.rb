@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+#encoding: utf-8
+
 class StaffsController < ApplicationController
   helper_method :sort_columns, :sort_direction
   before_action :set_paper_trail_whodunnit
@@ -17,6 +20,7 @@ class StaffsController < ApplicationController
 
   # GET /staffs/1/edit
   def edit
+    @staffs = @user.staffs.all.paginate(page: params[:page], per_page: 20).order("name ASC")
   end
 
   # POST /staffs
@@ -25,8 +29,8 @@ class StaffsController < ApplicationController
     @staff = Staff.new(staff_params)
     respond_to do |format|
       if @staff.save
-        format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
-        format.json { render :show, status: :created, location: @staff }
+        format.html { redirect_to edit_staff_path(@staff), notice: 'Nouveau collaborateur créé avec succès !' }
+        format.json { render :edit, status: :created, location: @staff }
       else
         format.html { render :new }
         format.json { render json: @staff.errors, status: :unprocessable_entity }
@@ -39,8 +43,8 @@ class StaffsController < ApplicationController
   def update
     respond_to do |format|
       if @staff.update(staff_params)
-        format.html { redirect_to @staff, notice: 'Staff was successfully updated.' }
-        format.json { render :show, status: :ok, location: @staff }
+        format.html { redirect_to edit_staff_path(@staff), notice: 'Le collaborateur a bien été modifié.' }
+        format.json { render :edit, status: :ok, location: @staff }
       else
         format.html { render :edit }
         format.json { render json: @staff.errors, status: :unprocessable_entity }
@@ -53,7 +57,7 @@ class StaffsController < ApplicationController
   def destroy
     @staff.destroy
     respond_to do |format|
-      format.html { redirect_to staffs_url, notice: 'Staff was successfully destroyed.' }
+      format.html { redirect_to staffs_url, notice: 'Collaborateur supprimé.' }
       format.json { head :no_content }
     end
   end

@@ -16,7 +16,7 @@
         <p>Nom</p>
         <%= f.text_field :name, class: "basic-field", placeholder:" " %>
         <p>Prénom</p>
-        <%= f.text_field :name, class: "basic-field", placeholder:" " %>
+        <%= f.text_field :firstname, class: "basic-field", placeholder:" " %>
         <p>Adresse</p>
         <%= f.text_field :address, class: "basic-field", placeholder:" " %>
         <p>Ville</p>
@@ -29,8 +29,22 @@
         <%= f.text_field :phone, class: "basic-field", placeholder:" " %>
         <%= f.hidden_field :user_id, value: @user.id %>
     </div>
-    <%= f.submit "ENREGISTRER", class: "btn inside-btn" %>
-		<p class="cancel-btn">Annuler</p>
+    <div class="form-border"></div>
+    <div class="compostion big-compo prov-fields">
+        <h3>Dans l'entreprise</h3><br/>
+        <p>Coût horaire</p>
+        <%= f.text_field :cost_by_hour, class: "basic-field", placeholder:" " %>
+        <p>Rôle</p>
+        <%= f.text_field :job, class: "basic-field", placeholder:" " %>
+        <p>Dâte d'embauche</p>
+        <%= f.text_field :employed_since, class: "basic-field", placeholder: " " %>
+        <p>Photo</p>
+        <%= image_tag(@staff.photo.url(:medium), class: "recipe-img") %>
+        <%= f.file_field :photo %>
+    </div>
+    <br/>
+    <%= f.submit "ENREGISTRER", class: "btn inside-btn float-right" %>
+    <br/><br/>
   </div>
 </div>
 <% end %>

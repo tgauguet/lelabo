@@ -2,10 +2,10 @@
 <div class="ttl-header">
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1">Équipe</h1>
-		<p class="lft-p">Index des équipiers</p>
+		<p class="lft-p">Index des collaborateurs</p>
 	</div>
 	<div class="page-ctas">
-		<p class="standard-btn grey-btn ingredient-btn">+ NOUVEL ÉQUIPIER</p>
+		<p class="standard-btn grey-btn staff-btn">+ NOUVEAU COLLABORATEUR</p>
 		<div>
 			<p class="sort-show show-sort"><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
@@ -29,13 +29,28 @@
 <div class="action-cntnt action-plus-list">
   <div class="actions-cntnr">
 		<div class="title-cntnr">
-  <%#= render 'form' %>
+			<%= form_for @staff do |f| %>
+				<div class="staff-form" style="display:none;">
+					<h3>Créer un nouveau colaborateur</h3>
+						<p>Nom</p>
+						<%= f.text_field :name, placeholder: " ", class: "basic-field" %>
+						<p>Prénom</p>
+						<%= f.text_field :firstname, placeholder: " ", class: "basic-field" %>
+						<br/>
+						<%= f.submit "ENREGISTRER", class: "btn inside-btn" %>
+						<p class="cancel-btn staff-btn">Annuler</p>
+				</div>
+			<% end %>
   <% @staffs.each do |staff| %>
-    <%= link_to staff do %>
+    <%= link_to edit_staff_path(staff.id) do %>
       <div class="staff-cntnr">
-        <% if staff.photo? %><%= image_tag staff.photo %><% else %><%= image_tag "missing-staff.png", class:"staff-lst-img" %><% end %>
-        <%= staff.name %>
-        <%= staff.firstname %>
+        <% if staff.photo %><%= image_tag staff.photo, class:"staff-lst-img" %><% else %><%= image_tag "missing-staff.png", class:"staff-lst-img" %><% end %>
+        <div class="staff-info">
+					<h3><%= staff.name.humanize %>
+        	<% if staff.firstname %><%= staff.firstname.humanize %><% end %></h3>
+					<p>Collaborateur</p>
+					<p><%= staff.job %></p>
+				</div>
       </div>
     <% end %>
   <% end %>

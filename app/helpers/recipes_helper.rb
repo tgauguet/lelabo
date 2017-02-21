@@ -86,7 +86,15 @@ module RecipesHelper
     if recipe.recipe_weight == 0
       0
     else
-      quantity.ingredient.price * quantity.weight / 1000
+      quantity.ingredient.price * quantity.quantity_weight / 1000
+    end
+  end
+
+  def sub_price(subr, recipe)
+    if recipe.recipe_weight == 0
+      0
+    else
+      subr.recipe.kilo_cost * subr.weight / 1000
     end
   end
 

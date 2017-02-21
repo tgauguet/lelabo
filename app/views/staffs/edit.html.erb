@@ -1,6 +1,37 @@
-<h1>Editing Staff</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @staff %> |
-<%= link_to 'Back', staffs_path %>
+<% title "Équipe" %>
+<div class="rgt-menu">
+	<div class="rgt-area">
+		<div class="rgt-area-ttl">
+			<h3>Équipe</h3>
+			<div>
+				<%= link_to new_staff_path do %><p class="add"><%= image_tag "add.png", class: "mini-img" %></p><% end %>
+				<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
+			</div>
+		</div>
+		<ul>
+			<% @staffs.each do |s| %>
+				<%= link_to edit_staff_path(s.id) do %>
+					<li>
+						<%= s.name %>
+					</li>
+				<% end %>
+			<% end %>
+			<%= will_paginate @staffs, :previous_label => '<', :next_label => '>' %>
+		</ul>
+	</div>
+</div>
+<div class="ttl-header action-rgt-ttl">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @staff.name.humanize %><% if @staff.firstname %> <%= @staff.firstname.humanize %><% end %></h1>
+		<p class="lft-p">Modification du collaborateur</p>
+	</div>
+</div>
+<div class="action-cntnt action-rgt">
+	<div class="actions-cntnr to-do-cntrn">
+		<div class="tasks-cntnr">
+	    <div class="edit-staff">
+	      <%= render 'form' %>
+	    </div>
+		</div>
+  </div>
+</div>

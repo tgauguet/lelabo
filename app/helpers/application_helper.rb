@@ -12,6 +12,23 @@ module ApplicationHelper
         :user
     end
 
+		def to_kilo(gramme)
+			if gramme > 9999
+				gramme = (gramme.to_f / 1000).round(2)
+				gramme.to_s + " " + "kg"
+			else
+				gramme.to_s + " " + "g"
+			end
+		end
+
+		def to_kg(gramme)
+			gramme > 9999 ? (gramme.to_f / 1000).round(2) : gramme.to_s
+		end
+
+		def to_unit(gramme)
+			gramme > 9999 ? 'kg' : 'g'
+		end
+
 		def blog_pages
 			request.path.start_with?('/blog')
 		end

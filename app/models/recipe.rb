@@ -41,6 +41,8 @@ class Recipe < ActiveRecord::Base
 	def default_values
 		self.to_produce = 100 unless self.to_produce
 		self.portion_weight = 100 unless self.portion_weight
+		self.eq_data = "Ganache" unless self.eq_data
+		self.cost_data = 100 unless self.cost_data
 		self.portion = 100 unless self.portion
 	end
 
@@ -87,7 +89,8 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def total_cost
-		self.quantities.collect { |q| q.ingredient.price * q.weight }.sum / 1000
+		total = self.quantities.collect { |q| q.ingredient.price * q.quantity_weight }.sum / 1000
+		total = total + self.sub_recipes.collect { |s| s.current_recipe.kilo_cost * s.weight }.sum / 1000
 	end
 
 	def kilo_cost

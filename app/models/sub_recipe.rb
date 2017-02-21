@@ -21,6 +21,17 @@ class SubRecipe < ActiveRecord::Base
 		end
   end
 
+  #calculate the % of ingredient price in the recipe
+	def price_percent
+    subr = Recipe.find(self.sub_id)
+		((subr.kilo_cost * self.weight / 1000) * 100 / self.recipe.total_cost).round(2)
+	end
+
+	#calculate the percentage of a quantity in the recipe
+	def percent
+		(self.weight.to_f * 100 / self.recipe.recipe_weight.to_f).round(2)
+	end
+
   def perfect_unit
     quantity_weight > 9999 ? "Kg" : "g"
   end

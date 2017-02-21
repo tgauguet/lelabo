@@ -30,9 +30,14 @@ class Quantity < ActiveRecord::Base
 		end
 	end
 
+	#calculate the % of ingredient price in the recipe
+	def price_percent
+		((self.ingredient.price * self.quantity_weight / 1000) * 100 / self.recipe.total_cost).round(2)
+	end
+
 	#calculate the percentage of a quantity in the recipe
 	def percent
-		(self.weight * 100 / self.recipe.total_weight).round(2)
+		(self.quantity_weight.to_f * 100 / self.recipe.recipe_weight.to_f).round(2)
 	end
 
 	def updated_value
