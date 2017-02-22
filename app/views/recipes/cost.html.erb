@@ -30,10 +30,6 @@
 					<p><%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></p>
 				</div>
 			</div>
-			<div class="duo-cntnr cost_form">
-				<div class="cntnr"><canvas id="radarChart" width="640" height="400"></canvas></div>
-				<div class="cntnr float-right"></div>
-			</div>
 			<div class="cost_form">
 					<div class="r-c-cnt blue-bckgrnd">
 						<div class="recipe-cost r-c-ttl">
@@ -81,6 +77,20 @@
 						<% end %>
 					</table>
 				</div>
+				<div class="duo-cntnr cost_form">
+					<div class="cntnr">
+						<div>
+							<h3>% RECETTE</h3>
+							<canvas id="myChart"></canvas>
+						</div>
+					</div>
+					<div class="cntnr float-right">
+						<div>
+							<h3>% COÛT MATIÈRES</h3>
+							<canvas id="mySecChart"></canvas>
+						</div>
+					</div>
+				</div>
     </div>
 		<% end %>
 </div>
@@ -88,135 +98,52 @@
 </div>
 </div>
 <script>
-/ Radar Chart Options
-var radarOptions = {
-
-	//Boolean - If we show the scale above the chart data
-	scaleOverlay : false,
-
-	//Boolean - If we want to override with a hard coded scale
-	scaleOverride : false,
-
-	//** Required if scaleOverride is true **
-	//Number - The number of steps in a hard coded scale
-	scaleSteps : null,
-	//Number - The value jump in the hard coded scale
-	scaleStepWidth : null,
-	//Number - The centre starting value
-	scaleStartValue : null,
-
-	//Boolean - Whether to show lines for each scale point
-	scaleShowLine : true,
-
-	//String - Colour of the scale line
-	scaleLineColor : "#999",
-
-	//Number - Pixel width of the scale line
-	scaleLineWidth : 1,
-
-	//Boolean - Whether to show labels on the scale
-	scaleShowLabels : false,
-
-	//String - Scale label font declaration for the scale label
-	scaleFontFamily : "'Arial'",
-
-	//Number - Scale label font size in pixels
-	scaleFontSize : 12,
-
-	//String - Scale label font weight style
-	scaleFontStyle : "normal",
-
-	//String - Scale label font colour
-	scaleFontColor : "#666",
-
-	//Boolean - Show a backdrop to the scale label
-	scaleShowLabelBackdrop : true,
-
-	//String - The colour of the label backdrop
-	scaleBackdropColor : "rgba(255,255,255,0.75)",
-
-	//Number - The backdrop padding above & below the label in pixels
-	scaleBackdropPaddingY : 2,
-
-	//Number - The backdrop padding to the side of the label in pixels
-	scaleBackdropPaddingX : 2,
-
-	//Boolean - Whether we show the angle lines out of the radar
-	angleShowLineOut : true,
-
-	//String - Colour of the angle line
-	angleLineColor : "rgba(255,255,255,0.3)",
-
-	//Number - Pixel width of the angle line
-	angleLineWidth : 1,
-
-	//String - Point label font declaration
-	pointLabelFontFamily : "'Arial'",
-
-	//String - Point label font weight
-	pointLabelFontStyle : "normal",
-
-	//Number - Point label font size in pixels
-	pointLabelFontSize : 12,
-
-	//String - Point label font colour
-	pointLabelFontColor : "#EFEFEF",
-
-	//Boolean - Whether to show a dot for each point
-	pointDot : true,
-
-	//Number - Radius of each point dot in pixels
-	pointDotRadius : 3,
-
-	//Number - Pixel width of point dot stroke
-	pointDotStrokeWidth : 1,
-
-	//Boolean - Whether to show a stroke for datasets
-	datasetStroke : true,
-
-	//Number - Pixel width of dataset stroke
-	datasetStrokeWidth : 1,
-
-	//Boolean - Whether to fill the dataset with a colour
-	datasetFill : true,
-
-	//Boolean - Whether to animate the chart
-	animation : true,
-
-	//Number - Number of animation steps
-	animationSteps : 60,
-
-	//String - Animation easing effect
-	animationEasing : "easeOutQuart",
-
-	//Function - Fires when the animation is complete
-	onAnimationComplete : null
-
-}
-
-// Radar Data
-var radarData = {
-	labels : ["January","February","March","April","May","June","July"],
-	datasets : [
-		{
-			fillColor : "rgba(220,220,220,0.5)",
-			strokeColor : "rgba(220,220,220,1)",
-			data : [65,59,90,81,56,55,40]
-		},
-		{
-			fillColor : "rgba(151,187,205,0.5)",
-			strokeColor : "rgba(151,187,205,1)",
-			data : [28,48,40,19,96,27,100]
-		}
-	]
-}
-
-
-//Get the context of the Radar Chart canvas element we want to select
-var ctx = document.getElementById("radarChart").getContext("2d");
-
-// Create the Radar Chart
-var myRadarChart = new Chart(ctx).Radar(radarData, radarOptions);
-
-
+var ctx = document.getElementById("myChart");
+var cty = document.getElementById("mySecChart");
+var pPercent = <%= raw @price_per %>;
+var nameValues = <%= raw @names %>;
+var rPercent = <%= raw @recipe_per %>;
+var colorsArray = ["#FF6384","#36A2EB","#FFCE56","#EF4836","#663399","#36D7B7","#F89406","#DB0A5B","#446CB3","#BE90D4","#4ECDC4","#F64747","#87D37C","#F9690E","#F22613","#22A7F0"];
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: nameValues,
+				datasets: [
+        {
+            borderColor: "#fff",
+            pointBackgroundColor: "rgba(179,181,198,1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(179,181,198,1)",
+						backgroundColor: colorsArray,
+            data: rPercent
+        }
+    	]
+    },
+    options: {
+			scaleShowVerticalLines: false,
+			legend: false
+    }
+});
+var mySecChart = new Chart(cty, {
+    type: 'pie',
+    data: {
+        labels: nameValues,
+				datasets: [
+        {
+            borderColor: "#fff",
+            pointBackgroundColor: "rgba(179,181,198,1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(179,181,198,1)",
+						backgroundColor: colorsArray,
+            data: pPercent
+        }
+    	]
+    },
+    options: {
+			scaleShowVerticalLines: false,
+			legend: false
+    }
+});
 </script>

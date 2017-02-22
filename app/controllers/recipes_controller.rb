@@ -34,6 +34,11 @@ class RecipesController < ApplicationController
   end
 
   def cost
+    values = @recipe.quantities.map { |q| q.ingredient } + @recipe.sub_recipes.map { |s| s.current_recipe }
+    p_val = @recipe.quantities + @recipe.sub_recipes
+    @names = values.map { |v| v.name.truncate_words(3) }.to_s
+    @price_per = p_val.map { |v| v.price_percent.to_f.round(2) }
+    @recipe_per = p_val.map { |v| v.percent.to_f.round(2) }
   end
 
   def stats
