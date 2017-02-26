@@ -4,7 +4,9 @@
   <% else %>
     <%= image_tag image.picture, class: "user-img2 recipe-imgs" %>
   <% end %>
-  <%= ff.text_area :description, placeholder: "description", class: "basic-field" %>
+  <%= ff.text_area :description, placeholder: "description de l'image...", class: "basic-field" %>
   <%= ff.hidden_field :_destroy %>
-	<%= remove_field "delete-sml.png", ff %>
+  <div>
+  	<%= remove_field "delete-sml.png", ff %>
+  </div>
 </div>

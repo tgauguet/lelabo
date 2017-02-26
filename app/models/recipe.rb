@@ -38,12 +38,19 @@ class Recipe < ActiveRecord::Base
 		self['portion_price'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
 	end
 
+	def coef=(val)
+		self['coef'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
+	end
+
 	def default_values
 		self.to_produce = 100 unless self.to_produce
 		self.portion_weight = 100 unless self.portion_weight
 		self.eq_data = "Ganache" unless self.eq_data
 		self.cost_data = 100 unless self.cost_data
 		self.portion = 100 unless self.portion
+		self.unit = "grammes" unless self.unit
+		self.coef = 4 unless self.coef
+		self.vat = 10 unless self.vat
 	end
 
 	# sum of all quantities weights in grammes !!!CHECKED!!!
@@ -53,9 +60,11 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def percentage_of(matter)
-		matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum
-		matter_weight = matter_weight + self.sub_recipes.collect { |s| s.current_recipe.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum }.sum
-		matter_weight / recipe_weight unless recipe_weight == 0
+		#matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum
+		rec_weight = self.sub_recipes.collect { |s| s.current_recipe.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum * s.weight }.sum
+		rec_weight / self.recipe_weight
+		#matter_weight = matter_weight + recipe_weight
+		#matter_weight / rec_weight unless recipe_weight == 0
 	end
 
 	def compo
@@ -72,6 +81,37 @@ class Recipe < ActiveRecord::Base
 		total = self.sub_recipes.collect { |s| ( s.current_recipe.quantities.collect { |q| (q.ingredient.send(value) * q.weight) }.sum) }.sum
 		total = total + self.quantities.collect { |q| (q.ingredient.send(value) * q.quantity_weight) }.sum
 		total / recipe_weight  unless recipe_weight == 0
+	end
+
+	def to_produce_in_grammes
+		self.to_produce *
+		if self.unit == "parts"
+			 self.portion_weight
+		elsif self.unit == "#{self.portion_name}"
+			self.portion.to_i
+		elsif self.unit == "recettes"
+			(self.totals.first.value * 1000).to_i
+		elsif self.unit == "kilogrammes"
+			1000
+		else
+			1
+		end
+	end
+
+	def prht
+		self.total_cost * self.to_produce_in_grammes / self.recipe_weight
+	end
+
+	def pvht
+		self.prht * self.coef
+	end
+
+	def vat_price
+		self.pvht * self.vat / 100
+	end
+
+	def pvttc
+		self.pvht + self.vat_price
 	end
 
 	def pulp_percentage

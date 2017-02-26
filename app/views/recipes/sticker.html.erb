@@ -1,5 +1,5 @@
 <% title "#{@recipe.name.humanize}" %>
-<div class="ttl-header">
+<div class="ttl-header recipe-ttl">
 	<div class="page-ttl">
     <h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
 		<p class="lft-p">Informations de la recette</p>
@@ -18,135 +18,176 @@
 <div class="action-cntnt">
   <div class="actions-cntnr">
     <div class="rec-cntnr">
-<%= form_for @recipe do |f| %>
-  <h3>CONSERVATION & PRODUCTION</h3>
-  <p>NUMÉRO DE PRODUCTION</p>
-  <%= f.text_field :production_number %>
-  <p>Date de production</p>
-  <%= f.text_field :production_date, class: "basic-field bottom-field datepicker" %>
-  <p>Durée de conservation (en jours)</p>
-  <%= f.text_field :consumption_days %>
-  <p>Conseils de conservation</p>
-  <%= f.text_field :conservation %>
-  <p>Code barre</p>
-  <i>(12 chiffres sans espaces)</i>
-  <%= f.text_field :bar %>
-  <h3>ALLÈRGÈNES</h3>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "lait", @recipe.allergen.include?("lait") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Lait
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "fruits à coque", @recipe.allergen.include?("fruits à coque") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Fruits à coque
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "arachides", @recipe.allergen.include?("arachides") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Arachides
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "oeuf", @recipe.allergen.include?("oeuf") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Oeuf
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "soja", @recipe.allergen.include?("soja") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Soja
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "céréales contenant du gluten", @recipe.allergen.include?("céréales contenant du gluten") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Céréales contenant du gluten
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "graines de sésame", @recipe.allergen.include?("graines de sésame") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Graines de sésame
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "crustacés", @recipe.allergen.include?("crustacés") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Crustacés
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "poisson", @recipe.allergen.include?("poisson") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Poisson
-  </p>
-  <p class="custom-checkbox stari">
-    <%= check_box_tag "recipe[allergen][]", "céleri", @recipe.allergen.include?("céleri") %>
-    <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-    Céleri
-  </p>
-  <%= f.submit "ENREGISTRER" %>
-<% end %>
-<h3><%= @recipe.name %></h3>
-<p class="option-p">
-  Ingrédients :
-  <% if @sticker_value %><% @sticker_value.each do |q| %>
-    <% if defined?(q.ingredient) %>
-      <%= q.ingredient.name %>
-    <% else %>
-      <%= q.current_recipe.name %>
-      (<% q.current_recipe.compo.each do |comp| %>
-        <%= comp.ingredient.name %>
-        <% unless comp == q.current_recipe.compo.last %>, <% end %>
-      <% end %>)
-    <% end %>
-    <% if defined?(q.ingredient) && q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
-    <% unless q == @sticker_value.last %>,<% end %>
-  <% end %>.<% end %>
-</p>
-<p class="option-p">
-  <% unless @recipe.allergen.blank? %>Contient : <%= @recipe.allergen.to_sentence %><% end %>
-</p>
-<div class="composition-table">
-  <table>
-    <tr>
-      <th>Valeurs nutritionnelles pour 100g</th>
-    </tr>
-    <tr>
-      <td>Énergie:</td>
-      <td><%= @recipe.for_100_gram("kcal").to_i %> kcal</td>
-    </tr>
-    <tr>
-      <td>Matières grasses:</td>
-      <td><%= @recipe.for_100_gram("fat_percent").to_i %> g</td>
-    </tr>
-    <tr>
-      <td>Glucides:</td>
-      <td><%= @recipe.for_100_gram("carbohydrates") %> g</td>
-    </tr>
-    <tr>
-      <td>Dont sucre:</td>
-      <td><%= @recipe.for_100_gram("sugar_percent").to_i %> g</td>
-    </tr>
-    <tr>
-      <td>Protéines:</td>
-      <td><%= @recipe.for_100_gram("protein").to_i %> g</td>
-    </tr>
-  </table>
-</div>
-<% if !@recipe.production_date.blank? %>
-  <p>Date de fabrication: <%= DateTime.parse(@recipe.production_date).strftime("%d/%m/%Y") %></p>
-<% end %>
-<% if !@recipe.cunsumption_date.blank? %>
-  <p>DLC: <%= @recipe.cunsumption_date %></p>
-<% end %>
-<% if !@recipe.conservation.blank? %>
-  <p>Conseils de conservation: <%= @recipe.conservation %></p>
-<% end %>
-<% if !@recipe.production_number.blank? %>
-  <p>N° de fabrication: <%= @recipe.production_number %></p>
-<% end %>
-<h3>CODE BARRE</h3>
-<% if @barcode && is_barcode?(@recipe.bar) %>
-  <%= @barcode.to_html.html_safe %>
-<% end %>
-</div>
-</div>
-</div>
+			<div class="flex-eq">
+				<div class="cost_form cost-val eq-form stick-form">
+					<div class="blue-bckgrnd">
+						<h3><%= image_tag "cons.png", class:"mini-img" %> CONSERVATION & PRODUCTION</h3>
+					</div>
+					<div>
+						<%= form_for @recipe do |f| %>
+						  <p>Numéro de production</p>
+						  <%= f.text_field :production_number, class:"basic-field rounded-field" %>
+						  <p>Date de production</p>
+						  <%= f.text_field :production_date, class: "basic-field datepicker rounded-field" %>
+						  <p>Durée de conservation (en jours)</p>
+						  <%= f.text_field :consumption_days, class:"basic-field rounded-field" %>
+						  <p>Conseils de conservation</p>
+						  <%= f.text_area :conservation, class:"basic-field rounded-field" %>
+							<div class="form-border"></div>
+						  <h3 class="bgr-ttl">Allergènes</h3>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "lait", @recipe.allergen.include?("lait") %>
+						    <%= image_tag "milk.png", alt: "checktag", class: "greyscale" %>
+						    LAIT
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "fruits à coque", @recipe.allergen.include?("fruits à coque") %>
+						    <%= image_tag "nut.png", alt: "checktag", class: "greyscale" %>
+						    FRUIT À COQUE
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "arachides", @recipe.allergen.include?("arachides") %>
+						    <%= image_tag "peanut.png", alt: "checktag", class: "greyscale" %>
+						    ARACHIDE
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "oeuf", @recipe.allergen.include?("oeuf") %>
+						    <%= image_tag "egg.png", alt: "checktag", class: "greyscale" %>
+						    OEUF
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "soja", @recipe.allergen.include?("soja") %>
+						    <%= image_tag "soya.png", alt: "checktag", class: "greyscale" %>
+						    SOJA
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "céréales contenant du gluten", @recipe.allergen.include?("céréales contenant du gluten") %>
+						    <%= image_tag "wheat2.png", alt: "checktag", class: "greyscale" %>
+						    GLUTEN
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "graines de sésame", @recipe.allergen.include?("graines de sésame") %>
+						    <%= image_tag "sesame.png", alt: "checktag", class: "greyscale" %>
+						    SÉSAME
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "crustacés", @recipe.allergen.include?("crustacés") %>
+						    <%= image_tag "crustacea.png", alt: "checktag", class: "greyscale" %>
+						    CRUSTACÉ
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "poisson", @recipe.allergen.include?("poisson") %>
+						    <%= image_tag "fish.png", alt: "checktag", class: "greyscale" %>
+						    POISSON
+						  </p>
+						  <p class="custom-checkbox stari">
+						    <%= check_box_tag "recipe[allergen][]", "céleri", @recipe.allergen.include?("céleri") %>
+						    <%= image_tag "celery.png", alt: "checktag", class: "greyscale" %>
+						    CÉLERI
+						  </p>
+							<br/><br/>
+						  <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn fl-rgt", id: "submit-ing" %>
+						<% end %>
+						<br/><br/><br/>
+					</div>
+				</div><!-- cost_form cost-val eq-form stick-form -->
+				<div class="sticker cost-val eq-form eq-bars">
+					<div class="blue-bckgrnd">
+						<h3><%= image_tag "leaf.png", class:"mini-img" %> INFORMATIONS NUTRITIONNELLES</h3>
+					</div>
+					<div class="composition-table">
+					  <table>
+					    <tr>
+					      <th>Valeurs nutritionnelles pour 100g</th>
+					    </tr>
+					    <tr>
+					      <td>Énergie:</td>
+					      <td><%= @recipe.for_100_gram("kcal").to_i %> kcal</td>
+					    </tr>
+					    <tr>
+					      <td>Matières grasses:</td>
+					      <td><%= @recipe.for_100_gram("fat_percent").to_i %> g</td>
+					    </tr>
+					    <tr>
+					      <td>Glucides:</td>
+					      <td><%= @recipe.for_100_gram("carbohydrates") %> g</td>
+					    </tr>
+					    <tr>
+					      <td>Dont sucre:</td>
+					      <td><%= @recipe.for_100_gram("sugar_percent").to_i %> g</td>
+					    </tr>
+					    <tr>
+					      <td>Protéines:</td>
+					      <td><%= @recipe.for_100_gram("protein").to_i %> g</td>
+					    </tr>
+					  </table>
+					</div>
+					<div>
+						<p>INGRÉDIENTS:</p>
+						<p class="ingredients">
+							<% if @sticker_value %><% @sticker_value.each do |q| %>
+						    <% if defined?(q.ingredient) %>
+						      <%= q.ingredient.name %>
+						    <% else %>
+						      <%= q.current_recipe.name %>
+						      (<% q.current_recipe.compo.each do |comp| %>
+						        <%= comp.ingredient.name %>
+						        <% unless comp == q.current_recipe.compo.last %>, <% end %>
+						      <% end %>)
+						    <% end %>
+						    <% if defined?(q.ingredient) && q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
+						    <% unless q == @sticker_value.last %>,<% end %>
+						  <% end %>.<% end %>
+						</p><br/>
+						<% unless @recipe.allergen.blank? %>
+							<p>PRÉSENCE DE:</p>
+							<p class="ingredients">
+								<%= @recipe.allergen.to_sentence %>
+							</p><br/>
+						<% end %>
+						<% if !@recipe.conservation.blank? %>
+							<p>CONSEILS DE CONSERVATION:</p>
+							<p class="ingredients">
+								<%= @recipe.conservation %>
+							</p><br/>
+						<% end %>
+						<% if !@recipe.production_date.blank? %>
+							<p>DÂTE DE FABRICATION:</p>
+							<p class="ingredients">
+								<%= DateTime.parse(@recipe.production_date).strftime("%d/%m/%Y") %>
+							</p><br/>
+						<% end %>
+						<% if !@recipe.cunsumption_date.blank? %>
+							<p>DLC:</p>
+							<p class="ingredients">
+								<%= @recipe.cunsumption_date %>
+							</p><br/>
+						<% end %>
+						<% if !@recipe.production_number.blank? %>
+							<p>N° DE FABRICATION:</p>
+							<p class="ingredients">
+								<%= @recipe.production_number %>
+							</p>
+						<% end %>
+					</div>
+				</div><!-- cost_form cost-val eq-form eq-bars -->
+			</div><!-- .flex-eq -->
+			<div class="cost_form cost-val stick-form bar-cntnr">
+					<%= form_for @recipe do |f| %>
+					<div class="blue-bckgrnd"><h3><%= image_tag "barcode.png", class: "mini-img" %> CODE BARRE</h3></div>
+						<div class="divs">
+							<p>N° de code barre</p>
+							<i>(12 chiffres sans espaces)</i><br/><br/>
+							<%= f.text_field :bar, class:"basic-field rounded-field" %><br/>
+							<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn fl-rgt", id: "submit-ing" %>
+						</div>
+						<div class="bar-tender divs">
+							<% if @barcode && is_barcode?(@recipe.bar) %>
+							  <%= @barcode.to_html.html_safe %>
+							<% end %>
+						</div>
+					<% end %>
+			</div><!-- cost_form cost-val -->
+		</div><!-- rec-cntnr -->
+	</div><!-- actions-cntnr -->
+</div><!-- action-cntnt -->

@@ -1,5 +1,5 @@
 <% title "#{@recipe.name.humanize}" %>
-<div class="ttl-header">
+<div class="ttl-header recipe-ttl">
 	<div class="page-ttl">
     <h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
 		<p class="lft-p">Coût de la recette</p>
@@ -22,12 +22,66 @@
 				<p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
 			<% else %>
 			<div class="cost_form cost-val">
-				<div>
-					<%= link_to quant_recipe_path(@recipe), target: "_blank" do %>
-						<div class="float-right"><%= image_tag "pencil.png", class: "mini-mini-img" %> Modifier</div>
-					<% end %>
+				<div class="r-c-cnt blue-bckgrnd">
 					<h3>CALCUL PAR QUANTITÉ</h3>
-					<p><%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></p>
+					<%= form_for @recipe do |f| %>
+						<div class="cost-qt">
+							<div class="cost-qtt">
+								<p>Quantité</p>
+								<%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:" " %>
+								<div class="basic-field rounded-field meas-env">
+		              Unité de mesure : <%= @recipe.unit %>
+		              <span class="grey-btn pop-on">
+		        			     <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
+		          		</span>
+		            </div>
+							</div>
+							<div class="cost-qtt">
+								<div class="r-img-cntnr up-div">
+									<p>TVA</p>
+					        <p><%= f.radio_button :vat, "20.00%" %> 20,00 %</p>
+					        <p><%= f.radio_button :vat, "10.00%", checked: true %> 10,00 %</p>
+					        <p><%= f.radio_button :vat, "5.50%" %> 5,50%</p>
+					      </div>
+								<div class="up-div">
+									<p>Coefficient de vente</p>
+									<%= f.text_field :coef, class:"basic-field rounded-field", placeholder: " " %>
+								</div>
+							</div>
+							<%= f.submit "CALCULER", class: "auto-btn cta-btn", id: "submit-ing" %>
+						</div>
+					<% end %>
+					<h3>POUR <%= @recipe.to_product %> <%= @recipe.unit.upcase %> <%= @recipe.to_details.upcase %></h3>
+				</div>
+					<table>
+						<tr class="clear-blue-bckgrnd">
+							<th>POIDS</th>
+							<th>Prix Revient HT</th>
+							<th>Prix Vente HT</th>
+							<th>TVA (<%= @recipe.vat %>)</th>
+							<th>Prix Vente TTC</th>
+						</tr>
+						<tr>
+							<td><b><%= @recipe.to_produce_in_grammes %> g</b></td>
+							<td><b><%= number_to_currency @recipe.prht %></b></td>
+							<td><b><%= number_to_currency @recipe.pvht %></b></td>
+							<td><b><%= number_to_currency @recipe.vat_price %></b></td>
+							<td><b><%= number_to_currency @recipe.pvttc %></b></td>
+						</tr>
+					</table>
+			</div>
+			<div class="duo-cntnr cost_form">
+				<div class="cntnr">
+					<div>
+						<h3>% RECETTE</h3>
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+				<div class="cntnr float-right">
+					<div>
+						<h3>% COÛT MATIÈRES</h3>
+						<canvas id="mySecChart"></canvas>
+					</div>
 				</div>
 			</div>
 			<div class="cost_form">
@@ -35,7 +89,7 @@
 						<div class="recipe-cost r-c-ttl">
 							<p>RECETTE</p>
 							<p>POIDS TOTAL</p>
-							<p>COÛT TOTAL</p>
+							<p>COÛT MATIÈRES</p>
 						</div>
 						<div class="recipe-cost">
 							<p><%= truncate(@recipe.name.humanize, length: 25) %></p>
@@ -77,26 +131,13 @@
 						<% end %>
 					</table>
 				</div>
-				<div class="duo-cntnr cost_form">
-					<div class="cntnr">
-						<div>
-							<h3>% RECETTE</h3>
-							<canvas id="myChart"></canvas>
-						</div>
-					</div>
-					<div class="cntnr float-right">
-						<div>
-							<h3>% COÛT MATIÈRES</h3>
-							<canvas id="mySecChart"></canvas>
-						</div>
-					</div>
-				</div>
     </div>
 		<% end %>
 </div>
 </div>
 </div>
 </div>
+<%= render "quantities_pop", recipe: @recipe %>
 <script>
 var ctx = document.getElementById("myChart");
 var cty = document.getElementById("mySecChart");
