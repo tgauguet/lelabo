@@ -1,12 +1,14 @@
-<%= link_to edit_provider_path(provider) do %>
+
   <div class="class-helper inline_divs">
     <div class="line-cntnr">
-        <div class="major-td">
-          <%= truncate(provider.name.humanize, length: 25) %>
-        </div>
-        <div class="basic-td">
-          <%= truncate(provider.email.downcase, length: 30) %>
-        </div>
+        <%= link_to edit_provider_path(provider) do %>
+          <div class="major-td">
+            <%= truncate(provider.name.humanize, length: 25) %>
+          </div>
+          <div class="basic-td">
+            <%= truncate(provider.email.downcase, length: 30) %>
+          </div>
+        <% end %>
         <div class="basic-td">
           <% if !provider.website.blank? %>
             <a href="<%= provider.website %>" target="_blank"><%= image_tag "link.png", class: "mini-mini-img" %> Voir le site</a>
@@ -17,4 +19,3 @@
   			<% end %>
     </div>
   </div>
-<% end %>

@@ -26,7 +26,7 @@ class StaffsController < ApplicationController
   # POST /staffs
   # POST /staffs.json
   def create
-    @staff = Staff.new(staff_params)
+    @staff = @user.staffs.new(staff_params)
     respond_to do |format|
       if @staff.save
         format.html { redirect_to edit_staff_path(@staff), notice: 'Nouveau collaborateur créé avec succès !' }

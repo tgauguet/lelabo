@@ -14,13 +14,13 @@
   <%= link_to equilibrium_recipe_path(@recipe) do %>
     <p class="recipe-btn <% if current_page?(action: 'equilibrium') %>current-form<% end %>"><%= image_tag"r-f-img4.png", alt: "recipe btn image" %><br/><span>Équilibre</span></p>
   <% end %>
-  <%= link_to pictures_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'pictures') %>current-form<% end %>"><%= image_tag"r-f-img6.png", alt: "recipe btn image" %><br/><span>Images</span></p>
-  <% end %>
   <%= link_to sticker_recipe_path(@recipe) do %>
     <p class="recipe-btn <% if current_page?(action: 'sticker') %>current-form<% end %>"><%= image_tag"r-f-img7.png", alt: "recipe btn image" %><br/><span>Étiquettes</span></p>
   <% end %>
   <%= link_to stats_recipe_path(@recipe) do %>
     <p class="recipe-btn <% if current_page?(action: 'stats') %>current-form<% end %>"><%= image_tag"r-f-img8.png", alt: "recipe btn image" %><br/><span>Statistiques</span></p>
+  <% end %>
+  <%= link_to pictures_recipe_path(@recipe) do %>
+    <p class="recipe-btn <% if current_page?(action: 'pictures') %>current-form<% end %>"><%= image_tag"r-f-img6.png", alt: "recipe btn image" %><br/><span>Images</span></p>
   <% end %>
 </div>
