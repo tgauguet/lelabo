@@ -68,7 +68,7 @@
         <%= f.fields_for :quantities do |ff| %>
           <%= render "add_quantities", ff: ff %>
         <% end %>
-        <p class="add_field"><%= create_new_field "+", f, :quantities %></p>
+        <p class="add_field"><%= create_new_field "+ AJOUTER UN INGRÉDIENT", f, :quantities %></p>
         <p class="grey-btn hide white-cat pop-over-new">+ CRÉER UN INGRÉDIENT</p>
       </div>
       <br/>
@@ -79,7 +79,7 @@
         <%= f.fields_for :sub_recipes do |ff| %>
           <%= render "add_sub_recipes", ff: ff %>
         <% end %>
-        <p class="add_field"><%= create_new_field "+", f, :sub_recipes %></p>
+        <p class="add_field"><%= create_new_field "+ AJOUTER UNE RECETTE", f, :sub_recipes %></p>
       </div>
       <br/>
     </div><br/>

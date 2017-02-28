@@ -1,39 +1,80 @@
-<div class="ttl-header">
-	<div class="page-ttl">
-		<h1 class="lttl-intro-h1">Tableau de bord</h1>
-		<p class="lft-p" id="div0">Informations de votre compte</p>
-	</div>
-</div>
-<div class="action-cntnt">
+<div class="action-cntnt welcome-cntnt">
 	<div class="actions-cntnr">
 		<div class="welcome-usr">
 			<div class="user-info">
-				<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar, class: "rounded-img" %><% end %>
+				<div class="w-usr-img">
+					<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar, class: "rounded-img" %><% end %>
+				</div>
+				<div class="flag-cntnr">
+					<div class="flag-bar"></div>
+					<div class="flag-flag">
+						<% if @user.country.blank? %>
+							<%= image_tag "flags/test.png" %>
+						<% else %>
+							<%= image_tag "flags/#{@user.country.humanize}.png" %>
+						<% end %>
+					</div>
+				</div>
 				<div class="usr-info-txt">
 					<h3><%= @user.account_name.humanize %> - <span><%= @user.firstname.humanize %> <%= @user.name.humanize %> </span></h3>
-					<%= link_to parametres_path do %>
-						<div class="grey-btn"><%= image_tag "settings-3.png", class: "mini-img" %>Mon compte</div>
-					<% end %>
-					<br/>
 					<p><%= image_tag "shield#{grade_img(grade(@user))}.png", class: "shield-img" %></p>
-					<br/>
 				</div>
 			</div>
-			<div class="user-grade">
-				<p class="grey-btn">
-					<span>Recettes</span> <%= @user.recipes.count %> -
-					<span>Ingrédients</span> <%= @user.ingredients.count %> -
-					<span>Grade</span> <%= grade(@user) %>
-				</p>
+		</div><!-- welcome-usr -->
+		<div class="usr-boxes">
+			<div class="boxes">
+				<h3><%= @user.recipes.count %></h3>
+				<p>Recettes</p>
 			</div>
-		</div>
-		<div class="welc-recipes action-cntnr">
-			<h3>RECETTES<h3>
-			<h6>Vos dernières recettes</h6>
-			<div class="welc-r-cntnr">
+			<div class="boxes">
+				<h3><%= @user.ingredients.count %></h3>
+				<p>Ingrédients</p>
+			</div>
+			<div class="boxes">
+				<h3><%= @user.staffs.count %></h3>
+				<p>Collaborateurs</p>
+			</div>
+		</div><!-- usr-boxes -->
+		<div class="usr-boxes">
+			<div class="duo-box no-bck">
+				<div class="quadro-box">
+					<div class="quadro-child">
+						<div>
+							<div class="ttl-bck purple-bck">DATE</div>
+							<div>
+								<p class="date-day"><%= Time.now.strftime("%d") %><p>
+							</div>
+							<div>
+								<p class="date-month"><%= Time.now.strftime("%^b") %><p>
+							</div>
+						</div>
+					</div>
+					<div class="quadro-child margin-align purple-bck">
+						<div>
+							<div class="ttl-bck purple-bck">GRADE</div>
+							<div>
+								<%= image_tag "fork-and-knife-in-cross.png", class:"flex-img" %>
+								<p class="grade"><%= grade(@user).mb_chars.upcase %><p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="duo-box margin-align cyan-bck">
+				<div>
+					<div class="ttl-bck">NOUVELLES RECETTES</div>
+					<p class="nb"><%= @recipes %><p>
+					<p>/ 30 DERNIERS JOURS</p>
+					<%= image_tag "fakechart.png" %>
+				</div>
+			</div>
+		</div><!-- usr-boxes -->
+		<div class="usr-boxes">
+			<div class="welc-recipes">
+				<h4>VOS DERNIÈRES RECETTES</h4>
 				<% @user.recipes.last(5).each do |recipe| %>
 					<div class="img-txt-cntnr">
-						<%= link_to edit_recipe_path(recipe) do %>
+						<%= link_to recipe_path(recipe) do %>
 							<div class="img_path">
 								<%= image_tag recipe.image %>
 								<span class="text-content">
@@ -42,29 +83,10 @@
 							</div>
 						<% end %>
 						<br/>
-						<%= truncate(recipe.name, length: 22) %><br/>
-						<h6 class="h7-txt">par <%= truncate(recipe.owner, length: 20) %></h6>
+						<p><%= truncate(recipe.name, length: 22) %></p>
 					</div>
 				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-<!--
-<div class="grade-index">
-	<h6 class="h7-txt ajust">Les grades sont définis en fonction<br/>du nombre de recettes créées</h6>
-	<p><%= image_tag "shield1.png", class: "small-img" %> Novice</p>
-	<p><%= image_tag "shield2.png", class: "small-img" %> Apprenti</p>
-	<p><%= image_tag "shield3.png", class: "small-img" %> Commis</p>
-	<p><%= image_tag "shield4.png", class: "small-img" %> 1/4 Chef de parti</p>
-	<p><%= image_tag "shield5.png", class: "small-img" %> 1/2 Chef de parti</p>
-	<p><%= image_tag "shield6.png", class: "small-img" %>Chef de parti</p>
-	<p><%= image_tag "shield7.png", class: "small-img" %> Second</p>
-	<p><%= image_tag "shield8.png", class: "small-img" %> Chef</p>
-	<p><%= image_tag "shield9.png", class: "small-img" %> Commandant</p>
-	<p><%= image_tag "shield10.png", class: "small-img" %> Colonel</p>
-	<p><%= image_tag "shield11.png", class: "small-img" %> Général de brigade</p>
-	<p><%= image_tag "shield12.png", class: "small-img" %> Général de division</p>
-	<p><%= image_tag "shield13.png", class: "small-img" %> Empereur</p>
-</div>
--->
+			</div><!-- welc-recipes -->
+		</div><!-- usr-boxes -->
+	</div><!-- actions-cntnr -->
+</div><!-- action-cntnt -->

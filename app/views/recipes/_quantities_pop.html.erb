@@ -25,39 +25,27 @@
 					<label for="rad5" class="trigger last" data-rel="perso"><%= image_tag "weighing.png", class: "mini-img" %><%= recipe.personnalized %></label>
 					<br/>
 					<div class="part content  <% if recipe.unit == "parts" %>show<% end %>">
-						<div class="composition-info">
-							<p>Poids/Part</p>
-						</div>
-						<div class="composition">
-							<%= image_tag "gramme.png", class: "field-img euro-img" %>
-							<%= f.text_field :portion_weight, class: "basic-field rounded-field", placeholder:"Poids..." %>
-						</div>
+						<p>Poids/Part</p>
+						<%= image_tag "gramme.png", class: "field-img euro-img" %>
+						<%= f.text_field :portion_weight, class: "basic-field rounded-field", placeholder:"Poids..." %>
 					</div>
 					<div class="recipe content <% if recipe.unit == "recettes" %>show<% end %>">
-						<div class="composition-info">
-							<p>Poids/Recette</p>
-						</div>
-						<div class="composition">
-							<%= f.fields_for :totals, recipe.totals.first do |ff| %>
-								<%= image_tag "kg.png", class: "field-img euro-img" %>
-								<span><%= ff.text_field :value, class: 'basic-field rounded-field' %></span>
-							<% end %>
-						</div>
+						<p>Poids/Recette</p>
+						<%= f.fields_for :totals, recipe.totals.first do |ff| %>
+							<%= image_tag "kg.png", class: "field-img euro-img" %>
+							<span><%= ff.text_field :value, class: 'basic-field rounded-field' %></span>
+						<% end %>
 					</div>
 					<div class="perso content <% if recipe.unit == "#{recipe.personnalized}" %>show<% end %>">
-						<div class="composition-info">
-							<p>Nom</p>
-							<p>Poids/Unité</p>
-						</div>
-						<div class="composition">
-							<%= f.text_field :portion_name, class: "basic-field top-rad", placeholder:"Nom...", value: "#{@recipe.personnalized}" %>
-							<%= image_tag "gramme.png", class: "field-img euro-img" %>
-							<%= f.text_field :portion, class: "basic-field bot-rad special-top", placeholder:"Poids..." %>
-						</div>
+						<p>Nom</p>
+						<%= f.text_field :portion_name, class: "basic-field rounded-field", placeholder:"Nom...", value: "#{@recipe.personnalized}" %>
+						<p>Poids/Unité</p>
+						<%= image_tag "gramme.png", class: "field-img euro-img" %>
+						<%= f.text_field :portion, class: "basic-field rounded-field", placeholder:"Poids..." %>
 					</div>
 					<br/>
 					<%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn rgt-btn" %>
-					<p class="cancel-btn pop-off">Annuler</p>
+					<p class="cancel-btn pop-off fl-rgt">Annuler</p>
 					<br/>
 				</div>
 			</div>

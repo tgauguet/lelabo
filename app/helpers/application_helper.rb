@@ -94,7 +94,7 @@ module ApplicationHelper
 	        fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
 	          render("add_#{association}", :ff => builder, image: nil)
 	        end
-	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: "plus-field big-plus new_#{association}")
+	    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: "grey-btn hide white-cat pop-over-new new_#{association}")
 	  end
 
 		def grade(user)

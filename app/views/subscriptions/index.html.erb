@@ -130,7 +130,7 @@
 </div>
 <% unless signed_in? %>
 <div class="sale-txt-cntnr scroll-here">
-	<h2 class="big-white-h2">Commencer à utiliser le Labo gratuitement</h2><br/>
+	<h2 class="big-white-h2">Essayez gratuitement pendant 30 jours !</h2><br/>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
@@ -159,19 +159,13 @@
 			<p>Tout ce que vous publiez sur Le Labo est privé et visible seulement depuis votre compte. Tout le contenu que vous créez demeure votre propriété.</p>
 		</div>
 		<div>
-			<h3>Puis-je utiliser Le Labo gratuitement ?</h3>
-			<p>Oui, vous pouvez utiliser Le Labo gratuitement. Vos options seront limitées.</p>
+			<h3>Comment profiter d'un essai gratuit ?</h3>
+			<p>Lors de votre inscription sur le Labo, vous disposez de 30 jours pour utiliser gratuitement toutes les fonctionnalités. <br/>Il vous suffit de vous inscrire via la page d'accueil pour en profiter.</p>
 		</div>
 		<div>
 			<h3>Quelles sont mes options de paiement ?</h3>
 			<p>Vous pouvez utiliser votre carte bancaire pour toute les formules. Vous recevrez votre facture immédiatement après votre abonnement.</p>
 			<p><%= link_to contacts_path do %>Contactez-nous<% end %> en cas de question</p>
-		</div>
-		<div>
-			<h3>Comment profiter d'un essai gratuit ?</h3>
-			<p>Pour essayer toutes les options du Labo gratuitement, c'est très simple. Il vous suffit de procéder à la commande de la formule que vous souhaitez essayer.</p>
-			<p>Composez ensuite vos informations de paiement, vous aurez accès directement à la formule sans que rien ne vous soit débité.</p>
-			<p>Vous avez ensuite 14 jours pour nous <%= link_to contacts_path do %>Contacter<% end %> si vous ne souhaitez pas poursuivre l'abonnement.</p>
 		</div>
 	</div>
 	<p class="btn back-to-top scroll2"><%= image_tag "arrow-top.png", class: "small-img", alt: "back to the top" %> RETOUR EN HAUT DE PAGE</p>

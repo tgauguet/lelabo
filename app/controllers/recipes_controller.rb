@@ -5,12 +5,12 @@ require 'barby/outputter/html_outputter'
 class RecipesController < ApplicationController
   include RecipesHelper
   helper_method :sort_columns, :sort_direction
-  before_action :set_recipe, except: [:index]
+  before_action :set_recipe, except: [:index, :new, :create]
   before_action :set_user, only: [:index, :new, :create, :download]
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_paper_trail_whodunnit
-  before_action :recipe_edit_helpers, except: [:index]
+  before_action :recipe_edit_helpers, except: [:index, :new, :create]
 
   # GET /recipes
   # GET /recipes.json
@@ -151,7 +151,7 @@ class RecipesController < ApplicationController
     @recipe = @user.recipes.new(recipe_params)
       if @recipe.save
         4.times { @recipe.totals.create(value:  (@recipe.totals.count + 1)) }
-        redirect_to edit_recipe_path(@recipe)
+        redirect_to recipe_path(@recipe)
         flash[:notice] = 'Recette crée avec succès'
         #format.json { render :edit, status: :created, location: edit_recipe_path }
       else

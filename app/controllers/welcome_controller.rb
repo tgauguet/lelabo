@@ -8,6 +8,8 @@ class WelcomeController < ApplicationController
 		elsif @user && !@user.terms?
 			redirect_to confirmation_de_votre_compte_path
 		end
+		date = Date.today - 30
+		@recipes = @user.recipes.count(:conditions=>["created_at >= ?", date], :order => 'DATE(created_at) DESC', :group => ["DATE(created_at)"])
 	end
 
 end

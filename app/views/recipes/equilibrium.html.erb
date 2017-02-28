@@ -42,7 +42,7 @@
 			<%= f.fields_for :sub_recipes do |ff| %>
 				<%= render "add_sub_recipes", ff: ff %>
 			<% end %>
-			<div class="add_field"><%= create_new_field "+", f, :quantities %></div>
+			<div class="add_field"><%= create_new_field "+ AJOUTER UN INGRÉDIENT", f, :quantities %></div>
 			<br/><br/><br/>
 		<% end %>
 		</div>

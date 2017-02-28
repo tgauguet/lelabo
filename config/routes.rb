@@ -35,7 +35,6 @@ Rails.application.routes.draw do
       get :download
       get :quant
       get :sticker
-      get :show
       get :stats
       get :pictures
       get :equilibrium

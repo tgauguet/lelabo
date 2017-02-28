@@ -7,7 +7,7 @@ class ProvidersController < ApplicationController
 	helper_method :sort_columns, :sort_direction
 
 	def index
-		@providers = @user.providers.all.paginate(page: params[:page], per_page: 20).order("name ASC")
+		@providers = @user.providers.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
 	end
 
 	def new
