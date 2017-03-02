@@ -21,6 +21,14 @@
 		<%= f.country_select(:country, selected: @user.country, priority_countries: ["BE", "FR"], class: "basic-field", placeholder:" ", include_blank: true) %><br/>
 		<p>Téléphone</p>
 		<%= f.text_field :phone, placeholder: "06 xx xx xx xx", class: "field basic-field enlarge-field" %><br/>
+		<p>Facebook</p>
+		<%= f.text_field :facebook_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+		<p>Linkedin</p>
+		<%= f.text_field :linkedin_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+		<p>Instagram</p>
+		<%= f.text_field :instagram_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+		<p>Google +</p>
+		<%= f.text_field :google_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
 		<p>Skype</p>
 		<%= f.text_field :skype, placeholder: "skype", class: "field basic-field enlarge-field" %><br/><br/>
 		<p><%= f.submit "ENREGISTRER MES INFORMATIONS", class: "btn cta-btn float-right" %></p>

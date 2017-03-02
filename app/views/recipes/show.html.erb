@@ -17,13 +17,22 @@
 </div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
+		<div class="load-url" style="display:none;">
+			<div id="circleG" class="circles">
+				<br/><br/>
+				<div id="circleG_1" class="circleG"></div>
+				<div id="circleG_2" class="circleG"></div>
+				<div id="circleG_3" class="circleG"></div>
+				<br/><br/><br/>
+			</div>
+		</div>
     <div class="rec-cntnr">
 			<div class="recipe-links">
-				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
-					<%= image_tag 'pdf2.png' , class: 'mini-mini-img'%> Enregistrer
-				<% end %>
 				<%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
-					<%= image_tag 'pdf.png', class: 'mini-mini-img' %> Aperçu PDF
+					<%= image_tag 'pdf2.png', class: 'mini-mini-img' %> Enregistrer
+				<% end %>
+				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
+					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> Aperçu PDF
 				<% end %>
 			</div>
       <div class="recipe-view">

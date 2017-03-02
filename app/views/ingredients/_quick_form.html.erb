@@ -22,33 +22,7 @@
 						</div>
 						<%= f.text_field :brand, class: "basic-field bot-rad uppr-ing", placeholder: " " %>
 					</div>
-					<h3>TVA</h3>
-					<div class="r-img-cntnr up-div">
-		        <p><%= f.radio_button :vat, "20.00%" %> 20,00 %</p>
-		        <p><%= f.radio_button :vat, "10.00%", checked: true %> 10,00 %</p>
-		        <p><%= f.radio_button :vat, "5.50%" %> 5,50%</p>
-		      </div>
 				</div>
-				<div class="b-i-right">
-					<h3>Poids</h3><br/>
-					<div class="composition-info ing-weights">
-						<p>Poids net total</p><div class="hover-helper">Poids net total de l'ingrédient</div>
-						<p>Poids brut total</p><div class="hover-helper">Poids brut de l'ingrédient</div>
-						<p>Nb d'Unités/Produit</p><div class="hover-helper">Nombre d'unité par ingrédient (si plusieurs par emballage)</div>
-						<p>Poids par Unité</p>
-					</div>
-					<div class="composition comp2">
-							<%= image_tag "gramme.png", class: "field-img euro-img" %>
-							<%= f.text_field :weight, class: "basic-field top-rad", placeholder: " " %>
-							<%= image_tag "gramme.png", class: "field-img euro-img" %>
-							<%= f.text_field :brut_weight, class: "basic-field special-top", placeholder: " " %>
-							<%= f.text_field :unit_quantity, class: "basic-field special-top", placeholder: " " %>
-							<%= image_tag "gramme.png", class: "field-img euro-img" %>
-							<%= f.text_field :unit_weight, class: "basic-field special-top bot-rad", placeholder: " " %>
-					</div>
-				</div>
-				<p>Composition</p><div class="hover-helper">Si l'objet est composé de plusieurs ingrédients (ex: praliné: "sucre, noisettes, amandes")</div><p>
-				<%= f.text_area :composition, class: "basic-field rounded-field uppr-ing", placeholder: " " %>
 				<div class="form-border"></div>
 			</div>
 			<div class="content-ing-info">
@@ -97,27 +71,11 @@
 						<%= image_tag "grammes.png", class: "field-img euro-img" %>
 						<%= f.text_field :kcal, class: "basic-field special-top bot-rad", placeholder: " " %>
 				</div>
-				<div class="ing-chk-cntnr">
-					<p class="custom-checkbox stari">
-						<%= f.check_box :is_bio %>
-						<%= image_tag "bio-big.png", alt: "checktag", class: "greyscale" %>
-						Biologique
-					</p>
-					<p class="custom-checkbox stari">
-						<%= f.check_box :is_glut_free %>
-						<%= image_tag "glut-big.png", alt: "checktag", class: "greyscale" %>
-						Contient du gluten
-					</p>
-					<p class="custom-checkbox stari">
-						<%= f.check_box :is_pulp %>
-						<%= image_tag "fruit-big.png", alt: "checktag", class: "greyscale" %>
-						Purée de fruits
-					</p>
-				</div>
 			</div>
 			<br/><br/><br/>
-			<%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn rgt-btn hide-pop" %>
-			<p class="cancel-btn pop-off">ANNULER</p>
+			<%= f.submit "ENREGISTRER", class: "standard-btn grey-btn qtt-btn rgt-btn pop-off" %>
+			<p class="cancel-btn pop-off float-right">Annuler &nbsp;&nbsp;</p>
+			<br/>
 		</div>
 	<% end %>
 <br/>

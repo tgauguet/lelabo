@@ -17,3 +17,20 @@
     </div>
   </div>
 </div>
+<div class="select-measure popover-bck popover-new" style="display:none;">
+	<div class="popover popover-big">
+		<div class="popover-ttl">
+			<h3>+ Créer un nouvel ingrédient</h3>
+		</div>
+		<div class="popover-cnt">
+			<div id="circleG" class="loading-indicator" style="display:none;">
+				<br/><br/>
+				<div id="circleG_1" class="circleG"></div>
+				<div id="circleG_2" class="circleG"></div>
+				<div id="circleG_3" class="circleG"></div>
+				<br/><br/><br/>
+			</div>
+			<%= render "ingredients/quick_form", ingredient: @ingredient, categories: @categories %>
+		</div>
+	</div>
+</div>

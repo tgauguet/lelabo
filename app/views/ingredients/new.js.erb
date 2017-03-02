@@ -1,10 +1,13 @@
-$("#flash-mssg").show();
-$(".flsh").show();
-$("#flash-mssg").html("<%= flash[:notice] %>");
-$(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");
-$('[id*="ingredient_id"]').append(
-    '<option value=" <%= @user.ingredients.order("created_at").last.id %>"><%= @user.ingredients.find(@user.ingredients.order("created_at").last.id).name %></option>'
-);
+// **************** INSIDE RECIPES ACTIONS ******************
+  // show flash message
+    $("#flash-mssg").show();
+    $(".flsh").show();
+    $("#flash-mssg").html("<%= flash[:notice] %>");
+  // add value to select ingredient
+    $(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");
+    $('[id*="ingredient_id"]').append(
+      '<option value=" <%= @user.ingredients.order("created_at").last.id %>"><%= @user.ingredients.find(@user.ingredients.order("created_at").last.id).name %></option>'
+    );
 
 $(".ingredient-btn").click(function(){
   $(".ingredient-form").show();
@@ -29,6 +32,7 @@ $(document).click(function(e){
     }
   }
 });
+
 $(document).ready(function(){
   $('.show-sort').click(function(){
     $('.sort-paths').toggle();

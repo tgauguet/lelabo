@@ -8,7 +8,6 @@ class Recipe < ActiveRecord::Base
 	has_many :ingredients, through: :quantity
 	has_many :recipes, through: :sub_recipe
 	has_many :sub_recipes, dependent: :destroy
-	has_many :recipe_items, dependent: :restrict_with_error
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy
 	validates_length_of :images, maximum: 8
@@ -32,6 +31,14 @@ class Recipe < ActiveRecord::Base
 
 	def reject_recipe(attribute)
 		attribute['sub_id'].blank? || attribute["weight"].blank?
+	end
+
+	def has_vat?
+		if self.vat?
+			false
+		else
+			true
+		end
 	end
 
 	def portion_price=(val)

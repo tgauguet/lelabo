@@ -17,6 +17,20 @@
 				</div>
 				<div class="usr-info-txt">
 					<h3><%= @user.account_name.humanize %> - <span><%= @user.firstname.humanize %> <%= @user.name.humanize %> </span></h3>
+					<p>
+						<% if !@user.facebook_link.blank? %>
+							<a href="http://<%= @user.facebook_link %>" target="_blank"><%= image_tag "facebook.png", class: "small-img" %></a>
+						<% end %>
+						<% if !@user.linkedin_link.blank? %>
+							<a href="http://<%= @user.linkedin_link %>" target="_blank"><%= image_tag "linkedin.png", class: "small-img" %></a>
+						<% end %>
+						<% if !@user.instagram_link.blank? %>
+							<a href="http://<%= @user.instagram_link %>" target="_blank"><%= image_tag "instagram.png", class: "small-img" %></a>
+						<% end %>
+						<% if !@user.google_link.blank? %>
+							<a href="http://<%= @user.google_link %>" target="_blank"><%= image_tag "google.png", class: "small-img" %></a>
+						<% end %>
+					</p>
 					<p><%= image_tag "shield#{grade_img(grade(@user))}.png", class: "shield-img" %></p>
 				</div>
 			</div>

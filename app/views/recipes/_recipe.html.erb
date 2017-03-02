@@ -2,8 +2,8 @@
     <% if recipe.category? %>
     	<div class="circle <%= category_color(recipe) %>"></div>
     <% end %>
-    <%= link_to recipe_path(recipe) do %>
       <div class="line-cntnr">
+        <%= link_to recipe_path(recipe) do %>
         <div class="major-td">
   				 <%= truncate(recipe.name.humanize, length: 35) %>
   			 </div>
@@ -14,11 +14,11 @@
           <div class="basic-td">
     				<%= recipe.category %>
     			</div>
+        <% end %>
         <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
         <%= image_tag "cancel.png", class: "show-delete remv-delete delete-rcp delete-tsk-btn delete-down", style:"display:none;" %>
         <%= link_to recipe_path(recipe.id), method: :delete, id: "delete-task" do %>
           <%= image_tag "checked-3.png", class: "show-delete delete-rcp delete-tsk-btn delete-down", style:"display:none;" %>
         <% end %>
       </div>
-    <% end %>
   </div>

@@ -42,9 +42,9 @@
       <h3>Prix de vente &&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Poids/Part</h3>
       <br/>
       <div class="r-img-cntnr up-div">
-        <p><%= f.radio_button :vat, "20.00%" %> 20,00 %</p>
-        <p><%= f.radio_button :vat, "10.00%", checked: true %> 10,00 %</p>
-        <p><%= f.radio_button :vat, "5.50%" %> 5,50%</p>
+        <p><%= f.radio_button :vat, "20.00%", checked: (@recipe.vat == 20.0) %> 20,00 %</p>
+        <p><%= f.radio_button :vat, "10.00%", checked: (@recipe.vat == 10.0 || @recipe.vat.blank?) %> 10,00 %</p>
+        <p><%= f.radio_button :vat, "5.50%", checked: (@recipe.vat == 5.5) %> 5,50%</p>
       </div>
       <div class="recipe-head to-left up-div">
         <%= image_tag "euro-3.png", class: "field-img-big upper-field-img rsp-dl" %>

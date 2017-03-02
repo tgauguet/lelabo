@@ -17,6 +17,15 @@
 </div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
+		<div class="load-url" style="display:none;">
+			<div id="circleG" class="circles">
+				<br/><br/>
+				<div id="circleG_1" class="circleG"></div>
+				<div id="circleG_2" class="circleG"></div>
+				<div id="circleG_3" class="circleG"></div>
+				<br/><br/><br/>
+			</div>
+		</div>
     <div class="rec-cntnr">
 			<% if @recipe.quantities.blank? %>
 				<p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
@@ -32,16 +41,16 @@
 								<div class="basic-field rounded-field meas-env">
 		              Unité de mesure : <%= @recipe.unit %>
 		              <span class="grey-btn pop-on">
-		        			     <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
+		        			  <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
 		          		</span>
 		            </div>
 							</div>
 							<div class="cost-qtt">
 								<div class="r-img-cntnr up-div">
 									<p>TVA</p>
-					        <p><%= f.radio_button :vat, "20.00%" %> 20,00 %</p>
-					        <p><%= f.radio_button :vat, "10.00%", checked: true %> 10,00 %</p>
-					        <p><%= f.radio_button :vat, "5.50%" %> 5,50%</p>
+					        <p><%= f.radio_button :vat, "20.00%", checked: (@recipe.vat == 20.0) %> 20,00 %</p>
+					        <p><%= f.radio_button :vat, "10.00%", checked: (@recipe.vat == 10.0 || @recipe.vat.blank?) %> 10,00 %</p>
+					        <p><%= f.radio_button :vat, "5.50%", checked: (@recipe.vat == 5.5) %> 5,50%</p>
 					      </div>
 								<div class="up-div">
 									<p>Coefficient de vente</p>

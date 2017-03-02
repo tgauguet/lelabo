@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_paper_trail_whodunnit
   before_action :recipe_edit_helpers, except: [:index, :new, :create]
+  before_action :set_categories, except: [:index]
 
   # GET /recipes
   # GET /recipes.json
@@ -55,6 +56,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = @user.recipes.new
+    @ingredient = @user.ingredients.new
     4.times { @quantity = @recipe.quantities.build }
   end
 
@@ -198,7 +200,6 @@ class RecipesController < ApplicationController
 
   def recipe_edit_helpers
     @totals = @recipe.totals.all.order("created_at ASC")
-    @categories = @user.category.all
   end
 
   def set_user
@@ -215,6 +216,10 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def set_categories
+    @categories = @user.category.all
   end
 
   def recipe_params

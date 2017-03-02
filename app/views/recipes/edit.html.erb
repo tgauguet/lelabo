@@ -17,6 +17,15 @@
 </div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
+		<div class="load-url" style="display:none;">
+			<div id="circleG" class="circles">
+				<br/><br/>
+				<div id="circleG_1" class="circleG"></div>
+				<div id="circleG_2" class="circleG"></div>
+				<div id="circleG_3" class="circleG"></div>
+				<br/><br/><br/>
+			</div>
+		</div>
     <div class="rec-cntnr">
 			<div class="action-cntnr">
 				<%= render "form", recipe: @recipe %>
@@ -27,7 +36,7 @@
   <div class="select-measure popover-bck popover-new" style="display:none;">
     <div class="popover popover-big">
       <div class="popover-ttl">
-        <h3><%= image_tag "feat-img1.png", class: "mini-img" %> Créer un nouvel ingrédient</h3>
+        <h3>+ Créer un nouvel ingrédient</h3>
       </div>
       <div class="popover-cnt">
         <div id="circleG" class="loading-indicator" style="display:none;">

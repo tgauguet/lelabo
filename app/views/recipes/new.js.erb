@@ -1,1 +1,5 @@
 $(".partial").html( "<%= escape_javascript render 'add_ingredient' %>" )
+
+// Use select2 to search ingredients faster
+  $('[id*="ingredient_id"]').select2();
+  $('[id*="sub_id"]').select2();
