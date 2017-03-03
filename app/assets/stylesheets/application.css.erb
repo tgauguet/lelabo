@@ -2319,99 +2319,8 @@ header .normal_header{
 	background: white;
 }
 
-.recipe-values, .prod-quantities2 h3, .quant_form h3{
-	padding-left: 2em;
-	padding-right: 2em;
-}
-
-.r-q-name, .r-q-name2{
-	width: 8em;
-	padding-left: 0.3em;
-	overflow: hidden;
-	display: inline-block;
-	margin-left: -.2em;
-}
-
-.r-q-name2{
-	text-align: right;
-	padding-right: 0.3em;
-}
-
-.r-q-name4{
-	text-align: right;
-	width: 5em;
-}
-
-.yellow-btn{
-	background: rgb(253,180,19);
-	opacity: 1;
-	border-color: rgb(243,150,14) !important;
-}
-
-.yellow-btn:hover{
-	background: rgb(243,170,17) !important;
-}
-
-.nth-ttl .r-q-name2{
-	padding-right: .2em;
-}
-
-.r-q-base{
-	padding-right: 1.5em;
-	width: 5.7em;
-}
-
-.r-q-name4 div{
-	margin-right: -.4em;
-	width: 1.5em;
-	display: inline-block;
-	text-align: left;
-	padding-left: .5em;
-}
-
-.r-q-name3, .r-q-name{
-	text-align: left;
-}
-
-.r-q-name{
-	width: 19em;
-}
-
-.quant-values-cntnr .r-q-name{
-	width: 14em;
-}
-
-.recipe-values .nth-chld, .quant-values-cntnr .nth-chld{
-	border-bottom: 1px solid rgb(202,212,217);
-	padding: 0.5em;
-}
-
 .nth-chld a:hover .r-q-name{
 	text-decoration: underline;
-}
-
-.ing_comp_cntnr .recipe-values .nth-chld{
-	border:none;
-}
-
-.ing_comp_cntnr .recipe-values .nth-chld:hover{
-	background: white;
-}
-
-.ing_comp_cntnr .recipe-values .nth-chld:nth-child(2n+2){
-	background: rgb(245,247,252);
-}
-
-.nth-ttl{
-	padding-left: .3em;
-}
-
-.recipe-values .nth-chld:hover, .quant-values-cntnr .nth-chld:hover{
-	background: rgb(245,247,252);
-}
-
-.recipe-values .nth-chld:nth-last-child(1), .quant-values-cntnr .nth-chld:nth-last-child(1){
-	border-bottom: none;
 }
 
 .pdf-cntnr .nth-chld:nth-child(2n+2){
@@ -2474,26 +2383,6 @@ header .normal_header{
 	border-bottom-right-radius: .3em;
 }
 
-.clcl-mode input[type=radio] + label{
-	color: rgb(43,54,69);
-	border: 1px solid rgb(202,212,217);
-	background: white;
-}
-
-.clcl-mode input[type=radio] + label:hover{
-	background: rgb(245,247,248) !important;
-}
-
-.clcl-mode input[type=radio]:checked + label{
-	background: rgb(235,237,243)!important;
-}
-
-.clcl-mode{
-	width: 9em;
-	float: right;
-	margin-top: -3em;
-}
-
 .show-pdf{
 	cursor: pointer;
 	float: right;
@@ -2507,21 +2396,6 @@ header .normal_header{
 
 .show-pdf img{
 	height: 0.9em;
-}
-
-.prod-quantities input[type=radio] + label img{
-    width: 0.8em;
-		margin-right: 0.7em;
-		vertical-align: center;
-		margin-left: 1em;
-}
-
-.clcl-mode div {
-	width: 49.8%;
-	margin-left: -0.2em;
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
 }
 
 .staff-cntnr{
@@ -2568,28 +2442,96 @@ header .normal_header{
 	border:4px solid white;
 }
 
-.clcl-mode .lfrd{
-	margin-left: 0em;
+.clcl-mode{
+	width: 10em;
+	float: right;
+	margin-top: -.4em;
+	text-align: right;
 }
 
-.prod-quantities input[type=radio] + label:hover {
-    opacity: 0.9;
+.clcl-mode input[type=radio] + label{
+	color: rgb(43,54,69);
+	background: rgb(235,240,244);
+	border-bottom: 1px solid rgb(196,199,206);
+	cursor: pointer;
 }
 
-.prod-quantities input[type=radio]:first-child + label {
+.clcl-mode input[type=radio] + label:hover{
+	background: rgb(240,244,251)!important;
+}
+
+.clcl-mode input[type=radio]:checked + label{
+	background: rgb(226,230,236)!important;
+}
+
+.clcl-mode div {
+	position: relative;
+	margin-left: -.2em;
+	margin-bottom: 1em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.prod-calculs input[type=radio]:first-child + label {
     border-top-left-radius: 0.3em;
 		border-top-right-radius: 0.3em;
 }
 
-.q-forms .ingredient-btn{
-	font-size: 0.94em;
-	margin-top: 0.8em;
+.cost-qt input[type=radio]{
+	display: inline!important;
 }
 
-.q-forms .qtt-btn{
-	font-size: 0.94em;
-	margin-top: .7em;
-	padding-left: .7em;
+.prod-calculs input[type=radio] + .last {
+    border-bottom-left-radius: 0.3em;
+		border-bottom-right-radius: 0.3em;
+}
+
+.prod-calculs input[type=radio]{
+	display: none;
+}
+
+.prod-calculs input[type=radio]:checked + label {
+	background-color: rgb(44,58,109);
+	opacity: 1 !important;
+}
+
+.clcl-mode div input[type=radio] + label {
+		text-align: center;
+		border-radius: 0em !important;
+		font-size: 0.9em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		padding-left: 1em;
+		padding-right: 1em;
+}
+
+.prod-calculs .standard-btn{
+	font-size: 1em;
+}
+
+.prod-calculs .composition input{
+	padding-left: 2em;
+	max-width: 10em;
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 1.2em solid transparent;
+  border-bottom: 1.2em solid transparent;
+  border-right:1.2em solid white;
+	margin-top: 2em;
+	margin-right: -.5em;
+}
+
+.clcl-mode div input[type=radio] + .lft-rd {
+		border-top-left-radius: 1em !important;
+		border-bottom-left-radius: 1em !important;
+}
+
+.clcl-mode div input[type=radio] + .rgt-rd {
+		border-top-right-radius: 1em !important;
+		border-bottom-right-radius: 1em !important;
 }
 
 .rgt-btn{
@@ -2597,16 +2539,6 @@ header .normal_header{
 	float: right;
 	font-size: 1em !important;
 	margin-top: 0em !important;
-}
-
-.prod-quantities input[type=radio] + .last {
-    border-bottom-left-radius: 0.3em;
-		border-bottom-right-radius: 0.3em;
-}
-
-.prod-quantities input[type=radio]:checked + label {
-	background-color: rgb(44,58,109);
-	opacity: 1 !important;
 }
 
 .dl-cntnr{
@@ -2634,25 +2566,6 @@ header .normal_header{
 
 .div-active{
 	border:1px solid rgb(37,129,250) !important;
-}
-
-.clcl-mode div input[type=radio] + label {
-    width: auto;
-		text-align: center;
-		border-radius: 0em !important;
-		font-size: 0.9em;
-		padding-top: 0.3em;
-		padding-bottom: 0.3em;
-}
-
-.clcl-mode div input[type=radio] + .lft-rd {
-		border-top-left-radius: 1em !important;
-		border-bottom-left-radius: 1em !important;
-}
-
-.clcl-mode div input[type=radio] + .rgt-rd {
-		border-top-right-radius: 1em !important;
-		border-bottom-right-radius: 1em !important;
 }
 
 .to-prd{
@@ -2742,13 +2655,6 @@ header .normal_header{
 	width: 6em;
 }
 
-.q-forms h3{
-	text-align: left;
-	font-family: "source_sans_prolight";
-	font-weight: 700;
-	margin-bottom: 1.3em;
-}
-
 .post-link{
   padding-left:2em;
   color: #3B3B3B
@@ -2796,9 +2702,8 @@ header .normal_header{
 	right: 0em;
 	z-index: -2;
 	bottom: 0;
-	left: 12em;
+	left: 10em;
 	overflow-y: scroll;
-	border-left: 1px solid rgb(225,228,232);
 }
 
 .welcome-cntnt{
@@ -2814,11 +2719,10 @@ header .normal_header{
 	bottom: 0;
 	width: 15em;
 	top: 2.8em;
-	border-right: 1px solid rgb(225,228,232);
 }
 
 .rec-rgt-menu{
-	width: 8em;
+	width: 6em;
 	top: 2.8em;
 	z-index: -1;
 }
@@ -4009,10 +3913,6 @@ input:placeholder-shown, textarea:placeholder-shown{
 	padding-left: .7em;
 }
 
-.array-bck{
-	padding-top: 1em;
-}
-
 .select-span select{
   border-top:0px;
   border-top-right-radius: 0;
@@ -4645,7 +4545,7 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 	border-bottom:1px solid rgb(29,39,65);
 }
 
-.cost_form table tr:last-child td{
+.cost_form table tr:last-child td, .recipe-values table tr:last-child td{
 	border-bottom: none;
 }
 
@@ -5339,12 +5239,17 @@ input[type="checkbox"] + span {
 	padding: 1.3em 1em 1.1em 1em;
 	margin: 0em;
 	cursor: pointer;
-	background: white;
-	border-bottom: 1px solid rgb(226,226,226);
+  height: 2.8em;
+  background:rgb(33,49,77);
+	border-left: 1px solid rgb(30,30,30);
+	border-bottom: 1px solid rgb(30,30,30);
 }
 
 .recipe-btn span{
 	font-size: .8em;
+	font-family: "source_sans_probold";
+	opacity: .6;
+	color: white;
 }
 
 .recipe-forms h2{
@@ -5354,16 +5259,24 @@ input[type="checkbox"] + span {
 }
 
 .recipe-btn img{
-	width: 1.7em;
+	opacity: .6;
+	width: 1.2em;
+	filter: brightness(0) invert(1);
 }
 
 .recipe-btn:hover{
-	background: rgb(243,245,251);
+	background: rgb(33,43,67);
 }
 
 .current-form{
 	background: rgb(240,244,248) !important;
-	box-shadow: inset 0 -3px 0 rgb(103,109,143);
+	border-right: none;
+}
+
+.current-form img, .current-form span{
+	opacity: 1;
+	filter: none;
+	color:  #2B3645;
 }
 
 .current-form:after {
@@ -5559,10 +5472,6 @@ input[type="checkbox"] + span {
 	font-size: 1.1em;
 }
 
-.pdf-cntnr .quant_form{
-	text-align: left;
-}
-
 .pdf-cntnr .quant_form .nth-chld{
 	padding: .5em;
 	border-bottom: 1px solid rgb(202,212,217);
@@ -5585,9 +5494,9 @@ input[type="checkbox"] + span {
 }
 
 .kg-field{
-	display: inline-block;
 	width: 6.5em;
-	margin-left: -0.1em;
+	margin: .4em;
+	margin-left: 0em;
 }
 
 .kg-field span:nth-last-child(2){
@@ -5660,21 +5569,27 @@ input[type="checkbox"] + span {
 	border-bottom: 1px solid rgb(202,212,217);
 }
 
-.cost_form table{
-	border-collapse:collapse;
+.cost_form table, .recipe-values table{
+	border-collapse: collapse;
 	width: 100%;
+}
+
+.cost_form table tr th, .recipe-values table tr th{
+	padding: 1em !important;
+	text-align: left;
 }
 
 .cost_form table tr th{
-	padding: 1em;
-	text-align: left;
 	color: white;
 }
 
-.eq-bars table{
+.eq-bars table, .recipe-values table{
 	border-collapse:collapse;
 	width: 100%;
 	border:none;
+}
+
+.eq-bars table{
 	font-size: .9em;
 }
 
@@ -5683,15 +5598,32 @@ input[type="checkbox"] + span {
 	padding: .4em;
 }
 
+.cost-results table{
+	width: 100%;
+}
+
 .eq-bars .ingredients{
 	font-size: .9em;
 }
 
-.cost_form table tr td{
+.cost_form table tr td, .recipe-values table tr td, .cost-results table tr td, .cost-results table tr th{
 	padding: .8em 0em .8em 1em;
 	text-align: left;
-	border-bottom: 1px solid rgb(226,226,226);
+	border-bottom: 1px solid rgb(236,240,246);
 	background: white;
+}
+
+.cost-results table tr:last-child td, .cost-results table tr:last-child th{
+	border-bottom: none;
+}
+
+.recipe-values table tr td, .recipe-values table tr th{
+	padding: .5em .6em .5em .6em !important;
+}
+
+.rgt-td{
+	text-align: right !important;
+	padding-right: 1em !important;
 }
 
 .cost-val{
@@ -5764,10 +5696,6 @@ input[type="checkbox"] + span {
 .red{
 	background: rgb(236,54,40) !important;
 	border:0.15em solid rgb(187, 38, 27);
-}
-
-.quant_form {
-	text-align:right;
 }
 
 .recipe-imgs, .imgs-field{
@@ -6239,14 +6167,6 @@ textarea {
 		display: none !important;
 	}
 
-	.r-q-name{
-		width: 15em;
-	}
-
-	.r-q-name2{
-		width: 3.5em;
-	}
-
 	.qs-val{
 		width: 4em !important;
 	}
@@ -6614,21 +6534,6 @@ td.barby-cell.on { background: #000;padding: 0 !important;}
 	color: white;
 }
 
-.cost-qt .cost-qtt{
-	width: 23em;
-	display: inline-block;
-	vertical-align: top;
-	padding: 0;
-}
-
-.cost-qtt .up-div{
-	display: inline-block;
-	vertical-align: top;
-	width: 9em;
-	padding: 0;
-	margin: 0;
-}
-
 .eq-cnt .fl-rgt{
 	margin-top: -2.7em;
 }
@@ -6637,14 +6542,8 @@ td.barby-cell.on { background: #000;padding: 0 !important;}
 	padding: 0;
 }
 
-.cost-qt .up-div .rounded-field{
-	width: 6em !important;
-}
-
-.cost-qt .basic-field{
-	width: 24em;
-	padding-left: 1.4em;
-	margin-bottom: .2em;
+.c-f .basic-field{
+	margin-bottom: .4em;
 }
 
 section{
@@ -6751,7 +6650,7 @@ section{
 }
 
 .recipe-ttl{
-	left: 8em;
+	left: 6em;
 }
 
 .recipe-no-left{
@@ -6837,9 +6736,10 @@ section{
 
 .cyan-bck{
 	background: #3A539B !important;
+	color: white;
 }
 
-.purple-bck h3, .purple-bck p{
+.purple-bck h3, .purple-bck p, .cyan-bck p{
 	color: white;
 }
 
@@ -6967,6 +6867,82 @@ section{
 	margin-top: -.1em;
 }
 
-.duo-box .w-chart-cntnr{
-	border:1px soldi red;
+.flex-eq .prod-calculs, .flex-eq .prod-results{
+	display: inline-block;
+	vertical-align: top;
+	width: 21em;
+	margin: .5em;
+	background: white;
+	text-align: left;
+	padding: 2em;
+	border-radius: .2em;
+	border-bottom: 1px solid rgb(225,228,232);
+}
+
+.flex-eq .prod-calculs{
+	margin-left: 1.5em;
+}
+
+.flex-eq .array-calculs{
+	width: 16em;
+}
+
+.flex-eq .prod-calculs h3, .flex-eq .prod-results h3{
+	margin-bottom: 1em;
+}
+
+.flex-eq .prod-results{
+	width: auto;
+	margin-right: 1.5em;
+	min-width: 25em;
+}
+
+.q-f1{
+	display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.switch-field input {
+    position: absolute !important;
+    height: 2.5em;
+    width: 5.2em;
+    overflow: hidden;
+		opacity: 0;
+		cursor: pointer;
+}
+
+.switch-field label {
+  display: inline;
+  font-size: 14px;
+	float: left;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: .4em .6em .4em .6em;
+	border-bottom: 1px solid rgb(196,199,206);
+	background-color: rgb(240,244,251);
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+	background-color: rgb(235,240,244);
+}
+
+.switch-field input:checked + label {
+  background-color: rgb(226,230,236) !important;
+}
+
+.switch-field label:first-of-type {
+  border-top-left-radius: .2em;
+	border-bottom-left-radius: .2em;
+	border-top-right-radius: 0em !important;
+}
+
+.switch-field label:last-of-type {
+	border-top-right-radius: .2em;
+	border-bottom-right-radius: .2em;
 }

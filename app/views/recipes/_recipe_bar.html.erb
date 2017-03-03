@@ -1,26 +1,26 @@
 <div class="recipe-btn-cntnr">
   <%= link_to recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'show') %>current-form<% end %>"><%= image_tag"r-f-img1.png", alt: "recipe btn image" %><br/><span>Aperçu</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'show') %>current-form<% end %>"><%= image_tag"r-f-img1.png", alt: "recipe btn image" %><br/><span>APERÇU</span></p>
   <% end %>
   <%= link_to edit_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'edit') %>current-form<% end %>"><%= image_tag"r-f-img2.png", alt: "recipe btn image" %><br/><span>Édition</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'edit') %>current-form<% end %>"><%= image_tag"r-f-img2.png", alt: "recipe btn image" %><br/><span>ÉDITION</span></p>
   <% end %>
   <%= link_to quant_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'quant') %>current-form<% end %>"><%= image_tag"r-f-img3.png", alt: "recipe btn image" %><br/><span>Quantités</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'quant') %>current-form<% end %>"><%= image_tag"r-f-img3.png", alt: "recipe btn image" %><br/><span>QUANTITÉS</span></p>
   <% end %>
   <%= link_to cost_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'cost') %>current-form<% end %>"><%= image_tag"r-f-img5.png", alt: "recipe btn image" %><br/><span>Coût de revient</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'cost') %>current-form<% end %>"><%= image_tag"r-f-img5.png", alt: "recipe btn image" %><br/><span>COÛTS</span></p>
   <% end %>
   <%= link_to equilibrium_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'equilibrium') %>current-form<% end %>"><%= image_tag"r-f-img4.png", alt: "recipe btn image" %><br/><span>Équilibre</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'equilibrium') %>current-form<% end %>"><%= image_tag"r-f-img4.png", alt: "recipe btn image" %><br/><span>ÉQUILIBRE</span></p>
   <% end %>
   <%= link_to sticker_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'sticker') %>current-form<% end %>"><%= image_tag"r-f-img7.png", alt: "recipe btn image" %><br/><span>Étiquettes</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'sticker') %>current-form<% end %>"><%= image_tag"r-f-img7.png", alt: "recipe btn image" %><br/><span>ÉTIQUETTES</span></p>
   <% end %>
   <%= link_to stats_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'stats') %>current-form<% end %>"><%= image_tag"r-f-img8.png", alt: "recipe btn image" %><br/><span>Statistiques</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'stats') %>current-form<% end %>"><%= image_tag"r-f-img8.png", alt: "recipe btn image" %><br/><span>STATS</span></p>
   <% end %>
   <%= link_to pictures_recipe_path(@recipe) do %>
-    <p class="recipe-btn <% if current_page?(action: 'pictures') %>current-form<% end %>"><%= image_tag"r-f-img6.png", alt: "recipe btn image" %><br/><span>Images</span></p>
+    <p class="recipe-btn <% if current_page?(action: 'pictures') %>current-form<% end %>"><%= image_tag"r-f-img6.png", alt: "recipe btn image" %><br/><span>PHOTOS</span></p>
   <% end %>
 </div>

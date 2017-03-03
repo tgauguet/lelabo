@@ -58,6 +58,10 @@ $(document).ready(function(){
 			$('.tab').click(function() {
 		    $('.q-f1, .q-f2, .tab').toggle();
 		  });
+		// hide and show each cells
+		   $('.tab').click(function() {
+		     $('.c-f1, .c-f2, .tab').toggle();
+		   });
 
 	// **************** INDEX ACTION ******************
 		// Used as button to destroy the recipes
