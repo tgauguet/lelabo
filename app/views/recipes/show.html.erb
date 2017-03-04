@@ -81,33 +81,41 @@
         <div class="ing_comp_cntnr">
           <div class="form-border"></div>
           <h3>INGRÉDIENTS</h3><br/>
-            <div class="recipe-values">
-              <% @recipe.quantities.each do |q| %>
-                  <div class="nth-chld">
-                    <%= link_to edit_ingredient_path(q.ingredient.id), target: '_blank' do %>
-                      <div class="r-q-name"><%= q.ingredient.name %></div>
-                    <% end %>
-                    <% if !(q.unit == "QS") %>
-                      <div class="r-q-name2"><%= q.weight %></div>
-                      <div class="r-q-name2 r-q-name3"><%= q.unit %></div>
-                    <% else %>
-                      <div class="r-q-name2 qs-val"><%= q.unit %></div>
-                    <% end %>
-                  </div>
-              <% end %>
-              <% @recipe.sub_recipes.each do |q| %>
-                  <div class="nth-chld">
-                    <%= link_to edit_recipe_path(q.sub_id), target: '_blank' do %>
-                      <div class="r-q-name"><%= current_user.recipes.find(q.sub_id).name %></div>
-                    <% end %>
-                    <div class="r-q-name2"><%= q.weight %></div>
-                    <div class="r-q-name2 r-q-name3">g</div>
-                  </div>
-              <% end %>
+            <div class="recipe-values rec-show">
+							<table>
+	              <% @recipe.quantities.each do |q| %>
+									<tr>
+											<td class="ing-td">
+		                    <%= link_to edit_ingredient_path(q.ingredient.id), target: '_blank' do %>
+		                      <%= q.ingredient.name %>
+		                    <% end %>
+											</td>
+	                    <% if !(q.unit == "QS") %>
+	                      <td class="rgt-td"><%= q.weight %></div>
+	                      <td><%= q.unit %></td>
+	                    <% else %>
+												<td></td>
+	                      <td><%= q.unit %></td>
+	                    <% end %>
+	                  </div>
+									</tr>
+	              <% end %>
+	              <% @recipe.sub_recipes.each do |q| %>
+									<tr>
+										<td class="ing-td">
+		                  <%= link_to edit_recipe_path(q.sub_id), target: '_blank' do %>
+		                    <%= current_user.recipes.find(q.sub_id).name %>
+		                  <% end %>
+										</td>
+	                  <td class="rgt-td"><%= q.weight %></td>
+	                  <td>g</td>
+									</tr>
+	              <% end %>
+							</table>
             </div>
           <% if @recipe.process? %>
           <div class="form-border"></div>
-          <h3>INSTRUCTIONS</h3><br/>
+          <h3>INSTRUCTIONS</h3>
           <div class="ing_comp_l">
             <p><%= @recipe.process.html_safe %></p>
           </div>

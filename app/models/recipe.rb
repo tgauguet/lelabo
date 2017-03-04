@@ -55,6 +55,7 @@ class Recipe < ActiveRecord::Base
 		self.eq_data = "Ganache" unless self.eq_data
 		self.cost_data = 100 unless self.cost_data
 		self.portion = 100 unless self.portion
+		self.array_unit = "g" unless self.array_unit
 		self.unit = "grammes" unless self.unit
 		self.coef = 4 unless self.coef
 		self.vat = 10 unless self.vat

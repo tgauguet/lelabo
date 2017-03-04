@@ -25,6 +25,10 @@ class RecipesController < ApplicationController
   end
 
   def quant
+    @first = @recipe.totals.first.value
+    @second = @recipe.totals.second.value
+    @third = @recipe.totals.third.value
+    @fourth = @recipe.totals.fourth.value
   end
 
   def pictures

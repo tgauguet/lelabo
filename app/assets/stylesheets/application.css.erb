@@ -4050,6 +4050,10 @@ input:placeholder-shown, textarea:placeholder-shown{
 	padding-bottom: 0.35em !important;
 }
 
+.ing-form-cntnr .composition-info p{
+	margin-top: 1em !important;
+}
+
 .composition-info h3{
 	text-align: right;
 }
@@ -5241,8 +5245,12 @@ input[type="checkbox"] + span {
 	cursor: pointer;
   height: 2.8em;
   background:rgb(33,49,77);
-	border-left: 1px solid rgb(30,30,30);
 	border-bottom: 1px solid rgb(30,30,30);
+}
+
+.rec-rgt-menu .rgt-area{
+	background: rgb(33,49,77) !important;
+	border-left: 1px solid rgb(30,30,30);
 }
 
 .recipe-btn span{
@@ -5617,8 +5625,25 @@ input[type="checkbox"] + span {
 	border-bottom: none;
 }
 
+.recipe-values table a:hover{
+	text-decoration:underline;
+}
+
 .recipe-values table tr td, .recipe-values table tr th{
 	padding: .5em .6em .5em .6em !important;
+}
+
+.rec-show table tr td{
+	padding: .4em .6em .4em .6em !important;
+}
+
+.recipe-values table tr .ing-td{
+	width: 50%;
+	padding-left: 2em !important;
+}
+
+.rec-show table tr:nth-child(2n+1) td{
+	background: rgb(242,246,251);
 }
 
 .rgt-td{
@@ -6567,6 +6592,10 @@ section{
 	margin-left: .3em;
 }
 
+.eq-form h3, .bar-cntnr h3{
+	padding: 1em 0em 0 1em;
+}
+
 .progress {
 	overflow: hidden;
 	padding: 0 !important;
@@ -6622,6 +6651,7 @@ section{
 
 .flex-eq{
 	display: flex;
+  justify-content: center;
 }
 
 .flex-cases{

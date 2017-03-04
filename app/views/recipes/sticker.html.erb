@@ -29,19 +29,17 @@
     <div class="rec-cntnr">
 			<div class="flex-eq">
 				<div class="cost_form cost-val eq-form stick-form">
-					<div class="blue-bckgrnd">
-						<h3><%= image_tag "cons.png", class:"mini-img" %> CONSERVATION & PRODUCTION</h3>
-					</div>
+					<h3>Conservation & Production</h3>
 					<div>
 						<%= form_for @recipe do |f| %>
 						  <p>Numéro de production</p>
-						  <%= f.text_field :production_number, class:"basic-field rounded-field" %>
+						  <%= f.text_field :production_number, class:"basic-field rounded-field", placeholder: " " %>
 						  <p>Date de production</p>
-						  <%= f.text_field :production_date, class: "basic-field datepicker rounded-field" %>
+						  <%= f.text_field :production_date, class: "basic-field datepicker rounded-field", placeholder: " " %>
 						  <p>Durée de conservation (en jours)</p>
-						  <%= f.text_field :consumption_days, class:"basic-field rounded-field" %>
+						  <%= f.text_field :consumption_days, class:"basic-field rounded-field", placeholder: " " %>
 						  <p>Conseils de conservation</p>
-						  <%= f.text_area :conservation, class:"basic-field rounded-field" %>
+						  <%= f.text_area :conservation, class:"basic-field rounded-field", placeholder: " " %>
 							<div class="form-border"></div>
 						  <h3 class="bgr-ttl">Allergènes</h3>
 						  <p class="custom-checkbox stari">
@@ -101,9 +99,7 @@
 					</div>
 				</div><!-- cost_form cost-val eq-form stick-form -->
 				<div class="sticker cost-val eq-form eq-bars">
-					<div class="blue-bckgrnd">
-						<h3><%= image_tag "leaf.png", class:"mini-img" %> INFORMATIONS NUTRITIONNELLES</h3>
-					</div>
+					<h3>Informations nutritionnelles</h3>
 					<div class="composition-table">
 					  <table>
 					    <tr>
@@ -183,18 +179,18 @@
 			</div><!-- .flex-eq -->
 			<div class="cost_form cost-val stick-form bar-cntnr">
 					<%= form_for @recipe do |f| %>
-					<div class="blue-bckgrnd"><h3><%= image_tag "barcode.png", class: "mini-img" %> CODE BARRE</h3></div>
+						<h3>Code Barre</h3>
 						<div class="divs">
 							<p>N° de code barre</p>
 							<i>(12 chiffres sans espaces)</i><br/><br/>
-							<%= f.text_field :bar, class:"basic-field rounded-field" %><br/>
+							<%= f.text_field :bar, class:"basic-field rounded-field", placeholder: " " %><br/>
 							<%= f.submit "ENREGISTRER", class: "auto-btn cta-btn fl-rgt", id: "submit-ing" %>
 						</div>
-						<div class="bar-tender divs">
-							<% if @barcode && is_barcode?(@recipe.bar) %>
+						<% if @barcode && is_barcode?(@recipe.bar) %>
+							<div class="bar-tender divs">
 							  <%= @barcode.to_html.html_safe %>
-							<% end %>
-						</div>
+							</div>
+						<% end %>
 					<% end %>
 			</div><!-- cost_form cost-val -->
 		</div><!-- rec-cntnr -->
