@@ -34,7 +34,7 @@
   <% else %>
 	<div class="flex-eq">
 	<div class="cost_form cost-val eq-form">
-		<div class="r-c-cnt blue-bckgrnd eq-cnt">
+		<div class="r-c-cnt eq-cnt">
       <%= form_for(@recipe, remote: true) do |f| %>
         <p class="select-cat-field">
           ÉQUILIBRE POUR
@@ -58,8 +58,7 @@
 		<br/>
 	</div>
 	<div class="cost_form cost-val eq-bars">
-		<div class="blue-bckgrnd"><h3><%= image_tag "progress.png", class: "mini-img" %> COMPOSITION</h3></div>
-		<br/>
+		<h3>Composition</h3>
 		<div class="barWrapper">
 		 <span class="progressText"><B>EAU</B></span>
 		 <div class="progress-percent"><%= @recipe.percentage_of("water_percent").to_i %>%
