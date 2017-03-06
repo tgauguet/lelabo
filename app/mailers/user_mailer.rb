@@ -24,10 +24,10 @@ class UserMailer < ApplicationMailer
 		mail( to: 'timothee.gauguet@orange.fr', subject: "Nouvelle commande Le Labo" )
 	end
 
-	def send_recipe(message)
+	def send_recipe(message, user)
 		@message = message
 		@url = "http://www.lelabo-ondemand.com"
-		mail( to: message.email, subject: message.subject)
+		mail( to: message.email, subject: message.subject, from: user.email)
 	end
 
 end

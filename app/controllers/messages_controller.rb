@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create(message_params)
     if @message.save
-      UserMailer.send_recipe(@message).deliver_now
+      UserMailer.send_recipe(@message, current_user).deliver_now
       flash[:success] = "Message envoyé !"
     else
       flash[:error] = "Erreur lors de l'envoi du message"
