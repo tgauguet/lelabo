@@ -14,93 +14,20 @@
 </div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
-		<div class="load-url" style="display:none;">
-			<div id="circleG" class="circles">
-				<br/><br/>
-				<div id="circleG_1" class="circleG"></div>
-				<div id="circleG_2" class="circleG"></div>
-				<div id="circleG_3" class="circleG"></div>
-				<br/><br/><br/>
-			</div>
-		</div>
+		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
 			<% if @recipe.quantities.blank? %>
 				<p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
 			<% else %>
 			<div class="recipe-links">
-				<p class="tab cyan-bck">
+				<p class="tab cyan-bck c-f2btn">
     			<%= image_tag "pie-chart.png", class: "mini-mini-img" %> Statistiques
     		</p>
-        <p class="tab cyan-bck" style="display:none;">
+        <p class="tab cyan-bck c-f1btn" style="display:none;">
     			<%= image_tag "euro2.png", class: "mini-mini-img" %> Calcul de coûts
     		</p>
 			</div>
-			<div class="flex-eq c-f1">
-				<div class="prod-calculs">
-					<h3>Quel coût calculer ?</h3>
-					<br/>
-					<%= form_for @recipe do |f| %>
-						<div class="cost-qt">
-							<div class="content2 composition">
-								<p>Quantité</p>
-								<%= image_tag "hand.png", class: "field-img" %>
-								<%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
-							</div><!-- content2 composition -->
-							<br/><br/>
-							<div class="basic-field rounded-field meas-env">
-								<%= image_tag "measure.png", class: "field-img2 up-img" %>
-								Mesure : <%= @recipe.unit %>
-								<span class="grey-btn pop-on">
-									<%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
-								</span>
-							</div><!-- basic-field rounded-field meas-env -->
-							<br/>
-							<div class="content2 composition">
-								<p>Coefficient de vente</p>
-								<%= image_tag "abacus.png", class: "field-img" %>
-								<%= f.text_field :coef, class:"basic-field top-rad rounded-field hide-meas", placeholder: " " %>
-							</div><!-- content2 composition -->
-							<br/>
-							<p>TVA</p>
-							<div class="switch-field">
-					      <%= f.radio_button :vat, "20.00%", checked: (@recipe.vat == 20.0) %>
-					      <label for="switch_3_left">20 %</label>
-					      <%= f.radio_button :vat, "10.00%", checked: (@recipe.vat == 10.0 || @recipe.vat.blank?) %>
-					      <label for="switch_3_center">10 %</label>
-								<%= f.radio_button :vat, "5.50%", checked: (@recipe.vat == 5.5) %>
-					      <label for="switch_3_right">5,5 %</label>
-					    </div>
-							<%= f.submit "CALCULER", class: "primary-btn float-right" %>
-						</div><!-- cost-qt -->
-					<% end %>
-				</div><!-- prod-calculs -->
-				<div class="arrow-left"></div>
-				<div class="prod-results cost-results">
-					<h3>Coût de revient pour <%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></h3>
-					<table>
-						<tr>
-							<th>POIDS</th>
-							<td><%= @recipe.to_produce_in_grammes %> g</td>
-						</tr>
-						<tr>
-							<th>PRIX DE REVIENT HT</th>
-							<td><%= number_to_currency @recipe.prht %></td>
-						</tr>
-						<tr>
-							<th>PRIX DE VENTE HT</th>
-							<td><%= number_to_currency @recipe.pvht %></td>
-						</tr>
-						<tr>
-							<th>TVA (<%= @recipe.vat %>)</th>
-							<td><%= number_to_currency @recipe.vat_price %></td>
-						</tr>
-						<tr>
-							<th>PRIX DE VENTE TTC</th>
-							<td><%= number_to_currency @recipe.pvttc %></td>
-						</tr>
-					</table>
-				</div><!-- prod-results -->
-			</div><!-- flex-eq c-f -->
+			<%= render "recipes/costs", recipe: @recipe %>
 			<div class="c-f2" style="display:none;">
 				<div class="cost_form">
 					<div class="r-c-cnt blue-bckgrnd">

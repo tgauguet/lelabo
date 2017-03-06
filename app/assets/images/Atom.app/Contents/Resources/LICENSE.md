@@ -999,7 +999,7 @@ THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: atom@1.14.3
+Package: atom@1.14.4
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -7565,7 +7565,7 @@ License Source: package.json
 
 -------------------------------------------------------------------------
 
-Package: language-csharp@0.14.0
+Package: language-csharp@0.14.2
 License: MIT
 License Source: LICENSE.md
 Source Text:
@@ -12877,7 +12877,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -------------------------------------------------------------------------
 
-Package: text-buffer@10.2.16
+Package: text-buffer@10.2.17
 License: MIT
 License Source: LICENSE.md
 Source Text:

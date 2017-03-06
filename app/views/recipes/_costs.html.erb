@@ -1,0 +1,67 @@
+<div class="flex-eq c-f1">
+  <div class="prod-calculs">
+    <h3>Quel coût calculer ?</h3>
+    <br/>
+    <%= form_for recipe, remote: true do |f| %>
+      <div class="cost-qt">
+        <div class="content2 composition">
+          <p>Quantité</p>
+          <%= image_tag "hand.png", class: "field-img" %>
+          <%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
+        </div><!-- content2 composition -->
+        <br/><br/>
+        <div class="basic-field rounded-field meas-env">
+          <%= image_tag "measure.png", class: "field-img2 up-img" %>
+          Mesure : <%= recipe.unit %>
+          <span class="grey-btn pop-on">
+            <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
+          </span>
+        </div><!-- basic-field rounded-field meas-env -->
+        <br/>
+        <div class="content2 composition">
+          <p>Coefficient de vente</p>
+          <%= image_tag "abacus.png", class: "field-img" %>
+          <%= f.text_field :coef, class:"basic-field top-rad rounded-field hide-meas", placeholder: " " %>
+        </div><!-- content2 composition -->
+        <br/>
+        <p>TVA</p>
+        <div class="switch-field">
+          <%= f.radio_button :vat, "20.00%", checked: (recipe.vat == 20.0) %>
+          <label for="switch_3_left">20 %</label>
+          <%= f.radio_button :vat, "10.00%", checked: (recipe.vat == 10.0 || recipe.vat.blank?) %>
+          <label for="switch_3_center">10 %</label>
+          <%= f.radio_button :vat, "5.50%", checked: (recipe.vat == 5.5) %>
+          <label for="switch_3_right">5,5 %</label>
+        </div>
+        <%= f.submit "CALCULER", class: "primary-btn float-right" %>
+      </div><!-- cost-qt -->
+    <% end %>
+  </div><!-- prod-calculs -->
+  <div class="arrow-left"></div>
+  <div class="prod-results cost-results">
+    <%= render "layouts/loading" %>
+    <h3 class="ajax-hide">Coût de revient pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+    <table class="ajax-hide">
+      <tr>
+        <th>POIDS</th>
+        <td><%= recipe.to_produce_in_grammes %> g</td>
+      </tr>
+      <tr>
+        <th>PRIX DE REVIENT HT</th>
+        <td><%= number_to_currency recipe.prht %></td>
+      </tr>
+      <tr>
+        <th>PRIX DE VENTE HT</th>
+        <td><%= number_to_currency recipe.pvht %></td>
+      </tr>
+      <tr>
+        <th>TVA (<%= recipe.vat %>)</th>
+        <td><%= number_to_currency recipe.vat_price %></td>
+      </tr>
+      <tr>
+        <th>PRIX DE VENTE TTC</th>
+        <td><%= number_to_currency recipe.pvttc %></td>
+      </tr>
+    </table>
+  </div><!-- prod-results -->
+</div><!-- flex-eq c-f -->

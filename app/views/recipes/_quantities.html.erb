@@ -43,12 +43,7 @@
 					<% end %>
 					<div class="arrow-left"></div>
 					<div class="prod-results">
-						<div id="circleG" class="loading-indicator" style="display:none;">
-			         <br/><br/>
-			       	<div id="circleG_1" class="circleG"></div>
-			       	<div id="circleG_2" class="circleG"></div>
-			       	<div id="circleG_3" class="circleG"></div>
-			      </div><!-- loading-indicator -->
+						<%= render "layouts/loading" %>
 			      <h3 class="ajax-hide">Quantités pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
 			      <div class="recipe-values ajax-hide">
 			        <table>
@@ -100,12 +95,7 @@
         	</div><!-- prod-calculs array-calculs -->
 					<div class="arrow-left"></div>
         	<div class="prod-results">
-            <div id="circleG" class="loading-indicator" style="display:none;">
-              <br/><br/>
-            	<div id="circleG_1" class="circleG"></div>
-            	<div id="circleG_2" class="circleG"></div>
-            	<div id="circleG_3" class="circleG"></div>
-            </div><!-- loading-indicator -->
+            <%= render "layouts/loading" %>
             <br/>
 						<div class="recipe-values ajax-hide">
 	            <table>

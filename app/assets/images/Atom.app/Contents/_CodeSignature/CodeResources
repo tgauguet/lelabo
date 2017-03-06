@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/LICENSE.md</key>
 		<data>
-		uEfcKUvaX0h1jD+7T82bw9mTfFI=
+		RBXa/UHmnMWc0RAJIbhWWpggxcs=
 		</data>
 		<key>Resources/app.asar</key>
 		<data>
-		CJSn6VjzKe+sk7jTyTpbA/dDBQY=
+		YYpRsGSrltG6m7LG2YBYZxb3YcA=
 		</data>
 		<key>Resources/app.asar.unpacked/node_modules/cached-run-in-this-context/build/Release/cached-run-in-this-context.node</key>
 		<data>
@@ -15305,7 +15305,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			LsGkCsQ8Op4YqM+xXHzxEZnqEfU=
+			iTjl9u774fhN9Osevey8eCLsZuU=
 			</data>
 			<key>requirement</key>
 			<string>identifier "com.github.atom.helper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VEKTX9H2N7</string>
@@ -15350,22 +15350,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uEfcKUvaX0h1jD+7T82bw9mTfFI=
+			RBXa/UHmnMWc0RAJIbhWWpggxcs=
 			</data>
 			<key>hash2</key>
 			<data>
-			S9dh3HsHGO2kTnPWn70Qut+uZf8JHmoRwurgLzIlL2o=
+			KapsDZzkxsIJNtDRmSKM+gVQzLjNXbaT+kgj0NWHBo8=
 			</data>
 		</dict>
 		<key>Resources/app.asar</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CJSn6VjzKe+sk7jTyTpbA/dDBQY=
+			YYpRsGSrltG6m7LG2YBYZxb3YcA=
 			</data>
 			<key>hash2</key>
 			<data>
-			Yr/VSjQ6UQq+gBt17sI8O/VwLv/8ZJ+zkpgehoLL0Kc=
+			UfOju9qY8nyr/Q0VfsXpoGd/bQJRoHMvAX592TCoQoI=
 			</data>
 		</dict>
 		<key>Resources/app.asar.unpacked/node_modules/cached-run-in-this-context/build/Release/cached-run-in-this-context.node</key>

@@ -4,13 +4,7 @@
 			<div class="popover-ttl">
 				<h3><%= image_tag "width.png", class: "mini-img" %> Quelle mesure utiliser ?</h3>
 			</div>
-			<div id="circleG" class="loading-indicator" style="display:none;">
-				<br/><br/>
-				<div id="circleG_1" class="circleG"></div>
-				<div id="circleG_2" class="circleG"></div>
-				<div id="circleG_3" class="circleG"></div>
-				<br/><br/><br/>
-			</div>
+			<%= render "layouts/loading" %>
 			<div class="popover-cntnt ajax-hide">
 				<div class="slct-measure">
 					<%= f.radio_button 'unit', "grammes", id: "rad1" %>

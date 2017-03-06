@@ -20,13 +20,7 @@
 			<h3>+ Créer un nouvel ingrédient</h3>
 		</div>
 		<div class="popover-cnt">
-			<div id="circleG" class="loading-indicator" style="display:none;">
-				<br/><br/>
-				<div id="circleG_1" class="circleG"></div>
-				<div id="circleG_2" class="circleG"></div>
-				<div id="circleG_3" class="circleG"></div>
-				<br/><br/><br/>
-			</div>
+			<%= render "layouts/loading" %>
 			<%= render "ingredients/quick_form", ingredient: @ingredient, categories: @categories %>
 		</div>
 	</div>

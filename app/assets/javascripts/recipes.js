@@ -31,7 +31,7 @@ $(document).ready(function(){
 		// Hide and show loading animation for each page changement inside recipes form
 			$(".recipe-btn").click(function(){
 				$(".rec-cntnr").hide();
-				$(".load-url").show();
+				$(".load-parent").show();
 			});
 
 	// **************** SHOW ACTION ******************
@@ -73,6 +73,18 @@ $(document).ready(function(){
 				$(".q-f2btn").hide();
 				$(".q-f1btn").show();
 			});
+			$('.c-f1btn').click(function() {
+	      $('.c-f1').show();
+	      $(".c-f2").hide();
+	      $(".c-f1btn").hide();
+	      $(".c-f2btn").show();
+	    });
+	    $('.c-f2btn').click(function() {
+	      $('.c-f2').show();
+	      $(".c-f1").hide();
+	      $(".c-f2btn").hide();
+	      $(".c-f1btn").show();
+	    });
 
 	// **************** INDEX ACTION ******************
 		// Used as button to destroy the recipes
