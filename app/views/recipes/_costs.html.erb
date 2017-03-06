@@ -5,6 +5,15 @@
     <%= form_for recipe, remote: true do |f| %>
       <div class="cost-qt">
         <div class="content2 composition">
+          <p>TVA</p>
+          <div class="switch-field">
+            <%= f.radio_button :vat, "20.00%", checked: (recipe.vat == 20.0) %>
+            <label for="switch_3_left">20 %</label>
+            <%= f.radio_button :vat, "10.00%", checked: (recipe.vat == 10.0 || recipe.vat.blank?) %>
+            <label for="switch_3_center">10 %</label>
+            <%= f.radio_button :vat, "5.50%", checked: (recipe.vat == 5.5) %>
+            <label for="switch_3_right">5,5 %</label>
+          </div>
           <p>Quantité</p>
           <%= image_tag "hand.png", class: "field-img" %>
           <%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
@@ -24,15 +33,6 @@
           <%= f.text_field :coef, class:"basic-field top-rad rounded-field hide-meas", placeholder: " " %>
         </div><!-- content2 composition -->
         <br/>
-        <p>TVA</p>
-        <div class="switch-field">
-          <%= f.radio_button :vat, "20.00%", checked: (recipe.vat == 20.0) %>
-          <label for="switch_3_left">20 %</label>
-          <%= f.radio_button :vat, "10.00%", checked: (recipe.vat == 10.0 || recipe.vat.blank?) %>
-          <label for="switch_3_center">10 %</label>
-          <%= f.radio_button :vat, "5.50%", checked: (recipe.vat == 5.5) %>
-          <label for="switch_3_right">5,5 %</label>
-        </div>
         <%= f.submit "CALCULER", class: "primary-btn float-right" %>
       </div><!-- cost-qt -->
     <% end %>
