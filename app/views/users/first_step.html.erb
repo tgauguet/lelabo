@@ -11,7 +11,7 @@
             <% end %><br/>
             <%= image_tag "chef.png", class: "field-img2" %>
             <%= f.text_field :account_name,required: true, autofocus: true, :placeholder => "Ex. Pâtisserie Sebastien", class: "field basic-field full-witdth"  %><br/><br/>
-            <%= f.button :submit do %>
+            <%= f.button :submit, class:"primary-btn" do %>
                 SUIVANT<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>
         <% end %>

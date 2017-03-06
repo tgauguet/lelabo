@@ -11,7 +11,7 @@
 		    <%= image_tag "key.png", class: "field-img2" %>
 		    <%= f.password_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field bottom-field" %>
 		    <%= f.hidden_field :confirmation_token, value: @original_token %><br/>
-		    <%= f.button :submit do %>
+		    <%= f.button :submit, class:"primary-btn" do %>
                 VALIDER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>
 		<% end %>

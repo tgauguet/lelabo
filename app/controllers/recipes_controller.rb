@@ -174,8 +174,8 @@ class RecipesController < ApplicationController
           format.html { redirect_to edit_recipe_path(@recipe), notice: 'Recette modifiée avec succès' }
         end
       else
-        format.html { render :edit }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        format.html { redirect_to :back }
+        flash[:error] = "Une erreur a empêché les modifications"
       end
     end
   end
