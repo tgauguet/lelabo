@@ -4,22 +4,36 @@
   <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
 <% end %>
 <div class="pdf-cntnr">
-  <h1><%= @recipe.name.upcase %></h1>
+  <h1><%= @recipe.name.mb_chars.upcase %></h1>
   <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
   <br/><br/>
   <div class="recipe-values">
-    <div class="nth-ttl">
-      <b><div class="r-q-name">Ingrédient</div>
-      <div class="r-q-name2">Quantité</div>
-      <div class="r-q-name2 r-q-name3">Unité</div></b>
-    </div><br/>
-    <% recipe.quantities.each do |q| %>
-      <div class="nth-chld">
-        <div class="r-q-name"><%= q.ingredient.name %></div>
-        <div class="r-q-name2"><%= q.perfect_weight %></div>
-        <div class="r-q-name2 r-q-name3"><%= q.perfect_unit %></div>
-      </div>
-    <% end %>
+    <table>
+      <tr>
+        <th>INGRÉDIENTS</th>
+        <th class="rgt-td">QUANTITÉ</th>
+        <th>UNITÉ</th>
+      </tr>
+      <% recipe.quantities.each do |q| %>
+       <tr>
+         <td><%= q.ingredient.name %></td>
+         <% if !(q.unit == "QS") %>
+          <td class="rgt-td"><%= q.perfect_weight %></td>
+          <td><%= q.perfect_unit %></td>
+         <% else %>
+          <td> </td>
+          <td><%= q.perfect_unit %></td>
+         <% end %>
+        </tr>
+       <% end %>
+       <% recipe.sub_recipes.each do |s| %>
+        <tr>
+         <td><%= current_user.recipes.find(s.sub_id).name %></td>
+         <td class="rgt-td"><%= s.perfect_weight %></td>
+         <td><%= s.perfect_unit %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <% if !@recipe.note.blank? %>
     <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>

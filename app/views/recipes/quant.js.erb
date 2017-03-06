@@ -1,7 +1,12 @@
-$(".q-forms").html("<%= escape_javascript (render 'recipes/quantities_form', recipe: @recipe, totals: @totals) %>");
+$(".qttt").html("<%= escape_javascript (render 'recipes/quantities', recipe: @recipe, first: @first, second: @second, third: @third, fourth: @fourth, totals: @totals) %>");
+$(".popover-bck").html("<%= escape_javascript (render 'recipes/quantities_pop', recipe: @recipe) %>")
 
 // **************** QUANT & COST ACTION ******************
   // Hide and show select measure popover
+    $(".q-f1btn").hide();
+    $(".q-f2btn").show();
+    $(".qt-pop").hide();
+    $(".popover-bck").hide();
     $(".pop-on").click(function(){
       $(".pop-qt").show();
       $(".actions-cntnr").addClass("no-scroll");
@@ -21,10 +26,20 @@ $(".q-forms").html("<%= escape_javascript (render 'recipes/quantities_form', rec
         $('.' + $(this).data('rel')).show();
     });
   // hide and show each cells
-    $('.tab').click(function() {
-      $('.q-f1, .q-f2, .tab').toggle();
+  // hide and show each cells
+    $('.q-f1btn').click(function() {
+      $('.q-f1').show();
+      $(".q-f2").hide();
+      $(".q-f1btn").hide();
+      $(".q-f2btn").show();
     });
-    // Hide and show loading animation for each page changement inside recipes form
+    $('.q-f2btn').click(function() {
+      $('.q-f2').show();
+      $(".q-f1").hide();
+      $(".q-f2btn").hide();
+      $(".q-f1btn").show();
+    });
+  // Hide and show loading animation for each page changement inside recipes form
       $(".recipe-btn").click(function(){
         $(".rec-cntnr").hide();
         $(".load-url").show();

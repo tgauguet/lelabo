@@ -25,10 +25,10 @@
 		</div>
     <div class="rec-cntnr">
 			<div class="recipe-links">
-				<p class="tab cyan-bck">
+				<p class="tab cyan-bck q-f2btn">
     			<%= image_tag "array.png", class: "mini-mini-img" %> Tableau de calculs
     		</p>
-        <p class="tab cyan-bck" style="display:none;">
+        <p class="tab cyan-bck q-f1btn" style="display:none;">
     			<%= image_tag "light-weight.png", class: "mini-mini-img" %> Calcul de production
     		</p>
 				<div class="q-f1">
@@ -49,150 +49,9 @@
 				</div>
 			</div>
 			<!-- forms for one quantity calculs -->
-			<div class="flex-eq q-f1">
-				<%= form_for(@recipe, remote: true) do |f| %>
-					<div class="prod-calculs">
-						<h3>Quelle quantité produire ?</h3>
-							<div class="clcl-mode">
-								<div class="lfrd">
-									<%= f.radio_button 'fast', true, id: "rad6" %>
-									<label for="rad6" class="trigger2 lft-rd hide-meas" data-rel="tru">simple</label>
-								</div><!-- lfrd -->
-								<div>
-									<%= f.radio_button 'fast', false, id: "rad7" %>
-									<label for="rad7" class="trigger2 rgt-rd hide-meas" data-rel="fal">stocks</label>
-								</div>
-							</div><!-- clcl-mode -->
-							<div class="tru content2 composition" style="<% if !@recipe.fast %>display:none;<% end %>">
-								<p>À produire</p>
-								<%= image_tag "hand.png", class: "field-img" %>
-								<%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
-							</div><!-- tru content2 composition -->
-							<div class="fal content2 composition" style="<% if @recipe.fast %>display:none;<% end %>">
-								<div>
-									<p>Stock</p>
-									<%= image_tag "stock.png", class: "field-img" %>
-									<%= f.text_field :stock, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
-								</div>
-								<div>
-									<p>À vendre</p>
-									<%= image_tag "sold.png", class: "field-img" %>
-									<%= f.text_field :sold, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
-								</div>
-							</div><!-- fal content2 composition -->
-							<br/><br/>
-							<div class="basic-field rounded-field meas-env">
-								<%= image_tag "measure.png", class: "field-img2 up-img" %>
-								Mesure : <%= @recipe.unit %>
-								<span class="grey-btn pop-on">
-									<%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
-								</span>
-							</div><br/><!-- basic-field rounded-field meas-env -->
-							<%= f.submit "CALCULER", class: "primary-btn float-right" %>
-						</div><!-- prod-calculs -->
-					<% end %>
-					<div class="arrow-left"></div>
-					<div class="prod-results">
-						<div id="circleG" class="loading-indicator" style="display:none;">
-			         <br/><br/>
-			       	<div id="circleG_1" class="circleG"></div>
-			       	<div id="circleG_2" class="circleG"></div>
-			       	<div id="circleG_3" class="circleG"></div>
-			      </div><!-- loading-indicator -->
-			      <h3 class="ajax-hide">Quantités pour <%= @recipe.to_product %> <%= @recipe.unit %> <%= @recipe.to_details %></h3>
-			      <div class="recipe-values ajax-hide">
-			        <table>
-								<tr>
-				        	<th>INGRÉDIENTS</th>
-				          <th class="rgt-td">QUANTITÉ</th>
-				          <th>UNITÉ</th>
-								</tr>
-			          <% @recipe.quantities.each do |q| %>
-			           <tr>
-				           <td><%= q.ingredient.name %></td>
-				           <% if !(q.unit == "QS") %>
-			             	<td class="rgt-td"><%= q.perfect_weight %></td>
-				            <td><%= q.perfect_unit %></td>
-				           <% else %>
-									 	<td> </td>
-				            <td><%= q.perfect_unit %></td>
-				           <% end %>
-				          </tr>
-				         <% end %>
-				         <% @recipe.sub_recipes.each do |s| %>
-				          <tr>
-				           <td><%= current_user.recipes.find(s.sub_id).name %></td>
-				           <td class="rgt-td"><%= s.perfect_weight %></td>
-				           <td><%= s.perfect_unit %></td>
-				          </tr>
-			         	<% end %>
-							</table>
-						</div><!-- recipe-values -->
-					</div><!-- prod-results -->
-				</div><!-- flex-eq q-f1 -->
-      	<div class="flex-eq q-f2" style="display:none;">
-					<div class="prod-calculs array-calculs">
-        		<%= form_for(@recipe, remote: true) do |f| %>
-	            <div class="array-bck" id="parent">
-	              <h3>Quelles quantités insérer ?</h3>
-	              <p>Unité de mesure</p>
-	              <%= f.select :array_unit, ["g", "Kg"] %>
-	              <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
-	              <p>Quantités à insérer</p>
-	              <%= f.fields_for :totals, @totals do |ff| %>
-	                <div class="kg-field">
-	                  <%= ff.text_field :value, class: 'basic-field recipe-comp-sel rounded-field kilo-field', placeholder: " " %>
-	                </div>
-	              <% end %>
-	              <%= f.submit "CALCULER", class: "primary-btn float-right", id: "array-btn" %>
-	            </div><!-- array-bck -->
-						<% end %>
-        	</div><!-- prod-calculs array-calculs -->
-					<div class="arrow-left"></div>
-        	<div class="prod-results">
-            <div id="circleG" class="loading-indicator" style="display:none;">
-              <br/><br/>
-            	<div id="circleG_1" class="circleG"></div>
-            	<div id="circleG_2" class="circleG"></div>
-            	<div id="circleG_3" class="circleG"></div>
-            </div><!-- loading-indicator -->
-            <br/>
-						<div class="recipe-values ajax-hide">
-	            <table>
-								<tr>
-	              	<th>INGRÉDIENTS</div>
-		              <th>BASE</div>
-		              <% if !@first.blank? %><th><%= @first.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
-		              <% if !@second.blank? %><th><%= @second.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
-		              <% if !@third.blank? %><th><%= @third.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
-		              <% if !@fourth.blank? %><th><%= @fourth.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
-								</tr>
-	              <% @recipe.quantities.each do |q| %>
-	                <tr>
-	                  <td><%= q.ingredient.name %></div>
-	                  <td><%= q.weight %> <%= q.unit %></td>
-	                  <% if !@first.blank? %><td><%= q.perfect_array(@first) %> <%= q.perfect_array_unit(@first) %></td><% end %>
-	                  <% if !@second.blank? %><td><%= q.perfect_array(@second) %> <%= q.perfect_array_unit(@second) %></td><% end %>
-	                  <% if !@third.blank? %><td><%= q.perfect_array(@third) %> <%= q.perfect_array_unit(@third) %></td><% end %>
-	                  <% if !@fourth.blank? %><td><%= q.perfect_array(@fourth) %> <%= q.perfect_array_unit(@fourth) %></td><% end %>
-	                </tr>
-	              <% end %>
-	              <% @recipe.sub_recipes.each do |s| %>
-	                <tr>
-	                  <td><%= current_user.recipes.find(s.sub_id).name %></td>
-	                  <td><%= s.weight %> g</td>
-	                  <% if !@first.blank? %><td><%= s.perfect_array(@first) %> <%= s.perfect_array_unit(@first) %></td><% end %>
-	                  <% if !@second.blank? %><td><%= s.perfect_array(@second) %> <%= s.perfect_array_unit(@second) %></td><% end %>
-	                  <% if !@third.blank? %><td><%= s.perfect_array(@third) %> <%= s.perfect_array_unit(@third) %></td><% end %>
-	                  <% if !@fourth.blank? %><td><%= s.perfect_array(@fourth) %> <%= s.perfect_array_unit(@fourth) %></td><% end %>
-	                </tr>
-	              <% end %>
-							</table>
-						</div><!-- recipe-values ajax-hide -->
-          </div><!-- prod-results -->
-        </div><!-- flex-eq q-f2 -->
-      </div><!-- rec-cntnr -->
-    </div><!-- actions-cntnr -->
-  </div><!-- action-cntnt -->
+			<%= render "recipes/quantities", recipe: @recipe, first: @first, second: @second, third: @third, fourth: @fourth, totals: @totals %>
+			</div><!-- rec-cntnr -->
+		</div><!-- actions-cntnr -->
+	</div><!-- action-cntnt -->
 </div>
 <%= render 'quantities_pop', recipe: @recipe %>

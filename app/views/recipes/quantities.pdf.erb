@@ -3,30 +3,39 @@
   <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
 <% end %>
 <div class="pdf-cntnr">
-  <h1><%= @recipe.name.upcase %></h1>
+  <h1><%= @recipe.name.mb_chars.upcase %></h1>
   <br/>
-  <div class="quant_form">
-    <div class="quant-values-clmn ing-line-cntnr">
-      <div class="nth-ttl">
-        <b><div class="r-q-name">Ingrédient</div>
-        <div class="r-q-name2 r-q-name4 r-q-base">Base</div>
-        <div class="r-q-name2 r-q-name4"><%= recipe.totals.first.value.to_f %> <%= recipe.array_unit %></div>
-        <div class="r-q-name2 r-q-name4"><%= recipe.totals.second.value.to_f %> <%= recipe.array_unit %></div>
-        <div class="r-q-name2 r-q-name4"><%= recipe.totals.third.value.to_f %> <%= recipe.array_unit %></div>
-        <div class="r-q-name2 r-q-name4"><%= recipe.totals.fourth.value.to_f %> <%= recipe.array_unit %></div>
-      </b>
-      </div><br/>
-      <% recipe.quantities.each do |q| %>
-        <div class="nth-chld">
-          <div class="r-q-name"><%= q.ingredient.name %></div>
-          <div class="r-q-name2 r-q-name4"><%= q.weight %><div><%= q.unit %></div></div>
-          <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.first.value) %><div><%= q.perfect_array_unit(recipe.totals.first.value) %></div></div>
-          <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.second.value) %><div><%= q.perfect_array_unit(recipe.totals.second.value) %></div></div>
-          <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.third.value) %><div><%= q.perfect_array_unit(recipe.totals.third.value) %></div></div>
-          <div class="r-q-name2 r-q-name4"><%= q.perfect_array(recipe.totals.fourth.value) %><div><%= q.perfect_array_unit(recipe.totals.fourth.value) %></div></div>
-        </div>
-      <% end %>
-    </div>
+  <div class="recipe-values">
+      <table>
+        <tr>
+          <th>INGRÉDIENTS</div>
+          <th>BASE</div>
+          <% if !@first.blank? %><th><%= @first.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
+          <% if !@second.blank? %><th><%= @second.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
+          <% if !@third.blank? %><th><%= @third.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
+          <% if !@fourth.blank? %><th><%= @fourth.to_f %> <%= @recipe.array_unit.upcase %></th><% end %>
+        </tr>
+        <% @recipe.quantities.each do |q| %>
+          <tr>
+            <td><%= q.ingredient.name %></div>
+            <td><%= q.weight %> <%= q.unit %></td>
+            <% if !@first.blank? %><td><%= q.perfect_array(@first) %> <%= q.perfect_array_unit(@first) %></td><% end %>
+            <% if !@second.blank? %><td><%= q.perfect_array(@second) %> <%= q.perfect_array_unit(@second) %></td><% end %>
+            <% if !@third.blank? %><td><%= q.perfect_array(@third) %> <%= q.perfect_array_unit(@third) %></td><% end %>
+            <% if !@fourth.blank? %><td><%= q.perfect_array(@fourth) %> <%= q.perfect_array_unit(@fourth) %></td><% end %>
+          </tr>
+        <% end %>
+        <% @recipe.sub_recipes.each do |s| %>
+          <tr>
+            <td><%= current_user.recipes.find(s.sub_id).name %></td>
+            <td><%= s.weight %> g</td>
+            <% if !@first.blank? %><td><%= s.perfect_array(@first) %> <%= s.perfect_array_unit(@first) %></td><% end %>
+            <% if !@second.blank? %><td><%= s.perfect_array(@second) %> <%= s.perfect_array_unit(@second) %></td><% end %>
+            <% if !@third.blank? %><td><%= s.perfect_array(@third) %> <%= s.perfect_array_unit(@third) %></td><% end %>
+            <% if !@fourth.blank? %><td><%= s.perfect_array(@fourth) %> <%= s.perfect_array_unit(@fourth) %></td><% end %>
+          </tr>
+        <% end %>
+      </table>
   </div>
   <% if !@recipe.note.blank? %>
     <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>

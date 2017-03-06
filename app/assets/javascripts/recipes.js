@@ -61,13 +61,18 @@ $(document).ready(function(){
 		      $('.' + $(this).data('rel')).show();
 		  });
 		// hide and show each cells
-			$('.tab').click(function() {
-		    $('.q-f1, .q-f2, .tab').toggle();
-		  });
-		// hide and show each cells
-		   $('.tab').click(function() {
-		     $('.c-f1, .c-f2, .tab').toggle();
-		   });
+			$('.q-f1btn').click(function() {
+				$('.q-f1').show();
+				$(".q-f2").hide();
+				$(".q-f1btn").hide();
+				$(".q-f2btn").show();
+			});
+			$('.q-f2btn').click(function() {
+				$('.q-f2').show();
+				$(".q-f1").hide();
+				$(".q-f2btn").hide();
+				$(".q-f1btn").show();
+			});
 
 	// **************** INDEX ACTION ******************
 		// Used as button to destroy the recipes

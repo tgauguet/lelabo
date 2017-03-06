@@ -38,7 +38,7 @@
 					</div>
 					<div class="perso content <% if recipe.unit == "#{recipe.personnalized}" %>show<% end %>">
 						<p>Nom</p>
-						<%= f.text_field :portion_name, class: "basic-field rounded-field", placeholder:"Nom...", value: "#{@recipe.personnalized}" %>
+						<%= f.text_field :portion_name, class: "basic-field rounded-field", placeholder:"Nom...", value: "#{recipe.personnalized}" %>
 						<p>Poids/Unité</p>
 						<%= image_tag "gramme.png", class: "field-img euro-img" %>
 						<%= f.text_field :portion, class: "basic-field rounded-field", placeholder:"Poids..." %>

@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
   before_action :set_paper_trail_whodunnit
   before_action :recipe_edit_helpers, except: [:index, :new, :create]
   before_action :set_categories, except: [:index]
+  before_action :set_totals, only: [:d_quantities_array_pdf, :quantities_array_pdf, :quant]
 
   # GET /recipes
   # GET /recipes.json
@@ -26,10 +27,6 @@ class RecipesController < ApplicationController
   end
 
   def quant
-    @first = @recipe.totals.first.value
-    @second = @recipe.totals.second.value
-    @third = @recipe.totals.third.value
-    @fourth = @recipe.totals.fourth.value
   end
 
   def pictures
@@ -124,7 +121,6 @@ class RecipesController < ApplicationController
   end
 
   def quantities_array_pdf
-    @totals = @recipe.totals.all.order("created_at ASC")
     respond_to do |format|
       format.html
       format.pdf do
@@ -138,7 +134,6 @@ class RecipesController < ApplicationController
   end
 
   def d_quantities_array_pdf
-    @totals = @recipe.totals.all.order("created_at ASC")
     respond_to do |format|
       format.html
       format.pdf do
@@ -174,11 +169,10 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.update(recipe_params)
         if !request.url.include?("edit")
-          format.html { redirect_to(:back) }
+          format.html { redirect_to :back}
         else
           format.html { redirect_to edit_recipe_path(@recipe), notice: 'Recette modifiée avec succès' }
         end
-        #format.json { render :edit, status: :ok, location: edit_recipe_path }
       else
         format.html { render :edit }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -225,6 +219,14 @@ class RecipesController < ApplicationController
 
   def set_categories
     @categories = @user.category.all
+  end
+
+  def set_totals
+    @totals = @recipe.totals.all.order("created_at ASC")
+    @first = @recipe.totals.first.value
+    @second = @recipe.totals.second.value
+    @third = @recipe.totals.third.value
+    @fourth = @recipe.totals.fourth.value
   end
 
   def recipe_params

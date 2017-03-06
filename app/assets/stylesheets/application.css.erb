@@ -2473,9 +2473,9 @@ header .normal_header{
 }
 
 .no-scroll{
-	position: fixed;
+	/*position: fixed;
 	right: 0;
-	left: 0;
+	left: 0;*/
 }
 
 .popover{
@@ -5336,16 +5336,6 @@ input[type="checkbox"] + span {
 	width:2em;
 }
 
-.pdf-quant-cntnr{
-	border-bottom: 1px solid rgb(227, 227, 227);
-	margin-top: 3em;
-	padding-bottom: 0.5em;
-}
-
-.quant-values-clmn{
-	padding: 0em 1.7em 0em 1.7em;
-}
-
 .pdf-cntnr h3{
 	text-align: left;
 	margin-top: 3em;
@@ -5353,24 +5343,7 @@ input[type="checkbox"] + span {
 	font-size: 1.1em;
 }
 
-.pdf-cntnr .quant_form .nth-chld{
-	padding: .5em;
-	border-bottom: 1px solid rgb(202,212,217);
-}
-
-.pdf-cntnr .quant_form .nth-chld:nth-last-child(1){
-	border-bottom: none;
-}
-
-.pdf-cntnr .quant_form .nth-ttl, .pdf-cntnr .quant_form .nth-chld{
-	padding-left: 5em;
-}
-
 .recipe-notes{
-	text-align: left;
-}
-
-.quant-values-cntnr{
 	text-align: left;
 }
 
@@ -5399,10 +5372,6 @@ input[type="checkbox"] + span {
 .to-lft-btn{
 	margin-left: 2em;
 	margin-bottom: 3em;
-}
-
-.quant-values-clmn p:nth-child(2n+2){
-	background: rgb(244, 246, 250);
 }
 
 .equ-left{
@@ -5515,7 +5484,7 @@ input[type="checkbox"] + span {
 	padding-left: 2em !important;
 }
 
-.rec-show table tr:nth-child(2n+1) td{
+.rec-show table tr:nth-child(2n+1) td, .pdf-cntnr table tr:nth-child(2n+1) td{
 	background: rgb(242,246,251);
 }
 
@@ -6135,11 +6104,6 @@ textarea {
 
 	.content-ing-info .custom-checkbox{
 		margin-left: 0em;
-	}
-
-	.quant_form .quantities-name{
-		width: 100%;
-		font-weight: bold;
 	}
 
 	.big-compo{
