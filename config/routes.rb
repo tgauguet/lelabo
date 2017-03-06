@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 	    root :to => 'devise/registrations#new', as: :unauthenticated_root
 	  end
 	end
+  resources :messages, only: [:new, :create]
 	resources :providers
 	resources :feedbacks, only: [:create, :index, :destroy]
 	### Note on "member do" and "collection do"

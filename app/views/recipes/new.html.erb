@@ -1,9 +1,6 @@
 <% title "Nouvelle recette" %>
 <div class="ttl-header">
-	<div class="page-ttl">
-		<h1 class="lttl-intro-h1">Nouvelle recette</h1>
-		<p class="lft-p">Créer une nouvelle recette</p>
-	</div>
+	<%= render "layouts/ttl_header", title: "Nouvelle recette", description:"Créer une nouvelle recette" %>
 	<div class="page-ctas">
     <%= link_to recipes_path do %>
       <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>

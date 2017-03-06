@@ -1,0 +1,25 @@
+<%= form_for @message do |f| %>
+  <p>À:</p>
+  <%= f.email_field :email, placeholder: " ", class: "basic-field rounded-field", required: true %>
+  <p>Sujet:</p>
+  <%= f.text_field :subject, placeholder: " ", class: "basic-field rounded-field", value: "Partage de #{@recipe.name}" %>
+  <p>Message:</p>
+  <textarea placeholder=" " class="basic-field rounded-field" name="message[message]" id="message_message">
+    Bonjour,
+
+    Voici ma recette de <%= @recipe.name.humanize %> crée sur le Labo :
+    --------------------------------------------------------
+    <% @recipe.quantities.each do |q| %>
+      • <%= q.ingredient.name %> <%= q.weight %> <%= q.unit %>
+    <% end %>
+    <% @recipe.sub_recipes.each do |s| %>
+      • <%= s.current_recipe.name %> <%= s.weight %> <%= s.unit %>
+    <% end %>
+
+    Ce lien permet de créer des recettes : http://www.lelabo-ondemand.com
+
+    <% if @user.firstname %><%= @user.firstname.humanize %><% end %>
+  </textarea>
+  <%= f.submit "ENVOYER", class: "primary-btn float-right" %>
+  <p class="cancel-btn float-right email-sender">ANNULER</p>
+<% end %>

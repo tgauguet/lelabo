@@ -34,6 +34,12 @@ $(document).ready(function(){
 				$(".load-url").show();
 			});
 
+	// **************** SHOW ACTION ******************
+		// Hide and show loading animation for each page changement inside recipes form
+			$(".email-sender").click(function(){
+				$(".email-pop").toggle();
+			});
+
 	// **************** QUANT & COST ACTION ******************
 		// Hide and show select measure popover
 			$(".pop-on").click(function(){

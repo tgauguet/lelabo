@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(".inside-btn").click(function(){
+	$(".lst-btn").click(function(){
 		$('#lst-index').hide();
 		$('#lst-new').show();
 		$('.page-ctas').hide();

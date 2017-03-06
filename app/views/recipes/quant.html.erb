@@ -1,12 +1,9 @@
 <% title "#{@recipe.name.humanize}" %>
 <div class="ttl-header recipe-ttl">
-	<div class="page-ttl">
-    <h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
-		<p class="lft-p">Quantités de la recette</p>
-  </div>
+	<%= render "layouts/ttl_header", title: "#{@recipe.name.humanize}", description:"Quantités de production de la recette" %>
   <div class="page-ctas">
     <%= link_to recipes_path do %>
-      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+      <p class="ttl-btn primary-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
     <% end %>
 	</div>
 </div>
@@ -91,7 +88,7 @@
 									<%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
 								</span>
 							</div><br/><!-- basic-field rounded-field meas-env -->
-							<%= f.submit "CALCULER", class: "standard-btn grey-btn ingredient-btn fl-rgt" %>
+							<%= f.submit "CALCULER", class: "primary-btn float-right" %>
 						</div><!-- prod-calculs -->
 					<% end %>
 					<div class="arrow-left"></div>
@@ -147,7 +144,7 @@
 	                  <%= ff.text_field :value, class: 'basic-field recipe-comp-sel rounded-field kilo-field', placeholder: " " %>
 	                </div>
 	              <% end %>
-	              <%= f.submit "CALCULER", class: "standard-btn grey-btn ingredient-btn fl-rgt array-btn yellow-btn", id: "array-btn" %>
+	              <%= f.submit "CALCULER", class: "primary-btn float-right", id: "array-btn" %>
 	            </div><!-- array-bck -->
 						<% end %>
         	</div><!-- prod-calculs array-calculs -->

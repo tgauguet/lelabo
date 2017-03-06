@@ -10,7 +10,7 @@
 	</div>
 	<%= form_for @contact do |f| %>
 		*Email<%= f.text_field :email, placeholder: "Votre email", class: "basic-field enlarge-field" %><br/>
-		*Message<%= f.text_area :message, placeholder: "Votre message ici...", class: "basic-field enlarge-field area-field" %><br/><br/>
-		<%= f.submit "ENVOYER", class: "btn cta-btn float-right" %>
+		*Message<%= f.text_area :message, placeholder: "Votre message ici...", class: "basic-field enlarge-field area-field" %>
+		<%= f.submit "ENVOYER", class: "primary-btn float-right" %>
 	<% end %>
 </div>

@@ -6,7 +6,7 @@
 	</div>
 	<div class="page-ctas">
 		<%= link_to ingredients_path do %>
-			<p class="standard-btn grey-btn ingredient-btn">INDEX DES INGRÉDIENTS</p>
+			<p class="ttl-btn primary-btn">INGRÉDIENTS</p>
 		<% end %>
 	</div>
 </div>
@@ -17,7 +17,7 @@
 	      <%= form_for @category do |f| %>
 					<p>Nom</p>
 	        <%= f.text_field :name, placeholder: "Légumes, Bonbons...", class: "basic-field rounded-field" %>
-	        <%= f.submit "ENREGISTRER", class: "auto-btn cta-btn ingredient-btn" %>
+	        <%= f.submit "ENREGISTRER", class: "primary-btn float-right" %>
 					<br/>
 	      <% end %>
 	    </div>

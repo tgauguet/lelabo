@@ -6,11 +6,11 @@
 	</div>
 	<div class="page-ctas">
 		<%= link_to new_ingredient_path do %>
-			<p class="standard-btn grey-btn ingredient-btn">+ NOUVEL INGRÉDIENT</p>
+			<button class="primary-btn ttl-btn">+ NOUVEL INGRÉDIENT</button>
 		<% end %>
-		<p class="grey-btn hide white-cat">
-			<%= link_to new_category_path do %>+ NOUVELLE CATÉGORIE<% end %>
-		</p>
+		<%= link_to new_category_path do %>
+			<button class="cancel-btn ttl-btn">+ NOUVELLE CATÉGORIE</button>
+		<% end %>
 		<div>
 			<p class="show-sort sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>

@@ -5,7 +5,7 @@
 		<p class="lft-p">Index des collaborateurs</p>
 	</div>
 	<div class="page-ctas">
-		<p class="standard-btn grey-btn staff-btn">+ NOUVEAU COLLABORATEUR</p>
+		<p class="primary-btn ttl-btn staff-btn">+ NOUVEAU COLLABORATEUR</p>
 		<div>
 			<p class="sort-show show-sort"><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
@@ -37,8 +37,8 @@
 						<p>Prénom</p>
 						<%= f.text_field :firstname, placeholder: " ", class: "basic-field" %>
 						<br/>
-						<%= f.submit "ENREGISTRER", class: "btn inside-btn" %>
-						<p class="cancel-btn staff-btn">Annuler</p>
+						<%= f.submit "ENREGISTRER", class: "primary-btn" %>
+						<p class="cancel-btn staff-btn">ANNULER</p>
 				</div>
 			<% end %>
   <% @staffs.each do |staff| %>

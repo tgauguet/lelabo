@@ -37,7 +37,7 @@
 	</div>
 	<div class="page-ctas">
 		<%= link_to new_to_do_list_path do %>
-			<p class="inside-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+			<p class="primary-btn ttl-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
 		<% end %><br/>
 	</div>
 </div>
@@ -71,8 +71,8 @@
 						<%= f.text_field :assigns_to, class: "basic-field special-top", placeholder: "Réalisée par..", id: "datepicker" %>
 						<%= f.text_field :due_date, class: "basic-field bottom-field datepicker", placeholder: "Avant le.." %>
 						<br/>
-						<%= f.submit "AJOUTER", class: "btn inside-btn" %>
-						<p class="cancel-btn">Annuler</p>
+						<%= f.submit "AJOUTER", class: "primary-btn" %>
+						<button class="cancel-btn">ANNULER</button>
 					<% end %>
 				</div>
 			</div><br/>

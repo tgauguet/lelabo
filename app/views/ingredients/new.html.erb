@@ -1,12 +1,9 @@
 <% title "Ingrédients" %>
 <div class="ttl-header">
-	<div class="page-ttl">
-		<h1 class="lttl-intro-h1">Ingrédient</h1>
-		<p class="lft-p">Créer un ingrédient</p>
-	</div>
+	<%= render 'layouts/ttl_header', title: "Ingrédient", description: "Créer un ingrédient" %>
 	<div class="page-ctas">
 		<%= link_to ingredients_path do %>
-			<p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+			<p class="primary-btn ttl-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
 		<% end %>
 	</div>
 </div>

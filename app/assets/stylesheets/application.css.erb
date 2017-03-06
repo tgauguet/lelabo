@@ -57,22 +57,22 @@ body{
 }
 
 /* !!! css for border-radius */
-.grey-btn, .grade-index{
+.grade-index{
 	border-radius: 0.25em;
 }
 
 /* !!! css for borders */
-.grey-btn, .grade-index{
+.grade-index{
 	border:1px solid rgb(209,209,215);
 }
 
 /* !!! css for backgrounds */
-.grey-btn, .grade-index{
+.grade-index{
 	background: rgb(248,248,249);
 }
 
 /* !!! css for displays */
-.grey-btn, .auto-btn{
+.auto-btn{
 	display: inline-block;
 }
 
@@ -309,198 +309,65 @@ a .tools-cntnr{
   border-radius: 0.3em;
 }
 
-/*****************
-******************
-******************
-
-/CONTAINERS DESIGN
-
-******************
-******************
-*****************/
-
-/****************
-*****************
-*****************
-
-BUTTONS -- DESIGN
-
-*****************
-*****************
-****************/
-
-/*   big buttons   */
-
-.btn, button, .plan-btn, .blog-btn, .delete-btn-cntnr{
-  border: none;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  cursor: pointer;
+.primary-btn, .cancel-btn{
+	margin: 1em 0 1em .8em;
+	display: inline;
 }
 
-/*  small buttons  */
-
-.social-btn, .inside-btn, .auto-btn{
-  border: none;
-  border-radius: 0.3em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-right: 1.5em;
-  padding-left: 1.5em;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-.cancel-btn:hover{
-	color: rgb(208, 64, 67); /* red color for buttons */
-	text-decoration: underline;
+.primary-btn, .cancel-btn, .plan-btn, .w-btn{
+	padding: 0;
+	border: none;
+	background: none;
 	cursor: pointer;
-}
-
-/*   absolute properties   */
-
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .standard-btn{
-  border-radius: 0.3em;
-  opacity: 0.9;
-}
-
-.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .btn:hover, button:hover, .plan-btn:hover, .standard-btn:hover{
-  opacity: 1;
-}
-
-.standard-btn:hover{
-	background: rgb(253,133,9) !important;
-}
-
-.blog-btn, .cta-btn, button, .inside-btn, .btn, button, .plan-btn, .delete-btn-cntnr:hover{
-  color: white;
-}
-
-/*   buttons with a green background  */
-
-.blog-btn, .cta-btn, button, .inside-btn, .inside-btn, .data-confirm .confirm-true, .plan-btn, .standard-btn, .ingredient-btn{
-  background: rgb(253,133,9);
-	border-bottom: 2px solid rgb(215, 119, 3) !important;
-}
-
-.blog-btn:hover, .cta-btn:hover, button:hover, .inside-btn:hover, .inside-btn:hover, .data-confirm .confirm-true:hover, .plan-btn:hover, .standard-btn:hover{
-  background: rgb(243,123,7) !important;
-	border-bottom: 2px solid rgb(215, 119, 3) !important;
-}
-
-.standard-btn{
-	border:none;
-	color:white;
-	float: left;
-}
-
-.plan-btn{
-	border-radius:0.3em;
-	color:white !important;
-}
-
-.fl-rgt{
-	float: right;
-}
-
-/*   buttons with a red background */
-
-.data-confirm .confirm-false{
-  background: #EB4E5C;
-  cursor: pointer;
-  border-bottom: 2px solid #C6434C;
-}
-
-/*   inline-block buttons  */
-
-.social-btn,.cancel-btn, .inside-btn{
-  display: inline-block;
-  width: auto;
-}
-
-/*  Button for feedbacks  */
-
-.hidden-btn{
-  border: none;
-  font-size: 0.8em;
-  background: white;
-  cursor: pointer;
-  margin-left: 2em;
-}
-
-.blog-btn{
-  width: 13em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.social-btn{
-  border: 2px solid rgb(27,189,157);
-  color: rgb(27,189,157) !important;
-  width: 7em;
-  text-align: center;
+	padding: .7em 1em .6em 1em;
+	font-size: .95em;
+	font-family: "source_sans_prosemibold";
+	border-radius: .3em;
+	color: white;
 }
 
 .cancel-btn{
-  display: inline-block;
-  text-align: center;
-	bottom: 0;
+	background: rgb(122,140,144);
+	border-bottom: 2px solid rgb(102,120,125);
 }
 
-.prod-quantities .cancel-btn{
-	font-size: 0.9em;
-	float: right;
+.cancel-btn:hover{
+	background: rgb(132,150,154);
+	border-bottom: 2px solid rgb(112,130,135);
 }
 
-.recipe-frm .to-left .basic-field, .recipe-frm .to-left select{
-	padding-left: 0.7em !important;
-	border-radius: 0.3em;
-	width: 22em !important;
+.primary-btn, .plan-btn{
+	background: rgb(253,133,9);
+	border-bottom: 2px solid rgb(215, 119, 3);
 }
 
-.bgr-ttl{
-	font-family: 'source_sans_prosemibold';
-	font-size: 1.3em;
+.w-btn{
+	background: rgb(84,88,223);
+	border-radius: 0em;
+	display: inline-block;
+	font-size: 1em;
+	margin: 0;
+	margin-left: -0.2em;
+	border-bottom: 2px solid rgb(44, 49, 188);
+	border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+	padding: .8em 1em .7em 1em;
+	margin-top: -.1em;
 }
 
-.recipe-frm{
-	padding: 2em;
-	padding-top: 1.5em;
+.w-btn:hover{
+	background: rgb(94,98,233) !important;
+	border-bottom: 2px solid rgb(44, 49, 188) !important;
 }
 
-.recipe-frm h3{
-	margin-bottom: 1em;
-	font-family: "source_sans_prosemibold";
-	font-weight: normal;
+.ttl-btn{
+	margin: 0;
+	margin-right: .7em;
 }
 
-.auto-btn:hover{
-	background-color: rgb(95, 208, 137);
-  color: white;
-}
-
-.cta-btn, button{
-  font-size: 1.2em;
-  padding-top: 0.7em;
-  padding-bottom: 0.7em;
-}
-
-.float-right button{
-	background: rgb(11,102,254) !important;
-	border-bottom: 2px solid rgb(8, 82, 234) !important;
-}
-
-.delete-btn-cntnr:hover{
-  background: rgb(235,77,92);
-}
-
-.delete-btn-cntnr{
-  float: right;
-  color: rgb(235,77,92);
-  padding-left: 1.2em;
-  margin-top: -1em;
+.primary-btn:hover, .plan-btn{
+	background: rgb(243,123,7);
+	border-bottom: 2px solid rgb(215, 119, 3);
 }
 
 button:hover .btn_arrow{
@@ -543,6 +410,34 @@ button:hover .btn_arrow{
 .btn_arrow:hover:before, .btn_arrow:focus:before, .btn_arrow:active:before {
   -webkit-transform: translateX(4px);
   transform: translateX(4px);
+}
+
+.data-confirm .confirm-false{
+  background: #EB4E5C;
+  cursor: pointer;
+  border-bottom: 2px solid #C6434C;
+}
+
+.recipe-frm .to-left .basic-field, .recipe-frm .to-left select{
+	padding-left: 0.7em !important;
+	border-radius: 0.3em;
+	width: 22em !important;
+}
+
+.bgr-ttl{
+	font-family: 'source_sans_prosemibold';
+	font-size: 1.3em;
+}
+
+.recipe-frm{
+	padding: 2em;
+	padding-top: 1.5em;
+}
+
+.recipe-frm h3{
+	margin-bottom: 1em;
+	font-family: "source_sans_prosemibold";
+	font-weight: normal;
 }
 
 /*****************
@@ -594,10 +489,15 @@ ul{
   opacity: 1;
 }
 
+.white, .black{
+	border-radius: .3em;
+	padding: .6em 1em .6em 1em;
+}
 
 .white{
   opacity: 0.9;
   border: 2px solid white;
+	color: white;
 }
 
 .black{
@@ -636,6 +536,11 @@ ul{
   margin-top: 1em;
   padding-top: 2em;
   padding-bottom: 2em;
+}
+
+.grey-btn{
+	border: 1px solid rgb(230,230,230);
+	border-radius: .3em;
 }
 
 .connexion-backgrnd{
@@ -851,18 +756,6 @@ p:hover + .hover-helper{
 	margin-bottom: 0em;
 	opacity: 0.8;
 	font-family: 'source_sans_probold' !important;
-}
-
-.w-btn{
-	background: rgb(84,88,223) !important;
-	border-bottom: 2px solid rgb(44, 49, 188) !important;
-	padding-top: 0.5em;
-	padding-bottom: .5em;
-}
-
-.w-btn:hover{
-	background: rgb(94,98,233) !important;
-	border-bottom: 2px solid rgb(44, 49, 188) !important;
 }
 
 .alert_error{
@@ -1160,7 +1053,7 @@ p:hover + .hover-helper{
 	border:1px solid rgb(232,238,239);
 }
 
-.float-right{
+.float-right, .flt-rgt{
   float: right;
 }
 
@@ -1879,14 +1772,6 @@ header .normal_header{
 	padding: 2em;
 	padding-top: 5em;
 	padding-bottom: 5em;
-}
-
-.back-to-top{
-	width: 13em;
-	margin-left: auto;
-	margin-right: auto;
-	background: grey;
-	margin-top: 1em;
 }
 
 .quest-cntnr{
@@ -4113,18 +3998,6 @@ input:placeholder-shown, textarea:placeholder-shown{
 .welcome-field:focus{
   border:1px solid rgb(240,240,240);
   border-bottom: 2px solid rgb(179,171,171);
-}
-
- .welcome-btn{
-  border-radius: 0;
-  border-top-right-radius: 0.3em;
-  border-bottom-right-radius: 0.3em;
-  margin-left: -0.2em;
-	border: 1px solid rgb(84,88,223);;
-	border-bottom: 2px solid rgb(84,88,223);
-  display: inline-block;
-	opacity: 1;
-	background: rgb(84,88,223);
 }
 
 .welcome-btn:hover{
@@ -6975,4 +6848,22 @@ section{
 .switch-field label:last-of-type {
 	border-top-right-radius: .2em;
 	border-bottom-right-radius: .2em;
+}
+
+.email-pop .popover{
+	width: 30em;
+}
+
+.email-pop .popover .popover-cntnt{
+	text-align: left;
+	padding: 1.7em;
+	padding-bottom: 3em;
+}
+
+.email-pop .popover .popover-cntnt textarea{
+	height: 17em;
+}
+
+.email-pop .popover .popover-cntnt input, .email-pop .popover .popover-cntnt textarea{
+	padding-left: .7em;
 }

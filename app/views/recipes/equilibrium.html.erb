@@ -1,12 +1,9 @@
 <% title "#{@recipe.name.humanize}" %>
 <div class="ttl-header recipe-ttl">
-	<div class="page-ttl">
-    <h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
-		<p class="lft-p">Modification de la recette</p>
-  </div>
+	<%= render "layouts/ttl_header", title: "#{@recipe.name.humanize}", description:"Équilibre de la recette" %>
   <div class="page-ctas">
     <%= link_to recipes_path do %>
-      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+      <p class="primary-btn ttl-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
     <% end %>
 	</div>
 </div>
@@ -36,11 +33,11 @@
 	<div class="cost_form cost-val eq-form">
 		<div class="r-c-cnt eq-cnt">
       <%= form_for(@recipe, remote: true) do |f| %>
+				<%= f.submit "CALCULER", class: "primary-btn flt-rgt" %>
         <p class="select-cat-field">
           ÉQUILIBRE POUR
           <%= f.select :eq_data, ["Ganache", "Glace", "Sorbet"], class: "basic-field special-top" %>
         </p>
-				<%= f.submit "CALCULER", class: "auto-btn cta-btn fl-rgt", id: "submit-ing" %>
 		</div>
 		<div>
 			<% @recipe.quantities.each_with_index do |ingredient, index| %>

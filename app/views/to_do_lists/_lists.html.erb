@@ -8,8 +8,8 @@
 						<%=	f.text_area :description, placeholder: "Description", class: "basic-field no-border-field" %>
 						<%= f.hidden_field :user_id, value: @user.id %>
 						<br/>
-						<%= f.submit "AJOUTER LA LISTE", class: "btn inside-btn" %>
-						<p class="cancel-btn">Annuler</p>
+						<%= f.submit "CRÉER", class: "primary-btn" %>
+						<p class="cancel-btn">ANNULER</p>
 					<% end %>
 				</div>
 				<% lists.each do |list| %>

@@ -1,12 +1,9 @@
 <% title "#{@recipe.name.humanize}" %>
 <div class="ttl-header recipe-ttl">
-	<div class="page-ttl">
-    <h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
-		<p class="lft-p">Aperçu de la recette</p>
-  </div>
+	<%= render "layouts/ttl_header", title: "#{@recipe.name.humanize}", description:"Aperçu de la recette" %>
   <div class="page-ctas">
     <%= link_to recipes_path do %>
-      <p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+      <p class="primary-btn ttl-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
     <% end %>
 	</div>
 </div>
@@ -34,6 +31,9 @@
 				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
 					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> Aperçu PDF
 				<% end %>
+				<a href="#" class="email-sender">
+					<%= image_tag 'send-button.png' , class: 'mini-mini-img'%> Envoyer par email
+				</a>
 			</div>
       <div class="recipe-view">
         <div class="view-top-l">
@@ -132,4 +132,14 @@
       </div>
     </div>
   </div>
+</div>
+<div class="select-measure popover-bck email-pop" style="display:none;">
+	<div class="popover">
+		<div class="popover-ttl">
+			<h3><%= image_tag "send-button-w.png", class: "mini-mini-img" %> Partager ma recette par email</h3>
+		</div>
+		<div class="popover-cntnt">
+			<%= render "messages/new", recipe: @recipe, user: @user %>
+		</div>
+	</div>
 </div>

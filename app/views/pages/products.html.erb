@@ -51,7 +51,7 @@
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
         <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
-				<%= f.button :submit do %>
+				<%= f.button :submit, class: "primary-btn" do %>
 					COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
@@ -89,7 +89,7 @@
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
         <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
-				<%= f.button :submit do %>
+				<%= f.button :submit, class: "primary-btn" do %>
 					COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
