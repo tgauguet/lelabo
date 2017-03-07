@@ -1,4 +1,4 @@
-$('.recipe_values').html("<%= escape_javascript (render 'recipes/equilibrium_form', recipe: @recipe) %>");
+$('.flex-eq').html("<%= escape_javascript (render 'recipes/equilibrium_list', recipe: @recipe) %>");
 
 // Hide and show loading animation for each page changement inside recipes form
   $(".recipe-btn").click(function(){
@@ -9,3 +9,15 @@ $('.recipe_values').html("<%= escape_javascript (render 'recipes/equilibrium_for
 // Use select2 to search ingredients faster
   $('[id*="ingredient_id"]').select2();
   $('[id*="sub_id"]').select2();
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
+  });
+  // $( window ).scroll(function() {
+   // if($( window ).scrollTop() > 10){  // scroll down abit and get the action
+    $(".progress-bar").each(function(){
+      each_bar_width = $(this).attr('aria-valuenow');
+      $(this).width(each_bar_width +'%');
+    });
+   //  }
+  // });

@@ -1,0 +1,18 @@
+<div class="barWrapper">
+  <span class="progressText"><B><%= matter.mb_chars.upcase %></B></span>
+  <div class="progress-percent"><%= percentage_function(variable, matter, recipe) %>%
+   <span><%= wanted_percent(recipe, matter) %></span>
+  </div>
+  <div class="progress">
+    <div class="progress-bar" style="background:<%= matter_color(recipe, matter) %>" aria-valuenow="<%= percentage_function(variable, matter, recipe) %>"></div>
+  </div>
+</div>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
+  });
+  $(".progress-bar").each(function(){
+   each_bar_width = $(this).attr('aria-valuenow');
+   $(this).width(each_bar_width +'%');
+  });
+</script>

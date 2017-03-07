@@ -5434,8 +5434,12 @@ input[type="checkbox"] + span {
 	color: white;
 }
 
+.eq-bars, .eq-form{
+	padding: 1em;
+}
+
 .eq-bars table, .recipe-values table{
-	border-collapse:collapse;
+	border-collapse: collapse;
 	width: 100%;
 	border:none;
 }
@@ -5542,7 +5546,7 @@ input[type="checkbox"] + span {
 	padding: 2em;
 }
 
-.cost-val div{
+.cost-val .ajax-hide div, .eq-form div{
 	padding: 1em;
 }
 
@@ -6744,7 +6748,11 @@ section{
 	text-align: left;
 	padding: 2em;
 	border-radius: .2em;
-	border-bottom: 1px solid rgb(225,228,232);
+	border-bottom: 1px solid rgb(202,212,217);
+}
+
+.eq-cnt .primary-btn{
+	margin-top: -.1em;
 }
 
 .flex-eq .prod-calculs{
@@ -6772,6 +6780,11 @@ section{
   flex-direction: row;
 	-webkit-justify-content: center;
 	justify-content: center;
+}
+
+.eq-form .form-border{
+	margin-top: 1em;
+	margin-bottom: -.5em;
 }
 
 .switch-field input {

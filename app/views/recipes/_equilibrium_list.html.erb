@@ -1,0 +1,55 @@
+<div class="flex-eq">
+  <div class="cost_form cost-val eq-form">
+    <%= form_for(@recipe, remote: true) do |f| %>
+      <div class="r-c-cnt eq-cnt">
+          <%= f.submit "CALCULER", class: "primary-btn flt-rgt" %>
+          <p class="select-cat-field">
+            ÉQUILIBRE POUR
+            <%= f.select :eq_data, ["Ganache", "Glace", "Sorbet"], class: "basic-field special-top" %>
+          </p>
+      </div>
+      <div class="form-border"></div>
+      <div>
+        <% @recipe.quantities.each_with_index do |ingredient, index| %>
+          <%= f.fields_for :quantities, ingredient do |ff| %>
+            <%= render "add_quantities", ff: ff %>
+          <% end %>
+        <% end %>
+        <% @recipe.sub_recipes.each_with_index do |subre, index| %>
+          <%= f.fields_for :sub_recipes, subre do |ff| %>
+            <%= render "add_sub_recipes", ff: ff %>
+          <% end %>
+        <% end %>
+        <div class="add_field"><%= create_new_field "+ AJOUTER UN INGRÉDIENT", f, :quantities %></div>
+        <br/>
+      </div>
+    <% end %>
+    <br/>
+  </div>
+  <div class="arrow-left"></div>
+  <div class="cost_form cost-val eq-bars">
+    <br/>
+    <%= render "layouts/loading" %>
+    <div class="ajax-hide">
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "eau", variable: "water_percent" %>
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "mat. sèche", variable: "dry_matter_percent" %>
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "mat. grasse", variable: "fat_percent" %>
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "sucre", variable: "sugar_percent" %>
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "pouvoir sucrant", variable: "sugar_power" %>
+      <% if is_ice_cream?(recipe) %>
+        <%= render "recipes/equilibrium", recipe: recipe, matter: "mat. grasse du lait", variable: "milk" %>
+        <%= render "recipes/equilibrium", recipe: recipe, matter: "mat. sèche du lait", variable: "milk" %>
+        <%= render "recipes/equilibrium", recipe: recipe, matter: "mat. gr & est du lait", variable: "milk_and_est" %>
+      <% end %>
+      <% if is_ice_cream?(recipe) || is_sorbet?(recipe) %>
+        <%= render "recipes/equilibrium", recipe: recipe, matter: "stabilisateur", variable: "stabilizer" %>
+        <%= render "recipes/equilibrium", recipe: recipe, matter: "pulpe de fruits", variable: "pulp" %>
+      <% end %>
+      <% if is_ganache?(recipe) %>
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "beurre de cacao", variable: "cocoa_butter_percent" %>
+      <%= render "recipes/equilibrium", recipe: recipe, matter: "cacao", variable: "cocoa_percent" %>
+        <%= render "recipes/equilibrium", recipe: recipe, matter: "cacao total", variable: "cocoa_total_percent" %>
+      <% end %>
+    </div>
+  </div>
+</div><!-- flex-eq -->

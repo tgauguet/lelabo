@@ -68,11 +68,9 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def percentage_of(matter)
-		#matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum
-		rec_weight = self.sub_recipes.collect { |s| s.current_recipe.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum * s.weight }.sum
-		rec_weight / self.recipe_weight
-		#matter_weight = matter_weight + recipe_weight
-		#matter_weight / rec_weight unless recipe_weight == 0
+		matter_weight = self.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum
+		rec_weight = matter_weight + self.sub_recipes.collect { |s| (s.current_recipe.quantities.collect { |q| (q.ingredient.send(matter) * q.weight) }.sum / s.current_recipe.recipe_weight) * s.weight }.sum
+		rec_weight = rec_weight / self.recipe_weight unless recipe_weight == 0
 	end
 
 	def compo
@@ -81,9 +79,21 @@ class Recipe < ActiveRecord::Base
 
 	def milk_of(matter)
 		milks = self.quantities.joins(:ingredient).where(ingredients: { category: "Produits laitiers" })
-		matter_weight = milks.collect { |q| q.ingredient.send(matter) * q.weight}.sum
+		milkies = self.sub_recipes { |s| s.current_recipe.quantities.joins(:ingredient).where(ingredients: { category: "Produits laitiers" }) }
+		matter_weight = milks.collect { |q| q.ingredient.send(matter) * q.weight}.sum + milkies.collect { |s| s.current_recipe.quantities.collect { |q| q.ingredient.send(matter) * q.weight}.sum }.sum
 		matter_weight / recipe_weight unless recipe_weight == 0
 	end
+
+	def pulp_percentage
+		pulps = self.quantities.joins(:ingredient).where(ingredients: { is_pulp: 1 })
+		pulpies = self.sub_recipes { |s| s.current_recipe.quantities.joins(:ingredient).where(ingredients: { is_pulp: 1 }) }
+		total = pulps.collect { |q| q.weight }.sum + pulpies.collect { |s| s.current_recipe.quantities.collect { |q| q.weight }.sum }.sum
+		total * 100 / recipe_weight unless recipe_weight == 0
+	end
+
+	def milk_and_est(recipe)
+    self.milk_of("fat_percent") + self.milk_of("dry_matter_percent")
+  end
 
 	def for_100_gram(value)
 		total = self.sub_recipes.collect { |s| ( s.current_recipe.quantities.collect { |q| (q.ingredient.send(value) * q.weight) }.sum) }.sum
@@ -121,16 +131,6 @@ class Recipe < ActiveRecord::Base
 	def pvttc
 		self.pvht + self.vat_price
 	end
-
-	def pulp_percentage
-		pulps = self.quantities.joins(:ingredient).where(ingredients: { is_pulp: 1 })
-		total = pulps.collect { |q| q.weight }.sum
-		total * 100 / recipe_weight unless recipe_weight == 0
-	end
-
-	def milk_and_est(recipe)
-    self.milk_of("fat_percent") + self.milk_of("dry_matter_percent")
-  end
 
 	def show_total(matter)
 		self.quantities.collect { |q| q.send(matter) }.sum
