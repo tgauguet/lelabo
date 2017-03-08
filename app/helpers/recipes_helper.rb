@@ -130,6 +130,39 @@ module RecipesHelper
     end
   end
 
+  def compared_values(recipe)
+    #"Eau", "Mat. sèche", "Mat. grasse", "Sucre", "Pouvoir sucrant", "Cacao", "Beurre de cacao"
+    if recipe.category == "Ganache"
+      [19, 81, 16, 26, 28, 14, 19]
+    elsif recipe.category == "Sorbet"
+      [70,30,0, 20, 22, 0, 0]
+    elsif recipe.category == "Divers"
+      [20,80,20,20,20,20,20]
+    elsif recipe.category == "Biscuit"
+      [32,67,17,23,23,1,5]
+    elsif recipe.category == "Chocolat"
+      [19, 81, 16, 26, 28, 14, 19]
+    elsif recipe.category == "Confiserie"
+      [92,8,0,92,94,0,0]
+    elsif recipe.category == "Crème"
+      [45,54,25,16,16,13,8]
+    elsif recipe.category == "Décors"
+      [19, 81, 16, 26, 28, 14, 19]
+    elsif recipe.category == "Dessert"
+      [45,54,25,16,16,13,8]
+    elsif recipe.category == "Glace"
+      [11,36,6,16,16,0,0]
+    elsif recipe.category == "Macaron"
+      [24,75,10,54,54,0,0]
+    elsif recipe.category == "Mousse"
+      [40,59,15,23,25,0,0]
+    elsif recipe.category == "Pâte" || recipe.category == "Salé"
+      [26,73,23,1,1,0,0]
+    else
+      [10,23,23]
+    end
+  end
+
   def is_ganache?(recipe)
     recipe.eq_data == "Ganache"
   end

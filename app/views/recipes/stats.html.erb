@@ -16,29 +16,21 @@
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
+			<div class="big-case">
+				<h3>Composition</h3>
+				<div class="lttl-canva"><canvas id="chart4"></canvas></div>
+			</div>
 			<div class="flex-cases">
-				<div class="blue-bckgrnd">
-					<h3><%= image_tag "composition.png", class:"mini-img"%> Composition</h3>
-				</div>
+				<h3>Nutrition</h3>
 				<div class="lttl-canva"><canvas id="chart1"></canvas></div>
 			</div>
 			<div class="flex-cases">
-				<div class="blue-bckgrnd">
-					<h3><%= image_tag "kcal.png", class:"mini-img"%> Calories</h3>
-				</div>
+				<h3>Calories</h3>
 				<div class="lttl-canva"><canvas id="chart2"></canvas></div>
 			</div>
 			<div class="flex-cases">
-				<div class="blue-bckgrnd">
-					<h3><%= image_tag "cocoa.png", class:"mini-img"%> Cacao</h3>
-				</div>
+				<h3>Cacao</h3>
 				<div class="lttl-canva"><canvas id="chart3"></canvas></div>
-			</div>
-			<div class="flex-cases">
-				<div class="blue-bckgrnd">
-					<h3><%= image_tag "alcohol.png", class:"mini-img"%> Alcool</h3>
-				</div>
-				<div class="lttl-canva"><canvas id="chart4"></canvas></div>
 			</div>
 		</div><!-- rec-cntnr -->
 	</div><!-- actions-cntnr -->
@@ -48,32 +40,15 @@ var c1 = document.getElementById("chart1");
 var c2 = document.getElementById("chart2");
 var c3 = document.getElementById("chart3");
 var c4 = document.getElementById("chart4");
-var alcohol = [<%= @recipe.percentage_of("alcool_percent").round(2) %>, <%= 100 - @recipe.percentage_of("alcool_percent").to_i %>];
+var myRecipeName = "<%= @recipe.name.humanize %>";
+var myRecipeCompare = "Valeur indicative pour une recette de type: <%= @recipe.category %>";
+var myRecipeValues = [<%= percentage_function("water_percent", "eau", @recipe) %>, <%= percentage_function("dry_matter_percent", "mat. sèche", @recipe) %>, <%= percentage_function("fat_percent", "mat. grasse", @recipe) %>, <%= percentage_function("sugar_percent", "sucre", @recipe) %>, <%= percentage_function("sugar_power", "pouvoir sucrant", @recipe) %>, <%= percentage_function("cocoa_percent", "cacao", @recipe) %>, <%= percentage_function("cocoa_butter_percent", "beurre de cacao", @recipe) %>];
+var myRecipeComparedValues = <%= raw compared_values(@recipe) %>;
+"Eau", "Mat. sèche", "Mat. grasse", "Sucre", "Pouvoir sucrant", "Cacao", "Beurre de cacao"
 var composition = [<%= @recipe.for_100_gram("protein").to_i %>, <%= @recipe.for_100_gram("fat_percent").to_i %>, <%= @recipe.for_100_gram("carbohydrates") %>];
 var calories = [<%= @recipe.for_100_gram("kcal").to_i %>, <%= 1000 - @recipe.for_100_gram("kcal").to_i %>];
-var cacao = [<%= @recipe.percentage_of("cocoa_butter_percent").to_i %>, <%= @recipe.percentage_of("cocoa_percent").to_i %>];
+var cacao = [<%= @recipe.percentage_of("cocoa_butter_percent").to_i %>, <%= @recipe.percentage_of("cocoa_percent").to_i %>, <%= 100 - (@recipe.percentage_of("cocoa_percent").to_i + @recipe.percentage_of("cocoa_butter_percent").to_i) %>];
 var colorsArray = ["#FF6384","#36A2EB","#FFCE56","#EF4836","#663399","#36D7B7","#F89406","#DB0A5B","#446CB3","#BE90D4","#4ECDC4","#F64747","#87D37C","#F9690E","#F22613","#22A7F0"];
-var chart4 = new Chart(c4, {
-    type: 'pie',
-    data: {
-        labels: ["% Alcool", "Autre matières"],
-				datasets: [
-        {
-            borderColor: "#fff",
-            pointBackgroundColor: "rgba(179,181,198,1)",
-            pointBorderColor: "#fff",
-            pointHoverBackgroundColor: "#fff",
-            pointHoverBorderColor: "rgba(179,181,198,1)",
-						backgroundColor: ["#009999", "grey"],
-            data: alcohol
-        }
-    	]
-    },
-    options: {
-			scaleShowVerticalLines: false,
-			legend: false
-    }
-});
 var chart1 = new Chart(c1, {
     type: 'pie',
     data: {
@@ -106,7 +81,7 @@ var chart2 = new Chart(c2, {
             pointBorderColor: "#fff",
             pointHoverBackgroundColor: "#fff",
             pointHoverBorderColor: "rgba(179,181,198,1)",
-						backgroundColor: colorsArray,
+						backgroundColor: ["#FF6384"],
             data: calories
         }
     	]
@@ -116,10 +91,39 @@ var chart2 = new Chart(c2, {
 			legend: false
     }
 });
+var data = {
+    labels: ["Eau", "Mat. sèche", "Mat. grasse", "Sucre", "Pouvoir sucrant", "Cacao", "Beurre de cacao"],
+    datasets: [
+        {
+            label: myRecipeName,
+            backgroundColor:  "rgba(215, 56, 62, .2)",
+            borderColor: "#FF6384",
+            pointBackgroundColor: "#FF6384",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(179,181,198,1)",
+            data: myRecipeValues
+        },
+        {
+            label: myRecipeCompare,
+            backgroundColor: "rgba(38, 56, 170, .2)",
+            borderColor: "#36A2EB",
+            pointBackgroundColor: "#36A2EB",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(255,99,132,1)",
+            data: myRecipeComparedValues
+        }
+    ]
+};
+var myRadarChart = new Chart(c4, {
+    type: 'radar',
+    data: data
+});
 var chart3 = new Chart(c3, {
     type: 'pie',
     data: {
-        labels: ["% Beurre de cacao", "% Masse de cacao"],
+        labels: ["% Beurre de cacao", "% Masse de cacao", "% Autre"],
 				datasets: [
         {
             borderColor: "#fff",

@@ -24,8 +24,10 @@
           <% end %>
         <% end %>
         <br/>
-        <div class="add_img"><%= create_new_field "+ AJOUTER UNE IMAGE", f, :images %></div>
-        <%= f.submit "ENREGISTRER", class: "primary-btn" %>
+				<div class="add-img-cntnr">
+	        <div class="add_img"><%= create_new_field "+ AJOUTER UNE IMAGE", f, :images %></div>
+	        <%= f.submit "ENREGISTRER", class: "primary-btn" %>
+				</div>
       <% end %>
     </div>
   </div>
