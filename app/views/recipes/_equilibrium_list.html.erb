@@ -28,8 +28,11 @@
   </div>
   <div class="arrow-left"></div>
   <div class="cost_form cost-val eq-bars">
-    <br/>
     <%= render "layouts/loading" %>
+    <% if balanced?(recipe) %>
+      <%= image_tag "clipboard.png", class: "eq-clip ajax-hide" %>
+    <% end %>
+    <h3 class="ajax-hide">Équilibre</h3>
     <div class="ajax-hide">
       <%= render "recipes/equilibrium", recipe: recipe, matter: "eau", variable: "water_percent" %>
       <%= render "recipes/equilibrium", recipe: recipe, matter: "mat. sèche", variable: "dry_matter_percent" %>

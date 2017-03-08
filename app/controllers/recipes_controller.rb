@@ -147,6 +147,36 @@ class RecipesController < ApplicationController
     end
   end
 
+  def sticker_pdf
+    @sticker_value = (@recipe.quantities + @recipe.sub_recipes).sort{ |a, b| b.weight <=> a.weight }
+    if @recipe.bar && is_barcode?(@recipe.bar)
+      @bar = Barby::EAN13.new(@recipe.bar.to_s)
+      @barcode = Barby::HtmlOutputter.new(@bar)
+    end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: @recipe.name,
+                template: 'recipes/sticker.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
+      end
+    end
+  end
+
+  def long_sticker_pdf
+    @sticker_value = (@recipe.quantities + @recipe.sub_recipes).sort{ |a, b| b.weight <=> a.weight }
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: @recipe.name,
+                template: 'recipes/long_sticker.pdf.erb',
+                encoding: "UTF-8",
+                locals: { recipe: @recipe }
+      end
+    end
+  end
+
   # POST /recipes
   # POST /recipes.json
   def create

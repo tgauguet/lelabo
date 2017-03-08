@@ -1,0 +1,54 @@
+<div class="st-cntnr">
+  <h3><%= @recipe.name.mb_chars.upcase %></h3>
+  <p><b>INGRÉDIENTS:</b></p>
+  <p class="ingredients">
+    <% if @sticker_value %><% @sticker_value.each do |q| %>
+      <% if defined?(q.ingredient) %>
+        <%= q.ingredient.name %>
+      <% else %>
+        <%= q.current_recipe.name %>
+        (<% q.current_recipe.compo.each do |comp| %>
+          <%= comp.ingredient.name %>
+          <% unless comp == q.current_recipe.compo.last %>, <% end %>
+        <% end %>)
+      <% end %>
+      <% if defined?(q.ingredient) && q.ingredient.composition? %> ( <%= q.ingredient.composition %> )<% end %>
+      <% unless q == @sticker_value.last %>,<% end %>
+    <% end %>.<% end %>
+  </p>
+  <% unless @recipe.allergen.blank? %>
+    <p><b>PRÉSENCE DE:</b></p>
+    <p class="ingredients">
+      <%= @recipe.allergen.to_sentence %>
+    </p>
+  <% end %>
+  <% if !@recipe.conservation.blank? %>
+    <p><b>CONSEILS DE CONSERVATION:</b></p>
+    <p class="ingredients">
+      <%= @recipe.conservation %>
+    </p>
+  <% end %>
+  <% if !@recipe.production_date.blank? %>
+    <p><b>DÂTE DE FABRICATION:</b></p>
+    <p class="ingredients">
+      <%= DateTime.parse(@recipe.production_date).strftime("%d/%m/%Y") %>
+    </p>
+  <% end %>
+  <% if !@recipe.cunsumption_date.blank? %>
+    <p><b>DLC:</b></p>
+    <p class="ingredients">
+      <%= @recipe.cunsumption_date %>
+    </p>
+  <% end %>
+  <% if !@recipe.production_number.blank? %>
+    <p><b>N° DE FABRICATION:</b></p>
+    <p class="ingredients">
+      <%= @recipe.production_number %>
+    </p>
+  <% end %>
+  <% if @barcode && is_barcode?(@recipe.bar) %>
+    <div class="bar-tender divs">
+      <%= @barcode.to_html.html_safe %>
+    </div>
+  <% end %>
+</div>

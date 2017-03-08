@@ -37,6 +37,8 @@ Rails.application.routes.draw do
       get :quant
       get :sticker
       get :stats
+      get :sticker_pdf
+      get :long_sticker_pdf
       get :pictures
       get :equilibrium
       get :cost

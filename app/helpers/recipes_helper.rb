@@ -108,6 +108,14 @@ module RecipesHelper
     end
   end
 
+  def balanced?(recipe)
+		if matter_color(recipe, "pulpe de fruits") == "#03C9A9" && matter_color(recipe, "stabilisateur") == "#03C9A9" && matter_color(recipe, "mat. gr & est du lait") == "#03C9A9" &&matter_color(recipe, "mat. sèche du lait") == "#03C9A9" && matter_color(recipe, "mat. grasse du lait") == "#03C9A9" && matter_color(recipe, "pouvoir sucrant") == "#03C9A9" && matter_color(recipe, "mat. grasse") == "#03C9A9" && matter_color(recipe, "eau") == "#03C9A9" && matter_color(recipe, "beurre de cacao") == "#03C9A9" && matter_color(recipe, "mat. sèche") == "#03C9A9" && matter_color(recipe, "sucre") == "#03C9A9"
+			true
+		else
+			false
+		end
+	end
+
   def percentage_function(matter, value, recipe)
     if value == "mat. sèche du lait"
       recipe.milk_of("dry_matter_percent").to_i

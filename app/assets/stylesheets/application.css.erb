@@ -4796,10 +4796,12 @@ input[type="checkbox"] + span {
 	padding-left: .7em;
 }
 
-.bar-cntnr .divs{
+.eq-bars .divs{
 	display: inline-block;
 	vertical-align: top;
 	width: 10em;
+	border: none;
+	margin-top: -.5em;
 }
 
 .r-img-cntnr{
@@ -5438,17 +5440,17 @@ input[type="checkbox"] + span {
 	padding: 1em;
 }
 
-.eq-bars table, .recipe-values table{
+.composition-table table, .recipe-values table{
 	border-collapse: collapse;
 	width: 100%;
 	border:none;
 }
 
-.eq-bars table{
+.composition-table table{
 	font-size: .9em;
 }
 
-.eq-bars table tr td, .eq-bars table tr th{
+.composition-table table tr td, .composition-table table tr th{
 	border: 1px solid rgb(226,226,226);
 	padding: .4em;
 }
@@ -6375,7 +6377,6 @@ td.barby-cell.on { background: #000;padding: 0 !important;}
 	margin-top: 1em;
 	padding: .5em 1em .5em 1em;
 	color: white !important;
-
 }
 
 .blue-bckgrnd, .blue-btn{
@@ -6867,4 +6868,69 @@ section{
 .load-img{
 	width: 3em;
 	opacity: .5;
+}
+
+.eq-clip{
+	position: absolute;
+	margin-left: 13em;
+	margin-top: -2em;
+	width: 4em;
+}
+
+.st-div{
+	padding: 0em !important;
+}
+
+.st-div div{
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	vertical-align: top;
+}
+
+.st-div div p i{
+	font-size: .8em;
+}
+
+.bar-tender table{
+	width: 100%;
+}
+
+.long-sticker{
+	width: 11.86em;
+	height: 16.6em;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	margin: .6em .2em .6em .2em;
+}
+
+.st-cntnr{
+	padding: .4em;
+}
+
+.st-cntnr h3{
+	font-size: .7em;
+}
+
+.st-cntnr p{
+	font-size: .55em;
+	margin-top: .5em;
+}
+
+.st-cntnr .composition-table table tr td, .st-cntnr .composition-table table tr th{
+	font-size: .55em;
+	padding: .2em;
+	border: none;
+	text-align: left;
+}
+
+.st-cntnr .bar-tender{
+	border: none;
+	height: 2.5em !important;
+	width: 10em;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	margin-top: 0em;
 }
