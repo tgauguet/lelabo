@@ -19,8 +19,6 @@
           <s>228,00€</s>
         <% end %>
         <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€ /an</p><% end %>
-      <p>Vous pouvez résilier gratuitement votre formule à tout moment pendant 14 jours</p>
-      <p>Aucun prélèvement ne sera opéré durant la période d'essai</p><br/>
       <p></p>
       <% if @user && @user.business_user? %>
         <p>Votre abonnement PRO débutera à partir de la date de fin de votre abonnement BUSINESS</p>

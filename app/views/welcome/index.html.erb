@@ -35,6 +35,9 @@
 				</div>
 			</div>
 		</div><!-- welcome-usr -->
+		<% if @user.trial_expired? %>
+			<div class="trial-cntnr">Votre période d'essai expire dans <%= @user.remaining_days %> jours <%= image_tag "startup.png", class: "mini-img" %> <%= link_to subscriptions_path do %> Je m'abonne<% end %></div>
+		<% end %>
 		<div class="usr-boxes">
 			<div class="boxes">
 				<h3><%= @user.recipes.count %></h3>

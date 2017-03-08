@@ -2,25 +2,13 @@
 <%= link_to root_path do %><p class="red-color"><span class="image-hovered"></span>Retour à l'accueil</p><% end %>
 <div class="title-cntnr scroll-here2">
 	<h1 class="big-white-h1">Tarifs</h1>
-	<h2 class="big-white-h2">Offre de lancement</h2>
-	<h3 class="big-white-h3">20% de réduction <span>(pour toute commande avant le 31 Janvier 2017)</span></h3>
 	<p>Vous pouvez utiliser le Labo gratuitement (basic), aussi longtemps que vous le souhaitez.</p>
 </div>
 	<% @plans.each do |plan| %>
-	<% unless pro_plan(plan) || entreprise_plan(plan) %>
 		<div class="plan-cntnr">
 			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
 				<p class="plan-title"><%= plan.name %></p>
 				<p class="plan-price">
-					<% unless basic_plan(plan) %>
-						<s>
-							<% if plan.name == "PRO" %>
-								11€
-							<% else %>
-								19€
-							<% end %>
-						</s>
-					<% end %>
 					<span>
 						<b><%= plan.price.to_i %></b>, <% if plan.name == "ENTREPRISE" %><%= plan.price[3,4].to_i %><% else %><%= plan.price[2,4].to_i %><% end %>0€
 					</span>
@@ -65,16 +53,16 @@
 							<% end %>
 						<% else %>
 								<% if !@user %>
-									<p class="plan-btn scroll btn-force-border">ESSAI GRATUIT</p>
+									<p class="plan-btn scroll btn-force-border">CHOISIR</p>
 								<% else %>
 									<%= link_to new_subscription_path(plan_id: plan.id) do %>
 										<!-- après validation des features : "Passer à une offre supérieure" -->
-										<p class="plan-btn btn-force-border">ESSAI GRATUIT</p>
+										<p class="plan-btn btn-force-border">CHOISIR</p>
 										<!-- Dans le paragraphe ci-dessus -->
 									<% end %>
 								<% end %>
 						<% end %>
-				<% end %></div>
+				</div>
 			</div>
 			<br/>
 			<div class="plan-txt-cntnr">
@@ -98,7 +86,6 @@
 					<p>-Ajout d'une photo à vos recettes</p>
 					<p>-Enlever le logo du Labo sur vos recettes</p>
 					<p>-Aide et support prioritaire</p>
-					<p>-Gestion des stocks (prochainement)</p>
 				<% end %>
 				<% if entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
 					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
@@ -107,9 +94,8 @@
 					<p>-Équilibrage de vos sorbets</p>
 					<p>-Calculs de la composition de vos recettes</p>
 					<p>-Ajout de plusieurs photos à vos recettes</p>
-					<p>-Inviter vos collaborateurs sur votre compte (prochainement)</p>
-					<p>-Impression des étiquettes de vos recettes (prochainement)</p>
-					<p>-Accès au mur de recettes (prochainement)</p>
+					<p>-Inviter vos collaborateurs sur votre compte</p>
+					<p>-Impression des étiquettes de vos recettes</p>
 				<% end %>
 			</div>
 		</div>

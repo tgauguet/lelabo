@@ -44,15 +44,23 @@ class User < ActiveRecord::Base
     end
 
 		def pro_user?
-			self.subscription && self.subscription.plan.name == "PRO"
+			self.trial_expired? || (self.subscription && self.subscription.plan.name == "PRO")
 		end
 
 		def business_user?
-			(self.subscription && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com" || self.email == "severine.faure4@wanadoo.fr" || self.email == "timothee.gauguet@orange.fr"
+			self.trial_expired? || ((self.subscription && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com" || self.email == "severine.faure4@wanadoo.fr" || self.email == "timothee.gauguet@orange.fr")
 		end
 
 		def basic_user?
-			self.subscription.nil? || self.subscription.plan.name == "BASIC" unless self.business_user?
+			(self.subscription.nil? || self.subscription.plan.name == "BASIC" unless self.business_user?) && self.trial_expired?
 		end
+
+		def remaining_days
+	   ((self.created_at + 30.days).to_date - Date.today).round
+	  end
+
+		def trial_expired?
+	   	self.remaining_days <= 0 ? false : true
+	  end
 
 end
