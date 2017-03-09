@@ -30,4 +30,9 @@ class UserMailer < ApplicationMailer
 		mail( to: message.email, subject: message.subject, from: user.email)
 	end
 
+	def new_website(user)
+		@url = "http://www.lelabo-ondemand.com"
+		mail( to: user.email, subject: "Nouveau le Labo !")
+	end
+
 end
