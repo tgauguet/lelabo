@@ -48,11 +48,11 @@ class User < ActiveRecord::Base
 		end
 
 		def business_user?
-			self.trial_expired? || ((self.subscription && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com" || self.email == "severine.faure4@wanadoo.fr" || self.email == "timothee.gauguet@orange.fr")
+			self.trial_expired? || ((self.subscription && self.subscription.plan && self.subscription.plan.name == "ENTREPRISE") || self.email == "julien.merceron1@gmail.com" || self.email == "severine.faure4@wanadoo.fr" || self.email == "timothee.gauguet@orange.fr")
 		end
 
 		def basic_user?
-			(self.subscription.nil? || self.subscription.plan.name == "BASIC" unless self.business_user?) && self.trial_expired?
+			(self.subscription.nil? || (self.subscription && self.subscription.plan && self.subscription.plan.name == "BASIC") unless self.business_user?) && self.trial_expired?
 		end
 
 		def remaining_days

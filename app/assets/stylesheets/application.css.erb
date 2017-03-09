@@ -2577,6 +2577,7 @@ header .normal_header{
   height: auto;
   margin-right: auto;
   padding-bottom: 2em;
+	margin-left: 2em;
 	position: relative;
   width: auto;
 }
@@ -3229,7 +3230,7 @@ select{
 }
 
 .basic-td{
-	width: 16em;
+	width: 20%;
 }
 
 .provider-info{
@@ -3683,7 +3684,7 @@ input:placeholder-shown, textarea:placeholder-shown{
 }
 
 .ing-imgs{
-	float: right;
+	float: left;
 }
 
 .ing-name{
@@ -4564,11 +4565,11 @@ a.cke_smile:hover,a.cke_smile:active, a.cke_smile:focus{
 }
 
 .small-img2{
-	margin-left: -4em;
+	margin-left: 4em;
 }
 
 .small-img3{
-	margin-left: -2em;
+	margin-left: 2em;
 }
 
 .ajust{
@@ -6650,6 +6651,31 @@ section{
 
 @media screen and (max-width : 67em){
 
+	.recipe-view{
+		width: 90%;
+	}
+
+	.rgt-menu{
+		display: none;
+	}
+
+	.rec-cntnr, .load-parent{
+		margin-left: 4em;
+	}
+
+	.flex-eq .prod-calculs, .flex-eq .prod-results{
+		width: 16em;
+		padding: 1em;
+	}
+
+	.eq-form select{
+		display: none;
+	}
+
+	.flex-eq .array-calculs{
+		width: 10em;
+	}
+
 	.left-cntnr{
 	  width: 5em;
 	}
@@ -6658,12 +6684,8 @@ section{
 	  margin-left: 5em;
 	}
 
-	.full-header{
+	.full-header, .action-cntnt, .rgt-menu, .rec-rgt-menu{
 	  left: 5em;
-	}
-
-	.action-cntnt{
-		left: 5em;
 	}
 
 	.send-feedback{
@@ -6730,8 +6752,32 @@ section{
 
 @media screen and (max-width : 60em){
 
-	.sort-ttl-cntnr{
-		margin-top: 9em;
+	.rec-cntnr, .load-parent{
+		margin-left: 0em;
+	}
+
+	.full-cntnr{
+	  margin-left: 0em;
+	}
+
+	.full-header, .action-cntnt, .rgt-menu, .rec-rgt-menu{
+	  left: 0em;
+	}
+
+	.action-cntnt{
+		margin-top: -1.5em;
+	}
+
+	.rec-rgt-menu{
+		display: none;
+	}
+
+	.recipe-ttl{
+		left: 0;
+	}
+
+	.recipe-view{
+		border: 1px solid cyan;
 	}
 
 	.action-plus-list{
@@ -6875,9 +6921,26 @@ section{
 		display: none;
 	}
 
+	.normal_header ul li{
+		font-size: .8em;
+	}
+
+	.connexion_container{
+		width: 100%;
+		border-radius: 0em;
+	}
+
 }
 
 @media screen and (max-width : 50em){
+
+	.product-cntnr{
+		display: none;
+	}
+
+	.list-width .basic-td{
+		display: none;
+	}
 
 	.ingr-field select{
 		width: 10em !important;

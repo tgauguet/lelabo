@@ -17,10 +17,10 @@ module SubscriptionsHelper
 	end
 
 	def same_plan_id(user, plan)
-		user.subscription.plan_id == plan.id
+		user.subscription.plan && user.subscription.plan_id == plan.id
 	end
 
 	def user_have_basic_plan(user)
-		user.subscription.plan.name == "BASIC"
+		user.subscription.plan && user.subscription.plan.name == "BASIC"
 	end
 end
