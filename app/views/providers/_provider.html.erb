@@ -6,7 +6,9 @@
             <%= truncate(provider.name.humanize, length: 25) %>
           </div>
           <div class="basic-td">
-            <%= truncate(provider.email.downcase, length: 30) %>
+            <% if provider.email %>
+              <%= truncate(provider.email.downcase, length: 30) %>
+            <% end %>
           </div>
         <% end %>
         <div class="basic-td">
