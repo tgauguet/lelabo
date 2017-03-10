@@ -46,7 +46,9 @@
     <p class="note"><%= @recipe.note %></p><br/>
   </div>
   <div class="view-top-r">
-    <%= image_tag @recipe.image, class: "user-img2" %>
+    <% if @recipe.image_file_name %>
+      <%= image_tag @recipe.image, class: "user-img2" %>
+    <% end %>
   </div>
   <div class="ing_comp_cntnr">
     <div class="form-border"></div>
