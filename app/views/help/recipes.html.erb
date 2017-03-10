@@ -6,39 +6,55 @@
     <ul>
       <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Créer une recette</li>
       <div class="arrow_box">
-        <p>Le Labo vous permet évidemment de créer de nombreuses recettes. Par défaut, plusieurs recettes sont créées à l'ouverture de votre compte.</p>
-        <br/>
-        <p>Pour ajouter une nouvelle recette à votre base, cliquez sur ce bouton :</p>
-        <%= image_tag 'help/rec-btn.jpg', class: "explain-img", alt: "cliquez sur ce bouton", title: "bouton Le Labo" %>
-        <p>Vous pouvez ensuite commencer à remplir le formulaire.</p>
+        <p>Le Labo vous permet de créer autant de recettes que vous le souhaitez.</p>
+        <p>Pour ajouter une nouvelle recette à votre base, cliquez sur le bouton "CRÉER UNE RECETTE" :</p>
+        <%= image_tag 'help/rec-btn.png', class: "explain-img", alt: "cliquez sur ce bouton", title: "bouton Le Labo" %>
+        <p>Une fois crée, vous aurez accès a toutes les possibilités d'édition et de calcul des recettes.</p>
       </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Afficher les nombres décimaux dans le formulaire</li>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Partager la recette par email</li>
       <div class="arrow_box">
-        <p>Pour enregistrer un nombre décimal, vous devez utiliser le signe "."(point) en lieu et place de la virgule</p>
-        <p>Si vous utilisez une virgule ou tout autre signe pour définir une décimale, seuls les nombres entiers seront sauvegardés.</p>
-        <br/>
-        <%= image_tag 'help/ing-dec.jpg', class: "explain-img", alt: "cliquez sur ce bouton", title: "bouton Le Labo" %>
-        <p>Cette règle est valable pour tous les nombres insérés dans vos formulaires sur Le Labo.</p>
+        <p>Vous pouvez partager vos recettes en un clic par email, en cliquant sur le bouton "Partager" :</p>
+        <%= image_tag "help/rec-share.png", class: "explain-img" %>
+        <p>Par gain de temps, le Labo pré-rempli pour vous le formulaire d'envoi. Vous êtes libre d'en personnaliser les informations.</p>
       </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Définir le poids d'une recette</li>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Ajouter une sous-recette</li>
       <div class="arrow_box">
-        <p>Informations prochainement disponibles</p>
+        <p>Ajouter une sous-recette à vos recettes vous permet de ne pas avoir à re-écrire celles que vous utilisez le plus souvent.</p>
+        <p>Vous pouvez par exemple, insérer une recette de glaçage a tous vos entremets d'un simple clic.</p>
+        <%= image_tag "help/rec-add.png", class: "explain-img" %>
+        <p>Les informations de la sous-recette seront automatiquement insérées dans les calculs de coûts, de quantités, de composition et d'équilibrage.</p>
       </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Calculer le coût de revient d'une recette</li>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Calculer la quantité à produire</li>
       <div class="arrow_box">
-        <p>Informations prochainement disponibles</p>
+        <p>Pour calculer les quantités de production, cliquez sur le bouton "QUANTITÉ" dans le menu des recettes.</p>
+        <%= image_tag "help/rec-qt.png", class: "explain-img" %>
+        <p>Le formulaire suivant vous permet de faire vos calculs. Le bouton "simple/stock" vous permet de choisir entre le calcul direct et le calcul par soustraction du stock restant.</p>
+        <p>Le bouton "Modifier" est utile pour choisir le type d'unité que vous souhaitez utiliser dans vos calculs:</p>
+        <%= image_tag "help/rec-unit.png", class: "explain-img" %>
       </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Équilibrer une ganache</li>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Calculer le coût de revient</li>
       <div class="arrow_box">
-        <p>Informations prochainement disponibles</p>
+        <p>Pour calculer le coût de revient, cliquez sur le bouton "QUANTITÉ" dans le menu des recettes.</p>
+        <%= image_tag "help/rec-cost.png", class: "explain-img" %>
+        <p>Le formulaire suivant vous permet de faire vos calculs. Vous pouvez notamment sélectionner le taux de TVA appliqué ainsi que le coefficient multiplicateur qui servira à calculer le prix de vente.</p>
+        <p>Le bouton "Modifier" est utile pour choisir le type d'unité que vous souhaitez utiliser dans vos calculs:</p>
+        <%= image_tag "help/rec-unit.png", class: "explain-img" %>
+        <p>En cliquant sur le bouton "Statistiques", vous avez accès a des informations précises sur le coût de votre recette:</p>
+        <p>Le premier tableau vous donne des information sur sa composition ainsi que le prix par ingrédients :</p>
+        <%= image_tag "help/rec-cost1.png", class: "explain-img" %>
+        <p>Les graphiques suivants vous permettent en un clin d'oeil de différencier les ingrédients qui coûtent le plus cher dans la recette et de comparer a leur quantit:</p>
+        <%= image_tag "help/rec-cost2.png", class: "explain-img" %>
       </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Équilibrer une glace</li>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Équilibrer une recette</li>
       <div class="arrow_box">
-        <p>Informations prochainement disponibles</p>
-      </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Équilibrer un sorbet</li>
-      <div class="arrow_box">
-        <p>Informations prochainement disponibles</p>
+        <p>Le Labo vous permet d'équilibrer vos recettes de ganaches, glaces et sorbet.</p>
+        <%= image_tag "help/rec-eq.png", class: "explain-img" %>
+        <p>Pour commencer, sélectionnez dans le menu le type de la recette (Ganache, Sorbet ou Glace) et cliquez sur "CALCULER".</p>
+        <p>Les informations de composition apparaissent dans le formulaire de droite.</p>
+        <p>Pour chaque entité, le pourcentage dans la recette apparait en gras. À sa droite, le pourcentage requis pour équilibrer la recette. Si rien ne s'affiche, cela signifie que cette entité n'est pas prise en compte dans l'équilibre.</p>
+        <p>Lorsque la barre de progression devient verte, cela signifie que le pourcentage correspond au pourcentage requis.</p>
+        <p>Lorsque votre recette est équilibrée, une image apparait pour le confirmer :</p>
+        <%= image_tag "help/rec-fin.png", class: "explain-img" %>
       </div>
       <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Ajouter une photo à ma recette</li>
       <div class="arrow_box">

@@ -4,40 +4,32 @@
     <h2>Gestion des ingrédients</h2>
     <p>Questions relatives à la gestion des ingrédients</p>
     <ul>
+      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Ordonner les ingrédients par catégorie</li>
+      <div class="arrow_box">
+        <p>Pour trier les ingrédients par catégorie, cliquez sur le bouton contenant les barres horizontales, à droite dans le menu.</p>
+        <p>Cliquez ensuite sur la propriété dans laquelle vous souhaitez que les ingrédients soient ordonnés.</p>
+        <br/>
+      </div>
       <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Créer un ingrédients</li>
       <div class="arrow_box">
-        <p>Le Labo vous permet évidemment de créer de nombreux ingrédients. Par défaut, plusieurs centaines d'ingrédients sont créés à l'ouverture de votre compte.</p>
+        <p>Le Labo vous permet évidemment de créer de nombreux ingrédients. Par défaut, plus de 500 ingrédients sont créés à l'ouverture de votre compte.</p>
         <br/>
-        <p>Pour ajouter un nouvel ingrédient à votre base, cliquez sur ce bouton :</p>
+        <p>Pour ajouter un nouvel ingrédient à votre base, cliquez sur le bouton "NOUVEL INGRÉDIENT":</p>
         <%= image_tag 'help/ing-btn.png', class: "explain-img", alt: "cliquez sur ce bouton", title: "bouton Le Labo" %>
+        <p>Pour créer une nouvelle catégorie d'ingrédients (celles-ci vous aideront à les classifier), cliquez sur le bouton "NOUVELLE CATÉGORIE".</p>
         <p>Vous pouvez ensuite commencer à remplir le formulaire.</p>
-      </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Afficher les nombres décimaux dans le formulaire</li>
-      <div class="arrow_box">
-        <p>Pour enregistrer un nombre décimal, vous devez utiliser le signe "."(point) en lieu et place de la virgule</p>
-        <p>Si vous utilisez une virgule ou tout autre signe pour définir une décimale, seuls les nombres entiers seront sauvegardés.</p>
-        <br/>
-        <%= image_tag 'help/ing-dec.jpg', class: "explain-img", alt: "cliquez sur ce bouton", title: "bouton Le Labo" %>
-        <p>Cette règle est valable pour tous les nombres insérés dans vos formulaires sur Le Labo.</p>
       </div>
       <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Trouver les information relatives à la composition des ingrédients</li>
       <div class="arrow_box">
         <p>De nombreuses informations sont disponibles sur internet, il est possible de trouver les informations de composition de la majorité des ingrédients sur la toile.</p>
         <p>Toutefois, si les résultats ne vous conviennent pas, vous pouvez demander ces informations à votre fournisseur.</p>
         <br/>
-        <p>Nous vous recommandons de remplir au maximum les champs des ingrédients, cela vous sera utile pour profiter de toutes ses fonctionnalités.</p>
-        <p>Cependant, sachez que seul le nom est obligatoire lors de la création d'un nouvel ingrédient.</p>
+        <p>Nous vous recommandons de remplir au maximum les champs des ingrédients, afin de profiter de toutes les fonctionnalités du Labo.</p>
       </div>
       <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Définir cet ingrédient comme étant une purée de fruits</li>
       <div class="arrow_box">
         <%= image_tag 'help/ing-pulp.png', class: "explain-img", alt: "cliquez sur ce bouton", title: "bouton Le Labo" %>
         <p>Ce champ est nécessaire pour l'équilibre des sorbets. Dans d'autres cas, cela n'aura pas d'impact sur vos recettes.</p>
-        <p>Nous vous conseillons de le remplir par mesure préventive si votre ingrédient est une purée de fruits.</p>
-      </div>
-      <li><%= image_tag "folder.png", class: "mini-img", alt: "image question" %> Lien entre ingrédients et fournisseurs</li>
-      <div class="arrow_box">
-        <p>Nous envisageons l'implémentation de feuilles de commandes pour vos fournisseurs, cette fonctionnalité n'est à l'heure actuelle pas disponible.</p>
-        <p>Si elle est importante pour vous, nous vous encourageons à nous le faire savoir en nous <%= link_to new_contact_path do %><b>Contactant</b><% end %></p>
       </div>
     </ul>
   </div>

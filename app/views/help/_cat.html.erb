@@ -7,17 +7,11 @@
     <%= link_to aide_categories_recettes_path do %>
       <li class="<% if request.path.start_with?('/aide/categories/rece') %>cstm-help2<% end %>">Gestion des recettes</li>
     <% end %>
-    <%= link_to aide_categories_montages_path do %>
-      <li class="<% if request.path.start_with?('/aide/categories/m') %>cstm-help2<% end %>">Gestion des montages</li>
-    <% end %>
     <%= link_to aide_categories_fournisseurs_path do %>
       <li class="<% if request.path.start_with?('/aide/categories/f') %>cstm-help2<% end %>">Gestion des fournisseurs</li>
     <% end %>
     <%= link_to aide_categories_listes_de_taches_path do %>
       <li class="<% if request.path.start_with?('/aide/categories/l') %>cstm-help2<% end %>">Gestion des listes de tâches</li>
-    <% end %>
-    <%= link_to aide_categories_recherche_path do %>
-      <li class="<% if request.path.start_with?('/aide/categories/rech') %>cstm-help2<% end %>">Recherche</li>
     <% end %>
     <%= link_to aide_categories_abonnements_path do %>
       <li class="<% if request.path.start_with?('/aide/categories/a') %>cstm-help2<% end %>">Gestion de mon abonnement</li>
