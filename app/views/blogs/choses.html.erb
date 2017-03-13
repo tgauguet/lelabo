@@ -1,0 +1,68 @@
+<% title "TOP 10 des choses que personne ne vous avait dit sur le métier de pâtissier, ç’aurait été sympa de prévenir" %>
+<% set_meta_tags description: 'Ces pâtissiers sont les stars de instagram, découvrez 10 as du sucre très suivis sur le célèbre site de partage de photos',
+                 keywords: 'Pâtissiers, réseaux sociaux, pâtisseries, le labo, stars, instagram',
+                 og: {
+					  title:    '10 Pâtissiers Français stars sur instagram"',
+					  type:     'article',
+					  url:      'https://www.lelabo-ondemand.com/blog/dix-patissiers-francais-stars-de-instagram',
+					  image:    'https://www.lelabo-ondemand.com/assets/optimisez-vos-ventes-patisseries-829578a51b8fa73379d1f0333f21c0d31cc48b227be591322b828aa4c37d80de.png'
+					 } %>
+<%= render "blogs/header" %>
+<div class="social-icn"><div class="fb-like" data-href="https://www.facebook.com/lelaboondemand/?notif_t=page_user_activity&amp;notif_id=1462110121107502" data-layout="box_count" data-action="like" data-show-faces="false" data-share="true"></div></div>
+<div class="blog-post-cntnr">
+<h1>TOP 10 des choses que personne ne vous avait dit sur le métier de pâtissier, ç’aurait été sympa de prévenir</h1>
+<%= image_tag "blog/blog10.jpg", class: "blog-head-img", alt: "Pâtissiers : Optimisez vos ventes sur le web" %> <br/>
+<br/>
+<p>Vous êtes pâtissier ? Vous souhaitez devenir pâtissier ? ATTENTION ! Voici 10 choses auxquelles vous ne vous attendiez peut être pas avant de vous lançer...</p>
+<h2>1) Vous croiserez vos amis au moment de partir en boite...</h2>
+<%= image_tag "blog/blog9.jpg", class: "blog-img" %>
+<p>Enfin eux iront en boite… vous, vous irez probablement au travail.</p>
+<h2>2) Votre métier sera votre salle de muscu</h2>
+<%= image_tag "blog/blog8.jpg", class: "blog-img" %>
+<p>Fouetter la crème, porter la cuve du batteur, lever les sacs de farine... Il y a de fortes chances que vous n'ayez pas besoin de soulever de la fonte pour vous faire de gros muscles...</p>
+<p>Et les protéines ? Une louche de crème pâtissière et c'est réglé ;)</p>
+<h2>3) Le regard des filles s'illuminera</h2>
+<%= image_tag "blog/blog10.jpg", class: "blog-img" %>
+<p>Lorsque vous leur direz que vous êtes pâtissier, elles n'auront d'yeux que pour vous...</p>
+<p>Enfin, si vous arrivez à trouver le temps de les rencontrer</p>
+<h2>4) Vous aimerez officiellement faire des gâteaux...</h2>
+<%= image_tag "blog/blog7.jpg", class: "blog-img" %>
+<p>Et tout le monde s'en souviendra, ne soyez donc pas surpris si vous recevez de nouvelles demandes tous les week-ends de vos proches</p>
+<p>"Quoi, tu ne veux pas venir faire un gâteaux chez moi ? Mais c'est ton métier, je croyais que tu aimais ça..." - "Maman, je suis en vacances..."</p>
+<h2>5) Vous deviendrez probablement addict au café</h2>
+<%= image_tag "blog/blog6.jpg", class: "blog-img" %>
+<p>Parce qu'il faut plus qu'une tisane à 5h du matin pour rester éveillé...</p>
+<h2>6) Votre temps de sommeil sera divisé par 1,3 ( voir 2 ( voir des fois 3 ) )</h2>
+<%= image_tag "blog/blog5.jpg", class: "blog-img" %>
+<p>Terminées les soirées ou vous n'arrivez pas à vous endormir, à peine allongé et déjà dans les bras de Morphée</p>
+<h2>7) Vous deviendrez un pro d’instagram et de Facebook</h2>
+<%= image_tag "blog/blog4.jpg", class: "blog-img" %>
+<p>Parce que tous les grands chefs y partagent leurs créations... et que vous êtes un grand chef, non?</p>
+<h2>8) Vous mangerez beaucoup de gâteaux… au début</h2>
+<%= image_tag "blog/blog2.jpg", class: "blog-img" %>
+<p>Et puis un jour, vous monterez sur la balance...</p>
+<h2>9) Vous aurez une relation très proche avec votre dentiste</h2>
+<%= image_tag "blog/blog1.jpg", class: "blog-img" %>
+<p>Et oui, le meilleur client de votre dentiste, c'est vous ! Non seulement les vapeurs de sucre risquent de vous abîmer les dents, mais en plus vous travaillerez celles de vos clients</p>
+<p>Merci qui ??</p>
+<h2>10) Vous prendrez du plaisir à travailler</h2>
+<%= image_tag "blog/blog3.jpg", class: "blog-img" %>
+<p>Malgré ces petits inconvénients, vous aimez ce que vous faites... et ça, c'est de loin le plus important !</p>
+<div class="social-share">
+	<p>Partager cet article</p>
+	<a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u=https://www.lelabo-ondemand.com/blog/blog-dix-choses-que-personne-ne-vous-avais-dites/&amp;t=8', 'facebookShare', 'width=626,height=436'); return false;" title="Share on Facebook"><p class="social-btn">facebook</p></a>
+	<a href="#" onclick="window.open('http://twitter.com/share?text=8 &amp;url=https://www.lelabo-ondemand.com/blog/blog-dix-choses-que-personne-ne-vous-avais-dites', 'twitterShare', 'width=626,height=436'); return false;" title="Tweet This Post"><p class="social-btn">twitter</p></a>
+</div>
+<% unless signed_in? %>
+	<%= link_to root_path do %>
+		<div class="blog-cta">
+			<%= image_tag "logo-white.png", class: "blog-cta-img" %>
+			<h2>Envie d'optimiser vos recettes ?</h2>
+			<p class="blog-btn">Essayer le Labo</p>
+		</div>
+	<% end %>
+<% end %>
+<div id="disqus_thread"></div>
+</p>
+</div>
+</div>

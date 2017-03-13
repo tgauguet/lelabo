@@ -93,6 +93,7 @@ Rails.application.routes.draw do
   match "/modifier-votre-profil" => "users#edit_profile", via: [:get, :post]
   match "/blog/huit-outils-pour-accelerer-votre-business" => "blogs#article", via: [:get]
   match "/blog/dix-patissiers-francais-stars-de-instagram" => "blogs#instagramstar", via: [:get]
+  match "/blog/blog-dix-choses-que-personne-ne-vous-avais-dites" => "blogs#choses", via: [:get]
   match "/blog/six-bonnes-raisons-de-ne-pas-succomber-aux-produits-surgeles", to: "blogs#produits_surgeles", :via => [:get]
   match "/mentions-legales", to: "pages#mentions", via: [:get]
   match "/conditions-generales-utilisation", to: "pages#utilisation", via: [:get]
