@@ -143,7 +143,7 @@ module RecipesHelper
     elsif recipe.category == "Chocolat"
       [19, 81, 16, 26, 28, 14, 19]
     elsif recipe.category == "Confiserie"
-      [92,8,0,92,94,0,0]
+      [8,92,0,92,94,0,0]
     elsif recipe.category == "Crème"
       [45,54,25,16,16,13,8]
     elsif recipe.category == "Décors"
