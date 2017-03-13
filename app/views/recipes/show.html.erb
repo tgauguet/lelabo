@@ -68,7 +68,7 @@
           <% if @recipe.note? %><b>Notes:</b><p class="note"><%= @recipe.note %></p><br/><% end %>
         </div>
         <div class="view-top-r">
-          <%= image_tag @recipe.image, class: "user-img2" %>
+          <% if @recipe.image.exists? %><%= image_tag @recipe.image, class: "user-img2" %><% end %>
         </div>
         <div class="ing_comp_cntnr">
           <div class="form-border"></div>

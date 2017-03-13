@@ -46,7 +46,7 @@
     <p class="note"><%= @recipe.note %></p><br/>
   </div>
   <div class="view-top-r">
-    <% if @recipe.image_file_name %>
+    <% if @recipe.image_file_name && @recipe.image.exists? %>
       <%= image_tag @recipe.image, class: "user-img2" %>
     <% end %>
   </div>
