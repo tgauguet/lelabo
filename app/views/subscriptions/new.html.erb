@@ -56,7 +56,7 @@
         <%= text_field_tag :card_code, nil, name: nil ,placeholder: 'CVC', class: "basic-field rounded-field" , :required => true, data: { stripe: "cvc" } %>
         <br/>
         <p class="terms">En cliquant sur "terminer la commande", vous reconnaissez accepter les <%= link_to conditions_generales_vente_path, target: "_blank" do %>Conditions Générales de Vente<% end %></p>
-        <p class="float-right">  <button type="submit">TERMINER LA COMMANDE</button>
+        <p class="float-right">  <button type="submit" class="primary-btn">TERMINER LA COMMANDE</button>
 </p>
       <% end %>
       <% else %>

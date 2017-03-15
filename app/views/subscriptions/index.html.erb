@@ -3,7 +3,7 @@
 <div class="title-cntnr scroll-here2">
 	<h1 class="big-white-h1">Tarifs</h1>
 	<p>Vous pouvez utiliser le Labo gratuitement (basic), aussi longtemps que vous le souhaitez.</p>
-</div>
+</div><!-- title-cntnr -->
 	<% @plans.each do |plan| %>
 		<div class="plan-cntnr">
 			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
@@ -24,44 +24,37 @@
 						<% if same_plan_id(@user, plan) %>
 							<p class="plan-btn">VOTRE FORMULE</p>
 						<% else %>
-								<% if basic_plan(plan)  %>
-									<%= link_to new_contact_path do %>
-										<p class="plan-btn">ENVOYER UN EMAIL</p>
-									<% end %>
-								<% elsif pro_plan(plan)  %>
-									<%= link_to new_subscription_path(plan_id: plan.id) do %>
-										<% if user_have_basic_plan(@user) %>
-											<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
-										<% else %>
-											<p class="plan-btn">PASSER A L'OFFRE PRO</p>
-										<% end %>
-									<% end %>
-								<% else %>
+							<% if basic_plan(plan)  %>
+								<%= link_to new_contact_path do %>
+									<p class="plan-btn">ENVOYER UN EMAIL</p>
+								<% end %>
+							<% elsif pro_plan(plan)  %>
+								<%= link_to new_subscription_path(plan_id: plan.id) do %>
+									<p class="plan-btn">PASSER A L'OFFRE PRO</p>
+								<% end %>
+							<% else %>
 								<%= link_to new_subscription_path(plan_id: plan.id) do %>
 									<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
 								<% end %>
-								<% end %>
-						<% end %>
-					<% else %>
+							<% end %>
+						<% end %><!-- if same_plan_id -->
+					<% else %><!-- if user_with_no_subscription -->
 						<% if basic_plan(plan) %>
 							<% if @user %>
 								<p class="plan-btn">VOTRE FORMULE</p>
 							<% else %>
-								<!-- scroll down to the email cta -->
-									<p class="plan-btn scroll">COMMENCER</p>
-								<!-- end of scroll down -->
+								<p class="plan-btn scroll">COMMENCER</p>
 							<% end %>
 						<% else %>
-								<% if !@user %>
-									<p class="plan-btn scroll btn-force-border">CHOISIR</p>
-								<% else %>
-									<%= link_to new_subscription_path(plan_id: plan.id) do %>
-										<!-- après validation des features : "Passer à une offre supérieure" -->
-										<p class="plan-btn btn-force-border">CHOISIR</p>
-										<!-- Dans le paragraphe ci-dessus -->
-									<% end %>
+							<% if !@user %>
+								<p class="plan-btn scroll btn-force-border">CHOISIR</p>
+							<% else %>
+								<%= link_to new_subscription_path(plan_id: plan.id) do %>
+									<p class="plan-btn btn-force-border">CHOISIR</p>
 								<% end %>
-						<% end %>
+							<% end %><!-- if !@user -->
+						<% end %><!-- if basic plan -->
+					<% end %><!-- if user_with_no_subscription -->
 				</div>
 			</div>
 			<br/>
@@ -99,7 +92,6 @@
 				<% end %>
 			</div>
 		</div>
-	<% end %>
 	<% end %>
 	<br/><br/><br/>
 <div class="sale-bckgrnd">

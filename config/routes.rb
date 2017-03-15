@@ -48,11 +48,6 @@ Rails.application.routes.draw do
       get :d_quantities_array_pdf
     end
 	end
-	resources :assemblies do
-	  member do
-      get :download
-    end
-	end
 	# create routes for each registration steps
 	resource :user, only: [:edit] do
 		collection do
@@ -74,7 +69,6 @@ Rails.application.routes.draw do
 	end
 	resources :ingredients, except: [:show] do
 		collection do
-			#put "/sort/:id" => "ingredients#sort" -> unused since jquery sortable has been removed
 			get :search
 		end
 	end
