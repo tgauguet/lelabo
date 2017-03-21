@@ -1,5 +1,14 @@
 <% if @user.admin? %>
 	<div class="connexion-backgrnd">
-    <h1>METRICS</h1>
+		<%= link_to root_path do %><%= image_tag "logo-bird.png", class: "logo-white" %><% end %>
+    <h1>User Recipes</h1>
+		<% @users.each do |user| %>
+			<div class="feedback">
+				<h2><%= user.firstname %> <%= user.name %></h2>
+				<% user.recipes.all.each do |recipe| %>
+					<p>- <%= recipe.name %></p>
+				<% end %>
+			</div>
+		<% end %>
   </div>
 <% end %>
