@@ -6,7 +6,7 @@
 			<div class="feedback">
 				<h2><%= user.firstname %> <%= user.name %> <i style="font-size:.6em;">(créé le <%= user.created_at.strftime("%d-%m-%Y") %>)</i></h2>
 				<% user.recipes.all.each do |recipe| %>
-					<p>- <%= recipe.name %></p>
+					<p>- <%= recipe.name %><i style="font-size:.8em;">(crée le <%= recipe.created_at.strftime("%d-%m-%Y") %>)</i></p>
 				<% end %>
 			</div>
 		<% end %>
