@@ -56,6 +56,6 @@ class SubscriptionsController < ApplicationController
 	protected
 
 	def load_plans
-		@plans = Plan.where(published: true).order("amount ASC")
+		@plans = Plan.where(published: true).order("created_at ASC")
 	end
 end

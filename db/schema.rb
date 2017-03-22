@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304180014) do
+ActiveRecord::Schema.define(version: 20170322092119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,10 +175,12 @@ ActiveRecord::Schema.define(version: 20170304180014) do
     t.string   "amount"
     t.string   "interval"
     t.boolean  "published"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "trial_period_days"
     t.string   "price"
+    t.integer  "interval_count"
+    t.boolean  "cancel_at_period_end"
   end
 
   create_table "provider_prices", force: :cascade do |t|

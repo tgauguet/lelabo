@@ -6,16 +6,19 @@
 </div><!-- title-cntnr -->
 	<% @plans.each do |plan| %>
 		<div class="plan-cntnr">
-			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
+			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "LIFE" %>plan-color4<% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
+				<p class="plan-img"><% if plan.name == "LIFE" %><%= image_tag "space-ship.png" %><% elsif plan.name == "BASIC" %><%= image_tag "paper-plane.png" %><% elsif plan.name == "PRO" %><%= image_tag "airplane.png" %><% else %><%= image_tag "rocket2.png" %><% end %></p>
 				<p class="plan-title"><%= plan.name %></p>
 				<p class="plan-price">
 					<span>
-						<b><%= plan.price.to_i %></b>, <% if plan.name == "ENTREPRISE" %><%= plan.price[3,4].to_i %><% else %><%= plan.price[2,4].to_i %><% end %>0€
+						<b><%= plan.price.to_i %></b>€
 					</span>
 				</p>
-				<p class="plan-type">par mois<br/></p>
+				<p class="plan-type"><% if plan.name == "LIFE" %>accès à vie<% else %>par mois<% end %><br/></p>
 				<% if basic_plan(plan) %>
 					<p class="plan-type">sans carte bancaire</p>
+				<% elsif plan.name == "LIFE" %>
+					<p class="plan-type">plus jamais facturé</p>
 				<% else %>
 					<p class="plan-type">facturé annuellement</p>
 				<% end %>
@@ -28,13 +31,9 @@
 								<%= link_to new_contact_path do %>
 									<p class="plan-btn">ENVOYER UN EMAIL</p>
 								<% end %>
-							<% elsif pro_plan(plan)  %>
-								<%= link_to new_subscription_path(plan_id: plan.id) do %>
-									<p class="plan-btn">PASSER A L'OFFRE PRO</p>
-								<% end %>
 							<% else %>
 								<%= link_to new_subscription_path(plan_id: plan.id) do %>
-									<p class="plan-btn">PASSER A UNE OFFRE SUPÉRIEURE</p>
+									<p class="plan-btn">CHOISIR</p>
 								<% end %>
 							<% end %>
 						<% end %><!-- if same_plan_id -->
@@ -68,8 +67,7 @@
 					<p>-Aide et support</p>
 					<p>-Près de 400 ingrédients</p>
 					<p>-Accès sur tous vos appareils</p>
-				<% end %>
-				<% if pro_plan(plan) || plan.name == "PRO" %>
+				<% elsif pro_plan(plan) || plan.name == "PRO" %>
 					<p class="colored-p-txt2"><b>PRO inclus</b><br/>plus toutes les options de BASIC</p>
 					<p>-Calcul de vos coûts de revient</p>
 					<p>-Calcul des quantités de votre recette</p>
@@ -79,8 +77,7 @@
 					<p>-Ajout d'une photo à vos recettes</p>
 					<p>-Enlever le logo du Labo sur vos recettes</p>
 					<p>-Aide et support prioritaire</p>
-				<% end %>
-				<% if entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
+				<% elsif entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
 					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
 					<p>-Équilibrage de vos ganaches</p>
 					<p>-Équilibrage de vos glaces</p>
@@ -89,6 +86,10 @@
 					<p>-Ajout de plusieurs photos à vos recettes</p>
 					<p>-Inviter vos collaborateurs sur votre compte</p>
 					<p>-Impression des étiquettes de vos recettes</p>
+				<% else %>
+					<p class="colored-p-txt4"><b>LIFE inclus</b><br/>Toutes les options de PRO et ENTREPRISE</p>
+					<p>-Accès a toutes les options</p>
+					<p>-Abonnement à vie</p>
 				<% end %>
 			</div>
 		</div>
