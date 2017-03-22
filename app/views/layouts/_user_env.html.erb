@@ -16,11 +16,6 @@
 	</div>
 </div>
 <div class="left-cntnr">
-	<div class="lft-logo-hdr">
-			<%= link_to root_path do %>
-				<%= image_tag "logo-txt-white.png", class: "header-icn", alt: "page d'acceuil" %>
-			<% end %>
-		</div>
 	<div class="left-cases">
 		<div class="user-btn">
 			<h3><%= truncate(user.account_name.downcase, length: 10) %><%= image_tag "arrows.png", class: "micro-arrow" %></h3>
@@ -45,33 +40,29 @@
 		</div>
 	</div>
 	<br/>
-	<div class="cta-lft-cntnr">
-		<%= link_to subscriptions_path do %>
-			<div class="cta-lft-btn">+ S'ABONNER</div>
-		<% end %>
-	</div>
 	<div class="features-li">
 		<ul>
 			<%= link_to root_path do %>
 				<li class="f-li <% if current_page?(root_url) %>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Accueil</span>
 				</li>
 			<% end %>
+			<br/>
 			<%= link_to partage_path do %>
-				<li class="f-li <% if request.path.start_with?('/ingr') %>current-feat<% end %>">
+				<li class="f-li <% if request.path.include?('/preview') || request.path.include?('/partage') %>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img7.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Recettes publiques</span>
 				</li>
 			<% end %>
 			<%= link_to recipes_path do %>
-				<li class="f-li <% if request.path.start_with?('/reci')%>current-feat<% end %>">
+				<li class="f-li <% if request.path.start_with?('/reci') && !request.path.include?('/preview')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img3.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Recettes</span>
 				</li>
@@ -79,15 +70,16 @@
 			<%= link_to ingredients_path do %>
 				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img4.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Ingrédients</span>
 				</li>
 			<% end %>
+			<br/>
 			<%= link_to new_to_do_list_path do %>
 				<li class="f-li <% if request.path.start_with?('/to')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img5.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img6.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Organisation</span>
 				</li>
@@ -95,7 +87,7 @@
 			<%= link_to providers_path do %>
 				<li class="f-li <% if request.path.start_with?('/prov')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img4.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img5.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Fournisseurs</span>
 				</li>
@@ -117,7 +109,7 @@
 			<ul>
 				<!-- images for big size -->
 				<li class="hide-res help-btn">
-					AIDE
+					<%= image_tag "help-bubble.png" %>
 				</li>
 				<!-- end of images for big size -->
 				<!-- images for small size -->

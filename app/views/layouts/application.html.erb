@@ -27,7 +27,7 @@
   <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="<% if signed_in? %>user-env-cntnr<% end %>">
 <% if request.path.start_with?('/aide') %>
   <%= render 'layouts/help_env' %>
 <% end %>
@@ -37,8 +37,8 @@
   <% end %>
 <% end %>
 <% if signed_in? %>
-  <% unless not_useful %>
-    <%= render "layouts/user_env", feedback: @feedback, user: @user %>
+  <% unless not_useful || !signed_in? %>
+      <%= render "layouts/user_env", feedback: @feedback, user: @user %>
   <% end %>
 <% end %>
 <% if !do_not_flash %>

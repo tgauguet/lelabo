@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 			end
 		end
     member do
+      get :preview
       get :download
       get :quant
       get :sticker

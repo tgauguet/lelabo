@@ -50,7 +50,7 @@ module ApplicationHelper
     end
 
     def not_useful
-        controller.controller_name == "pages" || controller.controller_name == "contacts" || controller.controller_name == "users" || controller.controller_name == "help" || controller.controller_name == "subscriptions" || controller.controller_name == "blogs" || controller.controller_name == "feedbacks" || current_page?('/404') || current_page?('/500') || current_page?('/422') || current_page?('/page-error')
+      controller.controller_name == "pages" || controller.controller_name == "contacts" || controller.controller_name == "users" || controller.controller_name == "help" || controller.controller_name == "subscriptions" || controller.controller_name == "blogs" || controller.controller_name == "feedbacks" || current_page?('/404') || current_page?('/500') || current_page?('/422') || current_page?('/page-error')
     end
 
     def do_not_flash

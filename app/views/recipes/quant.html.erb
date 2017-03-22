@@ -1,14 +1,9 @@
 <% title "#{@recipe.name.humanize}" %>
-<div class="rec-rgt-menu">
-	<div class="rgt-area">
-		<%= render "recipe_bar" %>
-	</div>
-</div>
 <div class="action-cntnt recipe-cntnt">
+	<%= render "recipe_bar" %>
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
-			<h1><%= @recipe.name.mb_chars.upcase %></h1>
 			<div class="recipe-links">
 				<p class="tab cyan-bck q-f2btn">
     			<%= image_tag "array.png", class: "mini-mini-img" %> Tableau de calculs

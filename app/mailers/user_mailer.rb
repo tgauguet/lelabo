@@ -27,7 +27,7 @@ class UserMailer < ApplicationMailer
 	def send_recipe(message, user)
 		@message = message
 		@url = "http://www.lelabo-ondemand.com"
-		mail( to: message.email, subject: message.subject, from: user.email)
+		mail( to: message.email, subject: message.subject, from: (user ? user.email : "bonjour@lelabo-ondemand.com"))
 	end
 
 	def new_website(user)

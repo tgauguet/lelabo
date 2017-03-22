@@ -1,15 +1,13 @@
-<% title "#{@recipe.name.humanize}" %>
-<div class="action-cntnt recipe-cntnt">
-	<%= render "recipe_bar" %>
+<div class="action-cntnt preview-cntnt">
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
-			<div class="public-form">
-				<%= render 'recipes/public_form', recipe: @recipe %>
-			</div>
 			<div class="recipe-links">
+        <a href="#" class="secondary-btn">
+					<%= image_tag 'save.png', class: 'mini-mini-img' %> Ajouter a mes recettes
+				</a>
 				<%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
-					<%= image_tag 'pdf2.png', class: 'mini-mini-img' %> Enregistrer
+					<%= image_tag 'pdf2.png', class: 'mini-mini-img' %> Enregistrer en PDF
 				<% end %>
 				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
 					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> Aperçu PDF
@@ -115,14 +113,4 @@
       </div>
     </div>
   </div>
-</div>
-<div class="select-measure popover-bck email-pop" style="display:none;">
-	<div class="popover">
-		<div class="popover-ttl">
-			<h3><%= image_tag "send-button-w.png", class: "mini-mini-img" %> Partager ma recette par email</h3>
-		</div>
-		<div class="popover-cntnt">
-			<%= render "messages/new", recipe: @recipe, user: @user %>
-		</div>
-	</div>
 </div>

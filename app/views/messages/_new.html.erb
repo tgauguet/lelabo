@@ -7,7 +7,11 @@
   <textarea placeholder=" " class="basic-field rounded-field" name="message[message]" id="message_message">
     Bonjour,
 
-    Voici ma recette de <%= @recipe.name.humanize %> crée sur le Labo :
+    <% if signed_in? %>
+      Voici ma recette de <%= @recipe.name.humanize %> crée sur le Labo :
+    <% else %>
+      Voici une recette de <%= @recipe.name.humanize %> crée sur le Labo :
+    <% end %>
     --------------------------------------------------------
     <% @recipe.quantities.each do |q| %>
       • <%= q.ingredient.name %> <%= q.weight %> <%= q.unit %>
@@ -18,7 +22,7 @@
 
     Ce lien permet de créer des recettes : http://www.lelabo-ondemand.com
 
-    <% if @user.firstname %><%= @user.firstname.humanize %><% end %>
+    <% if signed_in? %><% if @user.firstname %><%= @user.firstname.humanize %><% end %><% end %>
   </textarea>
   <%= f.submit "ENVOYER", class: "primary-btn float-right" %>
   <p class="cancel-btn float-right email-sender">ANNULER</p>

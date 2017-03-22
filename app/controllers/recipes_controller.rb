@@ -10,8 +10,8 @@ class RecipesController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_paper_trail_whodunnit
-  before_action :recipe_edit_helpers, except: [:index, :new, :create, :wall]
-  before_action :set_categories, except: [:index, :wall]
+  before_action :recipe_edit_helpers, except: [:index, :new, :create, :wall, :preview]
+  before_action :set_categories, except: [:index, :wall, :preview]
   before_action :set_totals, only: [:d_quantities_array_pdf, :quantities_array_pdf, :quant]
 
   # GET /recipes
@@ -21,7 +21,11 @@ class RecipesController < ApplicationController
   end
 
   def wall
-    @recipes = Recipe.all.where(public: true).order("created_at ASC")
+    @recipes = Recipe.all.where(to_public: true).order("created_at ASC")
+  end
+
+  def preview
+    @message = Message.new
   end
 
   # GET /recipes/1

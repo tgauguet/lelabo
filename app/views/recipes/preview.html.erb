@@ -1,0 +1,19 @@
+<% title "#{@recipe.name.humanize}" %>
+<% unless signed_in? %>
+	<%= render "layouts/welcome_header" %>
+<% end %>
+<% if signed_in? %>
+	<%= render "recipes/preview_user", recipe: @recipe %>
+<% else %>
+	<%= render "recipes/preview_guest", recipe: @recipe %>
+<% end %>
+<div class="select-measure popover-bck email-pop" style="display:none;">
+	<div class="popover">
+		<div class="popover-ttl">
+			<h3><%= image_tag "send-button-w.png", class: "mini-mini-img" %> Partager ma recette par email</h3>
+		</div>
+		<div class="popover-cntnt">
+			<%= render "messages/new", recipe: @recipe, user: @user %>
+		</div>
+	</div>
+</div>
