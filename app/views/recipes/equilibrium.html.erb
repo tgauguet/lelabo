@@ -1,21 +1,14 @@
 <% title "#{@recipe.name.humanize}" %>
-<div class="ttl-header recipe-ttl">
-	<%= render "layouts/ttl_header", title: "#{@recipe.name.humanize}", description:"Équilibre de la recette" %>
-  <div class="page-ctas">
-    <%= link_to recipes_path do %>
-      <p class="primary-btn ttl-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
-    <% end %>
-	</div>
-</div>
 <div class="rec-rgt-menu">
 	<div class="rgt-area">
 		<%= render "recipe_bar" %>
 	</div>
 </div>
-<div class="action-cntnt">
+<div class="action-cntnt recipe-cntnt">
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
+			<h1><%= @recipe.name.mb_chars.upcase %></h1>
 <% if current_user.business_user? %>
 <div class="recipe_values">
   <% if @recipe.quantities.blank? %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322092119) do
+ActiveRecord::Schema.define(version: 20170322114001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(version: 20170322092119) do
     t.string   "eq_data"
     t.integer  "cost_data"
     t.float    "coef"
+    t.boolean  "public"
   end
 
   add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id", using: :btree

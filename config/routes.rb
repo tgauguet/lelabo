@@ -101,6 +101,7 @@ Rails.application.routes.draw do
   ###begining of help pages routing
   # ROUTING for help categories
   match "/aide/categories/ingredients", to: "help#ingredients", via: [:get]
+  match "/partage", to: "recipes#wall", via: [:get]
   match "/aide/categories/montages", to: "help#assemblies", via: [:get]
   match "/aide/categories/paiements", to: "help#payment", via: [:get]
   match "/aide/categories/fournisseurs", to: "help#providers", via: [:get]

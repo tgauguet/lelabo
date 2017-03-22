@@ -36,30 +36,6 @@
         <br/>
       </div>
       <div class="form-border"></div>
-      <div class="r-img-cntnr">
-        <h3>Taux de TVA</h3>
-      </div>
-      <h3>Prix de vente &&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Poids/Part</h3>
-      <br/>
-      <div class="r-img-cntnr up-div">
-        <p><%= f.radio_button :vat, "20.00%", checked: (@recipe.vat == 20.0) %> 20,00 %</p>
-        <p><%= f.radio_button :vat, "10.00%", checked: (@recipe.vat == 10.0 || @recipe.vat.blank?) %> 10,00 %</p>
-        <p><%= f.radio_button :vat, "5.50%", checked: (@recipe.vat == 5.5) %> 5,50%</p>
-      </div>
-      <div class="recipe-head to-left up-div">
-        <%= image_tag "euro-3.png", class: "field-img-big upper-field-img rsp-dl" %>
-        <%= image_tag "ttc.png", class: "field-img-big rght-field-img rsp-dl" %>
-        <%= f.text_field :portion_price, class: "basic-field p-field", placeholder: " " %>
-        <%= image_tag "gramme.png", class: "field-img-big upper-field-img" %>
-        <%= f.text_field :portion_weight, class: "basic-field p-field", placeholder: " " %>
-        <p>Nombre de parts/recette</p>
-        <%= f.select :portion_number, (1..100).map { |i| [i, i] }, include_blank: true %>
-        <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
-        <p>Intitulé des parts (bonbons, entremets...)</p>
-        <%= f.text_field :portion_name, class: "basic-field", placeholder: " " %>
-    	</div>
-      <br/>
-      <div class="form-border"></div>
     </div>
     <br/>
     <h3>Ingrédients</h3>

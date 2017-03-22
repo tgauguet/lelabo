@@ -60,12 +60,12 @@
 					<span>Accueil</span>
 				</li>
 			<% end %>
-			<%= link_to ingredients_path do %>
-				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
+			<%= link_to partage_path do %>
+				<li class="f-li <% if request.path.start_with?('/ingr') %>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>
+						<%= image_tag "feat-img7.png", class: "feature-img", alt: "menu icon" %>
 					</div>
-					<span>Ingrédients</span>
+					<span>Partage</span>
 				</li>
 			<% end %>
 			<%= link_to recipes_path do %>
@@ -74,6 +74,14 @@
 						<%= image_tag "feat-img2.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Recettes</span>
+				</li>
+			<% end %>
+			<%= link_to ingredients_path do %>
+				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
+					<div class="feat-img-cntnr">
+						<%= image_tag "feat-img1.png", class: "feature-img", alt: "menu icon" %>
+					</div>
+					<span>Ingrédients</span>
 				</li>
 			<% end %>
 			<%= link_to new_to_do_list_path do %>
@@ -92,14 +100,14 @@
 					<span>Fournisseurs</span>
 				</li>
 			<% end %>
-			<%= link_to new_staff_path do %>
-				<li class="f-li <% if request.path.start_with?('/sta')%>current-feat<% end %>">
+			<%#= link_to new_staff_path do %>
+				<!--<li class="f-li <%# if request.path.start_with?('/sta')%>current-feat<%# end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag "feat-img6.png", class: "feature-img", alt: "menu icon" %>
+						<%#= image_tag "feat-img6.png", class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Équipe</span>
-				</li>
-			<% end %>
+				</li>-->
+			<%# end %>
 		</ul>
 	</div>
 </div>
