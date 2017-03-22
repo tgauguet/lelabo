@@ -7,7 +7,6 @@
 	<% @plans.each do |plan| %>
 		<div class="plan-cntnr">
 			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "LIFE" %>plan-color4<% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
-				<p class="plan-img"><% if plan.name == "LIFE" %><%= image_tag "space-ship.png" %><% elsif plan.name == "BASIC" %><%= image_tag "paper-plane.png" %><% elsif plan.name == "PRO" %><%= image_tag "airplane.png" %><% else %><%= image_tag "rocket2.png" %><% end %></p>
 				<p class="plan-title"><%= plan.name %></p>
 				<p class="plan-price">
 					<span>
