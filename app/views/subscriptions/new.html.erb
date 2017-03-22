@@ -13,19 +13,19 @@
       <p>Votre sélection : FORMULE <%= @plan.name %></p>
       <i>Facturé annuellement</i>
       <% if @user %><p>Tarif :
-        <% if @plan.stripe_id == "2PRO" %>
-          <s>132,00€</s>
+        <% if @plan.name == "LIFE" %>
+          <%= @plan.amount[0,4] %>,00€ - Accès à vie</p>
         <% else %>
-          <s>228,00€</s>
+          <%= @plan.amount[0,3] %>,00€ /an</p>
         <% end %>
-        <%= @plan.amount[0,3] %>,<%= @plan.amount[3,5] %>€ /an</p><% end %>
+      <% end %>
       <p></p>
-      <% if @user && @user.business_user? %>
-        <p>Votre abonnement PRO débutera à partir de la date de fin de votre abonnement BUSINESS</p>
-      <% end %>
-      <% if @user && @user.pro_user? %>
-        <p>Un prorata de votre abonnement en cours sera effectué et le prix de votre abonnement BUSINESS sera déduit du montant correspondant à la fin de vos droits sur la formule PRO</p>
-      <% end %>
+      <%# if @user && @user.business_user? %>
+        <!--<p>Votre abonnement PRO débutera à partir de la date de fin de votre abonnement BUSINESS</p>-->
+      <%# end %>
+      <%# if @user && @user.pro_user? %>
+        <!--<p>Un prorata de votre abonnement en cours sera effectué et le prix de votre abonnement BUSINESS sera déduit du montant correspondant à la fin de vos droits sur la formule PRO</p>-->
+      <%# end %>
       <br/><br/>
       <% if @user %>
       <h3>Etape 2 : Informations de paiement</h3>
