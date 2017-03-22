@@ -1,0 +1,13 @@
+$(".top").html("<%= escape_javascript (render 'recipes/public_form', recipe: @recipe) %>");
+
+//toggle button
+$('.toggle').on('click', function() {
+  if ($(this).hasClass('on')) {
+     $(this).removeClass('on');
+   } else {
+      $(this).addClass('on');
+   }
+});
+$(".toggle").click(function(){
+  $(this).closest("form").submit();
+});

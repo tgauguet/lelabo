@@ -8,6 +8,9 @@
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
+			<div class="public-form">
+				<%= render 'recipes/public_form', recipe: @recipe %>
+			</div>
 			<div class="recipe-links">
 				<%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
 					<%= image_tag 'pdf2.png', class: 'mini-mini-img' %> Enregistrer

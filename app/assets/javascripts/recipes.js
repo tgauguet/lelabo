@@ -85,7 +85,17 @@ $(document).ready(function(){
 	      $(".c-f2btn").hide();
 	      $(".c-f1btn").show();
 	    });
-
+			//toggle button
+			$('.toggle').on('click', function() {
+			  if ($(this).hasClass('on')) {
+			     $(this).removeClass('on');
+			   } else {
+			      $(this).addClass('on');
+			   }
+			});
+			$(".toggle").click(function(){
+				$(this).closest("form").submit();
+			});
 	// **************** INDEX ACTION ******************
 		// Used as button to destroy the recipes
 			$(".delete-pop-over").click(function(){

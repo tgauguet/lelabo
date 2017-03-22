@@ -266,7 +266,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.fetch(:recipe, {}).permit(:name, :bar, :production_date, :production_number, :conservation, :consumption_days,
      :vat, {:allergen => []} , :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total,
-      :portion, :portion_weight, :preparation_minutes, :public, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking,
+      :portion, :portion_weight, :preparation_minutes, :to_public, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking,
        :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, :eq_data, :cost_data, :coef,
         quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy],
          totals_attributes: [:value, :total,  :id, :_destroy],

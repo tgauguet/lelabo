@@ -1,0 +1,12 @@
+<div class="top">
+  <%= form_for recipe, remote: true do |f| %>
+    <%= f.hidden_field :to_public, value: !recipe.to_public %>
+    <div class='toggle <% if recipe.to_public %>on<% end %>'>
+       <%= image_tag "locked.png", class: "locked" %>
+       <%= image_tag "unlocked.png", class: "unlocked" %>
+       <p>Recette <span class="public">publique</span><span class="private">privée</span></p>
+       <div class='slide'>
+      </div>
+    </div>
+  <% end %>
+</div>
