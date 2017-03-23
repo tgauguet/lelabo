@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   before_action :recipe_edit_helpers, except: [:index, :new, :create, :wall, :preview]
   before_action :set_categories, except: [:index, :wall, :preview]
   before_action :set_totals, only: [:d_quantities_array_pdf, :quantities_array_pdf, :quant]
+  before_action :set_votes, only: [:wall, :preview]
 
   # GET /recipes
   # GET /recipes.json
@@ -265,6 +266,10 @@ class RecipesController < ApplicationController
     @second = @recipe.totals.second.value
     @third = @recipe.totals.third.value
     @fourth = @recipe.totals.fourth.value
+  end
+
+  def set_votes
+    @vote = Vote.new
   end
 
   def recipe_params

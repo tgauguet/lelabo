@@ -1,0 +1,6 @@
+$(".upvote-form").html("<%= escape_javascript (render 'recipes/upvote_form', recipe: @recipe, vote: @vote ) %>");
+
+$(".flash").hide();
+$(".has_voted").click(function(){
+  $('.flash').show();
+});

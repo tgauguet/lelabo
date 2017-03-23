@@ -10,6 +10,8 @@ class Recipe < ActiveRecord::Base
 	has_many :sub_recipes, dependent: :destroy
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy
+	has_many :votes, dependent: :destroy
+	has_many :voting_users, through: :votes, source: :user
 	validates_length_of :images, maximum: 8
 	accepts_nested_attributes_for :totals, allow_destroy: true
 	accepts_nested_attributes_for :images, allow_destroy: true
@@ -24,6 +26,18 @@ class Recipe < ActiveRecord::Base
                                 }
   validates_attachment_content_type :image,
                                     :content_type => /^image\/(png|gif|jpeg)/
+
+	def total_votes
+		upvote - downvote
+	end
+
+	def upvote
+		self.votes.where(up: 1).all.count
+	end
+
+	def downvote
+		self.votes.where(up: 0).all.count
+	end
 
 	def reject_quantity(attribute)
 		attribute['ingredient_id'].blank?

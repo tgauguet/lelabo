@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 	  end
 	end
   resources :messages, only: [:new, :create]
+  resources :votes, only: [:create, :update, :destroy]
 	resources :providers
 	resources :feedbacks, only: [:create, :index, :destroy]
 	### Note on "member do" and "collection do"

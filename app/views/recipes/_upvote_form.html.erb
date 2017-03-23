@@ -1,0 +1,17 @@
+<div class="upvote-form <% unless recipe.total_votes == 0 %>voted<% end %>">
+  <br/>
+  <%= form_for vote, remote: true do |f| %>
+    <%= f.hidden_field :up, value: 1 %>
+    <%= f.hidden_field :recipe_id, value: recipe.id %>
+    <%= image_tag "vote-up.png", class: voted(recipe, true) %>
+  <% end %>
+  <h4><%= recipe.total_votes %></h4>
+  <%= form_for vote, remote: true do |f| %>
+    <%= f.hidden_field :up, value: 0 %>
+    <%= f.hidden_field :recipe_id, value: recipe.id %>
+    <%= image_tag "vote-down.png", class: voted(recipe, false) %>
+  <% end %>
+  <br/>
+  <%= image_tag heart_img(recipe), class: "heart" %>
+  <div class="flash">Merci pour votre avis, vous avez déjà voté pour cette recette...</div>
+</div>

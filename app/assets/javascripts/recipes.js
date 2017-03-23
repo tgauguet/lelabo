@@ -93,8 +93,12 @@ $(document).ready(function(){
 			      $(this).addClass('on');
 			   }
 			});
-			$(".toggle").click(function(){
+			$(".toggle, .submit-vote").click(function(){
 				$(this).closest("form").submit();
+			});
+			$(".flash").hide();
+			$(".has_voted").click(function(){
+				$('.flash').show();
 			});
 	// **************** INDEX ACTION ******************
 		// Used as button to destroy the recipes

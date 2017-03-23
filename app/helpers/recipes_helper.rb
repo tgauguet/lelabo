@@ -8,6 +8,29 @@ module RecipesHelper
     "#03C9A9"
   end
 
+  def has_voted(recipe)
+		voting_users = recipe.votes.map { |r| r.user_id() }
+		voting_users.include? current_user.id()
+	end
+
+  def user_vote(recipe)
+    if has_voted(current_user)
+      vote = recipe.votes.where(user_id: current_user.id).first
+      vote.up unless !vote
+    end
+  end
+
+  def heart_img(recipe)
+    recipe.total_votes >= 0 ? "heart3.png" : "broken-heart.png"
+  end
+
+  def voted(recipe, vote)
+    submit = "vote-arrow "
+    submit += has_voted(recipe) ? "has_voted " : "submit-vote "
+    submit += "submited-vote" if user_vote(recipe) == vote
+    submit
+  end
+
   def matter_color(recipe, matter)
     if is_ganache?(recipe)
       if matter == "mat. grasse"

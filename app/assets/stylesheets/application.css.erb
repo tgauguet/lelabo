@@ -59,10 +59,10 @@ body{
 }
 
 .box, .form-cntnr, .usr-boxes .quadro-box .quadro-child, .usr-boxes .boxes, .welc-recipes, .margin-align, .trial-cntnr, .connexion_container{
-	-moz-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
-  -o-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
-	box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
+	-moz-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.05);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.05);
+  -o-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.05);
+	box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.05);
 }
 
 :focus {
@@ -1457,7 +1457,7 @@ header .normal_header{
 
 .left-cntnr .left-cases:hover .arrow-up, .arrow-up2 {
   padding: 0.08em;
-  z-index: 3;
+  z-index: 10003;
   content: '';
   background: white;
   margin-left: 0.2em;
@@ -5119,36 +5119,6 @@ input[type="checkbox"] + span {
 	margin-top: 1em;
 }
 
-.action-cntnt .recipe-view{
-	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
-  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
-	border: 1px solid rgba(0, 0, 0, 0.150);
-	padding: 1.7em;
-}
-
-.action-cntnt .recipe-view:before, .action-cntnt .recipe-view:after {
-  content: "";
-  height: 98%;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-.action-cntnt .recipe-view:before {
-  background: #fafafa;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  left: -5px;
-  top: 4px;
-  transform: rotate(-.5deg);
-}
-.action-cntnt .recipe-view:after {
-  background: #f6f6f6;
-  box-shadow: 0 0 3px rgba(0,0,0,0.2);
-  right: -3px;
-  top: 1px;
-  transform: rotate(1deg);
-}
-
 .recipe-links{
 	text-align: right;
 	margin-right: 4em;
@@ -7041,4 +7011,147 @@ section{
 
 .root-path .grey-btn{
 	display: inline;
+}
+
+.wall-cntnr{
+	text-align: left;
+}
+
+.wall-index{
+	width: 30%;
+	height: 14em;
+	overflow: hidden;
+	margin-right: 1em;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 1em;
+}
+
+.wall-index h3{
+	font-size: 1.05em;
+}
+
+.wall-index h6{
+	margin: 0;
+	font-size: .85em;
+	font-weight: lighter;
+	margin-top: -.4em;
+}
+
+.wall-img{
+	width: 100%;
+	overflow: hidden;
+	height: 9em;
+}
+
+.wall-img img{
+	width: 100%;
+	margin-top: -3em;
+}
+
+.wall-img .missing{
+	width: 100%;
+	height: 100%;
+	background: -webkit-linear-gradient(45deg, #52B3D9 10%, rgb(84,88,223) 90%);
+  background: -moz-linear-gradient(45deg, #52B3D9 10%, rgb(84,88,223) 90%);
+  background: -ms-linear-gradient(45deg, #52B3D9 10%, rgb(84,88,223) 90%);
+  background: -o-linear-gradient(45deg, #52B3D9 10%, rgb(84,88,223) 90%);
+  background: linear-gradient(45deg, #52B3D9 10%, rgb(84,88,223) 90%);
+}
+
+.wall-action p{
+	display: inline-block;
+	width: auto;
+}
+
+.wall-action p span{
+	vertical-align: .25em;
+	font-family: "source_sans_prosemibold";
+}
+
+.wall-action p img{
+	width: 1.2em;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.wall-action .good-recipe span{
+	color: #75A6FD;
+}
+
+.wall-action .bad-recipe span{
+	color: rgb(253,96,101);
+}
+
+.upvote-form img{
+	width: 1.5em;
+	display: block;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.vote-arrow{
+	cursor: pointer;
+}
+
+.wall-action .good-recipe img, .wall-action .bad-recipe img, .upvote-form .submited-vote{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+
+.upvote-form, .recipe-view{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.upvote-form{
+	width: 1.5em;
+	text-align: center;
+	margin-right: 2em;
+}
+
+.upvote-form h4{
+	font-family: "source_sans_prosemibold";
+	margin: .4em 0 .4em 0;
+	font-size: 1.1em;
+}
+
+.flash{
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+		position: absolute;
+		z-index: 10004;
+		background: #75A6FD;
+		color: white;
+		padding: .6em;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
 }
