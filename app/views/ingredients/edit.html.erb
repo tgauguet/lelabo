@@ -2,7 +2,13 @@
 <div class="ttl-header">
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1"><%= @ingredient.name.humanize %></h1>
-		<p class="lft-p">Modification de l'ingrédient</p>
+		<p class="lft-p">
+			<% if @ingredient.to_public %>
+				À propos de l'ingrédient
+			<% else %>
+				Modification de l'ingrédient
+			<% end %>
+		</p>
 	</div>
 	<div class="page-ctas">
 		<%= link_to ingredients_path do %>
@@ -13,7 +19,11 @@
 <div class="action-cntnt">
 	<div class="actions-cntnr">
 		<div class="action-cntnr">
-			<%= render "form", ingredient: @ingredient %>
+			<% if @ingredient.to_public %>
+				<%= render "show", ingredient: @ingredient %>
+			<% else %>
+				<%= render "form", ingredient: @ingredient %>
+			<% end %>
 		</div>
 	</div>
 </div>

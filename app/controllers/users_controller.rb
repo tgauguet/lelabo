@@ -25,8 +25,6 @@ class UsersController < ApplicationController
 				      redirect_to informations_de_votre_compte_path
 				    elsif @user.account_name? && @user.firstname? && @user.terms == true
 							if @user.ingredients.blank?
-					      CreateIngredientsBaseJob.perform_later(@user) #delay
-								CreateProvidersBaseJob.perform_later(@user) #delay
 								CreateBaseRecipeIngredientsJob.perform_later(@user) #delay
 								CreateRecipesBaseJob.perform_later(@user) #delay
 							end

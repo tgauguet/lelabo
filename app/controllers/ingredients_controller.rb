@@ -4,7 +4,6 @@
 class IngredientsController < ApplicationController
 	before_action :set_user
 	before_action :set_ingredient, only: [:update, :edit]
-	before_action :has_access?, only: [:update, :edit]
 	helper_method :sort_columns, :sort_direction
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
@@ -30,7 +29,9 @@ class IngredientsController < ApplicationController
 	#end
 
 	def index
-		@ingredients = @user.ingredients.all.paginate(:page => params[:page], :per_page => 30).order(sort_columns + " " + sort_direction)
+		@ingredients = Ingredient.all.where(to_public: 1)
+		@user_ingredients = @user.ingredients.all
+		@all_ingredients = (@ingredients + @user_ingredients).paginate(:page => params[:page], :per_page => 30).order(sort_columns + " " + sort_direction)
 	end
 
 	def new
@@ -104,7 +105,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
- 		params.require(:ingredient).permit(:name, :unit_weight, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
+ 		params.require(:ingredient).permit(:name, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
 	end
 
 end

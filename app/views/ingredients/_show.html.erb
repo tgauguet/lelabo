@@ -1,0 +1,21 @@
+
+<p>Catégorie : <%= ingredient.category %></p>
+<p>Prix indicatif : <%= ingredient.price %></p>
+<% if ingredient.vat %><p>TVA : <%= ingredient.vat %></p><% end %>
+<% if ingredient.brand %><p>Marque : <%= ingredient.brand %></p><% end %>
+<p>Mat. grasse : <%= ingredient.fat_percent %> %</p>
+<p>Mat. sèche : <%= ingredient.dry_matter_percent %> %</p>
+<p>Eau : <%= ingredient.water_percent %> %</p>
+<p>Sucre : <%= ingredient.sugar_percent %> %</p>
+<p>Pouvoir sucrant : <%= ingredient.sugar_power %></p>
+<p>Alcool : <%= ingredient.alcool_percent %> %</p>
+<p>Cacao maigre : <%= ingredient.cocoa_percent %> %</p>
+<p>Beurre de cacao : <%= ingredient.cocoa_butter_percent %> %</p>
+<p>Cacao total : <%= ingredient.cocoa_total_percent %> %</p>
+<p>Protéines /100g : <%= ingredient.protein %></p>
+<p>Glucides /100g : <%= ingredient.carbohydrates %></p>
+<p>Indx glycémique : <%= ingredient.ig %></p>
+<p>Calories /100g : <%= ingredient.kcal %></p>
+<% if ingredient.is_pulp %>pulpe<% end %>
+<% if ingredient.is_bio %>bio<% end %>
+<% if ingredient.is_glut_free %>sans gluten<% end %>
