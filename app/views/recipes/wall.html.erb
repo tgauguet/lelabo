@@ -7,9 +7,10 @@
     <% @recipes.each do |recipe| %>
 			<%= link_to preview_recipe_path(recipe.id) do %>
 				<div class="wall-index">
+					<% if recipe.user.avatar.exists? %><%= image_tag recipe.user.avatar(:small), class: "recipe-owner" %><% end %>
 					<div class="wall-img">
 						<% if recipe.image.exists? %>
-							<%= image_tag recipe.image %>
+							<%= image_tag recipe.image(:medium) %>
 						<% else %>
 							<div class="missing"></div>
 						<% end %>

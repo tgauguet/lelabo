@@ -17,6 +17,8 @@ gem 'sunspot_rails'
 
 gem 'country_select'
 
+gem 'impressionist'
+
 gem 'barby'
 
 gem 'delayed_job_active_record'

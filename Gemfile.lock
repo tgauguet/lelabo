@@ -162,6 +162,8 @@ GEM
       domain_name (~> 0.5)
     i18n (0.7.0)
     i18n_data (0.7.0)
+    impressionist (1.5.2)
+      nokogiri (~> 1.6)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -426,6 +428,7 @@ DEPENDENCIES
   friendly_id (~> 5.0.0)
   gibbon
   guard-rspec
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

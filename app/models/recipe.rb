@@ -4,6 +4,7 @@
 class Recipe < ActiveRecord::Base
 	belongs_to :user
 	has_paper_trail
+	is_impressionable
 	has_many :images, dependent: :destroy
 	has_many :ingredients, through: :quantity
 	has_many :recipes, through: :sub_recipe
@@ -20,7 +21,7 @@ class Recipe < ActiveRecord::Base
 	validates_presence_of :name
 	before_save :default_values
 	has_attached_file :image, {
-                                    :styles => { medium: "300x300#", small: "75x75#"},
+                                    :styles => { medium: "500x500#", small: "75x75#"},
                                     :size => { :in => 0..300.kilobytes },
 																		:default_url => "/images/missing-cake.png"
                                 }

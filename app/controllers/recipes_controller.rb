@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
   before_action :set_categories, except: [:index, :wall, :preview]
   before_action :set_totals, only: [:d_quantities_array_pdf, :quantities_array_pdf, :quant]
   before_action :set_votes, only: [:wall, :preview]
+  impressionist :actions=>[:preview]
 
   # GET /recipes
   # GET /recipes.json
@@ -27,6 +28,7 @@ class RecipesController < ApplicationController
 
   def preview
     @message = Message.new
+    impressionist(@recipe)
   end
 
   # GET /recipes/1

@@ -3,7 +3,7 @@
 		<div class="welcome-usr">
 			<div class="user-info">
 				<div class="w-usr-img">
-					<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar, class: "rounded-img" %><% end %>
+					<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar(:medium), class: "rounded-img" %><% end %>
 				</div>
 				<div class="flag-cntnr">
 					<div class="flag-bar"></div>
