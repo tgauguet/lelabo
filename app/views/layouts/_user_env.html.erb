@@ -34,7 +34,7 @@
 				<%= link_to modifier_votre_profil_path do %><li>Modifier mon profil</li><% end %>
 				<%= link_to subscriptions_path do %><li>Choisir mon abonnement</li><% end %>
 				<%= link_to root_path do %><li>Informations de paiement</li><% end %>
-				<%#= link_to aide_path do %><li>Aide</li><%# end %>
+				<%= link_to aide_categories_ingredients_path do %><li>Aide</li><% end %>
 				<%= link_to( destroy_user_session_path, :method => :delete, :class => "bouton9") do %><li>Se déconnecter</li><% end %>
 			</ul>
 		</div>
@@ -108,6 +108,12 @@
 		<div class="rgth-links">
 			<ul>
 				<!-- images for big size -->
+				<li class="hide-res">
+					<%= image_tag "message.png" %>
+				</li>
+				<li class="hide-res">
+					<%= image_tag "ding.png" %>
+				</li>
 				<li class="hide-res help-btn">
 					<%= image_tag "help-bubble.png" %>
 				</li>

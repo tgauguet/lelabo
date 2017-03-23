@@ -1,13 +1,11 @@
 <% title "Recettes partagées" %>
 <div class="ttl-header">
-	<%= render "layouts/ttl_header", title: "Recettes partagées", description:"Ajouter des recettes a votre carnet" %>
+	<%= render "layouts/ttl_header", title: "Recettes partagées", description:"Ajoutez des recettes a votre carnet" %>
 </div>
 <div class="action-cntnt">
   <div class="actions-cntnr">
-    <div class="action-cntnr page-new-ttl">
       <% @recipes.each do |recipe| %>
         <p><%= link_to preview_recipe_path(recipe.id) do %><%= recipe.name %><% end %></p>
       <% end %>
-    </div>
   </div>
 </div>

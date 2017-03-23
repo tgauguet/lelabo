@@ -1,36 +1,38 @@
 <% title "modifier vos informations" %>
-<%= link_to root_path do %><p class="red-color"><span class="image-hovered"></span>Retour à l'accueil</p><% end %>
-<div class="title-cntnr">
-	<h1 class="big-white-h1">Modifier votre compte</h1>
-	<p>Ces informations ne seront pas visibles pour les autres utilisateurs.</p>
+<div class="ttl-header">
+	<%= render "layouts/ttl_header", title: "Modifier votre compte", description:"Ces informations ne seront pas visibles pour les autres utilisateurs." %>
 </div>
-<div class="compostion big-compo prov-fields">
-	<%= form_for(@user, action: :set_user_informations, html: { multipart: true } ) do |f| %>
-		<p>Photo du profile</p>
-		<%= image_tag(@user.avatar.url(:medium), class: "user-img") %><br/>
-		<%= f.file_field :avatar %><br/><i>afin que votre image s'affiche correctement, nous vous conseillons de télécharger une image ayant une longueur et une hauteur similaires</i>
-		<p>Nom</p>
-		<%= f.text_field :name, placeholder: "Nom", class: "field basic-field enlarge-field" %><br/>
-		<p>Prénom</p>
-		<%= f.text_field :firstname, placeholder: "Prénom", class: "field basic-field enlarge-field" %><br/>
-		<p>Entreprise</p>
-		<%= f.text_field :company, placeholder: "Nom de votre entreprise", class: "field basic-field enlarge-field" %><br/>
-		<p>Métier</p>
-		<%= f.text_field :job_type, placeholder: "Pâtissier, Chocolatier, Boulanger", class: "field basic-field enlarge-field" %><br/>
-		<p>Pays</p>
-		<%= f.country_select(:country, selected: @user.country, priority_countries: ["BE", "FR"], class: "basic-field", placeholder:" ", include_blank: true) %><br/>
-		<p>Téléphone</p>
-		<%= f.text_field :phone, placeholder: "06 xx xx xx xx", class: "field basic-field enlarge-field" %><br/>
-		<p>Facebook</p>
-		<%= f.text_field :facebook_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
-		<p>Linkedin</p>
-		<%= f.text_field :linkedin_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
-		<p>Instagram</p>
-		<%= f.text_field :instagram_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
-		<p>Google +</p>
-		<%= f.text_field :google_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
-		<p>Skype</p>
-		<%= f.text_field :skype, placeholder: "skype", class: "field basic-field enlarge-field" %><br/><br/>
-		<p><%= f.submit "ENREGISTRER", class: "primary-btn float-right" %></p>
-	<% end %>
+<div class="action-cntnt">
+	<div class="actions-cntnr">
+    <div class="action-cntnr form-cntnr">
+			<%= form_for(@user, action: :set_user_informations, html: { multipart: true } ) do |f| %>
+				<p>Photo du profile</p>
+				<%= image_tag(@user.avatar.url(:medium), class: "user-img") %><br/>
+				<%= f.file_field :avatar %><br/><i>afin que votre image s'affiche correctement, nous vous conseillons de télécharger une image ayant une longueur et une hauteur similaires</i>
+				<p>Nom</p>
+				<%= f.text_field :name, placeholder: "Nom", class: "field basic-field enlarge-field" %><br/>
+				<p>Prénom</p>
+				<%= f.text_field :firstname, placeholder: "Prénom", class: "field basic-field enlarge-field" %><br/>
+				<p>Entreprise</p>
+				<%= f.text_field :company, placeholder: "Nom de votre entreprise", class: "field basic-field enlarge-field" %><br/>
+				<p>Métier</p>
+				<%= f.text_field :job_type, placeholder: "Pâtissier, Chocolatier, Boulanger", class: "field basic-field enlarge-field" %><br/>
+				<p>Pays</p>
+				<%= f.country_select(:country, selected: @user.country, priority_countries: ["BE", "FR"], class: "basic-field", placeholder:" ", include_blank: true) %><br/>
+				<p>Téléphone</p>
+				<%= f.text_field :phone, placeholder: "06 xx xx xx xx", class: "field basic-field enlarge-field" %><br/>
+				<p>Facebook</p>
+				<%= f.text_field :facebook_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+				<p>Linkedin</p>
+				<%= f.text_field :linkedin_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+				<p>Instagram</p>
+				<%= f.text_field :instagram_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+				<p>Google +</p>
+				<%= f.text_field :google_link, placeholder: "www...", class: "field basic-field enlarge-field" %><br/>
+				<p>Skype</p>
+				<%= f.text_field :skype, placeholder: "skype", class: "field basic-field enlarge-field" %><br/><br/>
+				<p><%= f.submit "ENREGISTRER", class: "primary-btn" %></p>
+			<% end %>
+		</div>
+	</div>
 </div>

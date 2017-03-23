@@ -1,15 +1,17 @@
 <% title "Paramètres" %>
-<%= link_to root_path do %><p class="red-color"><span class="image-hovered"></span>Retour à l'accueil</p><% end %>
-<div class="title-cntnr">
-	<h1 class="big-white-h1">Paramètres</h1>
-	<p>Ces informations ne seront pas visibles pour les autres utilisateurs.</p>
+<div class="ttl-header">
+	<%= render "layouts/ttl_header", title: "Paramètres", description:"Ces informations ne seront pas visibles pour les autres utilisateurs." %>
 </div>
-<div class="standard-form-cntnr">
-	<%= form_for(@user, action: :set_parameters ) do |f| %>
-		<p>Nom de votre compte</p>
-		<%= f.text_field :account_name, class: "field basic-field enlarge-field" %><br/>
-		<p>Email</p>
-		<%= f.text_field :email, class: "field basic-field enlarge-field" %><br/>
-		<p><%= f.submit "ENREGISTRER", class: "primary-btn float-right" %></p>
-	<% end %>
+<div class="action-cntnt">
+	<div class="actions-cntnr">
+    <div class="action-cntnr form-cntnr">
+			<%= form_for(@user, action: :set_parameters ) do |f| %>
+				<p>Nom de votre compte</p>
+				<%= f.text_field :account_name, class: "field basic-field" %><br/>
+				<p>Email</p>
+				<%= f.text_field :email, class: "field basic-field" %><br/>
+				<p><%= f.submit "ENREGISTRER", class: "primary-btn" %></p>
+			<% end %>
+		</div>
+	</div>
 </div>

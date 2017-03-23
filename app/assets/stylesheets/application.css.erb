@@ -31,8 +31,13 @@ body{
   padding: 0;
 }
 
-.user-env-cntnr{
+.user-env-cntnr, .connexion-backgrnd{
 	background:rgb(240,244,248);
+}
+
+.connexion-backgrnd{
+  padding-top: 3em;
+  height: 100vh;
 }
 
 #nprogress .spinner-icon{
@@ -51,6 +56,13 @@ body{
 *{
   font-family: "source_sans_proregular";
   color: rgb(43,54,69); /* #2B3645 */
+}
+
+.box, .form-cntnr, .usr-boxes .quadro-box .quadro-child, .usr-boxes .boxes, .welc-recipes, .margin-align, .trial-cntnr, .connexion_container{
+	-moz-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
+  -o-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
+	box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.1);
 }
 
 :focus {
@@ -78,7 +90,7 @@ body{
 }
 
 /* !!! css for texts */
-.red-color, .feed-from{
+.feed-from{
   font-family: 'source_sans_prosemibold';
 }
 
@@ -525,7 +537,6 @@ ul{
 .connexion_container{
   background: white;
   border-radius: 0.3em;
-  border: 1px solid rgb(230,230,230);
   width: 30em;
   margin-right: auto;
   margin-left: auto;
@@ -537,12 +548,6 @@ ul{
 .grey-btn{
 	border: 1px solid rgb(230,230,230);
 	border-radius: .3em;
-}
-
-.connexion-backgrnd{
-  background: rgb(249,249,249);
-  padding-top: 3em;
-  height: 100vh;
 }
 
 .subtxt-white span{
@@ -1286,43 +1291,6 @@ header .normal_header{
   color: rgb(27,189,157);
 }
 
-.red-color{
-  position: absolute;
-  right: 0;
-  margin-right: 2em;
-}
-
-.red-color:hover{
-  color: rgb(235,77,92);
-}
-
-.image-hovered{
-  width: 2em;
-  height: 2em;
-  background: url("<%= asset_path('exit1.png') %>");
-  position: absolute;
-  margin-left: -2em;
-  margin-top: -0.3em;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
-}
-
-.red-color:hover .image-hovered{
-  background: url("<%= asset_path('exit2.png') %>");
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
-}
-
 .people-ask-img{
   width: 4.5em;
   margin-left: -1em;
@@ -1332,7 +1300,7 @@ header .normal_header{
 .send-feedback{
   position: fixed;
   z-index: 10;
-  bottom: 1em;
+  bottom: 4em;
   text-align: justify;
 }
 
@@ -1429,6 +1397,7 @@ header .normal_header{
   padding-bottom: 0.2em;
   position: absolute;
   width: 15em;
+	z-index: 10000;
   margin-left: 2.4em;
   border: 1px solid rgb(230,230,230);
   display: none;
@@ -1465,7 +1434,7 @@ header .normal_header{
 }
 
 .user-paths ul li:hover{
-  background: rgb( 77, 64, 254);
+  background:  #413DD4;
 }
 
 .user-paths a:hover, .user-paths ul li:hover{
@@ -1557,13 +1526,13 @@ header .normal_header{
 }
 
 .full-header{
-  height:2.8em;
   padding-right: 1.5em;
   z-index: 1000;
   position: fixed;
-  right: 5em;
-  left: 17em;
-	margin-top: 1em;
+	background:rgb(240,244,248);
+  right: 4.5em;
+  left: 19em;
+	margin-top: .5em;
 }
 
 .rgth-links{
@@ -2603,7 +2572,8 @@ header .normal_header{
 	bottom: 0;
 	left: 17em;
 	overflow-y: scroll;
-	margin-right: 5em;
+	margin-right: 3em;
+	padding-right: 2em;
 }
 
 .recipe-cntnt, .preview-cntnt{
@@ -2833,6 +2803,7 @@ header .normal_header{
   background: linear-gradient(45deg, rgb(25,36,60) 10%, rgb(84,88,223) 90%);
 	padding-bottom: 1em;
 	margin-top: 6em;
+	border-radius: .2em .2em 0 0;
 }
 
 .shield-img{
@@ -2959,8 +2930,12 @@ header .normal_header{
   background: white;
   margin-left: auto;
   margin-right: auto;
-  width: 55em;
   padding: 3em;
+	width: 100%;
+	padding-right: 2em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .tools-cntnr h5{
@@ -2974,7 +2949,6 @@ header .normal_header{
 .action-cntnr{
   padding: 1em;
   margin-bottom: 1em;
-	margin-top: 2em;
 }
 
 .tools-cntnr{
@@ -3813,7 +3787,7 @@ input:placeholder-shown, textarea:placeholder-shown{
   border-radius: 0.3em;
 }
 
-.big-compo select, .basic-field, .array-bck select, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select, .recipe-frm .to-left select{
+.form-cntnr select, .big-compo select, .basic-field, .array-bck select, .select-areas select, .select-span select, .spec-select, .add-recipe-cntnr select, .recipe-frm .to-left select{
   position: relative;
   padding-top: 0.7em;
   padding-bottom: 0.7em;
@@ -3830,6 +3804,11 @@ input:placeholder-shown, textarea:placeholder-shown{
   -o-box-sizing: border-box;
   box-sizing: border-box;
   resize:none;
+}
+
+.form-cntnr select{
+	width: 20em;
+	padding-left: .7em;
 }
 
 .array-bck select{
@@ -4901,9 +4880,23 @@ input[type="checkbox"] + span {
 }
 
 .hide-res{
-	padding: .6em .7em .6em .7em;
+	padding: .6em .5em .6em .5em;
 	margin-top: 0em !important;
 	cursor: pointer;
+	margin-right: 0em !important;
+	-webkit-filter: grayscale(80%);
+	-moz-filter: grayscale(80%);
+	-o-filter: grayscale(80%);
+	-ms-filter: grayscale(80%);
+	filter: grayscale(80%);
+}
+
+.hide-res:hover{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	filter: grayscale(0%);
 }
 
 .total-body{
@@ -5895,8 +5888,8 @@ td.barby-cell.on { background: #000;padding: 0 !important;}
 	border: 1px solid rgb(202,212,217)
 }
 
-.rgth-links .help-btn img{
-	width: 1.3em;
+.rgth-links .hide-res img{
+	width: 1.2em;
 }
 
 .no-border-field{
@@ -6077,9 +6070,7 @@ section{
 .usr-boxes{
 	position: relative;
 	padding-top: 1em;
-	padding-left: 10%;
 	text-align: center;
-	padding-right: 10%;
 	display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6095,6 +6086,7 @@ section{
 	text-align: center;
 	border-radius: 0.2em;
 	width: 100%;
+	border-bottom: 1px solid rgb(202,212,217);
 }
 
 .usr-boxes .duo-box, .usr-boxes .quadro-box .quadro-child{
@@ -6106,6 +6098,14 @@ section{
 	position: relative;
 	margin-right: .5em;
 	margin-left: 0em;
+}
+
+.usr-boxes .quadro-box .quadro-child{
+	border-bottom: 1px solid rgb(202,212,217);
+}
+
+.usr-boxes .duo-box:last-child{
+	margin-right: 0;
 }
 
 .usr-boxes .quadro-box .margin-align{
@@ -6191,12 +6191,20 @@ section{
 }
 
 .usr-boxes .boxes{
-	width: 30%;
-	margin: .5em;
+	width: 38%;
 	display: inline-block;
 	vertical-align: top;
 	background: white;
+	border-bottom: 1px solid rgb(202,212,217);
 	border-radius: .2em;
+}
+
+.usr-boxes .boxes:first-child{
+	margin-right: 1em;
+}
+
+.usr-boxes .boxes:last-child{
+	margin-left: 1em;
 }
 
 .usr-boxes h4{
@@ -6890,13 +6898,6 @@ section{
 	  padding: 2em;
 	}
 
-	.red-color{
-		position: relative;
-		text-align: left;
-		margin-left: 3em;
-		margin-top: 0.9em;
-	}
-
 	.big-white-h1{
 		font-size: 2em;
 	}
@@ -7022,4 +7023,22 @@ section{
 	width: 1em;
 	position: absolute;
 	transition: all 0.3s cubic-bezier(0.43, 1.3, 0.86, 1);
+}
+
+.form-cntnr{
+	padding: 2em;
+	text-align: left;
+}
+
+.form-cntnr .field{
+	width: 20em;
+	padding-left: .7em;
+}
+
+.root-path{
+	margin-top: 1.5em;
+}
+
+.root-path .grey-btn{
+	display: inline;
 }

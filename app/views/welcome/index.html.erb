@@ -37,6 +37,10 @@
 		</div><!-- welcome-usr -->
 		<% if @user.trial_expired? %>
 			<div class="trial-cntnr">Votre période d'essai expire dans <%= @user.remaining_days %> jours <%= image_tag "startup.png", class: "mini-img" %> <%= link_to subscriptions_path do %> Je m'abonne<% end %></div>
+		<% elsif user_with_no_subscription(@user) %>
+			<div class="trial-cntnr">Découvrez nos formules <%= image_tag "startup.png", class: "mini-img" %> <%= link_to subscriptions_path do %> Je m'abonne<% end %></div>
+		<% else %>
+			<div class="trial-cntnr">Vous êtes abonné</div>
 		<% end %>
 		<div class="usr-boxes">
 			<div class="boxes">
