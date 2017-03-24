@@ -1,18 +1,18 @@
 <% title "Recettes" %>
 <div class="ttl-header">
 	<div class="page-ttl">
-		<h1 class="lttl-intro-h1">Recettes</h1>
-		<p class="lft-p">Index des recettes</p>
+		<h1 class="lttl-intro-h1">Recettes <% if @category %>de <%= @category.name %><% end %></h1>
+		<p class="lft-p"><% if @category %>Recettes de type <%= @category.name %><% else %>Index des recettes<% end %></p>
 	</div>
 	<div class="page-ctas">
     <%= link_to new_recipe_path do %>
       <p class="primary-btn ttl-btn">+ CRÉER UNE RECETTE</p>
     <% end %>
-		<div>
-			<p class="sort-show show-sort"><%= image_tag "sort-img.png", class: "mini-img" %></p>
+		<div class="show-sort">
+			<p class="sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
-		<div>
-			<p class="show-sort2 sort-show"><%= image_tag "colors.png", class: "mini-img" %></p>
+		<div class="show-sort2">
+			<p class="sort-show"><%= image_tag "colors.png", class: "mini-img" %></p>
 		</div>
 	</div>
 </div>

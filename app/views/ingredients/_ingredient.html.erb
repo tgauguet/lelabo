@@ -1,5 +1,5 @@
-<%= link_to edit_ingredient_path(ingredient) do %>
-	<div class="class-helper inline_divs">
+<div class="class-helper inline_divs">
+	<%= link_to edit_ingredient_path(ingredient) do %>
 		<% if ingredient.category? %>
 			<div class="circle <%= category_color(ingredient) %>"></div>
 		<% end %>
@@ -31,5 +31,5 @@
 					<% end %>
 				<% end %>
 			</div>
-	 </div>
- <% end %>
+		 <% end %>
+</div>

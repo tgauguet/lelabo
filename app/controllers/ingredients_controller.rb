@@ -115,7 +115,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
- 		params.require(:ingredient).permit(:name, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category_id, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
+ 		params.require(:ingredient).permit(:name, :brut_weight, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category_id, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
 	end
 
 end
