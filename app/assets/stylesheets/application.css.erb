@@ -3242,9 +3242,8 @@ select{
 	border:none;
 }
 
-.inline_divs:hover .major-td{
-	color: #413DD4;
-	text-decoration: underline;
+.inline_divs:hover .circle{
+	opacity: .8 !important;
 }
 
 .tasks-cntnr .inline_divs{
@@ -3276,6 +3275,7 @@ select{
 
 .major-td{
 	width: 18em;
+	margin-left: 1em;
 }
 
 .basic-td{
@@ -3638,13 +3638,19 @@ input:placeholder-shown, textarea:placeholder-shown{
   margin-top: 0.2em;
 }
 
+.inline_divs{
+	position: relative;
+}
+
 .circle{
   padding-right: 0.1em;
+	left: 0;
 	width: 3px;
-	height: 2.2em;
-	margin-top: .3em;
-	border-radius: .2em;
+	height: 3.25em;
+	top: 0;
 	position: absolute;
+	z-index: 0;
+	opacity: .2 !important;
 }
 
 .royal-cat, .sunflower-cat, .swimming-cat, .strawberry-cat, .lavender-cat, .mint-cat, .pumpkin-cat, .avacado-cat, .emerald-cat, .grey-cat, .brown-cat, .pink-cat, .blue-cat{

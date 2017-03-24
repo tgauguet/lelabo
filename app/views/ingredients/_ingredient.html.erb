@@ -1,8 +1,5 @@
 <div class="class-helper inline_divs">
 	<%= link_to edit_ingredient_path(ingredient) do %>
-		<% if ingredient.category? %>
-			<div class="circle <%= category_color(ingredient) %>"></div>
-		<% end %>
 			<div class="line-cntnr">
 			 <div class="major-td">
  				 <%= truncate(ingredient.name.humanize, length: 35) %>
@@ -29,6 +26,9 @@
 					<%= link_to ingredient_path(ingredient.id), method: :delete, id: "delete-task" do %>
 						<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
 					<% end %>
+				<% end %>
+				<% if ingredient.category_id? %>
+					<div class="circle <%= category_color(ingredient, "category") %>"></div>
 				<% end %>
 			</div>
 		 <% end %>

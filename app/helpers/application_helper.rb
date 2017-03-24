@@ -157,8 +157,8 @@ module ApplicationHelper
 			end
 		end
 
-		def category_color(value)
-			i = value.category
+		def category_color(value, category)
+			i = value.category.name
 			if i == "Chocolats" || i == "Chocolat"
 				"brown-cat"
 			elsif i == "Divers" || i == "Tarte"

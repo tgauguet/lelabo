@@ -1,6 +1,6 @@
   <div class="class-helper inline_divs star">
     <% if recipe.category? %>
-    	<div class="circle <%= category_color(recipe) %>"></div>
+    	<div class="circle <%= category_color(recipe, "recipe_category") %>"></div>
     <% end %>
       <div class="line-cntnr">
         <%= link_to recipe_path(recipe) do %>
