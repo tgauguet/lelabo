@@ -27,7 +27,7 @@
     		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>
         <%= f.text_field :name, class: "basic-field", placeholder: " " %>
     		<p>Catégorie</p>
-        <%= f.select :category, ["Divers", "Biscuit", "Chocolat", "Confiserie", "Crème", "Décors", "Dessert", "Ganache", "Glace", "Macaron", "Mousse", "Pâte", "Salé", "Sorbet"], selected: recipe.try!(:category) , class: "basic-field special-top" %>
+        <%= f.select(:recipe_category_id, @categories.collect{ |c| [c.name, c.id] }, class: "rounded-field basic-field ing-field") %>
         <%= image_tag "sort-down-3.png", class: "mini-img sort-select" %>
         <div>
           <p>Auteur</p>

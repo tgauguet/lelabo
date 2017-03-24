@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_paper_trail_whodunnit
   before_action :recipe_edit_helpers, except: [:index, :new, :create, :wall, :preview]
-  before_action :set_categories, except: [:index, :wall, :preview]
+  before_action :set_categories, except: [:preview]
   before_action :set_totals, only: [:d_quantities_array_pdf, :quantities_array_pdf, :quant]
   before_action :set_votes, only: [:wall, :preview]
   impressionist :actions=>[:preview]
@@ -20,6 +20,10 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = @user.recipes.all.paginate(page: params[:page], per_page: 20).order(sort_columns + " " + sort_direction)
+    if params[:recipe_category_id]
+      @category = RecipeCategory.find params[:recipe_category_id]
+			@recipes = @recipes.where(recipe_category_id: @category.id)
+    end
   end
 
   def wall
@@ -259,7 +263,7 @@ class RecipesController < ApplicationController
   end
 
   def set_categories
-    @categories = @user.category.all
+    @categories = RecipeCategory.all
   end
 
   def set_totals
@@ -278,7 +282,7 @@ class RecipesController < ApplicationController
     params.fetch(:recipe, {}).permit(:name, :bar, :production_date, :production_number, :conservation, :consumption_days,
      :vat, {:allergen => []} , :fast, :array_unit, :unit, :portion_number, :portion_name, :stock, :to_produce, :sold, :total,
       :portion, :portion_weight, :preparation_minutes, :to_public, :baking_minutes, :portion_price, :owner, :stared, :loved, :image, :baking,
-       :ingredient_id, :description, :process, :note, :equipment, :category, :user_id, :eq_data, :cost_data, :coef,
+       :ingredient_id, :description, :process, :note, :equipment, :recipe_category_id, :user_id, :eq_data, :cost_data, :coef,
         quantities_attributes: [:id, :weight, :ingredient_id, :unit, :_destroy],
          totals_attributes: [:value, :total,  :id, :_destroy],
           images_attributes:[:id, :_destroy, :picture, :recipe_id, :description],

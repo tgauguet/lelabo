@@ -1404,7 +1404,7 @@ header .normal_header{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.sort-paths{
+.sort-paths, .sort-paths2{
 	background: white;
 	border-radius: .3em;
 	text-align: justify;
@@ -1420,13 +1420,17 @@ header .normal_header{
 	border:1px solid rgb(230,230,230);
 }
 
-.user-paths ul li, .sort-paths ul li{
+.sort-paths2{
+	right: 2.2em;
+}
+
+.user-paths ul li, .sort-paths ul li, .sort-paths2 ul li{
   padding-left: 1.5em;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
 
-.sort-paths p{
+.sort-paths p, .sort-paths2 p{
 	padding-left: 1.5em;
 	font-size: .9em;
 	color: rgba(43,54,69, .6);
@@ -1481,7 +1485,7 @@ header .normal_header{
   transform-origin: 50% 50%
 }
 
-.sort-paths .arrow-up{
+.sort-paths .arrow-up, .sort-paths2 .arrow-up{
 	padding: 0.08em;
   z-index: 3;
   content: '';
@@ -2857,7 +2861,7 @@ header .normal_header{
 	padding-right: 1.6em !important;
 }
 
-.sort-paths .sort-btn{
+.sort-paths .sort-btn, .sort-paths2 .sort-btn{
 	padding-right: 1.5em;
 	border-bottom: 2px solid rgb(103,114,229);
 	font-family: "source_sans_prosemibold";

@@ -37,7 +37,7 @@
   <% end %>
 <% end %>
 <% if signed_in? %>
-  <% unless not_useful || !signed_in? %>
+  <% unless not_useful || !signed_in? || request.path_info.include?("compte") %>
       <%= render "layouts/user_env", feedback: @feedback, user: @user %>
   <% end %>
 <% end %>

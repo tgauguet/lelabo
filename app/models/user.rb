@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 		#before_save :after_confirmation
 		validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
     has_many :feedbacks, dependent: :destroy
-		has_many :category, dependent: :destroy
+		has_many :categories, dependent: :destroy
     has_many :to_do_lists, dependent: :destroy
     has_many :providers, dependent: :destroy
 		has_many :votes, dependent: :destroy
@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
     has_many :recipes, dependent: :destroy
 		has_many :staffs, dependent: :destroy
     has_many :ingredients, dependent: :destroy
-    has_many :assemblies, dependent: :destroy
     has_one :subscription, dependent: :destroy
     validates :account_name, uniqueness: true, presence: true, on: :set_names
     has_attached_file :avatar, {

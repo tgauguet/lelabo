@@ -1,6 +1,7 @@
 class Ingredient < ActiveRecord::Base
 	belongs_to :user
 	has_paper_trail
+	belongs_to :category
 	has_many :quantities, dependent: :restrict_with_error
 	has_many :provider_prices, dependent: :destroy
 	has_many :providers, through: :provider_prices

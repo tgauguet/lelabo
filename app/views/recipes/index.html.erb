@@ -12,7 +12,7 @@
 			<p class="sort-show show-sort"><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
 		<div>
-			<p><%= image_tag "colors.png", class: "mini-img" %></p>
+			<p class="show-sort2 sort-show"><%= image_tag "colors.png", class: "mini-img" %></p>
 		</div>
 	</div>
 </div>
@@ -28,6 +28,15 @@
 			<li><%= sortable "Préférées", "loved" %></li>
 		</ul>
 	<% end %>
+</div>
+<div class="sort-paths2">
+		<div class="arrow-container"><div class="arrow-up"></div></div>
+		<p>AFFICHER PAR</p>
+		<ul>
+			<% @categories.each do |category| %>
+				<%= link_to recipe_category_recipes_path(category.id) do %><li><%= category.name %></li><% end %>
+			<% end %>
+		</ul>
 </div>
 <div class="sort-ttl-cntnr">
 	<div class="list-width">

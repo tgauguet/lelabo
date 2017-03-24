@@ -12,7 +12,7 @@
 					</div>
 					<div class="composition big-compo ing-inf">
 						<%= f.text_field :name, class: "basic-field top-rad", placeholder: " ", presence: true %><%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow2" %>
-						<%= f.select(:category, @categories.collect{ |c| c.name } + ["Additifs", "Alcools", "Céréales", "Chocolats", "Divers", "Épices", "Fruits", "Fruits secs", "Produits laitiers", "Purées de fruits", "Sucres"], class: "rounded-field basic-field ing-field", selected: "Divers") %>
+						<%= f.select(:category, @categories.collect{ |c| c.name }, class: "rounded-field basic-field ing-field", selected: "Divers") %>
 						<div class="portion-cntnr cubic">
 							<%= image_tag "euro-3.png", class: "field-img-big upper-field-img" %>
 							<%= image_tag "ttc.png", class: "field-img-big rght-field-img" %>

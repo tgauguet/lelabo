@@ -5,6 +5,7 @@ class IngredientsController < ApplicationController
 	before_action :set_user
 	before_action :set_ingredient, only: [:update, :edit]
 	helper_method :sort_columns, :sort_direction
+	require 'will_paginate/array'
 
 	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
 
@@ -29,18 +30,27 @@ class IngredientsController < ApplicationController
 	#end
 
 	def index
-		@ingredients = Ingredient.all.where(to_public: 1)
+		@categories = Category.all
+		@public_ingredients = Ingredient.all.where(to_public: 1)
 		@user_ingredients = @user.ingredients.all
-		@all_ingredients = (@ingredients + @user_ingredients).paginate(:page => params[:page], :per_page => 30).order(sort_columns + " " + sort_direction)
+		@ingredients = @public_ingredients + @user_ingredients
+		if params[:category_id]
+			@category = Category.find params[:category_id]
+			@ingredients = @category.ingredients
+    else
+			@ingredients = @ingredients.sort_by(&:"#{sort_columns}")
+			@ingredients = @ingredients.reverse if sort_direction == 'desc'
+    end
+		@ingredients = @ingredients.paginate(:page => params[:page], :per_page => 30)
 	end
 
 	def new
 		@ingredient = @user.ingredients.new
-		@categories = @user.category.all
+		@categories = Category.all
 	end
 
 	def edit
-		@categories = @user.category.all
+		@categories = Category.all
 	end
 
 	def create
@@ -78,7 +88,7 @@ class IngredientsController < ApplicationController
 		else
 			flash[:error] = "Supression annulée, l'ingrédient est utilisé dans une ou plusieurs recettes"
 		end
-		redirect_to new_ingredient_path
+		redirect_to ingredients_path
 	end
 
 	private
@@ -105,7 +115,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
- 		params.require(:ingredient).permit(:name, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
+ 		params.require(:ingredient).permit(:name, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category_id, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
 	end
 
 end

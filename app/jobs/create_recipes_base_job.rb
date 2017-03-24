@@ -4,17 +4,17 @@ class CreateRecipesBaseJob < ActiveJob::Base
 	def perform(user)
 		begin
 
-				lait = user.ingredients.find_by_name("Lait entier UHT")
-	      eau = user.ingredients.find_by_name("Eau")
-	      creme = user.ingredients.find_by_name("Crème 35%")
-	      sucre = user.ingredients.find_by_name("Sucre blanc")
-	      cannelle = user.ingredients.find_by_name("Cannelle bâton")
-	      anis = user.ingredients.find_by_name("Anis étoilé")
-	      amer = user.ingredients.find_by_name("Chocolat Amer")
-				gousse = user.ingredients.find_by_name("Vanille gousse")
-			 	noisette= user.ingredients.find_by_name("Noisettes")
-				amande = user.ingredients.find_by_name("Amandes blanches")
-				sucreglace = user.ingredients.find_by_name("Sucre glace non amylacé")
+				lait = Ingredient.find_by_name("Lait entier UHT")
+	      eau = Ingredient.find_by_name("Eau")
+	      creme = Ingredient.find_by_name("Crème 35%")
+	      sucre = Ingredient.find_by_name("Sucre blanc")
+	      cannelle = Ingredient.find_by_name("Cannelle bâton")
+	      anis = Ingredient.find_by_name("Anis étoilé")
+	      amer = Ingredient.find_by_name("Chocolat Amer")
+				gousse = Ingredient.find_by_name("Vanille gousse")
+			 	noisette= Ingredient.find_by_name("Noisettes")
+				amande = Ingredient.find_by_name("Amandes blanches")
+				sucreglace = Ingredient.find_by_name("Sucre glace non amylacé")
 
 				user.recipes.create([
 					{ name:"Gianduja",category: "Confiserie",owner:"Le Labo",baking:"160",note:"",image: File.open(Rails.root.join("public", "assets", "gianduja.jpg")),quantities_attributes: {"0"=>{ ingredient_id: gousse.id, unit: "g", weight: "5", _destroy: "false"},"1"=>{ ingredient_id: noisette.id, unit: "g", weight: "250", _destroy: "false"},"2"=>{ ingredient_id: amande.id, unit: "g", weight: "250", "_destroy"=>"false"},"3"=>{ ingredient_id: sucreglace.id, unit: "g", weight: "500", _destroy: "false"}},process:"<p>Griller les amandes et les noisettes au four ventil&eacute; &agrave; 160&deg;C &agrave; la couleur blonde suivant le go&ucirc;t rechercher.</p>\r\n\r\n<p>Mixer le plus fin possible au robot coupe ou broyer finement &agrave; la broyeuse.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Conserver en seau herm&eacute;tique.</p>\r\n\r\n<p>Peu se r&eacute;aliser avec seulement&nbsp;des noisettes, ou des amandes (on perd l&rsquo;appellation Duja).</p>\r\n" },

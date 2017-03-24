@@ -2,7 +2,7 @@
 <div class="ttl-header">
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1">Ingrédients</h1>
-		<p class="lft-p">Index des ingrédients</p>
+		<p class="lft-p"><% if @category %>Ingrédients de type <%= @category.name %><% else %>Index des ingrédients<% end %></p>
 	</div>
 	<div class="page-ctas">
 		<%= link_to new_ingredient_path do %>
@@ -12,10 +12,10 @@
 			<button class="cancel-btn ttl-btn">+ NOUVELLE CATÉGORIE</button>
 		<% end %>
 		<div>
-			<p class="show-sort sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
+			<p class="show-sort2 sort-show"><%= image_tag "colors.png", class: "mini-img" %></p>
 		</div>
 		<div>
-			<p><%= image_tag "colors.png", class: "mini-img" %></p>
+			<p class="show-sort sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
 		</div>
 	</div>
 </div>
@@ -25,8 +25,6 @@
 		<ul>
 			<li><%= sortable "Date de création", "created_at" %></li>
 			<li><%= sortable "Date de modification", "updated_at" %></li>
-			<li><%= sortable "Biologique", "is_bio" %></li>
-			<li><%= sortable "Gluten", "is_glut_free" %></li>
 			<li><%= sortable "% sucre", "sugar_percent" %></li>
 			<li><%= sortable "% eau", "water_percent" %></li>
 			<li><%= sortable "% mat. grasse", "fat_percent" %></li>
@@ -38,7 +36,15 @@
 			<li><%= sortable "% glucides", "carbohydrates" %></li>
 			<li><%= sortable "% protéines", "protein" %></li>
 			<li><%= sortable "Pouvoir sucrant", "sugar_power" %></li>
-			<li><%= sortable "Purée de fruits", "is_pulp" %></li>
+		</ul>
+</div>
+<div class="sort-paths2">
+		<div class="arrow-container"><div class="arrow-up"></div></div>
+		<p>AFFICHER PAR</p>
+		<ul>
+			<% @categories.each do |category| %>
+				<%= link_to category_ingredients_path(category.id) do %><li><%= category.name %></li><% end %>
+			<% end %>
 		</ul>
 </div>
 <div class="sort-ttl-cntnr">
@@ -59,9 +65,7 @@
 			<ul class="list-cntnr ajax-hide">
 				<div class="list-width">
 						<li id="sortable1">
-							<% unless @ingredients.nil? %>
-								<%= render @all_ingredients, cached: true %>
-							<% end %>
+							<%= render @ingredients, cached: true %>
 						</li>
 				</div>
 			</ul>

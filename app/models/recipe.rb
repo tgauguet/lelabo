@@ -8,6 +8,7 @@ class Recipe < ActiveRecord::Base
 	has_many :images, dependent: :destroy
 	has_many :ingredients, through: :quantity
 	has_many :recipes, through: :sub_recipe
+	has_one :recipe_category
 	has_many :sub_recipes, dependent: :destroy
 	has_many :totals, dependent: :destroy
 	has_many :quantities, dependent: :destroy

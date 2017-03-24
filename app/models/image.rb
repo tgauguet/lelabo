@@ -3,7 +3,6 @@
 
 class Image < ActiveRecord::Base
   belongs_to :recipe
-  belongs_to :assembly
   validate :limit_images, on: :create
 	has_attached_file :picture, {
                                     :styles => { medium: "300x300#", small: "75x75#"},

@@ -214,3 +214,25 @@ $(function() {
     menuVisible = false;
   });
 });
+
+$(document).click(function(e){
+  if (e.target.class != ".show-sort" && !$('.show-sort').find(e.target).length){
+    if (e.target.class != ".sort-paths" && !$('.sort-paths').find(e.target).length){
+      $(".sort-paths").hide();
+    }
+  }
+  if (e.target.class != ".show-sort2" && !$('.show-sort2').find(e.target).length){
+    if (e.target.class != ".sort-paths2" && !$('.sort-paths2').find(e.target).length){
+      $(".sort-paths2").hide();
+    }
+  }
+});
+
+$(document).ready(function(){
+  $('.show-sort').click(function(){
+    $('.sort-paths').toggle();
+  });
+  $('.show-sort2').click(function(){
+    $('.sort-paths2').toggle();
+  });
+});
