@@ -3,7 +3,7 @@
 
 class IngredientsController < ApplicationController
 	before_action :set_user
-	before_action :set_ingredient, only: [:update, :edit]
+	before_action :set_ingredient, only: [:update, :edit, :show]
 	helper_method :sort_columns, :sort_direction
 	require 'will_paginate/array'
 
@@ -32,7 +32,7 @@ class IngredientsController < ApplicationController
 	def index
 		@categories = Category.all
 		@public_ingredients = Ingredient.all.where(to_public: 1)
-		@user_ingredients = @user.ingredients.all
+		@user_ingredients = @user.ingredients.all.order("name ASC")
 		@ingredients = @public_ingredients + @user_ingredients
 		if params[:category_id]
 			@category = Category.find params[:category_id]
@@ -42,6 +42,10 @@ class IngredientsController < ApplicationController
 			@ingredients = @ingredients.reverse if sort_direction == 'desc'
     end
 		@ingredients = @ingredients.paginate(:page => params[:page], :per_page => 30)
+	end
+
+	def show
+		@categories = Category.all
 	end
 
 	def new

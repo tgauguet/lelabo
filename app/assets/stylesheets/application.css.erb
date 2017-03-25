@@ -58,7 +58,7 @@ body{
   color: rgb(43,54,69); /* #2B3645 */
 }
 
-.action-plus-list .actions-cntnr, .box, .form-cntnr, .usr-boxes .quadro-box .quadro-child, .usr-boxes .boxes, .welc-recipes, .margin-align, .trial-cntnr, .connexion_container{
+.action-cntnr, .pagination .current, .action-plus-list .actions-cntnr, .box, .form-cntnr, .usr-boxes .quadro-box .quadro-child, .usr-boxes .boxes, .welc-recipes, .margin-align, .trial-cntnr, .connexion_container{
 	-moz-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.07);
   -webkit-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.07);
   -o-box-shadow: 0px 8px 16px 0px rgba(15,11,42,0.07);
@@ -385,6 +385,10 @@ a .tools-cntnr{
 .ttl-btn{
 	margin: 0;
 	margin-right: .7em;
+}
+
+.ttl-btn span{
+	font-family: "source_sans_prosemibold";
 }
 
 .primary-btn:hover{
@@ -1425,7 +1429,7 @@ header .normal_header{
 	position: absolute;
 	z-index: 0;
 	display: none;
-	right: 1.1em;
+	right: 4.1em;
 	top: 6.5em;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	width: 13em;
@@ -2579,7 +2583,7 @@ header .normal_header{
 
 .action-plus-list .actions-cntnr{
 	padding-bottom: 0em;
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
 	overflow: hidden;
 }
 
@@ -3240,6 +3244,7 @@ select{
 
 .inline_divs:last-child, .staff-cntnr:last-child{
 	border:none;
+	margin-bottom: -.2em;
 }
 
 .inline_divs:hover .circle{
@@ -4226,11 +4231,11 @@ input:placeholder-shown, textarea:placeholder-shown{
 }
 
 .pagination {
-  background:white;
+  background:transparent;
   text-align: center;
   padding: 1.5em 1em 1.5em 1em;
-	margin-top: -.3em;
   cursor: default;
+	margin-bottom: 1.3em;
 }
 
 .pagination a, .apple_pagination span {
@@ -4244,7 +4249,7 @@ input:placeholder-shown, textarea:placeholder-shown{
 .pagination .current{
     font-style: normal;
     font-weight: bold;
-    background-color: rgb(84,88,223);
+    background-color: white;
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
@@ -4252,7 +4257,6 @@ input:placeholder-shown, textarea:placeholder-shown{
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em;
-		color: white;
 }
 
 .pagination a{
@@ -7212,4 +7216,62 @@ section{
 
 .sort-show{
 	background: white;
+}
+
+.show-ingredient{
+	text-align: left;
+}
+
+.show-ingredient p{
+	font-family: "source_sans_prosemibold";
+}
+
+.show-ingredient span{
+	opacity: .8;
+	width: 6em;
+	float: left;
+}
+
+.ingredient-values span{
+	width: 9em;
+}
+
+.ingredient-values p{
+	padding: .3em 1em .3em 1em;
+	border-bottom: 1px solid rgb(245,247,251);
+	margin: 0;
+}
+
+.ingredient-values p:nth-child(2n+2){
+	background: rgb(248,250,253);
+}
+
+.ingredient-values, .ingredient-calories{
+	display: inline-block;
+	vertical-align: top;
+	width: auto;
+	margin-right: 2em;
+}
+
+.ingredient-calories div{
+	display: inline-block;
+	width:4em;
+	text-align: center;
+	font-size: 1.4em;
+	font-family: "source_sans_prosemibold";
+}
+
+.ingredient-calories div span{
+	float: none;
+	font-size: .6em;
+}
+
+.show-bio{
+	width: auto;
+	float: right;
+}
+
+.show-bio img{
+	width: 3em;
+	float: right;
 }

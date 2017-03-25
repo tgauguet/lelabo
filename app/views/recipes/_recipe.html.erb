@@ -1,6 +1,6 @@
   <div class="class-helper inline_divs star">
-    <% if recipe.category? %>
-    	<div class="circle <%= category_color(recipe, "recipe_category") %>"></div>
+    <% if recipe.recipe_category_id %>
+    	<div class="circle <%= category_color(recipe) %>"></div>
     <% end %>
       <div class="line-cntnr">
         <%= link_to recipe_path(recipe) do %>
@@ -11,9 +11,9 @@
              <% if recipe.stared? %><%= image_tag "star-big.png", class: "stared-item" %><% end %>
              <% if recipe.loved? %><%= image_tag "heart-smll.png", class: "stared-item2" %><% end %>
   			 </div>
-          <div class="basic-td">
-    				<%= recipe.category %>
-    			</div>
+        <div class="basic-td">
+    			<% if recipe.recipe_category_id %><%= RecipeCategory.find(recipe.recipe_category_id).name %><% end %>
+    		</div>
         <% end %>
         <%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
         <%= image_tag "cancel.png", class: "show-delete remv-delete delete-rcp delete-tsk-btn delete-down", style:"display:none;" %>

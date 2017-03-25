@@ -3,27 +3,24 @@
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1"><%= @ingredient.name.humanize %></h1>
 		<p class="lft-p">
-			<% if @ingredient.to_public %>
-				À propos de l'ingrédient
-			<% else %>
-				Modification de l'ingrédient
-			<% end %>
+			À propos de l'ingrédient
 		</p>
 	</div>
 	<div class="page-ctas">
 		<%= link_to ingredients_path do %>
-			<p class="standard-btn grey-btn ingredient-btn"><%= image_tag "arrow-left.png", class: "btn_arrow" %> INDEX</p>
+			<p class="white-btn">INDEX</p>
+		<% end %>
+		<% if @ingredient.to_public %>
+			<%= link_to edit_ingredient_path do %>
+				<p class="white-btn"><%= image_tag "writing.png", class: "mini-mini-img" %> MODIFIER</p>
+			<% end %>
 		<% end %>
 	</div>
 </div>
 <div class="action-cntnt">
 	<div class="actions-cntnr">
 		<div class="action-cntnr">
-			<% if @ingredient.to_public %>
-				<%= render "show", ingredient: @ingredient %>
-			<% else %>
-				<%= render "form", ingredient: @ingredient %>
-			<% end %>
+			<%= render "form", ingredient: @ingredient %>
 		</div>
 	</div>
 </div>

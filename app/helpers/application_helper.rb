@@ -157,8 +157,12 @@ module ApplicationHelper
 			end
 		end
 
-		def category_color(value, category)
-			i = value.category.name
+		def category_color(value)
+			if value.instance_of? Recipe
+				i = RecipeCategory.find(value.recipe_category_id).name
+			elsif value.instance_of? Ingredient
+				i = Category.find(value.category_id).name
+			end
 			if i == "Chocolats" || i == "Chocolat"
 				"brown-cat"
 			elsif i == "Divers" || i == "Tarte"

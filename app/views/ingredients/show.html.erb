@@ -1,0 +1,60 @@
+<% title "#{@ingredient.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @ingredient.name.humanize %></h1>
+		<p class="lft-p">
+			À propos de l'ingrédient
+		</p>
+	</div>
+	<div class="page-ctas">
+		<%= link_to @ingredients_path do %>
+			<p class="white-btn">INDEX</p>
+		<% end %>
+		<% if !@ingredient.to_public %>
+			<%= link_to edit_ingredient_path do %>
+				<p class="white-btn"><%= image_tag "writing.png", class: "mini-mini-img" %> MODIFIER</p>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<div class="action-cntnt">
+	<div class="actions-cntnr">
+		<div class="action-cntnr">
+      <div class="show-ingredient">
+        <div class="show-bio">
+          <% if @ingredient.is_bio %><%= image_tag "bio-big.png" %><% end %>
+          <% if @ingredient.is_glut_free %><%= image_tag "glut-big.png" %><% end %>
+          <% if @ingredient.is_pulp %><%= image_tag "fruit-big.png" %><% end %>
+        </div>
+        <% if @ingredient.category %><p><span>Catégorie</span> <%= @ingredient.category.name %></p><% end %>
+        <p><span>Créé par</span> <% if @ingredient.to_public? %>le Labo<% else %><%= @user.firstname %> <%= @user.name %><% end %></p>
+        <p><span>Prix indicatif</span> <%= number_to_currency @ingredient.price %>/kg</p>
+        <% if @ingredient.vat %><p><span>TVA</span> <%= @ingredient.vat %></p><% end %>
+        <% if @ingredient.brand %><p><span>Marque</span> <%= @ingredient.brand %></p><% end %>
+        <div class="show-bio">
+        </div>
+        <div class="form-border"></div>
+        <div class="ingredient-values">
+          <p><span>Matière grasse</span> <%= number_to_percentage(@ingredient.fat_percent, precision: 0) %></p>
+          <p><span>Matière sèche</span> <%= number_to_percentage(@ingredient.dry_matter_percent, precision: 0) %></p>
+          <p><span>Eau</span> <%= number_to_percentage(@ingredient.water_percent, precision: 0) %></p>
+          <p><span>Sucre</span> <%= number_to_percentage(@ingredient.sugar_percent, precision: 0) %></p>
+          <p><span>Pouvoir sucrant</span> <%= number_to_percentage(@ingredient.sugar_power, precision: 0) %></p>
+          <p><span>Alcool</span> <%= number_to_percentage(@ingredient.alcool_percent, precision: 0) %></p>
+          <p><span>Cacao maigre</span> <%= number_to_percentage(@ingredient.cocoa_percent, precision: 0) %></p>
+          <p><span>Beurre de cacao</span> <%= number_to_percentage(@ingredient.cocoa_butter_percent, precision: 0) %></p>
+          <p><span>Cacao total</span> <%= number_to_percentage(@ingredient.cocoa_total_percent, precision: 0) %></p>
+        </div>
+        <div class="ingredient-calories">
+          <p>Pour 100 grammes</p>
+          <div><span>Lipides</span><br/> <%= @ingredient.fat_percent %> g</div>
+          <div><span>Protéines</span><br/> <%= @ingredient.protein %> g</div>
+          <div><span>Glucides</span><br/> <%= @ingredient.carbohydrates %> g</div>
+          <div><span>Calories</span><br/> <%= @ingredient.kcal.to_i %></div>
+          <div><span>I.G</span><br/> <%= @ingredient.ig %></div>
+        </div>
+        <div class="form-border"></div>
+      </div>
+		</div>
+	</div>
+</div>
