@@ -1,8 +1,0 @@
-<div class="partial ingr-field select-areas">
-  <%= ff.select(:provider_id, current_user.providers.all.order("name ASC").collect { |p| [p.name, p.id] }, include_blank: true) %>
-	<%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow" %>
-  <%= image_tag "euro-3.png", class: "field-img euro-img" %>
-	<%= ff.text_field :price, class: "basic-field", placeholder: "prix..." %>
-	<%= ff.hidden_field :_destroy %>
-	<%= remove_field "delete-sml.png", ff %>
-</div>

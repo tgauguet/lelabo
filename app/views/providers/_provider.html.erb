@@ -16,8 +16,10 @@
             <a href="<%= provider.website %>" target="_blank"><%= image_tag "link.png", class: "mini-mini-img" %> Voir le site</a>
           <% end %>
         </div>
-        <%= link_to provider_path(provider.id), method: :delete, id: "delete-task" do %>
-  				<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
-  			<% end %>
+        <% unless provider.to_public %>
+          <%= link_to provider_path(provider.id), method: :delete, id: "delete-task" do %>
+    				<%= image_tag "delete-sml.png", class: "delete-rcp delete-pop-over delete-tsk-btn delete-down" %>
+    			<% end %>
+        <% end %>
     </div>
   </div>

@@ -93,6 +93,7 @@ $(document).ready(function(){
 			      $(this).addClass('on');
 			   }
 			});
+			// for ingredients.js
 			$(".toggle, .submit-vote").click(function(){
 				$(this).closest("form").submit();
 			});
@@ -100,6 +101,19 @@ $(document).ready(function(){
 			$(".has_voted").click(function(){
 				$('.flash').show();
 			});
+			$(".form-price").hide();
+			$(".add-price").click(function(){
+				$(".form-price").show();
+				$(this).hide();
+			});
+			$(".rem-price").click(function(){
+				$(".form-price").hide();
+				$(".add-price").show();
+			});
+			$(".flsh").show();
+			$("#flash-mssg").show();
+			$("#flash-mssg").html("<%= flash[:notice] %>");
+			$(".ing-form-cntnr").closest('form').find("input[type=text], textarea").val("");
 	// **************** INDEX ACTION ******************
 		// Used as button to destroy the recipes
 			$(".delete-pop-over").click(function(){
@@ -111,5 +125,4 @@ $(document).ready(function(){
 		      $(this).parent().find(".show-delete").hide();
 		      $(this).parent().find(".delete-pop-over").show();
 		  });
-
 });

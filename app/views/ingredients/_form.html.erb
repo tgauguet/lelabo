@@ -117,12 +117,6 @@
 		<div class="form-border"></div>
 		<h3>Fournisseur(s)</h3>
 		<br/>
-		<div class="double-field">
-		  <%= f.fields_for :provider_prices do |ff| %>
-				<%= render "add_provider_prices", ff: ff %>
-			<% end %>
-			<div class="add_field"><br/><%= create_new_field "+ AJOUTER UN FOURNISSEUR", f, :provider_prices %></div>
-		</div>
 	</div>
 	<br/><br/><br/>
 	<%= f.submit "ENREGISTRER", class: "primary-btn", id: "submit-ing" %>

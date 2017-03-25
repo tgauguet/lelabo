@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 		has_many :voted_recipes, :through => :votes, :source => :recipe
     has_many :recipes, dependent: :destroy
 		has_many :staffs, dependent: :destroy
+		has_many :provider_prices, dependent: :destroy
     has_many :ingredients, dependent: :destroy
     has_one :subscription, dependent: :destroy
     validates :account_name, uniqueness: true, presence: true, on: :set_names

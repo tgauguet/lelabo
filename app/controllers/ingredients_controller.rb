@@ -46,6 +46,8 @@ class IngredientsController < ApplicationController
 
 	def show
 		@categories = Category.all
+		@prices = @ingredient.provider_prices.where(user_id: @user.id).order('priority ASC')
+		@providers = @user.providers.all + Provider.where(to_public: true).all
 	end
 
 	def new
@@ -82,7 +84,7 @@ class IngredientsController < ApplicationController
 
 	def update
 		@ingredient.update(ingredients_params)
-		redirect_to new_ingredient_path
+		redirect_to ingredient_path
 	end
 
 	def destroy
@@ -93,6 +95,13 @@ class IngredientsController < ApplicationController
 			flash[:error] = "Supression annulée, l'ingrédient est utilisé dans une ou plusieurs recettes"
 		end
 		redirect_to ingredients_path
+	end
+
+	def sort
+		params[:order].each do |key, value|
+			ProviderPrice.find(value[:id]).update_attribute(:priority, value[:position])
+		end
+		render :nothing => true
 	end
 
 	private
@@ -119,7 +128,7 @@ class IngredientsController < ApplicationController
 	end
 
 	def ingredients_params
- 		params.require(:ingredient).permit(:name, :brut_weight, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category_id, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id ] )
+ 		params.require(:ingredient).permit(:name, :brut_weight, :unit_weight, :to_public, :composition, :ig, :protein, :salt, :carbohydrates, :unit_quantity, :weight, :vat, :brand, :sugar_power, :quantity, :is_bio, :is_glut_free, :is_pulp, :unit, :user_id, :kcal, :recipe_id,:fat_percent, :water_percent, :sugar_percent, :alcool_percent, :dry_matter_percent, :cocoa_percent, :cocoa_butter_percent, :cocoa_total_percent, :priority, :price, :category_id, :ordering, provider_prices_attributes: [ :id, :price, :_destroy, :ingredient_id, :provider_id, :user_id, :reference, :unit ] )
 	end
 
 end

@@ -1,9 +1,10 @@
 <% title "#{@ingredient.name.humanize}" %>
 <div class="ttl-header">
 	<div class="page-ttl">
-		<h1 class="lttl-intro-h1"><%= @ingredient.name.humanize %></h1>
+		<h1 class="lttl-intro-h1 underline"><%= @ingredient.name.humanize %></h1>
 		<p class="lft-p">
-			À propos de l'ingrédient
+			<span>Créé par</span> <% if @ingredient.to_public? %>le Labo<% else %><%= @user.firstname %> <%= @user.name %><% end %>
+			<% if @ingredient.category %> - <%= @ingredient.category.name %><% end %>
 		</p>
 	</div>
 	<div class="page-ctas">
@@ -21,19 +22,12 @@
 	<div class="actions-cntnr">
 		<div class="action-cntnr">
       <div class="show-ingredient">
-        <div class="show-bio">
+				<div class="show-bio">
           <% if @ingredient.is_bio %><%= image_tag "bio-big.png" %><% end %>
           <% if @ingredient.is_glut_free %><%= image_tag "glut-big.png" %><% end %>
           <% if @ingredient.is_pulp %><%= image_tag "fruit-big.png" %><% end %>
         </div>
-        <% if @ingredient.category %><p><span>Catégorie</span> <%= @ingredient.category.name %></p><% end %>
-        <p><span>Créé par</span> <% if @ingredient.to_public? %>le Labo<% else %><%= @user.firstname %> <%= @user.name %><% end %></p>
-        <p><span>Prix indicatif</span> <%= number_to_currency @ingredient.price %>/kg</p>
-        <% if @ingredient.vat %><p><span>TVA</span> <%= @ingredient.vat %></p><% end %>
-        <% if @ingredient.brand %><p><span>Marque</span> <%= @ingredient.brand %></p><% end %>
-        <div class="show-bio">
-        </div>
-        <div class="form-border"></div>
+				<h3>Informations nutritionnelles</h3>
         <div class="ingredient-values">
           <p><span>Matière grasse</span> <%= number_to_percentage(@ingredient.fat_percent, precision: 0) %></p>
           <p><span>Matière sèche</span> <%= number_to_percentage(@ingredient.dry_matter_percent, precision: 0) %></p>
@@ -54,6 +48,42 @@
           <div><span>I.G</span><br/> <%= @ingredient.ig %></div>
         </div>
         <div class="form-border"></div>
+				<h3>Prix d'achat <%= image_tag "warning.png", class: "mini-mini-img info-img" %><i class="information"> le prix d'achat situé le plus haut est utilisé pour calculer le coût de revient des recettes.<br/>Vous pouvez modifier l'ordre en les sélectionnant avec la souris.</i></h3>
+				<% unless @ingredient.provider_prices.exists? %><p><span>Par défaut</span> <%= number_to_currency @ingredient.price %>/kg</p><br/><% end %>
+        <div class="double-field">
+					<div class="sortable">
+						<% @prices.each do |price| %>
+							<div class="price-info" data-id="<%= price.id %>">
+								<p>
+									<%= image_tag "square.png", class: "mini-img" %>
+									<% if price.provider %>
+										<%= price.provider.name %>
+									<% end %>
+								</p>
+								<p><%= number_to_currency price.price %>/<%= price.unit %></p>
+								<% unless price.reference.blank? %>Référence:&nbsp; <%= price.reference %></p><% end %>
+							</div>
+						<% end %>
+					</div>
+					<div class="form-price">
+	          <%= form_for @ingredient do |f| %>
+	      		  <%= f.fields_for :provider_prices, @user.provider_prices.new do |ff| %>
+							  <%= ff.select(:provider_id, @providers.collect { |p| [p.name, p.id] }, include_blank: true) %>
+								<%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow" %>
+								<%= ff.hidden_field :user_id, value: @user.id %>
+								<%= ff.text_field :price, class: "basic-field rounded-field price", placeholder: "* prix", required: true %>
+								<div>€ /</div>
+							  <%= ff.select(:unit, ["kg", "L"], include_blank: false) %>
+								<%= image_tag "sort-down-3.png", class: "mini-img sort-ing-arrow" %>
+							  <%= ff.text_field :reference, placeholder: "reference", class: "basic-field rounded-field" %>
+								<br/>
+								<%= f.submit "ENREGISTRER", class: "primary-btn" %>
+								<%= image_tag "delete-sml.png", class: "rem-price" %>
+	      			<% end %>
+	          <% end %>
+					</div>
+					<div class="add-price"><%= image_tag "prov-price.png", class: "mini-mini-img" %> Ajouter un prix d'achat...</div>
+    		</div>
       </div>
 		</div>
 	</div>

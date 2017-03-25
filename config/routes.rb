@@ -61,6 +61,11 @@ Rails.application.routes.draw do
 			put "resort/:id" => "to_do_lists#resort"
 		end
 	end
+  resources :ingredients, only: [:show] do
+		collection do
+			put "/sort/:id" => "ingredients#sort"
+		end
+	end
 	resources :ingredients do
 		collection do
 			get :search
