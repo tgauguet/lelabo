@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325105157) do
+ActiveRecord::Schema.define(version: 20170325164835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,31 +139,31 @@ ActiveRecord::Schema.define(version: 20170325105157) do
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
-    t.decimal  "price",                precision: 9, scale: 2
+    t.float    "price"
     t.string   "name"
     t.string   "quantity"
     t.integer  "recipe_id"
     t.string   "unit"
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "user_id"
     t.string   "category"
     t.string   "ordering"
-    t.decimal  "fat_percent"
-    t.decimal  "water_percent"
-    t.decimal  "sugar_percent"
-    t.decimal  "kcal"
-    t.decimal  "sugar_power"
-    t.decimal  "alcool_percent"
-    t.decimal  "dry_matter_percent"
-    t.decimal  "cocoa_percent"
-    t.decimal  "cocoa_butter_percent"
-    t.decimal  "cocoa_total_percent"
+    t.float    "fat_percent"
+    t.float    "water_percent"
+    t.float    "sugar_percent"
+    t.float    "kcal"
+    t.float    "sugar_power"
+    t.float    "alcool_percent"
+    t.float    "dry_matter_percent"
+    t.float    "cocoa_percent"
+    t.float    "cocoa_butter_percent"
+    t.float    "cocoa_total_percent"
     t.integer  "provider_id"
     t.boolean  "is_bio"
     t.boolean  "is_glut_free"
     t.integer  "stabilizer"
-    t.boolean  "is_pulp",                                      default: false
+    t.boolean  "is_pulp",              default: false
     t.string   "brand"
     t.integer  "vat"
     t.integer  "weight"
@@ -255,7 +255,7 @@ ActiveRecord::Schema.define(version: 20170325105157) do
   create_table "quantities", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
-    t.decimal  "quantity"
+    t.float    "quantity"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "weight"
@@ -276,7 +276,7 @@ ActiveRecord::Schema.define(version: 20170325105157) do
   create_table "recipe_items", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "assembly_id"
-    t.decimal  "total"
+    t.float    "total"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -308,7 +308,7 @@ ActiveRecord::Schema.define(version: 20170325105157) do
     t.boolean  "loved"
     t.string   "portion"
     t.integer  "portion_weight"
-    t.decimal  "portion_price"
+    t.float    "portion_price"
     t.float    "vat"
     t.integer  "stock"
     t.integer  "to_produce"
@@ -420,9 +420,9 @@ ActiveRecord::Schema.define(version: 20170325105157) do
 
   create_table "totals", force: :cascade do |t|
     t.integer  "recipe_id"
-    t.decimal  "value",       precision: 5, scale: 2
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.float    "value"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "assembly_id"
   end
 

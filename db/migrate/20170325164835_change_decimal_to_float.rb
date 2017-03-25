@@ -1,6 +1,6 @@
 class ChangeDecimalToFloat < ActiveRecord::Migration
   def change
-    change_table :ingredient do |t|
+    change_table :ingredients do |t|
       t.change :price, :float
       t.change :fat_percent, :float
       t.change :water_percent, :float
@@ -13,16 +13,16 @@ class ChangeDecimalToFloat < ActiveRecord::Migration
       t.change :cocoa_butter_percent, :float
       t.change :cocoa_total_percent, :float
     end
-    change_table :quantity do |t|
+    change_table :quantities do |t|
       t.change :quantity, :float
     end
-    change_table :recipe_item do |t|
+    change_table :recipe_items do |t|
       t.change :total, :float
     end
-    change_table :recipe do |t|
+    change_table :recipes do |t|
       t.change :portion_price, :float
     end
-    change_table :total do |t|
+    change_table :totals do |t|
       t.change :value, :float
     end
   end
