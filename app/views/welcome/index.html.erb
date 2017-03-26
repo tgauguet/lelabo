@@ -1,6 +1,10 @@
 <div class="action-cntnt welcome-cntnt">
 	<div class="actions-cntnr">
-		<div class="welcome-usr">
+		<div class="welcome-usr" style="background: -webkit-linear-gradient(45deg, <%= colors(4) %> 1%, <%= colors(1) %> 120%);
+	  background: -moz-linear-gradient(45deg, <%= colors(4) %> 1%, <%= colors(1) %> 120%);
+	  background: -ms-linear-gradient(45deg, <%= colors(4) %> 1%, <%= colors(1) %> 120%);
+	  background: -o-linear-gradient(45deg, <%= colors(4) %> 1%, <%= colors(1) %> 120%);
+	  background: linear-gradient(45deg, <%= colors(4) %> 1%, <%= colors(1) %> 120%);">
 			<div class="user-info">
 				<div class="w-usr-img">
 					<%= link_to modifier_votre_profil_path do %><%= image_tag @user.avatar(:medium), class: "rounded-img" %><% end %>
@@ -44,15 +48,15 @@
 		<% end %>
 		<div class="usr-boxes">
 			<div class="boxes">
-				<h3><%= @user.recipes.count %></h3>
+				<h3 style="color:<%= colors(0)%>"><%= @user.recipes.count %></h3>
 				<p>Recettes</p>
 			</div>
 			<div class="boxes">
-				<h3><%= @user.ingredients.count %></h3>
+				<h3 style="color:<%= colors(0)%>"><%= @user.ingredients.count %></h3>
 				<p>Ingrédients</p>
 			</div>
 			<div class="boxes">
-				<h3><%= @user.staffs.count %></h3>
+				<h3 style="color:<%= colors(0)%>"><%= @user.staffs.count %></h3>
 				<p>Collaborateurs</p>
 			</div>
 		</div><!-- usr-boxes -->
@@ -61,7 +65,7 @@
 				<div class="quadro-box">
 					<div class="quadro-child">
 						<div>
-							<div class="ttl-bck purple-bck">DATE</div>
+							<div class="ttl-bck" style="background:<%= colors(0)%>">DATE</div>
 							<div>
 								<p class="date-day"><%= Time.now.strftime("%d") %><p>
 							</div>
@@ -70,7 +74,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="quadro-child margin-align purple-bck">
+					<div class="quadro-child margin-align"style="background:<%= colors(1)%>">
 						<div>
 							<div class="ttl-bck purple-bck">GRADE</div>
 							<div>
@@ -81,7 +85,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="duo-box margin-align cyan-bck">
+			<div class="duo-box margin-align cyan-bck" style="background:<%= colors(0)%> !important">
 				<div>
 					<div class="ttl-bck">NOUVELLES RECETTES</div>
 					<p class="nb"><%= @recipes %><p>

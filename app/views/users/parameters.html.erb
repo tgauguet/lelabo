@@ -6,6 +6,16 @@
 	<div class="actions-cntnr">
     <div class="action-cntnr form-cntnr">
 			<%= form_for(@user, action: :set_parameters ) do |f| %>
+				<p>Thème</p>
+				<%= f.radio_button :colors, 1 %>
+				<%= f.radio_button :colors, 2 %>
+				<%= f.radio_button :colors, 3 %>
+				<%= f.radio_button :colors, 4 %>
+				<%= f.radio_button :colors, 5 %>
+				<%= f.radio_button :colors, 6 %>
+				<%= f.radio_button :colors, 7 %>
+				<%= f.radio_button :colors, 8 %>
+				<%= f.radio_button :colors, 9 %>
 				<p>Nom de votre compte</p>
 				<%= f.text_field :account_name, class: "field basic-field" %><br/>
 				<p>Email</p>

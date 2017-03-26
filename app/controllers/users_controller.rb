@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 				      redirect_to informations_de_votre_compte_path
 				    elsif @user.account_name? && @user.firstname? && @user.terms == true
 							if @user.ingredients.blank?
-								CreateBaseCategoriesJob.perform_later(@user)
 								CreateRecipesBaseJob.perform_later(@user) #delay
 							end
 				      redirect_to root_path
@@ -88,7 +87,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		accessible = [:name, :email, :stripe_customer_id, :facebook_link, :linkedin_link, :instagram_link, :google_link, :country, :avatar, :firstname, :company, :job_type, :phone, :company_image, :phone, :skype, :profile_image, :account_name, :terms]
+		accessible = [:name, :email, :stripe_customer_id, :colors, :facebook_link, :linkedin_link, :instagram_link, :google_link, :country, :avatar, :firstname, :company, :job_type, :phone, :company_image, :phone, :skype, :profile_image, :account_name, :terms]
 		accessible << [:password, :password_confirmation] unless params[:user][:password].blank?
 		params.require(:user).permit(accessible)
 	end
