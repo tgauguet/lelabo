@@ -121,15 +121,6 @@ FONTS ---- DESIGN
   color: rgb(28,157,213);
 }
 
-.search-field:focus{
-  border: 1px solid rgb(28,157,213);
-}
-
-.search-go:hover{
-  color: rgb(0,119,169);
-  text-decoration: underline;
-}
-
 .ingredient-btn{
 	padding-left: 1em !important;
 	padding-right: 1em !important;
@@ -1831,37 +1822,6 @@ header .normal_header{
 .abs-feature img{
   width: 6em;
   height: 6em;
-}
-
-.search-field{
-	width: 10em;
-  font-size: 1em;
-  padding-right: 0.5em;
-	margin-top: 0.65em;
-	margin-left: 2em;
-  padding-left: 2em;
-  padding-top: 0.3em;
-  border-radius: 1em;
-  padding-bottom: 0.3em;
-  border:1px solid rgb(230,230,230);
-}
-
-.search-btn{
-  width: 1em;
-  margin-top: 0.5em;
-  position: absolute;
-  margin-left: 2.8em;
-}
-
-.search-go{
-  border: 1px solid rgb(230,230,230);
-  padding: 0.3em;
-  padding-left: 0.9em;
-  padding-right: 0.9em;
-  font-size: 1em;
-  border-radius: 1em;
-  background: white;
-  cursor: pointer;
 }
 
 .feat-img2, .feat-img3, .feat-img4, .feat-img5{
@@ -6755,15 +6715,6 @@ section{
 		margin-left: 1em;
 	}
 
-	.search-field{
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	.search-btn{
-		margin-top: 1.1em;
-	}
-
 	.send-feedback{
 		display: none;
 	}
@@ -7372,5 +7323,71 @@ section{
 }
 
 .info-img:hover + .information{
+	opacity: 1;
+}
+
+#sortable2 h4{
+	font-family: "source_sans_prolight";
+	font-size: 1.2em;
+	padding: 2em;
+}
+
+.search-form{
+	float: left;
+	width: 11.3em;
+	position: relative;
+	padding-top: .1em;
+}
+
+.search-form .basic-field{
+	width: 12em;
+	border-radius: .2em;
+	padding: .4em .6em .4em 1.8em;
+}
+
+.search-form .basic-field:focus .search{
+	opacity: 1;
+}
+
+.search{
+	width: 1em;
+	opacity: .7;
+	position: absolute;
+	z-index: 4;
+	left:.6em;
+	top:.6em;
+}
+
+.cancel-account{
+	padding: 1em;
+	text-align: left;
+	background: white;
+	width: 30em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cancel-pop .popover{
+	width: 38em;
+}
+
+.cancel-account-pop{
+	text-align: left;
+	padding: 1em;
+}
+
+.cancel-account p{
+	margin-left: 1.5em;
+}
+
+.cancel-account textarea{
+	padding-left: .7em;
+}
+
+.cancel-account input[type="radio"]{
+	display: block;
+	margin-left: -2em;
+	margin-top: .4em;
+	position: absolute;
 	opacity: 1;
 }

@@ -15,6 +15,10 @@ class Ingredient < ActiveRecord::Base
 	before_save :default_value
 	validates :name, :presence => { :message => 'Le nom ne peux pas etre vide' }
 
+	def self.search(search)
+  	where("name LIKE ?", "%#{search}%")
+	end
+
 	def cocoa_percent=(val)
 		self['cocoa_percent'] = val.to_s.include?(",") ? val.sub!(',', '.').to_f : val
 	end

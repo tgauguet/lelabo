@@ -6,13 +6,19 @@
 	</div>
 	<div class="page-ctas">
 		<%= link_to new_ingredient_path do %>
-			<button class="white-btn ttl-btn">+ NOUVEL INGRÉDIENT</button>
+			<button class="white-btn ttl-btn">+ NOUVEAU</button>
 		<% end %>
 		<div class="show-sort2">
 			<p class="sort-show"><%= image_tag "colors.png", class: "mini-img" %></p>
 		</div>
 		<div class="show-sort">
 			<p class="sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
+		</div>
+		<div class="search-form">
+			<%= form_tag(ingredients_path, :method => "get", id: "search-form") do %>
+				<%= image_tag "search.png", :name => nil, class: "search" %>
+				<%= text_field_tag :search, params[:search], placeholder: " ", class: "basic-field" %>
+			<% end %>
 		</div>
 	</div>
 </div>
@@ -62,7 +68,11 @@
 			<ul class="list-cntnr ajax-hide">
 				<div class="list-width">
 						<li id="sortable2">
-							<%= render @ingredients, cached: true %>
+							<% if @ingredients.blank? %>
+							  <h4>Il n'y a pas d'ingrédients contenant le terme "<%= params[:search] %>".</h4>
+							<% else %>
+								<%= render @ingredients, cached: true %>
+							<% end %>
 						</li>
 				</div>
 			</ul>

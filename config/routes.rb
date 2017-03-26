@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     patch "/confirm" => "confirmations#confirm"
   end
   match "/creer-votre-mot-de-passe", to: "devise/confirmations#show", :via => [:get]
+  match "/supprimer-mon-compte", to: "users#cancel_account", via: [:get]
   match '/nom-de-votre-compte' => 'users#first_step', via: [:get, :post]
   match "/parametres", to: "users#parameters", via: [:get, :post]
   match '/informations-de-votre-compte' => 'users#second_step', via: [:get, :post]
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
 
   ################ Features routes ###################
   resources :staffs
+  resources :delete_accounts, only: [:new, :create, :index]
   resources :messages, only: [:new, :create]
   resources :votes, only: [:create, :update, :destroy]
 	resources :providers

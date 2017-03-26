@@ -1,0 +1,71 @@
+<div class="popover-bck cancel-pop" style="display:none;">
+  <div class="popover">
+    <div class="popover-ttl">
+      <h3><%= image_tag "warning-sign.png", class: "mini-img" %> Supprimer définitivement mon compte ?</h3>
+    </div>
+    <div class="popover-cntnt cancel-account-pop">
+      <p>En cliquant sur supprimer, vous perdrez les informations suivantes:</p>
+      <ul>
+        <li>- Vos recettes</li>
+        <li>- Vos ingrédients</li>
+        <li>- Toute autre entité associée à votre compte</li>
+      </ul>
+      <br/>
+      <%= image_tag "source.gif" %>
+      <br/><br/>
+      <%= link_to root_path do %>
+        <p class="cancel-btn">ANNULER</p>
+      <% end %>
+      <%= link_to "SUPPRIMER", registration_path(current_user), class: "cancel-btn", method: :delete %>
+      <br/><br/>
+    </div>
+  </div>
+</div>
+<div class="cancel-account">
+  <%= form_for @cancel_account, remote: true do |f| %>
+    <p>
+      <%= f.radio_button :purpose, 1 %>
+      J'ai trouvé le Labo trop difficile à utiliser pour mon entreprise
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 2 %>
+      Le Labo ne possède pas les options dont j'ai besoin (merci de nous en dire plus ci-dessous)
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 3 %>
+      Je ne comprend pas comment utiliser le Labo
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 4 %>
+      Je n'ai pas reçu le service client que j'attendais
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 5 %>
+      Le Labo ne représente pas suffisamment de valeur pour dépenser de l'argent
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 6 %>
+      J'ai décidé d'utiliser un service similaire créé par une autre entreprise
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 7 %>
+      Je n'ai plus besoin du Labo
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 8 %>
+      Autre (merci de nous en dire plus ci-dessous)
+    </p>
+    <p>
+      <%= f.radio_button :purpose, 9 %>
+      J'ai trouvé le Labo trop difficile à utiliser pour mon entreprise
+    </p>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.text_area :comment, class: "basic-field rounded-field" %>
+    <%= f.submit "SUPPRIMER MON COMPTE", class: "cancel-btn" %>
+  <% end %>
+</div>
+<script>
+$(".cancel-btn").click(function(){
+  $(".popover-bck").show();
+});
+</script>

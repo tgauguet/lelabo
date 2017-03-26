@@ -55,6 +55,11 @@ class UsersController < ApplicationController
 		@user = current_user
 	end
 
+	def cancel_account
+		@user = current_user
+		@cancel_account = DeleteAccount.new
+	end
+
 	def final_step
 		@user = current_user
 	end

@@ -7,28 +7,6 @@ class IngredientsController < ApplicationController
 	helper_method :sort_columns, :sort_direction
 	require 'will_paginate/array'
 
-	#removed waiting for activation of solr on heroku (because of the 20$/mo invoice)
-
-	#this code took place in ingredients/new.html.erb
-	#<%= form_tag search_ingredients_path, method: :get do %>
-	#		<%= image_tag "search-btn.png", class: "search-btn" %>
-	#		<%= text_field_tag :search, "", class: "search-field", placeholder: "rechercher..." %>
-	#		<%= submit_tag "go", class: "search-go" %>
-	#<% end %><br/>
-
-	#def search
-	#	@ingredient = @user.ingredients.new
-	#	@ingredients = @user.ingredients.all.order("name ASC")
-	#	@search = Ingredient.search do
-	#		fulltext params[:search]
-	#	end
-	#	@results = @search.results
-	#	respond_to do |format|
-	#		format.html { render :search }
-	#		format.xml { render xml: @results }
-	#	end
-	#end
-
 	def index
 		@categories = Category.all
 		@public_ingredients = Ingredient.all.where(to_public: 1)
@@ -37,6 +15,8 @@ class IngredientsController < ApplicationController
 		if params[:category_id]
 			@category = Category.find params[:category_id]
 			@ingredients = @category.ingredients
+		elsif params[:search]
+			@ingredients = Ingredient.all.where(to_public: 1).search(params[:search]).order("name DESC") + @user.ingredients.search(params[:search]).order("name ASC")
     else
 			@ingredients = @ingredients.sort_by(&:"#{sort_columns}")
 			@ingredients = @ingredients.reverse if sort_direction == 'desc'
@@ -94,7 +74,7 @@ class IngredientsController < ApplicationController
 		else
 			flash[:error] = "Supression annulée, l'ingrédient est utilisé dans une ou plusieurs recettes"
 		end
-		redirect_to ingredients_path
+		redirect_to :back
 	end
 
 	def sort

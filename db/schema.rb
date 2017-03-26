@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325164835) do
+ActiveRecord::Schema.define(version: 20170326105157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "citext"
 
   create_table "assemblies", force: :cascade do |t|
     t.string   "image_file_name"
@@ -87,6 +88,14 @@ ActiveRecord::Schema.define(version: 20170325164835) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "delete_accounts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "purpose"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.text     "message"
     t.datetime "created_at", null: false
@@ -140,7 +149,7 @@ ActiveRecord::Schema.define(version: 20170325164835) do
 
   create_table "ingredients", force: :cascade do |t|
     t.float    "price"
-    t.string   "name"
+    t.citext   "name"
     t.string   "quantity"
     t.integer  "recipe_id"
     t.string   "unit"
