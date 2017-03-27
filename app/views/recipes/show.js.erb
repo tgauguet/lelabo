@@ -1,4 +1,6 @@
 $(".top").html("<%= escape_javascript (render 'recipes/public_form', recipe: @recipe) %>");
+$(".toggle.on .slide").css("color", "<%= colors(0) %>");
+$(".toggle.on").css("background", "<%= colors(0) %>");
 
 //toggle button
 $('.toggle').on('click', function() {

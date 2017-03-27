@@ -11,17 +11,10 @@
     <div class="recipe-cntnr r-smll-cntnr">
       <h3 class="bgr-ttl">Informations</h3>
       <div class="r-img-cntnr">
-        <% if current_user.basic_user? %>
-          <h3>Ajoutez une image</h3>
-          <p>Choisissez l'offre entreprise et profitez de cette fonctionnalité !</p>
-          <p class="auto-btn cta-btn">+ S'ABONNER</p>
-          <br/><br/><br/><br/><br/><br/>
-        <% else %>
-          <p>image</p>
-          <%= image_tag(recipe.image.url(:medium), class: "recipe-img") %>
-          <%= f.file_field :image %>
-          <br/><br/>
-        <% end %>
+        <p>image</p>
+        <%= image_tag(recipe.image.url(:medium), class: "recipe-img") %>
+        <%= f.file_field :image %>
+        <br/><br/>
       </div>
       <div class="to-left recipe-head">
     		<p>*Nom</p><div class="hover-helper">Indiquez le nom de votre recette (cette mention est nécessaire)</div>

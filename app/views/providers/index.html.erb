@@ -39,14 +39,6 @@
 			<div id="circleG_3" class="circleG"></div>
 		</div>
 		<div class="list-width ajax-hide">
-			<% if @user.basic_user? %>
-				<div class="page-new-ttl action-cntnr">
-					<p>Choisissez l'offre PRO ou ENTREPRISE et profitez de cette fonctionnalité !</p>
-					<%= link_to subscriptions_path do %>
-						<p class="auto-btn cta-btn">+ S'ABONNER</p>
-					<% end %>
-				</div>
-			<% else %>
 				<div class="hide">
 							<ul>
 								<li id="sortable1">
@@ -57,7 +49,6 @@
 							</ul>
 					</div>
 				</div>
-			<% end %>
 		</div>
 		<div class="ajax-hide"><%= will_paginate %></div>
 	</div>

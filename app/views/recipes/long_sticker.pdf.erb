@@ -1,7 +1,5 @@
 <%= wicked_pdf_stylesheet_link_tag "application.css" -%>
-<% if @user.basic_user? %>
-  <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
-<% end %>
+<div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
 <div class="recipe-view pdf-r-cntnr">
   <div class="long-sticker">
     <%= render "recipes/sticker_info", recipe: @recipe, sticker_value: @sticker_value %>

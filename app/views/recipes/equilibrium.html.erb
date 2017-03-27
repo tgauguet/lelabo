@@ -4,20 +4,13 @@
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
-				<% if current_user.business_user? %>
-					<div class="recipe_values">
-					  <% if @recipe.quantities.blank? %>
-					    <p>Ajoutez des ingrédients à votre recette pour pouvoir l'équilibrer</p>
-					  <% else %>
-							<%= render "recipes/equilibrium_list", recipe: @recipe %>
-						<% end %>
-					</div>
-				<% else %>
-				  <p>Choisissez l'offre ENTREPRISE et profitez de cette fonctionnalité !</p>
-				  <%= link_to subscriptions_path do %>
-				    <p class="auto-btn cta-btn">+ S'ABONNER</p>
-				  <% end %>
-				<% end %>
+				<div class="recipe_values">
+				  <% if @recipe.quantities.blank? %>
+				    <p>Ajoutez des ingrédients à votre recette pour pouvoir l'équilibrer</p>
+				  <% else %>
+						<%= render "recipes/equilibrium_list", recipe: @recipe %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -7,15 +7,44 @@
     <div class="action-cntnr form-cntnr">
 			<%= form_for(@user, action: :set_parameters ) do |f| %>
 				<p>Thème</p>
-				<%= f.radio_button :colors, 1 %>
-				<%= f.radio_button :colors, 2 %>
-				<%= f.radio_button :colors, 3 %>
-				<%= f.radio_button :colors, 4 %>
-				<%= f.radio_button :colors, 5 %>
-				<%= f.radio_button :colors, 6 %>
-				<%= f.radio_button :colors, 7 %>
-				<%= f.radio_button :colors, 8 %>
-				<%= f.radio_button :colors, 9 %>
+				<div class="color-select">
+					<label>
+					  <%= f.radio_button :colors, 1 %>
+						<div class="cred"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 2 %>
+						<div class="corange"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 3 %>
+						<div class="cyellow"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 4 %>
+						<div class="cgreen"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 5 %>
+						<div class="cbluegreen"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 6 %>
+						<div class="ccyan"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 7 %>
+						<div class="cblue"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 8 %>
+						<div class="cpurple"></div>
+					</label>
+					<label>
+					  <%= f.radio_button :colors, 9 %>
+						<div class="cpink"></div>
+					</label>
+				</div>
 				<p>Nom de votre compte</p>
 				<%= f.text_field :account_name, class: "field basic-field" %><br/>
 				<p>Email</p>
