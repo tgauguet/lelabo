@@ -1,25 +1,4 @@
 <% title "Modifier #{@provider.name.humanize}" %>
-<div class="rgt-menu">
-	<div class="rgt-area">
-		<div class="rgt-area-ttl">
-			<h3>Fournisseurs</h3>
-			<div>
-				<%= link_to new_provider_path do %><p class="add"><%= image_tag "add.png", class: "mini-img" %></p><% end %>
-				<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
-			</div>
-		</div>
-		<ul>
-			<% @providers.each do |p| %>
-				<%= link_to edit_provider_path(p.id) do %>
-					<li>
-						<%= p.name %>
-					</li>
-				<% end %>
-			<% end %>
-			<%= will_paginate @providers, :previous_label => '<', :next_label => '>' %>
-		</ul>
-	</div>
-</div>
 <div class="ttl-header action-rgt-ttl">
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1"><%= @provider.name %></h1>

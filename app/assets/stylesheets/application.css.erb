@@ -2593,71 +2593,6 @@ header .normal_header{
 	text-decoration: underline;
 }
 
-.rgt-menu{
-	left: 12em;
-	position: fixed;
-	overflow: hidden;
-	overflow-y: scroll;
-	bottom: 0;
-	width: 15em;
-	top: 2.8em;
-}
-
-.rgt-menu ul{
-	margin: 0;
-	padding: 0;
-}
-
-.rgt-menu ul li{
-	border-bottom: 1px solid rgb(225,228,232);
-	padding: .8em;
-	padding-left: 1.6em;
-	text-align: left;
-}
-
-.rgt-menu ul li:hover{
-	background: rgb(247,249,252);
-}
-
-.rgt-menu ul li div{
-	position: absolute;
-	width: .5em;
-	height: .5em;
-	margin-top: .4em;
-	border-radius: 50%;
-	background: rgb(225,228,232);
-	margin-left: -.9em;
-}
-
-.rgt-menu ul li .done{
-	background: rgb(64,174,17);
-}
-
-.rgt-area-ttl{
-	text-align: left;
-	border-bottom: 1px solid rgb(225,228,232);
-}
-
-.rgt-area-ttl h3{
-	font-weight: lighter;
-	padding: .2em;
-	padding-top: .7em;
-	padding-bottom: .7em;
-}
-
-.rgt-area-ttl h3, .rgt-area-ttl p, .page-ctas p{
-	display: inline-block;
-}
-
-.rgt-area-ttl div p, .page-ctas div p{
-	margin-right: -.1em;
-	padding: .2em;
-	padding-right: 0em;
-	border-bottom:2px solid rgb(225,228,232);
-	border-radius: .2em;
-	cursor: pointer;
-}
-
 .page-ctas div p:hover, .white-btn:hover{
 	background: rgb(246,248,252);
 }
@@ -2666,32 +2601,12 @@ header .normal_header{
 	padding: .3em;
 	padding-right: .4em;
 }
-
-.rgt-area-ttl div, .page-ctas div{
-	float: right;
-	margin-top: .8em;
-	margin-left: .5em;
-}
-
 .page-ctas div{
 	margin-top: .1em;
 }
 
 .smpl2-cntnr .basic-field{
 	padding-left: .7em;
-}
-
-.rgt-area-ttl div .add{
-	background: rgb(103,114,229);
-	border: 1px solid rgb(83,94,219);
-}
-
-.rgt-area-ttl p img{
-	opacity: .7;
-}
-
-.rgt-area-ttl .add img{
-	opacity: 1
 }
 
 #list-list{
@@ -6540,10 +6455,6 @@ section{
 		width: 98%;
 	}
 
-	.rgt-menu{
-		display: none;
-	}
-
 	.rec-cntnr, .load-parent{
 		margin-left: 4em;
 	}
@@ -6569,7 +6480,7 @@ section{
 	  margin-left: 5em;
 	}
 
-	.full-header, .action-cntnt, .rgt-menu{
+	.full-header, .action-cntnt{
 	  left: 5em;
 	}
 
@@ -6641,7 +6552,7 @@ section{
 	  margin-left: 0em;
 	}
 
-	.full-header, .action-cntnt, .rgt-menu{
+	.full-header, .action-cntnt{
 	  left: 0em;
 	}
 
@@ -7425,4 +7336,19 @@ section{
 
 .wall-action .good-recipe span{
 	color: #FD6065;
+}
+
+.recipe-smll{
+	padding-bottom: 4em;
+}
+
+.recipe-smll div{
+	margin-right: 1em;
+	margin-top: .3em;
+	float: left;
+}
+
+.recipe-cntnr .recipe-smll .input{
+	width: 5em !important;
+	margin-left: .4em;
 }

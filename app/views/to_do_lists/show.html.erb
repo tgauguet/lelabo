@@ -1,29 +1,3 @@
-<div class="rgt-menu">
-	<div class="rgt-area">
-		<div class="rgt-area-ttl">
-			<h3>Toutes les listes</h3>
-			<div>
-				<%= link_to new_to_do_list_path do %><p class="add"><%= image_tag "add.png", class: "mini-img" %></p><% end %>
-				<p><%= image_tag "sort-img.png", class: "mini-img" %></p>
-			</div>
-		</div>
-		<ul>
-			<% @lists.each do |l| %>
-				<%= link_to l do %>
-					<li>
-						<% if l.all_done %>
-							<div class="done"></div>
-						<% else %>
-							<div></div>
-						<% end %>
-						<%= l.title %>
-						<span class="mini-span"><%= l.done_count %> / <%= l.total_tasks %></span>
-					</li>
-				<% end %>
-			<% end %>
-		</ul>
-	</div>
-</div>
 <% title "#{@list.title}" %>
 <div class="ttl-header action-rgt-ttl">
 	<div class="page-ttl">

@@ -79,6 +79,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    @ingredients = @user.ingredients.all.order("name ASC") + @user.recipes.all.order("name ASC")
     @ingredient = @user.ingredients.new
     respond_to do |format|
       format.html
@@ -210,7 +211,7 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
-    @recipe.allergen = [] if !defined?(params[:recipe][:allergen])
+    @recipe.allergen = [] if !params[:recipe][:allergen]
     respond_to do |format|
       if @recipe.update(recipe_params)
         if !request.url.include?("edit")

@@ -26,7 +26,32 @@
           <p>Auteur</p>
           <%= f.text_field :owner, class: "basic-field", value: user_if_nil(recipe) %>
         </div>
-        <br/>
+        <p>Notes</p>
+        <%= f.text_area :note, class: "basic-field", placeholder: " " %>
+      </div>
+      <div class="r-img-cntnr up-div">
+        <p class="custom-checkbox stari">
+          <%= f.check_box :stared %>
+          <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
+        </p>
+        <p class="custom-checkbox stari">
+          <%= f.check_box :loved %>
+          <%= image_tag "heart-big.png", alt: "checktag", class: "greyscale" %>
+        </p>
+      </div>
+      <div class="to-left recipe-smll">
+        <div>
+          <p>T° Cuisson (°C)</p>
+          <%= f.text_field :baking, class: "basic-field input", placeholder: " " %>
+        </div>
+        <div>
+          <p><%= image_tag "chronometer.png", class: "mini-img" %> Cuisson (min)</p>
+          <%= f.text_field :baking_minutes, class: "basic-field input", placeholder: " " %>
+        </div>
+        <div>
+          <p><%= image_tag "chronometer.png", class: "mini-img" %> Préparation (min)</p>
+          <%= f.text_field :preparation_minutes, class: "basic-field input", placeholder: " " %>
+        </div>
       </div>
       <div class="form-border"></div>
     </div>
@@ -37,42 +62,24 @@
         <%= f.fields_for :quantities do |ff| %>
           <%= render "add_quantities", ff: ff %>
         <% end %>
-        <br/>
         <p class="add_field"><%= create_new_field "+ AJOUTER UN INGRÉDIENT", f, :quantities %></p>
-        <p class="add_field"><%= create_new_field "+ UTILISER UNE RECETTE COMME INGRÉDIENT", f, :sub_recipes %></p>
         <p class="grey-btn hide white-cat pop-over-new">+ CRÉER UN INGRÉDIENT</p>
       </div>
       <br/>
-    </div><br/>
-    <div class="form-border"></div>
+    </div>
+    <div class="ingredients-add-ctnr">
+      <div class="add_ingredients">
+        <%= f.fields_for :sub_recipes do |ff| %>
+          <%= render "add_sub_recipes", ff: ff %>
+        <% end %>
+        <p class="add_field"><%= create_new_field "+ AJOUTER UNE SOUS-RECETTE", f, :sub_recipes %></p>
+      </div>
+      <br/>
+    </div>
+    <br/>
     <h3>Instructions</h3>
     <div data-no-turbolink class="add_process">
       <%= f.cktext_area :process, placeholder: " ", class: "basic-field rounded-field ckeditor", ckeditor: { toolbar: "mini" } %>
-    </div>
-    <div class="r-img-cntnr up-div">
-      <br/>
-      <br/>
-      <p class="custom-checkbox stari">
-        <%= f.check_box :stared %>
-        <%= image_tag "star-big.png", alt: "checktag", class: "greyscale" %>
-        Star
-      </p>
-      <p class="custom-checkbox stari">
-        <%= f.check_box :loved %>
-        <%= image_tag "heart-big.png", alt: "checktag", class: "greyscale" %>
-        Favoris
-      </p>
-    </div>
-    <div class="to-left recipe-head">
-      <p>T° Cuisson (en degrés °C)</p>
-      <%= f.text_field :baking, class: "basic-field", placeholder: " " %>
-      <p>Temps de Cuisson (en minutes)</p>
-      <%= f.text_field :baking_minutes, class: "basic-field", placeholder: " " %>
-      <p>Temps de préparation (en minutes)</p>
-      <%= f.text_field :preparation_minutes, class: "basic-field", placeholder: " " %>
-      <p>Notes</p>
-      <%= f.text_area :note, class: "basic-field", placeholder: " " %>
-      <br/>
     </div>
     <div class="align-right">
       <%= f.submit "ENREGISTRER", class: "primary-btn" %>
