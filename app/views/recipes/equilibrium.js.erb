@@ -6,6 +6,8 @@ $('.flex-eq').html("<%= escape_javascript (render 'recipes/equilibrium_list', re
     $(".load-parent").show();
   });
 
+  $(".primary-btn").css("background", "<%= colors(0) %>");
+  $(".primary-btn").css("border-bottom", "2px solid <%= colors(4) %>");
 // Use select2 to search ingredients faster
   $('[id*="ingredient_id"]').select2();
   $('[id*="sub_id"]').select2();

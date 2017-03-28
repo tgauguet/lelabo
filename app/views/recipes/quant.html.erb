@@ -1,6 +1,11 @@
 <% title "#{@recipe.name.humanize}" %>
-<div class="action-cntnt recipe-cntnt">
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @recipe.name.humanize %></h1>
+	</div>
 	<%= render "recipe_bar" %>
+</div>
+<div class="action-cntnt recipe-cntnt">
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">

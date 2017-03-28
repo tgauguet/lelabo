@@ -1,6 +1,3 @@
-<div class="recipe-ttl">
-	<h1><%= @recipe.name.humanize %></h1>
-</div>
 <div class="rec-area">
   <%= link_to recipe_path(@recipe) do %>
     <p class="recipe-btn <% if current_page?(action: 'show') %>current-form<% end %>">Aperçu</p>

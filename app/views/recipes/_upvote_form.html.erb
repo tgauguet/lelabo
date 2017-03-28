@@ -3,13 +3,13 @@
   <%= form_for vote, remote: true do |f| %>
     <%= f.hidden_field :up, value: 1 %>
     <%= f.hidden_field :recipe_id, value: recipe.id %>
-    <%= image_tag "vote-up.png", class: voted(recipe, true) %>
+    <%= image_tag ("vote-up"+images+".png"), class: voted(recipe, true) %>
   <% end %>
   <h4><%= recipe.total_votes %></h4>
   <%= form_for vote, remote: true do |f| %>
     <%= f.hidden_field :up, value: 0 %>
     <%= f.hidden_field :recipe_id, value: recipe.id %>
-    <%= image_tag "vote-down.png", class: voted(recipe, false) %>
+    <%= image_tag ("vote-down"+images+".png"), class: voted(recipe, false) %>
   <% end %>
   <br/>
   <%= image_tag heart_img(recipe), class: "heart" %>

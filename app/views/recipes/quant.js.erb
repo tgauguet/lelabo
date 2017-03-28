@@ -2,6 +2,8 @@ $(".qttt").html("<%= escape_javascript (render 'recipes/quantities', recipe: @re
 $(".popover-bck").html("<%= escape_javascript (render 'recipes/quantities_pop', recipe: @recipe) %>")
 
 // **************** QUANT & COST ACTION ******************
+$(".primary-btn").css("background", "<%= colors(0) %>");
+$(".primary-btn").css("border-bottom", "2px solid <%= colors(4) %>");
   // Hide and show select measure popover
     $(".q-f1btn").hide();
     $(".q-f2btn").show();

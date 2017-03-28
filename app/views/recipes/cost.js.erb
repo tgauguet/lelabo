@@ -1,6 +1,8 @@
 $(".c-f1").html("<%= escape_javascript (render 'recipes/costs', recipe: @recipe) %>");
 
 // **************** QUANT & COST ACTION ******************
+$(".primary-btn").css("background", "<%= colors(0) %>");
+$(".primary-btn").css("border-bottom", "2px solid <%= colors(4) %>");
 $(".c-f1btn").hide();
 $(".c-f2btn").show();
 $(".qt-pop").hide();
