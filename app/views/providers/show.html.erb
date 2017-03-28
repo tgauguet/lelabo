@@ -1,0 +1,66 @@
+<% title "#{@provider.name.humanize}" %>
+<div class="ttl-header">
+	<div class="page-ttl">
+		<h1 class="lttl-intro-h1"><%= @provider.name %></h1>
+		<p class="lft-p">Informations sur le fournisseur</p>
+	</div>
+	<div class="page-ctas">
+		<% if !@provider.to_public %>
+			<%= link_to edit_provider_path(@provider.id) do %>
+				<p class="white-btn"><%= image_tag "writing.png", class: "mini-mini-img" %> MODIFIER</p>
+			<% end %>
+		<% end %>
+		<%= link_to providers_path do %>
+      <p class="white-btn"><%= image_tag "arrow-lft.png", class: "mini-mini-img" %> INDEX</p>
+		<% end %><br/>
+	</div>
+</div>
+<div class="action-cntnt">
+	<div class="provider-info">
+		<% if !@provider.website.blank? %>
+			<a href="<%= @provider.website %>" target="_blank"><div class="grey-cntnr"><%= image_tag "link.png", class: "mini-mini-img" %> Voir le site</div></a>
+		<% end %>
+		<div class="blue-cntnr">
+				<span><%= @provider_prices.count %></span> ingrédients associés
+		</div>
+	</div>
+	<div class="actions-cntnr">
+		<div class="tasks-cntnr">
+			<div class="provider-ingredients">
+				<h3>Ingrédients associés</h3>
+				<% if @provider_prices %>
+					<% @provider_prices.each do |p| %>
+						<%= link_to ingredient_path(p.ingredient_id) do %>
+							<ul>
+								<li>
+									<%= Ingredient.find(p.ingredient_id).name.humanize %> (<%= number_to_currency p.price %>)
+								</li>
+							</ul>
+						<% end %>
+					<% end %>
+				<% end %>
+				<% if @provider.provider_prices.count == 0 %>
+					<p>Aucun ingrédient lié à ce fournisseur</p>
+				<% end %>
+			</div>
+			<div class="form-border"></div>
+			<div class="show-ingredient">
+				<h3>Informations générales</h3>
+        <div class="ingredient-values">
+          <% if @provider.city? %><p><span>Ville</span> <%= @provider.city %></p><% end %>
+          <% if @provider.adress? %><p><span>Adresse</span> <%= @provider.adress %></p><% end %>
+          <% if @provider.postal? %><p><span>Code postal</span> <%= @provider.postal %></p><% end %>
+					<% if @provider.country? %><p><span>Pays</span> <%= @provider.country %></p><% end %>
+					<% if @provider.website? %><p><span>Site web</span> <%= @provider.website %></p><% end %>
+          <% if @provider.email? %><p><span>Email</span> <%= @provider.email %></p><% end %>
+          <% if @provider.phone? %><p><span>Téléphone</span> <%= @provider.phone %></p><% end %>
+					<% if @provider.mobile_phone? %><p><span>Téléphone portable</span> <%= @provider.mobile_phone %></p><% end %>
+          <% if @provider.fax? %><p><span>Fax</span> <%= @provider.fax %></p><% end %>
+					<% if @provider.vat? %><p><span>TVA</span> <%= @provider.vat %></p><% end %>
+					<% if @provider.siret? %><p><span>SIRET</span> <%= @provider.siret %></p><% end %>
+					<% if @provider.notes? %><p><span>Notes</span> <%= @provider.notes %></p><% end %>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>

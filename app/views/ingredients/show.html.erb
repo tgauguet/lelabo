@@ -9,7 +9,7 @@
 	</div>
 	<div class="page-ctas">
 		<%= link_to ingredients_path do %>
-			<p class="white-btn">INDEX</p>
+			<p class="white-btn"><%= image_tag "arrow-lft.png", class: "mini-mini-img" %> INDEX</p>
 		<% end %>
 		<% if !@ingredient.to_public %>
 			<%= link_to edit_ingredient_path do %>

@@ -26,30 +26,25 @@
 <div class="sort-ttl-cntnr">
 	<div class="list-width">
 		<p class="major-td"><%= sortable "NOM", "name" %></p>
-		<p class="basic-td">EMAIL</p>
 		<p class="basic-td">SITE WEB</p>
 	</div>
 </div>
 <div class="action-cntnt action-plus-list">
-	<div class="list-cntnr">
+	<div class="actions-cntnr">
 		<div id="circleG" class="loading-indicator" style="display:none;">
 			<br/><br/>
 			<div id="circleG_1" class="circleG"></div>
 			<div id="circleG_2" class="circleG"></div>
 			<div id="circleG_3" class="circleG"></div>
 		</div>
-		<div class="list-width ajax-hide">
+		<div class="list-cntnr ajax-hide">
+			<div class="list-width">
 				<div class="hide">
-							<ul>
-								<li id="sortable1">
-									<% unless @providers.nil? %>
-										<%= render @providers %>
-									<% end %>
-								</li>
-							</ul>
-					</div>
+					<% unless @providers.nil? %>
+						<%= render @providers %>
+					<% end %>
 				</div>
 		</div>
-		<div class="ajax-hide"><%= will_paginate %></div>
 	</div>
 </div>
+<div class="ajax-hide"><%= will_paginate %></div>

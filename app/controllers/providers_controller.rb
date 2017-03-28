@@ -3,16 +3,24 @@
 
 class ProvidersController < ApplicationController
 	before_action :set_user
-	before_action :has_access?, only: [:edit, :update, :destroy]
+	before_action :has_access?, only: [:update, :destroy]
 	helper_method :sort_columns, :sort_direction
+	before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@providers = Provider.all.where(to_public: 1) + @user.providers.all
+		@providers = @providers.sort_by(&:"#{sort_columns}")
+		@providers = @providers.reverse if sort_direction == 'desc'
 		@providers = @providers.paginate(:page => params[:page], :per_page => 30)
 	end
 
 	def new
 		@provider = @user.providers.new
+	end
+
+	def show
+		@ingredients = @user.ingredients.all
+		@provider_prices = @user.provider_prices.where(provider_id: @provider.id)
 	end
 
 	def create
@@ -27,12 +35,9 @@ class ProvidersController < ApplicationController
 	end
 
 	def edit
-		@provider = Provider.find(params[:id])
-		@providers = @user.providers.all.paginate(page: params[:page], per_page: 20).order("name ASC")
 	end
 
 	def update
-		@provider = Provider.find(params[:id])
 		if @provider.update(providers_params)
 			flash[:notice] = "Le fournisseur a été modifié"
 		else
@@ -42,7 +47,6 @@ class ProvidersController < ApplicationController
 	end
 
 	def destroy
-		@provider = Provider.find(params[:id])
 		if @provider.destroy
 			flash[:notice] = "Le fournisseur a été supprimé"
 		else
@@ -52,6 +56,10 @@ class ProvidersController < ApplicationController
 	end
 
 	private
+
+	def set_provider
+		@provider = Provider.find(params[:id])
+	end
 
 	def has_access?
 		@provider= Provider.find(params[:id])

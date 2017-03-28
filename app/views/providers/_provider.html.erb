@@ -1,14 +1,8 @@
-
   <div class="class-helper inline_divs">
     <div class="line-cntnr">
-        <%= link_to edit_provider_path(provider) do %>
+        <%= link_to provider_path(provider) do %>
           <div class="major-td">
             <%= truncate(provider.name.humanize, length: 25) %>
-          </div>
-          <div class="basic-td">
-            <% if provider.email %>
-              <%= truncate(provider.email.downcase, length: 30) %>
-            <% end %>
           </div>
         <% end %>
         <div class="basic-td">

@@ -24,12 +24,10 @@ class UsersController < ApplicationController
 					if @user.account_name? && !@user.firstname?
 				      redirect_to informations_de_votre_compte_path
 				    elsif @user.account_name? && @user.firstname? && @user.terms == true
-							if @user.ingredients.blank?
-								CreateRecipesBaseJob.perform_later(@user) #delay
-							end
 				      redirect_to root_path
 				    elsif @user.account_name? && @user.firstname?
 				      SubscribeUserToMailingListJob.perform_later(@user) #delay
+							CreateTodosBaseJob.perform_later(@user) #delay
 				      redirect_to confirmation_de_votre_compte_path(@user)
 				    elsif !@user.account_name?
 				      redirect_to nom_de_votre_compte_path(@user)

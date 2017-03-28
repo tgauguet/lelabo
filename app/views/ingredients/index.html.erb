@@ -67,13 +67,7 @@
 			</div>
 			<ul class="list-cntnr ajax-hide">
 				<div class="list-width">
-						<li id="sortable2">
-							<% if @ingredients.blank? %>
-							  <h4>Il n'y a pas d'ingrédients contenant le terme "<%= params[:search] %>".</h4>
-							<% else %>
-								<%= render @ingredients, cached: true %>
-							<% end %>
-						</li>
+					<%= render @ingredients, cached: true %>
 				</div>
 			</ul>
 	</div>
