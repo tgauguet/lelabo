@@ -15,22 +15,20 @@
             <label for="switch_3_right">5,5 %</label>
           </div>
           <p>Quantité</p>
-          <%= image_tag "hand.png", class: "field-img" %>
-          <%= f.text_field :to_produce, class: "basic-field top-rad rounded-field hide-meas", placeholder:"Quantité..." %>
+          <%= f.text_field :to_produce, class: "basic-field rounded-field", placeholder:"Quantité..." %>
         </div><!-- content2 composition -->
         <br/><br/>
-        <div class="basic-field rounded-field meas-env">
+        <div class="basic-field rounded-field img-field">
           <%= image_tag "measure.png", class: "field-img2 up-img" %>
           Mesure : <%= recipe.unit %>
           <span class="grey-btn pop-on">
-            <%= image_tag "pencil.png", class: "mini-img", alt: "tableau" %> Modifier
+            <%= image_tag "pencil.png", class: "mini-mini-img", alt: "tableau" %> Modifier
           </span>
         </div><!-- basic-field rounded-field meas-env -->
         <br/>
         <div class="content2 composition">
           <p>Coefficient de vente</p>
-          <%= image_tag "abacus.png", class: "field-img" %>
-          <%= f.text_field :coef, class:"basic-field top-rad rounded-field hide-meas", placeholder: " " %>
+          <%= f.text_field :coef, class:"basic-field rounded-field", placeholder: " " %>
         </div><!-- content2 composition -->
         <br/>
         <%= f.submit "CALCULER", class: "primary-btn float-right" %>

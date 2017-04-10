@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:edit,:update]
   before_action :has_access?, only: [:show, :edit, :update, :destroy, :balancing, :production_cost, :set_total, :download, :quantities_pdf, :d_quantities_pdf]
   before_action :set_paper_trail_whodunnit
+  before_action :set_ingredients, only: [:new, :edit, :equilibrium]
   before_action :recipe_edit_helpers, except: [:index, :new, :create, :wall, :preview]
   before_action :set_categories, except: [:preview]
   before_action :set_totals, only: [:d_quantities_array_pdf, :quantities_array_pdf, :quant]
@@ -68,6 +69,7 @@ class RecipesController < ApplicationController
       @barcode = Barby::HtmlOutputter.new(@bar)
     end
     @sticker_value = (@recipe.quantities + @recipe.sub_recipes).sort{ |a, b| b.weight <=> a.weight }
+    @category = RecipeCategory.find(@recipe.recipe_category_id)
   end
 
   # GET /recipes/new
@@ -79,7 +81,6 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    @ingredients = @user.ingredients.all.order("name ASC") + @user.recipes.all.order("name ASC")
     @ingredient = @user.ingredients.new
     respond_to do |format|
       format.html
@@ -273,6 +274,12 @@ class RecipesController < ApplicationController
     @second = @recipe.totals.second.value
     @third = @recipe.totals.third.value
     @fourth = @recipe.totals.fourth.value
+  end
+
+  def set_ingredients
+		@ingredients = Ingredient.all.where(to_public: 1) + @user.ingredients.all
+    @ingredients = @ingredients.sort_by(&:"#{sort_columns}")
+    @ingredients = @ingredients.reverse if sort_direction == 'desc'
   end
 
   def set_votes

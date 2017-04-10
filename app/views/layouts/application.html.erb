@@ -44,7 +44,7 @@
   });
   </script>
 </head>
-<body class="<% if signed_in? %>user-env-cntnr<% end %>" style="<% if signed_in? %>background: <%= colors(2) %>;<% end %>">
+<body class="<% if signed_in? && current_user.terms? %>user-env-cntnr<% end %>" style="<% if signed_in? && current_user.terms? %>background: <%= colors(2) %>;<% end %>">
 <% if request.path.start_with?('/aide') %>
   <%= render 'layouts/help_env' %>
 <% end %>

@@ -37,6 +37,10 @@ class Recipe < ActiveRecord::Base
 		self.votes.where(up: 1).all.count
 	end
 
+	def name_humanized
+		self.name if self.name
+	end
+
 	def downvote
 		self.votes.where(up: 0).all.count
 	end
@@ -133,7 +137,7 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def prht
-		self.total_cost * self.to_produce_in_grammes / self.recipe_weight
+		self.sum_cost * self.to_produce_in_grammes / self.recipe_weight
 	end
 
 	def pvht
@@ -153,8 +157,11 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def total_cost
-		total = self.quantities.collect { |q| q.ingredient.price * q.quantity_weight }.sum / 1000
-		total = total + self.sub_recipes.collect { |s| s.current_recipe.kilo_cost * s.weight }.sum / 1000
+		self.quantities.collect { |q| q.ingredient.first_price * q.quantity_weight }.sum / 1000
+	end
+
+	def sum_cost
+		self.total_cost + self.sub_recipes.collect { |s| s.total_cost }.sum
 	end
 
 	def kilo_cost

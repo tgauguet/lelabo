@@ -39,4 +39,11 @@
     <h3><%= wicked_pdf_image_tag "title.png", class: "mini-img", alt: "notes" %> NOTES :</h3>
     <p class="recipe-notes"><%= @recipe.note %></p>
   <% end %>
+  <% if @recipe.process? %>
+    <div class="form-border"></div>
+    <h3>INSTRUCTIONS</h3><br/>
+    <div class="ing_comp_l">
+      <p><%= @recipe.process.html_safe %></p>
+    </div>
+  <% end %>
 </div>

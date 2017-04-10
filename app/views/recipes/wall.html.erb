@@ -5,27 +5,29 @@
 <div class="action-cntnt">
   <div class="actions-cntnr wall-cntnr">
     <% @recipes.each do |recipe| %>
-			<%= link_to preview_recipe_path(recipe.id) do %>
-				<div class="wall-index">
-					<% if recipe.user.avatar.exists? %><%= image_tag recipe.user.avatar(:small), class: "recipe-owner" %><% end %>
-					<div class="wall-img">
-						<% if recipe.image.exists? %>
-							<%= image_tag recipe.image(:medium) %>
+			<% if recipe.user %>
+				<%= link_to preview_recipe_path(recipe.id) do %>
+					<div class="wall-index">
+						<% if recipe.user.avatar.exists? %><%= image_tag recipe.user.avatar(:small), class: "recipe-owner" %><% end %>
+						<div class="wall-img">
+							<% if recipe.image.exists? %>
+								<%= image_tag recipe.image(:medium) %>
+							<% else %>
+								<div class="missing"></div>
+							<% end %>
+						</div>
+		        <h3><%= truncate(recipe.name.humanize, length: 30) %></h3>
+						<% if recipe.user.firstname && recipe.user.name %>
+							<h6>par <%= recipe.user.firstname %> <%= recipe.user.name %></h6>
 						<% else %>
-							<div class="missing"></div>
+							<h6>&nbsp;</h6>
 						<% end %>
+						<div class="wall-action">
+							<p class="<% if recipe.total_votes > 0 %>good-recipe<% elsif recipe.total_votes < 0 %>bad-recipe<% end %>"><% if recipe.total_votes >= 0 %><%= image_tag "heart3.png" %><% else %><%= image_tag "broken-heart.png" %><% end %> <span><%= recipe.total_votes %></span></p>
+							<!--<p class=""><%#= image_tag "chat.png" %> <span><%#= recipe.total_votes %></span></p>-->
+						</div>
 					</div>
-	        <h3><%= truncate(recipe.name.humanize, length: 30) %></h3>
-					<% if recipe.user.firstname && recipe.user.name %>
-						<h6>par <%= recipe.user.firstname %> <%= recipe.user.name %></h6>
-					<% else %>
-						<h6>&nbsp;</h6>
-					<% end %>
-					<div class="wall-action">
-						<p class="<% if recipe.total_votes > 0 %>good-recipe<% elsif recipe.total_votes < 0 %>bad-recipe<% end %>"><% if recipe.total_votes >= 0 %><%= image_tag "heart3.png" %><% else %><%= image_tag "broken-heart.png" %><% end %> <span><%= recipe.total_votes %></span></p>
-						<!--<p class=""><%#= image_tag "chat.png" %> <span><%#= recipe.total_votes %></span></p>-->
-					</div>
-				</div>
+				<% end %>
       <% end %>
 		<% end %>
   </div>

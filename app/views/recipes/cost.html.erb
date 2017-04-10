@@ -32,7 +32,7 @@
 						<div class="recipe-cost">
 							<p><%= truncate(@recipe.name.humanize, length: 25) %></p>
 							<p><%= to_kilo(@recipe.recipe_weight) %></p>
-							<p><%= number_to_currency @recipe.total_cost %></p>
+							<p><%= number_to_currency @recipe.sum_cost %></p>
 						</div>
 					</div>
 					<table summary="informations de coûts">
@@ -50,7 +50,7 @@
 								<td><%= truncate(q.ingredient.name.humanize, length: 25) %></td>
 								<td><%= q.weight %></td>
 								<td><%= q.unit %></td>
-								<td><%= number_to_currency q.ingredient.price %></td>
+								<td><%= number_to_currency q.ingredient.first_price %></td>
 								<td><%= q.percent %> %</td>
 								<td><%= q.price_percent %> %</td>
 								<td><%= number_to_currency recipe_price(q, @recipe) %></td>

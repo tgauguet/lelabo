@@ -82,4 +82,12 @@ class Ingredient < ActiveRecord::Base
 		"#{self.name.humanize}"
 	end
 
+	def first_price
+		if self.provider_prices.count > 0
+			self.provider_prices.order('priority ASC').first.price
+		else
+			self.price
+		end
+	end
+
 end

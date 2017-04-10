@@ -6,7 +6,7 @@
 	</div>
 	<div class="page-ctas">
     <%= link_to new_recipe_path do %>
-      <p class="primary-btn ttl-btn">+ CRÉER UNE RECETTE</p>
+      <p class="white-btn ttl-btn">+ NOUVELLE RECETTE</p>
     <% end %>
 		<div class="show-sort">
 			<p class="sort-show"><%= image_tag "sort-img.png", class: "mini-img" %></p>
@@ -55,16 +55,9 @@
   						<% if @recipes.blank? %>
                 <br/><br/>
                 <%= link_to new_recipe_path do %>
-                  <p class="primary-btn">CRÉER LA PREMIÈRE RECETTE</p>
+                  <p class="primary-btn">CRÉER UNE RECETTE</p>
                 <% end %>
-                <div class="explaination-cntnr">
-                  <h2>Comment créer une recette ?</h2>
-                  <div class="border-btm"></div>
-                  <p>Cliquez sur le bouton ci-dessus</p>
-                  <div class="border-btm"></div>
-                  <p>Remplissez les champs à l'intérieur du formulaire</p>
-                </div>
-                <br/><br/>
+                <br/><br/><br/>
               <% else %>
   							<%= render @recipes, cache: true %>
   						<% end %>

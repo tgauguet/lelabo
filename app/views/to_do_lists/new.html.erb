@@ -14,19 +14,8 @@
 </div>
 <div class="action-cntnt">
 	<div class="actions-cntnr">
-		<div class="title-cntnr">
-			<% if empty_list %>
-				<div class="explaination-cntnr">
-					<h2>Quand utiliser les listes de tâches ?</h2>
-					<div class="border-btm"></div>
-					<p>Pour noter toutes les tâches qui vous viennent à l'esprit</p>
-					<div class="border-btm"></div>
-					<p>Pour définir vos objectifs de production</p>
-					<div class="border-btm"></div>
-					<p>Pour assigner du travail à vous ou à votre équipe</p>
-				</div>
-			<% end %>
+		<div class="over-x">
+			<%= render "to_do_lists/lists", lists: @lists %>
 		</div>
-		<div class="over-x"><%= render "to_do_lists/lists", lists: @lists %></div>
 	</div>
 </div>

@@ -155,31 +155,32 @@ module RecipesHelper
 
   def compared_values(recipe)
     #"Eau", "Mat. sèche", "Mat. grasse", "Sucre", "Pouvoir sucrant", "Cacao", "Beurre de cacao"
-    if recipe.category == "Ganache"
+    category = recipe.category
+    if category == "Ganache"
       [19, 81, 16, 26, 28, 14, 19]
-    elsif recipe.category == "Sorbet"
+    elsif category == "Sorbet"
       [70,30,0, 20, 22, 0, 0]
-    elsif recipe.category == "Divers"
+    elsif category == "Divers"
       [20,80,20,20,20,20,20]
-    elsif recipe.category == "Biscuit"
+    elsif category == "Biscuit"
       [32,67,17,23,23,1,5]
-    elsif recipe.category == "Chocolat"
+    elsif category == "Chocolat"
       [19, 81, 16, 26, 28, 14, 19]
-    elsif recipe.category == "Confiserie"
+    elsif category == "Confiserie"
       [8,92,0,92,94,0,0]
-    elsif recipe.category == "Crème"
+    elsif category == "Crème"
       [45,54,25,16,16,13,8]
-    elsif recipe.category == "Décors"
+    elsif category == "Décors"
       [19, 81, 16, 26, 28, 14, 19]
-    elsif recipe.category == "Dessert"
+    elsif category == "Dessert"
       [45,54,25,16,16,13,8]
-    elsif recipe.category == "Glace"
+    elsif category == "Glace"
       [11,36,6,16,16,0,0]
-    elsif recipe.category == "Macaron"
+    elsif category == "Macaron"
       [24,75,10,54,54,0,0]
-    elsif recipe.category == "Mousse"
+    elsif category == "Mousse"
       [40,59,15,23,25,0,0]
-    elsif recipe.category == "Pâte" || recipe.category == "Salé"
+    elsif category.in? ["Pâte","Salé"]
       [26,73,23,1,1,0,0]
     else
       [10,23,23]
@@ -215,6 +216,21 @@ module RecipesHelper
       0
     else
       subr.current_recipe.kilo_cost * subr.weight / 1000
+    end
+  end
+
+  def conservation_tips(category)
+    name = category.name
+    if name.in? ["Ganache","Chocolat", "Décors"]
+      "Conservez à l’abris de la lumière, de la chaleur et de l’humidité. Température de conservation optimale : 16 - 20°C"
+    elsif name.in? ["Sorbet", "Glace"]
+      "Conservez à température négative, ne pas recongeler"
+    elsif name.in? ["Salé", "Pâte", "Macaron"]
+      "Conservez au réfrigérateur. Température de conservation optimale : + 4°C"
+    elsif name.in? ["Confiserie", "Biscuit"]
+      "Conservez dans un endroit sec"
+    else
+      " "
     end
   end
 

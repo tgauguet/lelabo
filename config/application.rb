@@ -40,6 +40,8 @@ module Lelabo
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.encoding = "utf-8"
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
     config.autoload_paths += Dir["#{Rails.root}/app/services"]
     config.autoload_paths += Dir["#{Rails.root}/app/validators"]
     config.autoload_paths += Dir["#{Rails.root}/app/jobs"]

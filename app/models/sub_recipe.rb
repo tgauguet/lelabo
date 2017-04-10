@@ -75,4 +75,8 @@ class SubRecipe < ActiveRecord::Base
 		end
 	end
 
+  def total_cost
+    (self.current_recipe.kilo_cost / self.current_recipe.recipe_weight * 1000) * self.weight / 1000
+  end
+
 end
