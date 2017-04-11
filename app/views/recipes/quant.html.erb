@@ -10,6 +10,7 @@
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
 			<div class="recipe-links">
+				<br>
 				<p class="tab cyan-bck q-f2btn">
     			<%= image_tag "array.png", class: "mini-mini-img" %> Tableau de calculs
     		</p>
@@ -29,7 +30,7 @@
 						<%= image_tag 'pdf.png', class: 'mini-mini-img' %> Aperçu PDF
 					<% end %>
 				</div>
-			</div>
+			</div><br>
 			<!-- forms for one quantity calculs -->
 			<%= render "recipes/quantities", recipe: @recipe, first: @first, second: @second, third: @third, fourth: @fourth, totals: @totals %>
 			</div><!-- rec-cntnr -->

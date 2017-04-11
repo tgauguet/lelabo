@@ -34,9 +34,9 @@ var c2 = document.getElementById("chart2");
 var c3 = document.getElementById("chart3");
 var c4 = document.getElementById("chart4");
 var myRecipeName = "<%= @recipe.name.humanize %>";
-var myRecipeCompare = "Valeur indicative pour une recette de type: <%= @recipe.category %>";
+var myRecipeCompare = "Valeur indicative pour une recette de type: <%= @category.name %>";
 var myRecipeValues = [<%= percentage_function("water_percent", "eau", @recipe) %>, <%= percentage_function("dry_matter_percent", "mat. sèche", @recipe) %>, <%= percentage_function("fat_percent", "mat. grasse", @recipe) %>, <%= percentage_function("sugar_percent", "sucre", @recipe) %>, <%= percentage_function("sugar_power", "pouvoir sucrant", @recipe) %>, <%= percentage_function("cocoa_percent", "cacao", @recipe) %>, <%= percentage_function("cocoa_butter_percent", "beurre de cacao", @recipe) %>];
-var myRecipeComparedValues = <%= raw compared_values(@recipe) %>;
+var myRecipeComparedValues = <%= raw compared_values(@category) %>;
 "Eau", "Mat. sèche", "Mat. grasse", "Sucre", "Pouvoir sucrant", "Cacao", "Beurre de cacao"
 var composition = [<%= @recipe.for_100_gram("protein").to_i %>, <%= @recipe.for_100_gram("fat_percent").to_i %>, <%= @recipe.for_100_gram("carbohydrates") %>];
 var calories = [<%= @recipe.for_100_gram("kcal").to_i %>, <%= 1000 - @recipe.for_100_gram("kcal").to_i %>];

@@ -153,34 +153,34 @@ module RecipesHelper
     end
   end
 
-  def compared_values(recipe)
+  def compared_values(category)
     #"Eau", "Mat. sèche", "Mat. grasse", "Sucre", "Pouvoir sucrant", "Cacao", "Beurre de cacao"
-    category = recipe.category
-    if category == "Ganache"
+    name = category.name
+    if name == "Ganache"
       [19, 81, 16, 26, 28, 14, 19]
-    elsif category == "Sorbet"
+    elsif name == "Sorbet"
       [70,30,0, 20, 22, 0, 0]
-    elsif category == "Divers"
+    elsif name == "Divers"
       [20,80,20,20,20,20,20]
-    elsif category == "Biscuit"
+    elsif name == "Biscuit"
       [32,67,17,23,23,1,5]
-    elsif category == "Chocolat"
+    elsif name == "Chocolat"
       [19, 81, 16, 26, 28, 14, 19]
-    elsif category == "Confiserie"
+    elsif name == "Confiserie"
       [8,92,0,92,94,0,0]
-    elsif category == "Crème"
+    elsif name == "Crème"
       [45,54,25,16,16,13,8]
-    elsif category == "Décors"
+    elsif name == "Décors"
       [19, 81, 16, 26, 28, 14, 19]
-    elsif category == "Dessert"
+    elsif name == "Dessert"
       [45,54,25,16,16,13,8]
-    elsif category == "Glace"
+    elsif name == "Glace"
       [11,36,6,16,16,0,0]
-    elsif category == "Macaron"
+    elsif name == "Macaron"
       [24,75,10,54,54,0,0]
-    elsif category == "Mousse"
+    elsif name == "Mousse"
       [40,59,15,23,25,0,0]
-    elsif category.in? ["Pâte","Salé"]
+    elsif name.in? ["Pâte","Salé"]
       [26,73,23,1,1,0,0]
     else
       [10,23,23]

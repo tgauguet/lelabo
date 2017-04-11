@@ -61,6 +61,7 @@ class RecipesController < ApplicationController
   end
 
   def stats
+    @category = RecipeCategory.find(@recipe.recipe_category_id)
   end
 
   def sticker

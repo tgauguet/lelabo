@@ -55,17 +55,16 @@
       <table>
         <% @recipe.quantities.each do |q| %>
           <tr>
-              <%= link_to edit_ingredient_path(q.ingredient.id), target: '_blank' do %>
-                <td class="ing-td"><%= q.ingredient.name %></td>
-              <% end %>
-              <% if !(q.unit == "QS") %>
-                <td class="rgt-td"><%= q.weight %></div>
-                <td><%= q.unit %></td>
-              <% else %>
-                <td class="rgt-td">&nbsp;</td>
-                <td><%= q.unit %></td>
-              <% end %>
-            </div>
+            <%= link_to edit_ingredient_path(q.ingredient.id), target: '_blank' do %>
+              <td class="ing-td"><%= q.ingredient.name %></td>
+            <% end %>
+            <% if !(q.unit == "QS") %>
+              <td class="rgt-td"><%= q.weight %></div>
+              <td><%= q.unit %></td>
+            <% else %>
+              <td class="rgt-td">&nbsp;</td>
+              <td><%= q.unit %></td>
+            <% end %>
           </tr>
         <% end %>
         <% @recipe.sub_recipes.each do |q| %>
@@ -78,17 +77,19 @@
           </tr>
         <% end %>
       </table>
-    <div class="form-border"></div>
-    <% if @recipe.process? %><h3>INSTRUCTIONS</h3><% end %><br/>
-    <div class="ing_comp_l">
-      <p><%= @recipe.process.html_safe %></p>
-    </div>
-    <% if !recipe.portion_number.blank? %>
+    <% if @recipe.process? %>
       <div class="form-border"></div>
-      <h3>QUANTITÉS</h3><br/>
+      <h3>INSTRUCTIONS</h3><br/>
       <div class="ing_comp_l">
-        <p>Recette pour <%= recipe.portion_number %> <%= recipe.portion_name %></p>
+        <p><%= @recipe.process.html_safe %></p>
       </div>
+      <% if !recipe.portion_number.blank? %>
+        <div class="form-border"></div>
+        <h3>QUANTITÉS</h3><br/>
+        <div class="ing_comp_l">
+          <p>Recette pour <%= recipe.portion_number %> <%= recipe.portion_name %></p>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <br/><br/>

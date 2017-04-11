@@ -214,7 +214,7 @@ module ApplicationHelper
 				elsif user.colors == 1
 					color = ["#E52323", "#FF958A", "#F8F2F0", "#FBF4F2", "#C60000"]
 				else
-						color = ["#413DD4", "#75A6FD", "#F0F4F8", "#F8FAFD", "#2F17A3"]
+					color = ["#413DD4", "#75A6FD", "#F0F4F8", "#F8FAFD", "#2F17A3"]
 				end
 				color[value]
 			end

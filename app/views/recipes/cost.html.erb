@@ -9,9 +9,10 @@
   <div class="actions-cntnr">
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
-			<% if @recipe.quantities.blank? %>
+			<% if @recipe.quantities.blank? && @recipe.sub_recipes.blank? %>
 				<p>Ajoutez des ingrédients à votre recette pour pouvoir calculer son coût de revient</p>
 			<% else %>
+			<br>
 			<div class="recipe-links">
 				<p class="tab cyan-bck c-f2btn">
     			<%= image_tag "pie-chart.png", class: "mini-mini-img" %> Statistiques

@@ -31,6 +31,12 @@ body{
   padding: 0;
 }
 
+.recipe-view{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 .connexion-backgrnd{
 	background:rgb(240,244,248);
 }
@@ -58,7 +64,7 @@ body{
   color: rgb(43,54,69); /* #2B3645 */
 }
 
-.tasks-cntnr, .action-cntnr, .pagination .current, .action-plus-list .actions-cntnr, .box, .form-cntnr, .usr-boxes .quadro-box .quadro-child, .usr-boxes .boxes, .welc-recipes, .margin-align, .trial-cntnr, .connexion_container{
+.recipe-view, .tasks-cntnr, .action-cntnr, .pagination .current, .action-plus-list .actions-cntnr, .box, .form-cntnr, .usr-boxes .quadro-box .quadro-child, .usr-boxes .boxes, .welc-recipes, .margin-align, .trial-cntnr, .connexion_container{
 	-moz-box-shadow: 0px 8px 16px 0px rgba(15,16,22,0.07);
   -webkit-box-shadow: 0px 8px 16px 0px rgba(15,16,22,0.07);
   -o-box-shadow: 0px 8px 16px 0px rgba(15,16,22,0.07);
@@ -129,6 +135,23 @@ FONTS ---- DESIGN
 p, h2, h3{
   margin: 0.2em;
   color: rgb(43,54,69);
+}
+
+.pdf-r-cntnr{
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	padding: 1em !important;
+	margin: 0 !important;
+}
+
+.pdf-r-cntnr table tr td{
+	background: transparent !important;
+}
+
+.pdf-r-cntnr table tr:nth-child(2n+2){
+	background: #F8FAFD!important;
 }
 
 .pdf-r-cntnr .view-top-l{
@@ -5045,20 +5068,20 @@ input[type="checkbox"] + span {
 
 .recipe-view{
 	text-align: left;
-	padding: .5em;
+	padding:2em;
 	background: white;
 	margin-left: auto;
 	position: relative;
 	margin-right: auto;
-	width: 50em;
+	width: 100%;
 	margin-top: 1em;
+	border-radius: .3em;
 }
 
 .recipe-links{
 	text-align: right;
-	margin-right: 4em;
-	margin-top: .8em;
-	margin-bottom: 1.6em;
+	margin-top: -1em;
+	margin-bottom: 1em;
 	height: 2em;
 }
 
@@ -6834,9 +6857,8 @@ section{
 
 .public-form{
 	position: relative;
-	top: 50px;
-  left: 50px;
 	width: 13em;
+	top: .5em;
 }
 
 .public-form p{

@@ -10,7 +10,7 @@
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
 				<div class="recipe_values">
-				  <% if @recipe.quantities.blank? %>
+				  <% if @recipe.quantities.blank? && @recipe.sub_recipes.blank? %>
 				    <p>Ajoutez des ingrédients à votre recette pour pouvoir l'équilibrer</p>
 				  <% else %>
 						<%= render "recipes/equilibrium_list", recipe: @recipe %>
