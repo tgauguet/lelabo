@@ -1,6 +1,6 @@
 <%= wicked_pdf_stylesheet_link_tag "application.css" -%>
 <div class="recipe-view show-2-cntnr pdf-r-cntnr">
-  <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
+  <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %><br></div>
   <% if recipe.image.exists? %>
     <div class="show-2-img">
       <%= image_tag "" %>
