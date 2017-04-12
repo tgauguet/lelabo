@@ -3,12 +3,14 @@
 	<%= link_to root_path do %><p class="grey-btn">RETOUR À L'ACCUEIL</p><% end %>
 </div>
 <div class="title-cntnr scroll-here2">
-	<h1 class="big-white-h1">Tarifs</h1>
-	<p>Vous pouvez utiliser le Labo gratuitement (basic), aussi longtemps que vous le souhaitez.</p>
+	<h1 class="big-white-h1">Formules</h1>
+	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le souhaitez</p>
+	<p>Les formules vous permettent de travailler à plusieurs et de créer un nombre de recettes privées illimité</p>
 </div><!-- title-cntnr -->
 	<% @plans.each do |plan| %>
+		<% unless basic_plan(plan) %>
 		<div class="plan-cntnr">
-			<div class="plan-clr-cntnr <% if basic_plan(plan) %><% elsif plan.name == "LIFE" %>plan-color4<% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
+			<div class="plan-clr-cntnr <% if plan.name == "LIFE" %>plan-color4<% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
 				<p class="plan-title"><%= plan.name %></p>
 				<p class="plan-price">
 					<span>
@@ -16,9 +18,7 @@
 					</span>
 				</p>
 				<p class="plan-type"><% if plan.name == "LIFE" %>accès à vie<% else %>par mois<% end %><br/></p>
-				<% if basic_plan(plan) %>
-					<p class="plan-type">sans carte bancaire</p>
-				<% elsif plan.name == "LIFE" %>
+				<% if plan.name == "LIFE" %>
 					<p class="plan-type">plus jamais facturé</p>
 				<% else %>
 					<p class="plan-type">facturé annuellement</p>
@@ -28,14 +28,8 @@
 						<% if same_plan_id(@user, plan) %>
 							<p class="plan-btn">VOTRE FORMULE</p>
 						<% else %>
-							<% if basic_plan(plan)  %>
-								<%= link_to new_contact_path do %>
-									<p class="plan-btn">ENVOYER UN EMAIL</p>
-								<% end %>
-							<% else %>
-								<%= link_to new_subscription_path(plan_id: plan.id) do %>
-									<p class="plan-btn">CHOISIR</p>
-								<% end %>
+							<%= link_to new_subscription_path(plan_id: plan.id) do %>
+								<p class="plan-btn">CHOISIR</p>
 							<% end %>
 						<% end %><!-- if same_plan_id -->
 					<% else %><!-- if user_with_no_subscription -->
@@ -59,40 +53,20 @@
 			</div>
 			<br/>
 			<div class="plan-txt-cntnr">
-				<% if basic_plan(plan) %>
-					<p class="colored-p-txt1"><b>BASIC inclus</b></p>
-					<p>-Création de vos recettes</p>
-					<p>-Création de vos montages</p>
-					<p>-Ajout de nouveaux ingrédients</p>
-					<p>-Téléchargements au format Pdf</p>
-					<p>-Aide et support</p>
-					<p>-Près de 400 ingrédients</p>
-					<p>-Accès sur tous vos appareils</p>
-				<% elsif pro_plan(plan) || plan.name == "PRO" %>
-					<p class="colored-p-txt2"><b>PRO inclus</b><br/>plus toutes les options de BASIC</p>
-					<p>-Calcul de vos coûts de revient</p>
-					<p>-Calcul des quantités de votre recette</p>
-					<p>-Meilleure gestion de vos recettes</p>
-					<p>-Gestion des fournisseurs</p>
-					<p>-Nouvelles options de téléchargements</p>
-					<p>-Ajout d'une photo à vos recettes</p>
-					<p>-Enlever le logo du Labo sur vos recettes</p>
+				<% if entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
+					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options du Labo</p>
+					<p>-Enlever le logo du labo sur vos recettes</p>
+					<p>-Recettes privées illimitées</p>
+					<p>-Générateur de recettes (à venir 2017)</p>
 					<p>-Aide et support prioritaire</p>
-				<% elsif entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
-					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de PRO</p>
-					<p>-Équilibrage de vos ganaches</p>
-					<p>-Équilibrage de vos glaces</p>
-					<p>-Équilibrage de vos sorbets</p>
-					<p>-Calculs de la composition de vos recettes</p>
-					<p>-Ajout de plusieurs photos à vos recettes</p>
-					<p>-Inviter vos collaborateurs sur votre compte</p>
-					<p>-Impression des étiquettes de vos recettes</p>
+					<p>-Collaborateurs (à venir 2017)</p>
 				<% else %>
-					<p class="colored-p-txt4"><b>LIFE inclus</b><br/>Toutes les options de PRO et ENTREPRISE</p>
+					<p class="colored-p-txt4"><b>LIFE inclus</b><br/>Toutes les options de ENTREPRISE</p>
 					<p>-Accès à vie</p>
 				<% end %>
 			</div>
 		</div>
+		<% end %>
 	<% end %>
 	<br/><br/><br/>
 <div class="sale-bckgrnd">

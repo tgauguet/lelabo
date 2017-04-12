@@ -13,11 +13,7 @@
       <p>Votre sélection : FORMULE <%= @plan.name %></p>
       <i>Facturé annuellement</i>
       <% if @user %><p>Tarif :
-        <% if @plan.name == "LIFE" %>
-          <%= @plan.amount[0,4] %>,00€ - Accès à vie</p>
-        <% else %>
-          <%= @plan.amount[0,3] %>,00€ /an</p>
-        <% end %>
+        <%= @plan.amount[0,3] %>,00€ - <% if @plan.name == "LIFE" %>Accès à vie<% else %>Par an<% end %></p>
       <% end %>
       <p></p>
       <%# if @user && @user.business_user? %>

@@ -11,4 +11,9 @@ namespace :plan do
 	task :create_life_plan => :environment do
 		CreatePlan.call(name: "LIFE", amount: 119900, published: true, interval: "year", trial_period_days: '14', stripe_id: 'LIFE', price: 1199.00)
 	end
+	task :create_new_plans => :environment do
+		Plan.create!(name: "BASIC", amount: 000, published: true, price: 000)
+		CreatePlan.call(name: "ENTREPRISE", amount: 10800, published: true, interval: 'year', trial_period_days: '14', stripe_id: "PRO", price: 9)
+		CreatePlan.call(name: "LIFE", amount: 39900, published: true, interval: "year", trial_period_days: '14', stripe_id: 'LIFE', price: 399.00)
+	end
 end
