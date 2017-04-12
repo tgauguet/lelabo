@@ -15,7 +15,7 @@
       <div class="home-cntnr">
         <div class="inscription_container">
             <br/>
-            <h1>VOS RECETTES</h1>
+            <h1>Votre générateur de recettes</h1>
             <h2><span class="element"></span></h2>
             <br/>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,15 +32,3 @@
       </div>
   </div>
 </div>
-<script>
-$(func = function () {
-  $(".element").typed({
-      strings: ['RENTABILISÉES','CALCULÉES','ÉQUILIBRÉES','AMÉLIORÉES','CENTRALISÉES','',''],
-      typeSpeed: 100, // typing speed
-      backDelay: 2000,
-      callback: function (){
-        func();
-      }
-  });
-});
-</script>
