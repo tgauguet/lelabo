@@ -8,7 +8,7 @@
     <div class="rec-cntnr">
 			<div class="recipe-links">
 				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
-					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> Aperçu PDF
+					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> PDF
 				<% end %>
 				<% if signed_in? %>
 					<a href="#" class="email-sender">
