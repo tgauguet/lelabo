@@ -17,7 +17,7 @@
       • <%= q.ingredient.name %> <%= q.weight %> <%= q.unit %>
     <% end %>
     <% @recipe.sub_recipes.each do |s| %>
-      • <%= @user.recipes.find(s.sub_id).name %> <%= s.weight %> g
+      • <%= Recipe.find(s.sub_id).name %> <%= s.weight %> g
     <% end %>
 
     Ce lien permet de créer des recettes : http://www.lelabo-ondemand.com

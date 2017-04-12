@@ -14,10 +14,10 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.hidden_field :reset_password_token %>
         <%= image_tag "key.png", class: "field-img2" %>
-        <%= f.password_field :password, autofocus: true, placeholder: "Mot de passe", class: "basic-field top-field" %>
+        <%= f.password_field :password, autofocus: true, placeholder: "Mot de passe", class: "basic-field top-field img-field" %>
         <%= image_tag "key.png", class: "field-img2" %>
-        <%= f.password_field :password_confirmation, autofocus: true, placeholder: "Confirmation", class: "basic-field bottom-field" %><br/>
-        <%= f.submit "Modifier", class: "primary-btn" %>
+        <%= f.password_field :password_confirmation, autofocus: true, placeholder: "Confirmation", class: "basic-field bottom-field img-field" %><br/>
+        <%= f.submit "Modifier", class: "primary-btn bef-btn" %>
       <% end %>
     </div>
     <div class="step-right-part  step-bckgrnd bckgrnd5">

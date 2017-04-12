@@ -8,15 +8,15 @@
             <%= devise_error_messages! %>
             <p>Vos noms</p>
             <%= image_tag "user.png", class: "field-img2" %>
-            <%= f.text_field :name,required: true, autofocus: true, :placeholder => "Nom", class: "basic-field top-field"  %>
+            <%= f.text_field :name,required: true, autofocus: true, :placeholder => "Nom", class: "img-field basic-field top-field"  %>
             <%= image_tag "user2.png", class: "field-img2" %>
-            <%= f.text_field :firstname,required: true, autofocus: true, :placeholder => "Prénom", class: "basic-field bottom-field"%>
+            <%= f.text_field :firstname,required: true, autofocus: true, :placeholder => "Prénom", class: "img-field basic-field bottom-field"%>
             <br/><br/>
             <p>Votre entreprise</p>
             <%= image_tag "company.png", class: "field-img2" %>
-            <%= f.text_field :company,required: true, autofocus: true, :placeholder => "Entreprise", class: "basic-field field"  %>
+            <%= f.text_field :company,required: true, autofocus: true, :placeholder => "Entreprise", class: "img-field basic-field field"  %>
             <br/><br/>
-            <%= f.button :submit, class:"primary-btn" do %>
+            <%= f.button :submit, class:"primary-btn bef-btn" do %>
                 SUIVANT<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>
         <% end %>

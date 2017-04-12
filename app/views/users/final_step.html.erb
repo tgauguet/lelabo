@@ -7,22 +7,22 @@
             <%= devise_error_messages! %>
             <p class="mini-txt">Nom du compte</p>
             <%= image_tag "chef.png", class: "field-img2" %>
-            <%= f.text_field :account_name, required: true, autofocus: true, class: "field basic-field full-witdth"  %><br/>
+            <%= f.text_field :account_name, required: true, autofocus: true, class: "field basic-field full-witdth img-field"  %><br/>
             <p class="mini-txt">Email</p>
             <%= image_tag "mail.png", class: "field-img2" %>
-            <%= f.text_field :email, required: true, autofocus: true, class: "field basic-field full-witdth"  %><br/>
+            <%= f.text_field :email, required: true, autofocus: true, class: "field basic-field full-witdth img-field"  %><br/>
             <p class="mini-txt">Nom</p>
             <%= image_tag "user.png", class: "field-img2" %>
-            <%= f.text_field :name, required: true, autofocus: true, class: "field basic-field full-witdth"  %><br/>
+            <%= f.text_field :name, required: true, autofocus: true, class: "field basic-field full-witdth img-field"  %><br/>
             <p class="mini-txt">Prénom</p>
             <%= image_tag "user2.png", class: "field-img2" %>
-            <%= f.text_field :firstname, required: true, autofocus: true, class: "field basic-field full-witdth"  %><br/>
+            <%= f.text_field :firstname, required: true, autofocus: true, class: "field basic-field full-witdth img-field"  %><br/>
             <p class="mini-txt">Entreprise</p>
             <%= image_tag "company.png", class: "field-img2" %>
-            <%= f.text_field :company, required: true, autofocus: true, class: 'field basic-field full-witdth' %><br/>
+            <%= f.text_field :company, required: true, autofocus: true, class: 'field basic-field full-witdth img-field' %><br/>
             <%= f.hidden_field :terms, value: true %>
             <p class="terms">En cliquant sur "TERMINER", vous reconnaissez accepter les <%= link_to conditions_generales_utilisation_path, target: "_blank" do %>Conditions Générales d'Utilisation<% end %></p>
-            <%= f.button :submit, class:"primary-btn" do %>
+            <%= f.button :submit, class:"primary-btn bef-btn" do %>
                 TERMINER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>
         <% end %>

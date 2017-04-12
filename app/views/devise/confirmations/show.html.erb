@@ -7,11 +7,11 @@
 		<%= form_for(resource, as: resource_name, url: confirm_path(resource_name)) do |f| %>
 		    <%= devise_error_messages! %>
 		    <%= image_tag "key.png", class: "field-img2" %>
-		    <%= f.password_field :password, :placeholder => "Mot de passe", class: "basic-field top-field" %>
+		    <%= f.password_field :password, :placeholder => "Mot de passe", class: "basic-field top-field img-field" %>
 		    <%= image_tag "key.png", class: "field-img2" %>
-		    <%= f.password_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field bottom-field" %>
+		    <%= f.password_field :password_confirmation, :placeholder => "Confirmation", class: "basic-field bottom-field img-field" %>
 		    <%= f.hidden_field :confirmation_token, value: @original_token %><br/>
-		    <%= f.button :submit, class:"primary-btn" do %>
+		    <%= f.button :submit, class:"primary-btn bef-btn" do %>
                 VALIDER<%= image_tag "arrow-right.png", class: "btn_arrow" %>
             <% end %>
 		<% end %>

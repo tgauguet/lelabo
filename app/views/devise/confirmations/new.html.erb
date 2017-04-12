@@ -6,9 +6,9 @@
         <p class="low-txt">Vous pourrez ensuite créez votre mot de passe pour sécuriser votre compte.</p><br/>
 		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
         <%= image_tag "mail.png", class: "field-img2" %>
-		    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "basic-field rounded-field" %>
+		    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "basic-field rounded-field img-field" %>
         <br/>
-		    <%= f.submit "Envoyer à nouveau", class: "primary-btn" %>
+		    <%= f.submit "Envoyer à nouveau", class: "primary-btn bef-btn" %>
 		<% end %>
     </div>
     <div class="step-right-part  step-bckgrnd bckgrnd4">
