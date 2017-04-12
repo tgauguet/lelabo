@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Ingredient.all.where(to_public: true).delete_all
-Category.delete_all
-Provider.delete_all
-RecipeCategory.delete_all
+#Ingredient.all.where(to_public: true).delete_all
+#Category.delete_all
+#Provider.delete_all
+#RecipeCategory.delete_all
 
 Category.create!([
     { name: "Additifs" },
