@@ -22,6 +22,13 @@ class User < ActiveRecord::Base
     has_many :ingredients, dependent: :destroy
     has_one :subscription, dependent: :destroy
     validates :account_name, uniqueness: true, presence: true, on: :set_names
+		has_attached_file :company_img, {
+                                    :styles => { medium: "300x300#", small: "75x75#"},
+                                    :default_url => "/company/missing/missing.jpg",
+                                    :size => { :in => 0..300.kilobytes }
+                                }
+    validates_attachment_content_type :company_img,
+                                    :content_type => /^image\/(png|gif|jpeg)/
     has_attached_file :avatar, {
                                     :styles => { medium: "300x300#", small: "75x75#"},
                                     :default_url => "/avatar/missing/missing.jpg",

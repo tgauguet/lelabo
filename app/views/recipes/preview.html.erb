@@ -7,12 +7,6 @@
 		<%= render "layouts/loading_url" %>
     <div class="rec-cntnr">
 			<div class="recipe-links">
-        <a href="#" class="secondary-btn">
-					<%= image_tag 'save.png', class: 'mini-mini-img' %> Ajouter a mes recettes
-				</a>
-				<%= link_to download_recipe_path(format: :pdf), target: '_blank' do %>
-					<%= image_tag 'pdf2.png', class: 'mini-mini-img' %> Enregistrer en PDF
-				<% end %>
 				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
 					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> Aperçu PDF
 				<% end %>
@@ -22,11 +16,8 @@
 					</a>
 				<% end %>
 			</div><!-- recipe-links -->
-			<p>Vue <%= @recipe.impressionist_count %> fois</p>
-			<p>Crée le <%= @recipe.created_at.strftime("%d-%m-%Y") %></p>
-			<p>Modifiée le <%= @recipe.updated_at.strftime("%d-%m-%Y") %></p>
 			<%= render "recipes/upvote_form", recipe: @recipe, vote: @vote %>
-			<%= render "recipes/show", recipe: @recipe %>
+			<%= render "recipes/show", recipe: @recipe, user: @user %>
 		</div>
   </div>
 </div>

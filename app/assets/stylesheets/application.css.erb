@@ -142,8 +142,8 @@ p, h2, h3{
 	-webkit-box-shadow: none;
 	-o-box-shadow: none;
 	box-shadow: none;
-	padding: 1em !important;
 	margin: 0 !important;
+	border-radius: 0;
 }
 
 .pdf-r-cntnr table tr td{
@@ -5078,6 +5078,170 @@ input[type="checkbox"] + span {
 	border-radius: .3em;
 }
 
+.show-2-cntnr{
+	padding: 0;
+}
+
+.show-2-cntnr .user-img2{
+	width: 16em;
+	height: 16em;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+.show-2-cntnr .show-2-img {
+	width: 100%;
+	max-height: 8em;
+	overflow: hidden;
+}
+
+.show-2-cntnr .show-2-img img{
+	width: 100%;
+	height: auto;
+	vertical-align: center;
+	border-radius: 0em;
+	-webkit-filter: blur(30px); /* Safari */
+  filter: blur(30px);
+	-moz-filter: blur(30px);
+  -o-filter: blur(30px);
+}
+
+.show-2-owner{
+	margin: -1em 0 1em 0;
+}
+
+.show-2-owner img{
+	width: 2em;
+	border-radius: 50%;
+	vertical-align: -.6em;
+	margin-right: .5em;
+}
+
+.show-2-wht-bck h1{
+	font-family: "source_sans_probold";
+	font-size: 2em;
+	background: white;
+}
+
+.show-2-txt-cntnr{
+	padding: 1em 2em;
+}
+
+.show-2-txt-cntnr .comp-img{
+	width: 5em;
+	height: 5em;
+	border-radius: 0 0 0 50%;
+	position: absolute;
+	right: 0;
+	border: 0 0 3px 3px solid white;
+	top: 0;
+}
+
+.show-2-wht-bck{
+	padding: 0 0 0 2em;
+}
+
+.show-2-wht-bck h3, .show-2-txt-cntnr h2{
+	margin-top: -.1em;
+	font-size: 1em;
+	font-family: "source_sans_prosemibold";
+}
+
+.show-2-txt-cntnr h2{
+	font-size: 1.3em;
+}
+
+.show-2-ing{
+	width: 20em;
+	margin-right: 2em;
+}
+
+.show-2-pro{
+	width: 27em;
+}
+
+.show-2-pro p{
+	font-size: .95em;
+	text-align: justify;
+}
+
+.show-2-ing, .show-2-pro{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 1em;
+}
+
+.pdf-r-cntnr .show-2-ing{
+	width: 18em;
+}
+
+.pdf-r-cntnr .show-2-pro{
+	width: 22em;
+}
+
+.show-2-cntnr .logo-pdf{
+	position: absolute;
+	margin: .5em;
+}
+
+.pdf-r-cntnr .show-2-img{
+	height: 4em;
+}
+
+.pdf-r-cntnr .show-2-wht-bck{
+	padding-left: .5em;
+}
+
+.pdf-r-cntnr .show-2-txt-cntnr{
+	padding: 0em .5em;
+}
+
+.pdf-r-cntnr .user-img2{
+	width: 12em;
+	height: 12em;
+}
+
+.pdf-r-cntnr .show-2-txt-cntnr .show-2-ing, .pdf-r-cntnr .show-2-txt-cntnr .show-2-pro{
+	float: left;
+	margin: 0 !important;
+}
+
+.pdf-r-cntnr .show-2-txt-cntnr .show-2-pro{
+	float: right;
+}
+
+.pdf-r-cntnr .show-2-txt-cntnr h2{
+	font-size: 1em;
+}
+
+.pdf-r-cntnr .show-2-txt-cntnr .show-2-ing table tr td{
+	font-size: .9em;
+}
+
+.pdf-r-cntnr .show-2-txt-cntnr .show-2-pro p{
+	font-size: .9em;
+}
+
+.show-2-ing .ing-td{
+	max-width: 17em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.show-2-ing td{
+	width: 2em;
+}
+
+.show-2-ing .ing-td a, .show-2-ing td{
+	font-family: "source_sans_prosemibold";
+}
+
+.show-2-ing .ing-td a:hover{
+	text-decoration: underline;
+}
+
 .recipe-links{
 	text-align: right;
 	margin-top: -1em;
@@ -5086,7 +5250,7 @@ input[type="checkbox"] + span {
 }
 
 .preview-cntnt .recipe-links{
-	margin-right: 6.5em;
+	margin:0;
 }
 
 .recipe-links a, .recipe-links p{
@@ -5352,7 +5516,7 @@ input[type="checkbox"] + span {
 
 .rgt-td{
 	text-align: right !important;
-	padding-right: 1em !important;
+	padding-right: .3em !important;
 }
 
 .cost-val{
@@ -7014,6 +7178,11 @@ section{
 	filter: grayscale(100%);
 }
 
+.upvote-form .heart{
+	width: 1em;
+	margin-left: .2em;
+}
+
 .vote-arrow{
 	cursor: pointer;
 }
@@ -7034,7 +7203,8 @@ section{
 .upvote-form{
 	width: 1.5em;
 	text-align: center;
-	margin-right: 2em;
+	position: absolute;
+	left: -2em;
 }
 
 .upvote-form h4{
@@ -7065,6 +7235,8 @@ section{
 		z-index: 10004;
 		color: white;
 		padding: .6em;
+		width: 13em;
+		background: rgb(84,88,223);
 }
 
 @keyframes cssAnimation {

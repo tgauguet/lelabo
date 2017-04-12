@@ -1,0 +1,95 @@
+<div class="recipe-view">
+  <div class="view-top-l">
+    <h1><%= recipe.name.mb_chars.upcase %></h1>
+    <div class="recipe-info-cntnr">
+      <div class="form-border"></div>
+      <div class="recipe-info">
+        <h3><%= image_tag "chronometer.png", class: "mini-img" %> PRÉPARATION</h3>
+        <p>
+          <% if recipe.preparation_minutes? %>
+            <%= distance_of_time_in_words(recipe.preparation_minutes.to_i * 60) %>
+          <% else %>
+            NC
+          <% end %>
+        </p>
+      </div>
+      <div class="recipe-info">
+        <h3><%= image_tag "chronometer.png", class: "mini-img" %> CUISSON</h3>
+        <p>
+          <% if recipe.baking_minutes? %>
+            <%= Time.at(recipe.baking_minutes.to_i * 60).utc.strftime('%H : %M min') %>
+          <% else %>
+            NC
+          <% end %>
+        </p>
+      </div>
+      <div class="recipe-info">
+        <h3>T° CUISSON</h3>
+        <p>
+          <% if recipe.baking? %>
+            <%= recipe.baking %> °C
+          <% else %>
+            NC
+          <% end %>
+        </p>
+      </div>
+      <div class="form-border"></div>
+    </div><br/>
+    <p><b>Auteur : <%= recipe.owner %></b></p><br/>
+    <% if recipe.note? %><b>Notes:</b><p class="note"><%= recipe.note %></p><br/><% end %>
+  </div>
+  <div class="view-top-r">
+    <% if recipe.image.exists? %><%= image_tag recipe.image, class: "user-img2" %><% end %>
+  </div>
+  <div class="ing_comp_cntnr">
+    <div class="form-border"></div>
+    <h3>INGRÉDIENTS</h3><br/>
+      <div class="recipe-values rec-show">
+        <table>
+          <% recipe.quantities.each do |q| %>
+            <tr>
+                <td class="ing-td">
+                  <%= link_to ingredient_path(q.ingredient.id), target: '_blank' do %>
+                    <%= q.ingredient.name %>
+                  <% end %>
+                </td>
+                <% if !(q.unit == "QS") %>
+                  <td class="rgt-td"><%= q.weight %></div>
+                  <td><%= q.unit %></td>
+                <% else %>
+                  <td></td>
+                  <td><%= q.unit %></td>
+                <% end %>
+              </div>
+            </tr>
+          <% end %>
+          <% recipe.sub_recipes.each do |q| %>
+            <tr>
+              <td class="ing-td">
+                <%= link_to recipe_path(q.sub_id), target: '_blank' do %>
+                  <%= current_user.recipes.find(q.sub_id).name %>
+                <% end %>
+              </td>
+              <td class="rgt-td"><%= q.weight %></td>
+              <td>g</td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    <% if recipe.process? %>
+    <div class="form-border"></div>
+    <h3>INSTRUCTIONS</h3>
+    <div class="ing_comp_l">
+      <p><%= recipe.process.html_safe %></p>
+    </div>
+    <% end %>
+    <% if !recipe.portion_number.blank? %>
+      <div class="form-border"></div>
+      <h3>QUANTITÉS</h3><br/>
+      <div class="ing_comp_l">
+        <p>Recette pour <%= recipe.portion_number %> <%= recipe.portion_name %></p>
+      </div>
+    <% end %>
+  </div>
+  <br/><br/>
+</div>

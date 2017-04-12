@@ -32,6 +32,7 @@ class RecipesController < ApplicationController
   end
 
   def preview
+    @user = current_user
     @message = Message.new
     impressionist(@recipe)
   end
@@ -83,6 +84,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @ingredient = @user.ingredients.new
+    @user = current_user
     respond_to do |format|
       format.html
       format.json { head :no_content }

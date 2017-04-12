@@ -14,13 +14,13 @@
 			</div>
 			<div class="recipe-links">
 				<%= link_to edit_recipe_path(@recipe, format: :pdf), target: '_blank' do %>
-					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> Aperçu PDF
+					<%= image_tag 'pdf.png' , class: 'mini-mini-img'%> PDF
 				<% end %>
 				<a href="#" class="email-sender">
 					<%= image_tag 'send-button.png' , class: 'mini-mini-img'%> Partager
 				</a>
 			</div>
-      <%= render "recipes/show", recipe: @recipe %>
+      <%= render "recipes/show", recipe: @recipe, user: @user %>
     </div>
   </div>
 </div>

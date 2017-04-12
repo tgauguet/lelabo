@@ -53,6 +53,10 @@ module ApplicationHelper
       controller.controller_name == "pages" || controller.controller_name == "contacts" || controller.controller_name == "help" || controller.controller_name == "subscriptions" || controller.controller_name == "blogs" || controller.controller_name == "feedbacks" || controller.controller_name == "delete_accounts" || current_page?('/404') || current_page?('/500') || current_page?('/422') || current_page?('/page-error')
     end
 
+		def preview_page?
+			controller.controller_name == "recipes" && controller.action_name == "preview"
+		end
+
     def do_not_flash
         current_page?(nom_de_votre_compte_url) || current_page?(informations_de_votre_compte_url)
     end

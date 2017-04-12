@@ -85,7 +85,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		accessible = [:name, :email, :stripe_customer_id, :colors, :facebook_link, :linkedin_link, :instagram_link, :google_link, :country, :avatar, :firstname, :company, :job_type, :phone, :company_image, :phone, :skype, :profile_image, :account_name, :terms]
+		accessible = [:name, :company_img, :email, :stripe_customer_id, :colors, :facebook_link, :linkedin_link, :instagram_link, :google_link, :country, :avatar, :firstname, :company, :job_type, :phone, :company_image, :phone, :skype, :profile_image, :account_name, :terms]
 		accessible << [:password, :password_confirmation] unless params[:user][:password].blank?
 		params.require(:user).permit(accessible)
 	end

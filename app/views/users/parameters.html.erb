@@ -6,6 +6,9 @@
 	<div class="actions-cntnr">
     <div class="action-cntnr form-cntnr">
 			<%= form_for(@user, action: :set_parameters ) do |f| %>
+				<p>Logo sur les recettes</p>
+				<%= image_tag(@user.company_img.url(:medium), class: "user-img") %><br/>
+				<%= f.file_field :company_img %><br/><i>afin que votre image s'affiche correctement, nous vous conseillons de télécharger une image ayant une longueur et une hauteur similaires</i>
 				<p>Thème</p>
 				<div class="color-select">
 					<label>
