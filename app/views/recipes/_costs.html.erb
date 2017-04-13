@@ -20,7 +20,7 @@
         <br/><br/>
         <div class="basic-field rounded-field img-field">
           <%= image_tag "measure.png", class: "field-img2 up-img" %>
-          Mesure : <%= recipe.unit %>
+          Mesure : <% if recipe.unit == "portion" %><%= recipe.portion_name %><% else %><%= recipe.unit %><% end %>
           <span class="grey-btn pop-on">
             <%= image_tag "pencil.png", class: "mini-mini-img", alt: "tableau" %> Modifier
           </span>
@@ -38,7 +38,7 @@
   <div class="arrow-left"></div>
   <div class="prod-results cost-results">
     <%= render "layouts/loading" %>
-    <h3 class="ajax-hide">Coût de revient pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+    <h3 class="ajax-hide">Coût de revient pour <%= recipe.to_product %> <% if recipe.unit == "portion" %><%= recipe.portion_name %><% else %><%= recipe.unit %><% end %> <%= recipe.to_details %></h3>
     <table class="ajax-hide">
       <tr>
         <th>POIDS</th>

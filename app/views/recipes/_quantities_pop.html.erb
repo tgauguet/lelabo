@@ -13,7 +13,7 @@
 					<label for="rad2" class="trigger"><%= image_tag "weighing.png", class: "mini-img" %>kilogrammes</label>
 					<%= f.radio_button 'unit', "parts", id: "rad3" %>
 					<label for="rad3" class="trigger" data-rel="part"><%= image_tag "weighing.png", class: "mini-img" %>parts</label>
-					<%= f.radio_button 'unit', "#{recipe.personnalized}", id: "rad5" %>
+					<%= f.radio_button 'unit', "portion", id: "rad5" %>
 					<label for="rad5" class="trigger last" data-rel="perso"><%= image_tag "weighing.png", class: "mini-img" %><%= recipe.personnalized %></label>
 					<br/>
 					<div class="part content  <% if recipe.unit == "parts" %>show<% end %>">

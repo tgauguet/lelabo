@@ -3,7 +3,7 @@
 <div><%= wicked_pdf_image_tag "logo-pdf.png", class: "logo-pdf", alt: "logo pdf" %></div>
 <div class="pdf-cntnr">
   <h1><%= @recipe.name.mb_chars.upcase %></h1>
-  <h3>Recette pour <%= recipe.to_product %> <%= recipe.unit %> <%= recipe.to_details %></h3>
+  <h3>Recette pour <%= recipe.to_product %> <% if recipe.unit == "portion" %><%= recipe.portion_name %><% else %><%= recipe.unit %><% end %> <%= recipe.to_details %></h3>
   <br/><br/>
   <div class="recipe-values">
     <table>

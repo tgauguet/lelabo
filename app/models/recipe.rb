@@ -125,7 +125,7 @@ class Recipe < ActiveRecord::Base
 		self.to_produce *
 		if self.unit == "parts"
 			 self.portion_weight
-		elsif self.unit == "#{self.portion_name}"
+		elsif self.unit == "portion"
 			self.portion.to_i
 		elsif self.unit == "recettes"
 			(self.totals.first.value * 1000).to_i
@@ -201,8 +201,8 @@ class Recipe < ActiveRecord::Base
 			self.portion_weight? ? "de " + self.portion_weight.to_s + " g" : "de ? g"
 		elsif self.unit == "recettes"
 			self.totals.first.value? ? "de " + (self.totals.first.value * 1000).to_i.to_s + " g" : "de ? g"
-		elsif self.unit == "#{self.portion_name}"
-			self.portion? ? "de " + self.portion + " g" : "de ? g"
+		elsif self.unit == "portion"
+			self.portion? ? " de " + self.portion + " g" : "de ? g"
 		else
 			" "
 		end
