@@ -17,31 +17,6 @@ ActiveRecord::Schema.define(version: 20170411130035) do
   enable_extension "plpgsql"
   enable_extension "citext"
 
-  create_table "assemblies", force: :cascade do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "recipe_id"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "owner"
-    t.string   "category"
-    t.integer  "user_id"
-    t.text     "notes"
-    t.boolean  "stared"
-    t.boolean  "loved"
-    t.integer  "stock"
-    t.integer  "to_produce"
-    t.integer  "sold"
-    t.string   "unit"
-  end
-
-  add_index "assemblies", ["recipe_id"], name: "index_assemblies_on_recipe_id", using: :btree
-  add_index "assemblies", ["user_id"], name: "index_assemblies_on_user_id", using: :btree
-
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -327,7 +302,6 @@ ActiveRecord::Schema.define(version: 20170411130035) do
     t.boolean  "fast",                          default: true
     t.integer  "portion_number"
     t.string   "array_unit"
-    t.boolean  "page_selector"
     t.integer  "baking_minutes"
     t.integer  "preparation_minutes"
     t.string   "allergen",                      default: [],                array: true
@@ -335,17 +309,12 @@ ActiveRecord::Schema.define(version: 20170411130035) do
     t.string   "production_number"
     t.string   "conservation"
     t.integer  "consumption_days"
-    t.string   "barcode_value"
-    t.float    "barcode"
-    t.integer  "code"
     t.integer  "codebar"
     t.integer  "bar",                 limit: 8
     t.string   "eq_data"
     t.integer  "cost_data"
     t.float    "coef"
-    t.boolean  "public"
     t.boolean  "to_public"
-    t.integer  "category_id"
     t.integer  "recipe_category_id"
   end
 
@@ -479,7 +448,6 @@ ActiveRecord::Schema.define(version: 20170411130035) do
     t.string   "linkedin_link"
     t.string   "google_link"
     t.string   "instagram_link"
-    t.string   "color"
     t.integer  "colors"
     t.string   "company_img_file_name"
     t.string   "company_img_content_type"

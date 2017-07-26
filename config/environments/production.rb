@@ -15,6 +15,12 @@ Rails.application.configure do
         s3_region: ENV['AWS_REGION'],
       }
     }
+    Rails.application.config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[PREFIX] ",
+      :sender_address => %{"notifier" <railsnotifier@example.com>},
+      :exception_recipients => %w{timothee.gauguet@orange.fr}
+    }
 
     # Eager load code on boot. This eager loads most of Rails and
     # your application in memory, allowing both threaded web servers

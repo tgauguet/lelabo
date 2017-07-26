@@ -1,7 +1,5 @@
 class AddIndexes < ActiveRecord::Migration
   def change
-    add_index :assemblies, :recipe_id
-    add_index :assemblies, :user_id
     add_index :feedbacks, :user_id
     add_index :images, :recipe_id
     add_index :images, :assembly_id

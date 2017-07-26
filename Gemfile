@@ -21,6 +21,8 @@ gem 'impressionist'
 
 gem 'barby'
 
+gem 'exception_notification'
+
 gem 'delayed_job_active_record'
 
 gem 'chart-js-rails'
