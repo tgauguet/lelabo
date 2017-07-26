@@ -1,7 +1,7 @@
 <% title "Fonctionnalités" %>
 <div class="title-cntnr">
-	<h1 class="big-white-h1">Le meilleur travail commence avec les meilleures recettes</h1>
-	<p>Le Labo vous permet d'optimiser et de gérer vos recettes, facilement.</p>
+	<h1 class="big-white-h1">Faites en plus avec vos recettes</h1>
+	<p>Le Labo vous permet d'optimiser et de gérer votre production, facilement.</p>
 </div>
 <div class="product-cntnr">
 	<div class="product-right-img-cntnr"><%= image_tag "lelabo-product.jpg", class: 'product-right-img', alt: "mode de fonctionnement" %></div>
@@ -10,8 +10,8 @@
 			<div class="abs-feature"><%= image_tag "feat1.png", alt: "feature image" %></div>
 			<div class="abs-txt abs-t1">
 				<div class="txt-cntnr beautiful-txt-color">
-					<h3>Classements</h3>
-					<p>Classez vos recettes en fonction de leur importance</p>
+					<h3>Création</h3>
+					<p>Utilisez de nouveaux outils pour vous démarquer</p>
 				</div>
 			</div>
 		</div>
@@ -20,7 +20,7 @@
 			<div class="abs-txt abs-t2">
 				<div class="txt-cntnr beautiful-txt-color">
 					<h3>Équilibre</h3>
-					<p>Calculez leur composition et équilibrez vos recettes</p>
+					<p>Calculez leur composition et l'équilibre de vos fabrications</p>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 			<div class="abs-txt abs-t3">
 				<div class="txt-cntnr beautiful-txt-color">
 					<h3>Coût de revient</h3>
-					<p>Gérez le coût et la rentabilité de vos recettes</p>
+					<p>Optimisez la rentabilité de vos produits</p>
 				</div>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 			<div class="abs-txt abs-t4">
 				<div class="txt-cntnr beautiful-txt-color">
 					<h3>Sécurité</h3>
-					<p>Vos recettes sont stockées dans un environnement sécurisé</p>
+					<p>Vos recettes sont stockées dans un environnement privé et sécurisé</p>
 				</div>
 			</div>
 		</div>
@@ -50,13 +50,14 @@
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-        <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
+        <%= f.text_field :email, :placeholder => "Entrez votre email ici", class: "basic-field rounded-field cta-field" %>
 				<%= f.button :submit, class: "primary-btn bef-btn" do %>
 					COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
         <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>
 </div>
+<br/><br/><br/><br/><br/><br/><br/>
 <div class="sale-bckgrnd">
 	<div class="sale-cntnr">
 		<%= image_tag "blender.png", class: "rocket2", alt: "rocket" %>
@@ -86,12 +87,12 @@
 	<h2 class="big-white-h2">Utiliser Le Labo gratuitement</h2>
 	<p>Aussi longtemps que vous le souhaitez</p><br/>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-        <%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
-				<%= f.button :submit, class: "primary-btn bef-btn" do %>
-					COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
-				<% end %>
-        <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
-      <% end %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :oauthdelivered, :value => 'true' %>
+    <%= f.text_field :email, :placeholder => "Entrez votre email ici", class: "basic-field rounded-field cta-field" %>
+		<%= f.button :submit, class: "primary-btn bef-btn" do %>
+			COMMENCER !<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+		<% end %>
+    <p class='subtxt-white'>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
+  <% end %>
 </div>

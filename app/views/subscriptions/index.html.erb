@@ -3,25 +3,24 @@
 	<%= link_to root_path do %><p class="grey-btn">RETOUR À L'ACCUEIL</p><% end %>
 </div>
 <div class="title-cntnr scroll-here2">
-	<h1 class="big-white-h1">Formules</h1>
+	<h1 class="big-white-h1">Tarif</h1>
 	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le souhaitez</p>
-	<p>Les formules vous permettent de travailler à plusieurs et de créer un nombre de recettes privées illimité</p>
+	<!-- <p>Les fonctionnalités auxquelles vous avez accès resteront toujours gratuites</p> -->
 </div><!-- title-cntnr -->
 	<% @plans.each do |plan| %>
-		<% unless basic_plan(plan) %>
 		<div class="plan-cntnr">
 			<div class="plan-clr-cntnr <% if plan.name == "LIFE" %>plan-color4<% elsif plan.name == "PRO" %> plan-color2 <% else %>plan-color3 <% end %>">
-				<p class="plan-title"><%= plan.name %></p>
+				<p class="plan-title">PROFESSIONNEL</p>
 				<p class="plan-price">
 					<span>
 						<b><%= plan.price.to_i %></b>€
 					</span>
 				</p>
-				<p class="plan-type"><% if plan.name == "LIFE" %>accès à vie<% else %>par mois<% end %><br/></p>
+				<p class="plan-type"><% if plan.name == "LIFE" %>accès à vie<% else %><!-- par mois -->à vie<% end %><br/></p>
 				<% if plan.name == "LIFE" %>
 					<p class="plan-type">plus jamais facturé</p>
 				<% else %>
-					<p class="plan-type">facturé annuellement</p>
+					<!-- <p class="plan-type">facturé annuellement</p> -->
 				<% end %>
 				<div class="plan-btn-cntnr">
 					<% if user_with_no_subscription(@user) %>
@@ -61,13 +60,19 @@
 					<p>-Aide et support prioritaire</p>
 					<p>-Collaborateurs (à venir 2017)</p>
 				<% else %>
-					<p class="colored-p-txt4"><b>LIFE inclus</b><br/>Toutes les options de ENTREPRISE</p>
-					<p>-Accès à vie</p>
+					<p class="colored-p-txt4"><b>PROFESSIONNEL inclus</b><br/><!--Toutes les options de ENTREPRISE--></p>
+					<p>-Équilibre de vos ganaches</p>
+					<p>-Équilibre de vos glaces</p>
+					<p>-Équilibre de vos sorbets</p>
+					<p>-Calculs des coûts de revient</p>
+					<p>-Étiquettes de composition</p>
+					<p>-Calculs de votre production</p>
+					<p>-Impressions et mise en page</p>
+					<p>-Plus de 500 ingrédients</p>
 				<% end %>
 			</div>
 		</div>
 		<% end %>
-	<% end %>
 	<br/><br/><br/>
 <div class="sale-bckgrnd">
 	<div class="sale-cntnr">
@@ -75,7 +80,7 @@
 	</div>
 	<div class="sale-cntnr">
 		<h2>Une nouvelle perspective</h2>
-		<p>Toute l'année, des ingénieurs travaillent sur Le Labo afin de mieux répondre à vos attentes.</p>
+		<p>Toute l'année, nous travaillons sur Le Labo afin de mieux répondre à vos attentes.</p>
 		<p>Résultat : des options plus travaillées, des mises à jours régulières et la garantie d'utiliser une application en constante recherche de gain de temps et de qualité pour ses clients.</p>
 		<br/>
 		<p>Le Labo n'est pas seulement conçu pour les pros, il est amélioré à leurs côtés.</p>
@@ -83,13 +88,13 @@
 </div>
 <% unless signed_in? %>
 <div class="sale-txt-cntnr scroll-here">
-	<h2 class="big-white-h2">Essayez gratuitement pendant 30 jours !</h2><br/>
+	<h2 class="big-white-h2">Utiliser Le Labo gratuitement</h2><br/>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-				<%= f.text_field :email, :placeholder => "Email", class: "basic-field rounded-field cta-field" %>
+				<%= f.text_field :email, :placeholder => "Entrez votre email ici", class: "basic-field rounded-field cta-field" %>
 				<%= f.button :submit, class: "primary-btn bef-btn" do %>
-						ESSAYER GRATUITEMENT<%= image_tag "arrow-right.png", class: "btn_arrow" %>
+						UTILISER GRATUITEMENT<%= image_tag "arrow-right.png", class: "btn_arrow" %>
 				<% end %>
         <p>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
       <% end %>
@@ -100,7 +105,7 @@
 	<div class="quest-cntnr">
 		<div>
 			<h3>Ou puis-je en savoir plus sur Le Labo ?</h3>
-			<p>La meilleure façon de savoir si Le Labo vous convient est de l'essayer. Notre offre gratuite possède une grande partie des options nécessaires pour vous faire une expérience complète.</p>
+			<p>La meilleure façon de savoir si Le Labo vous convient est de l'essayer, c'est gratuit.</p>
 		</div>
 		<div>
 			<h3>Comment se passe la sécurisation de mes données ?</h3>
@@ -110,15 +115,6 @@
 		<div>
 			<h3>Quelle est l'approche du Labo vis à vis de mes données ?</h3>
 			<p>Tout ce que vous publiez sur Le Labo est privé et visible seulement depuis votre compte. Tout le contenu que vous créez demeure votre propriété.</p>
-		</div>
-		<div>
-			<h3>Comment profiter d'un essai gratuit ?</h3>
-			<p>Lors de votre inscription sur le Labo, vous disposez de 30 jours pour utiliser gratuitement toutes les fonctionnalités. <br/>Il vous suffit de vous inscrire via la page d'accueil pour en profiter.</p>
-		</div>
-		<div>
-			<h3>Quelles sont mes options de paiement ?</h3>
-			<p>Vous pouvez utiliser votre carte bancaire pour toute les formules. Vous recevrez votre facture immédiatement après votre abonnement.</p>
-			<p><%= link_to contacts_path do %>Contactez-nous<% end %> en cas de question</p>
 		</div>
 	</div>
 	<p class="primary-btn back-to-top scroll2"><%= image_tag "arrow-top.png", class: "mini-img" %> RETOUR EN HAUT DE PAGE</p>

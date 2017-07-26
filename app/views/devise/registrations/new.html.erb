@@ -22,9 +22,9 @@
               <%= devise_error_messages! %>
               <div class="wlcm-btn-cntnr">
                 <%= image_tag "mail.png", class: "field-img-big" %>
-                <%= f.text_field :email, :placeholder => "Adresse email", class: "basic-field welcome-field" %>
+                <%= f.text_field :email, :placeholder => "Entrez votre email ici", class: "basic-field welcome-field" %>
                 <%= f.hidden_field :oauthdelivered, :value => 'true' %>
-                <%= f.submit "ESSAYER GRATUITEMENT", class: "w-btn" %>
+                <%= f.submit "UTILISER GRATUITEMENT", class: "w-btn" %>
               </div>
               <p>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
             <% end %>
