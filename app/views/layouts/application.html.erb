@@ -34,17 +34,16 @@
   	    $(this).css("background-color", "transparent");
   	});
   	$(".current-form, .features-li ul .current-feat span").css("color", "<%= colors(0) %>");
-    $(".pdf-cntnr .nth-chld:nth-child(2n+2), .ingredient-values p:nth-child(2n+2), .rec-show table tr:nth-child(2n+1) td, .pdf-cntnr table tr:nth-child(2n+1) td,.inline_divs:nth-child(2n+2), .values ul li:nth-child(2n+2), .cost-cost p:nth-child(2n+2), .cost-result p:nth-child(2n+2), .item-cost-list .item-list:nth-child(2n+2)").css("background", "<%= colors(3) %>");
-    $(".inline_divs").css("border-bottom", "1px solid <%= colors(2) %>");
+    $(".pdf-cntnr .nth-chld:nth-child(2n+2), .ingredient-values p:nth-child(2n+2), .rec-show table tr:nth-child(2n+1) td, .pdf-cntnr table tr:nth-child(2n+1) td,.inline_divs:nth-child(2n+2), .values ul li:nth-child(2n+2), .cost-cost p:nth-child(2n+2), .cost-result p:nth-child(2n+2), .item-cost-list .item-list:nth-child(2n+2)").css("background", "<%= colors(2) %>");
     $(".secondary-btn, .primary-btn").css("background", "<%= colors(0) %>");
     $(".flash").css("background", "<%= colors(1) %>");
-    $(".primary-btn").css("border-bottom", "2px solid <%= colors(4) %>");
+    $(".primary-btn").css("border-bottom", "2px solid <%= colors(3) %>");
     $(".toggle.on .slide").css("color", "<%= colors(0) %>");
     $(".toggle.on").css("background", "<%= colors(0) %>");
   });
   </script>
 </head>
-<body class="<% if signed_in? && current_user.terms? %>user-env-cntnr<% end %>" style="<% if signed_in? && current_user.terms? %>background: <%= colors(2) %>;<% end %>">
+<body class="<% if signed_in? && current_user.terms? %>user-env-cntnr<% end %>" style="<% if signed_in? && current_user.terms? %>background: rgb(224,231,236);<% end %>">
 <% if request.path.start_with?('/aide') %>
   <%= render 'layouts/help_env' %>
 <% end %>

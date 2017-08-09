@@ -1,4 +1,4 @@
-"colinroche.38@hotmail.com" 
+"colinroche.38@hotmail.com"
 "edlerik@hotmail.fr"
 "a.rizzi@mail.ru"
 "clementbargoin@hotmail.fr"
@@ -12,3 +12,5 @@
 "jaliaaurelien@hotmail.fr"
 "boukadida.khemaies@gmail.com"
 "loulou.53100@hotmail.fr"
+
+Ingredient.create!( name: "Farine de pois chiches", protein: "20.7", carbohydrates: "46.5", fat_percent: "6", kcal: "324", ig: "25", price:"4.7" , unit: "Kg", sugar_power: "30", alcool_percent: "", cocoa_butter_percent: "38",  salt: "", water_percent: "", sugar_percent: "30", dry_matter_percent: "100", to_public: true )

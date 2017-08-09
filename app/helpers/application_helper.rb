@@ -202,23 +202,23 @@ module ApplicationHelper
 			if signed_in?
 				user = current_user
 				if user.colors == 6
-					color = ["#57CCFF", "#94DEFF", "#F3F8FC", "#F6FAFE", "#0392F4"]
+					color = ["#57CCFF", "#94DEFF", "#F6FAFE", "#0392F4"]
 				elsif user.colors == 4
-					color = ["#42D354", "#97FF9C", "#F0F8F0", "#F3FBF3", "#09B504"]
+					color = ["#42D354", "#97FF9C", "#F3FBF3", "#09B504"]
 				elsif user.colors == 3
-					color = ["#FFAF22", "#FFD05C", "#F7F5F0", "#FAF7F3", "#EA9206"]
+					color = ["#FFAF22", "#FFD05C", "#FAF7F3", "#EA9206"]
 				elsif user.colors == 5
-					color = ["#00C6C1", "#77E0D5", "#EEF8F4", "#F3FEFA", "#00A098"]
+					color = ["#00C6C1", "#77E0D5", "#F3FEFA", "#00A098"]
 				elsif user.colors == 9
-					color = ["#FF1071", "#FF88C1", "#F8F0F3", "#FDF8FA", "#C4005E"]
+					color = ["#FF1071", "#FF88C1", "#FDF8FA", "#C4005E"]
 				elsif user.colors == 8
-					color = ["#D62EFF", "#E492FF", "#F7F0F8", "#FDF7FF", "#B400FF"]
+					color = ["#D62EFF", "#E492FF", "#FDF7FF", "#B400FF"]
 				elsif user.colors == 2
-					color = ["#FF9124", "#FFB776", "#F8F3F0", "#FAF7F3", "#FF6700"]
+					color = ["#FF9124", "#FFB776", "#FAF7F3", "#FF6700"]
 				elsif user.colors == 1
-					color = ["#E52323", "#FF958A", "#F8F2F0", "#FBF4F2", "#C60000"]
+					color = ["#E52323", "#FF958A", "#FBF4F2", "#C60000"]
 				else
-					color = ["#413DD4", "#75A6FD", "#F0F4F8", "#F8FAFD", "#2F17A3"]
+					color = ["#413DD4", "#75A6FD", "#F8FAFD", "#2F17A3"]
 				end
 				color[value]
 			end

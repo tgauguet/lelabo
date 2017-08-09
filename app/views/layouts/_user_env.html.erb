@@ -46,7 +46,7 @@
 			<%= link_to root_path do %>
 				<li class="f-li <% if current_page?(root_url) %>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag ("feat-img1"+"#{images}"+".png"), class: "feature-img", alt: "menu icon" %>
+						<%= image_tag ("home.png"), class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Accueil</span>
 				</li>
@@ -54,7 +54,7 @@
 			<%= link_to partage_path do %>
 				<li class="f-li <% if request.path.include?('/preview') || request.path.include?('/partage') %>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag ("feat-img2"+"#{images}"+".png"), class: "feature-img", alt: "menu icon" %>
+						<%= image_tag ("globe.png"), class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Recettes publiques</span>
 				</li>
@@ -63,7 +63,7 @@
 			<%= link_to recipes_path do %>
 				<li class="f-li <% if request.path.start_with?('/reci') && !request.path.include?('/preview')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag ("feat-img3"+"#{images}"+".png"), class: "feature-img", alt: "menu icon" %>
+						<%= image_tag ("ice-cream.png"), class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Mes recettes</span>
 				</li>
@@ -71,7 +71,7 @@
 			<%= link_to ingredients_path do %>
 				<li class="f-li <% if request.path.start_with?('/ingr')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag ("feat-img4"+"#{images}"+".png"), class: "feature-img", alt: "menu icon" %>
+						<%= image_tag ("apple.png"), class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Ingrédients</span>
 				</li>
@@ -80,7 +80,7 @@
 			<%= link_to new_to_do_list_path do %>
 				<li class="f-li <% if request.path.start_with?('/to')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag ("feat-img6"+"#{images}"+".png"), class: "feature-img", alt: "menu icon" %>
+						<%= image_tag ("time.png"), class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Organisation</span>
 				</li>
@@ -88,7 +88,7 @@
 			<%= link_to providers_path do %>
 				<li class="f-li <% if request.path.start_with?('/prov')%>current-feat<% end %>">
 					<div class="feat-img-cntnr">
-						<%= image_tag ("feat-img5"+"#{images}"+".png"), class: "feature-img", alt: "menu icon" %>
+						<%= image_tag ("small-truck.png"), class: "feature-img", alt: "menu icon" %>
 					</div>
 					<span>Fournisseurs</span>
 				</li>
@@ -110,13 +110,13 @@
 			<ul>
 				<!-- images for big size -->
 				<li class="hide-res">
-					<%= image_tag ("message"+"#{images}"+".png") %>
+					<%= image_tag ("speech-bubble.png") %>
 				</li>
 				<li class="hide-res">
-					<%= image_tag ("ding"+"#{images}"+".png") %>
+					<%= image_tag ("bell.png") %>
 				</li>
 				<li class="hide-res help-btn">
-					<%= image_tag ("help-bubble"+"#{images}"+".png") %>
+					<%= image_tag ("help.png") %>
 				</li>
 				<!-- end of images for big size -->
 				<!-- images for small size -->
