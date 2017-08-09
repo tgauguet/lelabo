@@ -15,8 +15,8 @@
       <div class="home-cntnr">
         <div class="inscription_container">
             <br/>
-            <h1>Votre générateur de recettes</h1>
-            <h2><span class="element"></span></h2>
+            <h1>Votre générateur <br/>de pâtisseries</h1><br/>
+            <h2>Sweetkit vous aide à créer de nouvelles recettes, facilement.</h2>
             <br/>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= devise_error_messages! %>
@@ -26,6 +26,7 @@
                 <%= f.hidden_field :oauthdelivered, :value => 'true' %>
                 <%= f.submit "UTILISER GRATUITEMENT", class: "w-btn" %>
               </div>
+              <br/>
               <p>Vous êtes déjà inscrit ? <%= link_to new_user_session_path do %><span>Connectez-vous</span><% end %></p>
             <% end %>
         </div>
