@@ -5,7 +5,7 @@ Rails.application.configure do
     require 'uglifier'
     config.assets.js_compressor = Uglifier.new(output: {ascii_only: true, quote_keys: true})
     config.cache_classes = true
-    config.action_mailer.default_url_options = {:host => "www.lelabo-ondemand.com"}
+    config.action_mailer.default_url_options = {:host => "www.sweetkit.io"}
     config.paperclip_defaults = {
       storage: :s3,
       s3_credentials: {
