@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Le Labo | <%= yield_or_default(:title, "Gérez vos recettes professionnelles") %></title>
+  <title>Sweetkit | <%= yield_or_default(:title, "Gérez vos recettes professionnelles") %></title>
   <%= stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => "reload" %>
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -77,7 +77,7 @@
     <div class="modal">
       <div class="inside_modal">
         <p class="big-txt">Êtes-vous pâtissier ?</p><br/>
-        <p>Rentabilisez vos recettes avec <%= link_to root_path do %>Le Labo<% end %>, l'application de gestion de votre production !</p><br/>
+        <p>Rentabilisez vos recettes avec <%= link_to root_path do %>Sweetkit<% end %>, l'application de gestion de votre production !</p><br/>
         <%= image_tag "cta-img.png", class: "cta-img", alt: "macbook photo" %>
         <div class="modal-footer">
           <%= link_to root_path do %><p class="btn inside-btn" >ESSAYER GRATUITEMENT</p><% end %><br/>

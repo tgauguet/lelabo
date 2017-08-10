@@ -8,9 +8,9 @@
     Bonjour,
 
     <% if signed_in? %>
-      Voici ma recette de <%= @recipe.name.humanize %> crée sur le Labo :
+      Voici ma recette de <%= @recipe.name.humanize %> crée sur Sweetkit :
     <% else %>
-      Voici une recette de <%= @recipe.name.humanize %> crée sur le Labo :
+      Voici une recette de <%= @recipe.name.humanize %> crée sur Sweetkit :
     <% end %>
     --------------------------------------------------------
     <% @recipe.quantities.each do |q| %>
@@ -20,7 +20,7 @@
       • <%= Recipe.find(s.sub_id).name %> <%= s.weight %> g
     <% end %>
 
-    Ce lien permet de créer des recettes : http://www.lelabo-ondemand.com
+    Ce lien permet de créer des recettes : http://www.sweetkit.io
 
     <% if signed_in? %><% if @user.firstname %><%= @user.firstname.humanize %><% end %><% end %>
   </textarea>

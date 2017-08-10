@@ -4,7 +4,7 @@
 </div>
 <div class="title-cntnr scroll-here2">
 	<h1 class="big-white-h1">Tarif</h1>
-	<p>Vous pouvez utiliser le Labo gratuitement, aussi longtemps que vous le souhaitez</p>
+	<p>Vous pouvez utiliser Sweetkit gratuitement, aussi longtemps que vous le souhaitez</p>
 	<!-- <p>Les fonctionnalités auxquelles vous avez accès resteront toujours gratuites</p> -->
 </div><!-- title-cntnr -->
 	<% @plans.each do |plan| %>
@@ -53,12 +53,11 @@
 			<br/>
 			<div class="plan-txt-cntnr">
 				<% if entreprise_plan(plan) || plan.name == "ENTREPRISE" %>
-					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options du Labo</p>
-					<p>-Enlever le logo du labo sur vos recettes</p>
+					<p class="colored-p-txt3"><b>ENTREPRISE inclus</b><br/>plus toutes les options de Sweetkit</p>
+					<p>-Enlever le logo de Sweetkit sur vos recettes</p>
 					<p>-Recettes privées illimitées</p>
 					<p>-Générateur de recettes (à venir 2017)</p>
 					<p>-Aide et support prioritaire</p>
-					<p>-Collaborateurs (à venir 2017)</p>
 				<% else %>
 					<p class="colored-p-txt4"><b>PROFESSIONNEL inclus</b><br/><!--Toutes les options de ENTREPRISE--></p>
 					<p>-Équilibre de vos ganaches</p>
@@ -80,15 +79,15 @@
 	</div>
 	<div class="sale-cntnr">
 		<h2>Une nouvelle perspective</h2>
-		<p>Toute l'année, nous travaillons sur Le Labo afin de mieux répondre à vos attentes.</p>
+		<p>Toute l'année, nous travaillons sur Sweetkit afin de mieux répondre à vos attentes.</p>
 		<p>Résultat : des options plus travaillées, des mises à jours régulières et la garantie d'utiliser une application en constante recherche de gain de temps et de qualité pour ses clients.</p>
 		<br/>
-		<p>Le Labo n'est pas seulement conçu pour les pros, il est amélioré à leurs côtés.</p>
+		<p>Sweetkit n'est pas seulement conçu pour les pros, il est amélioré à leurs côtés.</p>
 	</div>
 </div>
 <% unless signed_in? %>
 <div class="sale-txt-cntnr scroll-here">
-	<h2 class="big-white-h2">Utiliser Le Labo gratuitement</h2><br/>
+	<h2 class="big-white-h2">Utiliser Sweetkit gratuitement</h2><br/>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :oauthdelivered, :value => 'true' %>
@@ -104,17 +103,17 @@
 	<h2 class="big-white-h2">Questions Fréquentes</h2><br/><br/>
 	<div class="quest-cntnr">
 		<div>
-			<h3>Ou puis-je en savoir plus sur Le Labo ?</h3>
-			<p>La meilleure façon de savoir si Le Labo vous convient est de l'essayer, c'est gratuit.</p>
+			<h3>Ou puis-je en savoir plus sur Sweetkit ?</h3>
+			<p>La meilleure façon de savoir si Sweetkit vous convient est de l'essayer, c'est gratuit.</p>
 		</div>
 		<div>
 			<h3>Comment se passe la sécurisation de mes données ?</h3>
-			<p>Nous prenons la sécurité de vos données très au sérieux. Et pour une bonne raison : chaque personne qui utilise Le Labo attend que ses données soient sécurisées et confidentielles. Nous travaillons pour maintenir cette confiance.</p>
+			<p>Nous prenons la sécurité de vos données très au sérieux. Et pour une bonne raison : chaque personne qui utilise Sweetkit attend que ses données soient sécurisées et confidentielles. Nous travaillons pour maintenir cette confiance.</p>
 			<p>Toutes les pages sont sécurisées, notamment grace à l'encryption SSL.</p>
 		</div>
 		<div>
-			<h3>Quelle est l'approche du Labo vis à vis de mes données ?</h3>
-			<p>Tout ce que vous publiez sur Le Labo est privé et visible seulement depuis votre compte. Tout le contenu que vous créez demeure votre propriété.</p>
+			<h3>Quelle est l'approche de Sweetkit vis à vis de mes données ?</h3>
+			<p>Tout ce que vous publiez sur Sweetkit est privé et visible seulement depuis votre compte. Tout le contenu que vous créez demeure votre propriété.</p>
 		</div>
 	</div>
 	<p class="primary-btn back-to-top scroll2"><%= image_tag "arrow-top.png", class: "mini-img" %> RETOUR EN HAUT DE PAGE</p>

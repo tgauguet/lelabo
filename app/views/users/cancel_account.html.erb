@@ -25,15 +25,15 @@
   <%= form_for @cancel_account, remote: true do |f| %>
     <p>
       <%= f.radio_button :purpose, 1 %>
-      J'ai trouvé le Labo trop difficile à utiliser pour mon entreprise
+      J'ai trouvé Sweetkit trop difficile à utiliser pour mon entreprise
     </p>
     <p>
       <%= f.radio_button :purpose, 2 %>
-      Le Labo ne possède pas les options dont j'ai besoin (merci de nous en dire plus ci-dessous)
+      Sweetkit ne possède pas les options dont j'ai besoin (merci de nous en dire plus ci-dessous)
     </p>
     <p>
       <%= f.radio_button :purpose, 3 %>
-      Je ne comprend pas comment utiliser le Labo
+      Je ne comprend pas comment utiliser Sweetkit
     </p>
     <p>
       <%= f.radio_button :purpose, 4 %>
@@ -41,7 +41,7 @@
     </p>
     <p>
       <%= f.radio_button :purpose, 5 %>
-      Le Labo ne représente pas suffisamment de valeur pour dépenser de l'argent
+      Sweetkit ne représente pas suffisamment de valeur pour dépenser de l'argent
     </p>
     <p>
       <%= f.radio_button :purpose, 6 %>
@@ -49,7 +49,7 @@
     </p>
     <p>
       <%= f.radio_button :purpose, 7 %>
-      Je n'ai plus besoin du Labo
+      Je n'ai plus besoin de Sweetkit
     </p>
     <p>
       <%= f.radio_button :purpose, 8 %>
@@ -57,7 +57,7 @@
     </p>
     <p>
       <%= f.radio_button :purpose, 9 %>
-      J'ai trouvé le Labo trop difficile à utiliser pour mon entreprise
+      J'ai trouvé Sweetkit trop difficile à utiliser pour mon entreprise
     </p>
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.text_area :comment, class: "basic-field rounded-field" %>

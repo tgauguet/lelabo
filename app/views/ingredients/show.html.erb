@@ -3,7 +3,7 @@
 	<div class="page-ttl">
 		<h1 class="lttl-intro-h1 underline"><%= @ingredient.name.humanize %></h1>
 		<p class="lft-p">
-			<span>Créé par</span> <% if @ingredient.to_public? %>le Labo<% else %><%= @user.firstname %> <%= @user.name %><% end %>
+			<span>Créé par</span> <% if @ingredient.to_public? %>Sweetkit<% else %><%= @user.firstname %> <%= @user.name %><% end %>
 			<% if @ingredient.category %> - <%= @ingredient.category.name %><% end %>
 		</p>
 	</div>

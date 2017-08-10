@@ -4,15 +4,15 @@
 		<%= link_to root_path do %><%= image_tag "logo-bird.png", class: "logo-white" %><% end %>
 		<H2 class="big-ttle beautiful-txt-color">Statistiques de suppression</H2><br/>
     <div class="feedback">
-      <p><%= @deleted.where(purpose: 1).count %> - J'ai trouvé le Labo trop difficile à utiliser pour mon entreprise</p>
-      <p><%= @deleted.where(purpose: 2).count %> - Le Labo ne possède pas les options dont j'ai besoin (merci de nous en dire plus ci-dessous)</p>
-      <p><%= @deleted.where(purpose: 3).count %> - Je ne comprend pas comment utiliser le Labo</p>
+      <p><%= @deleted.where(purpose: 1).count %> - J'ai trouvé Sweetkit trop difficile à utiliser pour mon entreprise</p>
+      <p><%= @deleted.where(purpose: 2).count %> - Sweetkit ne possède pas les options dont j'ai besoin (merci de nous en dire plus ci-dessous)</p>
+      <p><%= @deleted.where(purpose: 3).count %> - Je ne comprend pas comment utiliser Sweetkit</p>
       <p><%= @deleted.where(purpose: 4).count %> - Je n'ai pas reçu le service client que j'attendais</p>
-      <p><%= @deleted.where(purpose: 5).count %> - Le Labo ne représente pas suffisamment de valeur pour dépenser de l'argent</p>
+      <p><%= @deleted.where(purpose: 5).count %> - Sweetkit ne représente pas suffisamment de valeur pour dépenser de l'argent</p>
       <p><%= @deleted.where(purpose: 6).count %> - J'ai décidé d'utiliser un service similaire créé par une autre entreprise</p>
-      <p><%= @deleted.where(purpose: 7).count %> - Je n'ai plus besoin du Labo</p>
+      <p><%= @deleted.where(purpose: 7).count %> - Je n'ai plus besoin de Sweetkit</p>
       <p><%= @deleted.where(purpose: 8).count %> - Autre (merci de nous en dire plus ci-dessous)</p>
-      <p><%= @deleted.where(purpose: 9).count %> - J'ai trouvé le Labo trop difficile à utiliser pour mon entreprise</p>
+      <p><%= @deleted.where(purpose: 9).count %> - J'ai trouvé Sweetkit trop difficile à utiliser pour mon entreprise</p>
     </div>
 		<% @deleted.each do |deleted| %>
 			<% unless deleted.comment.blank? %>
