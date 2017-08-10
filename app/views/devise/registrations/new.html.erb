@@ -2,6 +2,13 @@
 <div class="sec-bck">
   <div class="background-colr">
       <header>
+        <div id="sweets">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="transparent">
           <%= link_to root_path do %><%= image_tag "logo-txt-white.png", class: "logo-white to-the-right" %><% end %>
           <ul>
@@ -22,7 +29,7 @@
               <%= devise_error_messages! %>
               <div class="wlcm-btn-cntnr">
                 <%= image_tag "mail.png", class: "field-img-big" %>
-                <%= f.text_field :email, :placeholder => "Entrez votre email ici", class: "basic-field welcome-field" %>
+                <%= f.text_field :email, :placeholder => "Votre email ici", class: "basic-field welcome-field" %>
                 <%= f.hidden_field :oauthdelivered, :value => 'true' %>
                 <%= f.submit "UTILISER GRATUITEMENT", class: "w-btn" %>
               </div>
